@@ -1,84 +1,67 @@
-<<<<<<< HEAD
-# OpenVals Website
+# OpenVals - The Trust Layer for AI
 
-OpenVals is a platform for open value exchange, where users can share and discover valuable content, resources, and opportunities. This website serves as the frontend for the OpenVals ecosystem.
+OpenVals is a modern web application that provides AI validation and security services. The platform helps organizations ensure their AI systems are secure, reliable, and validated before deployment.
 
 ## Features
 
-- **Content Sharing**: Users can create and share valuable content in various formats (text, images, videos, etc.)
-- **Resource Exchange**: Users can exchange resources with others in the community
-- **Opportunity Marketplace**: Users can post and find opportunities for collaboration, employment, and more
-- **Community Engagement**: Users can comment, like, and share content to engage with the community
+- **AI Red Teaming**: Simulating real-world attacks including prompt injection, jailbreaks, and adversarial inputs
+- **Model Validation**: Testing accuracy, hallucinations, bias, and performance under stress conditions
+- **AI Security**: Identifying data leakage, model extraction risks, and API vulnerabilities
+- **Certification**: Audit-grade validation reports and deployment readiness scoring
+- **OpenVals AI Assurance Framework™**: A comprehensive framework for AI validation across four stages:
+  - V1: Validation (Accuracy, bias, performance)
+  - V2: Vulnerability (Attacks, exploits, leakage)
+  - V3: Variability (Drift, instability, edge cases)
+  - V4: Verifiability (Audit, reporting, certification)
+
+## Technology Stack
+
+- **Frontend**: Next.js (React framework)
+- **Styling**: CSS Modules with a modern, responsive design system
+- **Animations**: Framer Motion for smooth, interactive animations
+- **Content Management**: Sanity CMS for blog content
+- **UI Components**: Custom components with a consistent design language
+
+## Project Structure
+
+```
+src/
+├── app/                # Next.js app directory
+│   ├── page.tsx        # Home page
+│   ├── blog/           # Blog section
+│   │   ├── page.tsx    # Blog index page
+│   │   └── [slug]/     # Dynamic blog post pages
+│   │       └── page.tsx
+│   └── components/     # Reusable components
+│       └── ui.module.css # Global styles
+├── sanity/             # Sanity CMS configuration
+│   ├── lib/            # Sanity client and utilities
+│   │   ├── client.ts   # Sanity client configuration
+│   │   └── queries.ts  # Sanity queries
+│   └── schemas/        # Sanity schema definitions
+└── public/             # Static assets
+```
 
 ## Getting Started
 
-### Prerequisites
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Set up Sanity environment variables
+4. Run the development server: `npm run dev`
 
-- Node.js (v14 or higher)
-- npm (v6 or higher)
+## Usage
 
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/TheFoundrys/openvals-website.git
-   ```
-
-2. Navigate to the project directory:
-   ```bash
-   cd openvals-website
-   ```
-
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-### Development
-
-1. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-2. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Building for Production
-
-1. Build the application:
-   ```bash
-   npm run build
-   ```
-
-2. Start the production server:
-   ```bash
-   npm start
-   ```
+The application features:
+- A clean, modern design with smooth animations
+- Sections for services, framework, and blog
+- Dynamic blog functionality with individual post pages
+- Use of Portable Text for rich blog content
+- Responsive design that works on all devices
 
 ## Contributing
 
-We welcome contributions from the community! Please follow these steps:
-
-1. Fork the repository
-2. Create a new branch for your feature/bug fix
-3. Make your changes
-4. Test your changes
-5. Submit a pull request
+Contributions are welcome! Please open an issue or submit a pull request to help improve the project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any questions or feedback, please contact us at openvals@example.com.
-
-## Acknowledgments
-
-- [Next.js](https://nextjs.org) - for the React framework
-- [Tailwind CSS](https://tailwindcss.com) - for the styling framework
-- [Sanity](https://www.sanity.io) - for the headless CMS
-=======
-# openvals-website
-OpenVals Website
->>>>>>> origin/main
+This project is licensed under the MIT License - see the LICENSE file for details.
