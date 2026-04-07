@@ -58,10 +58,3 @@ The application features:
 - Use of Portable Text for rich blog content
 - Responsive design that works on all devices
 
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request to help improve the project.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
