@@ -90,7 +90,7 @@ export default function About() {
               style={{ fontSize: "clamp(18px, 2.5vw, 24px)", color: "var(--text-muted)", maxWidth: "800px", margin: "0 auto" }}
             >
               Building a world where AI systems are as reliable as they are intelligent. 
-              Because trust isn't built on assumptions—it's built on validation.
+              Because trust isn't built on assumptions it's built on validation.
             </motion.p>
           </motion.div>
         </section>
