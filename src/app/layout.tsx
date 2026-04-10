@@ -19,13 +19,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "OpenVals | The Trust Layer for AI",
+  title: "OpenVals | AI Validation & Assurance Company",
   description: "AI systems are being deployed faster than they are understood. OpenVals ensures they are secure, reliable, and validated.",
   keywords: ["AI Validation", "AI Security", "AI Trust", "Red Teaming", "Model Validation"],
   openGraph: {
-    title: "OpenVals | The Trust Layer for AI",
+    title: "OpenVals | AI Validation & Assurance Company",
     description: "AI systems are being deployed faster than they are understood. OpenVals ensures they are secure, reliable, and validated.",
-    url: "https://openvals.com",
+    url: "https://openvalidations.com",
     siteName: "OpenVals",
     locale: "en_US",
     type: "website",
@@ -46,7 +46,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "OpenVals",
-    url: "https://openvals.com",
+    url: "https://openvalidations.com",
     description: "The Trust Layer for AI. OpenVals ensures AI systems are secure, reliable, and validated before they reach the real world.",
   };
 
@@ -64,3 +64,4 @@ export default function RootLayout({
     </html>
   );
 }
+

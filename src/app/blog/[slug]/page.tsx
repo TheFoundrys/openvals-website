@@ -3,6 +3,8 @@ import { client } from "@/sanity/lib/client";
 import { postBySlugQuery, postSlugsQuery } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import styles from "@/components/ui.module.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 import { urlFor } from "@/sanity/lib/image";
 
@@ -48,17 +50,7 @@ export default async function BlogPost({
 
   return (
     <>
-      <header className={styles.header}>
-        <h1>
-          <Link href="/">OpenVals</Link>
-        </h1>
-        <nav className={styles.nav}>
-          <Link href="/blog">Back to Blog</Link>
-          <Link href="/contact" style={{ color: "var(--text-main)", fontWeight: 500 }}>
-            Contact
-          </Link>
-        </nav>
-      </header>
+      <Header />
 
       <main className={styles.section}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
@@ -94,9 +86,7 @@ export default async function BlogPost({
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <div>© 2026 OpenVals. All rights reserved.</div>
-      </footer>
+      <Footer />
     </>
   );
 }

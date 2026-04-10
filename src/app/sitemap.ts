@@ -1,15 +1,15 @@
 import { MetadataRoute } from 'next'
- 
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://openvals.com',
+      url: 'https://openvalidations.com',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: 'https://openvals.com/blog',
+      url: 'https://openvalidations.com/blog',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,

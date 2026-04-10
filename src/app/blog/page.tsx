@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
-import { postsQuery } from "@/sanity/lib/queries";
-import styles from "@/components/ui.module.css";
+import { postsQuery } from "../../sanity/lib/queries";
+import styles from "../../components/ui.module.css";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export const revalidate = 60; // Revalidate every minute
 
@@ -10,19 +12,7 @@ export default async function BlogIndex() {
 
   return (
     <>
-      <header className={styles.header}>
-        <h1>
-          <Link href="/">OpenVals</Link>
-        </h1>
-        <nav className={styles.nav}>
-          <Link href="/#services">Services</Link>
-          <Link href="/#framework">Framework</Link>
-          <Link href="/blog" style={{ color: "var(--text-main)", fontWeight: 500 }}>
-            Blog
-          </Link>
-          <Link href="/contact">Contact</Link>
-        </nav>
-      </header>
+      <Header />
 
       <main className={styles.section}>
         <div className="container">
@@ -61,9 +51,7 @@ export default async function BlogIndex() {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <div>© 2026 OpenVals. All rights reserved.</div>
-      </footer>
+      <Footer />
     </>
   );
 }

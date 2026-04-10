@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
- 
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/studio/'],
     },
-    sitemap: 'https://openvals.com/sitemap.xml',
+    sitemap: 'https://openvalidations.com/sitemap.xml',
   }
 }
