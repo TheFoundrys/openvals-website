@@ -101,7 +101,7 @@ export default function Contact() {
                                     <Mail size={28} style={{ color: "var(--accent)" }} />
                                 </div>
                                 <span style={{ fontSize: 13, fontWeight: 600, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>Email Us</span>
-                                <span style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 700, color: "var(--text-main)" }}>info@thefoundrys.com</span>
+                                <span style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 700, color: "var(--text-main)" }}>openvals.drp@gmail.com</span>
                             </motion.a>
                         </motion.div>
                     </div>
