@@ -67,29 +67,29 @@ export default function About() {
   return (
     <>
       <Header />
-      
+
       <main style={{ position: "relative" }}>
         {/* HERO SECTION */}
         <section className={styles.section} style={{ padding: "120px var(--container-padding) 80px", position: "relative" }}>
           <AmbientGrid />
-          <motion.div 
-            initial="hidden" 
-            animate="show" 
+          <motion.div
+            initial="hidden"
+            animate="show"
             variants={STAGGER}
             style={{ maxWidth: "1000px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 10 }}
           >
-            <motion.h1 
+            <motion.h1
               variants={FADE_UP}
               style={{ fontSize: "clamp(40px, 10vw, 84px)", lineHeight: 1, marginBottom: "32px" }}
             >
               The Trust Layer <br />
               <span style={{ color: "var(--accent)" }}>for AI Intelligence.</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               variants={FADE_UP}
               style={{ fontSize: "clamp(18px, 2.5vw, 24px)", color: "var(--text-muted)", maxWidth: "800px", margin: "0 auto" }}
             >
-              Building a world where AI systems are as reliable as they are intelligent. 
+              Building a world where AI systems are as reliable as they are intelligent.
               Because trust isn't built on assumptions it's built on validation.
             </motion.p>
           </motion.div>
@@ -98,10 +98,10 @@ export default function About() {
         {/* NARRATIVE SPLIT */}
         <section className={styles.section} style={{ backgroundColor: "var(--secondary-bg)", padding: "100px var(--container-padding)" }}>
           <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px", alignItems: "center" }}>
-            <motion.div 
-              initial="hidden" 
-              whileInView="show" 
-              viewport={{ once: true }} 
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
               variants={STAGGER}
               style={{ display: "flex", flexDirection: "column", gap: "24px" }}
             >
@@ -118,10 +118,10 @@ export default function About() {
               ))}
             </motion.div>
 
-            <motion.div 
-              initial="hidden" 
-              whileInView="show" 
-              viewport={{ once: true }} 
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
               variants={FADE_UP}
               style={{ padding: "40px", borderLeft: "2px solid var(--accent)", background: "rgba(0, 212, 255, 0.03)" }}
             >
@@ -129,7 +129,7 @@ export default function About() {
                 OpenVals was built <br />to change that.
               </h2>
               <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6 }}>
-                We exist to rigorously test, break, and validate AI systems before they reach the real world. 
+                We exist to rigorously test, break, and validate AI systems before they reach the real world.
                 Our team sits at the intersection of Cybersecurity, Data Science, and Policy.
               </p>
             </motion.div>
@@ -139,10 +139,10 @@ export default function About() {
         {/* PILLARS OF VALIDATION */}
         <section className={styles.section} style={{ padding: "100px var(--container-padding)" }}>
           <div className="container">
-            <motion.div 
-              initial="hidden" 
-              whileInView="show" 
-              viewport={{ once: true }} 
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
               variants={STAGGER}
               style={{ textAlign: "center", marginBottom: "60px" }}
             >
@@ -150,7 +150,7 @@ export default function About() {
               <motion.p variants={FADE_UP} style={{ margin: "0 auto", maxWidth: "600px" }}>The methodology behind the industry's most rigorous validation framework.</motion.p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className={styles.grid}
               initial="hidden"
               whileInView="show"
@@ -158,20 +158,20 @@ export default function About() {
               variants={STAGGER}
             >
               {[
-                { 
-                  icon: Activity, 
-                  title: "Test", 
-                  desc: "Exhaustive evaluation of model benchmarks, accuracy, and performance under extreme edge cases." 
+                {
+                  icon: Activity,
+                  title: "Test",
+                  desc: "Exhaustive evaluation of model benchmarks, accuracy, and performance under extreme edge cases."
                 },
-                { 
-                  icon: ShieldAlert, 
-                  title: "Break", 
-                  desc: "Active red-teaming and adversarial simulations to uncover prompt injection and model leakage." 
+                {
+                  icon: ShieldAlert,
+                  title: "Break",
+                  desc: "Active red-teaming and adversarial simulations to uncover prompt injection and model leakage."
                 },
-                { 
-                  icon: FileBadge, 
-                  title: "Validate", 
-                  desc: "Audit-grade assurance reports that prove deployment readiness and regulatory alignment." 
+                {
+                  icon: FileBadge,
+                  title: "Validate",
+                  desc: "Audit-grade assurance reports that prove deployment readiness and regulatory alignment."
                 }
               ].map((pillar, i) => (
                 <motion.div key={i} className={styles.card} variants={FADE_UP} style={{ textAlign: "center" }}>
@@ -187,28 +187,28 @@ export default function About() {
         {/* FOUNDER PROFILE */}
         <section className={styles.section} style={{ backgroundColor: "var(--secondary-bg)", padding: "100px var(--container-padding)" }}>
           <div className="container">
-            <motion.div 
-              initial="hidden" 
-              whileInView="show" 
-              viewport={{ once: true }} 
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
               variants={STAGGER}
               style={{ display: "flex", flexDirection: "column", gap: "80px" }}
             >
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px", alignItems: "center" }}>
                 <motion.div variants={FADE_UP} style={{ position: "relative", borderRadius: "24px", overflow: "hidden", aspectRatio: "4/5" }}>
-                  <img src="https://thefoundrys.com/images/vishwa-new.jpg" alt="Vishwanath Akuthota - Founder & CEO" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src="https://thefoundrys.com/images/vishwa-new.jpg" alt="Vishwanath Akuthota - Founder" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </motion.div>
-                
+
                 <motion.div variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                   <div>
                     <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", lineHeight: 1.1, marginBottom: "8px" }}>Vishwanath Akuthota</h2>
-                    <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder & CEO</p>
+                    <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
                   </div>
-                  
+
                   <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6 }}>
                     Vishwanath Akuthota is a distinguished deep-tech entrepreneur and AI architect with over 1.5 decades of experience in Artificial Intelligence, Machine Learning, and Generative AI. He has been at the forefront of building world-class AI products and Large Language Model (LLM) applications.
                   </p>
-                  
+
                   <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6 }}>
                     His work is characterized by a mission to develop responsible and trustworthy AI systems that align with ethical principles and industry standards.
                   </p>
@@ -216,7 +216,7 @@ export default function About() {
                   <blockquote style={{ fontSize: "20px", fontStyle: "italic", borderLeft: "4px solid var(--accent)", paddingLeft: "24px", margin: "16px 0", color: "var(--text-main)" }}>
                     "Creating valuable products requires an engineering mindset combined with the precision of a mathematician. Our mission is to build responsible, ethical, and trustworthy AI that empowers humanity."
                   </blockquote>
-                  
+
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginTop: "16px" }}>
                     <a href="https://www.linkedin.com/in/vishwanathakuthota/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 500, color: "var(--text-main)", padding: "10px 20px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)" }}>
                       LinkedIn <ExternalLink size={16} />
@@ -231,7 +231,7 @@ export default function About() {
               {/* RESEARCH & PUBLICATIONS */}
               <div>
                 <motion.h3 variants={FADE_UP} style={{ fontSize: "32px", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--border)" }}>IEEE Publications & Research</motion.h3>
-                
+
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "40px" }}>
                   {PUBLICATIONS.map((category, idx) => (
                     <motion.div key={idx} variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -255,7 +255,7 @@ export default function About() {
               {/* AUTHORED BOOKS */}
               <div>
                 <motion.h3 variants={FADE_UP} style={{ fontSize: "32px", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--border)" }}>Authored Books</motion.h3>
-                
+
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
                   {BOOKS.map((book, idx) => (
                     <motion.a key={idx} variants={FADE_UP} href={book.link} target="_blank" rel="noopener noreferrer" className={styles.card} style={{ display: "flex", alignItems: "flex-start", gap: "20px", padding: "32px", textAlign: "left" }}>
@@ -278,10 +278,10 @@ export default function About() {
 
         {/* FINAL CTA */}
         <section className={styles.section} style={{ backgroundColor: "var(--text-main)", color: "var(--primary-bg)", textAlign: "center", padding: "120px var(--container-padding)" }}>
-          <motion.div 
-            initial="hidden" 
-            whileInView="show" 
-            viewport={{ once: true }} 
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
             variants={STAGGER}
           >
             <motion.h2 variants={FADE_UP} style={{ color: "var(--primary-bg)", fontSize: "clamp(32px, 6vw, 54px)", marginBottom: "32px", lineHeight: 1.1 }}>

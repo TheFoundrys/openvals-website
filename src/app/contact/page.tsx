@@ -78,18 +78,6 @@ export default function Contact() {
                             variants={STAGGER}
                             style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", marginTop: "40px" }}
                         >
-                            <motion.a
-                                href="tel:+917981171474"
-                                variants={FADE_UP}
-                                className={styles.card}
-                                style={{ display: "flex", flexDirection: "column", alignItems: "center", textDecoration: "none" }}
-                            >
-                                <div style={{ width: 60, height: 60, borderRadius: "50%", backgroundColor: "var(--secondary-bg)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 24 }}>
-                                    <Phone size={28} style={{ color: "var(--accent)" }} />
-                                </div>
-                                <span style={{ fontSize: 13, fontWeight: 600, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>Call Us</span>
-                                <span style={{ fontSize: "clamp(24px, 3vw, 32px)", fontWeight: 700, color: "var(--text-main)" }}>+91 79811 71474</span>
-                            </motion.a>
 
                             <motion.a
                                 href="mailto:openvals.drp@gmail.com"
