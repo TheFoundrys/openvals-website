@@ -9,7 +9,7 @@ import Footer from "../../components/Footer";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }
+  show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 50, damping: 20 } },
 };
 
 const STAGGER = {
@@ -18,6 +18,7 @@ const STAGGER = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
+      delayChildren: 0.1,
     },
   },
 };
@@ -26,23 +27,23 @@ const PUBLICATIONS = [
   {
     category: "Cybersecurity & Trustworthy AI",
     papers: [
-      { 
-        title: "Multi-Agent Phishing Detection And Deletion via Small VLM and LLM Reasoning", 
+      {
+        title: "Multi-Agent Phishing Detection And Deletion via Small VLM and LLM Reasoning",
         link: "https://ieeexplore.ieee.org/author/231984777844193",
         conf: "2025 ICETE"
       },
-      { 
-        title: "RAG-Enhanced Multi-Model Ensemble for Automated Vulnerability Detection Using SLMs", 
+      {
+        title: "RAG-Enhanced Multi-Model Ensemble for Automated Vulnerability Detection Using SLMs",
         link: "https://ieeexplore.ieee.org/author/231984777844193",
         conf: "2025 ICETE"
       },
-      { 
-        title: "Vulnerability Detection and Monitoring Using LLM", 
+      {
+        title: "Vulnerability Detection and Monitoring Using LLM",
         link: "https://ieeexplore.ieee.org/document/10456393",
         conf: "2023 ICCCNT"
       },
-      { 
-        title: "A Comprehensive Insight into Machine Learning-Based Approaches for Fake Profile Detection", 
+      {
+        title: "A Comprehensive Insight into Machine Learning-Based Approaches for Fake Profile Detection",
         link: "https://ieeexplore.ieee.org/author/231984777844193",
         conf: "2023 ICCCNT"
       }
@@ -51,23 +52,23 @@ const PUBLICATIONS = [
   {
     category: "AI Architectures & Applications",
     papers: [
-      { 
-        title: "Pose Detection: Integrating Machine Learning with Large Vision Models", 
+      {
+        title: "Pose Detection: Integrating Machine Learning with Large Vision Models",
         link: "https://ieeexplore.ieee.org/author/231984777844193",
         conf: "2025 IACIS"
       },
-      { 
-        title: "A Multi-Agent Garage Service Search and Recommendation with Hybrid MLs and LLMs", 
+      {
+        title: "A Multi-Agent Garage Service Search and Recommendation with Hybrid MLs and LLMs",
         link: "https://ieeexplore.ieee.org/document/10940937",
         conf: "2025 ICOCT"
       },
-      { 
-        title: "Hybrid Q-Learning with VLMs Reasoning Features", 
+      {
+        title: "Hybrid Q-Learning with VLMs Reasoning Features",
         link: "https://ieeexplore.ieee.org/document/11040757",
         conf: "2025 AIMLA"
       },
-      { 
-        title: "Hybrid ML-SLM RAG System for Large Technical PDFs", 
+      {
+        title: "Hybrid ML-SLM RAG System for Large Technical PDFs",
         link: "https://ieeexplore.ieee.org/author/231984777844193",
         conf: "2025 ICOCT"
       }
@@ -76,13 +77,13 @@ const PUBLICATIONS = [
   {
     category: "Healthcare & Specialized Vision",
     papers: [
-      { 
-        title: "Multi-Vision LVMs Model Ensemble for Gold Jewelry Authenticity Verification", 
+      {
+        title: "Multi-Vision LVMs Model Ensemble for Gold Jewelry Authenticity Verification",
         link: "https://ieeexplore.ieee.org/author/231984777844193",
         conf: "2025 ICOCT"
       },
-      { 
-        title: "Comparative Analysis of Diverse Architectures for Accurate Blood Cancer Cell Classification", 
+      {
+        title: "Comparative Analysis of Diverse Architectures for Accurate Blood Cancer Cell Classification",
         link: "https://ieeexplore.ieee.org/document/10497341",
         conf: "2024 ICIRCA"
       }
@@ -96,25 +97,30 @@ export default function ResearchPage() {
       <Header />
       <main style={{ background: "var(--primary-bg)", minHeight: "100vh", paddingTop: "120px" }}>
         <section className={styles.section}>
-          <motion.div 
-            initial="hidden" 
-            animate="show" 
-            variants={STAGGER} 
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={STAGGER}
             style={{ maxWidth: "1200px", margin: "0 auto" }}
           >
-            <div style={{ marginBottom: "60px" }}>
+            {/* Header Content with individual Variants */}
+            <motion.div variants={FADE_UP} style={{ marginBottom: "60px" }}>
               <Link href="/about" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--accent)", fontSize: "14px", fontWeight: "600", marginBottom: "32px", textDecoration: "none" }}>
                 <ArrowLeft size={16} /> Back to About
               </Link>
-              <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(36px, 6vw, 64px)", lineHeight: 1.1, marginBottom: "24px" }}>
+              <h1 style={{ fontSize: "clamp(36px, 6vw, 64px)", lineHeight: 1.1, marginBottom: "24px" }}>
                 IEEE Publications <br /><span style={{ color: "var(--accent)" }}>& Research</span>.
-              </motion.h1>
-              <motion.p variants={FADE_UP} style={{ fontSize: "20px", color: "var(--text-muted)", maxWidth: "800px", lineHeight: 1.6 }}>
+              </h1>
+              <p style={{ fontSize: "20px", color: "var(--text-muted)", maxWidth: "800px", lineHeight: 1.6 }}>
                 A complete archive of peer-reviewed publications and deep-tech research contributions by Vishwanath Akuthota, spanning Cybersecurity, LLM architectures, and Vision systems.
-              </motion.p>
-            </div>
+              </p>
+            </motion.div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px" }}>
+            {/* Grid Container as a Motion Div to propagate Stagger */}
+            <motion.div
+              variants={STAGGER}
+              style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px" }}
+            >
               {PUBLICATIONS.map((category, idx) => (
                 <motion.div key={idx} variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px", borderBottom: "1px solid var(--border)", paddingBottom: "16px" }}>
@@ -123,19 +129,20 @@ export default function ResearchPage() {
                     </div>
                     <h2 style={{ fontSize: "22px", fontWeight: "700", margin: 0 }}>{category.category}</h2>
                   </div>
-                  
+
                   <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                     {category.papers.map((paper, pIdx) => (
-                      <a 
-                        key={pIdx} 
-                        href={paper.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className={styles.card} 
-                        style={{ 
-                          padding: "24px", 
-                          display: "flex", 
-                          flexDirection: "column", 
+                      <motion.a
+                        key={pIdx}
+                        href={paper.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.card}
+                        variants={FADE_UP}
+                        style={{
+                          padding: "24px",
+                          display: "flex",
+                          flexDirection: "column",
                           gap: "16px",
                           background: "var(--secondary-bg)",
                           border: "1px solid var(--border)",
@@ -148,12 +155,12 @@ export default function ResearchPage() {
                           <span style={{ fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-muted)" }}>{paper.conf}</span>
                           <ExternalLink size={16} color="var(--accent)" />
                         </div>
-                      </a>
+                      </motion.a>
                     ))}
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </section>
       </main>
