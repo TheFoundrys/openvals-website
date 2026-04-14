@@ -1,12 +1,35 @@
 :root {
   --primary-bg: #FFFFFF;
+  --primary-bg-alpha: rgba(255, 255, 255, 0.8);
   --secondary-bg: #F9FAFB;
   --text-main: #111827;
   --text-muted: #6B7280;
   --accent: #00D4FF;
   --border: #E5E7EB;
+  --card-bg: #FFFFFF;
+  --grid-dot: rgba(0, 0, 0, 0.1);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --orb-bg: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8) 0%, rgba(240,249,255,0.4) 40%, rgba(0,212,255,0.05) 80%, transparent 100%);
+  --orb-border: rgba(0, 0, 0, 0.1);
   --container-padding: clamp(20px, 5vw, 60px);
-  --section-padding: clamp(40px, 10vw, 120px);
+  --section-padding: clamp(40px, 8vw, 100px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-bg: #0b0f19;
+    --primary-bg-alpha: rgba(11, 15, 25, 0.8);
+    --secondary-bg: #111827;
+    --text-main: #FFFFFF;
+    --text-muted: #D1D5DB;
+    --accent: #00D4FF;
+    --border: #1f2937;
+    --card-bg: #111827;
+    --grid-dot: rgba(255, 255, 255, 0.1);
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    --orb-bg: radial-gradient(circle at 30% 30%, rgba(17, 24, 39, 0.8) 0%, rgba(11, 15, 25, 0.4) 40%, rgba(0, 212, 255, 0.05) 80%, transparent 100%);
+    --orb-border: rgba(255, 255, 255, 0.2);
+  }
 }
 
 body {
@@ -23,6 +46,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-outfit), sans-serif;
   font-weight: 500;
   letter-spacing: -0.02em;
+  color: inherit;
 }
 
 a {

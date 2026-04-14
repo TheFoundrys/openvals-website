@@ -39,7 +39,7 @@ const offices = [
     },
     {
         country: "UK",
-        city: "Leicestershire",
+        city: "Hamilton",
         address: "11 Samphire Cl, Hamilton, Leicester LE5 1RW, UK",
     },
     {
@@ -72,26 +72,7 @@ export default function Contact() {
                         </motion.div>
 
                         {/* Quick Contact Cards */}
-                        <motion.div
-                            initial="hidden"
-                            animate="show"
-                            variants={STAGGER}
-                            style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", marginTop: "40px" }}
-                        >
 
-                            <motion.a
-                                href="mailto:openvals.drp@gmail.com"
-                                variants={FADE_UP}
-                                className={styles.card}
-                                style={{ display: "flex", flexDirection: "column", alignItems: "center", textDecoration: "none" }}
-                            >
-                                <div style={{ width: 60, height: 60, borderRadius: "50%", backgroundColor: "var(--secondary-bg)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 24 }}>
-                                    <Mail size={28} style={{ color: "var(--accent)" }} />
-                                </div>
-                                <span style={{ fontSize: 13, fontWeight: 600, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>Email Us</span>
-                                <span style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 700, color: "var(--text-main)" }}>openvals.drp@gmail.com</span>
-                            </motion.a>
-                        </motion.div>
                     </div>
                 </section>
 
@@ -103,28 +84,25 @@ export default function Contact() {
                             <motion.p variants={FADE_UP} style={{ fontSize: "18px", color: "var(--text-muted)", margin: 0 }}>Find us in major cities across the globe.</motion.p>
                         </div>
 
-                        <motion.div className={styles.grid} variants={STAGGER} style={{ marginTop: 0 }}>
+                        <motion.div className={styles.officeGrid} variants={STAGGER}>
                             {offices.map((office, index) => (
-                                <motion.div key={index} className={styles.card} variants={FADE_UP} style={{ padding: "40px 30px" }}>
-                                    <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-                                        <MapPin size={18} style={{ color: "var(--accent)" }} />
-                                        <span style={{ fontSize: "11px", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "0.2em", color: "var(--text-muted)" }}>
-                                            {office.country}
-                                        </span>
+                                <motion.div 
+                                    key={index} 
+                                    className={`${styles.officeCard} ${index === 0 ? styles.officeCardPrimary : ""}`}
+                                    variants={FADE_UP}
+                                >
+                                    <div className={styles.officeCardContent}>
+                                        <div className={styles.officeLabel}>
+                                            <MapPin size={16} />
+                                            <span>{office.country}</span>
+                                        </div>
+                                        <h3 className={styles.officeTitle}>{office.city}</h3>
+                                        <p className={styles.officeAddress} style={{ maxWidth: index === 0 ? "600px" : "100%" }}>
+                                            {office.address}
+                                        </p>
                                     </div>
-                                    <h3 style={{ fontSize: "24px", fontWeight: 600, margin: "0 0 16px 0", color: "var(--text-main)" }}>
-                                        {office.city}
-                                    </h3>
-                                    <p style={{ color: "var(--text-muted)", fontSize: "16px", lineHeight: 1.6, margin: "0 0 24px 0" }}>
-                                        {office.address}
-                                    </p>
-                                    <button style={{
-                                        display: "flex", alignItems: "center", gap: "8px", fontSize: "12px",
-                                        fontWeight: "bold", textTransform: "uppercase", letterSpacing: "0.1em",
-                                        color: "var(--text-main)", background: "none", border: "none", padding: 0,
-                                        cursor: "pointer", transition: "color 0.2s"
-                                    }}>
-                                        Directions <ArrowRight size={14} />
+                                    <button className={styles.directionLink}>
+                                        DIRECTIONS <ArrowRight size={14} />
                                     </button>
                                 </motion.div>
                             ))}

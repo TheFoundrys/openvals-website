@@ -10,10 +10,10 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: "Services", href: "/#services" },
-    { name: "Framework", href: "/#framework" },
+    { name: "Our Services", href: "/compass" },
     { name: "About Us", href: "/about" },
     { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -28,18 +28,20 @@ export default function Header() {
               {link.name}
             </Link>
           ))}
-          <Link href="/contact" style={{ color: "var(--text-main)", fontWeight: 500 }}>
-            Contact
-          </Link>
         </nav>
-        <button className={styles.menuToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+          <Link href="/apply" className={`${styles.button} ${styles.primary} ${styles.headerCTA}`} style={{ padding: "8px 16px", fontSize: "14px" }}>
+            Get Your AI/ML Validated
+          </Link>
+          <button className={styles.menuToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </header>
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             className={styles.mobileMenu}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -50,7 +52,6 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
-            <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </motion.div>
         )}
       </AnimatePresence>

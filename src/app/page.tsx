@@ -11,6 +11,7 @@ import AmbientGrid from "../components/AmbientGrid";
 import AmbientBlobs from "../components/AmbientBlobs";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import TrustedBy from "../components/TrustedBy";
 
 const FADE_UP: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -59,6 +60,8 @@ export default function Home() {
           </div>
         </section>
 
+        <TrustedBy />
+
         <section className={styles.section} style={{ backgroundColor: "var(--secondary-bg)" }}>
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
             <motion.h3 variants={FADE_UP}>AI Fails Quietly</motion.h3>
@@ -75,16 +78,43 @@ export default function Home() {
             <motion.h3 variants={FADE_UP}>Core offerings</motion.h3>
             <motion.div className={styles.grid} variants={STAGGER}>
               {[
-                { icon: ShieldAlert, title: "AI Red Teaming", desc: "Adversarial testing to uncover prompt injection, jailbreaks, and model vulnerabilities." },
-                { icon: Activity, title: "Model Validation & Benchmarking", desc: "Rigorous evaluation of model performance, bias, and accuracy across diverse data sets." },
-                { icon: Lock, title: "AI Security & Threat Modeling", desc: "Securing data pipelines and API endpoints against model extraction and leakage." },
-                { icon: FileBadge, title: "AI Compliance & Certification", desc: "Ensuring regulatory alignment with audit-ready validation reports." },
+                { icon: ShieldAlert, title: "AI Red Teaming", desc: "Adversarial testing to uncover prompt injection, jailbreaks, and model vulnerabilities.", capabilities: ["Prompt Injection", "Jailbreak Simulation"] },
+                { icon: Activity, title: "Model Validation", desc: "Rigorous evaluation of performance, bias, and accuracy across diverse data sets.", capabilities: ["Bias Detection", "Stress Testing"] },
+                { icon: Lock, title: "AI Security", desc: "Securing data pipelines and API endpoints against model extraction and leakage.", capabilities: ["API Security", "Model Stealing Defense"] },
+                { icon: FileBadge, title: "AI Compliance", desc: "Ensuring regulatory alignment with audit-ready validation reports.", capabilities: ["EU AI Act", "Audit Logging"] },
               ].map((service, i) => (
-                <motion.div key={i} className={styles.card} variants={FADE_UP}>
-                  <service.icon size={28} />
-                  <h4>{service.title}</h4>
-                  <p>{service.desc}</p>
+                <motion.div key={i} className={styles.card} variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div style={{ color: "var(--accent)" }}><service.icon size={28} /></div>
+                  <h4 style={{ margin: 0 }}>{service.title}</h4>
+                  <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5" }}>{service.desc}</p>
+                  <div style={{ marginTop: "auto", paddingTop: "12px", borderTop: "1px solid var(--border)", display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                    {service.capabilities.map((cap, idx) => (
+                      <span key={idx} style={{ fontSize: "10px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--accent)", padding: "4px 8px", background: "rgba(0, 212, 255, 0.05)", borderRadius: "4px" }}>
+                        {cap}
+                      </span>
+                    ))}
+                  </div>
                 </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </section>
+        <section id="framework" className={styles.section} style={{ backgroundColor: "var(--secondary-bg)" }}>
+          <AmbientBlobs />
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
+            <motion.h3 variants={FADE_UP} style={{ fontSize: "36px", fontWeight: 700, marginBottom: "40px" }}>OpenVals AI Assurance Framework™</motion.h3>
+            <motion.div className={styles.grid} variants={STAGGER}>
+              {[
+                { icon: Zap, title: "V1: Validation", desc: "Accuracy, bias, performance" },
+                { icon: Eye, title: "V2: Vulnerability", desc: "Attacks, exploits, leakage" },
+                { icon: Fingerprint, title: "V3: Variability", desc: "Drift, instability, edge cases" },
+                { icon: BookOpen, title: "V4: Verifiability", desc: "Audit, reporting, certification" },
+              ].map((item, i) => (
+                <div key={i} className={styles.card} style={{ backgroundColor: "var(--primary-bg)", padding: "40px", borderRadius: "16px", border: "1px solid var(--border)" }}>
+                  <div style={{ color: "var(--accent)", marginBottom: "20px" }}><item.icon size={32} /></div>
+                  <h4 style={{ fontSize: "20px", fontWeight: 700, marginBottom: "12px" }}>{item.title}</h4>
+                  <p style={{ color: "var(--text-muted)", fontSize: "14px", lineHeight: 1.5 }}>{item.desc}</p>
+                </div>
               ))}
             </motion.div>
           </motion.div>
@@ -125,26 +155,6 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section id="framework" className={styles.section} style={{ backgroundColor: "var(--secondary-bg)" }}>
-          <AmbientBlobs />
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
-            <motion.h3 variants={FADE_UP}>OpenVals AI Assurance Framework™</motion.h3>
-            <motion.div className={styles.grid} variants={STAGGER}>
-              {[
-                { icon: Zap, title: "V1: Validation", desc: "Accuracy, bias, performance" },
-                { icon: Eye, title: "V2: Vulnerability", desc: "Attacks, exploits, leakage" },
-                { icon: Fingerprint, title: "V3: Variability", desc: "Drift, instability, edge cases" },
-                { icon: BookOpen, title: "V4: Verifiability", desc: "Audit, reporting, certification" },
-              ].map((item, i) => (
-                <div key={i} className={styles.card} style={{ backgroundColor: "var(--primary-bg)" }}>
-                  <item.icon size={28} />
-                  <h4>{item.title}</h4>
-                  <p>{item.desc}</p>
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </section>
 
         <section className={styles.section}>
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>

@@ -31,7 +31,7 @@ export default function ContinuousStream() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 80%, rgba(255,255,255,1) 100%)",
+          background: "linear-gradient(to right, var(--primary-bg) 0%, transparent 20%, transparent 80%, var(--primary-bg) 100%)",
           zIndex: 2,
         }}
       />
@@ -48,7 +48,7 @@ export default function ContinuousStream() {
             style={{ 
               width: "100%", 
               height: "1px", 
-              background: "rgba(0, 0, 0, 0.03)", 
+              background: "transparent", 
               position: "relative" 
             }}
           >

@@ -36,20 +36,9 @@ const PUBLICATIONS = [
     category: "AI Architectures & Applications",
     papers: [
       { title: "Pose Detection: Integrating Machine Learning with Large Vision Models", conf: "2025 IACIS", link: "https://ieeexplore.ieee.org/author/231984777844193" },
-      { title: "A Multi-Agent Garage Service Search and Recommendation with Hybrid MLs and LLMs", conf: "2025 ICOCT", link: "https://ieeexplore.ieee.org/document/10940937" },
-      { title: "Hybrid Q-Learning with VLMs Reasoning Features", conf: "2025 AIMLA", link: "https://ieeexplore.ieee.org/document/11040757" },
-      { title: "Hybrid ML-SLM RAG System for Large Technical PDFs", conf: "2025 ICOCT", link: "https://ieeexplore.ieee.org/author/231984777844193" }
-    ]
-  },
-  {
-    category: "Healthcare & Specialized Vision",
-    papers: [
-      { title: "Multi-Vision LVMs Model Ensemble for Gold Jewelry Authenticity Verification", conf: "2025 ICOCT", link: "https://ieeexplore.ieee.org/author/231984777844193" },
-      { title: "Comparative Analysis of Diverse Architectures for Accurate Blood Cancer Cell Classification", conf: "2024 ICIRCA", link: "https://ieeexplore.ieee.org/document/10497341" }
     ]
   }
-];
-
+]
 const BOOKS = [
   {
     title: "The Shadows Of Deception",
@@ -60,6 +49,34 @@ const BOOKS = [
     title: "The Fabric of Law",
     subtitle: "Understanding Jurisprudence and Legal Principles",
     link: "https://www.amazon.in/Fabric-Law-Understanding-Jurisprudence-Principles-ebook/dp/B0D1JQ76YG"
+  }
+
+];
+
+const RECOGNITION = [
+  {
+    logo: "/logos/tradeflock.webp",
+    title: "TradeFlock",
+    desc: "Best Startup CEOs - 2024",
+    link: "https://tradeflock.com/best-startup-ceos-2024-vishwanath-akuthota/"
+  },
+  {
+    logo: "/logos/cconnects.webp",
+    title: "The CConnects",
+    desc: "Redefining AI with AI-360 Framework",
+    link: "https://thecconnects.com/redefining-ai-with-ai-360-vishwanath-and-the-legacy-of-dr-pinnacle/"
+  },
+  {
+    logo: "/logos/ehealth-300-98.png",
+    title: "Elets Healthcare",
+    desc: "Healthcare Innovation Excellence Award",
+    link: "https://ehealth.eletsonline.com/2024/06/13th-elets-healthcare-innovation-awards-ceremony-honoured-exemplary-contributions-towards-advancing-healthcare-innovation/"
+  },
+  {
+    logo: "/logos/pride india awards.png",
+    title: "Pride India Awards",
+    desc: "Excellence in AI & Deep Tech Innovation",
+    link: "https://www.instagram.com/p/DKiuoYBMeWA/"
   }
 ];
 
@@ -217,40 +234,23 @@ export default function About() {
                     "Creating valuable products requires an engineering mindset combined with the precision of a mathematician. Our mission is to build responsible, ethical, and trustworthy AI that empowers humanity."
                   </blockquote>
 
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginTop: "16px" }}>
-                    <a href="https://www.linkedin.com/in/vishwanathakuthota/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 500, color: "var(--text-main)", padding: "10px 20px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)" }}>
-                      LinkedIn <ExternalLink size={16} />
+                  <div style={{ display: "flex", gap: "8px", marginTop: "16px", flexWrap: "wrap" }}>
+                    <a href="https://www.linkedin.com/in/vishwanathakuthota/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                      LinkedIn <ExternalLink size={14} />
                     </a>
-                    <a href="https://github.com/vishwanathakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 500, color: "var(--text-main)", padding: "10px 20px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)" }}>
-                      GitHub <ExternalLink size={16} />
+                    <a href="https://x.com/Vishakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                      X (Twitter) <ExternalLink size={14} />
+                    </a>
+                    <a href="https://github.com/vishwanathakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                      GitHub <ExternalLink size={14} />
+                    </a>
+                    <a href="/research" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, padding: "8px 12px", background: "var(--accent)", color: "#000", borderRadius: "8px", border: "1px solid var(--accent)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                      Research Papers <FileText size={14} />
                     </a>
                   </div>
                 </motion.div>
               </div>
 
-              {/* RESEARCH & PUBLICATIONS */}
-              <div>
-                <motion.h3 variants={FADE_UP} style={{ fontSize: "32px", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--border)" }}>IEEE Publications & Research</motion.h3>
-
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "40px" }}>
-                  {PUBLICATIONS.map((category, idx) => (
-                    <motion.div key={idx} variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                      <h4 style={{ fontSize: "20px", color: "var(--accent)", display: "flex", alignItems: "center", gap: "10px" }}><FileText size={20} /> {category.category}</h4>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                        {category.papers.map((paper, pIdx) => (
-                          <a key={pIdx} href={paper.link} target="_blank" rel="noopener noreferrer" className={styles.card} style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                            <h5 style={{ fontSize: "16px", fontWeight: 600, lineHeight: 1.4, margin: 0 }}>{paper.title}</h5>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto" }}>
-                              <span style={{ fontSize: "14px", color: "var(--text-muted)" }}>{paper.conf}</span>
-                              <ExternalLink size={16} color="var(--text-muted)" />
-                            </div>
-                          </a>
-                        ))}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
 
               {/* AUTHORED BOOKS */}
               <div>
@@ -266,6 +266,65 @@ export default function About() {
                         <h4 style={{ fontSize: "20px", marginBottom: "8px" }}>{book.title}</h4>
                         <p style={{ fontSize: "15px", color: "var(--text-muted)", lineHeight: 1.5, marginBottom: "16px" }}>{book.subtitle}</p>
                         <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--accent)", display: "flex", alignItems: "center", gap: "6px" }}>View on Amazon <ExternalLink size={14} /></span>
+                      </div>
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+
+              {/* RECOGNITION & MEDIA - HI-VIS REDESIGN */}
+              <div style={{ marginTop: "80px" }}>
+                <div style={{ display: "flex", alignItems: "baseline", gap: "20px", marginBottom: "48px", borderBottom: "1px solid var(--border)", paddingBottom: "24px" }}>
+                  <motion.h3 variants={FADE_UP} style={{ fontSize: "36px", margin: 0 }}>Media & Recognition</motion.h3>
+                  <motion.span variants={FADE_UP} style={{ color: "var(--accent)", fontSize: "14px", fontWeight: "600", letterSpacing: "0.1em", textTransform: "uppercase" }}>As seen in</motion.span>
+                </div>
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "24px", justifyContent: "flex-start" }}>
+                  {RECOGNITION.map((item, idx) => (
+                    <motion.a
+                      key={idx}
+                      variants={FADE_UP}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.card}
+                      style={{
+                        padding: "0",
+                        overflow: "hidden",
+                        display: "flex",
+                        flexDirection: "column",
+                        background: "var(--secondary-bg)",
+                        transition: "transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease",
+                        width: "calc(50% - 12px)", // 2-column feel on medium screens
+                        flexBasis: "320px",
+                        flexGrow: 1
+                      }}
+                    >
+                      <div style={{
+                        height: "140px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "100%",
+                        background: "white",
+                        padding: "24px",
+                        position: "relative"
+                      }}>
+                        <img
+                          src={item.logo}
+                          alt={item.title}
+                          style={{ maxHeight: "70px", maxWidth: "80%", objectFit: "contain" }}
+                        />
+                        <div style={{ position: "absolute", top: "12px", right: "12px", background: "var(--accent)", color: "black", fontSize: "10px", fontWeight: "800", padding: "4px 8px", borderRadius: "4px", textTransform: "uppercase" }}>Feature</div>
+                      </div>
+
+                      <div style={{ padding: "28px", display: "flex", flexDirection: "column", gap: "10px", flexGrow: 1 }}>
+                        <h4 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-main)", margin: 0 }}>{item.title}</h4>
+                        <p style={{ fontSize: "15px", color: "var(--text-muted)", lineHeight: "1.5", margin: 0 }}>{item.desc}</p>
+
+                        <div style={{ marginTop: "auto", paddingTop: "20px", borderTop: "1px solid var(--border)", display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", fontWeight: "600", color: "var(--accent)" }}>
+                          View Official Press Release <ExternalLink size={14} />
+                        </div>
                       </div>
                     </motion.a>
                   ))}

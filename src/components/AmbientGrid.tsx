@@ -23,7 +23,7 @@ export default function AmbientGrid() {
         zIndex: 0,
         opacity,
         backgroundSize: "40px 40px",
-        backgroundImage: "radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px)",
+        backgroundImage: "radial-gradient(circle, var(--grid-dot) 1px, transparent 1px)",
         maskImage: "linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",
         WebkitMaskImage: "linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",
       }}
