@@ -8,7 +8,7 @@ import styles from "../../components/ui.module.css";
 
 const FADE_UP: Variants = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } as any },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } as const },
 };
 
 const STAGGER: Variants = {
@@ -67,7 +67,7 @@ export default function Contact() {
                                 Say <span style={{ color: "var(--accent)" }}>Hello</span>.
                             </motion.h1>
                             <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--text-muted)", lineHeight: 1.6, margin: "0 auto 60px" }}>
-                                Whether you're looking for admissions, partnership, or just want to see our campus, we're here to help. Reach out to us directly or visit one of our global offices.
+                                Whether you&apos;re looking for admissions, partnership, or just want to see our campus, we&apos;re here to help. Reach out to us directly or visit one of our global offices.
                             </motion.p>
                         </motion.div>
 

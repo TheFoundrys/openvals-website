@@ -15,7 +15,7 @@ import TrustedBy from "../components/TrustedBy";
 
 const FADE_UP: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } as any },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } as const },
 };
 
 const STAGGER: Variants = {
@@ -158,7 +158,7 @@ export default function Home() {
 
         <section className={styles.section}>
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
-            <motion.h3 variants={FADE_UP}>If It's Not Validated, It's Not Ready</motion.h3>
+            <motion.h3 variants={FADE_UP}>If It&apos;s Not Validated, It&apos;s Not Ready</motion.h3>
             <motion.p variants={FADE_UP} style={{ marginBottom: "30px" }}>
               AI is no longer experimental. It’s operational, business-critical, and high-risk. 
               OpenVals ensures your systems are trustworthy before deployment.

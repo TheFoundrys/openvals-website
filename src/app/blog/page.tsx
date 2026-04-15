@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 export const revalidate = 60; // Revalidate every minute
 
 export default async function BlogIndex() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let posts: any[] = [];
   try {
     posts = await client.fetch(postsQuery);
@@ -51,6 +52,7 @@ export default async function BlogIndex() {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "32px" }}>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {posts.map((post: any) => (
               <Link key={post._id} href={`/blog/${post.slug.current}`} className={styles.card} style={{ display: "flex", flexDirection: "column", padding: 0, overflow: "hidden", border: "1px solid var(--border)", background: "var(--secondary-bg)", height: "100%" }}>
                 <div style={{ position: "relative", width: "100%", height: "220px", background: "#000" }}>

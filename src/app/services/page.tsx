@@ -11,7 +11,7 @@ import Link from "next/link";
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }
-};
+} as const;
 
 const STAGGER = {
   hidden: { opacity: 0 },
@@ -21,7 +21,7 @@ const STAGGER = {
       staggerChildren: 0.1,
     },
   },
-};
+} as const;
 
 const SERVICES = [
   {
@@ -116,7 +116,7 @@ export default function ServicesPage() {
             >
               <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(32px, 5vw, 48px)", marginBottom: "24px" }}>Ready to Validate?</motion.h2>
               <motion.p variants={FADE_UP} style={{ color: "var(--text-muted)", marginBottom: "40px", fontSize: "18px" }}>
-                Get a comprehensive audit of your AI model's safety, security, and performance.
+                Get a comprehensive audit of your AI model&apos;s safety, security, and performance.
               </motion.p>
               <motion.div variants={FADE_UP}>
                 <Link href="/apply" className={`${styles.button} ${styles.primary}`}>

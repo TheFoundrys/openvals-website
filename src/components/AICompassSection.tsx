@@ -6,7 +6,7 @@ import styles from "./ui.module.css";
 
 const FADE_UP: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } as any }
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } as const }
 };
 
 const STAGGER: Variants = {
@@ -64,12 +64,9 @@ export default function AICompassSection() {
         variants={STAGGER}
       >
         <div style={{ textAlign: "center", marginBottom: "80px" }}>
-          {/* <motion.div variants={FADE_UP} style={{ display: "inline-flex", alignItems: "center", gap: "10px", padding: "8px 16px", background: "rgba(0, 212, 255, 0.1)", borderRadius: "100px", color: "var(--accent)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "24px" }}>
-            <Compass size={16} /> AI Compass Framework
-          </motion.div> */}
           <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "24px" }}>Guiding Innovation,<br /><span style={{ color: "var(--accent)" }}>Securing Intelligence.</span></motion.h2>
           <motion.p variants={FADE_UP} style={{ maxWidth: "800px", margin: "0 auto", color: "var(--text-muted)", fontSize: "18px", lineHeight: "1.7", fontStyle: "italic" }}>
-            "AI Compass is a comprehensive consulting framework designed by OpenVals to guide organizations through the complexities of AI adoption and integration. It ensures that AI initiatives are not only strategically aligned but also deliver measurable and sustainable results."
+            &quot;AI Compass is a comprehensive consulting framework designed by OpenVals to guide organizations through the complexities of AI adoption and integration. It ensures that AI initiatives are not only strategically aligned but also deliver measurable and sustainable results.&quot;
           </motion.p>
         </div>
 

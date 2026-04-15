@@ -12,6 +12,7 @@ export const revalidate = 60; // Revalidate every minute
 
 const components = {
   types: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: ({ value }: any) => (
       <div style={{ margin: "40px 0", borderRadius: "8px", overflow: "hidden" }}>
         <img
@@ -42,6 +43,7 @@ export default async function BlogPost({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let post: any;
   try {
     post = await client.fetch(postBySlugQuery, { slug });

@@ -9,7 +9,7 @@ import AmbientGrid from "../../components/AmbientGrid";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 20 } as any },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 20 } as const },
 };
 
 const STAGGER = {
@@ -107,7 +107,7 @@ export default function About() {
               style={{ fontSize: "clamp(18px, 2.5vw, 24px)", color: "var(--text-muted)", maxWidth: "800px", margin: "0 auto" }}
             >
               Building a world where AI systems are as reliable as they are intelligent.
-              Because trust isn't built on assumptions it's built on validation.
+              Because trust isn&apos;t built on assumptions it&apos;s built on validation.
             </motion.p>
           </motion.div>
         </section>
@@ -164,7 +164,7 @@ export default function About() {
               style={{ textAlign: "center", marginBottom: "60px" }}
             >
               <motion.h3 variants={FADE_UP}>Our Pillars of Trust</motion.h3>
-              <motion.p variants={FADE_UP} style={{ margin: "0 auto", maxWidth: "600px" }}>The methodology behind the industry's most rigorous validation framework.</motion.p>
+              <motion.p variants={FADE_UP} style={{ margin: "0 auto", maxWidth: "600px" }}>The methodology behind the industry&apos;s most rigorous validation framework.</motion.p>
             </motion.div>
 
             <motion.div
@@ -231,7 +231,7 @@ export default function About() {
                   </p>
 
                   <blockquote style={{ fontSize: "20px", fontStyle: "italic", borderLeft: "4px solid var(--accent)", paddingLeft: "24px", margin: "16px 0", color: "var(--text-main)" }}>
-                    "Creating valuable products requires an engineering mindset combined with the precision of a mathematician. Our mission is to build responsible, ethical, and trustworthy AI that empowers humanity."
+                    &quot;Creating valuable products requires an engineering mindset combined with the precision of a mathematician. Our mission is to build responsible, ethical, and trustworthy AI that empowers humanity.&quot;
                   </blockquote>
 
                   <div style={{ display: "flex", gap: "8px", marginTop: "16px", flexWrap: "wrap" }}>

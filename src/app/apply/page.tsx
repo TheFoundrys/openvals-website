@@ -73,7 +73,7 @@ export default function Apply() {
               <>
                 <div style={{ textAlign: "center", marginBottom: "60px" }}>
                   <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "16px" }}>Apply for AI Validation</h1>
-                  <p style={{ color: "var(--text-muted)", fontSize: "18px" }}>Secure your model's future with audit-grade assurance.</p>
+                  <p style={{ color: "var(--text-muted)", fontSize: "18px" }}>Secure your model&apos;s future with audit-grade assurance.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px", background: "var(--card-bg)", padding: "40px", borderRadius: "24px", border: "1px solid var(--border)" }}>
