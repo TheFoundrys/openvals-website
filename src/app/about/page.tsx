@@ -244,7 +244,7 @@ export default function About() {
                     <a href="https://github.com/vishwanathakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                       GitHub <ExternalLink size={14} />
                     </a>
-                    <a href="/research" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, padding: "8px 12px", background: "var(--accent)", color: "#000", borderRadius: "8px", border: "1px solid var(--accent)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                    <a href="/research" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, padding: "8px 12px", background: "var(--accent)", color: "#fff", borderRadius: "8px", border: "1px solid var(--accent)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                       Research Papers <FileText size={14} />
                     </a>
                   </div>
@@ -315,7 +315,7 @@ export default function About() {
                           alt={item.title}
                           style={{ maxHeight: "70px", maxWidth: "80%", objectFit: "contain" }}
                         />
-                        <div style={{ position: "absolute", top: "12px", right: "12px", background: "var(--accent)", color: "black", fontSize: "10px", fontWeight: "800", padding: "4px 8px", borderRadius: "4px", textTransform: "uppercase" }}>Feature</div>
+                        <div style={{ position: "absolute", top: "12px", right: "12px", background: "var(--accent)", color: "white", fontSize: "10px", fontWeight: "800", padding: "4px 8px", borderRadius: "4px", textTransform: "uppercase" }}>Feature</div>
                       </div>
 
                       <div style={{ padding: "28px", display: "flex", flexDirection: "column", gap: "10px", flexGrow: 1 }}>
@@ -347,7 +347,7 @@ export default function About() {
               Ready to ensure your AI is <br /> as trustworthy as it is smart?
             </motion.h2>
             <motion.div variants={FADE_UP}>
-              <a href="/contact" className={`${styles.button} ${styles.primary}`} style={{ backgroundColor: "var(--accent)", borderColor: "var(--accent)", color: "var(--text-main)" }}>
+              <a href="/contact" className={`${styles.button} ${styles.primary}`} style={{ backgroundColor: "var(--accent)", borderColor: "var(--accent)", color: "#fff" }}>
                 Start Your Validation
               </a>
             </motion.div>

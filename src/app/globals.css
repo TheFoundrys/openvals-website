@@ -4,12 +4,12 @@
   --secondary-bg: #F9FAFB;
   --text-main: #111827;
   --text-muted: #6B7280;
-  --accent: #00D4FF;
+  --accent: #1a2b6d;
   --border: #E5E7EB;
   --card-bg: #FFFFFF;
   --grid-dot: rgba(0, 0, 0, 0.1);
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  --orb-bg: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8) 0%, rgba(240,249,255,0.4) 40%, rgba(0,212,255,0.05) 80%, transparent 100%);
+  --orb-bg: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8) 0%, rgba(240,249,255,0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
   --orb-border: rgba(0, 0, 0, 0.1);
   --container-padding: clamp(20px, 5vw, 60px);
   --section-padding: clamp(40px, 8vw, 100px);
@@ -22,12 +22,12 @@
     --secondary-bg: #111827;
     --text-main: #FFFFFF;
     --text-muted: #D1D5DB;
-    --accent: #00D4FF;
+    --accent: #1a2b6d;
     --border: #1f2937;
     --card-bg: #111827;
     --grid-dot: rgba(255, 255, 255, 0.1);
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    --orb-bg: radial-gradient(circle at 30% 30%, rgba(17, 24, 39, 0.8) 0%, rgba(11, 15, 25, 0.4) 40%, rgba(0, 212, 255, 0.05) 80%, transparent 100%);
+    --orb-bg: radial-gradient(circle at 30% 30%, rgba(17, 24, 39, 0.8) 0%, rgba(11, 15, 25, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
     --orb-border: rgba(255, 255, 255, 0.2);
   }
 }

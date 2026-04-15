@@ -81,7 +81,7 @@ export default async function BlogIndex() {
                       })}
                     </p>
                     <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--border)", paddingTop: "20px" }}>
-                      <div style={{ width: "32px", height: "32px", borderRadius: "50%", overflow: "hidden", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", fontSize: "12px", color: "#000" }}>
+                      <div style={{ width: "32px", height: "32px", borderRadius: "50%", overflow: "hidden", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", fontSize: "12px", color: "#fff" }}>
                         {post.author?.name?.charAt(0) || "O"}
                       </div>
                       <span style={{ fontSize: "14px", fontWeight: 500 }}>{post.author?.name}</span>

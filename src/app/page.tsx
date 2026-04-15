@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ShieldAlert, Fingerprint, Lock, FileBadge, Activity, Eye, Zap, BookOpen } from "lucide-react";
+import { ShieldAlert, Fingerprint, Lock, FileBadge, Activity, Eye, Zap, BookOpen, ChevronDown } from "lucide-react";
 import styles from "../components/ui.module.css";
 import NeuralCore from "../components/NeuralCore";
 import ContinuousStream from "../components/ContinuousStream";
@@ -29,6 +29,7 @@ const STAGGER: Variants = {
 };
 
 export default function Home() {
+  const [isFrameworkOpen, setIsFrameworkOpen] = useState(true);
   return (
     <>
       <Header />
@@ -36,8 +37,8 @@ export default function Home() {
       <main>
         <section className={styles.hero}>
           <ContinuousStream />
-          
-          <motion.div 
+
+          <motion.div
             className={styles.heroContent}
             initial="hidden"
             animate="show"
@@ -45,7 +46,7 @@ export default function Home() {
           >
             <motion.h2 variants={FADE_UP}>The Trust Layer for AI</motion.h2>
             <motion.p variants={FADE_UP}>
-              AI systems are being deployed faster than they are understood. 
+              AI systems are being deployed faster than they are understood.
               OpenVals ensures they are secure, reliable, and validated before they reach the real world.
             </motion.p>
             <motion.div variants={FADE_UP}>
@@ -66,7 +67,7 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
             <motion.h3 variants={FADE_UP}>AI Fails Quietly</motion.h3>
             <motion.p variants={FADE_UP}>
-              AI systems hallucinate, get manipulated, and behave unpredictably under real-world conditions. 
+              AI systems hallucinate, get manipulated, and behave unpredictably under real-world conditions.
               Most organizations deploy without understanding failure modes, risk exposure, or adversarial threats.
             </motion.p>
           </motion.div>
@@ -89,7 +90,7 @@ export default function Home() {
                   <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5" }}>{service.desc}</p>
                   <div style={{ marginTop: "auto", paddingTop: "12px", borderTop: "1px solid var(--border)", display: "flex", flexWrap: "wrap", gap: "8px" }}>
                     {service.capabilities.map((cap, idx) => (
-                      <span key={idx} style={{ fontSize: "10px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--accent)", padding: "4px 8px", background: "rgba(0, 212, 255, 0.05)", borderRadius: "4px" }}>
+                      <span key={idx} style={{ fontSize: "10px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em", color: "#FFFFFF", padding: "4px 8px", background: "var(--accent)", borderRadius: "4px" }}>
                         {cap}
                       </span>
                     ))}
@@ -102,52 +103,88 @@ export default function Home() {
         <section id="framework" className={styles.section} style={{ backgroundColor: "var(--secondary-bg)" }}>
           <AmbientBlobs />
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
-            <motion.h3 variants={FADE_UP} style={{ fontSize: "36px", fontWeight: 700, marginBottom: "40px" }}>OpenVals AI Assurance Framework™</motion.h3>
-            <motion.div className={styles.grid} variants={STAGGER}>
-              {[
-                { icon: Zap, title: "V1: Validation", desc: "Accuracy, bias, performance" },
-                { icon: Eye, title: "V2: Vulnerability", desc: "Attacks, exploits, leakage" },
-                { icon: Fingerprint, title: "V3: Variability", desc: "Drift, instability, edge cases" },
-                { icon: BookOpen, title: "V4: Verifiability", desc: "Audit, reporting, certification" },
-              ].map((item, i) => (
-                <div key={i} className={styles.card} style={{ backgroundColor: "var(--primary-bg)", padding: "40px", borderRadius: "16px", border: "1px solid var(--border)" }}>
-                  <div style={{ color: "var(--accent)", marginBottom: "20px" }}><item.icon size={32} /></div>
-                  <h4 style={{ fontSize: "20px", fontWeight: 700, marginBottom: "12px" }}>{item.title}</h4>
-                  <p style={{ color: "var(--text-muted)", fontSize: "14px", lineHeight: 1.5 }}>{item.desc}</p>
-                </div>
-              ))}
-            </motion.div>
+            <div style={{ position: "relative", marginBottom: "60px" }}>
+              <motion.h3 
+                variants={FADE_UP} 
+                onClick={() => setIsFrameworkOpen(!isFrameworkOpen)}
+                style={{ 
+                  fontSize: "36px", 
+                  fontWeight: 700, 
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  userSelect: "none"
+                }}
+              >
+                OpenVals AI Assurance Framework
+                <motion.span animate={{ rotate: isFrameworkOpen ? 180 : 0 }}>
+                  <ChevronDown size={32} />
+                </motion.span>
+              </motion.h3>
+
+              <AnimatePresence>
+                {isFrameworkOpen && (
+                  <motion.div 
+                    variants={STAGGER}
+                    initial="hidden"
+                    animate="show"
+                    exit="hidden"
+                    className={styles.grid} 
+                    style={{ marginTop: "40px" }}
+                  >
+                    {[
+                      { icon: Zap, title: "V1: Validation", desc: "Accuracy, bias, performance" },
+                      { icon: Eye, title: "V2: Vulnerability", desc: "Attacks, exploits, leakage" },
+                      { icon: Fingerprint, title: "V3: Variability", desc: "Drift, instability, edge cases" },
+                      { icon: BookOpen, title: "V4: Verifiability", desc: "Audit, reporting, certification" },
+                    ].map((item, i) => (
+                      <motion.div 
+                        key={i} 
+                        className={styles.card} 
+                        style={{ backgroundColor: "var(--primary-bg)", padding: "40px", borderRadius: "16px", border: "1px solid var(--border)" }}
+                        variants={FADE_UP}
+                      >
+                        <div style={{ color: "var(--accent)", marginBottom: "20px" }}><item.icon size={32} /></div>
+                        <h4 style={{ fontSize: "20px", fontWeight: 700, marginBottom: "12px" }}>{item.title}</h4>
+                        <p style={{ color: "var(--text-muted)", fontSize: "14px", lineHeight: 1.5 }}>{item.desc}</p>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.div>
         </section>
 
         {/* SOLUTION SECTION - Clean light layout */}
         <section className={styles.section} style={{ backgroundColor: "var(--primary-bg)", textAlign: "center", padding: "40px var(--container-padding) 100px" }}>
-          <motion.div 
-            initial="hidden" 
-            whileInView="show" 
-            viewport={{ once: true, margin: "-100px" }} 
-            variants={STAGGER} 
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={STAGGER}
             style={{ maxWidth: 900, margin: "0 auto", display: "flex", flexDirection: "column", gap: "32px", alignItems: "center" }}
           >
-            <motion.h3 
-              variants={FADE_UP} 
+            <motion.h3
+              variants={FADE_UP}
               style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 1.1, marginBottom: 0, color: "var(--text-main)" }}
             >
               We Validate AI Before It Breaks Your Business
             </motion.h3>
-            
-            <motion.p 
-              variants={FADE_UP} 
+
+            <motion.p
+              variants={FADE_UP}
               style={{ color: "var(--text-muted)", fontSize: "clamp(18px, 2vw, 24px)", lineHeight: 1.6, maxWidth: 700 }}
             >
               OpenVals provides audit-grade validation and adversarial testing for AI and machine learning systems.
             </motion.p>
-            
-            <motion.p 
-              variants={FADE_UP} 
+
+            <motion.p
+              variants={FADE_UP}
               style={{ fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 500, color: "var(--text-main)", marginTop: "16px" }}
             >
-              We don’t just check if your model works —<br/>
+              We don’t just check if your model works —<br />
               <span style={{ color: "var(--accent)", display: "inline-block", marginTop: "16px", fontWeight: 600 }}>
                 &rarr; We prove where it fails.
               </span>
@@ -160,7 +197,7 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
             <motion.h3 variants={FADE_UP}>If It&apos;s Not Validated, It&apos;s Not Ready</motion.h3>
             <motion.p variants={FADE_UP} style={{ marginBottom: "30px" }}>
-              AI is no longer experimental. It’s operational, business-critical, and high-risk. 
+              AI is no longer experimental. It’s operational, business-critical, and high-risk.
               OpenVals ensures your systems are trustworthy before deployment.
             </motion.p>
             <motion.div variants={FADE_UP}>

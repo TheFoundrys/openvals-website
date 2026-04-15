@@ -81,7 +81,7 @@ export default async function BlogPost({
           <div className="container">
             <h2 style={{ fontSize: "32px", marginBottom: "20px" }}>Article Not Found</h2>
             <p style={{ color: "var(--text-muted)", marginBottom: "40px" }}>The research paper you are looking for might have been moved or archived.</p>
-            <Link href="/blog" className={styles.button} style={{ background: "var(--accent)", color: "#000" }}>
+            <Link href="/blog" className={styles.button} style={{ background: "var(--accent)", color: "#fff" }}>
               Explore Other Research
             </Link>
           </div>
@@ -108,7 +108,7 @@ export default async function BlogPost({
             <h1 className={styles.blogTitle}>{post.title}</h1>
 
             <div className={styles.authorRow}>
-              <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", fontWeight: "bold", color: "#000" }}>
+              <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", fontWeight: "bold", color: "#fff" }}>
                 {post.author?.name?.charAt(0) || "O"}
               </div>
               <div>
@@ -140,7 +140,7 @@ export default async function BlogPost({
 
           <div style={{ marginTop: "80px", paddingTop: "40px", borderTop: "1px solid var(--border)", textAlign: "center" }}>
             <p style={{ fontSize: "18px", marginBottom: "24px", color: "var(--text-muted)" }}>Interested in securing your AI deployment?</p>
-            <Link href="/contact" className={styles.button} style={{ background: "var(--accent)", color: "#000" }}>
+            <Link href="/contact" className={styles.button} style={{ background: "var(--accent)", color: "#fff" }}>
               Discuss Custom Validation
             </Link>
           </div>
