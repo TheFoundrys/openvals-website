@@ -5,7 +5,6 @@ import styles from "./ui.module.css";
 const LOGOS = [
   "/logos/drpinnacle.png",
   "/logos/NYN.avif",
-  "/logos/openvals.avif",
   "/logos/Son-of-Egg-logo.avif",
   "/logos/strwbry.avif",
   "/logos/Techoptima.avif",
