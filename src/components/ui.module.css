@@ -149,7 +149,7 @@
   z-index: 99;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-.mobileMenu a {
+.mobileMenu a:not(.button) {
   font-size: 18px;
   font-family: var(--font-outfit);
   color: var(--text-main);
@@ -227,12 +227,12 @@
 }
 .primary {
   background-color: var(--accent);
-  color: #fff;
+  color: #ffffff !important;
   border: 1px solid var(--accent);
 }
 .primary:hover {
   background-color: transparent;
-  color: var(--accent);
+  color: var(--accent) !important;
 }
 .secondary {
   background-color: transparent;
