@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldAlert, Zap, Lock, Activity, Eye, FileBadge, ExternalLink, Book, FileText, Users } from "lucide-react";
+import { ShieldAlert, Activity, FileBadge, ExternalLink, Book, FileText, Users } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -24,23 +24,6 @@ const STAGGER = {
   },
 };
 
-const PUBLICATIONS = [
-  {
-    category: "Cybersecurity & Trustworthy AI",
-    papers: [
-      { title: "Multi-Agent Phishing Detection And Deletion via Small VLM and LLM Reasoning", conf: "2025 ICETE", link: "https://ieeexplore.ieee.org/author/231984777844193" },
-      { title: "RAG-Enhanced Multi-Model Ensemble for Automated Vulnerability Detection Using SLMs", conf: "2025 ICETE", link: "https://ieeexplore.ieee.org/author/231984777844193" },
-      { title: "Vulnerability Detection and Monitoring Using LLM", conf: "2023 ICCCNT", link: "https://ieeexplore.ieee.org/document/10456393" },
-      { title: "A Comprehensive Insight into Machine Learning-Based Approaches for Fake Profile Detection", conf: "2023 ICCCNT", link: "https://ieeexplore.ieee.org/author/231984777844193" }
-    ]
-  },
-  {
-    category: "AI Architectures & Applications",
-    papers: [
-      { title: "Pose Detection: Integrating Machine Learning with Large Vision Models", conf: "2025 IACIS", link: "https://ieeexplore.ieee.org/author/231984777844193" },
-    ]
-  }
-]
 const BOOKS = [
   {
     title: "The Shadows Of Deception",

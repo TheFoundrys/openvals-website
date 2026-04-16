@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Activity, BarChart3, Database, Search, Target, CheckCircle } from "lucide-react";
+import { Activity, BarChart3, Search, Target, CheckCircle } from "lucide-react";
 import styles from "../../../components/ui.module.css";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
@@ -88,7 +88,7 @@ export default function ModelValidationPage() {
                 </div>
                 <div style={{ padding: "48px", background: "var(--secondary-bg)", borderRadius: "24px", border: "1px solid var(--border)" }}>
                    <p style={{ fontSize: "24px", color: "var(--text-muted)", fontStyle: "italic", lineHeight: 1.5 }}>
-                     "Validation is not just about accuracy percentages. It's about understanding precisely how a model will perform on the data it has never seen."
+                     &quot;Validation is not just about accuracy percentages. It&apos;s about understanding precisely how a model will perform on the data it has never seen.&quot;
                    </p>
                 </div>
               </div>

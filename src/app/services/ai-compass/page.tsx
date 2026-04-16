@@ -4,12 +4,7 @@ import { motion } from "framer-motion";
 import { 
   Compass, 
   Cpu, 
-  Database, 
-  ShieldCheck, 
-  Binary, 
   ArrowRight,
-  Search,
-  Code2,
   BarChart3,
   Lock,
   FileCheck
@@ -176,7 +171,7 @@ export default function AICompassPage() {
               <div>
                 <h2 style={{ fontSize: "42px", marginBottom: "24px" }}>A 360° Approach to AI.</h2>
                 <p style={{ color: "var(--text-muted)", fontSize: "18px", marginBottom: "32px" }}>
-                  The AI Compass is not just a diagram; it's our methodology. We believe that for AI to be successful, it must be engineered correctly, driven by data-driven insights, governed with security in mind, and validated through rigorous quality checks.
+                  The AI Compass is not just a diagram; it&apos;s our methodology. We believe that for AI to be successful, it must be engineered correctly, driven by data-driven insights, governed with security in mind, and validated through rigorous quality checks.
                 </p>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
                   <div style={{ padding: "24px", background: "var(--primary-bg)", borderRadius: "12px", border: "1px solid var(--border)" }}>

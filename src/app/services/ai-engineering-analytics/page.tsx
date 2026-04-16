@@ -4,12 +4,10 @@ import { motion } from "framer-motion";
 import { 
   Cpu, 
   BarChart3, 
-  ArrowRight,
   Code2,
   LineChart,
   BrainCircuit,
   Settings2,
-  Database,
   Search,
   Zap
 } from "lucide-react";
@@ -126,7 +124,7 @@ export default function AIEngineeringAnalyticsPage() {
                 <motion.div variants={FADE_UP} className={styles.card}>
                   <Search size={40} />
                   <h4>Diagnostic Insights</h4>
-                  <p>Deep-dive analysis to understand the "why" behind data patterns and model behaviors.</p>
+                  <p>Deep-dive analysis to understand the &quot;why&quot; behind data patterns and model behaviors.</p>
                   <ul style={{ marginTop: "20px", listStyle: "none", padding: 0, color: "var(--text-muted)", fontSize: "14px" }}>
                     <li style={{ marginBottom: "8px" }}>• Root Cause Analysis</li>
                     <li style={{ marginBottom: "8px" }}>• Descriptive Statistics</li>

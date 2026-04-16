@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldAlert, Zap, AlertTriangle, Bug, Terminal, ArrowRight } from "lucide-react";
+import { ShieldAlert, AlertTriangle, Bug, Terminal } from "lucide-react";
 import styles from "../../../components/ui.module.css";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
@@ -95,7 +95,7 @@ export default function RedTeamingPage() {
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
               <motion.h2 variants={FADE_UP} style={{ fontSize: "42px", marginBottom: "24px" }}>Test Your Model Today.</motion.h2>
               <motion.p variants={FADE_UP} style={{ color: "var(--text-muted)", marginBottom: "40px", fontSize: "18px" }}>
-                Don't wait for a public jailbreak. Get a comprehensive red teaming report now.
+                Don&apos;t wait for a public jailbreak. Get a comprehensive red teaming report now.
               </motion.p>
               <motion.div variants={FADE_UP}>
                 <Link href="/apply" className={`${styles.button} ${styles.primary}`}>

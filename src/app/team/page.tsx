@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, LinkedIn, Mail, Users, ArrowRight } from "lucide-react";
+import { Users } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -62,7 +62,7 @@ export default function TeamPage() {
                 The Minds Behind the <br /><span style={{ color: "var(--accent)" }}>Trust Layer</span>.
               </motion.h1>
               <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 22px)", color: "var(--text-muted)", lineHeight: 1.6, maxWidth: "800px", margin: "0 auto" }}>
-                We bring together expertise in deep tech, cybersecurity, and strategic business intelligence to solve the world's most complex AI reliability challenges.
+                We bring together expertise in deep tech, cybersecurity, and strategic business intelligence to solve the world&apos;s most complex AI reliability challenges.
               </motion.p>
             </div>
 
@@ -131,7 +131,7 @@ export default function TeamPage() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={FADE_UP} style={{ maxWidth: "600px", margin: "0 auto" }}>
             <h2 style={{ fontSize: "32px", marginBottom: "24px" }}>Join Our Mission.</h2>
             <p style={{ color: "var(--text-muted)", marginBottom: "40px" }}>
-              We are always looking for passionate minds to join the OpenVals journey. If you believe you have what it takes to build the future of AI trust, let's talk.
+              We are always looking for passionate minds to join the OpenVals journey. If you believe you have what it takes to build the future of AI trust, let&apos;s talk.
             </p>
             <Link href="/contact" className={styles.button} style={{ background: "var(--accent)", color: "#fff" }}>
               Work With Us
