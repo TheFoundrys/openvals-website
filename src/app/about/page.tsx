@@ -1,11 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldAlert, Zap, Lock, Activity, Eye, FileBadge, ExternalLink, Book, FileText } from "lucide-react";
+import { ShieldAlert, Zap, Lock, Activity, Eye, FileBadge, ExternalLink, Book, FileText, Users } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import AmbientGrid from "../../components/AmbientGrid";
+import TrustedBy from "../../components/TrustedBy";
+import Link from "next/link";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
@@ -111,6 +113,8 @@ export default function About() {
             </motion.p>
           </motion.div>
         </section>
+
+        <TrustedBy />
 
         {/* NARRATIVE SPLIT */}
         <section className={styles.section} style={{ backgroundColor: "var(--secondary-bg)", padding: "100px var(--container-padding)" }}>
@@ -244,8 +248,11 @@ export default function About() {
                     <a href="https://github.com/vishwanathakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                       GitHub <ExternalLink size={14} />
                     </a>
+                    <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                      Meet the Team <Users size={14} />
+                    </Link>
                     <a href="/research" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, padding: "8px 12px", background: "var(--accent)", color: "#fff", borderRadius: "8px", border: "1px solid var(--accent)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                      Research Papers <FileText size={14} />
+                      Research gate <FileText size={14} />
                     </a>
                   </div>
                 </motion.div>

@@ -11,7 +11,6 @@ import AmbientGrid from "../components/AmbientGrid";
 import AmbientBlobs from "../components/AmbientBlobs";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import TrustedBy from "../components/TrustedBy";
 
 const FADE_UP: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -61,7 +60,6 @@ export default function Home() {
           </div>
         </section>
 
-        <TrustedBy />
 
         <section className={styles.section} style={{ backgroundColor: "var(--secondary-bg)" }}>
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>

@@ -7,10 +7,28 @@ import styles from "./ui.module.css";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navLinks = [
-    { name: "Our Services", href: "/compass" },
+    { 
+      name: "Our Services", 
+      href: "/services/ai-compass",
+      subItems: [
+        { name: "AI Compass Overview", href: "/services/ai-compass" },
+        { name: "AI Engineering & Analytics", href: "/services/ai-engineering-analytics" },
+        { name: "AI Assurance & Data", href: "/services/ai-assurance-data" },
+      ]
+    },
+    { 
+      name: "Our Solutions", 
+      href: "/#services",
+      /* subItems: [
+        { name: "AI Red Teaming", href: "/solutions/ai-red-teaming" },
+        { name: "Model Validation", href: "/solutions/ai-model-validation" },
+        { name: "AI Security", href: "/solutions/ai-security" },
+        { name: "AI Compliance", href: "/solutions/ai-compliance" },
+      ] */
+    },
     { name: "About Us", href: "/about" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
@@ -24,9 +42,36 @@ export default function Header() {
         </h1>
         <nav className={styles.nav}>
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href}>
-              {link.name}
-            </Link>
+            <div 
+              key={link.name} 
+              className={styles.dropdown}
+              onMouseEnter={() => link.subItems && setOpenDropdown(link.name)}
+              onMouseLeave={() => link.subItems && setOpenDropdown(null)}
+            >
+              <Link href={link.href} className={styles.dropdownTrigger}>
+                {link.name} {link.subItems && <ChevronDown size={14} />}
+              </Link>
+              
+              {link.subItems && (
+                <AnimatePresence>
+                  {openDropdown === link.name && (
+                    <motion.div 
+                      className={styles.dropdownContent}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {link.subItems.map((sub) => (
+                        <Link key={sub.name} href={sub.href} className={styles.dropdownItem}>
+                          {sub.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              )}
+            </div>
           ))}
         </nav>
         <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
@@ -56,9 +101,20 @@ export default function Header() {
               Get Your AI/ML Validated
             </Link>
             {navLinks.map((link) => (
-              <Link key={link.name} href={link.href} onClick={() => setIsMenuOpen(false)}>
-                {link.name}
-              </Link>
+              <div key={link.name}>
+                <Link href={link.href} onClick={() => setIsMenuOpen(false)} style={{ fontWeight: 600 }}>
+                  {link.name}
+                </Link>
+                {link.subItems && (
+                  <div style={{ paddingLeft: "20px", marginTop: "12px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                    {link.subItems.map((sub) => (
+                      <Link key={sub.name} href={sub.href} onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
+                        {sub.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </motion.div>
         )}
