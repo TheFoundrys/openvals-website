@@ -169,8 +169,8 @@ export default function About() {
                 },
                 {
                   icon: ShieldAlert,
-                  title: "Break",
-                  desc: "Active red-teaming and adversarial simulations to uncover prompt injection and model leakage."
+                  title: "Secure",
+                  desc: "Deep security auditing and vulnerability assessments to identify data exposure and architectural risks."
                 },
                 {
                   icon: FileBadge,

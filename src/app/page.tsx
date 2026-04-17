@@ -77,23 +77,14 @@ export default function Home() {
             <motion.h3 variants={FADE_UP}>Our Offerings</motion.h3>
             <motion.div className={styles.grid} variants={STAGGER}>
               {[
-                // { icon: ShieldAlert, title: "AI Red Teaming", desc: "Adversarial testing to uncover prompt injection, jailbreaks, and model vulnerabilities.", capabilities: ["Prompt Injection", "Jailbreak Simulation"], href: "/solutions/ai-red-teaming" },
-                { icon: Activity, title: "Model Validation", desc: "Rigorous evaluation of performance, bias, and accuracy across diverse data sets.", capabilities: ["Bias Detection", "Stress Testing"], href: "/solutions/ai-model-validation" },
-                { icon: Lock, title: "AI Security", desc: "Securing data pipelines and API endpoints against model extraction and leakage.", capabilities: ["API Security", "Model Stealing Defense"], href: "/solutions/ai-security" },
-                { icon: FileBadge, title: "AI Compliance", desc: "Ensuring regulatory alignment with audit-ready validation reports.", capabilities: ["EU AI Act", "Audit Logging"], href: "/solutions/ai-compliance" },
+                { icon: Activity, title: "Model Validation", desc: "Industrial-grade evaluation of AI performance, bias detection, and accuracy audits across enterprise datasets.", href: "/solutions/ai-model-validation" },
+                { icon: Lock, title: "AI Security Posture", desc: "Securing AI data pipelines against model extraction, intellectual property theft, and sensitive data leakage.", href: "/solutions/ai-security" },
+                { icon: FileBadge, title: "Regulatory Compliance", desc: "Audit-ready alignment with the EU AI Act, NIST AI Framework, and global responsible AI standards.", href: "/solutions/ai-compliance" },
               ].map((service, i) => (
                 <motion.div key={i} className={styles.card} variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <div style={{ color: "var(--accent)" }}><service.icon size={28} /></div>
-                  <h4 style={{ margin: 0 }}>{service.title}</h4>
-                  <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5" }}>{service.desc}</p>
-
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                    {/* {service.capabilities.map((cap, idx) => (
-                      <span key={idx} style={{ fontSize: "10px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em", color: "#FFFFFF", padding: "4px 8px", background: "var(--accent)", borderRadius: "4px" }}>
-                        {cap}
-                      </span>
-                    ))} */}
-                  </div>
+                  <h4 style={{ margin: 0, fontSize: "20px" }}>{service.title}</h4>
+                  <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5", color: "var(--text-muted)" }}>{service.desc}</p>
 
                   <div style={{ marginTop: "auto", paddingTop: "12px" }}>
                     <Link href={service.href} className={styles.textLink} style={{ fontSize: "14px", fontWeight: "600", color: "var(--accent)", display: "inline-flex", alignItems: "center", gap: "4px" }}>
@@ -139,10 +130,10 @@ export default function Home() {
                     style={{ marginTop: "40px" }}
                   >
                     {[
-                      { icon: Zap, title: "V1: Validation", desc: "Accuracy, bias, performance" },
-                      { icon: Eye, title: "V2: Vulnerability", desc: "Attacks, exploits, leakage" },
-                      { icon: Fingerprint, title: "V3: Variability", desc: "Drift, instability, edge cases" },
-                      { icon: BookOpen, title: "V4: Verifiability", desc: "Audit, reporting, certification" },
+                      { icon: Zap, title: "V1: Model Validation", desc: "Rigorous testing of accuracy, bias, and performance across diverse datasets." },
+                      { icon: Eye, title: "V2: AI Vulnerability", desc: "Security and exposure testing to detect systemic attacks and data leakage." },
+                      { icon: Fingerprint, title: "V3: Variability Analysis", desc: "Monitoring for model drift, instability, and performance in edge cases." },
+                      { icon: BookOpen, title: "V4: AI Verifiability", desc: "Audit-grade reporting, certification, and regulatory compliance alignment." },
                     ].map((item, i) => (
                       <motion.div
                         key={i}
@@ -182,16 +173,16 @@ export default function Home() {
               variants={FADE_UP}
               style={{ color: "var(--text-muted)", fontSize: "clamp(18px, 2vw, 24px)", lineHeight: 1.6, maxWidth: 700 }}
             >
-              OpenVals provides audit-grade validation and adversarial testing for AI and machine learning systems.
+              OpenVals provides industrial-grade validation, security auditing, and regulatory assurance for AI and machine learning systems.
             </motion.p>
 
             <motion.p
               variants={FADE_UP}
               style={{ fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 500, color: "var(--text-main)", marginTop: "16px" }}
             >
-              We don’t just check if your model works —<br />
+              We don’t just check if your models work —<br />
               <span style={{ color: "var(--accent)", display: "inline-block", marginTop: "16px", fontWeight: 600 }}>
-                &rarr; We prove where it fails.
+                &rarr; We prove where they fail.
               </span>
             </motion.p>
           </motion.div>
