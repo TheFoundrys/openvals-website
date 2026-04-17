@@ -10,23 +10,26 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navLinks = [
-    { 
-      name: "Our Services", 
-      href: "/services/ai-compass",
-      subItems: [
-        { name: "AI Compass Overview", href: "/services/ai-compass" },
-        { name: "AI Engineering & Analytics", href: "/services/ai-engineering-analytics" },
-        { name: "AI Assurance & Data", href: "/services/ai-assurance-data" },
-      ]
-    },
-    { 
-      name: "Our Solutions", 
+
+    {
+      name: "Our Services",
       href: "/#services",
       subItems: [
-        { name: "AI Red Teaming", href: "/solutions/ai-red-teaming" },
+        // { name: "AI Red Teaming", href: "/solutions/ai-red-teaming" },
         { name: "Model Validation", href: "/solutions/ai-model-validation" },
         { name: "AI Security", href: "/solutions/ai-security" },
         { name: "AI Compliance", href: "/solutions/ai-compliance" },
+      ]
+    },
+    {
+      name: "Our Solutions",
+      href: "/services/ai-compass",
+      subItems: [
+        { name: "AI Compass", href: "/services/ai-compass" },
+        { name: "OptGPT", href: "/products/optgpt" },
+        { name: "OptSearch", href: "/products/optsearch" },
+        { name: "Radius", href: "/products/radius" },
+        { name: "OptGrad", href: "/products/optgrad" },
       ]
     },
     { name: "About Us", href: "/about" },
@@ -42,8 +45,8 @@ export default function Header() {
         </h1>
         <nav className={styles.nav}>
           {navLinks.map((link) => (
-            <div 
-              key={link.name} 
+            <div
+              key={link.name}
               className={styles.dropdown}
               onMouseEnter={() => link.subItems && setOpenDropdown(link.name)}
               onMouseLeave={() => link.subItems && setOpenDropdown(null)}
@@ -51,11 +54,11 @@ export default function Header() {
               <Link href={link.href} className={styles.dropdownTrigger}>
                 {link.name} {link.subItems && <ChevronDown size={14} />}
               </Link>
-              
+
               {link.subItems && (
                 <AnimatePresence>
                   {openDropdown === link.name && (
-                    <motion.div 
+                    <motion.div
                       className={styles.dropdownContent}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -92,9 +95,9 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
           >
-            <Link 
-              href="/apply" 
-              className={`${styles.button} ${styles.primary}`} 
+            <Link
+              href="/apply"
+              className={`${styles.button} ${styles.primary}`}
               style={{ width: "100%", textAlign: "center", marginBottom: "20px" }}
               onClick={() => setIsMenuOpen(false)}
             >

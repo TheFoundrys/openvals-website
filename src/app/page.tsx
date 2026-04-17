@@ -74,24 +74,31 @@ export default function Home() {
         <section id="services" className={styles.section}>
           <AmbientGrid />
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
-            <motion.h3 variants={FADE_UP}>Core offerings</motion.h3>
+            <motion.h3 variants={FADE_UP}>Our Offerings</motion.h3>
             <motion.div className={styles.grid} variants={STAGGER}>
               {[
-                { icon: ShieldAlert, title: "AI Red Teaming", desc: "Adversarial testing to uncover prompt injection, jailbreaks, and model vulnerabilities.", capabilities: ["Prompt Injection", "Jailbreak Simulation"] },
-                { icon: Activity, title: "Model Validation", desc: "Rigorous evaluation of performance, bias, and accuracy across diverse data sets.", capabilities: ["Bias Detection", "Stress Testing"] },
-                { icon: Lock, title: "AI Security", desc: "Securing data pipelines and API endpoints against model extraction and leakage.", capabilities: ["API Security", "Model Stealing Defense"] },
-                { icon: FileBadge, title: "AI Compliance", desc: "Ensuring regulatory alignment with audit-ready validation reports.", capabilities: ["EU AI Act", "Audit Logging"] },
+                // { icon: ShieldAlert, title: "AI Red Teaming", desc: "Adversarial testing to uncover prompt injection, jailbreaks, and model vulnerabilities.", capabilities: ["Prompt Injection", "Jailbreak Simulation"], href: "/solutions/ai-red-teaming" },
+                { icon: Activity, title: "Model Validation", desc: "Rigorous evaluation of performance, bias, and accuracy across diverse data sets.", capabilities: ["Bias Detection", "Stress Testing"], href: "/solutions/ai-model-validation" },
+                { icon: Lock, title: "AI Security", desc: "Securing data pipelines and API endpoints against model extraction and leakage.", capabilities: ["API Security", "Model Stealing Defense"], href: "/solutions/ai-security" },
+                { icon: FileBadge, title: "AI Compliance", desc: "Ensuring regulatory alignment with audit-ready validation reports.", capabilities: ["EU AI Act", "Audit Logging"], href: "/solutions/ai-compliance" },
               ].map((service, i) => (
                 <motion.div key={i} className={styles.card} variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <div style={{ color: "var(--accent)" }}><service.icon size={28} /></div>
                   <h4 style={{ margin: 0 }}>{service.title}</h4>
                   <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5" }}>{service.desc}</p>
-                  <div style={{ marginTop: "auto", paddingTop: "12px", borderTop: "1px solid var(--border)", display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                    {service.capabilities.map((cap, idx) => (
+
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                    {/* {service.capabilities.map((cap, idx) => (
                       <span key={idx} style={{ fontSize: "10px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em", color: "#FFFFFF", padding: "4px 8px", background: "var(--accent)", borderRadius: "4px" }}>
                         {cap}
                       </span>
-                    ))}
+                    ))} */}
+                  </div>
+
+                  <div style={{ marginTop: "auto", paddingTop: "12px" }}>
+                    <Link href={service.href} className={styles.textLink} style={{ fontSize: "14px", fontWeight: "600", color: "var(--accent)", display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                      Explore more &rarr;
+                    </Link>
                   </div>
                 </motion.div>
               ))}
@@ -102,12 +109,12 @@ export default function Home() {
           <AmbientBlobs />
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
             <div style={{ position: "relative", marginBottom: "60px" }}>
-              <motion.h3 
-                variants={FADE_UP} 
+              <motion.h3
+                variants={FADE_UP}
                 onClick={() => setIsFrameworkOpen(!isFrameworkOpen)}
-                style={{ 
-                  fontSize: "36px", 
-                  fontWeight: 700, 
+                style={{
+                  fontSize: "36px",
+                  fontWeight: 700,
                   cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
@@ -123,12 +130,12 @@ export default function Home() {
 
               <AnimatePresence>
                 {isFrameworkOpen && (
-                  <motion.div 
+                  <motion.div
                     variants={STAGGER}
                     initial="hidden"
                     animate="show"
                     exit="hidden"
-                    className={styles.grid} 
+                    className={styles.grid}
                     style={{ marginTop: "40px" }}
                   >
                     {[
@@ -137,9 +144,9 @@ export default function Home() {
                       { icon: Fingerprint, title: "V3: Variability", desc: "Drift, instability, edge cases" },
                       { icon: BookOpen, title: "V4: Verifiability", desc: "Audit, reporting, certification" },
                     ].map((item, i) => (
-                      <motion.div 
-                        key={i} 
-                        className={styles.card} 
+                      <motion.div
+                        key={i}
+                        className={styles.card}
                         style={{ backgroundColor: "var(--primary-bg)", padding: "40px", borderRadius: "16px", border: "1px solid var(--border)" }}
                         variants={FADE_UP}
                       >

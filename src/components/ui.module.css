@@ -619,3 +619,13 @@
     padding: 16px 0;
   }
 }
+.textLink {
+  transition: all 0.2s ease;
+  padding: 4px 0;
+  position: relative;
+}
+
+.textLink:hover {
+  color: var(--accent-light) !important;
+  transform: translateX(4px);
+}

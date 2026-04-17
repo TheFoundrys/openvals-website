@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldAlert, Activity, FileBadge, ExternalLink, Book, FileText, Users } from "lucide-react";
+import { ShieldAlert, Activity, FileBadge, ExternalLink, Book, FileText, Users, Microscope } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -234,8 +234,8 @@ export default function About() {
                     <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                       Meet the Team <Users size={14} />
                     </Link>
-                    <a href="/research" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, padding: "8px 12px", background: "var(--accent)", color: "#fff", borderRadius: "8px", border: "1px solid var(--accent)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                      Research gate <FileText size={14} />
+                    <a href="https://www.researchgate.net/profile/Vishwanath-Akuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, padding: "8px 12px", background: "var(--accent)", color: "#fff", borderRadius: "8px", border: "1px solid var(--accent)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                      Research Gate <Microscope size={14} />
                     </a>
                   </div>
                 </motion.div>
