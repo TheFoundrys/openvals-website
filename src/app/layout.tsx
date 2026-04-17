@@ -19,16 +19,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://openvalidations.com"),
   title: "OpenVals | Enterprise AI Validation, Security & Compliance",
   description: "OpenVals provides industrial-grade AI model validation, adversarial red teaming, and regulatory compliance for the EU AI Act and NIST. Build trustworthy AI systems today.",
   keywords: [
-    "AI Validation", 
-    "AI Security", 
-    "AI Trust", 
-    "Model Validation", 
-    "AI Governance", 
-    "EU AI Act Compliance", 
-    "Responsible AI", 
+    "AI Validation",
+    "AI Security",
+    "AI Trust",
+    "Model Validation",
+    "AI Governance",
+    "EU AI Act Compliance",
+    "Responsible AI",
     "AI Performance Auditing"
   ],
   openGraph: {
@@ -38,11 +39,24 @@ export const metadata: Metadata = {
     siteName: "OpenVals",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/logos/open%20vals%20logo.png",
+        width: 1200,
+        height: 630,
+        alt: "OpenVals Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "OpenVals | The Trust Layer for AI",
     description: "Rigorous AI validation and adversarial red teaming to ensure model security and reliability.",
+    images: ["/logos/open%20vals%20logo.png"],
+  },
+  icons: {
+    icon: "/logos/open%20vals%20logo.png",
+    apple: "/logos/open%20vals%20logo.png",
   },
 };
 
