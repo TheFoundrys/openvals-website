@@ -22,12 +22,12 @@ export default function Header() {
     { 
       name: "Our Solutions", 
       href: "/#services",
-      /* subItems: [
+      subItems: [
         { name: "AI Red Teaming", href: "/solutions/ai-red-teaming" },
         { name: "Model Validation", href: "/solutions/ai-model-validation" },
         { name: "AI Security", href: "/solutions/ai-security" },
         { name: "AI Compliance", href: "/solutions/ai-compliance" },
-      ] */
+      ]
     },
     { name: "About Us", href: "/about" },
     { name: "Blog", href: "/blog" },
