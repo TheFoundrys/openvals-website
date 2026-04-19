@@ -43,7 +43,10 @@ export default async function BlogIndex() {
       <main className={styles.section} style={{ paddingTop: "120px" }}>
         <div className="container" style={{ margin: "0 auto", padding: "0 var(--container-padding)" }}>
           <div style={{ marginBottom: "60px" }}>
-            <h1 style={{ fontSize: "clamp(36px, 6vw, 64px)", lineHeight: 1.1, marginBottom: "16px" }}>
+            <h1 
+              style={{ fontSize: "clamp(36px, 6vw, 64px)", lineHeight: 1.1, marginBottom: "24px" }}
+              className={styles.sectionTitleHighlighted}
+            >
               OpenVals Research <br /><span style={{ color: "var(--accent)" }}>& Blog</span>.
             </h1>
             <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "600px" }}>

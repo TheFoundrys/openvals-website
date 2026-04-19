@@ -66,7 +66,11 @@ export default function ServicesPage() {
             style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}
           >
             <div style={{ maxWidth: "800px", marginBottom: "80px" }}>
-              <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(48px, 8vw, 84px)", lineHeight: 1, marginBottom: "32px" }}>
+              <motion.h1 
+                variants={FADE_UP} 
+                style={{ fontSize: "clamp(48px, 8vw, 84px)", lineHeight: 1, marginBottom: "32px" }}
+                className={styles.sectionTitleHighlighted}
+              >
                 Our <span style={{ color: "var(--accent)" }}>Services</span>.
               </motion.h1>
               <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--text-muted)", lineHeight: 1.6 }}>
@@ -114,7 +118,7 @@ export default function ServicesPage() {
               variants={STAGGER} 
               style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}
             >
-              <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(32px, 5vw, 48px)", marginBottom: "24px" }}>Ready to Validate?</motion.h2>
+              <motion.h2 variants={FADE_UP} className={styles.sectionTitleHighlighted} style={{ fontSize: "clamp(32px, 5vw, 48px)", marginBottom: "24px" }}>Ready to Validate?</motion.h2>
               <motion.p variants={FADE_UP} style={{ color: "var(--text-muted)", marginBottom: "40px", fontSize: "18px" }}>
                 Get a comprehensive audit of your AI model&apos;s safety, security, and performance.
               </motion.p>

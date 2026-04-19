@@ -11,10 +11,24 @@
   z-index: 100;
 }
 .header h1 {
-  font-size: 28px;
-  font-weight: 700;
   margin: 0;
-  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+}
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.logoWrapper:hover {
+  opacity: 0.8;
+}
+.logoText {
+  font-family: var(--font-outfit);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--logo-color);
 }
 .nav {
   display: flex;
@@ -25,10 +39,31 @@
   margin-right: 40px;
 }
 .nav a {
-  transition: color 0.2s;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 .nav a:hover {
-  color: var(--text-main);
+  color: var(--accent);
+}
+.navLinkHighlighted {
+  color: var(--text-main) !important;
+  font-weight: 600 !important;
+}
+.navLinkHighlighted::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.navLinkHighlighted:hover::after {
+  transform: scaleX(1);
 }
 .dropdown {
   position: relative;
@@ -253,6 +288,21 @@
   margin-bottom: 24px;
   position: relative;
   z-index: 10;
+}
+.sectionTitleHighlighted {
+  display: inline-block;
+  position: relative;
+}
+.sectionTitleHighlighted::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 80%;
+  background: var(--accent);
+  border-radius: 2px;
 }
 .section p {
   color: var(--text-muted);

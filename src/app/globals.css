@@ -9,6 +9,7 @@
   --card-bg: #FFFFFF;
   --grid-dot: rgba(0, 0, 0, 0.1);
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --logo-color: #1a2b3d;
   --orb-bg: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(240, 249, 255, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
   --orb-border: rgba(0, 0, 0, 0.1);
   --container-padding: clamp(20px, 5vw, 60px);
@@ -27,6 +28,7 @@
     --card-bg: #111827;
     --grid-dot: rgba(255, 255, 255, 0.1);
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    --logo-color: #FFFFFF;
     --orb-bg: radial-gradient(circle at 30% 30%, rgba(17, 24, 39, 0.8) 0%, rgba(11, 15, 25, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
     --orb-border: rgba(255, 255, 255, 0.2);
   }
@@ -42,6 +44,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1,
+h2,
 h1,
 h2,
 h3,

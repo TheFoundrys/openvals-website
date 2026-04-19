@@ -150,7 +150,7 @@ export default function About() {
               variants={STAGGER}
               style={{ textAlign: "center", marginBottom: "60px" }}
             >
-              <motion.h3 variants={FADE_UP}>Our Pillars of Trust</motion.h3>
+              <motion.h3 variants={FADE_UP} className={styles.sectionTitleHighlighted}>Our Pillars of Trust</motion.h3>
               <motion.p variants={FADE_UP} style={{ margin: "0 auto", maxWidth: "600px" }}>The methodology behind the industry&apos;s most rigorous validation framework.</motion.p>
             </motion.div>
 

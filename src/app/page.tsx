@@ -74,7 +74,7 @@ export default function Home() {
         <section id="services" className={styles.section}>
           <AmbientGrid />
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
-            <motion.h3 variants={FADE_UP}>Our Offerings</motion.h3>
+            <motion.h3 variants={FADE_UP} className={styles.sectionTitleHighlighted}>Our Services</motion.h3>
             <motion.div className={styles.grid} variants={STAGGER}>
               {[
                 { icon: Activity, title: "Model Validation", desc: "Industrial-grade evaluation of AI performance, bias detection, and accuracy audits across enterprise datasets.", href: "/solutions/ai-model-validation" },

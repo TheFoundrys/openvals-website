@@ -63,7 +63,11 @@ export default function Contact() {
                             animate="show"
                             variants={STAGGER}
                         >
-                            <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(48px, 8vw, 80px)", margin: "0 0 24px 0", lineHeight: 1.1, color: "var(--text-main)" }}>
+                            <motion.h1 
+                                variants={FADE_UP} 
+                                style={{ fontSize: "clamp(48px, 8vw, 80px)", margin: "0 0 24px 0", lineHeight: 1.1, color: "var(--text-main)" }}
+                                className={styles.sectionTitleHighlighted}
+                            >
                                 Say <span style={{ color: "var(--accent)" }}>Hello</span>.
                             </motion.h1>
                             <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--text-muted)", lineHeight: 1.6, margin: "0 auto 60px" }}>

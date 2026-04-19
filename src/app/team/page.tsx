@@ -58,7 +58,11 @@ export default function TeamPage() {
               <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", fontWeight: "700", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
                 <Users size={20} /> OUR TEAM
               </motion.div>
-              <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(48px, 8vw, 72px)", lineHeight: 1.1, marginBottom: "24px" }}>
+              <motion.h1 
+                variants={FADE_UP} 
+                style={{ fontSize: "clamp(48px, 8vw, 72px)", lineHeight: 1.1, marginBottom: "24px" }}
+                className={styles.sectionTitleHighlighted}
+              >
                 The Minds Behind the <br /><span style={{ color: "var(--accent)" }}>Trust Layer</span>.
               </motion.h1>
               <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 22px)", color: "var(--text-muted)", lineHeight: 1.6, maxWidth: "800px", margin: "0 auto" }}>

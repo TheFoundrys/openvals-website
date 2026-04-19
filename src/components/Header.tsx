@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
+import Logo from "./Logo";
 import styles from "./ui.module.css";
 
 export default function Header() {
@@ -14,6 +15,7 @@ export default function Header() {
     {
       name: "Our Services",
       href: "/#services",
+      highlight: true,
       subItems: [
         // { name: "AI Red Teaming", href: "/solutions/ai-red-teaming" },
         { name: "Model Validation", href: "/solutions/ai-model-validation" },
@@ -24,6 +26,7 @@ export default function Header() {
     {
       name: "Our Solutions",
       href: "/services/ai-compass",
+      highlight: true,
       subItems: [
         { name: "AI Compass", href: "/services/ai-compass" },
         { name: "OptGPT", href: "/products/optgpt" },
@@ -32,17 +35,15 @@ export default function Header() {
         { name: "OptGrad", href: "/products/optgrad" },
       ]
     },
-    { name: "About Us", href: "/about" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
+    { name: "About Us", href: "/about", highlight: true },
+    { name: "Blog", href: "/blog", highlight: true },
+    { name: "Contact", href: "/contact", highlight: true },
   ];
 
   return (
     <>
       <header className={styles.header}>
-        <h1>
-          <Link href="/">OpenVals</Link>
-        </h1>
+        <Logo size="sm" />
         <nav className={styles.nav}>
           {navLinks.map((link) => (
             <div
@@ -51,7 +52,10 @@ export default function Header() {
               onMouseEnter={() => link.subItems && setOpenDropdown(link.name)}
               onMouseLeave={() => link.subItems && setOpenDropdown(null)}
             >
-              <Link href={link.href} className={styles.dropdownTrigger}>
+              <Link 
+                href={link.href} 
+                className={`${styles.dropdownTrigger} ${link.highlight ? styles.navLinkHighlighted : ""}`}
+              >
                 {link.name} {link.subItems && <ChevronDown size={14} />}
               </Link>
 

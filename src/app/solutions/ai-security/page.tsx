@@ -36,7 +36,11 @@ export default function AISecurityPage() {
               <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "700", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
                 <Lock size={20} /> CORE SOLUTION
               </motion.div>
-              <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(48px, 6vw, 75px)", lineHeight: 1.1, marginBottom: "32px" }}>
+              <motion.h1 
+                variants={FADE_UP} 
+                style={{ fontSize: "clamp(48px, 6vw, 75px)", lineHeight: 1.1, marginBottom: "32px" }}
+                className={styles.sectionTitleHighlighted}
+              >
                 AI <span style={{ color: "var(--accent)" }}>Security</span>.
               </motion.h1>
               <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--text-muted)", lineHeight: 1.6 }}>

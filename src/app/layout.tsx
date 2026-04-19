@@ -55,8 +55,11 @@ export const metadata: Metadata = {
     images: ["/logos/open%20vals%20logo.png"],
   },
   icons: {
-    icon: "/logos/open%20vals%20logo.png",
-    apple: "/logos/open%20vals%20logo.png",
+    icon: [
+      { url: "/main-site-icon.svg?v=final" },
+      { url: "/main-site-icon.svg?v=final", rel: "shortcut icon" },
+    ],
+    apple: "/main-site-icon.svg?v=final",
   },
 };
 
