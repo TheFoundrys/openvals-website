@@ -77,9 +77,9 @@ export default function Home() {
             <motion.h3 variants={FADE_UP} className={styles.sectionTitleHighlighted}>Our Services</motion.h3>
             <motion.div className={styles.grid} variants={STAGGER}>
               {[
-                { icon: Activity, title: "Model Validation", desc: "Industrial-grade evaluation of AI performance, bias detection, and accuracy audits across enterprise datasets.", href: "/solutions/ai-model-validation" },
-                { icon: Lock, title: "AI Security", desc: "Securing AI data pipelines against model extraction, intellectual property theft, and sensitive data leakage.", href: "/solutions/ai-security" },
-                { icon: FileBadge, title: "AI Compliance", desc: "Audit-ready alignment with the EU AI Act, NIST AI Framework, and global responsible AI standards.", href: "/solutions/ai-compliance" },
+                { icon: Activity, title: "AI/ML Model Validation", desc: "Industrial-grade evaluation of AI performance, bias detection, and accuracy audits across enterprise datasets.", href: "/solutions/ai-model-validation" },
+                { icon: Lock, title: "AI/ML Security", desc: "Securing AI data pipelines against model extraction, intellectual property theft, and sensitive data leakage.", href: "/solutions/ai-security" },
+                { icon: FileBadge, title: "AI/ML Compliance", desc: "Audit-ready alignment with the EU AI Act, NIST AI Framework, and global responsible AI standards.", href: "/solutions/ai-compliance" },
               ].map((service, i) => (
                 <motion.div key={i} className={styles.card} variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <div style={{ color: "var(--accent)" }}><service.icon size={28} /></div>
