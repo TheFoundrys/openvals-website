@@ -140,7 +140,7 @@ export default function AICompassPage() {
               </motion.div>
               <motion.div variants={FADE_UP} initial="hidden" whileInView="show" viewport={{ once: true }} style={{ background: "var(--primary-bg)", padding: "48px", borderRadius: "32px", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}>
                 <p style={{ fontSize: "24px", fontWeight: "500", lineHeight: 1.5 }}>
-                  "With AI Compass, organizations can confidently navigate complexity, reduce uncertainty, and accelerate innovation."
+                  &quot;With AI Compass, organizations can confidently navigate complexity, reduce uncertainty, and accelerate innovation.&quot;
                 </p>
               </motion.div>
             </div>

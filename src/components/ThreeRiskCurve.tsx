@@ -6,8 +6,7 @@ import { Line, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 
 function RiskCurve() {
-  const lineRef = useRef<any>(null);
-  const pointsRef = useRef<any>(null);
+  const lineRef = useRef<THREE.Group>(null);
 
   // Generate dynamic performance curve points
   const points = useMemo(() => {

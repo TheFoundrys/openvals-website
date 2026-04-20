@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion, Variants, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { ShieldAlert, Fingerprint, Lock, FileBadge, Activity, Eye, Zap, BookOpen, ChevronDown, AlertCircle, Compass, Cpu, ShieldCheck, ArrowRight } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { ShieldAlert, Lock, FileBadge, Activity, AlertCircle, Compass, Cpu, ShieldCheck, ArrowRight } from "lucide-react";
 import styles from "../components/ui.module.css";
 import NeuralCore from "../components/NeuralCore";
 import ContinuousStream from "../components/ContinuousStream";
@@ -29,7 +28,6 @@ const STAGGER: Variants = {
 };
 
 export default function Home() {
-  const [isFrameworkOpen, setIsFrameworkOpen] = useState(true);
   return (
     <>
       <Header />
