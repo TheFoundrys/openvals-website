@@ -10,26 +10,31 @@
   backdrop-filter: blur(10px);
   z-index: 100;
 }
+
 .header h1 {
   margin: 0;
   display: flex;
   align-items: center;
 }
+
 .logoWrapper {
   display: flex;
   align-items: center;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
+
 .logoWrapper:hover {
   opacity: 0.8;
 }
+
 .logoText {
   font-family: var(--font-outfit);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: var(--logo-color);
 }
+
 .nav {
   display: flex;
   gap: 30px;
@@ -38,19 +43,23 @@
   margin-left: auto;
   margin-right: 40px;
 }
+
 .nav a {
   transition: all 0.3s ease;
   position: relative;
   font-weight: 500;
   letter-spacing: 0.01em;
 }
+
 .nav a:hover {
   color: var(--accent);
 }
+
 .navLinkHighlighted {
   color: var(--text-main) !important;
   font-weight: 600 !important;
 }
+
 .navLinkHighlighted::after {
   content: '';
   position: absolute;
@@ -62,15 +71,18 @@
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
+
 .navLinkHighlighted:hover::after {
   transform: scaleX(1);
 }
+
 .dropdown {
   position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
+
 .dropdownContent {
   position: absolute;
   top: 100%;
@@ -80,13 +92,14 @@
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   gap: 4px;
   z-index: 110;
   margin-top: 10px;
 }
+
 .dropdownContent::before {
   content: '';
   position: absolute;
@@ -95,6 +108,7 @@
   width: 100%;
   height: 20px;
 }
+
 .dropdownItem {
   padding: 10px 16px;
   border-radius: 8px;
@@ -104,15 +118,18 @@
   text-decoration: none;
   white-space: nowrap;
 }
+
 .dropdownItem:hover {
   background: var(--secondary-bg);
   color: var(--text-main);
 }
+
 .dropdownTrigger {
   display: flex;
   align-items: center;
   gap: 4px;
 }
+
 .menuToggle {
   display: none;
   background: none;
@@ -121,14 +138,17 @@
   cursor: pointer;
   padding: 8px;
 }
+
 .mobileOnlyToggle {
   display: none;
 }
+
 @media (max-width: 768px) {
   .mobileOnlyToggle {
     display: flex;
   }
 }
+
 .switchContainer {
   width: 56px;
   height: 28px;
@@ -137,6 +157,7 @@
   align-items: center;
   position: relative;
 }
+
 .switchTrack {
   width: 100%;
   height: 100%;
@@ -146,10 +167,12 @@
   transition: all 0.3s ease;
   background: var(--card-bg);
 }
+
 .trackDark {
   border-color: var(--accent);
   background: rgba(0, 212, 255, 0.1);
 }
+
 .switchThumb {
   width: 22px;
   height: 22px;
@@ -160,16 +183,19 @@
   align-items: center;
   justifyContent: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   background: white;
 }
+
 .thumbLight {
   left: 3px;
 }
+
 .thumbDark {
   left: calc(100% - 25px);
   background: #0b0f19;
 }
+
 .mobileMenu {
   position: fixed;
   top: 73px;
@@ -182,13 +208,15 @@
   gap: 24px;
   border-bottom: 1px solid var(--border);
   z-index: 99;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
+
 .mobileMenu a:not(.button) {
   font-size: 18px;
   font-family: var(--font-outfit);
   color: var(--text-main);
 }
+
 .hero {
   padding: var(--section-padding) var(--container-padding);
   max-width: 100%;
@@ -199,12 +227,14 @@
   overflow: hidden;
   gap: 40px;
 }
+
 .heroContent {
   position: relative;
   z-index: 10;
   flex: 1;
   max-width: 600px;
 }
+
 .heroGraphic {
   flex: 1;
   display: flex;
@@ -215,26 +245,25 @@
   position: relative;
   z-index: 5;
 }
+
 .hero h2 {
   font-size: clamp(36px, 8vw, 64px);
   line-height: 1.05;
   margin-bottom: 24px;
   max-width: 800px;
-  
+
   /* Shimmering Text Gradient for Option 2 */
-  background: linear-gradient(
-    to right,
-    var(--text-main) 20%,
-    var(--accent) 40%,
-    var(--accent) 60%,
-    var(--text-main) 80%
-  );
+  background: linear-gradient(to right,
+      var(--text-main) 20%,
+      var(--accent) 40%,
+      var(--accent) 60%,
+      var(--text-main) 80%);
   background-size: 200% auto;
   color: var(--text-main);
   background-clip: text;
   -webkit-background-clip: text;
   /* If background-clip works, color should be transparent */
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   animation: shine 5s linear infinite;
 }
 
@@ -250,6 +279,7 @@
   max-width: 600px;
   margin-bottom: 40px;
 }
+
 .button {
   padding: 14px 28px;
   border-radius: 8px;
@@ -260,39 +290,47 @@
   cursor: pointer;
   transition: all 0.2s;
 }
+
 .primary {
   background-color: var(--accent);
   color: #ffffff !important;
   border: 1px solid var(--accent);
 }
+
 .primary:hover {
   background-color: transparent;
   color: var(--accent) !important;
 }
+
 .secondary {
   background-color: transparent;
   color: var(--accent);
   border: 1px solid var(--accent);
 }
+
 .secondary:hover {
   background-color: var(--accent);
   color: #000;
 }
+
 .section {
   padding: clamp(40px, 6vw, 80px) var(--container-padding);
   position: relative;
   overflow: hidden;
 }
+
 .section h3 {
   font-size: clamp(28px, 5vw, 40px);
   margin-bottom: 24px;
   position: relative;
   z-index: 10;
 }
+
 .sectionTitleHighlighted {
   display: inline-block;
   position: relative;
 }
+
 .sectionTitleHighlighted::before {
   content: '';
   position: absolute;
@@ -304,6 +342,7 @@
   background: var(--accent);
   border-radius: 2px;
 }
+
 .section p {
   color: var(--text-muted);
   font-size: clamp(16px, 1.5vw, 19px);
@@ -312,6 +351,7 @@
   position: relative;
   z-index: 10;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -320,6 +360,7 @@
   position: relative;
   z-index: 10;
 }
+
 .card {
   padding: 40px;
   border: 1px solid var(--border);
@@ -329,24 +370,29 @@
   position: relative;
   z-index: 10;
 }
+
 .card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow);
   border-color: var(--accent);
 }
+
 .card h4 {
   font-size: 22px;
   margin-bottom: 12px;
 }
+
 .card p {
   color: var(--text-muted);
   font-size: 15px;
   line-height: 1.5;
 }
+
 .card svg {
   margin-bottom: 24px;
   color: var(--accent);
 }
+
 .footer {
   padding: 60px var(--container-padding);
   border-top: 1px solid var(--border);
@@ -362,15 +408,18 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
   .hero {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 60px;
   }
+
   .heroContent {
     flex: 1.2;
   }
+
   .heroGraphic {
     flex: 1;
   }
@@ -380,23 +429,29 @@
   .nav {
     display: none;
   }
+
   .menuToggle {
     display: block;
   }
+
   .header {
     padding: 16px var(--container-padding);
   }
+
   .hero {
     align-items: center;
     text-align: center;
   }
+
   .hero p {
     margin-left: auto;
     margin-right: auto;
   }
+
   .heroGraphic {
     display: none;
   }
+
   .grid {
     grid-template-columns: 1fr;
   }
@@ -409,6 +464,7 @@
     margin-bottom: 12px;
     text-align: center;
   }
+
   .card {
     padding: 30px;
   }
@@ -445,8 +501,8 @@
   display: flex;
   width: max-content;
   animation: scroll 40s linear infinite;
-  gap: 80px;
-  padding-left: 40px;
+  gap: 10px;
+  padding-left: 5px;
 }
 
 .logoScroll:hover {
@@ -455,14 +511,14 @@
 
 .logoItem {
   flex: 0 0 auto;
-  height: 60px;
+  height: 120px;
+  width: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.6;
+  opacity: 0.5;
   filter: grayscale(100%);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 0 20px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .logoItem:hover {
@@ -472,16 +528,28 @@
 }
 
 .logoItem img {
-  max-width: 180px;
-  max-height: 100%;
+  max-width: 140px;
+  max-height: 45px;
   width: auto;
   height: auto;
+  opacity: 0.8;
   object-fit: contain;
 }
 
+.logoItem img.largeLogo {
+  max-width: 260px;
+  max-height: 120px;
+  opacity: 1;
+}
+
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .headerCTA {
@@ -657,18 +725,19 @@
   .blogHeader {
     margin-bottom: 32px;
   }
-  
+
   .articleBody {
     font-size: 17px;
     line-height: 1.7;
   }
-  
+
   .authorRow {
     flex-wrap: wrap;
     gap: 12px;
     padding: 16px 0;
   }
 }
+
 .textLink {
   transition: all 0.2s ease;
   padding: 4px 0;

@@ -6,7 +6,7 @@ const LOGOS = [
   "/logos/drpinnacle.png",
   "/logos/NYN.avif",
   "/logos/Son-of-Egg-logo.avif",
-  "/logos/strwbry.avif",
+  "/logos/strwbry.jpg",
   "/logos/Techoptima.avif",
   "/logos/the foundrys.avif",
   "/logos/transforma.avif",
@@ -23,7 +23,11 @@ export default function TrustedBy() {
         <div className={styles.logoScroll}>
           {scrollingLogos.map((logo, index) => (
             <div key={index} className={styles.logoItem}>
-              <img src={logo} alt={`Client logo ${index + 1}`} />
+              <img 
+                src={logo} 
+                alt={`Client logo ${index + 1}`} 
+                className={logo.toLowerCase().includes("transforma") ? styles.largeLogo : ""} 
+              />
             </div>
           ))}
         </div>
