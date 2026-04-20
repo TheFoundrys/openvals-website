@@ -18,9 +18,9 @@ export default function Header() {
       highlight: true,
       subItems: [
         // { name: "AI Red Teaming", href: "/solutions/ai-red-teaming" },
-        { name: "Model Validation", href: "/solutions/ai-model-validation" },
-        { name: "AI Security", href: "/solutions/ai-security" },
-        { name: "AI Compliance", href: "/solutions/ai-compliance" },
+        { name: "AI/ML Model Validation", href: "/solutions/ai-model-validation" },
+        { name: "AI/ML Security", href: "/solutions/ai-security" },
+        { name: "AI/ML Compliance", href: "/solutions/ai-compliance" },
       ]
     },
     {
@@ -28,11 +28,15 @@ export default function Header() {
       href: "/services/ai-compass",
       highlight: true,
       subItems: [
+        { name: "Ways We Help Clients", isHeader: true },
         { name: "AI Compass", href: "/services/ai-compass" },
-        { name: "OptGPT", href: "/products/optgpt" },
-        { name: "OptSearch", href: "/products/optsearch" },
+        { name: "AI Engineering & Data", href: "/services/ai-engineering-data" },
+        { name: "AI Quality & Assurance", href: "/services/ai-quality-assurance" },
+        { name: "Our Most Popular Tools", isHeader: true, hasMargin: true },
+        { name: "OptGPT", href: "https://optgpt.in/" },
+        { name: "OptSearch", href: "https://optsearch.in/" },
         { name: "Radius", href: "/products/radius" },
-        { name: "OptGrad", href: "/products/optgrad" },
+        { name: "OptGrad", href: "https://compass.thefoundrys.com/" },
       ]
     },
     { name: "About Us", href: "/about", highlight: true },
@@ -52,8 +56,8 @@ export default function Header() {
               onMouseEnter={() => link.subItems && setOpenDropdown(link.name)}
               onMouseLeave={() => link.subItems && setOpenDropdown(null)}
             >
-              <Link 
-                href={link.href} 
+              <Link
+                href={link.href}
                 className={`${styles.dropdownTrigger} ${link.highlight ? styles.navLinkHighlighted : ""}`}
               >
                 {link.name} {link.subItems && <ChevronDown size={14} />}
@@ -69,10 +73,16 @@ export default function Header() {
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
                     >
-                      {link.subItems.map((sub) => (
-                        <Link key={sub.name} href={sub.href} className={styles.dropdownItem}>
-                          {sub.name}
-                        </Link>
+                      {link.subItems.map((sub, idx) => (
+                        sub.isHeader ? (
+                          <div key={sub.name} className={`${styles.dropdownSectionLabel} ${sub.hasMargin ? styles.dropdownSection : ""}`}>
+                            {sub.name}
+                          </div>
+                        ) : (
+                          <Link key={sub.name} href={sub.href || "#"} className={styles.dropdownItem}>
+                            {sub.name}
+                          </Link>
+                        )
                       ))}
                     </motion.div>
                   )}
@@ -115,9 +125,15 @@ export default function Header() {
                 {link.subItems && (
                   <div style={{ paddingLeft: "20px", marginTop: "12px", display: "flex", flexDirection: "column", gap: "12px" }}>
                     {link.subItems.map((sub) => (
-                      <Link key={sub.name} href={sub.href} onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
-                        {sub.name}
-                      </Link>
+                      sub.isHeader ? (
+                        <div key={sub.name} style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", marginTop: sub.hasMargin ? "12px" : "0", letterSpacing: "0.1em" }}>
+                          {sub.name}
+                        </div>
+                      ) : (
+                        <Link key={sub.name} href={sub.href || "#"} onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
+                          {sub.name}
+                        </Link>
+                      )
                     ))}
                   </div>
                 )}

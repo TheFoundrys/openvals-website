@@ -29,10 +29,9 @@
 }
 
 .logoText {
-  font-family: var(--font-outfit);
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-weight: 900;
   color: var(--logo-color);
+  text-shadow: 0.2px 0 var(--logo-color), -0.2px 0 var(--logo-color);
 }
 
 .nav {
@@ -109,6 +108,22 @@
   height: 20px;
 }
 
+.dropdownSection {
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.dropdownSectionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  padding: 0 16px;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
 .dropdownItem {
   padding: 10px 16px;
   border-radius: 8px;
@@ -181,7 +196,7 @@
   top: 2px;
   display: flex;
   align-items: center;
-  justifyContent: center;
+  justify-content: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   background: white;

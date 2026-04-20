@@ -31,7 +31,7 @@ export default function RedTeamingPage() {
         <section className={styles.section} style={{ paddingTop: "140px", position: "relative" }}>
           <AmbientGrid />
           <motion.div initial="hidden" animate="show" variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-            
+
             <div style={{ maxWidth: "800px", marginBottom: "80px" }}>
               <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "700", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
                 <ShieldAlert size={20} /> CORE SOLUTION
@@ -46,20 +46,20 @@ export default function RedTeamingPage() {
 
             <div className={styles.grid} style={{ gap: "32px" }}>
               {[
-                { 
-                  icon: Terminal, 
-                  title: "Prompt Injection Defense", 
-                  desc: "Evaluating how your model handles malicious inputs designed to bypass system instructions or extract sensitive data." 
+                {
+                  icon: Terminal,
+                  title: "Prompt Injection Defense",
+                  desc: "Evaluating how your model handles malicious inputs designed to bypass system instructions or extract sensitive data."
                 },
-                { 
-                  icon: AlertTriangle, 
-                  title: "Jailbreak Simulation", 
-                  desc: "Testing model boundaries against sophisticated roleplay and adversarial framing techniques." 
+                {
+                  icon: AlertTriangle,
+                  title: "Jailbreak Simulation",
+                  desc: "Testing model boundaries against sophisticated roleplay and adversarial framing techniques."
                 },
-                { 
-                  icon: Bug, 
-                  title: "Data Leakage Testing", 
-                  desc: "Ensuring models do not reveal training data, PII, or internal system secrets under pressure." 
+                {
+                  icon: Bug,
+                  title: "Data Leakage Testing",
+                  desc: "Ensuring models do not reveal training data, PII, or internal system secrets under pressure."
                 }
               ].map((item, i) => (
                 <motion.div key={i} variants={FADE_UP} className={styles.card} style={{ backgroundColor: "rgba(255,255,255,0.02)" }}>
@@ -92,17 +92,17 @@ export default function RedTeamingPage() {
         </section>
 
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)", marginTop: "100px" }}>
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
-              <motion.h2 variants={FADE_UP} style={{ fontSize: "42px", marginBottom: "24px" }}>Test Your Model Today.</motion.h2>
-              <motion.p variants={FADE_UP} style={{ color: "var(--text-muted)", marginBottom: "40px", fontSize: "18px" }}>
-                Don&apos;t wait for a public jailbreak. Get a comprehensive red teaming report now.
-              </motion.p>
-              <motion.div variants={FADE_UP}>
-                <Link href="/apply" className={`${styles.button} ${styles.primary}`}>
-                  Request Red Teaming
-                </Link>
-              </motion.div>
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
+            <motion.h2 variants={FADE_UP} style={{ fontSize: "42px", marginBottom: "24px" }}>Test Your Model Today.</motion.h2>
+            <motion.p variants={FADE_UP} style={{ color: "var(--text-muted)", marginBottom: "40px", fontSize: "18px" }}>
+              Don&apos;t wait for a public jailbreak. Get a comprehensive red teaming report now.
+            </motion.p>
+            <motion.div variants={FADE_UP}>
+              <Link href="/apply" className={`${styles.button} ${styles.primary}`}>
+                Request Red Teaming
+              </Link>
             </motion.div>
+          </motion.div>
         </section>
       </main>
       <Footer />

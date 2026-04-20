@@ -30,7 +30,13 @@ export const metadata: Metadata = {
     "AI Governance",
     "EU AI Act Compliance",
     "Responsible AI",
-    "AI Performance Auditing"
+    "AI Performance Auditing",
+    "AI Engineering",
+    "Applied Data Science",
+    "MLOps",
+    "AI Quality Assurance",
+    "Predictive Modeling",
+    "Data Pipelines"
   ],
   openGraph: {
     title: "OpenVals | AI Validation & Assurance Platform",
