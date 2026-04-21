@@ -221,22 +221,27 @@ export default function About() {
                     &quot;Creating valuable products requires an engineering mindset combined with the precision of a mathematician. Our mission is to build responsible, ethical, and trustworthy AI that empowers humanity.&quot;
                   </blockquote>
 
-                  <div style={{ display: "flex", gap: "8px", marginTop: "16px", flexWrap: "wrap" }}>
-                    <a href="https://www.linkedin.com/in/vishwanathakuthota/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                      LinkedIn <ExternalLink size={14} />
-                    </a>
-                    <a href="https://x.com/Vishakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                      X (Twitter) <ExternalLink size={14} />
-                    </a>
-                    <a href="https://github.com/vishwanathakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                      GitHub <ExternalLink size={14} />
-                    </a>
-                    <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                      Meet the Team <Users size={14} />
-                    </Link>
-                    <a href="https://www.researchgate.net/profile/Vishwanath-Akuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "8px 20px", background: "var(--primary-bg)", borderRadius: "100px", border: "1px solid var(--border)", transition: "all 0.2s", minHeight: "44px" }}>
-                      <img src="/logos/researchgate-logo.png" alt="Research Gate" style={{ height: "26px", width: "auto" }} />
-                    </a>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "16px" }}>
+                    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                      <a href="https://www.linkedin.com/in/vishwanathakuthota/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                        LinkedIn <ExternalLink size={14} />
+                      </a>
+                      <a href="https://x.com/Vishakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                        X (Twitter) <ExternalLink size={14} />
+                      </a>
+                      <a href="https://github.com/vishwanathakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                        GitHub <ExternalLink size={14} />
+                      </a>
+                      <a href="https://www.researchgate.net/profile/Vishwanath-Akuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "8px 20px", background: "var(--primary-bg)", borderRadius: "100px", border: "1px solid var(--border)", transition: "all 0.2s", minHeight: "38px" }}>
+                        <img src="/logos/researchgate-logo.png" alt="Research Gate" style={{ height: "20px", width: "auto" }} />
+                      </a>
+                    </div>
+                    
+                    <div style={{ display: "flex" }}>
+                      <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "10px 20px", background: "var(--accent)", borderRadius: "8px", fontSize: "14px", transition: "all 0.2s", boxShadow: "0 4px 15px rgba(0, 212, 255, 0.2)" }}>
+                        Meet the Team <Users size={16} />
+                      </Link>
+                    </div>
                   </div>
                 </motion.div>
               </div>
