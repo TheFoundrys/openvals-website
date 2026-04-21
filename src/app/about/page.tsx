@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldAlert, Activity, FileBadge, ExternalLink, Book, FileText, Users, Microscope } from "lucide-react";
+import { ShieldAlert, Activity, FileBadge, ExternalLink, Book, FileText, Users } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -209,11 +209,11 @@ export default function About() {
                     <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
                   </div>
 
-                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6 }}>
+                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify" }}>
                     Vishwanath Akuthota is a distinguished deep-tech entrepreneur and AI architect with over 1.5 decades of experience in Artificial Intelligence, Machine Learning, and Generative AI. He has been at the forefront of building world-class AI products and Large Language Model (LLM) applications.
                   </p>
 
-                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6 }}>
+                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify" }}>
                     His work is characterized by a mission to develop responsible and trustworthy AI systems that align with ethical principles and industry standards.
                   </p>
 
@@ -234,8 +234,8 @@ export default function About() {
                     <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                       Meet the Team <Users size={14} />
                     </Link>
-                    <a href="https://www.researchgate.net/profile/Vishwanath-Akuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, padding: "8px 12px", background: "var(--accent)", color: "#fff", borderRadius: "8px", border: "1px solid var(--accent)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                      Research Gate <Microscope size={14} />
+                    <a href="https://www.researchgate.net/profile/Vishwanath-Akuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "8px 20px", background: "var(--primary-bg)", borderRadius: "100px", border: "1px solid var(--border)", transition: "all 0.2s", minHeight: "44px" }}>
+                      <img src="/logos/researchgate-logo.png" alt="Research Gate" style={{ height: "26px", width: "auto" }} />
                     </a>
                   </div>
                 </motion.div>

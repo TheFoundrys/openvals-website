@@ -68,22 +68,45 @@ export default function Header() {
                   {openDropdown === link.name && (
                     <motion.div
                       className={styles.dropdownContent}
+                      style={link.name === "Our Solutions" ? { minWidth: "500px", flexDirection: "row", padding: "20px", gap: "40px" } : {}}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
                     >
-                      {link.subItems.map((sub, idx) => (
-                        sub.isHeader ? (
-                          <div key={sub.name} className={`${styles.dropdownSectionLabel} ${sub.hasMargin ? styles.dropdownSection : ""}`}>
-                            {sub.name}
+                      {link.name === "Our Solutions" ? (
+                        <>
+                          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "4px" }}>
+                            <div className={styles.dropdownSectionLabel}>Ways We Help</div>
+                            {link.subItems.filter(sub => !sub.isHeader && (sub.href?.includes("/services") || sub.href?.includes("/solutions"))).map((sub) => (
+                              <Link key={sub.name} href={sub.href || "#"} className={styles.dropdownItem}>
+                                {sub.name}
+                              </Link>
+                            ))}
                           </div>
-                        ) : (
-                          <Link key={sub.name} href={sub.href || "#"} className={styles.dropdownItem}>
-                            {sub.name}
-                          </Link>
-                        )
-                      ))}
+                          <div style={{ width: "1px", background: "var(--border)", alignSelf: "stretch" }} />
+                          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "4px" }}>
+                            <div className={styles.dropdownSectionLabel}>Most Popular Tools</div>
+                            {link.subItems.filter(sub => !sub.isHeader && (sub.href?.includes("opt") || sub.href?.includes("radius") || sub.href?.includes("thefoundrys") || sub.name.includes("Opt"))).map((sub) => (
+                              <Link key={sub.name} href={sub.href || "#"} className={styles.dropdownItem}>
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </>
+                      ) : (
+                        link.subItems.map((sub, idx) => (
+                          sub.isHeader ? (
+                            <div key={sub.name} className={`${styles.dropdownSectionLabel} ${sub.hasMargin ? styles.dropdownSection : ""}`}>
+                              {sub.name}
+                            </div>
+                          ) : (
+                            <Link key={sub.name} href={sub.href || "#"} className={styles.dropdownItem}>
+                              {sub.name}
+                            </Link>
+                          )
+                        ))
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
