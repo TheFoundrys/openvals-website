@@ -1,7 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Users } from "lucide-react";
+import { Users, ChevronDown, ChevronUp } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -23,6 +24,64 @@ const STAGGER = {
   },
 };
 
+function BioText({ text }: { text: string }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const shouldTruncate = isMobile && text.length > 250;
+
+  const displayedText = isExpanded || !shouldTruncate
+    ? text
+    : text.slice(0, 220).trim() + "...";
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignItems: "flex-start" }}>
+      <p style={{
+        color: "var(--text-muted)",
+        fontSize: "17px",
+        lineHeight: 1.7,
+        margin: 0,
+        maxWidth: "800px",
+        textAlign: "justify"
+      }}>
+        {displayedText}
+      </p>
+      {shouldTruncate && (
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          style={{
+            background: "none",
+            border: "none",
+            color: "var(--accent)",
+            fontWeight: 700,
+            cursor: "pointer",
+            padding: "4px 0",
+            fontSize: "14px",
+            display: "flex",
+            alignItems: "center",
+            gap: "4px",
+            textTransform: "uppercase",
+            letterSpacing: "0.05em"
+          }}
+        >
+          {isExpanded ? (
+            <>Read Less <ChevronUp size={14} /></>
+          ) : (
+            <>Read More <ChevronDown size={14} /></>
+          )}
+        </button>
+      )}
+    </div>
+  );
+}
+
 const TEAM = [
   {
     name: "Vishwanath Akuthota",
@@ -32,10 +91,24 @@ const TEAM = [
     linkedin: "https://www.linkedin.com/in/vishwanathakuthota/"
   },
   {
-    name: "SaiPramodu",
-    role: "Full Stack Developer",
-    image: "/logos/team/saipramod.jpeg",
-    bio: "Sai Pramodu is a Full Stack Developer experienced in building scalable, production-ready applications using React.js, Node.js, and Flutter, working across backend architecture, databases, and responsive frontend systems. He has developed secure, high-performance solutions with JWT authentication, RBAC, real-time features, and optimized APIs, while also exploring AI-driven workflows using Python and Streamlit.",
+    name: "Divya",
+    role: "Business Strategist | Deep Tech & Data Insights",
+    image: "/logos/team/divya.jpeg",
+    bio: "Divya brings over a decade of IT experience combined with advanced specialization in Data Science and Business Analytics to the Dr. Pinnacle team. As a Business Strategist, she serves as a strategic catalyst, bridging the gap between complex technical architectures and high-level business objectives. With a PGDM in Data Science and a background in managing large-scale IT operations, Divya excels at transforming raw data into actionable business intelligence. Her approach is grounded in a 'no-fluff' philosophy, focusing on identifying data-driven growth opportunities and implementing lean, effective strategies that ensure enterprise-grade reliability.",
+    linkedin: "#"
+  },
+  {
+    name: "Krishna",
+    role: "AI Researcher",
+    image: "/logos/team/krishna.jpeg",
+    bio: "Krishna is an AI Researcher focused on building practical AI and machine learning solutions for real-world applications. With hands-on experience in developing intelligent systems, he works at the intersection of technology, research, and problem-solving to create impactful solutions. He is passionate about exploring emerging advancements in artificial intelligence and continuously strengthening his expertise in the field. His goal is to contribute to innovative technologies that deliver real value and long-term impact.",
+    linkedin: "#"
+  },
+  {
+    name: "Manikanta",
+    role: "AI Researcher",
+    image: "/logos/team/manianna.jpeg",
+    bio: "Manikanta GBV is a technology professional specializing in Full Stack Development, Artificial Intelligence, and Cybersecurity. He builds scalable, production-ready applications across backend systems, databases, APIs, and modern frontend interfaces with a strong focus on performance, security, and reliability. He is also actively involved in AI research, developing intelligent solutions such as automation tools, conversational AI, and data-driven systems that solve real-world challenges. In cybersecurity, he focuses on secure architecture, threat prevention, and resilient digital systems. By combining software engineering, AI innovation, and security expertise, Manikanta delivers smart, secure, and future-ready technology solutions.",
     linkedin: "#"
   },
   {
@@ -53,13 +126,6 @@ const TEAM = [
     linkedin: "#"
   },
   {
-    name: "Divya",
-    role: "Business Strategist | Deep Tech & Data Insights",
-    image: "/logos/divya.jpeg",
-    bio: "Divya brings over a decade of IT experience combined with advanced specialization in Data Science and Business Analytics to the Dr. Pinnacle team. As a Business Strategist, she serves as a strategic catalyst, bridging the gap between complex technical architectures and high-level business objectives. With a PGDM in Data Science and a background in managing large-scale IT operations, Divya excels at transforming raw data into actionable business intelligence. Her approach is grounded in a 'no-fluff' philosophy, focusing on identifying data-driven growth opportunities and implementing lean, effective strategies that ensure enterprise-grade reliability.",
-    linkedin: "#"
-  },
-  {
     name: "Punith Nayeeni",
     role: "QA Automation Engineer",
     image: "/logos/team/puneeth.jpeg",
@@ -73,6 +139,13 @@ const TEAM = [
     bio: "Pakanati Jayavardhan Reddy is a Full Stack Developer with a strong foundation in Artificial Intelligence and Machine Learning. Skilled in building scalable web applications using React, Django, and Python, along with RESTful APIs and database management systems. Developed projects including an HRMS system and a Cybercrime Incident Reporting Portal, focusing on real-world usability and system efficiency. Committed to writing clean, efficient code and delivering reliable software solutions..",
     linkedin: "#"
   },
+  {
+    name: "SaiPramodu",
+    role: "Full Stack Developer",
+    image: "/logos/team/saipramod.jpeg",
+    bio: "Sai Pramodu is a Full Stack Developer experienced in building scalable, production-ready applications using React.js, Node.js, and Flutter, working across backend architecture, databases, and responsive frontend systems. He has developed secure, high-performance solutions with JWT authentication, RBAC, real-time features, and optimized APIs, while also exploring AI-driven workflows using Python and Streamlit.",
+    linkedin: "#"
+  }
 ];
 
 export default function TeamPage() {
@@ -111,9 +184,9 @@ export default function TeamPage() {
                   key={i}
                   variants={FADE_UP}
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))",
-                    gap: "40px",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "60px",
                     alignItems: "center",
                     padding: "clamp(24px, 6vw, 48px)",
                     background: "rgba(255, 255, 255, 0.02)",
@@ -121,15 +194,15 @@ export default function TeamPage() {
                     border: "1px solid var(--border)",
                     boxShadow: "0 20px 50px rgba(0,0,0,0.1)",
                     width: "100%",
-                    textAlign: "center"
                   }}
                 >
                   <div style={{
                     borderRadius: "32px",
                     overflow: "hidden",
                     aspectRatio: "4/5",
+                    width: "100%",
                     maxWidth: "400px",
-                    margin: "0 auto",
+                    flex: "0 0 auto",
                     border: "1px solid var(--border)",
                     background: "var(--primary-bg)"
                   }}>
@@ -148,14 +221,12 @@ export default function TeamPage() {
                       }}
                     />
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "center", textAlign: "center" }}>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "4px", alignItems: "center" }}>
-                      <h2 style={{ fontSize: "clamp(28px, 4vw, 36px)", margin: 0, textAlign: "center" }}>{member.name}</h2>
-                      <p style={{ fontSize: "18px", color: "var(--accent)", fontWeight: 600, margin: 0, textAlign: "center" }}>{member.role}</p>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "flex-start", textAlign: "left", flex: "1 1 500px", minWidth: "min(100%, 300px)" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px", alignItems: "flex-start" }}>
+                      <h2 style={{ fontSize: "clamp(28px, 4vw, 36px)", margin: 0, textAlign: "left" }}>{member.name}</h2>
+                      <p style={{ fontSize: "18px", color: "var(--accent)", fontWeight: 600, margin: 0, textAlign: "left" }}>{member.role}</p>
                     </div>
-                    <p style={{ color: "var(--text-muted)", fontSize: "17px", lineHeight: 1.7, margin: "0 auto", maxWidth: "600px", textAlign: "center", textJustify: "none" }}>
-                      {member.bio}
-                    </p>
+                    <BioText text={member.bio} />
                   </div>
                 </motion.div>
               ))}

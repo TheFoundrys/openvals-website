@@ -198,22 +198,22 @@ export default function About() {
               variants={STAGGER}
               style={{ display: "flex", flexDirection: "column", gap: "80px" }}
             >
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "60px", alignItems: "center" }}>
-                <motion.div variants={FADE_UP} style={{ position: "relative", borderRadius: "24px", overflow: "hidden", aspectRatio: "4/5" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "60px", alignItems: "center" }}>
+                <motion.div variants={FADE_UP} style={{ position: "relative", borderRadius: "24px", overflow: "hidden", aspectRatio: "4/5", width: "100%", maxWidth: "400px", flex: "0 0 auto" }}>
                   <img src="https://thefoundrys.com/images/vishwa-new.jpg" alt="Vishwanath Akuthota - Founder" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </motion.div>
 
-                <motion.div variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "24px", textAlign: "center", alignItems: "center" }}>
+                  <motion.div variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "24px", textAlign: "left", alignItems: "flex-start", flex: "1 1 500px", minWidth: "min(100%, 300px)" }}>
                     <div>
                       <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", lineHeight: 1.1, marginBottom: "8px" }}>Vishwanath Akuthota</h2>
                       <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
                     </div>
 
-                    <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "inherit", maxWidth: "800px" }}>
+                    <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify", maxWidth: "800px" }}>
                       Vishwanath Akuthota is a distinguished deep-tech entrepreneur and AI architect with over 1.5 decades of experience in Artificial Intelligence, Machine Learning, and Generative AI. He has been at the forefront of building world-class AI products and Large Language Model (LLM) applications.
                     </p>
 
-                    <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "inherit", maxWidth: "800px" }}>
+                    <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify", maxWidth: "800px" }}>
                       His work is characterized by a mission to develop responsible and trustworthy AI systems that align with ethical principles and industry standards.
                     </p>
 
@@ -221,8 +221,8 @@ export default function About() {
                     &quot;Creating valuable products requires an engineering mindset combined with the precision of a mathematician. Our mission is to build responsible, ethical, and trustworthy AI that empowers humanity.&quot;
                   </blockquote>
 
-                  <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "16px", alignItems: "center" }}>
-                    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "16px", alignItems: "flex-start" }}>
+                    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "flex-start" }}>
                       <a href="https://www.linkedin.com/in/vishwanathakuthota/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                         LinkedIn <ExternalLink size={14} />
                       </a>
@@ -237,7 +237,7 @@ export default function About() {
                       </a>
                     </div>
                     
-                    <div style={{ display: "flex", justifyContent: "center" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-start" }}>
                       <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "10px 20px", background: "var(--accent)", borderRadius: "8px", fontSize: "14px", transition: "all 0.2s", boxShadow: "0 4px 15px rgba(0, 212, 255, 0.2)" }}>
                         Meet the Team <Users size={16} />
                       </Link>
