@@ -100,7 +100,7 @@ const TEAM = [
   {
     name: "Krishna",
     role: "AI Researcher",
-    image: "/logos/team/krishna.jpeg",
+    image: "/logos/team/Krishna.jpeg",
     bio: "Krishna is an AI Researcher focused on building practical AI and machine learning solutions for real-world applications. With hands-on experience in developing intelligent systems, he works at the intersection of technology, research, and problem-solving to create impactful solutions. He is passionate about exploring emerging advancements in artificial intelligence and continuously strengthening his expertise in the field. His goal is to contribute to innovative technologies that deliver real value and long-term impact.",
     linkedin: "#"
   },
