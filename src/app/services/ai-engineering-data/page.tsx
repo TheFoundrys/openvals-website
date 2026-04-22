@@ -88,7 +88,7 @@ export default function AIEngineeringDataPage() {
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "800px" }}>Transform ideas into scalable, production-ready intelligent systems.</p>
             </div>
             
-            <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px" }}>
+            <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: "20px" }}>
               {engineeringItems.map((item, i) => (
                 <div key={i} style={{ padding: "24px", background: "var(--primary-bg)", borderRadius: "16px", border: "1px solid var(--border)" }}>
                    <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(59, 130, 246, 0.1)", display: "grid", placeItems: "center", color: "var(--accent)", marginBottom: "16px" }}>
@@ -110,7 +110,7 @@ export default function AIEngineeringDataPage() {
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "800px" }}>Turn raw data into actionable intelligence and competitive advantage.</p>
             </div>
             
-            <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px" }}>
+            <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: "20px" }}>
               {dataItems.map((item, i) => (
                 <div key={i} style={{ padding: "24px", background: "var(--secondary-bg)", borderRadius: "16px", border: "1px solid var(--border)" }}>
                    <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(59, 130, 246, 0.1)", display: "grid", placeItems: "center", color: "var(--accent)", marginBottom: "16px" }}>
@@ -126,7 +126,7 @@ export default function AIEngineeringDataPage() {
 
         {/* CAPABILITIES SUMMARY */}
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
+          <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "40px" }}>
              <div>
                 <h3 style={{ fontSize: "22px", fontWeight: 700, marginBottom: "20px" }}>Capabilities</h3>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>

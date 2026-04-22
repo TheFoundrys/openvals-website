@@ -101,7 +101,7 @@ export default function About() {
 
         {/* NARRATIVE SPLIT */}
         <section className={styles.section} style={{ backgroundColor: "var(--secondary-bg)", padding: "100px var(--container-padding)" }}>
-          <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px", alignItems: "center" }}>
+          <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "60px", alignItems: "center" }}>
             <motion.div
               initial="hidden"
               whileInView="show"
@@ -198,7 +198,7 @@ export default function About() {
               variants={STAGGER}
               style={{ display: "flex", flexDirection: "column", gap: "80px" }}
             >
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px", alignItems: "center" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "60px", alignItems: "center" }}>
                 <motion.div variants={FADE_UP} style={{ position: "relative", borderRadius: "24px", overflow: "hidden", aspectRatio: "4/5" }}>
                   <img src="https://thefoundrys.com/images/vishwa-new.jpg" alt="Vishwanath Akuthota - Founder" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </motion.div>
@@ -251,7 +251,7 @@ export default function About() {
               <div>
                 <motion.h3 variants={FADE_UP} style={{ fontSize: "32px", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--border)" }}>Authored Books</motion.h3>
 
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "24px" }}>
                   {BOOKS.map((book, idx) => (
                     <motion.a key={idx} variants={FADE_UP} href={book.link} target="_blank" rel="noopener noreferrer" className={styles.card} style={{ display: "flex", alignItems: "flex-start", gap: "20px", padding: "32px", textAlign: "left" }}>
                       <div style={{ padding: "16px", background: "rgba(0, 212, 255, 0.1)", borderRadius: "12px", color: "var(--accent)" }}>

@@ -67,7 +67,7 @@ export default function AIAssuranceDataPage() {
                 <h2 style={{ fontSize: "36px" }}>AI Assurance & Governance</h2>
               </motion.div>
 
-              <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "24px" }}>
+              <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: "24px" }}>
                 <motion.div variants={FADE_UP} className={styles.card}>
                   <Lock size={40} />
                   <h4>Enterprise Security</h4>
@@ -112,7 +112,7 @@ export default function AIAssuranceDataPage() {
                 <h2 style={{ fontSize: "36px" }}>AI Quality & Data Excellence</h2>
               </motion.div>
 
-              <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "24px" }}>
+              <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: "24px" }}>
                 <motion.div variants={FADE_UP} className={styles.card}>
                   <FileCheck size={40} />
                   <h4>Testing & Validation</h4>

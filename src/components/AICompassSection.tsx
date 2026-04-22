@@ -93,7 +93,7 @@ export default function AICompassSection() {
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "60px", alignItems: "center" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "60px", alignItems: "center" }}>
           <motion.div variants={FADE_UP}>
             <h3 style={{ fontSize: "32px", marginBottom: "32px" }}>Why AI Compass?</h3>
             <p style={{ color: "var(--text-muted)", marginBottom: "40px", lineHeight: "1.8" }}>
