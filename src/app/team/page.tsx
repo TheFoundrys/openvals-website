@@ -92,7 +92,7 @@ const TEAM = [
   },
   {
     name: "Divya",
-    role: "Business Strategist | Deep Tech & Data Insights",
+    role: "Business Strategist - Deep Tech & Data Insights",
     image: "/logos/team/divya.jpeg",
     bio: "Divya brings over a decade of IT experience combined with advanced specialization in Data Science and Business Analytics to the Dr. Pinnacle team. As a Business Strategist, she serves as a strategic catalyst, bridging the gap between complex technical architectures and high-level business objectives. With a PGDM in Data Science and a background in managing large-scale IT operations, Divya excels at transforming raw data into actionable business intelligence. Her approach is grounded in a 'no-fluff' philosophy, focusing on identifying data-driven growth opportunities and implementing lean, effective strategies that ensure enterprise-grade reliability.",
     linkedin: "#"

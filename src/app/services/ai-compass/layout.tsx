@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'AI Compass | OpenVals Strategy Layer',
+  title: 'AI Compass - OpenVals Strategy Layer',
   description: 'Navigate the enterprise AI landscape with structured strategy, readiness assessment, risk evaluation, and a scalable implementation roadmap.',
   keywords: [
     'AI Strategy Formulation',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'AI Vendor Selection'
   ],
   openGraph: {
-    title: 'AI Compass Framework | OpenVals',
+    title: 'AI Compass Framework - OpenVals',
     description: 'Transform organizational ideas into impactful business value safely and effectively using our structured AI Compass consulting framework.',
     url: 'https://openvalidations.com/services/ai-compass',
   }

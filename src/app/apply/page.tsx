@@ -14,7 +14,6 @@ export default function Apply() {
     email: "",
     location: "",
     eduBackground: "",
-    leadSource: "OpenVals Website",
     aiDescription: ""
   });
 
@@ -77,8 +76,8 @@ export default function Apply() {
                 </div>
 
                 <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px", background: "var(--card-bg)", padding: "40px", borderRadius: "24px", border: "1px solid var(--border)" }}>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "8px", flex: "1 1 300px" }}>
                       <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>Full Name</label>
                       <input
                         type="text"
@@ -89,7 +88,7 @@ export default function Apply() {
                         style={{ padding: "12px 16px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)" }}
                       />
                     </div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "8px", flex: "1 1 300px" }}>
                       <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>Phone Number</label>
                       <input
                         type="tel"
@@ -102,8 +101,8 @@ export default function Apply() {
                     </div>
                   </div>
 
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "8px", flex: "1 1 300px" }}>
                       <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>Email Address</label>
                       <input
                         type="email"
@@ -114,7 +113,7 @@ export default function Apply() {
                         style={{ padding: "12px 16px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)" }}
                       />
                     </div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "8px", flex: "1 1 300px" }}>
                       <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>Location</label>
                       <input
                         type="text"
@@ -127,35 +126,23 @@ export default function Apply() {
                     </div>
                   </div>
 
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                      <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>Educational Background</label>
-                      <input
-                        type="text"
-                        name="eduBackground"
-                        value={formData.eduBackground}
-                        onChange={handleChange}
-                        required
-                        style={{ padding: "12px 16px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)" }}
-                      />
-                    </div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                      <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>Lead Source</label>
-                      <input
-                        type="text"
-                        name="leadSource"
-                        value={formData.leadSource}
-                        disabled
-                        style={{ padding: "12px 16px", borderRadius: "8px", background: "var(--border)", border: "1px solid var(--border)", color: "var(--text-muted)", cursor: "not-allowed" }}
-                      />
-                    </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>Educational Background</label>
+                    <input
+                      type="text"
+                      name="eduBackground"
+                      value={formData.eduBackground}
+                      onChange={handleChange}
+                      required
+                      style={{ padding: "12px 16px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)" }}
+                    />
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>AI Model/System Description</label>
+                    <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}> Description</label>
                     <textarea
                       name="aiDescription"
-                      placeholder="Briefly describe the AI system you want to validate..."
+                      placeholder=""
                       value={formData.aiDescription}
                       onChange={handleChange}
                       rows={4}

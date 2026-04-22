@@ -29,18 +29,18 @@
 }
 
 .logoText {
-  font-weight: 900;
+  font-weight: 700;
   color: var(--logo-color);
-  text-shadow: 0.2px 0 var(--logo-color), -0.2px 0 var(--logo-color);
 }
 
 .nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   font-size: 14px;
   color: var(--text-muted);
-  margin-left: auto;
-  margin-right: 40px;
+  margin-left: 60px;
+  margin-right: auto;
 }
 
 .nav a {
@@ -349,18 +349,6 @@
   position: relative;
 }
 
-.sectionTitleHighlighted::before {
-  content: '';
-  position: absolute;
-  left: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 80%;
-  background: var(--accent);
-  border-radius: 2px;
-}
-
 .section p {
   color: var(--text-muted);
   font-size: clamp(16px, 1.5vw, 19px);
@@ -529,34 +517,34 @@
 
 .logoItem {
   flex: 0 0 auto;
-  height: 120px;
-  width: 180px;
+  height: 140px;
+  width: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.5;
-  filter: grayscale(100%);
+  opacity: 0.7;
+  filter: grayscale(80%);
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .logoItem:hover {
   opacity: 1;
   filter: grayscale(0%);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .logoItem img {
-  max-width: 140px;
-  max-height: 45px;
+  max-width: 180px;
+  max-height: 70px;
   width: auto;
   height: auto;
-  opacity: 0.8;
+  opacity: 0.9;
   object-fit: contain;
 }
 
 .logoItem img.largeLogo {
-  max-width: 260px;
-  max-height: 120px;
+  max-width: 300px;
+  max-height: 130px;
   opacity: 1;
 }
 

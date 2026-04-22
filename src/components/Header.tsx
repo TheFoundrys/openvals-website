@@ -36,7 +36,7 @@ export default function Header() {
         { name: "OptGPT", href: "https://optgpt.in/" },
         { name: "OptSearch", href: "https://optsearch.in/" },
         { name: "Radius", href: "/products/radius" },
-        { name: "OptGrad", href: "https://compass.thefoundrys.com/" },
+        { name: "Compass", href: "https://compass.thefoundrys.com/" },
       ]
     },
     { name: "About Us", href: "/about", highlight: true },

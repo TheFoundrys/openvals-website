@@ -203,19 +203,19 @@ export default function About() {
                   <img src="https://thefoundrys.com/images/vishwa-new.jpg" alt="Vishwanath Akuthota - Founder" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </motion.div>
 
-                  <motion.div variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "24px", textAlign: "left", alignItems: "flex-start", flex: "1 1 500px", minWidth: "min(100%, 300px)" }}>
-                    <div>
-                      <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", lineHeight: 1.1, marginBottom: "8px" }}>Vishwanath Akuthota</h2>
-                      <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
-                    </div>
+                <motion.div variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "24px", textAlign: "left", alignItems: "flex-start", flex: "1 1 500px", minWidth: "min(100%, 300px)" }}>
+                  <div>
+                    <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", lineHeight: 1.1, marginBottom: "8px" }}>Vishwanath Akuthota</h2>
+                    <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
+                  </div>
 
-                    <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify", maxWidth: "800px" }}>
-                      Vishwanath Akuthota is a distinguished deep-tech entrepreneur and AI architect with over 1.5 decades of experience in Artificial Intelligence, Machine Learning, and Generative AI. He has been at the forefront of building world-class AI products and Large Language Model (LLM) applications.
-                    </p>
+                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify", maxWidth: "800px" }}>
+                    Vishwanath Akuthota is a distinguished deep-tech entrepreneur and AI architect with over 1.5 decades of experience in Artificial Intelligence, Machine Learning, and Generative AI. He has been at the forefront of building world-class AI products and Large Language Model (LLM) applications.
+                  </p>
 
-                    <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify", maxWidth: "800px" }}>
-                      His work is characterized by a mission to develop responsible and trustworthy AI systems that align with ethical principles and industry standards.
-                    </p>
+                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify", maxWidth: "800px" }}>
+                    His work is characterized by a mission to develop responsible and trustworthy AI systems that align with ethical principles and industry standards.
+                  </p>
 
                   <blockquote style={{ fontSize: "20px", fontStyle: "italic", borderLeft: "4px solid var(--accent)", paddingLeft: "24px", margin: "16px 0", color: "var(--text-main)", textAlign: "left" }}>
                     &quot;Creating valuable products requires an engineering mindset combined with the precision of a mathematician. Our mission is to build responsible, ethical, and trustworthy AI that empowers humanity.&quot;
@@ -232,11 +232,11 @@ export default function About() {
                       <a href="https://github.com/vishwanathakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                         GitHub <ExternalLink size={14} />
                       </a>
-                      <a href="https://www.researchgate.net/profile/Vishwanath-Akuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "8px 20px", background: "var(--primary-bg)", borderRadius: "100px", border: "1px solid var(--border)", transition: "all 0.2s", minHeight: "38px" }}>
-                        <img src="/logos/researchgate-logo.png" alt="Research Gate" style={{ height: "20px", width: "auto" }} />
+                      <a href="https://www.researchgate.net/profile/Vishwanath-Akuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                        <img src="/logos/researchgate.png" alt="RG" style={{ height: "16px", width: "auto", filter: "invert(var(--icon-invert))" }} /> ResearchGate <ExternalLink size={14} />
                       </a>
                     </div>
-                    
+
                     <div style={{ display: "flex", justifyContent: "flex-start" }}>
                       <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "10px 20px", background: "var(--accent)", borderRadius: "8px", fontSize: "14px", transition: "all 0.2s", boxShadow: "0 4px 15px rgba(0, 212, 255, 0.2)" }}>
                         Meet the Team <Users size={16} />

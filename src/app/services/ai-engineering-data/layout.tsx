@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'AI Engineering & Data Science | OpenVals Build Layer',
+  title: 'AI Engineering & Data Science - OpenVals Build Layer',
   description: 'Design, develop, and deploy production-grade AI systems backed by robust data pipelines, analytics, and MLOps to scale securely and perform predictably.',
   keywords: [
     'AI Engineering',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     'LLM Integration'
   ],
   openGraph: {
-    title: 'AI Engineering & Data Science | OpenVals',
+    title: 'AI Engineering & Data Science - OpenVals',
     description: 'Transform ideas into scalable, production-ready intelligent systems and turn raw data into actionable intelligence.',
     url: 'https://openvalidations.com/services/ai-engineering-data',
   }

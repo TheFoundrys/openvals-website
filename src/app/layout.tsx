@@ -20,7 +20,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://openvalidations.com"),
-  title: "OpenVals | Enterprise AI Validation, Security & Compliance",
+  title: "OpenVals - Enterprise AI Validation, Security & Compliance",
   description: "OpenVals provides industrial-grade AI model validation, adversarial red teaming, and regulatory compliance for the EU AI Act and NIST. Build trustworthy AI systems today.",
   keywords: [
     "AI Validation",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "Data Pipelines"
   ],
   openGraph: {
-    title: "OpenVals | AI Validation & Assurance Platform",
+    title: "OpenVals - AI Validation & Assurance Platform",
     description: "Enterprise-grade trust layer for AI. We validate, secure, and certify machine learning models for production readiness.",
     url: "https://openvalidations.com",
     siteName: "OpenVals",
@@ -56,17 +56,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenVals | The Trust Layer for AI",
+    title: "OpenVals - The Trust Layer for AI",
     description: "Rigorous AI validation and adversarial red teaming to ensure model security and reliability.",
     images: ["/logos/open%20vals%20logo.png"],
   },
-  icons: {
-    icon: [
-      { url: "/main-site-icon.svg?v=final" },
-      { url: "/main-site-icon.svg?v=final", rel: "shortcut icon" },
-    ],
-    apple: "/main-site-icon.svg?v=final",
-  },
+
 };
 
 

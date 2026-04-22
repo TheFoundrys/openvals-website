@@ -14,6 +14,7 @@
   --orb-border: rgba(0, 0, 0, 0.1);
   --container-padding: clamp(20px, 5vw, 60px);
   --section-padding: clamp(40px, 8vw, 100px);
+  --icon-invert: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,6 +32,7 @@
     --logo-color: #FFFFFF;
     --orb-bg: radial-gradient(circle at 30% 30%, rgba(17, 24, 39, 0.8) 0%, rgba(11, 15, 25, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
     --orb-border: rgba(255, 255, 255, 0.2);
+    --icon-invert: 1;
   }
 }
 

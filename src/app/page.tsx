@@ -59,70 +59,35 @@ export default function Home() {
         </section>
 
 
-        {/* AI FAILS QUIETLY - REFINED ALIGNMENT */}
-        <section className={styles.section} style={{ position: "relative", padding: "100px var(--container-padding)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
-            <motion.div
-              initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER}
-            >
-              <div style={{ maxWidth: "800px", margin: "0 auto", marginBottom: "64px" }}>
-                <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(36px, 6vw, 56px)", fontWeight: 800, lineHeight: 1.1, marginBottom: "24px", color: "var(--text-main)" }}>
-                  AI Fails Quietly
-                </motion.h2>
-                <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 22px)", color: "var(--text-muted)", lineHeight: 1.6, margin: 0 }}>
-                  AI systems hallucinate, get manipulated, and behave unpredictably under real-world conditions.
-                  Most organizations deploy without understanding these hidden failure modes.
-                </motion.p>
-              </div>
-
-              <motion.div variants={STAGGER} style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
-                gap: "24px",
-                justifyContent: "center"
-              }}>
-                {[
-                  { title: "Hallucinations", desc: "Confident but false data generation.", icon: AlertCircle, color: "#f59e0b" },
-                  { title: "Manipulation", desc: "Security bypass via prompt injection.", icon: ShieldAlert, color: "#ef4444" },
-                  { title: "Behavioral Drift", desc: "Performance decay over time.", icon: Activity, color: "#38BDF8" }
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    variants={FADE_UP}
-                    style={{
-                      padding: "40px 32px",
-                      background: "rgba(255, 255, 255, 0.02)",
-                      borderRadius: "32px",
-                      border: "1px solid var(--border)",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      textAlign: "center",
-                      gap: "20px"
-                    }}
-                  >
-                    <div style={{
-                      width: "56px",
-                      height: "56px",
-                      background: `${item.color}15`,
-                      borderRadius: "16px",
-                      color: item.color,
-                      border: `1px solid ${item.color}40`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center"
-                    }}>
-                      <item.icon size={28} />
-                    </div>
-                    <div>
-                      <h4 style={{ fontSize: "22px", fontWeight: 700, margin: "0 0 12px 0" }}>{item.title}</h4>
-                      <p style={{ fontSize: "16px", color: "var(--text-muted)", margin: 0, lineHeight: 1.6 }}>{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+        {/* AI FAILS QUIETLY - MATCHING SERVICES TEMPLATE */}
+        <section className={styles.section}>
+          <AmbientGrid />
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
+            <motion.h3 variants={FADE_UP} className={styles.sectionTitleHighlighted}>AI Fails Quietly</motion.h3>
+            <motion.p variants={FADE_UP} style={{ marginBottom: "32px", maxWidth: "700px" }}>
+              AI systems hallucinate, get manipulated, and behave unpredictably under real-world conditions.
+              Most organizations deploy without understanding these hidden failure modes.
+            </motion.p>
+            <motion.div className={styles.grid} variants={STAGGER}>
+              {[
+                { title: "Hallucinations", desc: "Confident but false data generation that can lead to critical business errors.", icon: AlertCircle },
+                { title: "Manipulation", desc: "Security bypass via prompt injection and adversarial attacks on model logic.", icon: ShieldAlert },
+                { title: "Behavioral Drift", desc: "Performance decay over time as real-world data evolves away from training sets.", icon: Activity }
+              ].map((item, i) => (
+                <motion.div key={i} className={styles.card} variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div style={{ color: "var(--accent)" }}><item.icon size={28} /></div>
+                  <h4 style={{ margin: 0, fontSize: "20px" }}>{item.title}</h4>
+                  <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5", color: "var(--text-muted)" }}>{item.desc}</p>
+                  
+                  <div style={{ marginTop: "auto", paddingTop: "12px" }}>
+                    <Link href="/blog" className={styles.textLink} style={{ fontSize: "14px", fontWeight: "600", color: "var(--accent)", display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                      Learn more &rarr;
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
             </motion.div>
-          </div>
+          </motion.div>
         </section>
 
         <section id="services" className={styles.section}>
@@ -151,136 +116,52 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section id="assurance-pillars" className={styles.section} style={{ backgroundColor: "var(--secondary-bg)", position: "relative", paddingTop: "40px", paddingBottom: "40px" }}>
+        <section id="assurance-pillars" className={styles.section} style={{ backgroundColor: "var(--secondary-bg)" }}>
           <AmbientBlobs />
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={STAGGER}>
-            <div style={{ textAlign: "center", marginBottom: "32px" }}>
-              <motion.h3 variants={FADE_UP} style={{ fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 700, marginBottom: "8px" }}>
-                Our Core Pillars
-              </motion.h3>
-              <motion.p variants={FADE_UP} style={{ color: "var(--text-muted)", fontSize: "15px", maxWidth: "550px", margin: "0 auto" }}>
-                End-to-end framework for high-stakes enterprise AI.
-              </motion.p>
-            </div>
+            <motion.h3 variants={FADE_UP} className={styles.sectionTitleHighlighted}>Our Core Pillars</motion.h3>
+            <motion.p variants={FADE_UP} style={{ marginBottom: "32px", maxWidth: "700px" }}>
+              End-to-end framework for high-stakes enterprise AI.
+            </motion.p>
 
-            <div className={styles.grid} style={{ gap: "24px", maxWidth: "1200px", margin: "0 auto", marginTop: "32px" }}>
+            <motion.div className={styles.grid} variants={STAGGER}>
               {[
                 {
                   icon: Compass,
                   title: "AI Compass",
-                  hook: "THE STRATEGY LAYER",
                   desc: "Navigating the enterprise AI landscape with strategic foresight and technical clarity to define your competitive edge.",
-                  color: "#00d4ff",
                   href: "/services/ai-compass"
                 },
                 {
                   icon: Cpu,
                   title: "AI Engineering & Data",
-                  hook: "THE BUILD LAYER",
                   desc: "Architecting production-grade AI systems that scale securely and perform predictably in high-consequence environments.",
-                  color: "#f43f5e",
                   href: "/services/ai-engineering-data"
                 },
                 {
                   icon: ShieldCheck,
                   title: "AI Quality & Assurance",
-                  hook: "THE TRUST LAYER",
                   desc: "Industrial-grade validation and proactive security auditing to ensure your models are safe, compliant, and attack-resistant.",
-                  color: "#10b981",
                   href: "/services/ai-quality-assurance"
                 },
               ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  variants={FADE_UP}
-                  className={styles.card}
-                  style={{
-                    padding: "40px 32px",
-                    borderRadius: "24px",
-                    background: "rgba(255, 255, 255, 0.02)",
-                    border: "1px solid var(--border)",
-                    backdropFilter: "blur(8px)",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "16px",
-                    transition: "all 0.4s cubic-bezier(0.23, 1, 0.32, 1)"
-                  }}
-                >
-                  <div style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "12px",
-                    background: `${item.color}15`,
-                    display: "grid",
-                    placeItems: "center",
-                    color: item.color,
-                    border: `1px solid ${item.color}30`,
-                    flexShrink: 0,
-                    marginBottom: "8px"
-                  }}>
-                    <item.icon size={24} style={{ display: "block", margin: 0 }} strokeWidth={2.5} />
-                  </div>
+                <motion.div key={i} className={styles.card} variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div style={{ color: "var(--accent)" }}><item.icon size={28} /></div>
+                  <h4 style={{ margin: 0, fontSize: "20px" }}>{item.title}</h4>
+                  <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5", color: "var(--text-muted)" }}>{item.desc}</p>
 
-                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <div style={{
-                      fontSize: "11px",
-                      fontWeight: 700,
-                      letterSpacing: "0.15em",
-                      color: item.color,
-                      textTransform: "uppercase"
-                    }}>
-                      {item.hook}
-                    </div>
-                    <h4 style={{ fontSize: "22px", fontWeight: 700, margin: 0 }}>{item.title}</h4>
-                  </div>
-
-                  <p style={{ color: "var(--text-muted)", fontSize: "15px", lineHeight: "1.6", margin: 0 }}>{item.desc}</p>
-
-                  <div style={{ marginTop: "auto", paddingTop: "16px" }}>
-                    <Link href={item.href} className={styles.textLink} style={{ color: "var(--text-main)", display: "inline-flex", alignItems: "center", gap: "6px", fontWeight: "600", fontSize: "15px" }}>
-                      Explore {item.title} <ArrowRight size={16} />
+                  <div style={{ marginTop: "auto", paddingTop: "12px" }}>
+                    <Link href={item.href} className={styles.textLink} style={{ fontSize: "14px", fontWeight: "600", color: "var(--accent)", display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                      Explore {item.title} &rarr;
                     </Link>
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </section>
 
-        {/* SOLUTION SECTION - Clean light layout */}
-        <section className={styles.section} style={{ backgroundColor: "var(--primary-bg)", textAlign: "center", padding: "40px var(--container-padding) 100px" }}>
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={STAGGER}
-            style={{ maxWidth: 900, margin: "0 auto", display: "flex", flexDirection: "column", gap: "32px", alignItems: "center" }}
-          >
-            <motion.h3
-              variants={FADE_UP}
-              style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 1.1, marginBottom: 0, color: "var(--text-main)" }}
-            >
-              We Validate AI Before It Breaks Your Business
-            </motion.h3>
 
-            <motion.p
-              variants={FADE_UP}
-              style={{ color: "var(--text-muted)", fontSize: "clamp(18px, 2vw, 24px)", lineHeight: 1.6, maxWidth: 700 }}
-            >
-              OpenVals provides industrial-grade validation, security auditing, and regulatory assurance for AI and machine learning systems.
-            </motion.p>
-
-            <motion.p
-              variants={FADE_UP}
-              style={{ fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 500, color: "var(--text-main)", marginTop: "16px" }}
-            >
-              We don’t just check if your models work —<br />
-              <span style={{ color: "var(--accent)", display: "inline-block", marginTop: "16px", fontWeight: 600 }}>
-                &rarr; We prove where they fail.
-              </span>
-            </motion.p>
-          </motion.div>
-        </section>
 
 
         <section className={styles.section}>
