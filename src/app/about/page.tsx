@@ -203,26 +203,26 @@ export default function About() {
                   <img src="https://thefoundrys.com/images/vishwa-new.jpg" alt="Vishwanath Akuthota - Founder" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </motion.div>
 
-                <motion.div variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                  <div>
-                    <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", lineHeight: 1.1, marginBottom: "8px" }}>Vishwanath Akuthota</h2>
-                    <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
-                  </div>
+                <motion.div variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "24px", textAlign: "center", alignItems: "center" }}>
+                    <div>
+                      <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", lineHeight: 1.1, marginBottom: "8px" }}>Vishwanath Akuthota</h2>
+                      <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
+                    </div>
 
-                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify" }}>
-                    Vishwanath Akuthota is a distinguished deep-tech entrepreneur and AI architect with over 1.5 decades of experience in Artificial Intelligence, Machine Learning, and Generative AI. He has been at the forefront of building world-class AI products and Large Language Model (LLM) applications.
-                  </p>
+                    <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "inherit", maxWidth: "800px" }}>
+                      Vishwanath Akuthota is a distinguished deep-tech entrepreneur and AI architect with over 1.5 decades of experience in Artificial Intelligence, Machine Learning, and Generative AI. He has been at the forefront of building world-class AI products and Large Language Model (LLM) applications.
+                    </p>
 
-                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify" }}>
-                    His work is characterized by a mission to develop responsible and trustworthy AI systems that align with ethical principles and industry standards.
-                  </p>
+                    <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "inherit", maxWidth: "800px" }}>
+                      His work is characterized by a mission to develop responsible and trustworthy AI systems that align with ethical principles and industry standards.
+                    </p>
 
-                  <blockquote style={{ fontSize: "20px", fontStyle: "italic", borderLeft: "4px solid var(--accent)", paddingLeft: "24px", margin: "16px 0", color: "var(--text-main)" }}>
+                  <blockquote style={{ fontSize: "20px", fontStyle: "italic", borderLeft: "4px solid var(--accent)", paddingLeft: "24px", margin: "16px 0", color: "var(--text-main)", textAlign: "left" }}>
                     &quot;Creating valuable products requires an engineering mindset combined with the precision of a mathematician. Our mission is to build responsible, ethical, and trustworthy AI that empowers humanity.&quot;
                   </blockquote>
 
-                  <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "16px" }}>
-                    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "16px", alignItems: "center" }}>
+                    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>
                       <a href="https://www.linkedin.com/in/vishwanathakuthota/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                         LinkedIn <ExternalLink size={14} />
                       </a>
@@ -237,7 +237,7 @@ export default function About() {
                       </a>
                     </div>
                     
-                    <div style={{ display: "flex" }}>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
                       <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "10px 20px", background: "var(--accent)", borderRadius: "8px", fontSize: "14px", transition: "all 0.2s", boxShadow: "0 4px 15px rgba(0, 212, 255, 0.2)" }}>
                         Meet the Team <Users size={16} />
                       </Link>

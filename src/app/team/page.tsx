@@ -112,14 +112,16 @@ export default function TeamPage() {
                   variants={FADE_UP}
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                    gap: "60px",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))",
+                    gap: "40px",
                     alignItems: "center",
-                    padding: "48px",
+                    padding: "clamp(24px, 6vw, 48px)",
                     background: "rgba(255, 255, 255, 0.02)",
                     borderRadius: "40px",
                     border: "1px solid var(--border)",
-                    boxShadow: "0 20px 50px rgba(0,0,0,0.1)"
+                    boxShadow: "0 20px 50px rgba(0,0,0,0.1)",
+                    width: "100%",
+                    textAlign: "center"
                   }}
                 >
                   <div style={{
@@ -146,12 +148,12 @@ export default function TeamPage() {
                       }}
                     />
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                      <h2 style={{ fontSize: "36px", margin: 0 }}>{member.name}</h2>
-                      <p style={{ fontSize: "18px", color: "var(--accent)", fontWeight: 600, margin: 0 }}>{member.role}</p>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "center", textAlign: "center" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px", alignItems: "center" }}>
+                      <h2 style={{ fontSize: "clamp(28px, 4vw, 36px)", margin: 0, textAlign: "center" }}>{member.name}</h2>
+                      <p style={{ fontSize: "18px", color: "var(--accent)", fontWeight: 600, margin: 0, textAlign: "center" }}>{member.role}</p>
                     </div>
-                    <p style={{ color: "var(--text-muted)", fontSize: "17px", lineHeight: 1.7, textAlign: "justify", margin: 0 }}>
+                    <p style={{ color: "var(--text-muted)", fontSize: "17px", lineHeight: 1.7, margin: "0 auto", maxWidth: "600px", textAlign: "center", textJustify: "none" }}>
                       {member.bio}
                     </p>
                   </div>
