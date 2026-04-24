@@ -4,9 +4,9 @@ import styles from "./ui.module.css";
 
 const LOGOS = [
   { name: "Dr Pinnacle", src: "/logos/drpinnacle.png", url: "https://drpinnacle.com" },
-  { name: "NYN", src: "/logos/NYN.avif", url: "https://nynweb.com" },
+  { name: "NYN", src: "/logos/NYN.avif", url: "https://www.instagram.com/nyn_innovations/" },
   { name: "Son of Egg", src: "/logos/Son-of-Egg-logo.avif", url: "https://sonofegg.com" },
-  { name: "Strwbry", src: "/logos/strwbry.jpg", url: "" },
+  { name: "Strwbry", src: "/logos/strwbry.jpg", url: "https://www.instagram.com/strwbrycreative/" },
   { name: "Techoptima", src: "/logos/Techoptima.avif", url: "https://techoptima.ai" },
   { name: "The Foundrys", src: "/logos/the foundrys.avif", url: "https://thefoundrys.com" },
   { name: "Transforma", src: "/logos/transforma.avif", url: "https://www.transforma.in/" },
