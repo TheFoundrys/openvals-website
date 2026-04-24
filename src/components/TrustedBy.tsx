@@ -3,13 +3,13 @@
 import styles from "./ui.module.css";
 
 const LOGOS = [
-  "/logos/drpinnacle.png",
-  "/logos/NYN.avif",
-  "/logos/Son-of-Egg-logo.avif",
-  "/logos/strwbry.jpg",
-  "/logos/Techoptima.avif",
-  "/logos/the foundrys.avif",
-  "/logos/transforma.avif",
+  { name: "Dr Pinnacle", src: "/logos/drpinnacle.png", url: "https://drpinnacle.com" },
+  { name: "NYN", src: "/logos/NYN.avif", url: "https://nynweb.com" },
+  { name: "Son of Egg", src: "/logos/Son-of-Egg-logo.avif", url: "https://sonofegg.com" },
+  { name: "Strwbry", src: "/logos/strwbry.jpg", url: "" },
+  { name: "Techoptima", src: "/logos/Techoptima.avif", url: "https://techoptima.ai" },
+  { name: "The Foundrys", src: "/logos/the foundrys.avif", url: "https://thefoundrys.com" },
+  { name: "Transforma", src: "/logos/transforma.avif", url: "https://www.transforma.in/" },
 ];
 
 export default function TrustedBy() {
@@ -22,13 +22,19 @@ export default function TrustedBy() {
       <div className={styles.logoContainer}>
         <div className={styles.logoScroll}>
           {scrollingLogos.map((logo, index) => (
-            <div key={index} className={styles.logoItem}>
-              <img 
-                src={logo} 
-                alt={`Client logo ${index + 1}`} 
-                className={logo.toLowerCase().includes("transforma") ? styles.largeLogo : ""} 
+            <a
+              key={index}
+              href={logo.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.logoItem}
+            >
+              <img
+                src={logo.src}
+                alt={`${logo.name} logo`}
+                className={logo.src.toLowerCase().includes("transforma") ? styles.largeLogo : ""}
               />
-            </div>
+            </a>
           ))}
         </div>
       </div>

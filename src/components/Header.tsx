@@ -40,7 +40,7 @@ export default function Header() {
       ]
     },
     { name: "About Us", href: "/about", highlight: true },
-    { name: "Blog", href: "/blog", highlight: true },
+    { name: "Resources", href: "/blog", highlight: true },
     { name: "Contact", href: "/contact", highlight: true },
   ];
 
@@ -114,7 +114,7 @@ export default function Header() {
             </div>
           ))}
         </nav>
-        <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+        <div className={styles.headerCTAContainer}>
           <Link href="/apply" className={`${styles.button} ${styles.primary} ${styles.headerCTA} ${styles.headerCTAHeader}`} style={{ padding: "8px 16px", fontSize: "14px" }}>
             Get Your AI/ML Validated
           </Link>
