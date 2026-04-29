@@ -12,9 +12,13 @@
   --logo-color: #1a2b3d;
   --orb-bg: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(240, 249, 255, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
   --orb-border: rgba(0, 0, 0, 0.1);
-  --container-padding: clamp(20px, 5vw, 60px);
-  --section-padding: clamp(40px, 8vw, 100px);
+  --container-padding: clamp(12px, 3vw, 40px);
+  --section-padding: clamp(30px, 5vw, 60px);
   --icon-invert: 0;
+  --shield-base: #2F80ED;
+  --shield-glow: rgba(47, 128, 237, 0.25);
+  --shield-glow-strong: rgba(47, 128, 237, 0.15);
+  --shield-impact: rgba(47, 128, 237, 0.4);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,6 +37,10 @@
     --orb-bg: radial-gradient(circle at 30% 30%, rgba(17, 24, 39, 0.8) 0%, rgba(11, 15, 25, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
     --orb-border: rgba(255, 255, 255, 0.2);
     --icon-invert: 1;
+    --shield-base: #2F80ED;
+    --shield-glow: rgba(47, 128, 237, 0.6);
+    --shield-glow-strong: rgba(47, 128, 237, 0.4);
+    --shield-impact: rgba(47, 128, 237, 0.7);
   }
 }
 
@@ -43,7 +51,7 @@ body {
   background-color: var(--primary-bg);
   color: var(--text-main);
   font-family: var(--font-inter), sans-serif;
-  line-height: 1.5;
+  line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }

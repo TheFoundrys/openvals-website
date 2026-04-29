@@ -22,6 +22,7 @@ import styles from "../../../components/ui.module.css";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import AmbientGrid from "../../../components/AmbientGrid";
+import FAQSection from "../../../components/FAQSection";
 import Link from "next/link";
 
 const FADE_UP = {
@@ -35,7 +36,6 @@ const STAGGER = {
 } as const;
 
 export default function AICompassPage() {
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const pillars = [
     { icon: ClipboardCheck, title: "1. AI Readiness Assessment", desc: "Evaluate your organization's preparedness across people, processes, data, and technology." },
@@ -46,13 +46,6 @@ export default function AICompassPage() {
     { icon: Map, title: "6. Implementation Roadmap", desc: "Create a phased, scalable roadmap for seamless AI integration and execution." }
   ];
 
-  const faqs = [
-    { q: "What is AI Compass?", a: "AI Compass is a strategic consulting framework that helps organizations adopt AI in a structured, scalable, and results-driven way." },
-    { q: "How does AI Compass work?", a: "It evaluates your readiness, identifies opportunities, mitigates risks, and provides a roadmap for successful AI implementation." },
-    { q: "Who should use AI Compass?", a: "Business leaders, CTOs, CIOs, and AI teams looking to implement AI effectively across their organization." },
-    { q: "Is AI Compass suitable for startups?", a: "Yes. It helps startups avoid costly mistakes and build AI systems with a strong foundation." },
-    { q: "How long does implementation take?", a: "It depends on the organization's size and goals, but typically ranges from a few weeks (assessment) to a few months (full roadmap execution)." }
-  ];
 
   return (
     <>
@@ -261,27 +254,7 @@ export default function AICompassPage() {
         </section>
 
         {/* FAQ SECTION */}
-        <section className={styles.section} style={{ background: "var(--secondary-bg)" }}>
-          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <h2 style={{ fontSize: "40px", fontWeight: 800, textAlign: "center", marginBottom: "64px" }}>FAQ Section</h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              {faqs.map((faq, i) => (
-                <div key={i} style={{ background: "var(--primary-bg)", borderRadius: "16px", border: "1px solid var(--border)", overflow: "hidden" }}>
-                  <button 
-                    onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                    style={{ width: "100%", padding: "24px", display: "flex", justifyContent: "space-between", alignItems: "center", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
-                  >
-                    <span style={{ fontSize: "18px", fontWeight: 700 }}>{faq.q}</span>
-                    <motion.div animate={{ rotate: activeFaq === i ? 180 : 0 }}><ChevronDown /></motion.div>
-                  </button>
-                  {activeFaq === i && (
-                    <div style={{ padding: "0 24px 24px", color: "var(--text-muted)", lineHeight: 1.6 }}>{faq.a}</div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FAQSection />
 
         {/* CALL TO ACTION */}
         <section className={styles.section} style={{ background: "var(--accent)", color: "#fff", textAlign: "center" }}>

@@ -2,15 +2,38 @@
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
+const THREAT_NAMES = [
+  "Hallucinations",
+  "Manipulation",
+  "Bias",
+  "Toxicity",
+  "Misinformation",
+  "Jailbreak Attempts",
+  "Prompt Injection",
+  "Data Leakage",
+  "Behavioral Drift",
+  "Overconfidence",
+];
+
+const STREAMS = Array.from({ length: 14 }, (_, i) => {
+  const seed = (i * 7 + 3) % 17;
+  const seed2 = (i * 13 + 5) % 19;
+  const seed3 = (i * 11 + 7) % 23;
+
+  const duration = 6 + (seed / 17) * 8;
+  const delay = (seed2 / 19) * 6;
+  const width = 50 + (seed3 / 23) * 80;
+  const verticalPos = 5 + (seed / 17) * 90;
+  const fromRight = i % 2 === 0; // Alternate directions
+  const label = THREAT_NAMES[i % THREAT_NAMES.length];
+
+  return { duration, delay, width, verticalPos, fromRight, label };
+});
+
 export default function ContinuousStream() {
   const { scrollY } = useScroll();
-
-  // Dim the data streams as the user scrolls down
   const smoothScroll = useSpring(scrollY, { damping: 20, stiffness: 100 });
   const opacityFade = useTransform(smoothScroll, [0, 300], [0.8, 0]);
-  
-  // Data streams flowing left to right
-  const streams = Array.from({ length: 15 });
 
   return (
     <motion.div
@@ -20,65 +43,68 @@ export default function ContinuousStream() {
         pointerEvents: "none",
         zIndex: 0,
         opacity: opacityFade,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-around",
-        alignItems: "stretch",
+        overflow: "hidden",
       }}
     >
-      {/* Background Gradient to enhance the stream effect */}
-      <div 
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "linear-gradient(to right, var(--primary-bg) 0%, transparent 20%, transparent 80%, var(--primary-bg) 100%)",
-          zIndex: 2,
-        }}
-      />
-
-      {streams.map((_, i) => {
-        // Randomize speed, delay, and width for horizontal flow
-        const duration = 2 + Math.random() * 4;
-        const delay = Math.random() * 2;
-        const width = 40 + Math.random() * 100;
-
-        return (
-          <div 
-            key={i} 
-            style={{ 
-              width: "100%", 
-              height: "1px", 
-              background: "transparent", 
-              position: "relative" 
+      {STREAMS.map((s, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            top: `${s.verticalPos}%`,
+            width: "100%",
+            height: "20px",
+          }}
+        >
+          <motion.div
+            style={{
+              position: "absolute",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              flexDirection: s.fromRight ? "row-reverse" : "row",
+            }}
+            animate={{
+              x: s.fromRight ? ["100vw", "-20vw"] : ["-20vw", "100vw"],
+              opacity: [0, 0.7, 0.7, 0],
+            }}
+            transition={{
+              duration: s.duration,
+              repeat: Infinity,
+              ease: "linear",
+              delay: s.delay,
             }}
           >
-            <motion.div
+            {/* Data Ray */}
+            <div
               style={{
-                position: "absolute",
-                left: 0,
                 height: "2px",
-                width: `${width}px`,
-                // Bright lead edge, fading tail
-                background: "linear-gradient(to right, transparent 0%, rgba(0, 212, 255, 0.5) 80%, rgba(0, 212, 255, 1) 100%)",
-                top: "-0.5px",
+                width: `${s.width}px`,
+                background: s.fromRight
+                  ? "linear-gradient(to left, transparent 0%, var(--accent) 100%)"
+                  : "linear-gradient(to right, transparent 0%, var(--accent) 100%)",
                 borderRadius: "2px",
-                boxShadow: "2px 0 5px rgba(0, 212, 255, 0.8)",
-              }}
-              animate={{
-                // Start completely off screen left, end exactly where the Neural Core is (approx 65vw to 75vw)
-                x: ["-20vw", "75vw"],
-                opacity: [0, 1, 1, 0], // Fade out right as it hits the core
-              }}
-              transition={{
-                duration: duration,
-                repeat: Infinity,
-                ease: "easeIn", // Speed up as it approaches the model
-                delay: delay,
+                boxShadow: "0 0 6px var(--accent)",
+                opacity: 0.5,
               }}
             />
-          </div>
-        );
-      })}
+
+            {/* Threat Label */}
+            <span
+              style={{
+                fontSize: "10px",
+                color: "var(--text-muted)",
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                whiteSpace: "nowrap",
+                opacity: 0.5,
+              }}
+            >
+              {s.label}
+            </span>
+          </motion.div>
+        </div>
+      ))}
     </motion.div>
   );
 }

@@ -235,11 +235,8 @@ export default function About() {
                       <a href="https://www.researchgate.net/profile/Vishwanath-Akuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                         <img src="/logos/researchgate.png" alt="RG" style={{ height: "16px", width: "auto", filter: "invert(var(--icon-invert))" }} /> ResearchGate <ExternalLink size={14} />
                       </a>
-                    </div>
-
-                    <div style={{ display: "flex", justifyContent: "flex-start" }}>
-                      <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "10px 20px", background: "var(--accent)", borderRadius: "8px", fontSize: "14px", transition: "all 0.2s", boxShadow: "0 4px 15px rgba(0, 212, 255, 0.2)" }}>
-                        Meet the Team <Users size={16} />
+                      <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "8px 16px", background: "var(--accent)", borderRadius: "8px", fontSize: "13px", transition: "all 0.2s", boxShadow: "0 4px 12px rgba(0, 212, 255, 0.2)", whiteSpace: "nowrap" }}>
+                        Meet the Team <Users size={14} />
                       </Link>
                     </div>
                   </div>
