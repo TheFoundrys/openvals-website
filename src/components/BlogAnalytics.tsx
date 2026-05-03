@@ -8,7 +8,7 @@ interface AnalyticsProps {
 }
 
 export default function BlogAnalytics({ slug, ctaId }: AnalyticsProps) {
-  const trackEvent = useCallback((eventName: string, data?: any) => {
+  const trackEvent = useCallback((eventName: string, data?: Record<string, unknown>) => {
     // For now, we log to console. 
     // In production, this would hit /api/blog/track
     console.log(`[Analytics] ${eventName}:`, { slug, ...data });
