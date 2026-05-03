@@ -799,7 +799,7 @@
 }
 
 .blogHeader {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .blogTitle {
@@ -807,29 +807,94 @@
   line-height: 1.1;
   margin-bottom: 32px;
   font-weight: 700;
+  font-family: var(--font-outfit), sans-serif;
 }
 
 .authorRow {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   padding: 24px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 
 .articleBody {
-  font-size: 19px;
-  line-height: 1.8;
+  font-size: 18px;
+  line-height: 1.6;
   color: var(--text-main);
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+}
+
+.articleBody blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--accent);
+  font-style: italic;
+  color: var(--text-main);
+  opacity: 0.85;
+}
+
+.articleBody > * {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
 }
 
 .articleBody p {
+  margin-bottom: 0.75rem;
+}
+
+.articleBody p:empty {
+  display: none;
+}
+
+.articleBody h1, .articleBody h2, .articleBody h3, .articleBody h4 {
+  margin-top: 3rem;
   margin-bottom: 1.5rem;
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.2;
+  font-family: var(--font-outfit), sans-serif;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.articleBody h1 { font-size: clamp(36px, 5vw, 52px); }
+.articleBody h2 { 
+  font-size: clamp(28px, 4vw, 38px); 
+  border-bottom: 1px solid var(--border); 
+  padding-bottom: 0.75rem;
+  margin-top: 4rem; 
+}
+.articleBody h3 { font-size: clamp(24px, 3vw, 30px); }
+.articleBody h4 { font-size: 22px; }
+
+.articleBody p {
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+  color: var(--text-main) !important;
+  opacity: 1;
+  letter-spacing: 0.01em;
+}
+
+.articleBody strong {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.articleBody ul, .articleBody ol {
+  margin-bottom: 1.75rem;
+  padding-left: 1.5rem;
+}
+
+.articleBody li {
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.articleBody li::marker {
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .articleBody img {
@@ -845,7 +910,7 @@
 
   .articleBody {
     font-size: 17px;
-    line-height: 1.7;
+    line-height: 1.45;
   }
 
   .authorRow {

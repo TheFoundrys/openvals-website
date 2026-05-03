@@ -25,7 +25,8 @@ export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][
   categories[]-> {
     title
   },
-  body
+  body,
+  analytics
 }`;
 
 export const postSlugsQuery = groq`*[_type == "post" && defined(slug.current)][].slug.current`;

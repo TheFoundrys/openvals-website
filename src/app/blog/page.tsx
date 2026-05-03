@@ -54,7 +54,7 @@ export default async function BlogIndex() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "24px" }}>
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {posts.map((post: any) => (
               <Link key={post._id} href={`/blog/${post.slug.current}`} className={styles.card} style={{ display: "flex", flexDirection: "column", padding: 0, overflow: "hidden", border: "1px solid var(--border)", background: "var(--secondary-bg)", height: "100%" }}>
