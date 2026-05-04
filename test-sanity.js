@@ -1,0 +1,1 @@
+const { createClient } = require('@sanity/client'); const client = createClient({ projectId: 'lvb9zui8', dataset: 'production', useCdn: false, apiVersion: '2024-01-01' }); client.fetch('*[_type == "post"] | order(publishedAt desc) { title, slug }').then(console.log).catch(console.error);

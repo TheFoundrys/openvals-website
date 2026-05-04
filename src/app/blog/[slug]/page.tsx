@@ -47,10 +47,11 @@ export default async function BlogPost({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let post: any;
   try {
-    post = await client.fetch(postBySlugQuery, { slug });
+    post = await client.fetch(postBySlugQuery, { slug: decodedSlug });
   } catch (error) {
     console.error("Failed to fetch post from Sanity", error);
   }
@@ -59,6 +60,7 @@ export default async function BlogPost({
   if (!post && (slug === "future-of-ai-validation" || slug === "understanding-adversarial-attacks")) {
     post = {
       title: slug === "future-of-ai-validation" ? "The Future of AI Validation" : "Understanding Adversarial Attacks",
+      slug: { current: slug },
       publishedAt: new Date().toISOString(),
       author: { name: "Vishwanath Akuthota" },
       imageUrl: slug === "future-of-ai-validation"
