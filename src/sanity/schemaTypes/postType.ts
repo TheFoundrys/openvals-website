@@ -50,6 +50,28 @@ export const postType = defineType({
       name: 'body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'analytics',
+      title: 'Blog Analytics & Reporting',
+      type: 'object',
+      fields: [
+        defineField({ name: 'topic', type: 'string', title: 'Topic' }),
+        defineField({ name: 'objective', type: 'string', title: 'Objective' }),
+        defineField({ name: 'pageViews', type: 'number', title: 'Page Views' }),
+        defineField({ name: 'uniqueVisitors', type: 'number', title: 'Unique Visitors' }),
+        defineField({ name: 'avgTimeOnPage', type: 'number', title: 'Avg Time on Page (sec)' }),
+        defineField({ name: 'bounceRate', type: 'number', title: 'Bounce Rate (%)' }),
+        defineField({ name: 'scrollDepth', type: 'number', title: 'Max Scroll Depth (%)' }),
+        defineField({ name: 'ctaClicks', type: 'number', title: 'CTA Clicks' }),
+        defineField({ name: 'conversions', type: 'number', title: 'Conversions' }),
+        defineField({ name: 'conversionRate', type: 'number', title: 'Conversion Rate (%)' }),
+        defineField({ name: 'keywordRanking', type: 'string', title: 'Top Keyword Ranking' }),
+        defineField({ name: 'impressions', type: 'number', title: 'Impressions' }),
+        defineField({ name: 'backlinks', type: 'number', title: 'Backlinks' }),
+        defineField({ name: 'insights', type: 'text', title: 'Key Insights' }),
+        defineField({ name: 'nextAction', type: 'string', title: 'Next Action' }),
+      ]
+    }),
   ],
   preview: {
     select: {

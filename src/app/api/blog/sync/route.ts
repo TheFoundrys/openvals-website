@@ -5,10 +5,10 @@ import { postBySlugQuery } from "@/sanity/lib/queries";
 export async function POST(request: Request) {
   try {
     const { slug } = await request.json();
-    const webhookUrl = process.env.SYNC_WEBHOOK_URL;
+    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
 
     if (!webhookUrl) {
-      return NextResponse.json({ error: "SYNC_WEBHOOK_URL not configured" }, { status: 500 });
+      return NextResponse.json({ error: "GOOGLE_SHEET_WEBHOOK_URL not configured" }, { status: 500 });
     }
 
     // Fetch the latest data from Sanity
@@ -18,8 +18,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Post or analytics data not found" }, { status: 404 });
     }
 
-    // Format data for the SharePoint Excel columns (A to O)
-    const excelData = {
+    // Format data for Google Sheet columns
+    const sheetData = {
+      Timestamp: new Date().toISOString(),
+      Title: post.title,
       Topic: post.analytics.topic || "N/A",
       Objective: post.analytics.objective || "N/A",
       "Page Views": post.analytics.pageViews || 0,
@@ -37,20 +39,20 @@ export async function POST(request: Request) {
       "Next Action": post.analytics.nextAction || "N/A",
     };
 
-    // Send to Webhook (Power Automate, Zapier, etc.)
+    // Send to Google Sheets Webhook (Apps Script)
     const response = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(excelData),
+      body: JSON.stringify(sheetData),
     });
 
     if (!response.ok) {
-      throw new Error(`Webhook failed: ${response.statusText}`);
+      throw new Error(`Google Sheets sync failed: ${response.statusText}`);
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, message: "Logged to Google Sheet automatically" });
   } catch (error) {
-    console.error("Sync failed:", error);
+    console.error("Google Sheets sync failed:", error);
     return NextResponse.json({ error: error instanceof Error ? error.message : "Unknown error" }, { status: 500 });
   }
 }

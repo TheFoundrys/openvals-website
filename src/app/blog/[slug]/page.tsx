@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 
 import { urlFor } from "@/sanity/lib/image";
 import BlogAnalytics from "@/components/BlogAnalytics";
+import BlogPerformanceDashboard from "@/components/BlogPerformanceDashboard";
 
 export const revalidate = 60; // Revalidate every minute
 
@@ -163,63 +164,8 @@ export default async function BlogPost({
 
           {/* INTERNAL PERFORMANCE DASHBOARD (Hidden by default, show with ?stats=true) */}
           {post.analytics && (
-            <div id="performance-dashboard" style={{ marginTop: "80px", padding: "32px", background: "rgba(0,0,0,0.03)", borderRadius: "24px", border: "1px solid var(--border)", display: "none" }}>
-              <h3 style={{ fontSize: "18px", marginBottom: "20px", color: "var(--accent)" }}>Post Performance (Internal)</h3>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "20px" }}>
-                <div>
-                  <div style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase" }}>Views</div>
-                  <div style={{ fontSize: "20px", fontWeight: 700 }}>{post.analytics.pageViews || 0}</div>
-                </div>
-                <div>
-                  <div style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase" }}>Visitors</div>
-                  <div style={{ fontSize: "20px", fontWeight: 700 }}>{post.analytics.uniqueVisitors || 0}</div>
-                </div>
-                <div>
-                  <div style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase" }}>CTA Clicks</div>
-                  <div style={{ fontSize: "20px", fontWeight: 700 }}>{post.analytics.ctaClicks || 0}</div>
-                </div>
-                <div>
-                  <div style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase" }}>Conv. Rate</div>
-                  <div style={{ fontSize: "20px", fontWeight: 700 }}>{post.analytics.conversionRate || 0}%</div>
-                </div>
-              </div>
-              <div style={{ marginTop: "24px", borderTop: "1px solid rgba(0,0,0,0.1)", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div>
-                  <div style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase" }}>Next Action</div>
-                  <div style={{ fontSize: "16px", fontWeight: 600 }}>{post.analytics.nextAction || "None"}</div>
-                </div>
-                <button 
-                  onClick={() => {
-                    const btn = document.getElementById('sync-btn');
-                    if (btn) btn.innerText = 'Syncing...';
-                    fetch('/api/blog/sync', {
-                      method: 'POST',
-                      body: JSON.stringify({ slug: post.slug.current }),
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                      if (data.success) {
-                        alert('Synced successfully to SharePoint!');
-                        if (btn) btn.innerText = 'Sync to Excel';
-                      } else {
-                        alert('Sync failed: ' + (data.error || 'Unknown error'));
-                        if (btn) btn.innerText = 'Retry Sync';
-                      }
-                    });
-                  }}
-                  id="sync-btn"
-                  style={{ background: "var(--accent)", color: "#fff", border: "none", padding: "8px 16px", borderRadius: "8px", cursor: "pointer", fontWeight: 600, fontSize: "14px" }}
-                >
-                  Sync to Excel
-                </button>
-              </div>
-            </div>
+            <BlogPerformanceDashboard slug={post.slug.current} analytics={post.analytics} />
           )}
-          <script dangerouslySetInnerHTML={{ __html: `
-            if (window.location.search.includes('stats=true')) {
-              document.getElementById('performance-dashboard').style.display = 'block';
-            }
-          `}} />
         </div>
         <BlogAnalytics slug={post.slug.current} ctaId="blog-cta-discuss" />
       </main>

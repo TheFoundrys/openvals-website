@@ -9,17 +9,23 @@ interface AnalyticsProps {
 
 export default function BlogAnalytics({ slug, ctaId }: AnalyticsProps) {
   const trackEvent = useCallback((eventName: string, data?: Record<string, unknown>) => {
-    // For now, we log to console. 
-    // In production, this would hit /api/blog/track
-    console.log(`[Analytics] ${eventName}:`, { slug, ...data });
-    
-    // Example of how you would hit your own API:
-    /*
+    // In production, this hits our tracking API
     fetch('/api/blog/track', {
       method: 'POST',
-      body: JSON.stringify({ event: eventName, slug, data }),
-    });
-    */
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        event: eventName, 
+        slug, 
+        data: {
+          ...data,
+          isNewVisitor: !sessionStorage.getItem(`visited_${slug}`)
+        } 
+      }),
+    }).catch(err => console.error("Analytics error:", err));
+
+    if (eventName === "page_view") {
+      sessionStorage.setItem(`visited_${slug}`, "true");
+    }
   }, [slug]);
 
   useEffect(() => {
@@ -42,6 +48,17 @@ export default function BlogAnalytics({ slug, ctaId }: AnalyticsProps) {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [trackEvent]);
+
+  useEffect(() => {
+    // Track Time on Page (every 30 seconds)
+    let seconds = 0;
+    const interval = setInterval(() => {
+      seconds += 30;
+      trackEvent("time_update", { seconds });
+    }, 30000);
+
+    return () => clearInterval(interval);
   }, [trackEvent]);
 
   useEffect(() => {
