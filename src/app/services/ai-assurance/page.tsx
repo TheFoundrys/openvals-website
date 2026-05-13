@@ -7,10 +7,8 @@ import {
   ScrollText, 
   Search, 
   CheckCircle2, 
-  ShieldAlert,
   Eye,
-  Lock,
-  ArrowRight
+  Lock
 } from "lucide-react";
 import styles from "../../../components/ui.module.css";
 import Header from "../../../components/Header";

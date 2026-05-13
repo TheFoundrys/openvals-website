@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./ui.module.css";
+
+interface BlogAnalytics {
+  pageViews?: number;
+  uniqueVisitors?: number;
+  ctaClicks?: number;
+  conversionRate?: number;
+  nextAction?: string;
+}
 
 interface Props {
   slug: string;
-  analytics: any;
+  analytics: BlogAnalytics;
 }
 
 export default function BlogPerformanceDashboard({ slug, analytics }: Props) {

@@ -3,7 +3,7 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { motion, Variants } from "framer-motion";
-import { MapPin, Mail, Phone, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 import styles from "../../components/ui.module.css";
 
 const FADE_UP: Variants = {

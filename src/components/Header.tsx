@@ -73,7 +73,7 @@ export default function Header() {
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
                     >
-                      {link.subItems.map((sub, idx) => (
+                      {link.subItems.map((sub) => (
                         sub.isHeader ? (
                           <div key={sub.name} className={`${styles.dropdownSectionLabel} ${sub.hasMargin ? styles.dropdownSection : ""}`}>
                             {sub.name}

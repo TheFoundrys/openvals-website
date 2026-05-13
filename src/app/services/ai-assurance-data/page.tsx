@@ -5,13 +5,10 @@ import {
   ShieldCheck, 
   Lock, 
   FileCheck, 
-  ArrowRight,
   ShieldAlert,
   GanttChart,
   HardDrive,
   Eye,
-  Database,
-  BarChart3,
   Scale
 } from "lucide-react";
 import styles from "../../../components/ui.module.css";

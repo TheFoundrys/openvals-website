@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Radio, Activity, Lock, CheckCircle, Database, Zap, Cpu, Search } from "lucide-react";
+import { Shield, Radio, Activity, Lock, CheckCircle, Database, Zap, Cpu } from "lucide-react";
 import styles from "../../../components/ui.module.css";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";

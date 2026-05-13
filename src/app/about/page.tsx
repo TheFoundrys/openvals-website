@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldAlert, Activity, FileBadge, ExternalLink, Book, FileText, Users } from "lucide-react";
+import { ShieldAlert, Activity, FileBadge, ExternalLink, Users } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -23,47 +23,6 @@ const STAGGER = {
     },
   },
 };
-
-const BOOKS = [
-  {
-    title: "The Shadows Of Deception",
-    subtitle: "Unveiling Cyber Realms",
-    link: "https://www.amazon.in/Shadows-Deception-Unveiling-Cyber-Realms-ebook/dp/B0CJ9M698Y"
-  },
-  {
-    title: "The Fabric of Law",
-    subtitle: "Understanding Jurisprudence and Legal Principles",
-    link: "https://www.amazon.in/Fabric-Law-Understanding-Jurisprudence-Principles-ebook/dp/B0D1JQ76YG"
-  }
-
-];
-
-const RECOGNITION = [
-  {
-    logo: "/logos/tradeflock.webp",
-    title: "TradeFlock",
-    desc: "Best Startup CEOs - 2024",
-    link: "https://tradeflock.com/best-startup-ceos-2024-vishwanath-akuthota/"
-  },
-  {
-    logo: "/logos/cconnects.webp",
-    title: "The CConnects",
-    desc: "Redefining AI with AI-360 Framework",
-    link: "https://thecconnects.com/redefining-ai-with-ai-360-vishwanath-and-the-legacy-of-dr-pinnacle/"
-  },
-  {
-    logo: "/logos/ehealth-300-98.png",
-    title: "Elets Healthcare",
-    desc: "Healthcare Innovation Excellence Award",
-    link: "https://ehealth.eletsonline.com/2024/06/13th-elets-healthcare-innovation-awards-ceremony-honoured-exemplary-contributions-towards-advancing-healthcare-innovation/"
-  },
-  {
-    logo: "/logos/pride india awards.png",
-    title: "Pride India Awards",
-    desc: "Excellence in AI & Deep Tech Innovation",
-    link: "https://www.instagram.com/p/DKiuoYBMeWA/"
-  }
-];
 
 export default function About() {
   return (

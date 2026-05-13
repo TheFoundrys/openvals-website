@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileBadge, Scale, BookOpen, Fingerprint, Activity, CheckCircle, ArrowRight } from "lucide-react";
+import { FileBadge, Scale, BookOpen, Fingerprint, CheckCircle } from "lucide-react";
 import styles from "../../../components/ui.module.css";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";

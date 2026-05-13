@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { 
-  ShieldCheck, 
   Scale, 
   ScrollText, 
   Search, 
@@ -11,9 +10,7 @@ import {
   Activity, 
   Wrench, 
   CheckCircle2, 
-  Lock,
-  Eye,
-  ClipboardCheck
+  Lock
 } from "lucide-react";
 import styles from "../../../components/ui.module.css";
 import Header from "../../../components/Header";

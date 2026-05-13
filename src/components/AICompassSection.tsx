@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Compass, Target, Zap, ShieldCheck, Database, Award, Users, BookOpen, HelpCircle, CheckCircle2 } from "lucide-react";
+import { Compass, Target, Zap, ShieldCheck, Database, Award, Users, CheckCircle2 } from "lucide-react";
 import styles from "./ui.module.css";
 
 const FADE_UP: Variants = {

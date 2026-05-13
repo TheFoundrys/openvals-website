@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldAlert, Activity, Lock, FileBadge, Zap, Eye, Fingerprint, BookOpen, ArrowRight } from "lucide-react";
+import { ShieldAlert, Activity, Lock, FileBadge, ArrowRight } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";

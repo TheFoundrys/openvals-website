@@ -10,11 +10,7 @@ import {
   BarChart3,
   LineChart,
   Database,
-  PieChart,
-  Zap,
-  Terminal,
-  TrendingUp,
-  Search
+  PieChart
 } from "lucide-react";
 import styles from "../../../components/ui.module.css";
 import Header from "../../../components/Header";

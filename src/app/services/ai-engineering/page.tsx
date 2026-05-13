@@ -7,10 +7,7 @@ import {
   Workflow, 
   Puzzle, 
   CheckCircle2, 
-  ArrowRight,
   Zap,
-  Layers,
-  Database,
   Terminal
 } from "lucide-react";
 import styles from "../../../components/ui.module.css";

@@ -12,12 +12,8 @@ import {
   Briefcase,
   Cpu,
   Bot,
-  CheckCircle2,
-  HelpCircle,
-  ArrowRight,
-  ChevronDown
+  CheckCircle2
 } from "lucide-react";
-import { useState } from "react";
 import styles from "../../../components/ui.module.css";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";

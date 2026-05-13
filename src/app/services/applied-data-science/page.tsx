@@ -7,10 +7,8 @@ import {
   Database, 
   PieChart, 
   CheckCircle2, 
-  ArrowRight,
   TrendingUp,
-  Search,
-  Zap
+  Search
 } from "lucide-react";
 import styles from "../../../components/ui.module.css";
 import Header from "../../../components/Header";
