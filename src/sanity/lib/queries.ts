@@ -12,7 +12,7 @@ export const postsQuery = groq`*[_type == "post"] | order(publishedAt desc) {
   }
 }`;
 
-export const postBySlugQuery = groq`*[_type == "post" && (slug.current == $slug || slug.current == $slug + " ")][0] {
+export const postBySlugQuery = groq`*[_type == "post" && (slug.current == $slug || slug.current == $slug + " " || slug.current match $slug)][0] {
   title,
   slug,
   publishedAt,

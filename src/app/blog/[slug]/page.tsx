@@ -48,7 +48,7 @@ export default async function BlogPost({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const decodedSlug = decodeURIComponent(slug);
+  const decodedSlug = decodeURIComponent(slug).trim();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let post: any;
   try {
