@@ -14,6 +14,7 @@ export default function Footer() {
         </div>
       </div>
       <div style={{ display: "flex", gap: "20px", alignItems: "flex-end" }}>
+        <Link href="/faqs">FAQ&apos;S</Link>
         <Link href="/about">About Us</Link>
         <Link href="#">Privacy Policy</Link>
         <Link href="#">Terms of Service</Link>

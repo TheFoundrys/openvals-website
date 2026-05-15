@@ -1,33 +1,117 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 
-const FAQ_DATA = [
+type FAQEntry = {
+  question: string;
+  answer: ReactNode;
+};
+
+const FAQ_DATA: FAQEntry[] = [
+  {
+    question: "What exactly is OpenVals?",
+    answer:
+      'Think of us as the "safety inspectors" for the AI world. Just like you wouldn\'t drive a car that hasn\'t been crash-tested, we believe you shouldn\'t deploy AI that hasn\'t been thoroughly checked for safety, reliability, and security. We provide the "Trust Layer" that makes sure your AI is doing what it\'s supposed to do.',
+  },
+  {
+    question: "Can't I just trust my AI model if it's working fine in testing?",
+    answer:
+      'Here\'s the thing: AI fails differently than normal software. It doesn\'t just "crash"—it might start giving wrong answers with total confidence (hallucinations), or it might have hidden biases you haven\'t noticed yet. Validation is about finding those "quiet failures" before they reach your customers.',
+  },
+  {
+    question: 'You mention an "AI Assurance Framework." What does that actually mean for me?',
+    answer: (
+      <>
+        <p style={{ margin: 0 }}>
+          It&apos;s just our way of making sure we don&apos;t miss anything. We look at four main things:
+        </p>
+        <ul
+          style={{
+            margin: "16px 0 0",
+            paddingLeft: "20px",
+            color: "var(--text-muted)",
+            lineHeight: 1.6,
+            fontSize: "16px",
+          }}
+        >
+          <li>Is it accurate? (Validation)</li>
+          <li>Can it be hacked? (Vulnerability)</li>
+          <li>Does it stay consistent over time? (Variability)</li>
+          <li>Can you prove it&apos;s safe to auditors? (Verifiability)</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    question: 'What\'s this "Adversarial First" approach I keep hearing about?',
+    answer:
+      'Most people test their AI to see if it works. We test it to see how it breaks. We act like the "bad guys" to find the weak spots in your model before anyone else does. It\'s better to find a bug in our lab than in your production environment.',
+  },
+  {
+    question: 'What is "AI Red Teaming"? Is it as intense as it sounds?',
+    answer:
+      'It\'s essentially a high-stakes stress test. We try to trick your AI using techniques like prompt injection (giving it weird instructions to bypass its rules) or jailbreaking. If your AI can withstand our "Red Team," it\'s much more likely to be safe in the wild.',
+  },
+  {
+    question: "Is my data safe while you're testing it?",
+    answer:
+      'Absolutely. Security is literally in our name. One of the main things we check for is "data leakage"—making sure your AI doesn\'t accidentally reveal sensitive training data or private information when someone asks it the right (or wrong) question.',
+  },
+  {
+    question: "What do I actually get at the end of the day?",
+    answer:
+      'You get a clear, easy-to-read report that tells you exactly how ready your AI is for the real world. We give you a "readiness score" and a list of specific things you can do to make your model safer and more reliable.',
+  },
+  {
+    question: "Is OpenVals only for big tech companies?",
+    answer:
+      "Not at all. If you're building or using AI for anything important—whether you're a startup or a global enterprise—you need to know it's trustworthy. If it's business-critical, it's OpenVals-critical.",
+  },
+  {
+    question: "How do we get started?",
+    answer:
+      "Just reach out! We can show you a sample report so you can see exactly what our validation looks like, or we can jump straight into checking your first model. No more guessing—just clear, validated trust.",
+  },
   {
     question: "What is AI Compass?",
-    answer: "AI Compass is our premier validation framework designed to stress-test AI models against real-world failures. It provides a comprehensive audit of safety, reliability, and performance metrics before you go to production.",
+    answer:
+      "AI Compass is our premier validation framework designed to stress-test AI models against real-world failures. It provides a comprehensive audit of safety, reliability, and performance metrics before you go to production.",
   },
   {
     question: "How does AI Compass work?",
-    answer: "We use a multi-layered approach involving automated red-teaming, behavioral analysis, and edge-case simulation. Our proprietary algorithms detect subtle drifts and vulnerabilities that standard testing often misses.",
+    answer:
+      "We use a multi-layered approach involving automated red-teaming, behavioral analysis, and edge-case simulation. Our proprietary algorithms detect subtle drifts and vulnerabilities that standard testing often misses.",
   },
   {
     question: "Who should use AI Compass?",
-    answer: "Any organization deploying AI into business-critical environments. This includes fintech, healthcare providers, legal tech, and enterprise SaaS companies who need to ensure their AI is both safe and compliant.",
+    answer:
+      "Any organization deploying AI into business-critical environments. This includes fintech, healthcare providers, legal tech, and enterprise SaaS companies who need to ensure their AI is both safe and compliant.",
   },
   {
     question: "Is AI Compass suitable for startups?",
-    answer: "Absolutely. We offer scalable validation tiers that allow startups to build trust with early customers and investors by demonstrating a 'security-first' approach to their AI development.",
+    answer:
+      "Absolutely. We offer scalable validation tiers that allow startups to build trust with early customers and investors by demonstrating a 'security-first' approach to their AI development.",
   },
   {
     question: "How long does implementation take?",
-    answer: "Initial vulnerability scans can be completed in as little as 48 hours. A full comprehensive audit and continuous monitoring setup typically takes 1-2 weeks depending on the complexity of your models.",
+    answer:
+      "Initial vulnerability scans can be completed in as little as 48 hours. A full comprehensive audit and continuous monitoring setup typically takes 1-2 weeks depending on the complexity of your models.",
   },
 ];
 
-function FAQItem({ question, answer, isOpen, onClick }: { question: string, answer: string, isOpen: boolean, onClick: () => void }) {
+function FAQItem({
+  question,
+  answer,
+  isOpen,
+  onClick,
+}: {
+  question: string;
+  answer: ReactNode;
+  isOpen: boolean;
+  onClick: () => void;
+}) {
   return (
     <div 
       style={{ 
@@ -59,9 +143,11 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string, answ
             transition={{ duration: 0.3, ease: "easeInOut" }}
             style={{ overflow: "hidden" }}
           >
-            <p style={{ margin: 0, color: "var(--text-muted)", lineHeight: "1.6", fontSize: "16px" }}>
-              {answer}
-            </p>
+            <motion.div
+              style={{ color: "var(--text-muted)", lineHeight: "1.6", fontSize: "16px" }}
+            >
+              {typeof answer === "string" ? <p style={{ margin: 0 }}>{answer}</p> : answer}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -69,7 +155,7 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string, answ
   );
 }
 
-export default function FAQSection() {
+export default function FAQSection({ wide = false }: { wide?: boolean }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -78,7 +164,10 @@ export default function FAQSection() {
       backgroundColor: "var(--primary-bg)",
       position: "relative"
     }}>
-      <div className="container" style={{ maxWidth: "800px" }}>
+      <motion.div
+        className="container"
+        style={wide ? { width: "auto" } : { maxWidth: "800px" }}
+      >
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -151,7 +240,7 @@ export default function FAQSection() {
             Contact Support
           </a>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
