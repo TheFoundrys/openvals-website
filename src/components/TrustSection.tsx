@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { AlertCircle, ShieldAlert, Activity } from "lucide-react";
+import { AlertCircle, ShieldAlert, Activity, Copy, Check } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 import styles from "./ui.module.css";
 import TrustLayerGraphic from "./TrustLayerGraphic";
 
@@ -22,6 +23,15 @@ const STAGGER: Variants = {
 };
 
 export function HeroPart() {
+  const [copied, setCopied] = useState(false);
+  const command = "pip install openevals";
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(command);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section className={styles.hero} style={{ padding: 0, minHeight: "auto" }}>
       <motion.div
@@ -38,10 +48,43 @@ export function HeroPart() {
           AI systems are being deployed faster than they are understood.
           OpenVals ensures they are secure, reliable, and validated.
         </motion.p>
-        <motion.div variants={FADE_UP}>
-          <Link href="/apply" className={`${styles.button} ${styles.primary}`}>
-            Get Your AI Validated
-          </Link>
+        <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              padding: "12px 20px",
+              backgroundColor: "var(--bg-secondary, #1a1a2e)",
+              borderRadius: "8px",
+              border: "1px solid var(--border-color, #333)",
+              fontFamily: "monospace",
+              fontSize: "16px",
+              color: "var(--text-main, #fff)"
+            }}
+          >
+            <span>{command}</span>
+            <button
+              onClick={handleCopy}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                color: "var(--text-muted, #999)",
+                display: "flex",
+                alignItems: "center",
+                padding: "0",
+                transition: "color 0.2s"
+              }}
+              title="Copy to clipboard"
+            >
+              {copied ? (
+                <Check size={18} style={{ color: "var(--success-color, #4ade80)" }} />
+              ) : (
+                <Copy size={18} />
+              )}
+            </button>
+          </div>
         </motion.div>
       </motion.div>
 
