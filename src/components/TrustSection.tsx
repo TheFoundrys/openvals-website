@@ -55,12 +55,12 @@ export function HeroPart() {
               alignItems: "center",
               gap: "12px",
               padding: "12px 20px",
-              backgroundColor: "var(--bg-secondary, #1a1a2e)",
+              backgroundColor: "var(--secondary-bg)",
               borderRadius: "8px",
-              border: "1px solid var(--border-color, #333)",
+              border: "1px solid var(--border)",
               fontFamily: "monospace",
               fontSize: "16px",
-              color: "var(--text-main, #fff)"
+              color: "var(--text-main)"
             }}
           >
             <span>{command}</span>
@@ -70,7 +70,7 @@ export function HeroPart() {
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                color: "var(--text-muted, #999)",
+                color: "var(--text-muted)",
                 display: "flex",
                 alignItems: "center",
                 padding: "0",
@@ -79,7 +79,7 @@ export function HeroPart() {
               title="Copy to clipboard"
             >
               {copied ? (
-                <Check size={18} style={{ color: "var(--success-color, #4ade80)" }} />
+                <Check size={18} style={{ color: "var(--accent)" }} />
               ) : (
                 <Copy size={18} />
               )}
