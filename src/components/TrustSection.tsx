@@ -48,7 +48,7 @@ export function HeroPart() {
           AI systems are being deployed faster than they are understood.
           OpenVals ensures they are secure, reliable, and validated.
         </motion.p>
-        <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <motion.div variants={FADE_UP} className={styles.commandBoxWrapper} style={{ display: "flex", alignItems: "center", gap: "12px", width: "100%" }}>
           <div
             style={{
               display: "flex",

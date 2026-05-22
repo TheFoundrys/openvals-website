@@ -930,3 +930,13 @@
   color: var(--accent-light) !important;
   transform: translateX(4px);
 }
+
+.commandBoxWrapper {
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .commandBoxWrapper {
+    justify-content: center;
+  }
+}
