@@ -5,7 +5,7 @@ import styles from "../components/ui.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AmbientGrid from "../components/AmbientGrid";
-import { HeroPart, FailsPart } from "../components/TrustSection";
+import { ActionButtonsPart, HeroPart } from "../components/TrustSection";
 import { ServicesPart, PillarsPart } from "../components/ServicesPillars";
 import Link from "next/link";
 
@@ -37,8 +37,8 @@ export default function Home() {
             <div className={styles.scaledContent}>
               <HeroPart />
             </div>
-            <div className={`${styles.scaledContent} ${styles.desktopOnly}`}>
-              <FailsPart />
+            <div className={styles.scaledContent}>
+              <ActionButtonsPart />
             </div>
           </div>
         </section>
