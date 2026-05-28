@@ -39,6 +39,15 @@ export default function Header() {
         { name: "Skill Compass", href: "https://compass.thefoundrys.com/" },
       ]
     },
+    {
+      name: "Our AI Products",
+      href: "#",
+      highlight: true,
+      subItems: [
+        { name: "OneCRM", href: "/products/onecrm" },
+        { name: "OneHrms", href: "/products/onehrms" },
+      ]
+    },
     { name: "About Us", href: "/about", highlight: true },
     { name: "Resources", href: "/blog", highlight: true },
     { name: "Contact", href: "/contact", highlight: true },
