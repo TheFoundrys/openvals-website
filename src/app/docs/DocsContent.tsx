@@ -321,7 +321,7 @@ print(results)`}</CodeBlock>
           <H2>License</H2>
           <Paragraph>OpenVals is distributed under the MIT License.</Paragraph>
           <H2>Backed By</H2>
-          <Paragraph>Developed as part of DrPinnacle's AI Trust and Validation Initiative, focused on building secure, scalable, and trustworthy AI systems.</Paragraph>
+          <Paragraph>Developed as part of DrPinnacle&apos;s AI Trust and Validation Initiative, focused on building secure, scalable, and trustworthy AI systems.</Paragraph>
         </>
       );
   }
