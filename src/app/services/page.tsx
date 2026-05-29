@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldAlert, Activity, Lock, FileBadge, ArrowRight } from "lucide-react";
+import { Activity, Lock, FileBadge, ArrowRight } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -24,12 +24,6 @@ const STAGGER = {
 } as const;
 
 const SERVICES = [
-  {
-    icon: ShieldAlert,
-    title: "AI Red Teaming",
-    desc: "Adversarial testing to uncover prompt injection, jailbreaks, and model vulnerabilities.",
-    features: ["Prompt Injection Defense", "Jailbreak Simulation", "Data Extraction Mitigation"]
-  },
   {
     icon: Activity,
     title: "Model Validation & Benchmarking",
@@ -85,20 +79,39 @@ export default function ServicesPage() {
                   key={i} 
                   variants={FADE_UP} 
                   className={styles.card} 
-                  style={{ padding: "48px", background: "var(--secondary-bg)", border: "1px solid var(--border)", position: "relative" }}
+                  style={{
+                    padding: "48px",
+                    background: "var(--secondary-bg)",
+                    border: "1px solid var(--border)",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%"
+                  }}
                 >
                   <div style={{ color: "var(--accent)", marginBottom: "32px" }}>
                     <service.icon size={40} />
                   </div>
-                  <h3 style={{ fontSize: "28px", fontWeight: "700", marginBottom: "20px" }}>{service.title}</h3>
-                  <p style={{ color: "var(--text-muted)", marginBottom: "32px", fontSize: "16px", lineHeight: "1.7" }}>{service.desc}</p>
+                  <h3 style={{ fontSize: "28px", fontWeight: "700", marginBottom: "20px", minHeight: "76px" }}>{service.title}</h3>
+                  <p style={{ color: "var(--text-muted)", marginBottom: "32px", fontSize: "16px", lineHeight: "1.7", minHeight: "82px" }}>{service.desc}</p>
                   
-                  <div style={{ borderTop: "1px solid var(--border)", paddingTop: "32px" }}>
+                  <div style={{ borderTop: "1px solid var(--border)", paddingTop: "32px", marginTop: "auto" }}>
                     <h4 style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "var(--accent)", marginBottom: "16px" }}>Capabilities</h4>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
                       {service.features.map((feature, idx) => (
-                        <div key={idx} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "14px", color: "var(--text-main)" }}>
-                          <ArrowRight size={14} style={{ color: "var(--accent)" }} />
+                        <div
+                          key={idx}
+                          style={{
+                            display: "grid",
+                            gridTemplateColumns: "20px 1fr",
+                            alignItems: "start",
+                            columnGap: "12px",
+                            fontSize: "14px",
+                            lineHeight: "1.45",
+                            color: "var(--text-main)"
+                          }}
+                        >
+                          <ArrowRight size={14} style={{ color: "var(--accent)", marginTop: "3px" }} />
                           {feature}
                         </div>
                       ))}

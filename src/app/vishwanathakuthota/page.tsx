@@ -36,7 +36,16 @@ const BOOKS = [
 
 ];
 
-const RECOGNITION = [
+type RecognitionItem = {
+  logo?: string;
+  logoText?: string;
+  logoSubtext?: string;
+  title: string;
+  desc: string;
+  link: string;
+};
+
+const RECOGNITION: RecognitionItem[] = [
   {
     logo: "/logos/tradeflock.webp",
     title: "TradeFlock",
@@ -60,6 +69,19 @@ const RECOGNITION = [
     title: "Pride India Awards",
     desc: "Excellence in AI & Deep Tech Innovation",
     link: "https://www.instagram.com/p/DKiuoYBMeWA/"
+  },
+  {
+    logoText: "Forbes",
+    title: "Forbes",
+    desc: "Featured recognition",
+    link: "https://www.instagram.com/reel/DPwXAtvAa64"
+  },
+  {
+    logo: "/logos/blindwink.png",
+    logoSubtext: "Research  |  Branding  |  Media  |  PR",
+    title: "Blindwink",
+    desc: "Research, Branding, Media & PR recognition",
+    link: "/vishwanathakuthota/blindwink"
   }
 ];
 
@@ -151,14 +173,14 @@ export default function VishwanathAkuthota() {
                   <motion.span variants={FADE_UP} style={{ color: "var(--accent)", fontSize: "14px", fontWeight: "600", letterSpacing: "0.1em", textTransform: "uppercase" }}>As seen in</motion.span>
                 </div>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "24px", justifyContent: "flex-start" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "24px" }}>
                   {RECOGNITION.map((item, idx) => (
                     <motion.a
                       key={idx}
                       variants={FADE_UP}
                       href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={item.link.startsWith("http") ? "_blank" : undefined}
+                      rel={item.link.startsWith("http") ? "noopener noreferrer" : undefined}
                       className={styles.card}
                       style={{
                         padding: "0",
@@ -167,9 +189,7 @@ export default function VishwanathAkuthota() {
                         flexDirection: "column",
                         background: "var(--secondary-bg)",
                         transition: "transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease",
-                        width: "calc(50% - 12px)", // 2-column feel on medium screens
-                        flexBasis: "320px",
-                        flexGrow: 1
+                        minWidth: 0
                       }}
                     >
                       <div style={{
@@ -178,15 +198,33 @@ export default function VishwanathAkuthota() {
                         alignItems: "center",
                         justifyContent: "center",
                         width: "100%",
-                        background: "white",
+                        background: item.logoText || item.title === "Blindwink" ? "#252525" : "white",
                         padding: "24px",
                         position: "relative"
                       }}>
-                        <img
-                          src={item.logo}
-                          alt={item.title}
-                          style={{ maxHeight: "70px", maxWidth: "80%", objectFit: "contain" }}
-                        />
+                        {item.logoText ? (
+                          <div style={{ color: "#fff", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", lineHeight: 1 }}>
+                            <div style={{ fontFamily: item.title === "Forbes" ? "Georgia, serif" : "Arial, sans-serif", fontSize: item.title === "Forbes" ? "54px" : "42px", fontWeight: item.title === "Forbes" ? 800 : 800, letterSpacing: item.title === "Forbes" ? 0 : "-0.04em" }}>
+                              {item.logoText}
+                            </div>
+                            {item.logoSubtext && (
+                              <div style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.02em" }}>
+                                {item.logoSubtext}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <img
+                            src={item.logo || ""}
+                            alt={item.title}
+                            style={{
+                              maxHeight: item.title === "Blindwink" ? "112px" : "70px",
+                              maxWidth: item.title === "Blindwink" ? "92%" : "80%",
+                              width: item.title === "Blindwink" ? "92%" : "auto",
+                              objectFit: "contain"
+                            }}
+                          />
+                        )}
                         <div style={{ position: "absolute", top: "12px", right: "12px", background: "var(--accent)", color: "white", fontSize: "10px", fontWeight: "800", padding: "4px 8px", borderRadius: "4px", textTransform: "uppercase" }}>Feature</div>
                       </div>
 

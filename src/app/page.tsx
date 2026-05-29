@@ -44,7 +44,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: OUR SERVICES + OUR CORE PILLARS */}
-        <section className={styles.snapSection} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding)", background: "var(--secondary-bg)" }}>
+        <section id="services" className={styles.snapSection} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding)", background: "var(--secondary-bg)" }}>
           <AmbientGrid />
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div className={styles.scaledContent}>
