@@ -188,23 +188,27 @@ export default function About() {
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "16px", alignItems: "flex-start" }}>
                     <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "flex-start" }}>
-                      <Link href="/vishwanathakuthota" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "8px 16px", background: "var(--accent)", borderRadius: "8px", fontSize: "13px", transition: "all 0.2s", boxShadow: "0 4px 12px rgba(0, 212, 255, 0.2)", whiteSpace: "nowrap" }}>
-                        Show More
+                      <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "8px 16px", background: "var(--accent)", borderRadius: "8px", fontSize: "13px", transition: "all 0.2s", boxShadow: "0 4px 12px rgba(0, 212, 255, 0.2)", whiteSpace: "nowrap" }}>
+                        Meet the Team <Users size={14} />
                       </Link>
                       <a href="https://www.linkedin.com/in/vishwanathakuthota/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                        LinkedIn <ExternalLink size={14} />
+                        <img src="/logos/linkedin.svg" alt="" aria-hidden="true" style={{ height: "16px", width: "16px" }} /> LinkedIn <ExternalLink size={14} />
                       </a>
                       <a href="https://x.com/Vishakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                         X (Twitter) <ExternalLink size={14} />
                       </a>
                       <a href="https://github.com/vishwanathakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                        GitHub <ExternalLink size={14} />
+                        <img src="/logos/github.svg" alt="" aria-hidden="true" style={{ height: "16px", width: "16px", filter: "invert(var(--icon-invert))" }} /> GitHub <ExternalLink size={14} />
                       </a>
+                      <span style={{ flexBasis: "100%", height: 0 }} />
                       <a href="https://www.researchgate.net/profile/Vishwanath-Akuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                         <img src="/logos/researchgate.png" alt="RG" style={{ height: "16px", width: "auto", filter: "invert(var(--icon-invert))" }} /> ResearchGate <ExternalLink size={14} />
                       </a>
-                      <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "8px 16px", background: "var(--accent)", borderRadius: "8px", fontSize: "13px", transition: "all 0.2s", boxShadow: "0 4px 12px rgba(0, 212, 255, 0.2)", whiteSpace: "nowrap" }}>
-                        Meet the Team <Users size={14} />
+                      <a href="https://scholar.google.com/citations?user=RBRXfMkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                        <img src="/logos/google-scholar.svg" alt="" aria-hidden="true" style={{ height: "16px", width: "16px" }} /> Google Scholar <ExternalLink size={14} />
+                      </a>
+                      <Link href="/vishwanathakuthota" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "8px 16px", background: "var(--accent)", borderRadius: "8px", fontSize: "13px", transition: "all 0.2s", boxShadow: "0 4px 12px rgba(0, 212, 255, 0.2)", whiteSpace: "nowrap" }}>
+                        Show More
                       </Link>
                     </div>
                   </div>

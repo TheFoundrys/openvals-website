@@ -38,19 +38,39 @@ const BOOKS = [
 
 const PUBLICATIONS = [
   {
-    title: "IEEE Xplore Publication",
+    title: "MentalLLM: A Transformer-Based Large Language Model Framework for Depression Detection.",
     subtitle: "Document ID: 11525902",
     link: "https://ieeexplore.ieee.org/document/11525902/"
   },
   {
-    title: "IEEE Xplore Publication",
+    title: "Microplastics Detection Using Deep Learning Ensemble with Vision Language Models.",
     subtitle: "Document ID: 11525939",
     link: "https://ieeexplore.ieee.org/document/11525939"
   },
   {
-    title: "IEEE Xplore Publication",
+    title: "A Multi-Agent Quantum Chain of Thought Reasoning and Accuracy Accelerators Framework.",
     subtitle: "Document ID: 11525967",
     link: "https://ieeexplore.ieee.org/document/11525967"
+  },
+  {
+    title: "Vulnerability Detection and Monitoring Using LLM",
+    subtitle: "Document ID: 10456393",
+    link: "https://ieeexplore.ieee.org/document/10456393/ "
+  },
+  {
+    title: "A Multi-Agent Garage Service Search and Recommendation with Hybrid MLs and LLMs",
+    subtitle: "Document ID: 10940937",
+    link: "https://ieeexplore.ieee.org/document/10940937"
+  },
+  {
+    title: "Hybrid Q-Learning with VLMs Reasoning Features.",
+    subtitle: "Document ID: 11040757",
+    link: "https://ieeexplore.ieee.org/document/11040757"
+  },
+  {
+    title: "Comparative Analysis of Diverse Architectures for Accurate Blood Cancer Cell Classification.",
+    subtitle: "Document ID: 10497341",
+    link: "https://ieeexplore.ieee.org/document/10497341"
   }
 ];
 
@@ -144,16 +164,19 @@ export default function VishwanathAkuthota() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "16px", alignItems: "flex-start" }}>
                     <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "flex-start" }}>
                       <a href="https://www.linkedin.com/in/vishwanathakuthota/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                        LinkedIn <ExternalLink size={14} />
+                        <img src="/logos/linkedin.svg" alt="" aria-hidden="true" style={{ height: "16px", width: "16px" }} /> LinkedIn <ExternalLink size={14} />
                       </a>
                       <a href="https://x.com/Vishakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                         X (Twitter) <ExternalLink size={14} />
                       </a>
                       <a href="https://github.com/vishwanathakuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
-                        GitHub <ExternalLink size={14} />
+                        <img src="/logos/github.svg" alt="" aria-hidden="true" style={{ height: "16px", width: "16px", filter: "invert(var(--icon-invert))" }} /> GitHub <ExternalLink size={14} />
                       </a>
                       <a href="https://www.researchgate.net/profile/Vishwanath-Akuthota" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                         <img src="/logos/researchgate.png" alt="RG" style={{ height: "16px", width: "auto", filter: "invert(var(--icon-invert))" }} /> ResearchGate <ExternalLink size={14} />
+                      </a>
+                      <a href="https://scholar.google.com/citations?user=RBRXfMkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
+                        <img src="/logos/google-scholar.svg" alt="" aria-hidden="true" style={{ height: "16px", width: "16px" }} /> Google Scholar <ExternalLink size={14} />
                       </a>
                       <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "8px 16px", background: "var(--accent)", borderRadius: "8px", fontSize: "13px", transition: "all 0.2s", boxShadow: "0 4px 12px rgba(0, 212, 255, 0.2)", whiteSpace: "nowrap" }}>
                         Meet the Team <Users size={14} />
@@ -186,7 +209,7 @@ export default function VishwanathAkuthota() {
 
               {/* PUBLISHED RESEARCH */}
               <div>
-                <motion.h3 variants={FADE_UP} style={{ fontSize: "32px", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--border)" }}>Published Research</motion.h3>
+                <motion.h3 variants={FADE_UP} style={{ fontSize: "32px", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--border)" }}>IEEE Publication & Research</motion.h3>
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "24px" }}>
                   {PUBLICATIONS.map((publication, idx) => (
