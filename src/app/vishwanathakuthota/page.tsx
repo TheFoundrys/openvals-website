@@ -71,6 +71,46 @@ const PUBLICATIONS = [
     title: "Comparative Analysis of Diverse Architectures for Accurate Blood Cancer Cell Classification.",
     subtitle: "Document ID: 10497341",
     link: "https://ieeexplore.ieee.org/document/10497341"
+  },
+  {
+    title: "RAG-Enhanced Multi-Model Ensemble for Automated Vulnerability Detection Using SLMs.",
+    subtitle: "Document ID: 11429262",
+    link: "https://ieeexplore.ieee.org/document/11429262"
+  },
+  {
+    title: "Multi-Agent Phishing Detection And Deletion via Small VLM and LLM Reasoning.",
+    subtitle: "Document ID: 11429303",
+    link: "https://ieeexplore.ieee.org/document/11429303"
+  },
+  {
+    title: "Quantum-Enhanced Tax Revenue via A-Challan: ML, LLMs, and QML Approaches.",
+    subtitle: "Document ID: 11526131",
+    link: "https://ieeexplore.ieee.org/document/11526131"
+  },
+  {
+    title: "Pose Detection: Integrating Machine Learning with Large Vision Models.",
+    subtitle: "Document ID: 11211028",
+    link: "https://ieeexplore.ieee.org/document/11211028"
+  },
+  {
+    title: "Financial Voucher Analysis with LVMs and Financial LLMs.",
+    subtitle: "Document ID: 11118347",
+    link: "https://ieeexplore.ieee.org/document/11118347"
+  },
+  {
+    title: "Hybrid ML-SLM RAG System for Large Technical PDFs .",
+    subtitle: "Document ID: 11118759",
+    link: "https://ieeexplore.ieee.org/document/11118759"
+  },
+  {
+    title: "Multi-Vision LVMs Model Ensemble for Gold Jewelry Authenticity Verification.",
+    subtitle: "Document ID: 11118918",
+    link: "https://ieeexplore.ieee.org/document/11118918"
+  },
+  {
+    title: "Comparative Analysis of Diverse Architectures for Accurate Blood Cancer Cell Classification.",
+    subtitle: "Document ID: 10497341",
+    link: "https://ieeexplore.ieee.org/document/10497341"
   }
 ];
 
