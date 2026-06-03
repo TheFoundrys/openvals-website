@@ -189,7 +189,7 @@ export default function VishwanathAkuthota() {
 
               {/* AUTHORED BOOKS */}
               <div>
-                <motion.h3 variants={FADE_UP} style={{ fontSize: "32px", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--border)" }}>Authored Books</motion.h3>
+                <motion.h3 variants={FADE_UP} style={{ fontSize: "30px", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--border)" }}>Authored Books</motion.h3>
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "24px" }}>
                   {BOOKS.map((book, idx) => (
@@ -209,7 +209,7 @@ export default function VishwanathAkuthota() {
 
               {/* PUBLISHED RESEARCH */}
               <div>
-                <motion.h3 variants={FADE_UP} style={{ fontSize: "32px", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--border)" }}>IEEE Publication & Research</motion.h3>
+                <motion.h3 variants={FADE_UP} style={{ fontSize: "30px", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--border)" }}>IEEE Publication & Research</motion.h3>
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "24px" }}>
                   {PUBLICATIONS.map((publication, idx) => (
