@@ -106,11 +106,6 @@ const PUBLICATIONS = [
     title: "Multi-Vision LVMs Model Ensemble for Gold Jewelry Authenticity Verification.",
     subtitle: "Document ID: 11118918",
     link: "https://ieeexplore.ieee.org/document/11118918"
-  },
-  {
-    title: "Comparative Analysis of Diverse Architectures for Accurate Blood Cancer Cell Classification.",
-    subtitle: "Document ID: 10497341",
-    link: "https://ieeexplore.ieee.org/document/10497341"
   }
 ];
 
