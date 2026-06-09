@@ -1,11 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Book, FileText, Users } from "lucide-react";
+import { ExternalLink, Book, FileText } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Link from "next/link";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
@@ -213,9 +212,6 @@ export default function VishwanathAkuthota() {
                       <a href="https://scholar.google.com/citations?user=RBRXfMkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 500, color: "var(--text-main)", padding: "8px 12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "13px", transition: "all 0.2s", whiteSpace: "nowrap" }}>
                         <img src="/logos/google-scholar.svg" alt="" aria-hidden="true" style={{ height: "16px", width: "16px" }} /> Google Scholar <ExternalLink size={14} />
                       </a>
-                      <Link href="/team" style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 600, color: "#fff", padding: "8px 16px", background: "var(--accent)", borderRadius: "8px", fontSize: "13px", transition: "all 0.2s", boxShadow: "0 4px 12px rgba(0, 212, 255, 0.2)", whiteSpace: "nowrap" }}>
-                        Meet the Team <Users size={14} />
-                      </Link>
                     </div>
                   </div>
                 </motion.div>
