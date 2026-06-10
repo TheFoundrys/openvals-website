@@ -77,9 +77,10 @@ export function HeroPart() {
 
 export function ActionButtonsPart() {
   const stats = [
+    { value: "161201", label: "validated models" },
     { value: "5+", label: "LLM Providers" },
     { value: "10+", label: "Core Metrics" },
-    { value: "v0.2.0", label: "Current Release" },
+    { value: "v0.3.0", label: "Current Release" },
     { value: "Dr.Pinnacle", label: "License" },
   ];
   const capabilities = [

@@ -526,7 +526,7 @@
   flex-direction: column;
   align-self: flex-start;
   width: 100%;
-  max-width: 760px;
+  max-width: 980px;
   margin: -46px 0 0;
   padding-top: 0;
 }
@@ -587,8 +587,8 @@
 .trustStats {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 28px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: 24px;
   width: 100%;
   margin-top: 28px;
 }
@@ -596,7 +596,7 @@
 .trustStat {
   position: relative;
   min-height: auto;
-  padding: 2px 20px 2px 0;
+  padding: 2px 16px 2px 0;
   border-right: 1px solid var(--border);
 }
 
@@ -998,12 +998,18 @@
     border-right: 0;
   }
 
-  .trustStat:nth-child(odd) {
+  .trustStat:nth-child(odd):not(:last-child) {
     border-right: 1px solid var(--border);
   }
 
-  .trustStat:nth-child(-n + 2) {
+  .trustStat:nth-child(-n + 4) {
     border-bottom: 1px solid var(--border);
+  }
+
+  .trustStat:last-child {
+    grid-column: 1 / -1;
+    border-right: 0;
+    text-align: center;
   }
 
   .trustStatLabel {
