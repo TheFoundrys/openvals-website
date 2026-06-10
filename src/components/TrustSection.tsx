@@ -24,7 +24,7 @@ const STAGGER: Variants = {
 
 export function HeroPart() {
   const [copied, setCopied] = useState(false);
-  const command = "pip install openevals";
+  const command = "pip install openvals";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(command);
