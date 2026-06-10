@@ -16,7 +16,9 @@ type DocsPageId =
   | "domains"
   | "roadmap"
   | "vision"
-  | "contributing";
+  | "contributing"
+  | "code-of-conduct"
+  | "security-policy";
 
 const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: string }> }> = [
   {
@@ -46,6 +48,8 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
       { id: "roadmap", label: "Roadmap" },
       { id: "vision", label: "Vision" },
       { id: "contributing", label: "Contributing" },
+      { id: "code-of-conduct", label: "Code of Conduct" },
+      { id: "security-policy", label: "Security Policy" },
     ],
   },
 ];
@@ -67,6 +71,8 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.3.0", "Future"] },
   vision: { group: "Reference", title: "Philosophy and Vision", onThisPage: ["Mission", "Vision"] },
   contributing: { group: "Reference", title: "Contributing", onThisPage: ["Workflow", "License", "Backed By"] },
+  "code-of-conduct": { group: "Reference", title: "OpenVals Code of Conduct", onThisPage: ["Purpose", "Ground Rules", "Unacceptable Behavior", "Questions"] },
+  "security-policy": { group: "Reference", title: "Security Policy", onThisPage: ["Supported Versions", "Reporting a Vulnerability", "Response Timeline", "Scope", "Safe Harbor"] },
 };
 
 const whyItems = [
@@ -92,6 +98,78 @@ const metrics = [
 
 const domains = ["Finance", "Cybersecurity", "Legal", "Math", "Reasoning", "Enterprise Operations", "Software Development", "Developer dataset"];
 const roadmap = ["Hallucination Probability Index", "AI Risk Scoring", "Governance Analytics", "Certification System", "PDF Reporting", "Adversarial Testing", "REST APIs", "Evaluation history", "External dataset integrations", "SaaS platform", "Enterprise governance", "Continuous AI validation", "Team workspaces and dashboards"];
+const conductGroundRules = [
+  "Be friendly and patient.",
+  "Be welcoming to people of all backgrounds, identities, and lived experiences.",
+  "Be considerate of how your work and decisions affect users, colleagues, and the broader community.",
+  "Be respectful when working with OpenVals community members and people outside the community.",
+  "Be careful with the words you choose and conduct yourself professionally.",
+  "When disagreements happen, try to understand why and resolve differences constructively.",
+];
+const unacceptableConduct = [
+  "Violent threats or language directed against another person.",
+  "Discriminatory jokes or language.",
+  "Posting sexually explicit or violent material.",
+  "Posting or threatening to post another person's personally identifying information.",
+  "Personal insults, especially those using racist or sexist terms.",
+  "Unwelcome sexual attention.",
+  "Advocating for or encouraging unacceptable behavior.",
+  "Repeated harassment of others. If someone asks you to stop, stop.",
+];
+const securityReportItems = [
+  "Description of the vulnerability",
+  "Steps to reproduce the issue",
+  "Affected components or versions",
+  "Proof of concept, if available",
+  "Potential impact assessment",
+  "Suggested remediation, if available",
+];
+const securityScope = [
+  "AI systems",
+  "LLM infrastructure",
+  "APIs",
+  "Enterprise platforms",
+  "Security tooling",
+  "Internal research projects",
+  "Cloud and on-prem deployments",
+  "AI governance and validation systems",
+];
+const responsibleDisclosureGuidelines = [
+  "Avoid violating privacy or accessing unnecessary data.",
+  "Do not disrupt production services.",
+  "Do not perform destructive testing.",
+  "Avoid social engineering or phishing attacks.",
+  "Provide reasonable time for remediation before disclosure.",
+];
+const securityPhilosophy = [
+  "AI security",
+  "AI validation",
+  "AI red teaming",
+  "Enterprise AI assurance",
+  "Secure AI deployment",
+  "AI governance",
+  "Private AI infrastructure",
+  "Trustworthy AI systems",
+];
+const dataProtectionPractices = [
+  "End-to-end encryption",
+  "Role-based access control (RBAC)",
+  "Multi-factor authentication (MFA)",
+  "Secure secret management",
+  "Zero Trust architectures",
+  "Continuous monitoring and auditing",
+  "Secure AI model governance",
+];
+const aiSafetyReportTypes = [
+  "Hallucination vulnerabilities",
+  "Prompt injection attacks",
+  "Model jailbreak techniques",
+  "Adversarial prompts",
+  "Unsafe routing behavior",
+  "Data leakage risks",
+  "Alignment failures",
+  "AI governance bypasses",
+];
 
 function pagePath(id: DocsPageId) {
   return id === "welcome" ? "/docs" : `/docs/${id}`;
@@ -129,12 +207,57 @@ function Paragraph({ children }: { children: React.ReactNode }) {
   return <p style={{ color: "var(--docs-muted)", fontSize: "17px", lineHeight: 1.75, margin: "0 0 18px" }}>{children}</p>;
 }
 
+function TextLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const external = href.startsWith("http");
+
+  return (
+    <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} style={{ color: "var(--docs-heading)", textDecoration: "underline", textUnderlineOffset: "3px" }}>
+      {children}
+    </a>
+  );
+}
+
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul style={{ color: "var(--docs-muted)", fontSize: "17px", lineHeight: 1.75, margin: "0 0 22px", paddingLeft: "22px" }}>
+      {items.map((item) => (
+        <li key={item} style={{ marginBottom: "8px" }}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
 function PillGrid({ items }: { items: string[] }) {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px", marginTop: "18px" }}>
       {items.map((item) => (
         <div key={item} style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "14px 16px", color: "var(--docs-text)", background: "var(--docs-card)" }}>{item}</div>
       ))}
+    </div>
+  );
+}
+
+function DocsTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
+  return (
+    <div style={{ overflowX: "auto", border: "1px solid var(--docs-border)", borderRadius: "14px", margin: "20px 0 22px" }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "560px" }}>
+        <thead>
+          <tr style={{ background: "var(--docs-code-bg)", color: "var(--docs-heading)", textAlign: "left" }}>
+            {headers.map((head) => (
+              <th key={head} style={{ padding: "14px", borderBottom: "1px solid var(--docs-border)" }}>{head}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.join("|")}>
+              {row.map((cell) => (
+                <td key={cell} style={{ padding: "14px", borderBottom: "1px solid var(--docs-border-soft)", color: "var(--docs-muted)" }}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -322,6 +445,67 @@ print(results)`}</CodeBlock>
           <Paragraph>OpenVals is distributed under the MIT License.</Paragraph>
           <H2>Backed By</H2>
           <Paragraph>Developed as part of DrPinnacle&apos;s AI Trust and Validation Initiative, focused on building secure, scalable, and trustworthy AI systems.</Paragraph>
+        </>
+      );
+    case "code-of-conduct":
+      return (
+        <>
+          <H2>Purpose</H2>
+          <Paragraph>Like the technical community as a whole, the OpenVals team and community are made up of professionals and volunteers from around the world, working on every aspect of the mission, including mentorship, teaching, and connecting people.</Paragraph>
+          <Paragraph>Diversity is one of our strengths, but it can also lead to communication issues and unhappiness. To that end, we have a few ground rules that we ask people to follow. This code applies equally to founders, mentors, and people seeking help and guidance.</Paragraph>
+          <Paragraph>This is not an exhaustive list of things that you cannot do. Take it in the spirit in which it is intended: a guide to make it easier to enrich all of us and the technical communities in which we participate.</Paragraph>
+          <Paragraph>This code of conduct applies to all spaces managed by the OpenVals project, OpenVals, and DrPinnacle, including IRC, mailing lists, issue trackers, OpenVals events, and any other community forums created by the project team. Violations outside these spaces may affect a person&apos;s ability to participate within them.</Paragraph>
+          <Paragraph>If you believe someone is violating the code of conduct, report it by emailing <TextLink href="mailto:support@openvalidations.com">support@openvalidations.com</TextLink>. For more details, see <TextLink href="https://openvalidations.com">OpenValidations.com</TextLink>.</Paragraph>
+          <H2>Ground Rules</H2>
+          <BulletList items={conductGroundRules} />
+          <H2>Unacceptable Behavior</H2>
+          <Paragraph>Harassment and exclusionary behavior are not acceptable. This includes, but is not limited to:</Paragraph>
+          <BulletList items={unacceptableConduct} />
+          <H2>Disagreements</H2>
+          <Paragraph>Disagreements, both social and technical, happen all the time and OpenVals is no exception. It is important that we resolve disagreements and differing views constructively.</Paragraph>
+          <Paragraph>The strength of OpenVals comes from its varied community and from people with a wide range of backgrounds. Different people have different perspectives on issues. Being unable to understand why someone holds a viewpoint does not mean that they are wrong.</Paragraph>
+          <Paragraph>It is human to err, and blaming each other does not get us anywhere. Focus on helping to resolve issues and learning from mistakes.</Paragraph>
+          <H2>Questions</H2>
+          <Paragraph>Original text courtesy of the Speak Up! project.</Paragraph>
+          <Paragraph>If you have questions, please see <TextLink href="https://openvalidations.com/faqs">openvalidations.com/faqs</TextLink>. If that does not answer your questions, feel free to contact us.</Paragraph>
+        </>
+      );
+    case "security-policy":
+      return (
+        <>
+          <H2>Supported Versions</H2>
+          <Paragraph>The following versions of this project are currently supported with security updates.</Paragraph>
+          <DocsTable headers={["Version", "Supported"]} rows={[["Latest", "Supported"], ["Legacy Releases", "Not supported"]]} />
+          <H2>Reporting a Vulnerability</H2>
+          <Paragraph>At DrPinnacle, security is a core priority. We appreciate responsible disclosure from security researchers, developers, customers, and the broader community.</Paragraph>
+          <Paragraph>If you discover a security vulnerability, report it responsibly and privately. Please do not publicly disclose vulnerabilities until they have been reviewed and addressed.</Paragraph>
+          <Paragraph>Please include the following information in your report:</Paragraph>
+          <BulletList items={securityReportItems} />
+          <Paragraph>Security reports should be submitted to <TextLink href="mailto:security@drpinnacle.com">security@drpinnacle.com</TextLink>. OpenVals vulnerability reports can also be sent to <TextLink href="mailto:support@openvalidations.com">support@openvalidations.com</TextLink>.</Paragraph>
+          <Paragraph>Organization: DrPinnacle. Website: <TextLink href="https://drpinnacle.com">https://drpinnacle.com</TextLink>.</Paragraph>
+          <H2>Response Timeline</H2>
+          <DocsTable headers={["Action", "Target Timeline"]} rows={[["Initial acknowledgment", "Within 24-72 hours"], ["Vulnerability triage", "Within 5 business days"], ["Status updates", "Ongoing during investigation"], ["Resolution or mitigation", "Based on severity"]]} />
+          <Paragraph>Complex issues may require additional investigation time.</Paragraph>
+          <H2>Scope</H2>
+          <PillGrid items={securityScope} />
+          <H2>Responsible Disclosure</H2>
+          <Paragraph>We request that researchers act in good faith and follow these guidelines:</Paragraph>
+          <BulletList items={responsibleDisclosureGuidelines} />
+          <H2>Safe Harbor</H2>
+          <Paragraph>DrPinnacle supports responsible security research conducted in good faith. We will not pursue legal action against researchers who follow this policy, avoid privacy violations or service disruption, report vulnerabilities responsibly, and act ethically within legal boundaries.</Paragraph>
+          <H2>Security Philosophy</H2>
+          <Paragraph>Modern AI systems require more than functionality. They require trust, validation, governance, and resilience.</Paragraph>
+          <PillGrid items={securityPhilosophy} />
+          <H2>Encryption and Data Protection</H2>
+          <Paragraph>We strongly encourage:</Paragraph>
+          <BulletList items={dataProtectionPractices} />
+          <H2>AI Safety Reporting</H2>
+          <Paragraph>For AI-related systems, reports may also include:</Paragraph>
+          <BulletList items={aiSafetyReportTypes} />
+          <H2>Acknowledgments</H2>
+          <Paragraph>We appreciate the efforts of researchers and engineers helping improve the security and trustworthiness of modern AI systems.</Paragraph>
+          <Paragraph>Together, we can build safer and more reliable intelligence infrastructure.</Paragraph>
+          <Paragraph>DrPinnacle: build trust, validate intelligence, and deploy with confidence.</Paragraph>
         </>
       );
   }
