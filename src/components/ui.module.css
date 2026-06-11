@@ -662,12 +662,15 @@
 .trustMarqueeTrack {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: scroll 28s linear infinite;
+  will-change: transform;
 }
 
 .trustMarqueeItem {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 10px;
   padding: 8px 40px;
@@ -1044,6 +1047,13 @@
 
   .card {
     padding: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trustMarqueeTrack {
+    animation: none;
+    transform: none;
   }
 }
 
