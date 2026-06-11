@@ -73,10 +73,34 @@
   width: 100%;
 }
 
+.snapSectionAuto {
+  justify-content: flex-start;
+  min-height: auto;
+  height: auto;
+  scroll-snap-align: start;
+}
+
+.snapSectionAuto .snapInner {
+  height: auto;
+  justify-content: flex-start;
+  gap: clamp(36px, 6vw, 72px);
+}
+
 @media (min-width: 1024px) {
   .snapInner {
     height: 100%;
     justify-content: space-around;
+  }
+
+  .snapSectionAuto {
+    height: auto;
+    min-height: 100vh;
+    scroll-snap-stop: normal;
+  }
+
+  .snapSectionAuto .snapInner {
+    height: auto;
+    justify-content: flex-start;
   }
 }
 
@@ -970,12 +994,14 @@
   }
 
   .trustActions {
+    flex-direction: row;
     gap: 12px;
   }
 
   .trustActions > * {
     flex: 1 1 0;
     min-width: 0;
+    width: 100%;
   }
 
   .trustActionButton {
@@ -1134,7 +1160,7 @@
   display: flex;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1180px) {
   .headerCTAHeader {
     display: none;
   }

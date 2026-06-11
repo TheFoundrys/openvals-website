@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import AmbientGrid from "../components/AmbientGrid";
 import { ActionButtonsPart, HeroPart } from "../components/TrustSection";
 import { ServicesPart, PillarsPart } from "../components/ServicesPillars";
-import Link from "next/link";
+import { HomepageConversionStack } from "../components/ConversionPage";
 
 const FADE_UP: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -56,8 +56,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 3: START YOUR VALIDATION (CTA) + FOOTER */}
-        <section className={styles.snapSection} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding) 0" }}>
+        {/* SECTION 3: PROOF + PACKAGES + LEAD MAGNET */}
+        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding) 0" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <motion.div 
@@ -66,18 +66,10 @@ export default function Home() {
                 viewport={{ once: true }} 
                 variants={STAGGER}
                 className={styles.scaledContent}
-                style={{ textAlign: "center", padding: "clamp(30px, 5vw, 60px)", borderRadius: "32px", backgroundColor: "var(--secondary-bg)", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}
+                style={{ padding: "clamp(20px, 3vw, 34px)", borderRadius: "16px", backgroundColor: "var(--secondary-bg)", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}
               >
-                <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(28px, 4vw, 56px)", marginBottom: "20px", fontWeight: 800 }}>
-                  Ready to Validate Your AI?
-                </motion.h2>
-                <motion.p variants={FADE_UP} style={{ fontSize: "18px", color: "var(--text-muted)", marginBottom: "32px", maxWidth: "600px", margin: "0 auto 32px" }}>
-                  Don&apos;t leave your AI to chance. Get a comprehensive audit and ensure your systems are production-ready.
-                </motion.p>
                 <motion.div variants={FADE_UP}>
-                  <Link href="/contact" className={`${styles.button} ${styles.primary}`} style={{ padding: "16px 40px", fontSize: "16px" }}>
-                    Start Your Validation Now &rarr;
-                  </Link>
+                  <HomepageConversionStack />
                 </motion.div>
               </motion.div>
             </div>

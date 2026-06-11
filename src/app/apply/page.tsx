@@ -64,15 +64,15 @@ export default function Apply() {
                 animate={{ opacity: 1, scale: 1 }}
                 style={{ textAlign: "center", padding: "60px", background: "var(--card-bg)", borderRadius: "24px", border: "1px solid var(--accent)" }}
               >
-                <h2 style={{ color: "var(--accent)", marginBottom: "16px" }}>Application Received!</h2>
-                <p style={{ color: "var(--text-muted)" }}>Thank you for choosing OpenVals. Our AI validation experts will review your request and get back to you shortly.</p>
-                <button onClick={() => setSubmitted(false)} className={`${styles.button} ${styles.primary}`} style={{ marginTop: "32px" }}>Apply Again</button>
+                <h2 style={{ color: "var(--accent)", marginBottom: "16px" }}>Assessment Request Received!</h2>
+                <p style={{ color: "var(--text-muted)" }}>Thank you for choosing OpenVals. Our AI trust team will review your request and follow up with next steps for your free trust score assessment.</p>
+                <button onClick={() => setSubmitted(false)} className={`${styles.button} ${styles.primary}`} style={{ marginTop: "32px" }}>Start Another Assessment</button>
               </motion.div>
             ) : (
               <>
                 <div style={{ textAlign: "center", marginBottom: "60px" }}>
-                  <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "16px" }}>Apply for AI Validation</h1>
-                  <p style={{ color: "var(--text-muted)", fontSize: "18px" }}>Secure your model&apos;s future with audit-grade assurance.</p>
+                  <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "16px" }}>Free AI Trust Score Assessment</h1>
+                  <p style={{ color: "var(--text-muted)", fontSize: "18px" }}>Share your AI use case and get a fast baseline of reliability, safety, compliance, and deployment risk.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px", background: "var(--card-bg)", padding: "40px", borderRadius: "24px", border: "1px solid var(--border)" }}>
@@ -127,7 +127,7 @@ export default function Apply() {
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>Educational Background</label>
+                    <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>Company / Team</label>
                     <input
                       type="text"
                       name="eduBackground"
@@ -139,7 +139,7 @@ export default function Apply() {
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}> Description</label>
+                    <label style={{ fontSize: "14px", fontWeight: 500, color: "var(--text-muted)" }}>AI System or Use Case</label>
                     <textarea
                       name="aiDescription"
                       placeholder=""
@@ -152,7 +152,7 @@ export default function Apply() {
                   </div>
 
                   <button type="submit" className={`${styles.button} ${styles.primary}`} style={{ width: "100%", padding: "16px", marginTop: "12px" }}>
-                    Submit Validation Request
+                    Get Free Trust Score Assessment
                   </button>
                 </form>
               </>

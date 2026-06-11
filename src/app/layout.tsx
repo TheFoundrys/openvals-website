@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://openvalidations.com"),
   title: "OpenVals - Enterprise AI Validation, Security & Compliance",
-  description: "OpenVals provides industrial-grade AI model validation, adversarial red teaming, and regulatory compliance for the EU AI Act and NIST. Build trustworthy AI systems today.",
+  description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
   keywords: [
     "AI Validation",
     "AI Security",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "OpenVals - AI Validation & Assurance Platform",
-    description: "Enterprise-grade trust layer for AI. We validate, secure, and certify machine learning models for production readiness.",
+    description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
     url: "https://openvalidations.com",
     siteName: "OpenVals",
     locale: "en_US",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "OpenVals - The Trust Layer for AI",
-    description: "Rigorous AI validation and adversarial red teaming to ensure model security and reliability.",
+    description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
     images: ["/logos/open%20vals%20logo.png"],
   },
 
@@ -74,7 +74,7 @@ export default function RootLayout({
     "@type": "Organization",
     name: "OpenVals",
     url: "https://openvalidations.com",
-    description: "The Trust Layer for AI. OpenVals ensures AI systems are secure, reliable, and validated before they reach the real world.",
+    description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
   };
 
   return (

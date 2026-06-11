@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Activity, Lock, FileBadge, Compass, Cpu, ShieldCheck, ArrowRight } from "lucide-react";
+import { Activity, Compass, Cpu, Gauge, ShieldAlert, ShieldCheck, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import styles from "./ui.module.css";
 
@@ -36,22 +36,22 @@ export function ServicesPart() {
       >
         {[
           {
+            icon: Gauge,
+            title: "AI Risk Assessment",
+            desc: "Free trust score baseline, risk map, and remediation priorities.",
+            href: "/ai-risk-assessment"
+          },
+          {
+            icon: ShieldAlert,
+            title: "AI Red Teaming",
+            desc: "Adversarial testing for jailbreaks, prompt injection, and leakage.",
+            href: "/ai-red-teaming"
+          },
+          {
             icon: Activity,
-            title: "Model Validation",
-            desc: "Industrial-grade evaluation of AI performance, bias, and accuracy audits.",
-            href: "/solutions/ai-model-validation"
-          },
-          {
-            icon: Lock,
-            title: "AI Security",
-            desc: "Securing AI data pipelines against model extraction and leakage.",
-            href: "/solutions/ai-security"
-          },
-          {
-            icon: FileBadge,
-            title: "AI Compliance",
-            desc: "Audit-ready alignment with the EU AI Act and global standards.",
-            href: "/solutions/ai-compliance"
+            title: "AI Model Validation",
+            desc: "Industrial-grade evaluation of performance, bias, reliability, and safety.",
+            href: "/ai-model-validation"
           },
         ].map((service, i) => (
           <motion.div

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Check, Copy, ExternalLink } from "lucide-react";
+import { Check, Copy, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./ui.module.css";
@@ -45,8 +45,7 @@ export function HeroPart() {
           The Trust Layer for AI
         </motion.h2>
         <motion.p variants={FADE_UP} style={{ fontSize: "20px", marginBottom: "32px", width: "100%" }}>
-          AI systems are being deployed faster than they are understood.
-          OpenVals ensures they are secure, reliable, and validated.
+          OpenVals helps enterprises validate, secure, and trust AI before production.
         </motion.p>
         <motion.div variants={FADE_UP} className={styles.commandBoxWrapper} style={{ display: "flex", alignItems: "center", gap: "12px", width: "100%" }}>
           <div className={styles.commandBox}>
@@ -80,7 +79,7 @@ export function ActionButtonsPart() {
     { value: "161201", label: "validated models" },
     { value: "5+", label: "LLM Providers" },
     { value: "10+", label: "Core Metrics" },
-    { value: "v0.3.0", label: "Current Release" },
+    { value: "v0.4.0", label: "Current Release" },
     { value: "Dr.Pinnacle", label: "License" },
   ];
   const capabilities = [
@@ -98,9 +97,12 @@ export function ActionButtonsPart() {
   return (
     <div className={styles.trustCtaStack}>
       <div className={styles.trustActions}>
-        <Link href="/docs" className={`${styles.button} ${styles.primary} ${styles.trustActionButton}`}>
-          Quick Start
-          <ArrowRight size={18} />
+        <Link
+          href="/docs"
+          className={`${styles.button} ${styles.secondary} ${styles.trustActionButton}`}
+        >
+          OpenVals Docs
+          <ExternalLink size={18} />
         </Link>
         <a
           href="https://github.com/vishwanathakuthota/openvals"

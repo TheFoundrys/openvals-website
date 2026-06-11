@@ -10,7 +10,7 @@ export default function Footer() {
       <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
         <Logo size="sm" />
         <div style={{ color: "var(--text-muted)", fontSize: "14px" }}>
-          © 2026 OpenVals. All rights reserved.
+          &copy; 2026 OpenVals. All rights reserved.
         </div>
       </div>
       <div style={{ display: "flex", gap: "20px", alignItems: "flex-end" }}>

@@ -6,6 +6,8 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "./Logo";
 import styles from "./ui.module.css";
 
+const leadMagnetHref = "/apply?offer=free-ai-trust-score-assessment";
+
 type NavSubItem = {
   name: string;
   href?: string;
@@ -38,10 +40,12 @@ export default function Header() {
       href: "/services",
       highlight: true,
       subItems: [
-        // { name: "AI Red Teaming", href: "/solutions/ai-red-teaming" },
-        { name: "AI/ML Model Validation", href: "/solutions/ai-model-validation" },
+        { name: "AI Risk Assessment", href: "/ai-risk-assessment" },
+        { name: "AI/ML Model Validation", href: "/ai-model-validation" },
+        { name: "AI Red Teaming", href: "/ai-red-teaming" },
         { name: "AI/ML Security", href: "/solutions/ai-security" },
-        { name: "AI/ML Compliance", href: "/solutions/ai-compliance" },
+        { name: "AI Compliance Readiness", href: "/ai-compliance-readiness" },
+        { name: "Trust Score Engine", href: "/trust-score-engine" },
       ]
     },
     {
@@ -55,6 +59,7 @@ export default function Header() {
             { name: "AI Compass", description: "Strategic AI direction and clarity", href: "/services/ai-compass" },
             { name: "AI Engineering & Data Analytics", description: "Build scalable AI and data systems", href: "/services/ai-engineering-data" },
             { name: "AI Quality & Assurance", description: "Validate safety, quality, and reliability", href: "/services/ai-quality-assurance" },
+            { name: "Free AI Trust Score Assessment", description: "Start with a trust score baseline", href: leadMagnetHref },
           ]
         },
         {
@@ -143,8 +148,8 @@ export default function Header() {
           ))}
         </nav>
         <div className={styles.headerCTAContainer}>
-          <Link href="/apply" className={`${styles.button} ${styles.primary} ${styles.headerCTA} ${styles.headerCTAHeader}`} style={{ padding: "8px 16px", fontSize: "14px" }}>
-            Get Your AI/ML Validated
+          <Link href={leadMagnetHref} className={`${styles.button} ${styles.primary} ${styles.headerCTA} ${styles.headerCTAHeader}`} style={{ padding: "8px 16px", fontSize: "14px" }}>
+            Free AI Trust Score Assessment
           </Link>
           <button className={styles.menuToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -161,12 +166,12 @@ export default function Header() {
             exit={{ opacity: 0, y: -20 }}
           >
             <Link
-              href="/apply"
+              href={leadMagnetHref}
               className={`${styles.button} ${styles.primary}`}
               style={{ width: "100%", textAlign: "center", marginBottom: "20px" }}
               onClick={() => setIsMenuOpen(false)}
             >
-              Get Your AI/ML Validated
+              Free AI Trust Score Assessment
             </Link>
             {navLinks.map((link) => (
               <div key={link.name}>

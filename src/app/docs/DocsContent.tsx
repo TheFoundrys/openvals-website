@@ -68,7 +68,7 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   "semantic-intelligence": { group: "Core Capabilities", title: "Semantic Intelligence Engine", onThisPage: ["Embeddings", "Roadmap"] },
   metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
   domains: { group: "Reference", title: "Supported Benchmark Domains", onThisPage: ["Domains"] },
-  roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.3.0", "Future"] },
+  roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.4.0", "Future"] },
   vision: { group: "Reference", title: "Philosophy and Vision", onThisPage: ["Mission", "Vision"] },
   contributing: { group: "Reference", title: "Contributing", onThisPage: ["Workflow", "License", "Backed By"] },
   "code-of-conduct": { group: "Reference", title: "OpenVals Code of Conduct", onThisPage: ["Purpose", "Ground Rules", "Unacceptable Behavior", "Questions"] },
@@ -419,7 +419,7 @@ print(results)`}</CodeBlock>
     case "roadmap":
       return (
         <>
-          <H2>v0.3.0</H2>
+          <H2>v0.4.0</H2>
           <PillGrid items={roadmap.slice(0, 9)} />
           <H2>Future</H2>
           <PillGrid items={roadmap.slice(9)} />
