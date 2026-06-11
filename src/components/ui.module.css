@@ -662,8 +662,8 @@
 .trustMarqueeTrack {
   display: flex;
   align-items: center;
-  width: max-content;
-  animation: trustMarqueeScroll 28s linear infinite;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .trustMarqueeItem {
@@ -684,18 +684,6 @@
   color: var(--accent);
   font-size: 14px;
   letter-spacing: 0;
-}
-
-@keyframes trustMarqueeScroll {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .trustMarqueeTrack {
-    animation: none;
-  }
 }
 
 .docsPage {

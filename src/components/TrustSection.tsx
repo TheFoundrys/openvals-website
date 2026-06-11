@@ -93,6 +93,7 @@ export function ActionButtonsPart() {
     "Claude",
     "Gemini",
   ];
+  const uniqueCapabilities = Array.from(new Set(capabilities));
 
   return (
     <div className={styles.trustCtaStack}>
@@ -124,8 +125,8 @@ export function ActionButtonsPart() {
       </div>
       <div className={styles.trustMarquee} aria-label="OpenVals capabilities">
         <div className={styles.trustMarqueeTrack}>
-          {[...capabilities, ...capabilities].map((capability, index) => (
-            <span className={styles.trustMarqueeItem} key={`${capability}-${index}`}>
+          {uniqueCapabilities.map((capability) => (
+            <span className={styles.trustMarqueeItem} key={capability}>
               {capability}
               <span className={styles.trustMarqueeCheck}>{"\u2713"}</span>
             </span>

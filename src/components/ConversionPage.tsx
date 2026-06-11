@@ -491,9 +491,6 @@ export function LeadMagnetCta({ compact = false }: { compact?: boolean }) {
         width: "100%",
       }}
     >
-      <motion.div variants={FADE_UP} style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 800, textTransform: "uppercase", letterSpacing: 0, marginBottom: "10px" }}>
-        Main Funnel
-      </motion.div>
       <motion.h2 variants={FADE_UP} style={{ margin: "0 auto 14px", maxWidth: "760px", fontSize: compact ? "30px" : "46px", lineHeight: 1.08 }}>
         Free AI Trust Score Assessment
       </motion.h2>
