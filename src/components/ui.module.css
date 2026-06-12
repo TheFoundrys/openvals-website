@@ -569,14 +569,21 @@
   justify-content: center;
   gap: 10px;
   min-width: 172px;
+  height: 46px;
   min-height: 46px;
   padding: 12px 22px;
   border-radius: 8px;
   font-weight: 700;
+  line-height: 1;
   letter-spacing: 0;
+  white-space: nowrap;
   box-shadow: 0 14px 34px rgba(0, 40, 86, 0.14);
   transform: translateY(0);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.trustActionButton svg {
+  flex: 0 0 auto;
 }
 
 .trustActionButton:hover {
@@ -880,6 +887,36 @@
   gap: 20px;
 }
 
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footerCopyright {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.footerLinks {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.footerLinks a {
+  color: var(--text-muted);
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.footerLinks a:hover {
+  color: var(--accent);
+}
+
 @media (min-width: 768px) {
   .footer {
     flex-direction: row;
@@ -971,6 +1008,39 @@
     border-radius: 12px;
   }
 
+  .footer {
+    align-items: center;
+    gap: 28px;
+    padding: 44px var(--container-padding) 52px;
+    text-align: center;
+  }
+
+  .footerBrand {
+    align-items: center;
+    gap: 18px;
+  }
+
+  .footerCopyright {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footerLinks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 14px 18px;
+    width: min(100%, 320px);
+    align-items: center;
+  }
+
+  .footerLinks a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    font-size: 15px;
+  }
+
   .hero {
     align-items: center;
     text-align: center;
@@ -1043,9 +1113,10 @@
   }
 
   .trustActionButton {
+    height: 46px;
     min-width: 0;
     padding: 12px 10px;
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 0;
   }
 
