@@ -43,9 +43,9 @@ export function ServicesPart() {
           },
           {
             icon: ShieldAlert,
-            title: "AI Red Teaming",
+            title: "AI Security",
             desc: "Adversarial testing for jailbreaks, prompt injection, and leakage.",
-            href: "/ai-red-teaming"
+            href: "/ai-security"
           },
           {
             icon: Activity,

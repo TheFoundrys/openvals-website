@@ -41,7 +41,7 @@ export default function AISecurityPage() {
                 style={{ fontSize: "clamp(48px, 6vw, 75px)", lineHeight: 1.1, marginBottom: "32px" }}
                 className={styles.sectionTitleHighlighted}
               >
-                AI/ML <span style={{ color: "var(--accent)" }}>Security</span>.
+                AI <span style={{ color: "var(--accent)" }}>Security</span>.
               </motion.h1>
               <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--text-muted)", lineHeight: 1.6 }}>
                 Hardening your AI infrastructure. Securing data pipelines and model API endpoints against unauthorized extraction, leakage, and adversarial disruption.

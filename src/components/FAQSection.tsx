@@ -50,9 +50,9 @@ const FAQ_DATA: FAQEntry[] = [
       'Most people test their AI to see if it works. We test it to see how it breaks. We act like the "bad guys" to find the weak spots in your model before anyone else does. It\'s better to find a bug in our lab than in your production environment.',
   },
   {
-    question: 'What is "AI Red Teaming"? Is it as intense as it sounds?',
+    question: 'What is "AI Security"? Is it as intense as it sounds?',
     answer:
-      'It\'s essentially a high-stakes stress test. We try to trick your AI using techniques like prompt injection (giving it weird instructions to bypass its rules) or jailbreaking. If your AI can withstand our "Red Team," it\'s much more likely to be safe in the wild.',
+      "It's essentially a high-stakes stress test. We try to trick your AI using techniques like prompt injection, jailbreaking, and data leakage probes. If your AI can withstand adversarial security testing, it's much more likely to be safe in the wild.",
   },
   {
     question: "Is my data safe while you're testing it?",
@@ -82,7 +82,7 @@ const FAQ_DATA: FAQEntry[] = [
   {
     question: "How does AI Compass work?",
     answer:
-      "We use a multi-layered approach involving automated red-teaming, behavioral analysis, and edge-case simulation. Our proprietary algorithms detect subtle drifts and vulnerabilities that standard testing often misses.",
+      "We use a multi-layered approach involving automated adversarial security testing, behavioral analysis, and edge-case simulation. Our proprietary algorithms detect subtle drifts and vulnerabilities that standard testing often misses.",
   },
   {
     question: "Who should use AI Compass?",

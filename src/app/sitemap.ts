@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     ['', 1],
     ['/ai-risk-assessment', 0.9],
-    ['/ai-red-teaming', 0.9],
+    ['/ai-security', 0.9],
     ['/ai-model-validation', 0.9],
     ['/ai-compliance-readiness', 0.9],
     ['/trust-score-engine', 0.9],

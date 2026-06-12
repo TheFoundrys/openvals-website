@@ -99,7 +99,7 @@ export const engagementPackages: EngagementPackage[] = [
   },
   {
     icon: ShieldAlert,
-    title: "AI Red Teaming",
+    title: "AI Security",
     label: "Adversarial testing",
     duration: "Attack simulation",
     desc: "Manual and automated pressure testing for jailbreaks, prompt injection, leakage, and abuse cases.",
@@ -158,10 +158,10 @@ export const conversionPages = {
     ],
     featuredPackage: "Starter AI Risk Assessment",
   },
-  aiRedTeaming: {
-    eyebrow: "AI Red Teaming",
+  aiSecurity: {
+    eyebrow: "AI Security",
     title: "Find jailbreaks, prompt attacks, and unsafe model behavior first.",
-    accent: "red teaming",
+    accent: "security",
     description:
       "Adversarial testing for LLMs, copilots, agents, and AI applications, designed to reveal security and safety failures before users or attackers do.",
     icon: ShieldAlert,
@@ -198,7 +198,7 @@ export const conversionPages = {
       { step: "03", title: "Verify", desc: "Reproduce findings, classify severity, and capture evidence." },
       { step: "04", title: "Harden", desc: "Recommend prompt, retrieval, policy, and product control improvements." },
     ],
-    featuredPackage: "AI Red Teaming",
+    featuredPackage: "AI Security",
   },
   aiModelValidation: {
     eyebrow: "AI Model Validation",

@@ -42,8 +42,7 @@ export default function Header() {
       subItems: [
         { name: "AI Risk Assessment", href: "/ai-risk-assessment" },
         { name: "AI/ML Model Validation", href: "/ai-model-validation" },
-        { name: "AI Red Teaming", href: "/ai-red-teaming" },
-        { name: "AI/ML Security", href: "/solutions/ai-security" },
+        { name: "AI Security", href: "/ai-security" },
         { name: "AI Compliance Readiness", href: "/ai-compliance-readiness" },
         { name: "Trust Score Engine", href: "/trust-score-engine" },
       ]

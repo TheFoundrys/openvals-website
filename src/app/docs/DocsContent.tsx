@@ -144,7 +144,7 @@ const responsibleDisclosureGuidelines = [
 const securityPhilosophy = [
   "AI security",
   "AI validation",
-  "AI red teaming",
+  "AI security testing",
   "Enterprise AI assurance",
   "Secure AI deployment",
   "AI governance",
@@ -200,11 +200,11 @@ function ScoreFormula({ label = "Score" }: { label?: string }) {
 }
 
 function H2({ children }: { children: string }) {
-  return <h2 id={anchor(children)} style={{ fontSize: "28px", lineHeight: 1.2, margin: "48px 0 18px", color: "var(--docs-heading)", scrollMarginTop: "90px" }}>{children}</h2>;
+  return <h2 className="docsH2" id={anchor(children)} style={{ fontSize: "28px", lineHeight: 1.2, margin: "48px 0 18px", color: "var(--docs-heading)", scrollMarginTop: "90px" }}>{children}</h2>;
 }
 
 function Paragraph({ children }: { children: React.ReactNode }) {
-  return <p style={{ color: "var(--docs-muted)", fontSize: "17px", lineHeight: 1.75, margin: "0 0 18px" }}>{children}</p>;
+  return <p className="docsParagraph" style={{ color: "var(--docs-muted)", fontSize: "17px", lineHeight: 1.75, margin: "0 0 18px" }}>{children}</p>;
 }
 
 function TextLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -219,7 +219,7 @@ function TextLink({ href, children }: { href: string; children: React.ReactNode 
 
 function BulletList({ items }: { items: string[] }) {
   return (
-    <ul style={{ color: "var(--docs-muted)", fontSize: "17px", lineHeight: 1.75, margin: "0 0 22px", paddingLeft: "22px" }}>
+    <ul className="docsList" style={{ color: "var(--docs-muted)", fontSize: "17px", lineHeight: 1.75, margin: "0 0 22px", paddingLeft: "22px" }}>
       {items.map((item) => (
         <li key={item} style={{ marginBottom: "8px" }}>{item}</li>
       ))}
@@ -229,7 +229,7 @@ function BulletList({ items }: { items: string[] }) {
 
 function PillGrid({ items }: { items: string[] }) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px", marginTop: "18px" }}>
+    <div className="docsPillGrid" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "12px", marginTop: "18px" }}>
       {items.map((item) => (
         <div key={item} style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "14px 16px", color: "var(--docs-text)", background: "var(--docs-card)" }}>{item}</div>
       ))}
@@ -239,7 +239,7 @@ function PillGrid({ items }: { items: string[] }) {
 
 function DocsTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
-    <div style={{ overflowX: "auto", border: "1px solid var(--docs-border)", borderRadius: "14px", margin: "20px 0 22px" }}>
+    <div className="docsTableWrap" style={{ overflowX: "auto", border: "1px solid var(--docs-border)", borderRadius: "14px", margin: "20px 0 22px" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "560px" }}>
         <thead>
           <tr style={{ background: "var(--docs-code-bg)", color: "var(--docs-heading)", textAlign: "left" }}>
@@ -264,7 +264,7 @@ function DocsTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
 
 function MetricsTable() {
   return (
-    <div style={{ overflowX: "auto", border: "1px solid var(--docs-border)", borderRadius: "14px", marginTop: "20px" }}>
+    <div className="docsTableWrap" style={{ overflowX: "auto", border: "1px solid var(--docs-border)", borderRadius: "14px", marginTop: "20px" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "680px" }}>
         <thead>
           <tr style={{ background: "var(--docs-code-bg)", color: "var(--docs-heading)", textAlign: "left" }}>
@@ -555,11 +555,166 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
               padding: 0 !important;
               overflow: hidden !important;
             }
+
+            .docsShell * {
+              box-sizing: border-box;
+            }
+
+            .docsTopbarBrand,
+            .docsMobileNav {
+              display: none;
+            }
+
+            @media (max-width: 820px) {
+              .docsShell {
+                grid-template-columns: minmax(0, 1fr) !important;
+                width: 100vw !important;
+                height: 100dvh !important;
+              }
+
+              .docsSidebar {
+                display: none !important;
+              }
+
+              .docsContent {
+                width: 100vw !important;
+                height: 100dvh !important;
+                overflow-x: hidden !important;
+              }
+
+              .docsTopbar {
+                height: 56px !important;
+                padding: 0 18px !important;
+                gap: 18px !important;
+              }
+
+              .docsTopbarBrand {
+                display: flex !important;
+                align-items: center;
+                color: var(--docs-heading);
+                font-size: 20px;
+                font-weight: 800;
+                text-decoration: none;
+                white-space: nowrap;
+              }
+
+              .docsTopbarLink {
+                margin-left: auto;
+                font-size: 14px !important;
+              }
+
+              .docsMobileNav {
+                display: flex;
+                gap: 8px;
+                overflow-x: auto;
+                padding: 10px 16px;
+                position: sticky;
+                top: 56px;
+                z-index: 2;
+                background: var(--docs-header);
+                border-bottom: 1px solid var(--docs-border-soft);
+                backdrop-filter: blur(12px);
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+              }
+
+              .docsMobileNav::-webkit-scrollbar {
+                display: none;
+              }
+
+              .docsMobileNavItem {
+                flex: 0 0 auto;
+                padding: 8px 12px;
+                border: 1px solid var(--docs-border);
+                border-radius: 999px;
+                background: var(--docs-card);
+                color: var(--docs-muted);
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 1;
+                text-decoration: none;
+                white-space: nowrap;
+              }
+
+              .docsMobileNavItem.isActive {
+                border-color: var(--docs-heading);
+                color: var(--docs-heading);
+                background: var(--docs-code-bg);
+              }
+
+              .docsPageWrap {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 34px 20px 76px !important;
+              }
+
+              .docsArticle {
+                min-width: 0;
+                overflow-wrap: break-word;
+              }
+
+              .docsEyebrow {
+                font-size: 14px !important;
+                margin-bottom: 12px !important;
+              }
+
+              .docsTitle {
+                font-size: clamp(32px, 10vw, 42px) !important;
+                line-height: 1.08 !important;
+                margin-bottom: 28px !important;
+              }
+
+              .docsH2 {
+                font-size: 24px !important;
+                margin: 38px 0 16px !important;
+                scroll-margin-top: 122px !important;
+              }
+
+              .docsParagraph,
+              .docsList {
+                font-size: 16px !important;
+                line-height: 1.7 !important;
+              }
+
+              .docsPillGrid {
+                grid-template-columns: minmax(0, 1fr) !important;
+              }
+
+              .docsTableWrap {
+                max-width: 100%;
+                border-radius: 10px !important;
+              }
+
+              .docsArticle pre {
+                max-width: 100%;
+                font-size: 13px !important;
+              }
+            }
+
+            @media (max-width: 380px) {
+              .docsTopbar {
+                padding: 0 14px !important;
+              }
+
+              .docsTopbarBrand {
+                font-size: 18px;
+              }
+
+              .docsTopbarLink {
+                font-size: 13px !important;
+              }
+
+              .docsPageWrap {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+              }
+            }
           `,
         }}
       />
-    <main style={{ position: "fixed", inset: 0, width: "100vw", height: "100vh", background: "var(--docs-bg)", color: "var(--docs-text)", display: "grid", gridTemplateColumns: "300px minmax(0, 1fr)", colorScheme: "light dark", overflow: "hidden" }}>
-      <aside style={{ height: "100vh", borderRight: "1px solid var(--docs-border)", padding: "28px 32px", overflowY: "auto", background: "var(--docs-panel)" }}>
+    <main className="docsShell" style={{ position: "fixed", inset: 0, width: "100vw", height: "100vh", background: "var(--docs-bg)", color: "var(--docs-text)", display: "grid", gridTemplateColumns: "300px minmax(0, 1fr)", colorScheme: "light dark", overflow: "hidden" }}>
+      <aside className="docsSidebar" style={{ height: "100vh", borderRight: "1px solid var(--docs-border)", padding: "28px 32px", overflowY: "auto", background: "var(--docs-panel)" }}>
         <Link href="/" style={{ display: "block", color: "var(--docs-heading)", fontSize: "22px", fontWeight: 800, textDecoration: "none", marginBottom: "36px" }}>
           OpenVals
         </Link>
@@ -603,17 +758,38 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
         </div>
       </aside>
 
-      <section style={{ minWidth: 0, height: "100vh", overflowY: "auto", background: "var(--docs-bg)" }}>
-        <header style={{ height: "58px", borderBottom: "1px solid var(--docs-border-soft)", display: "flex", alignItems: "center", padding: "0 60px", gap: "32px", position: "sticky", top: 0, background: "var(--docs-header)", backdropFilter: "blur(12px)", zIndex: 2 }}>
-          <Link href="/docs" style={{ color: "var(--docs-heading)", textDecoration: "none", fontWeight: 700, height: "100%", display: "flex", alignItems: "center", borderBottom: "2px solid var(--docs-heading)" }}>
+      <section className="docsContent" style={{ minWidth: 0, height: "100vh", overflowY: "auto", background: "var(--docs-bg)" }}>
+        <header className="docsTopbar" style={{ height: "58px", borderBottom: "1px solid var(--docs-border-soft)", display: "flex", alignItems: "center", padding: "0 60px", gap: "32px", position: "sticky", top: 0, background: "var(--docs-header)", backdropFilter: "blur(12px)", zIndex: 3 }}>
+          <Link className="docsTopbarBrand" href="/">
+            OpenVals
+          </Link>
+          <Link className="docsTopbarLink" href="/docs" style={{ color: "var(--docs-heading)", textDecoration: "none", fontWeight: 700, height: "100%", display: "flex", alignItems: "center", borderBottom: "2px solid var(--docs-heading)" }}>
             Documentation
           </Link>
         </header>
 
-        <div style={{ maxWidth: "980px", margin: "0 auto", padding: "56px 48px 96px" }}>
-          <article style={{ minWidth: 0 }}>
-            <div style={{ color: "var(--docs-muted)", marginBottom: "14px", fontSize: "15px" }}>{meta.group}</div>
-            <h1 style={{ fontSize: "42px", lineHeight: 1.1, letterSpacing: 0, margin: "0 0 34px", color: "var(--docs-heading)" }}>
+        <nav className="docsMobileNav" aria-label="Docs navigation">
+          {navSections.flatMap((section) =>
+            section.items.map((item) => {
+              const active = item.id === pageId;
+              return (
+                <Link
+                  key={`${section.title}-${item.id}`}
+                  href={pagePath(item.id)}
+                  className={`docsMobileNavItem${active ? " isActive" : ""}`}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })
+          )}
+        </nav>
+
+        <div className="docsPageWrap" style={{ maxWidth: "980px", margin: "0 auto", padding: "56px 48px 96px" }}>
+          <article className="docsArticle" style={{ minWidth: 0 }}>
+            <div className="docsEyebrow" style={{ color: "var(--docs-muted)", marginBottom: "14px", fontSize: "15px" }}>{meta.group}</div>
+            <h1 className="docsTitle" style={{ fontSize: "42px", lineHeight: 1.1, letterSpacing: 0, margin: "0 0 34px", color: "var(--docs-heading)" }}>
               {meta.title}
             </h1>
             <PageBody pageId={pageId} />

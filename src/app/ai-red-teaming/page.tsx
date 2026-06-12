@@ -1,7 +1,5 @@
-"use client";
-
-import { ConversionPage, conversionPages } from "@/components/ConversionPage";
+import { permanentRedirect } from "next/navigation";
 
 export default function AIRedTeamingPage() {
-  return <ConversionPage page={conversionPages.aiRedTeaming} />;
+  permanentRedirect("/ai-security");
 }
