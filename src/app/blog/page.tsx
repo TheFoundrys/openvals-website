@@ -5,6 +5,7 @@ import { postsQuery } from "../../sanity/lib/queries";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { mergeLocalBlogPosts } from "./localPosts";
 
 export const revalidate = 60; // Revalidate every minute
 
@@ -12,11 +13,11 @@ export default async function BlogIndex() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let posts: any[] = [];
   try {
-    posts = await client.fetch(postsQuery);
+    posts = mergeLocalBlogPosts(await client.fetch(postsQuery));
   } catch (error) {
     console.error("Failed to fetch posts from Sanity", error);
     // Dummy posts for local development with realistic images
-    posts = [
+    posts = mergeLocalBlogPosts([
       {
         _id: "demo1",
         title: "The Future of AI Validation",
@@ -33,7 +34,7 @@ export default async function BlogIndex() {
         author: { name: "OpenVals Team" },
         imageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
       }
-    ];
+    ]);
   }
 
   return (
@@ -57,7 +58,14 @@ export default async function BlogIndex() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "24px" }}>
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {posts.map((post: any) => (
-              <Link key={post._id} href={`/blog/${post.slug.current}`} className={styles.card} style={{ display: "flex", flexDirection: "column", padding: 0, overflow: "hidden", border: "1px solid var(--border)", background: "var(--secondary-bg)", height: "100%" }}>
+              <Link
+                key={post._id}
+                href={post.externalUrl || `/blog/${post.slug.current}`}
+                target={post.externalUrl ? "_blank" : undefined}
+                rel={post.externalUrl ? "noopener noreferrer" : undefined}
+                className={styles.card}
+                style={{ display: "flex", flexDirection: "column", padding: 0, overflow: "hidden", border: "1px solid var(--border)", background: "var(--secondary-bg)", height: "100%" }}
+              >
                 <div style={{ position: "relative", width: "100%", height: "220px", background: "#000" }}>
                   {(post.mainImage || post.imageUrl) ? (
                     <img

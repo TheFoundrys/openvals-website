@@ -7,6 +7,7 @@ import Logo from "./Logo";
 import styles from "./ui.module.css";
 
 const leadMagnetHref = "/apply?offer=free-ai-trust-score-assessment";
+const showWhoWeServe = false;
 
 type NavSubItem = {
   name: string;
@@ -34,19 +35,20 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navLinks: NavLink[] = [
-
-    {
-      name: "Who We Serve",
-      href: "/services",
-      highlight: true,
-      subItems: [
-        { name: "AI Risk Assessment", href: "/ai-risk-assessment" },
-        { name: "AI/ML Model Validation", href: "/ai-model-validation" },
-        { name: "AI Security", href: "/ai-security" },
-        { name: "AI Compliance Readiness", href: "/ai-compliance-readiness" },
-        { name: "Trust Score Engine", href: "/trust-score-engine" },
-      ]
-    },
+    ...(showWhoWeServe ? [
+      {
+        name: "Who We Serve",
+        href: "/services",
+        highlight: true,
+        subItems: [
+          { name: "AI Risk Assessment", href: "/ai-risk-assessment" },
+          { name: "AI/ML Model Validation", href: "/ai-model-validation" },
+          { name: "AI Security", href: "/ai-security" },
+          { name: "AI Compliance Readiness", href: "/ai-compliance-readiness" },
+          { name: "Trust Score Engine", href: "/trust-score-engine" },
+        ]
+      }
+    ] : []),
     {
       name: "Our Solutions",
       href: "/services/ai-compass",

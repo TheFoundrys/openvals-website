@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { postBySlugQuery, postSlugsQuery } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
@@ -9,6 +10,7 @@ import Footer from "@/components/Footer";
 import { urlFor } from "@/sanity/lib/image";
 import BlogAnalytics from "@/components/BlogAnalytics";
 import BlogPerformanceDashboard from "@/components/BlogPerformanceDashboard";
+import { getLocalBlogPost } from "../localPosts";
 
 export const revalidate = 60; // Revalidate every minute
 
@@ -30,15 +32,20 @@ const components = {
   },
 };
 
+const toStaticParams = (slugs: string[]) => (
+  Array.from(new Set(slugs)).map((slug) => ({ slug }))
+);
+
 export async function generateStaticParams() {
   try {
     const slugs = await client.fetch(postSlugsQuery);
-    return slugs.map((slug: string) => ({
-      slug,
-    }));
+    return toStaticParams(slugs);
   } catch (error) {
     console.error("Failed to fetch slugs from Sanity", error);
-    return [{ slug: "understanding-adversarial-attacks" }];
+    return toStaticParams([
+      "future-of-ai-validation",
+      "understanding-adversarial-attacks",
+    ]);
   }
 }
 
@@ -49,6 +56,12 @@ export default async function BlogPost({
 }) {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug).trim();
+  const localPost = getLocalBlogPost(decodedSlug);
+
+  if (localPost?.externalUrl) {
+    redirect(localPost.externalUrl);
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let post: any;
   try {
@@ -58,13 +71,13 @@ export default async function BlogPost({
   }
 
   // Fallback data for specific demo slugs or when fetch fails entirely
-  if (!post && (slug === "future-of-ai-validation" || slug === "understanding-adversarial-attacks")) {
+  if (!post && (decodedSlug === "future-of-ai-validation" || decodedSlug === "understanding-adversarial-attacks")) {
     post = {
-      title: slug === "future-of-ai-validation" ? "The Future of AI Validation" : "Understanding Adversarial Attacks",
-      slug: { current: slug },
+      title: decodedSlug === "future-of-ai-validation" ? "The Future of AI Validation" : "Understanding Adversarial Attacks",
+      slug: { current: decodedSlug },
       publishedAt: new Date().toISOString(),
       author: { name: "Vishwanath Akuthota" },
-      imageUrl: slug === "future-of-ai-validation"
+      imageUrl: decodedSlug === "future-of-ai-validation"
         ? "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200"
         : "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
       body: [
