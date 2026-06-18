@@ -68,7 +68,7 @@ export default function Header() {
           items: [
             { name: "Openvals", description: "Open-source AI evaluation toolkit", href: "/docs" },
             { name: "OpenVals APIP", description: "AI Profitability Intelligence", href: "https://apip.openvalidations.com" },
-            { name: "OptSearch", description: "Intelligent discovery and search", href: "https://optsearch.in/" },
+            { name: "EYE", description: "Intelligent discovery and search", href: "https://optsearch.in/" },
           ]
         },
       ]
