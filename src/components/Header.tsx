@@ -6,7 +6,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "./Logo";
 import styles from "./ui.module.css";
 
-const leadMagnetHref = "/apply?offer=free-ai-trust-score-assessment";
+const leadMagnetHref = "/assessment";
 const showWhoWeServe = false;
 
 type NavSubItem = {

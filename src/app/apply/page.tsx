@@ -29,7 +29,10 @@ export default function Apply() {
           "Content-Type": "application/json",
           "x-api-key": "default-lms-secret-key"
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          leadSource: "Contact Us Form"
+        })
       });
 
       if (response.ok) {
@@ -64,15 +67,15 @@ export default function Apply() {
                 animate={{ opacity: 1, scale: 1 }}
                 style={{ textAlign: "center", padding: "60px", background: "var(--card-bg)", borderRadius: "24px", border: "1px solid var(--accent)" }}
               >
-                <h2 style={{ color: "var(--accent)", marginBottom: "16px" }}>Assessment Request Received!</h2>
-                <p style={{ color: "var(--text-muted)" }}>Thank you for choosing OpenVals. Our AI trust team will review your request and follow up with next steps for your free trust score assessment.</p>
-                <button onClick={() => setSubmitted(false)} className={`${styles.button} ${styles.primary}`} style={{ marginTop: "32px" }}>Start Another Assessment</button>
+                <h2 style={{ color: "var(--accent)", marginBottom: "16px" }}>Message Sent Successfully!</h2>
+                <p style={{ color: "var(--text-muted)" }}>Thank you for reaching out to OpenVals. Our AI safety and validation team will review your inquiry and follow up shortly.</p>
+                <button onClick={() => setSubmitted(false)} className={`${styles.button} ${styles.primary}`} style={{ marginTop: "32px" }}>Send Another Message</button>
               </motion.div>
             ) : (
               <>
                 <div style={{ textAlign: "center", marginBottom: "60px" }}>
-                  <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "16px" }}>Free AI Trust Score Assessment</h1>
-                  <p style={{ color: "var(--text-muted)", fontSize: "18px" }}>Share your AI use case and get a fast baseline of reliability, safety, compliance, and deployment risk.</p>
+                  <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "16px" }}>Contact OpenVals</h1>
+                  <p style={{ color: "var(--text-muted)", fontSize: "18px" }}>Have a project, security audit, or validation request? Let&apos;s connect.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px", background: "var(--card-bg)", padding: "40px", borderRadius: "24px", border: "1px solid var(--border)" }}>
@@ -152,7 +155,7 @@ export default function Apply() {
                   </div>
 
                   <button type="submit" className={`${styles.button} ${styles.primary}`} style={{ width: "100%", padding: "16px", marginTop: "12px" }}>
-                    Get Free Trust Score Assessment
+                    Send Message
                   </button>
                 </form>
               </>

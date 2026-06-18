@@ -38,7 +38,7 @@ const STAGGER: Variants = {
   },
 };
 
-export const leadMagnetHref = "/apply?offer=free-ai-trust-score-assessment";
+export const leadMagnetHref = "/assessment";
 
 type ProofItem = {
   value: string;
