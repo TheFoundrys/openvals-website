@@ -629,6 +629,8 @@
   min-height: auto;
   padding: 2px 16px 2px 0;
   border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
 }
 
 .trustStat:last-child {
@@ -643,6 +645,9 @@
   line-height: 1;
   text-shadow: 0 0 22px color-mix(in srgb, var(--accent) 28%, transparent);
   white-space: nowrap;
+  display: flex;
+  align-items: flex-end;
+  height: 36px;
 }
 
 .trustStatLabel {

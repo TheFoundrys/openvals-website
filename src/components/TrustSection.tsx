@@ -76,9 +76,9 @@ export function HeroPart() {
 
 export function ActionButtonsPart() {
   const stats = [
-    { value: "161201", label: "validated models" },
+    { value: "162,201", label: "validated models" },
     { value: "5+", label: "LLM Providers" },
-    { value: "10+", label: "Core Metrics" },
+    { value: "20+", label: "Core Metrics" },
     { value: "v0.4.0", label: "Current Release" },
     { value: "Dr.Pinnacle", label: "License" },
   ];
@@ -119,7 +119,12 @@ export function ActionButtonsPart() {
       <div className={styles.trustStats}>
         {stats.map((stat) => (
           <div className={styles.trustStat} key={stat.label}>
-            <div className={styles.trustStatValue}>{stat.value}</div>
+            <div 
+              className={styles.trustStatValue}
+              style={stat.value.length > 8 ? { fontSize: "clamp(18px, 1.8vw, 24px)" } : undefined}
+            >
+              {stat.value}
+            </div>
             <div className={styles.trustStatLabel}>{stat.label}</div>
           </div>
         ))}
