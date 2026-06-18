@@ -7,7 +7,7 @@ import Logo from "./Logo";
 import styles from "./ui.module.css";
 
 const leadMagnetHref = "/assessment";
-const showWhoWeServe = false;
+const showWhoWeServe = true;
 
 type NavSubItem = {
   name: string;
@@ -38,14 +38,28 @@ export default function Header() {
     ...(showWhoWeServe ? [
       {
         name: "Who We Serve",
-        href: "/services",
+        href: "#",
         highlight: true,
-        subItems: [
-          { name: "AI Risk Assessment", href: "/ai-risk-assessment" },
-          { name: "AI/ML Model Validation", href: "/ai-model-validation" },
-          { name: "AI Security", href: "/ai-security" },
-          { name: "AI Compliance Readiness", href: "/ai-compliance-readiness" },
-          { name: "Trust Score Engine", href: "/trust-score-engine" },
+        megaGroups: [
+          {
+            title: "Industry Domains",
+            items: [
+              { name: "Finance", description: "Financial reasoning and risk evaluation", href: "/finance" },
+              { name: "Healthcare", description: "Clinical reasoning and safety validation", href: "/healthcare" },
+              { name: "Legal", description: "Legal reasoning and compliance validation", href: "/legal" },
+              { name: "Cybersecurity", description: "Cybersecurity reasoning and threat analysis", href: "/cybersecurity" },
+              { name: "Enterprise Ops", description: "Enterprise operations and decision-making evaluation", href: "/enterprise-ops" },
+            ]
+          },
+          {
+            title: "Core & Technical",
+            items: [
+              { name: "Developer", description: "Coding and software engineering evaluation", href: "/developer" },
+              { name: "Reasoning", description: "General reasoning and problem-solving evaluation", href: "/reasoning" },
+              { name: "Math", description: "Mathematical reasoning and problem-solving evaluation", href: "/math" },
+              { name: "Sample (General)", description: "Basic sample evaluation dataset", href: "/sample" },
+            ]
+          }
         ]
       }
     ] : []),

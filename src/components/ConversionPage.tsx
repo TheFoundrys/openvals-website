@@ -326,6 +326,375 @@ export const conversionPages = {
     ],
     featuredPackage: "Enterprise AI Validation",
   },
+  finance: {
+    eyebrow: "Who We Serve: Finance",
+    title: "Financial-grade AI validation for trustworthy operations and ROI.",
+    accent: "finance",
+    description: "Validate financial reasoning, risk models, regulatory compliance, and accuracy. OpenVals helps institutions mitigate compliance penalties, reduce verification labor by 80%, and achieve high-ROI trustworthy AI deployments.",
+    icon: Activity,
+    heroStats: [
+      { value: "0.96+", label: "Average Dataset Health" },
+      { value: "80%", label: "Manual Review Labor Saved" },
+      { value: "SEC/FINRA", label: "Regulatory Compliance Match" },
+    ],
+    outcomes: [
+      "Eliminate financial hallucination risks, preventing costly transaction, portfolio calculation, and pricing errors.",
+      "Reduce manual model auditing hours by up to 75%, generating instant operational ROI.",
+      "Build trustworthy, launch-ready financial agents compliant with SEC, FINRA, and global audit frameworks.",
+    ],
+    features: [
+      {
+        icon: BarChart3,
+        title: "Quantitative Accuracy",
+        desc: "Verify calculation correctness and table understanding to secure high-value financial decisions.",
+      },
+      {
+        icon: FileBadge2,
+        title: "Compliance & Governance",
+        desc: "Map AI outputs directly to financial regulations, protecting your brand reputation and budget.",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Adversarial Risk Modeling",
+        desc: "Stress-test models against market scenarios, prompt injections, and data extraction attempts.",
+      },
+    ],
+    workflow: [
+      { step: "01", title: "Select", desc: "Choose financial reasoning templates and risk thresholds for your use case." },
+      { step: "02", title: "Evaluate", desc: "Run your model against quantitative financial reasoning and auditing datasets." },
+      { step: "03", title: "Audit", desc: "Verify calculation correctness, citation truth, and compliance status." },
+      { step: "04", title: "Deploy", desc: "Export audit-ready validation reports to launch your trustworthy AI safely." },
+    ],
+    featuredPackage: "Enterprise AI Validation",
+  },
+  healthcare: {
+    eyebrow: "Who We Serve: Healthcare",
+    title: "Clinical-grade AI safety to protect patients and unlock enterprise ROI.",
+    accent: "healthcare",
+    description: "Validate clinical reasoning, medical terminology, and patient safety boundaries. OpenVals helps healthcare networks eliminate medical hallucinations, verify safety protocols, and build trusted AI systems.",
+    icon: ShieldCheck,
+    heroStats: [
+      { value: "99.9%", label: "Clinical Safety Accuracy" },
+      { value: "100%", label: "HIPAA Data Scan Coverage" },
+      { value: "Zero", label: "Unvalidated Model Launches" },
+    ],
+    outcomes: [
+      "Ensure 100% adherence to patient safety guidelines, eliminating critical clinical recommendation errors.",
+      "Shorten medical QA evaluation cycles from weeks to minutes, reducing administrative overhead.",
+      "Maximize ROI by confidently automating pre-authorizations, clinical summaries, and patient intake.",
+    ],
+    features: [
+      {
+        icon: Activity,
+        title: "Clinical Accuracy",
+        desc: "Evaluate model answers against standardized clinical knowledge databases and diagnostics.",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Patient Privacy & HIPAA",
+        desc: "Scan inputs and outputs for HIPAA compliance, ensuring complete data privacy and security.",
+      },
+      {
+        icon: Radar,
+        title: "Hallucination Control",
+        desc: "Measure and lower the probability of medical-term hallucinations to guarantee model trust.",
+      },
+    ],
+    workflow: [
+      { step: "01", title: "Setup", desc: "Select clinical reasoning benchmark datasets and patient safety rules." },
+      { step: "02", title: "Benchmark", desc: "Run model validation checks for accuracy, privacy, and clinical terms." },
+      { step: "03", title: "Verify", desc: "Validate clinical safety signals, diagnostic alignment, and trust scores." },
+      { step: "04", title: "Certify", desc: "Generate a medical safety verification report to deploy with trust." },
+    ],
+    featuredPackage: "Enterprise AI Validation",
+  },
+  legal: {
+    eyebrow: "Who We Serve: Legal",
+    title: "Precision legal reasoning to mitigate liability and drive billable efficiency.",
+    accent: "legal",
+    description: "Evaluate contract intelligence, regulatory interpretation, and document analysis. OpenVals helps firms automate document review safely, reducing legal audit costs and securing a trustworthy AI workflow.",
+    icon: FileBadge2,
+    heroStats: [
+      { value: "99%", label: "Hallucination Detection" },
+      { value: "10x", label: "Contract Review Speedup" },
+      { value: "0.94+", label: "Legal Dataset Health" },
+    ],
+    outcomes: [
+      "Mitigate document analysis liability by catching 99% of hallucinated citations and clauses.",
+      "Achieve immediate ROI by automating initial contract review cycles with audit-grade trust.",
+      "Ensure complete compliance with corporate governance, data privacy, and legal frameworks.",
+    ],
+    features: [
+      {
+        icon: BookOpen,
+        title: "Citation Auditing",
+        desc: "Verify that references to laws, articles, and cases exist and are contextually accurate.",
+      },
+      {
+        icon: ClipboardCheck,
+        title: "Contract Validation",
+        desc: "Check model capabilities in identifying liabilities, terms, clauses, and missing provisions.",
+      },
+      {
+        icon: FileBadge2,
+        title: "Compliance Mapping",
+        desc: "Assert model capability to identify regulatory obligations and risks in real-time.",
+      },
+    ],
+    workflow: [
+      { step: "01", title: "Load", desc: "Upload contract guidelines, compliance rules, and legal datasets." },
+      { step: "02", title: "Test", desc: "Execute legal QA benchmarks, clause audits, and precedent checks." },
+      { step: "03", title: "Analyze", desc: "Detect hallucinated citations, missing clauses, and logic alignment." },
+      { step: "04", title: "Audit", desc: "Retrieve a clean governance audit pack to confidently prove AI trust." },
+    ],
+    featuredPackage: "Compliance Readiness",
+  },
+  developer: {
+    eyebrow: "Who We Serve: Developer",
+    title: "Build trustworthy software agents with measurable quality and code ROI.",
+    accent: "developer",
+    description: "Evaluate code syntax, security flaws, algorithm efficiency, and multi-step logic. OpenVals helps engineering teams prevent insecure code generation, cut debugging cycles, and verify code agent trust.",
+    icon: Terminal,
+    heroStats: [
+      { value: "OWASP", label: "Top 10 Security Scans" },
+      { value: "Zero", label: "Insecure Code generation" },
+      { value: "CI/CD", label: "Pipeline Integration Ready" },
+    ],
+    outcomes: [
+      "Boost developer productivity and ROI by validating code assistant accuracy automatically.",
+      "Expose security vulnerabilities (OWASP) before they enter production, saving massive fix costs.",
+      "Establish complete trust in automated code generation, deployment, and refactoring agents.",
+    ],
+    features: [
+      {
+        icon: Terminal,
+        title: "Execution Testing",
+        desc: "Compile and run model code outputs to measure syntax, execution correctness, and logic.",
+      },
+      {
+        icon: ShieldAlert,
+        title: "Vulnerability Scanning",
+        desc: "Audit generated code for security issues, prompt injections, and credentials leakage.",
+      },
+      {
+        icon: Target,
+        title: "Logic Optimization",
+        desc: "Measure code complexity, scalability, and algorithmic efficiency for maximum ROI.",
+      },
+    ],
+    workflow: [
+      { step: "01", title: "Ingest", desc: "Feed code challenges or system architectures into the engine." },
+      { step: "02", title: "Run", desc: "Verify code execution correctness, syntax, and computational cost." },
+      { step: "03", title: "Scan", desc: "Run static analysis and OWASP security vulnerability audits." },
+      { step: "04", title: "Grade", desc: "Report efficiency scores, execution success rates, and trust levels." },
+    ],
+    featuredPackage: "AI Security",
+  },
+  sample: {
+    eyebrow: "Who We Serve: General",
+    title: "Instant baseline testing to accelerate AI evaluation ROI.",
+    accent: "general",
+    description: "Establish trust baselines using general reasoning and smoke-testing datasets. OpenVals helps teams verify pipeline setups in minutes, minimizing engineering setup costs and building initial trust.",
+    icon: Gauge,
+    heroStats: [
+      { value: "Instant", label: "Baseline Deployment" },
+      { value: "Standard", label: "Common-Sense Testing" },
+      { value: "Smoke Test", label: "Quick Validation" },
+    ],
+    outcomes: [
+      "Validate integration pipelines instantly, reducing setup and engineering overhead costs.",
+      "Benchmark model options on a standard baseline before investing in larger custom evaluations.",
+      "Verify basic common-sense logic alignment to establish a solid trust foundation.",
+    ],
+    features: [
+      {
+        icon: Gauge,
+        title: "Smoke Testing",
+        desc: "Validate pipeline connectivity, model adapters, and evaluation configurations.",
+      },
+      {
+        icon: Radar,
+        title: "Reasoning Baselines",
+        desc: "Benchmark models against general logical reasoning problems to start.",
+      },
+      {
+        icon: CheckCircle2,
+        title: "Quick Insights",
+        desc: "Generate high-level latency, cost, and accuracy baselines in seconds.",
+      },
+    ],
+    workflow: [
+      { step: "01", title: "Initialize", desc: "Spin up a lightweight general reasoning dataset." },
+      { step: "02", title: "Run", desc: "Execute a fast test run across one or more models." },
+      { step: "03", title: "Assess", desc: "Verify latency, cost, and basic accuracy signals." },
+      { step: "04", title: "Verify", desc: "Confirm your testing pipeline is configured correctly for larger runs." },
+    ],
+    featuredPackage: "Starter AI Risk Assessment",
+  },
+  cybersecurity: {
+    eyebrow: "Who We Serve: Cybersecurity",
+    title: "Adversarial threat modeling to secure AI assets and protect ROI.",
+    accent: "security",
+    description: "Stress-test security logic, threat detection, and copilot actions. OpenVals helps security teams validate model guardrails, prevent credential leakage, and defend enterprise AI trust.",
+    icon: ShieldAlert,
+    heroStats: [
+      { value: "Proactive", label: "Threat Modeling" },
+      { value: "CVE/CWE", label: "Security Risk Mapping" },
+      { value: "Defended", label: "Attack Surface" },
+    ],
+    outcomes: [
+      "Protect enterprise ROI by preventing costly security breaches, prompt injections, and data exfiltration.",
+      "Audit security copilot configurations to guarantee that generated commands are secure.",
+      "Provide automated security trust reports for CISO signoff and compliance auditing.",
+    ],
+    features: [
+      {
+        icon: ShieldAlert,
+        title: "Adversarial Testing",
+        desc: "Attempt model jailbreaks, instruction bypasses, and unauthorized data exfiltration.",
+      },
+      {
+        icon: Terminal,
+        title: "Vulnerability Logic",
+        desc: "Verify if the model can pinpoint secure code issues and recommend fixes accurately.",
+      },
+      {
+        icon: Radar,
+        title: "Threat Detection",
+        desc: "Measure model accuracy in analyzing system logs and finding real threat vectors.",
+      },
+    ],
+    workflow: [
+      { step: "01", title: "Attack", desc: "Design security prompt injections and jailbreak attempts." },
+      { step: "02", title: "Defend", desc: "Evaluate model resistance and guardrail enforcement." },
+      { step: "03", title: "Log", desc: "Audit detection logs, credentials protection, and categorization accuracy." },
+      { step: "04", title: "Harden", desc: "Produce recommendations for secure, trustworthy model operations." },
+    ],
+    featuredPackage: "AI Security",
+  },
+  reasoning: {
+    eyebrow: "Who We Serve: Reasoning",
+    title: "Validate multi-step decision intelligence for high-value operations.",
+    accent: "reasoning",
+    description: "Evaluate logic paths, causal inference, and consistency. OpenVals helps teams ensure that agentic workflows behave reliably, avoiding broken process paths and maximizing AI automation ROI.",
+    icon: Radar,
+    heroStats: [
+      { value: "Multi-Step", label: "Reasoning Depth" },
+      { value: "Consistent", label: "State tracking validation" },
+      { value: "DRS Score", label: "Decision Confidence" },
+    ],
+    outcomes: [
+      "Minimize logic failure rates in complex workflows, securing consistent operational outcomes.",
+      "Expose reasoning loops and state tracking errors before they disrupt customer journeys.",
+      "Deliver the Decision Reliability Score (DRS) to prove model reasoning trust to stakeholders.",
+    ],
+    features: [
+      {
+        icon: Radar,
+        title: "Causal Inference",
+        desc: "Benchmark logic models on cause-and-effect reasoning scenarios to avoid planning errors.",
+      },
+      {
+        icon: Target,
+        title: "Deduction Tracking",
+        desc: "Verify multi-step logical reasoning accuracy and state consistency over time.",
+      },
+      {
+        icon: ClipboardCheck,
+        title: "Loop Identification",
+        desc: "Detect circular reasoning paths or models getting stuck in logical loops to protect compute budget.",
+      },
+    ],
+    workflow: [
+      { step: "01", title: "Define", desc: "Load complex multi-step reasoning puzzles and operational scenarios." },
+      { step: "02", title: "Run", desc: "Execute reasoning traces across your candidate models." },
+      { step: "03", title: "Trace", desc: "Verify intermediate reasoning steps and conclusion paths." },
+      { step: "04", title: "Score", desc: "Generate a Decision Reliability Score to prove model reasoning trust." },
+    ],
+    featuredPackage: "Enterprise AI Validation",
+  },
+  math: {
+    eyebrow: "Who We Serve: Math",
+    title: "Zero-tolerance calculation accuracy for trusted computations.",
+    accent: "math",
+    description: "Validate mathematical problem solving, algebra, calculus, and word-problem reasoning with zero-tolerance precision. OpenVals helps organizations ensure that engineering, research, and accounting models solve complex calculations accurately, maximizing computational ROI.",
+    icon: Target,
+    heroStats: [
+      { value: "Zero Tolerance", label: "Calculation Precision" },
+      { value: "Advanced", label: "Math & Logic Scope" },
+      { value: "0.97+", label: "Mathematical Health" },
+    ],
+    outcomes: [
+      "Eliminate arithmetic and symbolic math errors in critical quantitative applications.",
+      "Save manual auditing costs by verifying step-by-step mathematical reasoning automatically.",
+      "Certify model mathematical capability to guarantee system precision and mathematical trust.",
+    ],
+    features: [
+      {
+        icon: Target,
+        title: "Symbolic Reasoning",
+        desc: "Benchmark models on algebra, calculus, and symbolic mathematics.",
+      },
+      {
+        icon: BarChart3,
+        title: "Arithmetic Accuracy",
+        desc: "Assert numeric accuracy and calculation logic across multi-digit math.",
+      },
+      {
+        icon: ClipboardCheck,
+        title: "Verification Path",
+        desc: "Audit calculations at each step of the problem-solving process automatically.",
+      },
+    ],
+    workflow: [
+      { step: "01", title: "Load", desc: "Import math benchmark datasets ranging from basic to advanced." },
+      { step: "02", title: "Process", desc: "Run problems and collect step-by-step arithmetic traces." },
+      { step: "03", title: "Verify", desc: "Scan math calculations for numeric correctness and trace logic." },
+      { step: "04", title: "Certify", desc: "Obtain a precision reliability report to deploy calculation models." },
+    ],
+    featuredPackage: "Enterprise AI Validation",
+  },
+  enterpriseOps: {
+    eyebrow: "Who We Serve: Enterprise Ops",
+    title: "Optimize operational planning and automate workflows with absolute trust.",
+    accent: "ops",
+    description: "Benchmark planning outputs, rule enforcement, and resource allocation. OpenVals helps enterprises automate scheduling, inventory logic, and workflow tasks with clear ROI and zero logic errors.",
+    icon: BarChart3,
+    heroStats: [
+      { value: "ROI Driven", label: "Resource Optimization" },
+      { value: "Compliant", label: "Enterprise Rule Checks" },
+      { value: "Actionable", label: "Execution Reports" },
+    ],
+    outcomes: [
+      "Deliver massive operational ROI by confidently automating manual resource allocation.",
+      "Verify 100% adherence to complex business rules and enterprise policies.",
+      "Certify multi-turn agentic workflows to orchestrate tasks without human oversight.",
+    ],
+    features: [
+      {
+        icon: BarChart3,
+        title: "Process Optimization",
+        desc: "Evaluate planning outputs for cost, latency, and resource usage efficiency.",
+      },
+      {
+        icon: ClipboardCheck,
+        title: "Business Logic",
+        desc: "Verify adherence to company-specific policies and database constraints.",
+      },
+      {
+        icon: Target,
+        title: "Workflow Automation",
+        desc: "Benchmark agent reliability in multi-step task execution plans to maximize ROI.",
+      },
+    ],
+    workflow: [
+      { step: "01", title: "Model", desc: "Define business logic rules and operations schemas." },
+      { step: "02", title: "Simulate", desc: "Run planning simulations and operational audits." },
+      { step: "03", title: "Validate", desc: "Verify decisions against scheduling, cost, and policy constraints." },
+      { step: "04", title: "Deploy", desc: "Gain the confidence to automate enterprise workflows safely with ROI." },
+    ],
+    featuredPackage: "Enterprise AI Validation",
+  },
 } satisfies Record<string, ConversionPageData>;
 
 export function FounderProofBand({ compact = false }: { compact?: boolean }) {

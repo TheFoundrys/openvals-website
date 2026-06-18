@@ -82,7 +82,7 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   "semantic-intelligence": { group: "Core Capabilities", title: "Semantic Intelligence Engine", onThisPage: ["Embeddings", "Roadmap"] },
   reporting: { group: "Core Capabilities", title: "Executive Reporting", onThisPage: ["Overview", "Dashboard Report", "Sample-Level Report"] },
   metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
-  domains: { group: "Reference", title: "Supported Benchmark Domains", onThisPage: ["Domains"] },
+  domains: { group: "Reference", title: "Supported Benchmark Domains", onThisPage: ["Available Datasets", "Finance", "Healthcare", "Legal", "Developer", "Sample", "Cybersecurity", "Reasoning", "Math", "Enterprise Ops"] },
   roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.4.0", "v0.5.0", "Future"] },
   vision: { group: "Reference", title: "Philosophy and Vision", onThisPage: ["Mission", "Vision"] },
   contributing: { group: "Reference", title: "Contributing", onThisPage: ["Workflow", "License", "Developed By"] },
@@ -114,15 +114,15 @@ const metrics = [
 ];
 
 const domains = [
-  "Finance (Current)",
-  "Healthcare (Current)",
-  "Cybersecurity (Current)",
-  "Legal (Future)",
-  "Insurance (Future)",
-  "Manufacturing (Future)",
-  "Retail (Future)",
-  "Enterprise Operations (Future)",
-  "Software Engineering (Future)",
+  "Finance",
+  "Healthcare",
+  "Legal",
+  "Developer",
+  "Sample",
+  "Cybersecurity",
+  "Reasoning",
+  "Math",
+  "Enterprise Ops",
 ];
 
 const roadmapV040 = [
@@ -639,8 +639,64 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
     case "domains":
       return (
         <>
-          <H2>Domains</H2>
-          <PillGrid items={domains} />
+          <Paragraph>
+            OpenVals offers a variety of specialized benchmark datasets tailored to evaluate models across different industries, reasoning tasks, and technical domains.
+          </Paragraph>
+          
+          <H2>Available Datasets</H2>
+          <DocsTable
+            headers={["Dataset ID", "Domain", "Description"]}
+            rows={[
+              ["finance", "finance", "Financial reasoning and risk evaluation"],
+              ["healthcare", "healthcare", "Clinical reasoning and safety validation"],
+              ["legal", "legal", "Legal reasoning and compliance validation"],
+              ["developer", "developer", "Coding and software engineering evaluation"],
+              ["sample", "general", "Basic sample evaluation dataset"],
+              ["cybersecurity", "cybersecurity", "Cybersecurity reasoning and threat analysis"],
+              ["reasoning", "reasoning", "General reasoning and problem-solving evaluation"],
+              ["math", "math", "Mathematical reasoning and problem-solving evaluation"],
+              ["enterprise_ops", "enterprise_ops", "Enterprise operations and decision-making evaluation"],
+            ]}
+          />
+
+          <div style={{ marginTop: "40px", display: "grid", gap: "28px" }}>
+            <div id="finance" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
+              <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Finance (<code>finance</code>)</h3>
+              <Paragraph>Financial reasoning and risk evaluation. Tests model capabilities in understanding financial statements, computing ratios, and analyzing compliance and market risk factors.</Paragraph>
+            </div>
+            <div id="healthcare" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
+              <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Healthcare (<code>healthcare</code>)</h3>
+              <Paragraph>Clinical reasoning and safety validation. Evaluates clinical question answering, medical summary accuracy, and alignment with healthcare safety guidelines.</Paragraph>
+            </div>
+            <div id="legal" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
+              <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Legal (<code>legal</code>)</h3>
+              <Paragraph>Legal reasoning and compliance validation. Benchmarks models on legal text analysis, contract review intelligence, regulatory interpretation, and compliance checks.</Paragraph>
+            </div>
+            <div id="developer" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
+              <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Developer (<code>developer</code>)</h3>
+              <Paragraph>Coding and software engineering evaluation. Assesses code generation, debugging accuracy, system design reasoning, and algorithm optimization skills.</Paragraph>
+            </div>
+            <div id="sample" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
+              <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Sample (<code>general</code>)</h3>
+              <Paragraph>Basic sample evaluation dataset. A lightweight dataset designed for quick smoke tests, initial pipeline verification, and local execution configuration.</Paragraph>
+            </div>
+            <div id="cybersecurity" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
+              <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Cybersecurity (<code>cybersecurity</code>)</h3>
+              <Paragraph>Cybersecurity reasoning and threat analysis. Assesses models on vulnerability identification, threat modeling, security log interpretation, and incident response logic.</Paragraph>
+            </div>
+            <div id="reasoning" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
+              <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Reasoning (<code>reasoning</code>)</h3>
+              <Paragraph>General reasoning and problem-solving evaluation. Tests logical inference, causal reasoning, multi-step deduction, and abstract problem-solving benchmarks.</Paragraph>
+            </div>
+            <div id="math" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
+              <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Math (<code>math</code>)</h3>
+              <Paragraph>Mathematical reasoning and problem-solving evaluation. Challenges models with algebra, calculus, discrete math, and word problems requiring symbolic reasoning.</Paragraph>
+            </div>
+            <div id="enterprise-ops" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
+              <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Enterprise Operations (<code>enterprise_ops</code>)</h3>
+              <Paragraph>Enterprise operations and decision-making evaluation. Assesses operational planning, resource allocation modeling, business logic analysis, and process optimization.</Paragraph>
+            </div>
+          </div>
         </>
       );
     case "roadmap":

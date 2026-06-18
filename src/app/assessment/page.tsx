@@ -741,13 +741,13 @@ DIMENSION RATINGS:
                     </p>
                   </div>
 
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 450px), 1fr))", gap: "32px", alignItems: "start" }}>
+                  <div className={styles.assessmentGrid}>
                     
                     {/* LEFT COLUMN: GAUGE & RADAR CHART */}
                     <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                       
                       {/* Gauge Card */}
-                      <div style={{ padding: "32px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", textAlign: "center", boxShadow: "var(--shadow)", position: "relative", overflow: "hidden" }}>
+                      <div style={{ padding: "24px 28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", textAlign: "center", boxShadow: "var(--shadow)", position: "relative", overflow: "hidden" }}>
                         <div style={{ color: "var(--text-muted)", fontSize: "13px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>
                           AI Trust Score
                         </div>
@@ -800,7 +800,7 @@ DIMENSION RATINGS:
                       </div>
 
                       {/* Radar Chart Card */}
-                      <div style={{ padding: "28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)", textAlign: "center" }}>
+                      <div style={{ padding: "24px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)", textAlign: "center" }}>
                         <div style={{ color: "var(--text-muted)", fontSize: "13px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>
                           AI Trust Radar (v2)
                         </div>
@@ -889,7 +889,7 @@ DIMENSION RATINGS:
                     <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                       
                       {/* Dimension Breakdown Cards */}
-                      <div style={{ padding: "28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)" }}>
+                      <div style={{ padding: "24px 28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)" }}>
                         <h3 style={{ fontSize: "18px", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px" }}>
                           <TrendingUp size={18} style={{ color: "var(--accent)" }} /> Pillar Breakdown
                         </h3>
@@ -916,7 +916,7 @@ DIMENSION RATINGS:
                       </div>
 
                       {/* Strengths & Gaps Card */}
-                      <div style={{ padding: "28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)", display: "grid", gridTemplateColumns: "1fr", gap: "20px" }}>
+                      <div style={{ padding: "24px 28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)", display: "grid", gridTemplateColumns: "1fr", gap: "20px" }}>
                         <div>
                           <h4 style={{ fontSize: "15px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.05em", color: "#22C55E", margin: "0 0 10px", display: "flex", alignItems: "center", gap: "6px" }}>
                             <CheckCircle2 size={16} /> Top Strengths
@@ -941,7 +941,7 @@ DIMENSION RATINGS:
                       </div>
 
                       {/* Recommended Services Card */}
-                      <div style={{ padding: "28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)" }}>
+                      <div style={{ padding: "24px 28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)" }}>
                         <h3 style={{ fontSize: "18px", marginBottom: "18px", color: "var(--text-main)" }}>
                           Recommended OpenVals Services
                         </h3>
