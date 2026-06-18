@@ -9,9 +9,14 @@ type DocsPageId =
   | "quick-start"
   | "drs"
   | "model-evaluation"
+  | "factuality-engine"
+  | "hpi"
+  | "dataset-intelligence"
   | "benchmarking"
+  | "parallel-execution"
   | "scoring-engine"
   | "semantic-intelligence"
+  | "reporting"
   | "metrics"
   | "domains"
   | "roadmap"
@@ -35,9 +40,14 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
     items: [
       { id: "drs", label: "DRS" },
       { id: "model-evaluation", label: "Model Evaluation" },
+      { id: "factuality-engine", label: "Factuality Engine" },
+      { id: "hpi", label: "Hallucination Probability Index (HPI)" },
+      { id: "dataset-intelligence", label: "Dataset Intelligence" },
       { id: "benchmarking", label: "Benchmarking" },
+      { id: "parallel-execution", label: "Parallel Execution" },
       { id: "scoring-engine", label: "Scoring Engine" },
       { id: "semantic-intelligence", label: "Semantic Intelligence" },
+      { id: "reporting", label: "Executive Reporting" },
     ],
   },
   {
@@ -60,17 +70,22 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   welcome: { group: "Get started", title: "OpenVals documentation", onThisPage: ["Platform", "Built For", "Final Thought"] },
   "why-openvals": { group: "Get started", title: "Why OpenVals", onThisPage: ["Problem", "What it solves", "Questions"] },
   installation: { group: "Get started", title: "Installation", onThisPage: ["Install", "Requirements"] },
-  "quick-start": { group: "Get started", title: "Quick Start", onThisPage: ["CLI Benchmarking", "Python Example", "Example Output"] },
+  "quick-start": { group: "Get started", title: "Quick Start", onThisPage: ["CLI Benchmarking", "Validate a Dataset", "List Datasets", "Show Version", "Python Example", "Example Output"] },
   drs: { group: "Core Capabilities", title: "Decision Reliability Score (DRS)", onThisPage: ["Overview", "Formula", "Signals"] },
   "model-evaluation": { group: "Core Capabilities", title: "Model Evaluation", onThisPage: ["Metrics", "Evaluation Signals"] },
-  benchmarking: { group: "Core Capabilities", title: "Multi-Model Benchmarking", onThisPage: ["Comparison", "Ranking"] },
+  "factuality-engine": { group: "Core Capabilities", title: "Factuality Engine", onThisPage: ["Overview", "Capabilities", "Outputs"] },
+  hpi: { group: "Core Capabilities", title: "Hallucination Probability Index (HPI)", onThisPage: ["Overview", "Risk Levels"] },
+  "dataset-intelligence": { group: "Core Capabilities", title: "Dataset Intelligence", onThisPage: ["Overview", "CLI Validation", "Examples"] },
+  benchmarking: { group: "Core Capabilities", title: "Multi-Model Benchmarking", onThisPage: ["Comparison", "Capabilities", "Ranking"] },
+  "parallel-execution": { group: "Core Capabilities", title: "Parallel Execution Engine", onThisPage: ["Overview", "CLI Usage", "Benefits"] },
   "scoring-engine": { group: "Core Capabilities", title: "Scoring Engine", onThisPage: ["Trust Score", "Weights"] },
   "semantic-intelligence": { group: "Core Capabilities", title: "Semantic Intelligence Engine", onThisPage: ["Embeddings", "Roadmap"] },
+  reporting: { group: "Core Capabilities", title: "Executive Reporting", onThisPage: ["Overview", "Dashboard Report", "Sample-Level Report"] },
   metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
   domains: { group: "Reference", title: "Supported Benchmark Domains", onThisPage: ["Domains"] },
-  roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.4.0", "Future"] },
+  roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.4.0", "v0.5.0", "Future"] },
   vision: { group: "Reference", title: "Philosophy and Vision", onThisPage: ["Mission", "Vision"] },
-  contributing: { group: "Reference", title: "Contributing", onThisPage: ["Workflow", "License", "Backed By"] },
+  contributing: { group: "Reference", title: "Contributing", onThisPage: ["Workflow", "License", "Developed By"] },
   "code-of-conduct": { group: "Reference", title: "OpenVals Code of Conduct", onThisPage: ["Purpose", "Ground Rules", "Unacceptable Behavior", "Questions"] },
   "security-policy": { group: "Reference", title: "Security Policy", onThisPage: ["Supported Versions", "Reporting a Vulnerability", "Response Timeline", "Scope", "Safe Harbor"] },
 };
@@ -93,11 +108,50 @@ const metrics = [
   ["Consistency", "Higher", "0.75 to 1.00", "Repeatability of model behavior"],
   ["Variance", "Lower", "0.00 to 0.25", "Output deviation across runs"],
   ["Latency", "Lower", "0ms to 1500ms", "Response generation speed"],
+  ["Factuality", "Higher", "0.80 to 1.00", "Semantic factual alignment and lack of contradictions"],
+  ["Hallucination Risk", "Lower", "0.00 to 0.20", "Estimated probability of hallucinated or unreliable content"],
   ["DRS Score", "Higher", "0.75 to 1.00", "Overall deployment reliability"],
 ];
 
-const domains = ["Finance", "Cybersecurity", "Legal", "Math", "Reasoning", "Enterprise Operations", "Software Development", "Developer dataset"];
-const roadmap = ["Hallucination Probability Index", "AI Risk Scoring", "Governance Analytics", "Certification System", "PDF Reporting", "Adversarial Testing", "REST APIs", "Evaluation history", "External dataset integrations", "SaaS platform", "Enterprise governance", "Continuous AI validation", "Team workspaces and dashboards"];
+const domains = [
+  "Finance (Current)",
+  "Healthcare (Current)",
+  "Cybersecurity (Current)",
+  "Legal (Future)",
+  "Insurance (Future)",
+  "Manufacturing (Future)",
+  "Retail (Future)",
+  "Enterprise Operations (Future)",
+  "Software Engineering (Future)",
+];
+
+const roadmapV040 = [
+  "Parallel Model Execution",
+  "Reporting Refactor",
+  "Sample-Level Drilldown",
+  "Dataset Validation CLI",
+  "Judge Layer Foundation",
+];
+
+const roadmapV050 = [
+  "LLM-as-a-Judge",
+  "Trust Index (TI)",
+  "Governance Analytics",
+  "PDF Reports",
+  "REST APIs",
+  "Evaluation History",
+  "Hugging Face Dataset Integration",
+  "Kaggle Dataset Integration",
+];
+
+const roadmapFuture = [
+  "OpenVals Cloud",
+  "Enterprise Governance",
+  "Continuous AI Validation",
+  "Team Workspaces",
+  "Trust Intelligence Dashboard",
+  "AI Certification Framework",
+];
 const conductGroundRules = [
   "Be friendly and patient.",
   "Be welcoming to people of all backgrounds, identities, and lived experiences.",
@@ -293,23 +347,41 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
       return (
         <>
           <H2>Platform</H2>
-          <Paragraph>OpenVals is evaluation and trust infrastructure for LLMs, SLMs, local AI, private AI, and public AI. It helps organizations measure, compare, and trust AI models before deployment.</Paragraph>
-          <Paragraph>Enterprise AI Evaluation and Trust Platform. Evaluate. Benchmark. Trust. Deploy AI/ML with confidence.</Paragraph>
+          <Paragraph>
+            OpenVals is an enterprise-grade AI evaluation and trust platform designed to help organizations measure, compare, validate, and deploy AI systems with confidence.
+          </Paragraph>
+          <Paragraph>
+            Unlike traditional AI benchmarks that focus only on accuracy, OpenVals evaluates performance, trustworthiness, factuality, reliability, safety, hallucination risk, governance readiness, and deployment confidence.
+          </Paragraph>
           <H2>Built For</H2>
           <PillGrid items={["AI engineering teams", "ML teams", "SaaS companies using LLMs", "Enterprises validating models", "AI governance and compliance teams"]} />
           <H2>Final Thought</H2>
-          <Paragraph>AI models are easy to build. Trustworthy AI systems are difficult to engineer. OpenVals exists to help organizations measure, validate, and trust AI before deployment.</Paragraph>
+          <Paragraph>
+            OpenVals is building the Trust Intelligence Layer for AI. The future of AI is not determined by which model is largest. The future belongs to AI systems that can be measured, validated, governed, and trusted.
+          </Paragraph>
         </>
       );
     case "why-openvals":
       return (
         <>
           <H2>Problem</H2>
-          <Paragraph>AI models are powerful, but without proper validation they are unpredictable, insecure, and hard to trust. Most AI evaluation tools stop at metrics. OpenVals exists to solve that.</Paragraph>
+          <Paragraph>
+            Most AI models perform well in demonstrations, but production environments require something much more robust. Without proper trust validation, AI systems are unpredictable, insecure, and difficult to deploy with confidence.
+          </Paragraph>
           <H2>What It Solves</H2>
-          <PillGrid items={whyItems} />
+          <PillGrid items={[...whyItems, "Validates numeric and semantic factuality", "Measures hallucination risks", "Assures dataset integrity and health"]} />
           <H2>Questions</H2>
-          <Paragraph>Which model is actually best for your use case? How do models compare beyond accuracy? Can you trust this model in production? Which model is fastest, safest, and most reliable?</Paragraph>
+          <Paragraph>OpenVals was built to answer these crucial enterprise deployment questions:</Paragraph>
+          <BulletList
+            items={[
+              "Can the model be trusted?",
+              "Is the response factually correct?",
+              "How reliable is the model under repeated execution?",
+              "What is the hallucination risk?",
+              "Is the dataset itself trustworthy?",
+              "Is the model ready for enterprise deployment?",
+            ]}
+          />
         </>
       );
     case "installation":
@@ -325,7 +397,17 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
       return (
         <>
           <H2>CLI Benchmarking</H2>
-          <CodeBlock>{`openvals benchmark --dataset finance --models mistral,llama3 --config finance --output finance_report.html`}</CodeBlock>
+          <Paragraph>Benchmark multiple models under identical conditions:</Paragraph>
+          <CodeBlock>{`openvals benchmark --dataset finance --models mistral,llama3 --config finance`}</CodeBlock>
+          <H2>Validate a Dataset</H2>
+          <Paragraph>Assess dataset schema, quality, duplicates, and health score:</Paragraph>
+          <CodeBlock>{`openvals validate-dataset finance`}</CodeBlock>
+          <H2>List Datasets</H2>
+          <Paragraph>See all available benchmark domains/datasets in the system:</Paragraph>
+          <CodeBlock>{`openvals datasets`}</CodeBlock>
+          <H2>Show Version</H2>
+          <Paragraph>Display the installed version of OpenVals CLI:</Paragraph>
+          <CodeBlock>{`openvals version`}</CodeBlock>
           <H2>Python Example</H2>
           <CodeBlock>{`from openvals.benchmarking.runner import BenchmarkRunner
 from openvals.models.ollama_model import OllamaModel
@@ -354,31 +436,141 @@ print(results)`}</CodeBlock>
       return (
         <>
           <H2>Overview</H2>
-          <Paragraph>DRS is a production-oriented scoring framework designed to evaluate whether an AI model can be trusted in real-world deployment environments.</Paragraph>
+          <Paragraph>
+            The Decision Reliability Score (DRS) is a deployment-focused trust metric designed to determine whether an AI system is suitable for real-world production environments.
+          </Paragraph>
+          <Paragraph>
+            Traditional leaderboards answer: <strong>&quot;Which model scored highest?&quot;</strong>
+          </Paragraph>
+          <Paragraph>
+            DRS answers: <strong>&quot;Which model can be trusted in production?&quot;</strong>
+          </Paragraph>
           <H2>Formula</H2>
           <ScoreFormula />
           <H2>Signals</H2>
-          <PillGrid items={["Accuracy", "Semantic similarity", "Reliability", "Safety", "Consistency", "Variance", "Latency"]} />
+          <Paragraph>DRS combines nine crucial trust signals into a single score:</Paragraph>
+          <PillGrid items={["Accuracy", "Semantic Intelligence", "Reliability", "Safety", "Consistency", "Variance", "Latency", "Hallucination Risk", "Factuality"]} />
         </>
       );
     case "model-evaluation":
       return (
         <>
           <H2>Metrics</H2>
-          <Paragraph>Evaluate model outputs against structured datasets using accuracy, embedding-based semantic similarity, reliability, safety, consistency, variance, and latency.</Paragraph>
+          <Paragraph>
+            Evaluate AI systems using multiple dimensions including accuracy, semantic similarity, reliability, safety, consistency, variance, latency, factuality, and hallucination risk.
+          </Paragraph>
           <H2>Evaluation Signals</H2>
           <MetricsTable />
+        </>
+      );
+    case "factuality-engine":
+      return (
+        <>
+          <H2>Overview</H2>
+          <Paragraph>
+            OpenVals includes a dedicated factuality scoring engine designed to measure factual alignment, numeric precision, and contradiction avoidance in model generations.
+          </Paragraph>
+          <H2>Capabilities</H2>
+          <PillGrid
+            items={[
+              "Semantic factual alignment",
+              "Numeric consistency validation",
+              "Contradiction detection",
+              "Factual risk classification",
+            ]}
+          />
+          <H2>Outputs</H2>
+          <Paragraph>The engine outputs detailed factuality intelligence metadata:</Paragraph>
+          <BulletList
+            items={[
+              "Factuality Score: A normalized score representing the level of factual alignment.",
+              "Risk Level: The categorized risk of factual errors.",
+              "Issues Detected: Detailed logs pinpointing specific contradictions or inaccuracies.",
+            ]}
+          />
+        </>
+      );
+    case "hpi":
+      return (
+        <>
+          <H2>Overview</H2>
+          <Paragraph>
+            The Hallucination Probability Index (HPI) is a proprietary algorithm that estimates the probability that a model response contains hallucinated, fabricated, or unreliable content.
+          </Paragraph>
+          <H2>Risk Levels</H2>
+          <Paragraph>HPI classifies responses into four actionable risk categories:</Paragraph>
+          <BulletList
+            items={[
+              "Low (🟢): High confidence, reliable response suitable for automated deployment.",
+              "Medium (🟡): Moderate confidence, potential minor inconsistency. Review recommended for high-stakes tasks.",
+              "High (🟠): Low confidence, probable hallucination. Avoid direct deployment without human-in-the-loop validation.",
+              "Critical (🔴): Confirmed hallucinated or highly contradictory content. Response should be blocked.",
+            ]}
+          />
+        </>
+      );
+    case "dataset-intelligence":
+      return (
+        <>
+          <H2>Overview</H2>
+          <Paragraph>
+            Before you can trust a model, you must trust the dataset you use to evaluate it. Dataset Intelligence validates the health, quality, and compliance of your benchmark datasets.
+          </Paragraph>
+          <H2>CLI Validation</H2>
+          <Paragraph>
+            The Dataset Validation CLI evaluates schemas, quality, duplicates, and missing fields to compute the Dataset Health Score (DHS).
+          </Paragraph>
+          <H2>Examples</H2>
+          <Paragraph>Validate custom datasets or pre-packaged domain benchmarks:</Paragraph>
+          <CodeBlock>{`openvals validate-dataset finance
+openvals validate-dataset ./customer_dataset.json
+openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
         </>
       );
     case "benchmarking":
       return (
         <>
           <H2>Comparison</H2>
-          <Paragraph>Compare multiple models under the same conditions with side-by-side evaluation, normalized scoring, model ranking, and performance insights.</Paragraph>
+          <Paragraph>
+            Compare multiple models under identical conditions. OpenVals supports local models (e.g. Ollama), private enterprise AI systems, and cloud providers.
+          </Paragraph>
+          <H2>Capabilities</H2>
+          <PillGrid
+            items={[
+              "Side-by-side comparison",
+              "Normalized ranking",
+              "DRS ranking",
+              "Trust Intelligence reporting",
+            ]}
+          />
           <H2>Ranking</H2>
           <CodeBlock>{`1. mistral   (0.91)
 2. llama3    (0.87)
 3. llama2    (0.84)`}</CodeBlock>
+        </>
+      );
+    case "parallel-execution":
+      return (
+        <>
+          <H2>Overview</H2>
+          <Paragraph>
+            For large-scale evaluation pipelines, OpenVals supports concurrent execution of multiple models and dataset prompts to minimize benchmarking runtimes.
+          </Paragraph>
+          <H2>CLI Usage</H2>
+          <Paragraph>Use the parallel execution flags to specify concurrency and workers:</Paragraph>
+          <CodeBlock>{`openvals benchmark \\
+  --dataset finance \\
+  --models mistral,llama3 \\
+  --parallel \\
+  --max-workers 2`}</CodeBlock>
+          <H2>Benefits</H2>
+          <BulletList
+            items={[
+              "Reduced benchmark runtime and faster iteration loops.",
+              "Better scalability across high-throughput server clusters.",
+              "SaaS-ready infrastructure designed for parallel enterprise workloads.",
+            ]}
+          />
         </>
       );
     case "scoring-engine":
@@ -400,6 +592,41 @@ print(results)`}</CodeBlock>
           <PillGrid items={["OpenAI embeddings", "BGE embeddings", "InstructorXL", "Enterprise/private embedding systems"]} />
         </>
       );
+    case "reporting":
+      return (
+        <>
+          <H2>Overview</H2>
+          <Paragraph>
+            OpenVals provides executive-grade, audit-ready reporting to bridge the gap between technical evaluation metrics and business/governance decisions.
+          </Paragraph>
+          <H2>Dashboard Report</H2>
+          <Paragraph>
+            The high-level dashboard (generated as <code>report.html</code>) compiles global insights:
+          </Paragraph>
+          <BulletList
+            items={[
+              "Trust Dashboard: Visual summary of overall system reliability.",
+              "DRS Ranking: Normalized comparison of all benchmarked models.",
+              "Operational Insights: Latency, cost, and throughput metrics.",
+              "Governance Readiness: compliance alignment indices.",
+              "Risk Analysis: Factual risk and hallucination breakdown.",
+              "Visual Analytics: Charts and heatmaps.",
+            ]}
+          />
+          <H2>Sample-Level Report</H2>
+          <Paragraph>
+            The deep-dive report (generated as <code>sample_report.html</code>) allows sample-by-sample analysis:
+          </Paragraph>
+          <BulletList
+            items={[
+              "Prompt & Expected Output vs. Actual Model Output.",
+              "Per-sample Accuracy and Semantic scores.",
+              "Factuality & Hallucination Risk breakdown.",
+              "Safety and Latency diagnostics.",
+            ]}
+          />
+        </>
+      );
     case "metrics":
       return (
         <>
@@ -419,17 +646,21 @@ print(results)`}</CodeBlock>
     case "roadmap":
       return (
         <>
-          <H2>v0.4.0</H2>
-          <PillGrid items={roadmap.slice(0, 9)} />
+          <H2>v0.4.0 (Current Release)</H2>
+          <PillGrid items={roadmapV040} />
+          <H2>v0.5.0</H2>
+          <PillGrid items={roadmapV050} />
           <H2>Future</H2>
-          <PillGrid items={roadmap.slice(9)} />
+          <PillGrid items={roadmapFuture} />
         </>
       );
     case "vision":
       return (
         <>
           <H2>Mission</H2>
-          <Paragraph>Our mission is to build the essential trust layer for AI systems, ensuring they remain transparent, reliable, and safe.</Paragraph>
+          <Paragraph>
+            OpenVals is building the Trust Intelligence Layer for AI. The future of AI is not determined by which model is largest. The future belongs to AI systems that can be measured, validated, governed, and trusted.
+          </Paragraph>
           <H2>Vision</H2>
           <blockquote style={{ margin: "0 0 22px", padding: "18px 22px", borderLeft: "2px solid var(--docs-heading)", background: "var(--docs-card)", color: "var(--docs-heading)", fontSize: "19px" }}>
             If you cannot measure it, you cannot trust it.
@@ -442,9 +673,9 @@ print(results)`}</CodeBlock>
           <H2>Workflow</H2>
           <Paragraph>Contributions are welcome. Fork the repo, create a feature branch, and submit a pull request.</Paragraph>
           <H2>License</H2>
-          <Paragraph>OpenVals is distributed under the MIT License.</Paragraph>
-          <H2>Backed By</H2>
-          <Paragraph>Developed as part of DrPinnacle&apos;s AI Trust and Validation Initiative, focused on building secure, scalable, and trustworthy AI systems.</Paragraph>
+          <Paragraph>OpenVals is distributed under the Dr.Pinnacle Community Edition License (DPCL-CE) v1.0.</Paragraph>
+          <H2>Developed By</H2>
+          <Paragraph>DrPinnacle -- AI Trust, Validation & Governance Initiative.</Paragraph>
         </>
       );
     case "code-of-conduct":
