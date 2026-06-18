@@ -469,7 +469,7 @@ DIMENSION RATINGS:
                               <Award size={16} />
                             </div>
                             <div>
-                              <strong style={{ display: "block", fontSize: "14px" }}>Executive Report (v2)</strong>
+                              <strong style={{ display: "block", fontSize: "14px" }}>Executive Report</strong>
                               <span style={{ fontSize: "13px", color: "var(--text-muted)" }}>Includes a 5-dimension AI Trust Radar</span>
                             </div>
                           </div>
