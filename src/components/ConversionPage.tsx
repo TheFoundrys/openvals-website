@@ -18,6 +18,7 @@ import {
   Terminal,
 } from "lucide-react";
 import Link from "next/link";
+import { CSSProperties } from "react";
 import AmbientGrid from "./AmbientGrid";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -76,8 +77,7 @@ export type ConversionPageData = {
 const founderProof: ProofItem[] = [
   { value: "14", label: "IEEE-indexed AI and ML publications" },
   { value: "2", label: "Authored books across cyber and law" },
-  { value: "1.5+", label: "Decades in AI, ML, and GenAI systems" },
-  { value: "Media", label: "TradeFlock, Elets, Blindwink, and more" },
+  { value: "Media", label: "Forbes, TradeFlock, Elets, and more" },
 ];
 
 export const engagementPackages: EngagementPackage[] = [
@@ -126,7 +126,7 @@ export const conversionPages = {
     heroStats: [
       { value: "Free", label: "AI Trust Score Assessment" },
       { value: "10+", label: "Core model and safety signals" },
-      { value: "v0.4.0", label: "Current OpenVals release" },
+      { value: "v0.5.0", label: "Current OpenVals release" },
     ],
     outcomes: [
       "Identify unsafe behavior, weak reliability, data leakage risk, and compliance gaps.",
@@ -712,7 +712,7 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
         width: "100%",
       }}
     >
-      <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "center", gap: "18px", minWidth: 0 }}>
+      <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "flex-start", gap: "18px", minWidth: 0 }}>
         <div
           style={{
             width: compact ? "86px" : "112px",
@@ -729,11 +729,8 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
           role="img"
           aria-label="Vishwanath Akuthota"
         />
-        <div style={{ minWidth: 0 }}>
-          <div style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 800, textTransform: "uppercase", letterSpacing: 0 }}>
-            Founder Proof
-          </div>
-          <h3 style={{ margin: "8px 0", fontSize: compact ? "24px" : "32px", lineHeight: 1.15 }}>
+        <div style={{ minWidth: 0, marginTop: "-6px" }}>
+          <h3 style={{ margin: "0 0 8px", fontSize: compact ? "24px" : "32px", lineHeight: 1.15 }}>
             Research, books, media, and IEEE publications behind the trust layer.
           </h3>
           <Link href="/vishwanathakuthota" className={styles.textLink} style={{ color: "var(--accent)", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "6px" }}>
@@ -742,31 +739,174 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
         </div>
       </motion.div>
 
-      <motion.div
-        variants={STAGGER}
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 170px), 1fr))",
-          gap: "12px",
-        }}
-      >
-        {founderProof.map((item) => (
-          <motion.div
-            key={item.label}
-            variants={FADE_UP}
-            style={{
-              minHeight: compact ? "96px" : "116px",
-              padding: compact ? "18px" : "22px",
-              border: "1px solid var(--border)",
-              borderRadius: "12px",
-              background: "var(--card-bg)",
-            }}
-          >
-            <div style={{ color: "var(--accent)", fontSize: compact ? "24px" : "30px", fontWeight: 900, lineHeight: 1 }}>{item.value}</div>
-            <p style={{ margin: "10px 0 0", color: "var(--text-muted)", fontSize: "13px", lineHeight: 1.4 }}>{item.label}</p>
-          </motion.div>
-        ))}
-      </motion.div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "24px", width: "100%" }}>
+        <motion.div
+          variants={STAGGER}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 170px), 1fr))",
+            gap: "12px",
+          }}
+        >
+          {founderProof.map((item) => (
+            <motion.div
+              key={item.label}
+              variants={FADE_UP}
+              style={{
+                minHeight: compact ? "96px" : "116px",
+                padding: compact ? "18px" : "22px",
+                border: "1px solid var(--border)",
+                borderRadius: "12px",
+                background: "var(--card-bg)",
+              }}
+            >
+              <div style={{ color: "var(--accent)", fontSize: compact ? "24px" : "30px", fontWeight: 900, lineHeight: 1 }}>{item.value}</div>
+              <p style={{ margin: "10px 0 0", color: "var(--text-muted)", fontSize: "13px", lineHeight: 1.4 }}>{item.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Media Logos Band */}
+        <motion.div
+          variants={FADE_UP}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "24px",
+            padding: "16px 8px 0",
+            borderTop: "1px solid var(--border)",
+          }}
+        >
+          {/* 3x2 Logos Grid */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "16px 28px",
+            alignItems: "center",
+            justifyItems: "center",
+            flexGrow: 1,
+          }}>
+            {/* Forbes */}
+            <motion.div
+              whileHover={{ opacity: 0.95, scale: 1.05 }}
+              style={{
+                color: "var(--text-main)",
+                fontFamily: "Georgia, serif",
+                fontWeight: 900,
+                fontSize: "17px",
+                opacity: 0.85,
+                cursor: "default",
+                transition: "opacity 0.2s, transform 0.2s",
+                userSelect: "none",
+              }}
+            >
+              Forbes
+            </motion.div>
+
+            {/* TradeFlock */}
+            <motion.img
+              whileHover={{ opacity: 0.95, scale: 1.05 }}
+              src="/logos/tradeflock.webp"
+              alt="TradeFlock"
+              style={{
+                maxHeight: "22px",
+                maxWidth: "100px",
+                objectFit: "contain",
+                filter: "var(--logo-filter-standard)",
+                mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
+                cursor: "default",
+                transition: "opacity 0.2s, transform 0.2s",
+              }}
+            />
+
+            {/* Elets */}
+            <motion.img
+              whileHover={{ opacity: 0.95, scale: 1.05 }}
+              src="/logos/ehealth-300-98.png"
+              alt="Elets Healthcare"
+              style={{
+                maxHeight: "26px",
+                maxWidth: "100px",
+                objectFit: "contain",
+                filter: "var(--logo-filter-standard)",
+                mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
+                cursor: "default",
+                transition: "opacity 0.2s, transform 0.2s",
+              }}
+            />
+
+            {/* Blindwink */}
+            <motion.img
+              whileHover={{ opacity: 0.95, scale: 1.05 }}
+              src="/logos/blindwink.png"
+              alt="Blindwink"
+              style={{
+                maxHeight: "100px",
+                maxWidth: "150px",
+                objectFit: "contain",
+                filter: "var(--logo-filter-darkbg)",
+                mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
+                cursor: "default",
+                transition: "opacity 0.2s, transform 0.2s",
+              }}
+            />
+
+            {/* Pride India */}
+            <motion.img
+              whileHover={{ opacity: 0.95, scale: 1.05 }}
+              src="/logos/pride india awards.png"
+              alt="Pride India Awards"
+              style={{
+                maxHeight: "50px",
+                maxWidth: "120px",
+                objectFit: "contain",
+                filter: "var(--logo-filter-standard)",
+                mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
+                cursor: "default",
+                transition: "opacity 0.2s, transform 0.2s",
+              }}
+            />
+
+            {/* CConnects */}
+            <motion.img
+              whileHover={{ opacity: 0.95, scale: 1.05 }}
+              src="/logos/cconnects.webp"
+              alt="The CConnects"
+              style={{
+                maxHeight: "115px",
+                maxWidth: "180px",
+                objectFit: "contain",
+                filter: "var(--logo-filter-standard)",
+                mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
+                cursor: "default",
+                transition: "opacity 0.2s, transform 0.2s",
+              }}
+            />
+          </div>
+
+          {/* Show More Link */}
+          <div style={{
+            flexShrink: 0,
+            borderLeft: "1px solid var(--border)",
+            paddingLeft: "20px",
+            display: "flex",
+            alignItems: "center",
+          }}>
+            <span
+              style={{
+                color: "var(--text-muted)",
+                fontWeight: 700,
+                fontSize: "14px",
+                whiteSpace: "nowrap",
+                userSelect: "none",
+              }}
+            >
+              And more.....
+            </span>
+          </div>
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -801,11 +941,10 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
         {engagementPackages.map((pkg) => {
           const PackageIcon = pkg.icon;
           const featured = pkg.title === featuredPackage;
+          const isAssessment = pkg.title === "Starter AI Risk Assessment";
 
-          return (
-            <motion.div
-              key={pkg.title}
-              variants={FADE_UP}
+          const cardContent = (
+            <div
               className={styles.card}
               style={{
                 padding: compact ? "20px" : "28px",
@@ -813,6 +952,7 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
                 background: featured ? "color-mix(in srgb, var(--accent) 10%, var(--card-bg))" : "var(--card-bg)",
                 borderColor: featured ? "var(--accent)" : "var(--border)",
                 height: "100%",
+                cursor: isAssessment ? "pointer" : "default",
               }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", gap: "14px", alignItems: "flex-start", marginBottom: "16px" }}>
@@ -836,6 +976,30 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
               <div style={{ marginTop: compact ? "16px" : "24px", paddingTop: "14px", borderTop: "1px solid var(--border)", color: "var(--text-muted)", fontSize: "13px", fontWeight: 700 }}>
                 {pkg.duration}
               </div>
+            </div>
+          );
+
+          if (isAssessment) {
+            return (
+              <motion.div
+                key={pkg.title}
+                variants={FADE_UP}
+                style={{ height: "100%" }}
+              >
+                <Link href="/assessment" style={{ textDecoration: "none", color: "inherit", display: "block", height: "100%" }}>
+                  {cardContent}
+                </Link>
+              </motion.div>
+            );
+          }
+
+          return (
+            <motion.div
+              key={pkg.title}
+              variants={FADE_UP}
+              style={{ height: "100%" }}
+            >
+              {cardContent}
             </motion.div>
           );
         })}

@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import CopyableCodeBlock from "./CopyableCodeBlock";
 
@@ -14,7 +14,6 @@ type DocsPageId =
   | "dataset-intelligence"
   | "benchmarking"
   | "parallel-execution"
-  | "scoring-engine"
   | "semantic-intelligence"
   | "reporting"
   | "metrics"
@@ -45,7 +44,6 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
       { id: "dataset-intelligence", label: "Dataset Intelligence" },
       { id: "benchmarking", label: "Benchmarking" },
       { id: "parallel-execution", label: "Parallel Execution" },
-      { id: "scoring-engine", label: "Scoring Engine" },
       { id: "semantic-intelligence", label: "Semantic Intelligence" },
       { id: "reporting", label: "Executive Reporting" },
     ],
@@ -78,12 +76,11 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   "dataset-intelligence": { group: "Core Capabilities", title: "Dataset Intelligence", onThisPage: ["Overview", "CLI Validation", "Examples"] },
   benchmarking: { group: "Core Capabilities", title: "Multi-Model Benchmarking", onThisPage: ["Comparison", "Capabilities", "Ranking"] },
   "parallel-execution": { group: "Core Capabilities", title: "Parallel Execution Engine", onThisPage: ["Overview", "CLI Usage", "Benefits"] },
-  "scoring-engine": { group: "Core Capabilities", title: "Scoring Engine", onThisPage: ["Trust Score", "Weights"] },
   "semantic-intelligence": { group: "Core Capabilities", title: "Semantic Intelligence Engine", onThisPage: ["Embeddings", "Roadmap"] },
   reporting: { group: "Core Capabilities", title: "Executive Reporting", onThisPage: ["Overview", "Dashboard Report", "Sample-Level Report"] },
   metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
   domains: { group: "Reference", title: "Supported Benchmark Domains", onThisPage: ["Available Datasets", "Finance", "Healthcare", "Legal", "Developer", "Sample", "Cybersecurity", "Reasoning", "Math", "Enterprise Ops"] },
-  roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.4.0", "v0.5.0", "Future"] },
+  roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.5.0", "v0.6.0", "Future"] },
   vision: { group: "Reference", title: "Philosophy and Vision", onThisPage: ["Mission", "Vision"] },
   contributing: { group: "Reference", title: "Contributing", onThisPage: ["Workflow", "License", "Developed By"] },
   "code-of-conduct": { group: "Reference", title: "OpenVals Code of Conduct", onThisPage: ["Purpose", "Ground Rules", "Unacceptable Behavior", "Questions"] },
@@ -125,23 +122,56 @@ const domains = [
   "Enterprise Ops",
 ];
 
-const roadmapV040 = [
-  "Parallel Model Execution",
-  "Reporting Refactor",
-  "Sample-Level Drilldown",
-  "Dataset Validation CLI",
-  "Judge Layer Foundation",
+
+const roadmapV050TrustAdvisor = [
+  "Trust Advisor",
+  "Trust Profile Generation",
+  "Use Case Detection from Problem Statements",
+  "Dataset Recommendation Engine",
+  "Config Recommendation Engine",
+  "Risk Classification",
+  "Data Sensitivity Analysis",
 ];
 
-const roadmapV050 = [
-  "LLM-as-a-Judge",
-  "Trust Index (TI)",
-  "Governance Analytics",
-  "PDF Reports",
-  "REST APIs",
-  "Evaluation History",
-  "Hugging Face Dataset Integration",
-  "Kaggle Dataset Integration",
+const roadmapV050ModelIntelligence = [
+  "Dynamic Model Discovery from Ollama",
+  "Dynamic Model Catalog",
+  "Model Fit Score (MFS)",
+  "Model Recommendation Engine",
+  "openvals models CLI",
+];
+
+const roadmapV050TrustReadiness = [
+  "Trust Readiness Index (TRI)",
+  "Trust Readiness Deductions",
+  "Trust Readiness Classification",
+];
+
+const roadmapV050Benchmarking = [
+  "Trust Workflow → Benchmark Integration",
+  "Automatic Dataset Selection",
+  "Automatic Config Selection",
+  "Automatic Model Selection",
+  "Best Model Identification",
+  "DRS-Based Ranking",
+];
+
+const roadmapV050Infrastructure = [
+  "System Profile Detection",
+  "CPU Detection",
+  "Memory Detection",
+  "Automatic Worker Recommendation",
+  "User Worker Override (--max-workers)",
+];
+
+const roadmapV060 = [
+  "openvals system",
+  "GPU + OS diagnostics",
+  "Provider registry",
+  "openvals providers",
+  "OpenAI / Anthropic / Gemini skeleton adapters",
+  "Provider-aware model catalog",
+  "Auto-pull completion for Ollama",
 ];
 
 const roadmapFuture = [
@@ -305,8 +335,8 @@ function DocsTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
         <tbody>
           {rows.map((row) => (
             <tr key={row.join("|")}>
-              {row.map((cell) => (
-                <td key={cell} style={{ padding: "14px", borderBottom: "1px solid var(--docs-border-soft)", color: "var(--docs-muted)" }}>{cell}</td>
+              {row.map((cell, idx) => (
+                <td key={idx} style={{ padding: "14px", borderBottom: "1px solid var(--docs-border-soft)", color: "var(--docs-muted)" }}>{cell}</td>
               ))}
             </tr>
           ))}
@@ -330,8 +360,8 @@ function MetricsTable() {
         <tbody>
           {metrics.map((row) => (
             <tr key={row[0]}>
-              {row.map((cell) => (
-                <td key={cell} style={{ padding: "14px", borderBottom: "1px solid var(--docs-border-soft)", color: "var(--docs-muted)" }}>{cell}</td>
+              {row.map((cell, idx) => (
+                <td key={idx} style={{ padding: "14px", borderBottom: "1px solid var(--docs-border-soft)", color: "var(--docs-muted)" }}>{cell}</td>
               ))}
             </tr>
           ))}
@@ -573,16 +603,6 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
           />
         </>
       );
-    case "scoring-engine":
-      return (
-        <>
-          <H2>Trust Score</H2>
-          <Paragraph>The scoring engine uses weighted scoring aligned to business priorities.</Paragraph>
-          <ScoreFormula label="Trust Score" />
-          <H2>Weights</H2>
-          <Paragraph>Customize weights per use case to balance accuracy, cost, latency, safety, and deployment reliability.</Paragraph>
-        </>
-      );
     case "semantic-intelligence":
       return (
         <>
@@ -663,38 +683,83 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
             <div id="finance" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
               <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Finance (<code>finance</code>)</h3>
               <Paragraph>Financial reasoning and risk evaluation. Tests model capabilities in understanding financial statements, computing ratios, and analyzing compliance and market risk factors.</Paragraph>
+              <div>
+                <Link href="/finance" className="docsReadMoreLink">
+                  Read More <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
             <div id="healthcare" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
               <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Healthcare (<code>healthcare</code>)</h3>
               <Paragraph>Clinical reasoning and safety validation. Evaluates clinical question answering, medical summary accuracy, and alignment with healthcare safety guidelines.</Paragraph>
+              <div>
+                <Link href="/healthcare" className="docsReadMoreLink">
+                  Read More <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
             <div id="legal" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
               <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Legal (<code>legal</code>)</h3>
               <Paragraph>Legal reasoning and compliance validation. Benchmarks models on legal text analysis, contract review intelligence, regulatory interpretation, and compliance checks.</Paragraph>
+              <div>
+                <Link href="/legal" className="docsReadMoreLink">
+                  Read More <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
             <div id="developer" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
               <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Developer (<code>developer</code>)</h3>
               <Paragraph>Coding and software engineering evaluation. Assesses code generation, debugging accuracy, system design reasoning, and algorithm optimization skills.</Paragraph>
+              <div>
+                <Link href="/developer" className="docsReadMoreLink">
+                  Read More <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
             <div id="sample" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
               <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Sample (<code>general</code>)</h3>
               <Paragraph>Basic sample evaluation dataset. A lightweight dataset designed for quick smoke tests, initial pipeline verification, and local execution configuration.</Paragraph>
+              <div>
+                <Link href="/sample" className="docsReadMoreLink">
+                  Read More <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
             <div id="cybersecurity" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
               <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Cybersecurity (<code>cybersecurity</code>)</h3>
               <Paragraph>Cybersecurity reasoning and threat analysis. Assesses models on vulnerability identification, threat modeling, security log interpretation, and incident response logic.</Paragraph>
+              <div>
+                <Link href="/cybersecurity" className="docsReadMoreLink">
+                  Read More <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
             <div id="reasoning" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
               <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Reasoning (<code>reasoning</code>)</h3>
               <Paragraph>General reasoning and problem-solving evaluation. Tests logical inference, causal reasoning, multi-step deduction, and abstract problem-solving benchmarks.</Paragraph>
+              <div>
+                <Link href="/reasoning" className="docsReadMoreLink">
+                  Read More <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
             <div id="math" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
               <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Math (<code>math</code>)</h3>
               <Paragraph>Mathematical reasoning and problem-solving evaluation. Challenges models with algebra, calculus, discrete math, and word problems requiring symbolic reasoning.</Paragraph>
+              <div>
+                <Link href="/math" className="docsReadMoreLink">
+                  Read More <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
             <div id="enterprise-ops" style={{ scrollMarginTop: "90px", border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "24px", background: "var(--docs-card)" }}>
               <h3 style={{ margin: "0 0 10px", color: "var(--docs-heading)", fontSize: "20px" }}>Enterprise Operations (<code>enterprise_ops</code>)</h3>
               <Paragraph>Enterprise operations and decision-making evaluation. Assesses operational planning, resource allocation modeling, business logic analysis, and process optimization.</Paragraph>
+              <div>
+                <Link href="/enterprise-ops" className="docsReadMoreLink">
+                  Read More <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
           </div>
         </>
@@ -702,10 +767,26 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
     case "roadmap":
       return (
         <>
-          <H2>v0.4.0 (Current Release)</H2>
-          <PillGrid items={roadmapV040} />
-          <H2>v0.5.0</H2>
-          <PillGrid items={roadmapV050} />
+          <H2>v0.5.0 (Current Release)</H2>
+          
+          <h3 style={{ fontSize: "20px", color: "var(--docs-heading)", marginTop: "32px", marginBottom: "14px" }}>Trust Advisor</h3>
+          <PillGrid items={roadmapV050TrustAdvisor} />
+          
+          <h3 style={{ fontSize: "20px", color: "var(--docs-heading)", marginTop: "32px", marginBottom: "14px" }}>Model Intelligence</h3>
+          <PillGrid items={roadmapV050ModelIntelligence} />
+          
+          <h3 style={{ fontSize: "20px", color: "var(--docs-heading)", marginTop: "32px", marginBottom: "14px" }}>Trust Readiness</h3>
+          <PillGrid items={roadmapV050TrustReadiness} />
+          
+          <h3 style={{ fontSize: "20px", color: "var(--docs-heading)", marginTop: "32px", marginBottom: "14px" }}>Benchmarking</h3>
+          <PillGrid items={roadmapV050Benchmarking} />
+          
+          <h3 style={{ fontSize: "20px", color: "var(--docs-heading)", marginTop: "32px", marginBottom: "14px" }}>Infrastructure Intelligence</h3>
+          <PillGrid items={roadmapV050Infrastructure} />
+          
+          <H2>v0.6.0 (Upcoming Release)</H2>
+          <PillGrid items={roadmapV060} />
+          
           <H2>Future</H2>
           <PillGrid items={roadmapFuture} />
         </>
@@ -845,6 +926,30 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
 
             .docsShell * {
               box-sizing: border-box;
+            }
+
+            .docsReadMoreLink {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              color: var(--accent);
+              font-size: 14px;
+              font-weight: 600;
+              text-decoration: none;
+              transition: opacity 0.2s;
+              margin-top: 16px;
+            }
+
+            .docsReadMoreLink:hover {
+              opacity: 0.85;
+            }
+
+            .docsReadMoreLink svg {
+              transition: transform 0.2s;
+            }
+
+            .docsReadMoreLink:hover svg {
+              transform: translateX(4px);
             }
 
             .docsTopbarBrand,

@@ -240,22 +240,52 @@ graph TD
 
 ## Roadmap
 
-### v0.4.0 (Current)
-- [x] Parallel Model Execution
-- [x] Reporting Refactor
-- [x] Sample-Level Drilldown
-- [x] Dataset Validation CLI
-- [x] Judge Layer Foundation
+### v0.5.0 (Current)
 
-### v0.5.0 (Upcoming)
-- [ ] LLM-as-a-Judge
-- [ ] Trust Index (TI)
-- [ ] Governance Analytics
-- [ ] PDF Reports
-- [ ] REST APIs
-- [ ] Evaluation History
-- [ ] Hugging Face Dataset Integration
-- [ ] Kaggle Dataset Integration
+#### Trust Advisor
+- [x] Trust Advisor
+- [x] Trust Profile Generation
+- [x] Use Case Detection from Problem Statements
+- [x] Dataset Recommendation Engine
+- [x] Config Recommendation Engine
+- [x] Risk Classification
+- [x] Data Sensitivity Analysis
+
+#### Model Intelligence
+- [x] Dynamic Model Discovery from Ollama
+- [x] Dynamic Model Catalog
+- [x] Model Fit Score (MFS)
+- [x] Model Recommendation Engine
+- [x] `openvals models` CLI
+
+#### Trust Readiness
+- [x] Trust Readiness Index (TRI)
+- [x] Trust Readiness Deductions
+- [x] Trust Readiness Classification
+
+#### Benchmarking
+- [x] Trust Workflow → Benchmark Integration
+- [x] Automatic Dataset Selection
+- [x] Automatic Config Selection
+- [x] Automatic Model Selection
+- [x] Best Model Identification
+- [x] DRS-Based Ranking
+
+#### Infrastructure Intelligence
+- [x] System Profile Detection
+- [x] CPU Detection
+- [x] Memory Detection
+- [x] Automatic Worker Recommendation
+- [x] User Worker Override (`--max-workers`)
+
+### v0.6.0 (Upcoming)
+- [ ] openvals system
+- [ ] GPU + OS diagnostics
+- [ ] Provider registry
+- [ ] openvals providers
+- [ ] OpenAI / Anthropic / Gemini skeleton adapters
+- [ ] Provider-aware model catalog
+- [ ] Auto-pull completion for Ollama
 
 ### Future
 - [ ] OpenVals Cloud

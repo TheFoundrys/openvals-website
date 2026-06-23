@@ -1149,7 +1149,12 @@
   .trustStat:last-child {
     grid-column: 1 / -1;
     border-right: 0;
+    align-items: center;
     text-align: center;
+  }
+
+  .trustStat:last-child .trustStatValue {
+    justify-content: center;
   }
 
   .trustStatLabel {

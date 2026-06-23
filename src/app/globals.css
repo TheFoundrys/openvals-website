@@ -19,6 +19,9 @@
   --shield-glow: rgba(47, 128, 237, 0.25);
   --shield-glow-strong: rgba(47, 128, 237, 0.15);
   --shield-impact: rgba(47, 128, 237, 0.4);
+  --logo-filter-standard: grayscale(100%) opacity(0.85);
+  --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
+  --logo-blend-mode: multiply;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,7 +44,22 @@
     --shield-glow: rgba(47, 128, 237, 0.6);
     --shield-glow-strong: rgba(47, 128, 237, 0.4);
     --shield-impact: rgba(47, 128, 237, 0.7);
+    --logo-filter-standard: invert(1) grayscale(100%) opacity(0.85);
+    --logo-filter-darkbg: grayscale(100%) opacity(0.85);
+    --logo-blend-mode: screen;
   }
+}
+
+html.dark {
+  --logo-filter-standard: invert(1) grayscale(100%) opacity(0.85);
+  --logo-filter-darkbg: grayscale(100%) opacity(0.85);
+  --logo-blend-mode: screen;
+}
+
+html.light {
+  --logo-filter-standard: grayscale(100%) opacity(0.85);
+  --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
+  --logo-blend-mode: multiply;
 }
 
 html,
