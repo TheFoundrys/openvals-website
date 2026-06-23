@@ -20,7 +20,7 @@ export const localBlogPosts: LocalBlogPost[] = [
     slug: { current: "llm-evaluation-vs-ai-validation-what-enterprises-miss" },
     publishedAt: "2026-06-23T04:36:28.000Z",
     author: { name: "Vishwanath Akuthota" },
-    imageUrl: "https://pbs.twimg.com/media/HLeNKuQboAEkwLm.jpg",
+    imageUrl: "/llm_eval_vs_validation_cover.png",
     externalUrl: "https://x.com/Vishakuthota/status/2069278393108189384",
   },
   {
