@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-llm-evaluation-vs-ai-validation-what-enterprises-miss",
+    title: "LLM Evaluation vs AI Validation: What Enterprises Miss",
+    slug: { current: "llm-evaluation-vs-ai-validation-what-enterprises-miss" },
+    publishedAt: "2026-06-23T04:36:28.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "https://pbs.twimg.com/media/HLeNKuQboAEkwLm.jpg",
+    externalUrl: "https://x.com/Vishakuthota/status/2069278393108189384",
+  },
+  {
     _id: "local-why-ai-model-validation-is-now-a-boardroom-risk",
     title: "Why AI Model Validation Is Now a Boardroom Risk",
     slug: { current: "why-ai-model-validation-is-now-a-boardroom-risk" },
