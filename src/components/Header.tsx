@@ -28,6 +28,7 @@ type NavLink = {
   highlight?: boolean;
   subItems?: NavSubItem[];
   megaGroups?: NavGroup[];
+  centeredHeader?: boolean;
 };
 
 export default function Header() {
@@ -40,6 +41,7 @@ export default function Header() {
         name: "Who We Serve",
         href: "#",
         highlight: true,
+        centeredHeader: true,
         megaGroups: [
           {
             title: "Industry Domains",
@@ -52,12 +54,11 @@ export default function Header() {
             ]
           },
           {
-            title: "Core & Technical",
+            title: "",
             items: [
               { name: "Developer", description: "Coding and software engineering evaluation", href: "/developer" },
               { name: "Reasoning", description: "General reasoning and problem-solving evaluation", href: "/reasoning" },
               { name: "Math", description: "Mathematical reasoning and problem-solving evaluation", href: "/math" },
-              { name: "Sample (General)", description: "Basic sample evaluation dataset", href: "/sample" },
             ]
           }
         ]
@@ -125,24 +126,50 @@ export default function Header() {
                 <AnimatePresence>
                   {openDropdown === link.name && (
                     <motion.div
-                      className={link.megaGroups ? `${styles.dropdownContent} ${styles.dropdownMega}` : styles.dropdownContent}
+                      className={
+                        link.megaGroups
+                          ? link.centeredHeader
+                            ? `${styles.dropdownContent} ${styles.dropdownMega} ${styles.dropdownMegaCentered}`
+                            : `${styles.dropdownContent} ${styles.dropdownMega}`
+                          : styles.dropdownContent
+                      }
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
                     >
                       {link.megaGroups ? (
-                        link.megaGroups.map((group) => (
-                          <div key={group.title} className={styles.dropdownMegaColumn}>
-                            <div className={styles.dropdownMegaTitle}>{group.title}</div>
-                            {group.items.map((item) => (
-                              <Link key={item.name} href={item.href || "#"} className={styles.dropdownMegaItem}>
-                                <span>{item.name}</span>
-                                {item.description && <small>{item.description}</small>}
-                              </Link>
-                            ))}
+                        link.centeredHeader ? (
+                          <div className={styles.dropdownMegaCenteredContainer}>
+                            <div className={styles.dropdownMegaTitleCentered}>
+                              {link.megaGroups[0].title}
+                            </div>
+                            <div className={styles.dropdownMegaColsGrid}>
+                              {link.megaGroups.map((group, idx) => (
+                                <div key={group.title || idx} className={styles.dropdownMegaColumn}>
+                                  {group.items.map((item) => (
+                                    <Link key={item.name} href={item.href || "#"} className={styles.dropdownMegaItem}>
+                                      <span>{item.name}</span>
+                                      {item.description && <small>{item.description}</small>}
+                                    </Link>
+                                  ))}
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        ))
+                        ) : (
+                          link.megaGroups.map((group) => (
+                            <div key={group.title} className={styles.dropdownMegaColumn}>
+                              <div className={styles.dropdownMegaTitle}>{group.title}</div>
+                              {group.items.map((item) => (
+                                <Link key={item.name} href={item.href || "#"} className={styles.dropdownMegaItem}>
+                                  <span>{item.name}</span>
+                                  {item.description && <small>{item.description}</small>}
+                                </Link>
+                              ))}
+                            </div>
+                          ))
+                        )
                       ) : (
                         link.subItems?.map((sub) => (
                           sub.isHeader ? (
@@ -197,11 +224,13 @@ export default function Header() {
                 {(link.subItems || link.megaGroups) && (
                   <div style={{ paddingLeft: "20px", marginTop: "12px", display: "flex", flexDirection: "column", gap: "12px" }}>
                     {link.megaGroups ? (
-                      link.megaGroups.map((group) => (
-                        <div key={group.title} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                          <div style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", letterSpacing: "0.1em" }}>
-                            {group.title}
-                          </div>
+                      link.megaGroups.map((group, idx) => (
+                        <div key={group.title || idx} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                          {group.title && (
+                            <div style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", letterSpacing: "0.1em" }}>
+                              {group.title}
+                            </div>
+                          )}
                           {group.items.map((item) => (
                             <Link key={item.name} href={item.href || "#"} onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
                               {item.name}

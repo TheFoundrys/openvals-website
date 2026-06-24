@@ -228,7 +228,7 @@ export default function About() {
               Ready to ensure your AI is <br /> as trustworthy as it is smart?
             </motion.h2>
             <motion.div variants={FADE_UP}>
-              <a href="/contact" className={`${styles.button} ${styles.primary}`} style={{ backgroundColor: "var(--accent)", borderColor: "var(--accent)", color: "#fff" }}>
+              <a href="/assessment" className={`${styles.button} ${styles.primary}`} style={{ backgroundColor: "var(--accent)", borderColor: "var(--accent)", color: "#fff" }}>
                 Start Your Validation
               </a>
             </motion.div>
