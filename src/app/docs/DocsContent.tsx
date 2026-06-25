@@ -16,6 +16,7 @@ type DocsPageId =
   | "parallel-execution"
   | "semantic-intelligence"
   | "reporting"
+  | "screenshots"
   | "metrics"
   | "domains"
   | "roadmap"
@@ -46,6 +47,7 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
       { id: "parallel-execution", label: "Parallel Execution" },
       { id: "semantic-intelligence", label: "Semantic Intelligence" },
       { id: "reporting", label: "Executive Reporting" },
+      { id: "screenshots", label: "Screenshots & Previews" },
     ],
   },
   {
@@ -65,10 +67,10 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
 export const docsPageIds = navSections.flatMap((section) => section.items.map((item) => item.id));
 
 const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: string[] }> = {
-  welcome: { group: "Get started", title: "OpenVals documentation", onThisPage: ["Platform", "Built For", "Final Thought"] },
-  "why-openvals": { group: "Get started", title: "Why OpenVals", onThisPage: ["Problem", "What it solves", "Questions"] },
+  welcome: { group: "Get started", title: "OpenVals documentation", onThisPage: ["Platform", "Trust Infrastructure", "What is OpenVals?", "Built For", "Final Thought"] },
+  "why-openvals": { group: "Get started", title: "Why OpenVals", onThisPage: ["Problem", "Why OpenVals?", "Enterprise Use Cases", "What It Solves"] },
   installation: { group: "Get started", title: "Installation", onThisPage: ["Install", "Requirements"] },
-  "quick-start": { group: "Get started", title: "Quick Start", onThisPage: ["CLI Benchmarking", "Validate a Dataset", "List Datasets", "Show Version", "Python Example", "Example Output"] },
+  "quick-start": { group: "Get started", title: "60-Second Quick Start", onThisPage: ["1. Install the CLI", "2. Run a Benchmark", "3. Validate a Dataset", "Benchmark Multiple Models with Config", "Show Version", "Python SDK Example", "Example Trust Intelligence Report"] },
   drs: { group: "Core Capabilities", title: "Decision Reliability Score (DRS)", onThisPage: ["Overview", "Formula", "Signals"] },
   "model-evaluation": { group: "Core Capabilities", title: "Model Evaluation", onThisPage: ["Metrics", "Evaluation Signals"] },
   "factuality-engine": { group: "Core Capabilities", title: "Factuality Engine", onThisPage: ["Overview", "Capabilities", "Outputs"] },
@@ -78,6 +80,7 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   "parallel-execution": { group: "Core Capabilities", title: "Parallel Execution Engine", onThisPage: ["Overview", "CLI Usage", "Benefits"] },
   "semantic-intelligence": { group: "Core Capabilities", title: "Semantic Intelligence Engine", onThisPage: ["Embeddings", "Roadmap"] },
   reporting: { group: "Core Capabilities", title: "Executive Reporting", onThisPage: ["Overview", "Dashboard Report", "Sample-Level Report"] },
+  screenshots: { group: "Core Capabilities", title: "Screenshots & Previews", onThisPage: ["Trust Dashboard", "Single Model Executive Report"] },
   metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
   domains: { group: "Reference", title: "Supported Benchmark Domains", onThisPage: ["Available Datasets", "Finance", "Healthcare", "Legal", "Developer", "Sample", "Cybersecurity", "Reasoning", "Math", "Enterprise Ops"] },
   roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.5.0", "v0.6.0", "Future"] },
@@ -321,7 +324,7 @@ function PillGrid({ items }: { items: string[] }) {
   );
 }
 
-function DocsTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
+function DocsTable({ headers, rows }: { headers: string[]; rows: React.ReactNode[][] }) {
   return (
     <div className="docsTableWrap" style={{ overflowX: "auto", border: "1px solid var(--docs-border)", borderRadius: "14px", margin: "20px 0 22px" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "560px" }}>
@@ -333,8 +336,8 @@ function DocsTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row) => (
-            <tr key={row.join("|")}>
+          {rows.map((row, rowIdx) => (
+            <tr key={rowIdx}>
               {row.map((cell, idx) => (
                 <td key={idx} style={{ padding: "14px", borderBottom: "1px solid var(--docs-border-soft)", color: "var(--docs-muted)" }}>{cell}</td>
               ))}
@@ -371,11 +374,739 @@ function MetricsTable() {
   );
 }
 
+const Sparkline = ({ points, color }: { points: string; color: string }) => (
+  <svg width="60" height="24" viewBox="0 0 80 30" style={{ overflow: "visible", opacity: 0.8 }}>
+    <polyline fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" points={points} />
+  </svg>
+);
+
+const GroupedBarChart = ({ title, maxVal, data, unit = "" }: { title: string; maxVal: number; data: Array<{ label: string; val: number; color: string }>; unit?: string }) => {
+  return (
+    <div style={{ flex: 1, minWidth: "130px", border: "1px solid var(--docs-border-soft)", borderRadius: "10px", padding: "12px 14px", background: "var(--docs-card)" }}>
+      <div style={{ fontSize: "11px", fontWeight: 600, color: "var(--docs-heading)", marginBottom: "14px", textAlign: "center" }}>{title}</div>
+      <div style={{ display: "flex", justifyContent: "space-around", alignItems: "flex-end", height: "100px", paddingBottom: "4px" }}>
+        {data.map((item, idx) => {
+          const heightPct = Math.min((item.val / maxVal) * 100, 100);
+          return (
+            <div key={idx} style={{ display: "flex", flexDirection: "column", alignItems: "center", height: "100%", justifyContent: "flex-end", width: "24px" }}>
+              <span style={{ fontSize: "9px", fontWeight: 700, color: "var(--docs-heading)", marginBottom: "4px" }}>{item.val}{unit}</span>
+              <div style={{ width: "100%", height: `${heightPct}%`, backgroundColor: item.color, borderRadius: "3px 3px 0 0" }}></div>
+              <span style={{ fontSize: "9px", color: "var(--docs-muted)", marginTop: "6px", fontWeight: 500 }}>{item.label}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const RadarChart = () => {
+  const angles = [0, 1, 2, 3, 4, 5, 6].map(i => -Math.PI/2 + (i * 2 * Math.PI) / 7);
+  const cx = 130;
+  const cy = 130;
+  const gridRadii = [17, 34, 51, 68, 85];
+  const values = [0.89, 0.91, 0.88, 0.92, 0.87, 0.11, 0.19];
+  const modelPoints = angles.map((angle, i) => {
+    const r = values[i] * 85;
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+    return `${x},${y}`;
+  }).join(" ");
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", position: "relative", width: "100%", minHeight: "260px" }}>
+      <svg width="260" height="260" viewBox="0 0 260 260" style={{ overflow: "visible" }}>
+        {gridRadii.map((r, ri) => {
+          const points = angles.map(angle => {
+            const x = cx + r * Math.cos(angle);
+            const y = cy + r * Math.sin(angle);
+            return `${x},${y}`;
+          }).join(" ");
+          return (
+            <polygon key={ri} points={points} fill="none" stroke="var(--docs-border-soft)" strokeWidth="1" />
+          );
+        })}
+        {angles.map((angle, i) => {
+          const x = cx + 85 * Math.cos(angle);
+          const y = cy + 85 * Math.sin(angle);
+          return (
+            <line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke="var(--docs-border-soft)" strokeWidth="1" />
+          );
+        })}
+        <polygon points={modelPoints} fill="rgba(22, 163, 74, 0.15)" stroke="#16a34a" strokeWidth="2" strokeLinejoin="round" />
+        {angles.map((angle, i) => {
+          const r = values[i] * 85;
+          const x = cx + r * Math.cos(angle);
+          const y = cy + r * Math.sin(angle);
+          return (
+            <circle key={i} cx={x} cy={y} r="3" fill="#16a34a" />
+          );
+        })}
+        {(() => {
+          const labels = [
+            { text: "DRS 0.89", dx: 0, dy: -98 },
+            { text: "Factuality 0.91", dx: 86, dy: -50 },
+            { text: "Reliability 0.88", dx: 98, dy: 15 },
+            { text: "Safety 0.92", dx: 45, dy: 88 },
+            { text: "Consistency 0.87", dx: -45, dy: 88 },
+            { text: "Hallucination 0.11", dx: -108, dy: 15 },
+            { text: "Variance 0.19", dx: -82, dy: -50 }
+          ];
+          return labels.map((lbl, i) => {
+            const x = cx + lbl.dx;
+            const y = cy + lbl.dy;
+            return (
+              <text key={i} x={x} y={y} fill="var(--docs-text)" fontSize="10" fontWeight="600" textAnchor="middle" alignmentBaseline="middle">
+                {lbl.text}
+              </text>
+            );
+          });
+        })()}
+      </svg>
+    </div>
+  );
+};
+
+const ScreenshotsPage = () => {
+  return (
+    <>
+      <Paragraph>
+        Explore visual snapshots of the OpenVals AI Trust dashboards, multi-model leaderboards, and enterprise evaluation reports.
+      </Paragraph>
+
+      <H2>Trust Dashboard</H2>
+      <Paragraph>
+        A premium interactive reconstruction of the multi-model executive dashboard, illustrating how OpenVals displays recommended models, sub-scores, radar profiles, comparison bar charts, and deployment readiness signals.
+      </Paragraph>
+
+      <div className="previewContainer" style={{
+        background: "var(--docs-code-bg)",
+        border: "1px solid var(--docs-border)",
+        borderRadius: "16px",
+        overflow: "hidden",
+        margin: "24px 0 48px",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      }}>
+        <div style={{
+          background: "linear-gradient(135deg, #090e1a 0%, #1e1b4b 100%)",
+          padding: "24px 30px",
+          color: "#ffffff",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "20px",
+          borderBottom: "1px solid #2e2a75"
+        }}>
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "6px" }}>
+              <div style={{
+                width: "28px",
+                height: "28px",
+                borderRadius: "50%",
+                background: "linear-gradient(to right, #8b5cf6, #3b82f6)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "bold",
+                fontSize: "14px",
+                color: "#fff"
+              }}>O</div>
+              <span style={{ fontSize: "22px", fontWeight: 800, letterSpacing: "-0.5px" }}>OpenVals</span>
+              <span style={{
+                background: "rgba(255,255,255,0.08)",
+                fontSize: "12px",
+                padding: "2px 8px",
+                borderRadius: "4px",
+                color: "#a5b4fc",
+                fontWeight: 600,
+                marginLeft: "8px"
+              }}>AI Trust Intelligence Report</span>
+            </div>
+            <div style={{ fontSize: "13px", color: "#a5b4fc", opacity: 0.9 }}>
+              Comprehensive evaluation of AI models across trust, performance, and operational dimensions
+            </div>
+            
+            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "16px" }}>
+              {[
+                { label: "Dataset", val: "Finance" },
+                { label: "Models Evaluated", val: "3" },
+                { label: "Configuration", val: "finance" },
+                { label: "Generated", val: "May 17, 2025 10:30 AM" }
+              ].map((pill, i) => (
+                <div key={i} style={{
+                  background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "6px",
+                  padding: "6px 12px",
+                  fontSize: "11px",
+                  color: "#cbd5e1",
+                  display: "flex",
+                  gap: "6px"
+                }}>
+                  <span style={{ color: "#94a3b8" }}>{pill.label}:</span>
+                  <strong style={{ color: "#ffffff" }}>{pill.val}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div style={{
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            borderRadius: "12px",
+            padding: "16px 20px",
+            minWidth: "220px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center"
+          }}>
+            <div>
+              <div style={{ fontSize: "10px", fontWeight: 700, color: "#10b981", letterSpacing: "1px", textTransform: "uppercase" }}>Recommended Model</div>
+              <div style={{ fontSize: "20px", fontWeight: 800, color: "#ffffff", margin: "4px 0 6px" }}>Llama3</div>
+              <div style={{ display: "inline-block", background: "#10b981", color: "#064e3b", fontSize: "11px", fontWeight: 700, padding: "2px 8px", borderRadius: "4px" }}>Enterprise Ready</div>
+              <div style={{ fontSize: "11px", color: "#a5b4fc", marginTop: "6px", display: "flex", alignItems: "center", gap: "4px" }}>
+                <span style={{ color: "#10b981" }}>✓</span> High Trust
+              </div>
+            </div>
+            <div style={{ textAlign: "right", borderLeft: "1px solid rgba(255,255,255,0.1)", paddingLeft: "16px" }}>
+              <div style={{ fontSize: "10px", color: "#a5b4fc", textTransform: "uppercase" }}>DRS Score</div>
+              <div style={{ fontSize: "36px", fontWeight: 900, color: "#10b981" }}>0.89</div>
+            </div>
+          </div>
+        </div>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: "16px",
+          padding: "20px 30px",
+          background: "var(--docs-panel)",
+          borderBottom: "1px solid var(--docs-border)"
+        }}>
+          {[
+            { label: "Performance", score: "0.87", rating: "High", color: "#3b82f6", points: "5,20 15,22 25,12 35,16 45,6 55,2" },
+            { label: "Trust Intelligence", score: "0.91", rating: "Very High", color: "#10b981", points: "5,18 15,16 25,20 35,8 45,10 55,4" },
+            { label: "Infrastructure", score: "0.82", rating: "High", color: "#8b5cf6", points: "5,12 15,18 25,14 35,20 45,8 55,6" },
+            { label: "Governance", score: "0.75", rating: "Medium", color: "#f59e0b", points: "5,22 15,14 25,18 35,12 45,6 55,10" }
+          ].map((cat, i) => (
+            <div key={i} style={{
+              background: "var(--docs-card)",
+              border: "1px solid var(--docs-border)",
+              borderRadius: "12px",
+              padding: "16px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center"
+            }}>
+              <div>
+                <div style={{ fontSize: "12px", color: "var(--docs-muted)", fontWeight: 600 }}>{cat.label}</div>
+                <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--docs-heading)", marginTop: "6px", display: "flex", alignItems: "baseline", gap: "6px" }}>
+                  {cat.score}
+                  <span style={{ fontSize: "11px", color: cat.color, fontWeight: 700 }}>{cat.rating}</span>
+                </div>
+              </div>
+              <Sparkline points={cat.points} color={cat.color} />
+            </div>
+          ))}
+        </div>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "20px",
+          padding: "30px",
+          background: "var(--docs-panel)"
+        }}>
+          <div style={{
+            background: "var(--docs-card)",
+            border: "1px solid var(--docs-border)",
+            borderRadius: "12px",
+            padding: "20px"
+          }}>
+            <h4 style={{ margin: "0 0 16px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+              TRUST INTELLIGENCE DASHBOARD
+            </h4>
+            <RadarChart />
+            
+            <div style={{
+              background: "rgba(22, 163, 74, 0.04)",
+              border: "1px solid rgba(22, 163, 74, 0.2)",
+              borderRadius: "8px",
+              padding: "10px 12px",
+              fontSize: "12px",
+              color: "#16a34a",
+              fontWeight: 500,
+              marginTop: "16px",
+              textAlign: "center"
+            }}>
+              Strong overall trust profile with low hallucination and variance.
+            </div>
+
+            <div style={{ marginTop: "18px" }}>
+              <div style={{ fontSize: "11px", color: "var(--docs-muted)", fontWeight: 700, textTransform: "uppercase", marginBottom: "10px" }}>Key Takeaways</div>
+              <div style={{ display: "grid", gap: "6px" }}>
+                {[
+                  "Excellent factual accuracy and safety alignment",
+                  "Low hallucination risk across evaluated scenarios",
+                  "Consistent and reliable performance",
+                  "Well-suited for enterprise-grade deployments"
+                ].map((takeaway, ti) => (
+                  <div key={ti} style={{ fontSize: "12px", color: "var(--docs-text)", display: "flex", gap: "8px" }}>
+                    <span style={{ color: "#16a34a" }}>✓</span> {takeaway}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div style={{
+            background: "var(--docs-card)",
+            border: "1px solid var(--docs-border)",
+            borderRadius: "12px",
+            padding: "20px"
+          }}>
+            <h4 style={{ margin: "0 0 16px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+              VISUAL INTELLIGENCE
+            </h4>
+            
+            <div style={{ display: "flex", gap: "12px", justifyContent: "center", marginBottom: "16px", fontSize: "11px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                <div style={{ width: "8px", height: "8px", background: "#3b82f6", borderRadius: "2px" }} /> <span style={{ color: "var(--docs-muted)" }}>Llama3</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                <div style={{ width: "8px", height: "8px", background: "#10b981", borderRadius: "2px" }} /> <span style={{ color: "var(--docs-muted)" }}>Mistral</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                <div style={{ width: "8px", height: "8px", background: "#8b5cf6", borderRadius: "2px" }} /> <span style={{ color: "var(--docs-muted)" }}>Llama2</span>
+              </div>
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+              <GroupedBarChart
+                title="DRS Comparison"
+                maxVal={1.0}
+                data={[
+                  { label: "L3", val: 0.89, color: "#3b82f6" },
+                  { label: "Mis", val: 0.83, color: "#10b981" },
+                  { label: "L2", val: 0.71, color: "#8b5cf6" }
+                ]}
+              />
+              <GroupedBarChart
+                title="Latency (ms)"
+                maxVal={1200}
+                data={[
+                  { label: "L3", val: 412, color: "#3b82f6" },
+                  { label: "Mis", val: 645, color: "#10b981" },
+                  { label: "L2", val: 1023, color: "#8b5cf6" }
+                ]}
+              />
+              <GroupedBarChart
+                title="Hallucination (%)"
+                maxVal={0.6}
+                data={[
+                  { label: "L3", val: 0.11, color: "#3b82f6" },
+                  { label: "Mis", val: 0.21, color: "#10b981" },
+                  { label: "L2", val: 0.48, color: "#8b5cf6" }
+                ]}
+              />
+              <GroupedBarChart
+                title="Accuracy (%)"
+                maxVal={100}
+                unit="%"
+                data={[
+                  { label: "L3", val: 91.2, color: "#3b82f6" },
+                  { label: "Mis", val: 87.3, color: "#10b981" },
+                  { label: "L2", val: 78.6, color: "#8b5cf6" }
+                ]}
+              />
+            </div>
+
+            <div style={{
+              background: "rgba(59, 130, 246, 0.04)",
+              border: "1px solid rgba(59, 130, 246, 0.2)",
+              borderRadius: "8px",
+              padding: "10px 12px",
+              fontSize: "12px",
+              color: "#3b82f6",
+              fontWeight: 500,
+              marginTop: "16px",
+              textAlign: "center"
+            }}>
+              Llama3 leads in DRS, accuracy, and trust metrics while maintaining the lowest latency.
+            </div>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div style={{
+              background: "var(--docs-card)",
+              border: "1px solid var(--docs-border)",
+              borderRadius: "12px",
+              padding: "20px",
+              flex: 1
+            }}>
+              <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+                DEPLOYMENT READINESS
+              </h4>
+              
+              <div style={{ fontSize: "14px", fontWeight: 700, color: "#16a34a", marginBottom: "16px", display: "flex", alignItems: "center", gap: "6px" }}>
+                <span style={{ display: "inline-block", width: "8px", height: "8px", background: "#16a34a", borderRadius: "50%" }} /> Ready for Production
+              </div>
+
+              <div style={{ display: "grid", gap: "10px" }}>
+                {[
+                  { label: "Performance", desc: "Meets enterprise performance requirements" },
+                  { label: "Reliability", desc: "High reliability across diverse scenarios" },
+                  { label: "Safety", desc: "Strong safety alignment and guardrails" },
+                  { label: "Infrastructure", desc: "Efficient resource utilization" },
+                  { label: "Risk", desc: "Low risk profile detected" }
+                ].map((item, idx) => (
+                  <div key={idx} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <div>
+                      <div style={{ fontSize: "12px", color: "var(--docs-text)", fontWeight: 600 }}>{item.label}</div>
+                      <div style={{ fontSize: "11px", color: "var(--docs-muted)" }}>{item.desc}</div>
+                    </div>
+                    <span style={{ color: "#16a34a", fontWeight: "bold" }}>✓</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={{
+              background: "var(--docs-card)",
+              border: "1px solid var(--docs-border)",
+              borderRadius: "12px",
+              padding: "20px"
+            }}>
+              <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+                RISK OVERVIEW
+              </h4>
+              <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                <div style={{ position: "relative", width: "100px", height: "100px", flexShrink: 0 }}>
+                  <svg width="100" height="100" viewBox="0 0 100 100" style={{ transform: "rotate(-90deg)" }}>
+                    <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--docs-border-soft)" strokeWidth="10" />
+                    <circle cx="50" cy="50" r="40" fill="transparent" stroke="#16a34a" strokeWidth="10" strokeDasharray="181 251.3" strokeDashoffset="0" strokeLinecap="round" />
+                    <circle cx="50" cy="50" r="40" fill="transparent" stroke="#d97706" strokeWidth="10" strokeDasharray="52.8 251.3" strokeDashoffset="-181" strokeLinecap="round" />
+                    <circle cx="50" cy="50" r="40" fill="transparent" stroke="#dc2626" strokeWidth="10" strokeDasharray="17.6 251.3" strokeDashoffset="-233.8" strokeLinecap="round" />
+                  </svg>
+                  <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: "13px", fontWeight: 800, color: "#16a34a" }}>Low</span>
+                    <span style={{ fontSize: "10px", fontWeight: 600, color: "var(--docs-muted)" }}>Risk</span>
+                  </div>
+                </div>
+
+                <div style={{ flex: 1, display: "grid", gap: "6px" }}>
+                  {[
+                    { label: "Low Risk", pct: "72%", color: "#16a34a" },
+                    { label: "Medium Risk", pct: "21%", color: "#d97706" },
+                    { label: "High Risk", pct: "7%", color: "#dc2626" }
+                  ].map((risk, i) => (
+                    <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "12px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                        <div style={{ width: "8px", height: "8px", background: risk.color, borderRadius: "50%" }} />
+                        <span style={{ color: "var(--docs-text)", fontWeight: 500 }}>{risk.label}</span>
+                      </div>
+                      <span style={{ color: "var(--docs-heading)", fontWeight: 700 }}>{risk.pct}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div style={{
+                background: "rgba(22, 163, 74, 0.04)",
+                border: "1px solid rgba(22, 163, 74, 0.2)",
+                borderRadius: "8px",
+                padding: "8px 10px",
+                fontSize: "11px",
+                color: "#16a34a",
+                fontWeight: 500,
+                marginTop: "14px"
+              }}>
+                Overall risk level is low. Model is suitable for enterprise use with standard monitoring.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1.8fr 1.2fr",
+          gap: "20px",
+          padding: "0 30px 30px",
+          background: "var(--docs-panel)",
+          flexWrap: "wrap"
+        }}>
+          <div style={{
+            background: "var(--docs-card)",
+            border: "1px solid var(--docs-border)",
+            borderRadius: "12px",
+            padding: "20px",
+            overflowX: "auto"
+          }}>
+            <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+              MODEL LEADERBOARD
+            </h4>
+            
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px", textAlign: "left", minWidth: "480px" }}>
+              <thead>
+                <tr style={{ color: "var(--docs-muted)", borderBottom: "1px solid var(--docs-border)" }}>
+                  <th style={{ padding: "10px 4px" }}>Rank</th>
+                  <th style={{ padding: "10px 4px" }}>Model</th>
+                  <th style={{ padding: "10px 4px" }}>Acc</th>
+                  <th style={{ padding: "10px 4px" }}>Sem</th>
+                  <th style={{ padding: "10px 4px" }}>Fact</th>
+                  <th style={{ padding: "10px 4px" }}>Rel</th>
+                  <th style={{ padding: "10px 4px" }}>Safety</th>
+                  <th style={{ padding: "10px 4px" }}>Latency</th>
+                  <th style={{ padding: "10px 4px", textAlign: "right" }}>DRS</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { rank: "🥇 1", model: "Llama3", acc: "91.2", sem: "0.88", fact: "0.91", rel: "0.88", safety: "0.92", lat: "412ms", drs: "0.89", best: true },
+                  { rank: "🥈 2", model: "Mistral", acc: "87.3", sem: "0.84", fact: "0.86", rel: "0.83", safety: "0.89", lat: "645ms", drs: "0.83", best: false },
+                  { rank: "🥉 3", model: "Llama2", acc: "78.6", sem: "0.76", fact: "0.78", rel: "0.74", safety: "0.81", lat: "1023ms", drs: "0.71", best: false }
+                ].map((row, i) => (
+                  <tr key={i} style={{
+                    borderBottom: "1px solid var(--docs-border-soft)",
+                    fontWeight: row.best ? 600 : 400,
+                    color: row.best ? "var(--docs-heading)" : "var(--docs-text)",
+                    background: row.best ? "rgba(59,130,246,0.02)" : "transparent"
+                  }}>
+                    <td style={{ padding: "12px 4px" }}>{row.rank}</td>
+                    <td style={{ padding: "12px 4px", fontWeight: "bold" }}>{row.model}</td>
+                    <td style={{ padding: "12px 4px" }}>{row.acc}%</td>
+                    <td style={{ padding: "12px 4px" }}>{row.sem}</td>
+                    <td style={{ padding: "12px 4px" }}>{row.fact}</td>
+                    <td style={{ padding: "12px 4px" }}>{row.rel}</td>
+                    <td style={{ padding: "12px 4px" }}>{row.safety}</td>
+                    <td style={{ padding: "12px 4px" }}>{row.lat}</td>
+                    <td style={{ padding: "12px 4px", textAlign: "right", fontWeight: "bold", color: row.best ? "#10b981" : "inherit" }}>{row.drs}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div style={{
+            background: "var(--docs-card)",
+            border: "1px solid var(--docs-border)",
+            borderRadius: "12px",
+            padding: "20px",
+            display: "flex",
+            flexDirection: "column"
+          }}>
+            <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+              AI ADVISOR RECOMMENDATION
+            </h4>
+            
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
+              <div style={{
+                width: "32px",
+                height: "32px",
+                borderRadius: "50%",
+                background: "rgba(16,185,129,0.1)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#10b981",
+                fontSize: "14px"
+              }}>★</div>
+              <div>
+                <div style={{ fontSize: "11px", color: "var(--docs-muted)", fontWeight: 500 }}>Recommended Model</div>
+                <div style={{ fontSize: "15px", fontWeight: 700, color: "var(--docs-heading)" }}>Llama3</div>
+              </div>
+            </div>
+
+            <div style={{ flex: 1, display: "grid", gap: "12px", fontSize: "12px" }}>
+              <div>
+                <strong style={{ color: "var(--docs-heading)", display: "block", marginBottom: "4px" }}>Why Recommended:</strong>
+                <span style={{ color: "var(--docs-text)" }}>Best overall balance of trust, performance, and efficiency. Highest DRS score with lowest hallucination and latency.</span>
+              </div>
+              <div>
+                <strong style={{ color: "var(--docs-heading)", display: "block", marginBottom: "4px" }}>Trade-offs:</strong>
+                <span style={{ color: "var(--docs-text)" }}>Slightly higher compute usage compared to Mistral.</span>
+              </div>
+            </div>
+
+            <div style={{
+              marginTop: "20px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              borderTop: "1px solid var(--docs-border-soft)",
+              paddingTop: "14px"
+            }}>
+              <span style={{ fontSize: "12px", color: "var(--docs-muted)" }}>Confidence: <strong style={{ color: "#10b981" }}>92%</strong></span>
+              <span style={{ fontSize: "11px", background: "rgba(16,185,129,0.1)", color: "#10b981", fontWeight: 700, padding: "2px 8px", borderRadius: "4px" }}>Enterprise Confidence</span>
+            </div>
+          </div>
+        </div>
+
+        <div style={{
+          background: "var(--docs-card)",
+          borderTop: "1px solid var(--docs-border)",
+          padding: "12px 30px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          fontSize: "11px",
+          color: "var(--docs-muted)"
+        }}>
+          <div>Built with <strong>OpenVals</strong> &bull; AI Trust & Validation Framework</div>
+          <div>Developed by <strong>DrPinnacle</strong></div>
+        </div>
+      </div>
+
+
+      <H2>Single Model Executive Report</H2>
+      <Paragraph>
+        A premium interactive reconstruction of the single-model evaluation report view, demonstrating how OpenVals represents experimental models (like LFM 2.5) with lower DRS thresholds, sub-scores, and detailed executive summaries.
+      </Paragraph>
+
+      <div className="previewContainer" style={{
+        background: "#080b14",
+        border: "1px solid #1e293b",
+        borderRadius: "16px",
+        overflow: "hidden",
+        margin: "24px 0 24px",
+        color: "#f8fafc",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      }}>
+        <div style={{
+          padding: "30px 40px",
+          background: "linear-gradient(135deg, #090e1a 0%, #171638 100%)",
+          borderBottom: "1px solid #1e293b"
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
+            <span style={{ fontSize: "12px", background: "rgba(255,255,255,0.08)", padding: "2px 8px", borderRadius: "4px", color: "#a5b4fc", textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.5px" }}>OpenVals</span>
+          </div>
+          <h3 style={{ fontSize: "24px", fontWeight: 800, margin: "0 0 8px", color: "#ffffff" }}>AI Trust Intelligence Report</h3>
+          <div style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px" }}>
+            Comprehensive evaluation of AI models across trust, performance, factuality, hallucination, and operational readiness.
+          </div>
+
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+            {[
+              { label: "Dataset", val: "OpenVals Benchmark" },
+              { label: "Models Evaluated", val: "6" },
+              { label: "Configuration", val: "Default" },
+              { label: "Generated", val: "2026-06-16 14:24:21" }
+            ].map((p, idx) => (
+              <div key={idx} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "6px", padding: "6px 12px", fontSize: "11px" }}>
+                <span style={{ color: "#64748b" }}>{p.label}:</span> <strong style={{ color: "#cbd5e1" }}>{p.val}</strong>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ padding: "40px", display: "grid", gap: "24px" }}>
+          <div style={{
+            background: "rgba(255,255,255,0.02)",
+            border: "1px solid #1e293b",
+            borderRadius: "14px",
+            padding: "24px",
+            position: "relative"
+          }}>
+            <div style={{ fontSize: "11px", color: "#94a3b8", textTransform: "uppercase", fontWeight: 700, letterSpacing: "1px" }}>Recommended Model</div>
+            <div style={{ fontSize: "20px", fontWeight: 800, color: "#ffffff", margin: "6px 0 20px" }}>lfm2.5-thinking:1.2b</div>
+            
+            <div style={{ borderTop: "1px solid #1e293b", paddingTop: "20px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "20px" }}>
+              <div>
+                <div style={{ fontSize: "11px", color: "#94a3b8", textTransform: "uppercase", fontWeight: 600 }}>DRS Score</div>
+                <div style={{ fontSize: "40px", fontWeight: 900, color: "#f59e0b", marginTop: "4px" }}>0.576</div>
+              </div>
+              <div style={{ display: "flex", gap: "24px" }}>
+                <div>
+                  <div style={{ fontSize: "11px", color: "#64748b", textTransform: "uppercase" }}>Status</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "6px" }}>
+                    <div style={{ width: "8px", height: "8px", background: "#f59e0b", borderRadius: "50%" }} />
+                    <span style={{ fontSize: "13px", fontWeight: 700, color: "#f59e0b" }}>Experimental</span>
+                  </div>
+                </div>
+                <div>
+                  <div style={{ fontSize: "11px", color: "#64748b", textTransform: "uppercase" }}>Confidence</div>
+                  <div style={{ fontSize: "14px", fontWeight: 700, color: "#cbd5e1", marginTop: "6px" }}>0.396</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: "grid", gap: "16px" }}>
+            {[
+              { label: "Performance", score: "0.642", desc: "Model capability and response quality" },
+              { label: "Trust Intelligence", score: "0.812", desc: "Reliability, factuality, safety, and HPI" },
+              { label: "Infrastructure", score: "N/A", desc: "Compute, energy, and carbon metrics" },
+              { label: "Governance", score: "N/A", desc: "Compliance and policy readiness" }
+            ].map((item, idx) => (
+              <div key={idx} style={{
+                background: "#ffffff",
+                border: "1px solid #e2e8f0",
+                borderRadius: "12px",
+                padding: "20px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                color: "#1e293b"
+              }}>
+                <div>
+                  <div style={{ fontSize: "10px", color: "#64748b", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>{item.label}</div>
+                  <div style={{ fontSize: "12px", color: "#64748b", marginTop: "4px" }}>{item.desc}</div>
+                </div>
+                <div style={{ fontSize: "22px", fontWeight: 850, color: "#0f172a" }}>
+                  {item.score}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{
+            background: "rgba(255,255,255,0.02)",
+            border: "1px solid #1e293b",
+            borderRadius: "14px",
+            padding: "24px",
+            marginTop: "10px"
+          }}>
+            <div style={{ fontSize: "11px", color: "#94a3b8", textTransform: "uppercase", fontWeight: 700, letterSpacing: "1px", marginBottom: "14px" }}>Executive Overview</div>
+            
+            <h4 style={{ fontSize: "18px", fontWeight: 700, margin: "0 0 10px", color: "#ffffff" }}>Executive Summary</h4>
+            <div style={{ fontSize: "14px", color: "#94a3b8", lineHeight: 1.6, marginBottom: "20px" }}>
+              lfm2.5-thinking:1.2b demonstrated stable operational reliability, strong safety characteristics with a DRS score of 0.576.
+            </div>
+
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", borderRadius: "20px", background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)" }}>
+              <span style={{ fontSize: "12px", fontWeight: 600, color: "#cbd5e1" }}>Trust Classification:</span>
+              <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                <div style={{ width: "8px", height: "8px", background: "#f59e0b", borderRadius: "50%" }} />
+                <span style={{ fontSize: "13px", fontWeight: 700, color: "#f59e0b" }}>Experimental</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
 function PageBody({ pageId }: { pageId: DocsPageId }) {
   switch (pageId) {
     case "welcome":
       return (
         <>
+          <div style={{ fontSize: "19px", color: "var(--docs-muted)", fontWeight: 500, marginTop: "-20px", marginBottom: "12px" }}>
+            AI Trust Intelligence Platform for LLMs, SLMs, Private AI, and Enterprise AI Systems
+          </div>
+          <div style={{ fontSize: "16px", color: "var(--accent, #3776ab)", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "24px" }}>
+            Evaluate &bull; Benchmark &bull; Trust Intelligence
+          </div>
+
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "32px" }}>
+            <img src="https://img.shields.io/badge/pypi-v0.5.0-blue?style=flat-square" alt="PyPI Version" />
+            <img src="https://img.shields.io/badge/python-3.8+-blue?style=flat-square" alt="Python Version" />
+            <img src="https://img.shields.io/badge/license-DPCL--CE%20v1.0-blue?style=flat-square" alt="License" />
+            <img src="https://img.shields.io/badge/downloads-10k%2Fmonth-blue?style=flat-square" alt="Downloads" />
+            <img src="https://img.shields.io/badge/github-stars-blue?style=flat-square" alt="GitHub Stars" />
+          </div>
+
           <H2>Platform</H2>
           <Paragraph>
             OpenVals is an enterprise-grade AI evaluation and trust platform designed to help organizations measure, compare, validate, and deploy AI systems with confidence.
@@ -383,6 +1114,18 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
           <Paragraph>
             Unlike traditional AI benchmarks that focus only on accuracy, OpenVals evaluates performance, trustworthiness, factuality, reliability, safety, hallucination risk, governance readiness, and deployment confidence.
           </Paragraph>
+
+          <H2>Trust Infrastructure for AI</H2>
+          <blockquote style={{ margin: "32px 0", padding: "20px 24px", borderLeft: "4px solid var(--docs-heading)", background: "var(--docs-card)", borderRadius: "0 12px 12px 0" }}>
+            <div style={{ fontSize: "14px", color: "var(--docs-muted)", textTransform: "uppercase", letterSpacing: "1.5px", fontWeight: 600, marginBottom: "6px" }}>OpenVals answers one question:</div>
+            <div style={{ fontSize: "24px", color: "var(--docs-heading)", fontWeight: 700, fontStyle: "italic" }}>&ldquo;Can you trust your AI?&rdquo;</div>
+          </blockquote>
+
+          <H2>What is OpenVals?</H2>
+          <Paragraph>
+            OpenVals is an AI Trust Intelligence Platform that helps enterprises evaluate, validate, benchmark, and govern AI systems before production deployment.
+          </Paragraph>
+
           <H2>Built For</H2>
           <PillGrid items={["AI engineering teams", "ML teams", "SaaS companies using LLMs", "Enterprises validating models", "AI governance and compliance teams"]} />
           <H2>Final Thought</H2>
@@ -396,12 +1139,8 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
         <>
           <H2>Problem</H2>
           <Paragraph>
-            Most AI models perform well in demonstrations, but production environments require something much more robust. Without proper trust validation, AI systems are unpredictable, insecure, and difficult to deploy with confidence.
+            Most AI models perform well in demonstrations. Production environments require something different:
           </Paragraph>
-          <H2>What It Solves</H2>
-          <PillGrid items={[...whyItems, "Validates numeric and semantic factuality", "Measures hallucination risks", "Assures dataset integrity and health"]} />
-          <H2>Questions</H2>
-          <Paragraph>OpenVals was built to answer these crucial enterprise deployment questions:</Paragraph>
           <BulletList
             items={[
               "Can the model be trusted?",
@@ -412,6 +1151,44 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
               "Is the model ready for enterprise deployment?",
             ]}
           />
+          <Paragraph>OpenVals was built to answer these questions.</Paragraph>
+
+          <H2>Why OpenVals?</H2>
+          <Paragraph>A side-by-side comparison of capabilities between traditional benchmarks and OpenVals:</Paragraph>
+          <DocsTable
+            headers={["Capability", "Traditional Benchmarking", "OpenVals"]}
+            rows={[
+              ["Accuracy", "✓", "✓"],
+              ["Latency", "✓", "✓"],
+              ["Semantic Similarity", "✓", "✓"],
+              ["Hallucination Detection", <span key="hall" style={{ color: "#d97706", fontWeight: 500 }}>Limited</span>, <span key="hall_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
+              ["Factuality Analysis", <span key="fact" style={{ color: "#d97706", fontWeight: 500 }}>Limited</span>, <span key="fact_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
+              ["Trust Scoring", <span key="trust" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="trust_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
+              ["Governance Readiness", <span key="gov" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="gov_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
+              ["Executive Reporting", <span key="rep" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="rep_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
+              ["Enterprise Validation", <span key="val" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="val_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
+            ]}
+          />
+
+          <H2>Enterprise Use Cases</H2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "18px", marginTop: "18px", marginBottom: "28px" }}>
+            {[
+              { title: "AI Model Selection", desc: "Compare GPT, Claude, Llama, Mistral, and private models before deployment." },
+              { title: "Private AI Validation", desc: "Validate enterprise AI running on Ollama, vLLM, or self-hosted infrastructure." },
+              { title: "AI Procurement", desc: "Benchmark vendor AI solutions before purchasing decisions." },
+              { title: "AI Governance", desc: "Measure AI readiness against organizational trust and governance requirements." },
+              { title: "AI Red Teaming Foundation", desc: "Identify hallucination risk, factual weaknesses, and trust gaps." },
+              { title: "Executive Reporting", desc: "Generate trust dashboards and executive-level AI readiness reports." }
+            ].map((uc, index) => (
+              <div key={index} style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "20px", background: "var(--docs-card)" }}>
+                <h4 style={{ margin: "0 0 8px", color: "var(--docs-heading)", fontSize: "16px", fontWeight: 600 }}>{uc.title}</h4>
+                <p style={{ margin: 0, color: "var(--docs-muted)", fontSize: "14px", lineHeight: 1.5 }}>{uc.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <H2>What It Solves</H2>
+          <PillGrid items={[...whyItems, "Validates numeric and semantic factuality", "Measures hallucination risks", "Assures dataset integrity and health"]} />
         </>
       );
     case "installation":
@@ -426,19 +1203,40 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
     case "quick-start":
       return (
         <>
-          <H2>CLI Benchmarking</H2>
-          <Paragraph>Benchmark multiple models under identical conditions:</Paragraph>
-          <CodeBlock>{`openvals benchmark --dataset finance --models mistral,llama3 --config finance`}</CodeBlock>
-          <H2>Validate a Dataset</H2>
-          <Paragraph>Assess dataset schema, quality, duplicates, and health score:</Paragraph>
-          <CodeBlock>{`openvals validate-dataset finance`}</CodeBlock>
-          <H2>List Datasets</H2>
-          <Paragraph>See all available benchmark domains/datasets in the system:</Paragraph>
-          <CodeBlock>{`openvals datasets`}</CodeBlock>
+          <Paragraph>Get up and running with OpenVals in under 60 seconds.</Paragraph>
+          
+          <H2>1. Install the CLI</H2>
+          <CodeBlock>{`pip install openvals`}</CodeBlock>
+          
+          <H2>2. Run a Benchmark</H2>
+          <Paragraph>Evaluate and compare models on a specific dataset:</Paragraph>
+          <CodeBlock>{`openvals benchmark \\
+  --dataset finance \\
+  --models mistral,llama3`}</CodeBlock>
+          
+          <h3 style={{ fontSize: "16px", color: "var(--docs-heading)", marginTop: "18px", marginBottom: "8px", fontWeight: 600 }}>Expected CLI Output:</h3>
+          <CodeBlock>{`Model      Accuracy    DRS
+--------------------------------
+llama3     91.4        89.2
+mistral    87.8        82.4
+QWEN       70.7        69.7`}</CodeBlock>
+
+          <H2>3. Validate a Dataset</H2>
+          <Paragraph>Verify schema and quality before running model evaluations:</Paragraph>
+          <CodeBlock>{`openvals validate-dataset finance
+openvals validate-dataset ./customer_dataset.json
+openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
+
+          <H2>Benchmark Multiple Models with Config</H2>
+          <CodeBlock>{`openvals benchmark \\
+  --dataset finance \\
+  --models mistral,llama3 \\
+  --config finance`}</CodeBlock>
+
           <H2>Show Version</H2>
-          <Paragraph>Display the installed version of OpenVals CLI:</Paragraph>
           <CodeBlock>{`openvals version`}</CodeBlock>
-          <H2>Python Example</H2>
+
+          <H2>Python SDK Example</H2>
           <CodeBlock>{`from openvals.benchmarking.runner import BenchmarkRunner
 from openvals.models.ollama_model import OllamaModel
 from openvals.datasets.loader import load_dataset
@@ -455,11 +1253,30 @@ runner = BenchmarkRunner(models, dataset)
 results = runner.run()
 
 print(results)`}</CodeBlock>
-          <H2>Example Output</H2>
-          <CodeBlock>{`=== FINAL RANKING ===
-1. mistral   (0.91)
-2. llama3    (0.87)
-3. llama2    (0.84)`}</CodeBlock>
+
+          <H2>Example Trust Intelligence Report</H2>
+          <Paragraph>Below is an example of the detailed Trust Intelligence Report generated by the CLI:</Paragraph>
+          <CodeBlock>{`===================================================
+OpenVals Trust Intelligence Report
+===================================================
+
+Model: llama3
+
+Accuracy Score      : 91.4
+Semantic Score      : 89.1
+Factuality Score    : 92.3
+Safety Score        : 95.2
+Latency Score       : 83.0
+
+Hallucination Risk  : LOW
+
+Decision Reliability Score (DRS)
+
+89.2 / 100
+
+Deployment Status:
+
+READY FOR PRODUCTION`}</CodeBlock>
         </>
       );
     case "drs":
@@ -647,6 +1464,10 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
           />
         </>
       );
+    case "screenshots":
+      return (
+        <ScreenshotsPage />
+      );
     case "metrics":
       return (
         <>
@@ -802,6 +1623,19 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
           <blockquote style={{ margin: "0 0 22px", padding: "18px 22px", borderLeft: "2px solid var(--docs-heading)", background: "var(--docs-card)", color: "var(--docs-heading)", fontSize: "19px" }}>
             If you cannot measure it, you cannot trust it.
           </blockquote>
+          <H2>Evaluation vs Validation</H2>
+          <Paragraph>Most platforms evaluate AI. OpenVals validates trust.</Paragraph>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px", marginTop: "24px", marginBottom: "24px" }}>
+            <div style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "20px", background: "var(--docs-card)" }}>
+              <h4 style={{ margin: "0 0 8px", color: "var(--docs-heading)", fontSize: "16px", fontWeight: 600 }}>Evaluation answers:</h4>
+              <p style={{ margin: 0, color: "var(--docs-muted)", fontSize: "15px", fontStyle: "italic" }}>&ldquo;How well does the model perform?&rdquo;</p>
+            </div>
+            <div style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "20px", background: "var(--docs-card)" }}>
+              <h4 style={{ margin: "0 0 8px", color: "var(--docs-heading)", fontSize: "16px", fontWeight: 600 }}>Validation answers:</h4>
+              <p style={{ margin: 0, color: "var(--docs-muted)", fontSize: "15px", fontStyle: "italic" }}>&ldquo;Can the model be trusted in production?&rdquo;</p>
+            </div>
+          </div>
+          <Paragraph>OpenVals was built around this distinction.</Paragraph>
         </>
       );
     case "contributing":
