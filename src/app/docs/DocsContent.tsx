@@ -80,7 +80,7 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   "parallel-execution": { group: "Core Capabilities", title: "Parallel Execution Engine", onThisPage: ["Overview", "CLI Usage", "Benefits"] },
   "semantic-intelligence": { group: "Core Capabilities", title: "Semantic Intelligence Engine", onThisPage: ["Embeddings", "Roadmap"] },
   reporting: { group: "Core Capabilities", title: "Executive Reporting", onThisPage: ["Overview", "Dashboard Report", "Sample-Level Report"] },
-  screenshots: { group: "Core Capabilities", title: "Screenshots & Previews", onThisPage: ["Trust Dashboard", "Single Model Executive Report"] },
+  screenshots: { group: "Core Capabilities", title: "Screenshots & Previews", onThisPage: ["Trust Dashboard", "Single Model Executive Report", "Dataset Validation CLI"] },
   metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
   domains: { group: "Reference", title: "Supported Benchmark Domains", onThisPage: ["Available Datasets", "Finance", "Healthcare", "Legal", "Developer", "Sample", "Cybersecurity", "Reasoning", "Math", "Enterprise Ops"] },
   roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.5.0", "v0.6.0", "Future"] },
@@ -268,6 +268,111 @@ function anchor(label: string) {
 
 function CodeBlock({ children }: { children: string }) {
   return <CopyableCodeBlock>{children}</CopyableCodeBlock>;
+}
+
+function Terminal({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{
+      background: "#0d1117",
+      borderRadius: "12px",
+      border: "1px solid var(--docs-border)",
+      overflow: "hidden",
+      margin: "24px 0",
+      fontFamily: "var(--font-mono, 'Fira Code', ui-monospace, monospace)",
+      fontSize: "14px",
+      lineHeight: "1.6",
+      boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)"
+    }}>
+      {/* Title bar */}
+      <div style={{
+        background: "#161b22",
+        padding: "10px 16px",
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.05)"
+      }}>
+        <div style={{ display: "flex", gap: "6px" }}>
+          <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#f87171" }} />
+          <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#fbbf24" }} />
+          <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#34d399" }} />
+        </div>
+        <div style={{
+          color: "#8b949e",
+          fontSize: "11px",
+          fontWeight: 600,
+          marginLeft: "auto",
+          marginRight: "auto",
+          letterSpacing: "0.5px"
+        }}>
+          openvals -- validate-dataset
+        </div>
+      </div>
+      {/* Body */}
+      <div style={{
+        padding: "16px 20px",
+        color: "#c9d1d9",
+        overflowX: "auto",
+        backgroundColor: "#0d1117"
+      }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function DatasetValidationTerminal() {
+  return (
+    <Terminal>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", fontFamily: "inherit" }}>
+        <span style={{ color: "#8b949e" }}>(openv)</span>
+        <span style={{ color: "#34d399", fontWeight: 600 }}>to-00016@chintu-00</span>
+        <span style={{ color: "#c9d1d9" }}>:</span>
+        <span style={{ color: "#58a6ff", fontWeight: 600 }}>~/Projects/openvals</span>
+        <span style={{ color: "#c9d1d9" }}>$</span>
+        <span style={{ color: "#f0f6fc", fontWeight: 500 }}>openvals validate-dataset finance</span>
+      </div>
+      
+      <div style={{ marginTop: "14px", color: "#f0f6fc", display: "flex", alignItems: "center", gap: "8px" }}>
+        <span>🔍</span>
+        <span>Validating dataset: <span style={{ color: "#58a6ff", fontWeight: 600 }}>finance</span></span>
+      </div>
+      
+      <div style={{ color: "#30363d", margin: "8px 0", letterSpacing: "-1px" }}>===================================</div>
+      <div style={{ color: "#f0f6fc", fontWeight: 700, fontSize: "15px" }}>OpenVals Dataset Validation</div>
+      <div style={{ color: "#30363d", margin: "8px 0", letterSpacing: "-1px" }}>===================================</div>
+      
+      <div style={{ color: "#f0f6fc", marginTop: "12px" }}>
+        Status : <span style={{ color: "#34d399", fontWeight: 700 }}>Healthy</span>
+      </div>
+      <div style={{ color: "#f0f6fc" }}>
+        Samples: 10
+      </div>
+
+      <div style={{ color: "#8b949e", fontWeight: 600, marginTop: "16px", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.5px" }}>Schema Validation</div>
+      <div style={{ color: "#34d399", fontWeight: 600, display: "flex", alignItems: "center", gap: "6px" }}>
+        <span>✓</span> <span>Passed</span>
+      </div>
+
+      <div style={{ color: "#8b949e", fontWeight: 600, marginTop: "16px", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.5px" }}>Quality Validation</div>
+      <div style={{ display: "grid", gridTemplateColumns: "180px auto", gap: "4px 8px", color: "#f0f6fc", marginTop: "4px" }}>
+        <span style={{ color: "#8b949e" }}>Empty Prompts</span><span>: 0</span>
+        <span style={{ color: "#8b949e" }}>Empty Outputs</span><span>: 0</span>
+        <span style={{ color: "#8b949e" }}>Duplicate Prompts</span><span>: 0</span>
+        <span style={{ color: "#8b949e" }}>Short Prompts</span><span>: 0</span>
+        <span style={{ color: "#8b949e" }}>Short Outputs</span><span>: 0</span>
+      </div>
+
+      <div style={{ color: "#f0f6fc", marginTop: "20px", display: "flex", alignItems: "baseline", gap: "8px" }}>
+        <span>Dataset Health Score:</span>
+        <span style={{ color: "#34d399", fontWeight: 800, fontSize: "16px" }}>100</span>
+      </div>
+      <div style={{ color: "#f0f6fc" }}>
+        Health Status       : <span style={{ color: "#34d399", fontWeight: 700 }}>Healthy</span>
+      </div>
+      <div style={{ color: "#30363d", margin: "8px 0", letterSpacing: "-1px" }}>===================================</div>
+    </Terminal>
+  );
 }
 
 function ScoreFormula({ label = "Score" }: { label?: string }) {
@@ -1083,6 +1188,12 @@ const ScreenshotsPage = () => {
           </div>
         </div>
       </div>
+
+      <H2>Dataset Validation CLI</H2>
+      <Paragraph>
+        A premium preview of the Dataset Validation CLI output, demonstrating how OpenVals verifies schema integrity, computes quality metrics, and evaluates dataset health status.
+      </Paragraph>
+      <DatasetValidationTerminal />
     </>
   );
 };
@@ -1367,6 +1478,7 @@ READY FOR PRODUCTION`}</CodeBlock>
           <Paragraph>
             The Dataset Validation CLI evaluates schemas, quality, duplicates, and missing fields to compute the Dataset Health Score (DHS).
           </Paragraph>
+          <DatasetValidationTerminal />
           <H2>Examples</H2>
           <Paragraph>Validate custom datasets or pre-packaged domain benchmarks:</Paragraph>
           <CodeBlock>{`openvals validate-dataset finance
