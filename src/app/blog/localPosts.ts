@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-the-silent-cost-of-ai-hallucinations",
+    title: "The Silent Cost of AI Hallucinations",
+    slug: { current: "the-silent-cost-of-ai-hallucinations" },
+    publishedAt: "2026-06-29T02:48:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/ai_hallucinations_cover.png",
+    externalUrl: "https://x.com/Vishakuthota/status/2071425453945204919",
+  },
+  {
     _id: "local-llm-evaluation-vs-ai-validation-what-enterprises-miss",
     title: "LLM Evaluation vs AI Validation: What Enterprises Miss",
     slug: { current: "llm-evaluation-vs-ai-validation-what-enterprises-miss" },
