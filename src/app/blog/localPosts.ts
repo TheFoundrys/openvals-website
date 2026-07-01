@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-what-is-ai-red-teaming-and-why-every-enterprise-needs-it",
+    title: "What Is AI Red Teaming and Why Every Enterprise Needs It",
+    slug: { current: "what-is-ai-red-teaming-and-why-every-enterprise-needs-it" },
+    publishedAt: "2026-07-01T05:01:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/ai_red_teaming_cover.png",
+    externalUrl: "https://x.com/Vishakuthota/status/2072183709823033473",
+  },
+  {
     _id: "local-the-silent-cost-of-ai-hallucinations",
     title: "The Silent Cost of AI Hallucinations",
     slug: { current: "the-silent-cost-of-ai-hallucinations" },
