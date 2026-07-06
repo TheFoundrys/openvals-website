@@ -83,7 +83,7 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   screenshots: { group: "Core Capabilities", title: "Screenshots & Previews", onThisPage: ["Trust Dashboard", "Single Model Executive Report", "Dataset Validation CLI"] },
   metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
   domains: { group: "Reference", title: "Supported Benchmark Domains", onThisPage: ["Available Datasets", "Finance", "Healthcare", "Legal", "Developer", "Sample", "Cybersecurity", "Reasoning", "Math", "Enterprise Ops"] },
-  roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.5.0", "v0.6.0", "Future"] },
+  roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.5.5", "v0.6.0", "Future"] },
   vision: { group: "Reference", title: "Philosophy and Vision", onThisPage: ["Mission", "Vision"] },
   contributing: { group: "Reference", title: "Contributing", onThisPage: ["Workflow", "License", "Developed By"] },
   "code-of-conduct": { group: "Reference", title: "OpenVals Code of Conduct", onThisPage: ["Purpose", "Ground Rules", "Unacceptable Behavior", "Questions"] },
@@ -1211,7 +1211,7 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
           </div>
 
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "32px" }}>
-            <img src="https://img.shields.io/badge/pypi-v0.5.0-blue?style=flat-square" alt="PyPI Version" />
+            <img src="https://img.shields.io/badge/pypi-v0.5.5-blue?style=flat-square" alt="PyPI Version" />
             <img src="https://img.shields.io/badge/python-3.8+-blue?style=flat-square" alt="Python Version" />
             <img src="https://img.shields.io/badge/license-DPCL--CE%20v1.0-blue?style=flat-square" alt="License" />
             <img src="https://img.shields.io/badge/downloads-10k%2Fmonth-blue?style=flat-square" alt="Downloads" />
@@ -1700,7 +1700,7 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
     case "roadmap":
       return (
         <>
-          <H2>v0.5.0 (Current Release)</H2>
+          <H2>v0.5.5 (Current Release)</H2>
           
           <h3 style={{ fontSize: "20px", color: "var(--docs-heading)", marginTop: "32px", marginBottom: "14px" }}>Trust Advisor</h3>
           <PillGrid items={roadmapV050TrustAdvisor} />

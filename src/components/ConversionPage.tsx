@@ -126,7 +126,7 @@ export const conversionPages = {
     heroStats: [
       { value: "Free", label: "AI Trust Score Assessment" },
       { value: "10+", label: "Core model and safety signals" },
-      { value: "v0.5.0", label: "Current OpenVals release" },
+      { value: "v0.5.5", label: "Current OpenVals release" },
     ],
     outcomes: [
       "Identify unsafe behavior, weak reliability, data leakage risk, and compliance gaps.",
