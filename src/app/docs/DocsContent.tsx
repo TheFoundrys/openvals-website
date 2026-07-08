@@ -23,7 +23,8 @@ type DocsPageId =
   | "vision"
   | "contributing"
   | "code-of-conduct"
-  | "security-policy";
+  | "security-policy"
+  | "samples";
 
 const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: string }> }> = [
   {
@@ -60,6 +61,7 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
       { id: "contributing", label: "Contributing" },
       { id: "code-of-conduct", label: "Code of Conduct" },
       { id: "security-policy", label: "Security Policy" },
+      { id: "samples", label: "Samples" },
     ],
   },
 ];
@@ -88,6 +90,7 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   contributing: { group: "Reference", title: "Contributing", onThisPage: ["Workflow", "License", "Developed By"] },
   "code-of-conduct": { group: "Reference", title: "OpenVals Code of Conduct", onThisPage: ["Purpose", "Ground Rules", "Unacceptable Behavior", "Questions"] },
   "security-policy": { group: "Reference", title: "Security Policy", onThisPage: ["Supported Versions", "Reporting a Vulnerability", "Response Timeline", "Scope", "Safe Harbor"] },
+  samples: { group: "Reference", title: "OpenVals CLI Samples", onThisPage: ["Model Catalog", "Trust Advisor (Cybersecurity)", "Trust Advisor (Finance)", "System Diagnostics", "Overall Health & Doctor", "Full Doctor Diagnostics"] },
 };
 
 const whyItems = [
@@ -1820,6 +1823,86 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
           <Paragraph>We appreciate the efforts of researchers and engineers helping improve the security and trustworthiness of modern AI systems.</Paragraph>
           <Paragraph>Together, we can build safer and more reliable intelligence infrastructure.</Paragraph>
           <Paragraph>DrPinnacle: build trust, validate intelligence, and deploy with confidence.</Paragraph>
+        </>
+      );
+    case "samples":
+      return (
+        <>
+          <Paragraph>
+            Explore real-world terminal execution examples of the OpenVals command-line interface (CLI). These previews demonstrate model cataloging, trust advisors for different domains, system diagnostics, and environmental health checks.
+          </Paragraph>
+
+          <H2>Model Catalog</H2>
+          <Paragraph>
+            The <code>openvals models</code> command displays a comprehensive model catalog with local and enterprise availability, security/privacy configurations, and runtime dynamic behavior.
+          </Paragraph>
+          <div style={{ margin: "24px 0", maxWidth: "720px", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--docs-border)", background: "var(--docs-card)" }}>
+            <img 
+              src="/samples/cli_model_catalog.png" 
+              alt="OpenVals Model Catalog CLI output" 
+              style={{ width: "100%", height: "auto", display: "block" }} 
+            />
+          </div>
+
+          <H2>Trust Advisor (Cybersecurity)</H2>
+          <Paragraph>
+            The <code>openvals trust-advisor</code> command performs targeted benchmarking and outputs risk validation verdicts, trust readiness levels, and required security controls for specific use cases.
+          </Paragraph>
+          <div style={{ margin: "24px 0", maxWidth: "720px", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--docs-border)", background: "var(--docs-card)" }}>
+            <img 
+              src="/samples/cli_trust_advisor_cybersecurity.png" 
+              alt="OpenVals Trust Advisor Cybersecurity CLI output" 
+              style={{ width: "100%", height: "auto", display: "block" }} 
+            />
+          </div>
+
+          <H2>Trust Advisor (Finance)</H2>
+          <Paragraph>
+            Benchmarking a high-risk scenario such as financial banking chatbots requires human review, domain-specific validation, data residency controls, and strict compliance thresholds.
+          </Paragraph>
+          <div style={{ margin: "24px 0", maxWidth: "720px", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--docs-border)", background: "var(--docs-card)" }}>
+            <img 
+              src="/samples/cli_trust_advisor_finance.png" 
+              alt="OpenVals Trust Advisor Finance CLI output" 
+              style={{ width: "100%", height: "auto", display: "block" }} 
+            />
+          </div>
+
+          <H2>System Diagnostics</H2>
+          <Paragraph>
+            Run local configuration checks to verify CPU allocations, RAM availability, and thread allocations optimized for model execution.
+          </Paragraph>
+          <div style={{ margin: "24px 0", maxWidth: "480px", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--docs-border)", background: "var(--docs-card)" }}>
+            <img 
+              src="/samples/cli_system_diagnostics.png" 
+              alt="OpenVals System Diagnostics output" 
+              style={{ width: "100%", height: "auto", display: "block" }} 
+            />
+          </div>
+
+          <H2>Overall Health & Doctor</H2>
+          <Paragraph>
+            The <code>openvals doctor</code> command performs comprehensive checks on local system limits, active providers (such as Ollama, OpenAI, Anthropic, Gemini), and auto-discovered local models.
+          </Paragraph>
+          <div style={{ margin: "24px 0", maxWidth: "520px", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--docs-border)", background: "var(--docs-card)" }}>
+            <img 
+              src="/samples/cli_doctor.png" 
+              alt="OpenVals Doctor CLI output" 
+              style={{ width: "100%", height: "auto", display: "block" }} 
+            />
+          </div>
+
+          <H2>Full Doctor Diagnostics</H2>
+          <Paragraph>
+            A complete execution of the <code>openvals doctor</code> command showing detailed environmental info including Python runtime specs, host platform characteristics, and list of all validation datasets and configurations.
+          </Paragraph>
+          <div style={{ margin: "24px 0", maxWidth: "520px", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--docs-border)", background: "var(--docs-card)" }}>
+            <img 
+              src="/samples/cli_doctor_detailed.png" 
+              alt="OpenVals Doctor Detailed CLI output" 
+              style={{ width: "100%", height: "auto", display: "block" }} 
+            />
+          </div>
         </>
       );
   }

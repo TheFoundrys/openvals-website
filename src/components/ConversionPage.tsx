@@ -925,7 +925,7 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
         </div>
         {!compact && (
           <Link href={leadMagnetHref} className={`${styles.button} ${styles.primary}`} style={{ display: "inline-flex", alignItems: "center", gap: "10px", whiteSpace: "nowrap" }}>
-            Free AI Trust Score Assessment <ArrowRight size={18} />
+            Book Your AI Trust <ArrowRight size={18} />
           </Link>
         )}
       </motion.div>
@@ -1025,7 +1025,7 @@ export function LeadMagnetCta({ compact = false }: { compact?: boolean }) {
       }}
     >
       <motion.h2 variants={FADE_UP} style={{ margin: "0 auto 14px", maxWidth: "760px", fontSize: compact ? "30px" : "46px", lineHeight: 1.08 }}>
-        Free AI Trust Score Assessment
+        Book Your AI Trust
       </motion.h2>
       <motion.p variants={FADE_UP} style={{ margin: "0 auto 26px", maxWidth: "680px", color: "var(--text-muted)", fontSize: compact ? "15px" : "18px", lineHeight: 1.6 }}>
         Get a fast baseline of your model&apos;s reliability, safety, compliance, and deployment risk before you invest in a full validation program.
@@ -1077,7 +1077,7 @@ export function ConversionPage({ page }: { page: ConversionPageData }) {
                 </motion.p>
                 <motion.div variants={FADE_UP} style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
                   <Link href={leadMagnetHref} className={`${styles.button} ${styles.primary}`} style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                    Free AI Trust Score Assessment <ArrowRight size={18} />
+                    Book Your AI Trust <ArrowRight size={18} />
                   </Link>
                   <Link href="#packages" className={`${styles.button} ${styles.secondary}`} style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
                     View Packages <ArrowRight size={18} />

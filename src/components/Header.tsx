@@ -75,7 +75,7 @@ export default function Header() {
             { name: "AI Compass", description: "Strategic AI direction and clarity", href: "/services/ai-compass" },
             { name: "AI Engineering & Data Analytics", description: "Build scalable AI and data systems", href: "/services/ai-engineering-data" },
             { name: "AI Quality & Assurance", description: "Validate safety, quality, and reliability", href: "/services/ai-quality-assurance" },
-            { name: "Free AI Trust Score Assessment", description: "Start with a trust score baseline", href: leadMagnetHref },
+            { name: "Book Your AI Trust", description: "Start with a trust score baseline", href: leadMagnetHref },
           ]
         },
         {
@@ -192,7 +192,7 @@ export default function Header() {
         </nav>
         <div className={styles.headerCTAContainer}>
           <Link href={leadMagnetHref} className={`${styles.button} ${styles.primary} ${styles.headerCTA} ${styles.headerCTAHeader}`} style={{ padding: "8px 16px", fontSize: "14px" }}>
-            Free AI Trust Score Assessment
+            Book Your AI Trust
           </Link>
           <button className={styles.menuToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -214,7 +214,7 @@ export default function Header() {
               style={{ width: "100%", textAlign: "center", marginBottom: "20px" }}
               onClick={() => setIsMenuOpen(false)}
             >
-              Free AI Trust Score Assessment
+              Book Your AI Trust
             </Link>
             {navLinks.map((link) => (
               <div key={link.name}>

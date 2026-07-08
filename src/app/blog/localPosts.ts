@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-eu-ai-act-nist-ai-rmf-and-ai-validation-why-compliance-starts-with-trust",
+    title: "EU AI Act, NIST AI RMF, and AI Validation: Why Compliance Starts with Trust",
+    slug: { current: "eu-ai-act-nist-ai-rmf-and-ai-validation-why-compliance-starts-with-trust" },
+    publishedAt: "2026-07-08T03:30:24.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/compliance_starts_with_trust.png",
+    externalUrl: "https://x.com/Vishakuthota/status/2074697584422408293",
+  },
+  {
     _id: "local-what-is-ai-red-teaming-and-why-every-enterprise-needs-it",
     title: "What Is AI Red Teaming and Why Every Enterprise Needs It",
     slug: { current: "what-is-ai-red-teaming-and-why-every-enterprise-needs-it" },
