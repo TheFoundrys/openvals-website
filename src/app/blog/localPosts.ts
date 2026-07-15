@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-case-study-choosing-the-right-ai-model-isnt-about-benchmarks",
+    title: "Case Study: Choosing the Right AI Model Isn’t About Benchmarks",
+    slug: { current: "case-study-choosing-the-right-ai-model-isnt-about-benchmarks" },
+    publishedAt: "2026-07-15T03:30:24.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/choosing_right_ai_model_cover.png",
+    externalUrl: "https://x.com/Vishakuthota/status/2076923013711491435",
+  },
+  {
     _id: "local-eu-ai-act-nist-ai-rmf-and-ai-validation-why-compliance-starts-with-trust",
     title: "EU AI Act, NIST AI RMF, and AI Validation: Why Compliance Starts with Trust",
     slug: { current: "eu-ai-act-nist-ai-rmf-and-ai-validation-why-compliance-starts-with-trust" },
