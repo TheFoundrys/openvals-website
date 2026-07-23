@@ -118,7 +118,7 @@ const pillars: Pillar[] = [
 export default function AssessmentPage() {
   // Wizard state: 0 = intake, 1..6 = pillars, 7 = results
   const [step, setStep] = useState(0);
-  
+
   // Lead Intake Form
   const [leadData, setLeadData] = useState({
     name: "",
@@ -131,7 +131,7 @@ export default function AssessmentPage() {
 
   // Assessment Answers state: maps question ID (1 to 30) to score (1 to 4)
   const [answers, setAnswers] = useState<Record<number, number>>({});
-  
+
   // CRM API submission status
   const [submitting, setSubmitting] = useState(false);
   const [crmStatus, setCrmStatus] = useState<"idle" | "success" | "error">("idle");
@@ -263,7 +263,7 @@ export default function AssessmentPage() {
   // Submit Lead to CRM API
   const submitToCRM = async (finalScore: number, finalRisk: string, strengths: string[], gaps: string[]) => {
     setSubmitting(true);
-    
+
     // Construct rich AI description with assessment summary
     const formattedDescription = `
 AI USE CASE:
@@ -340,11 +340,11 @@ DIMENSION RATINGS:
         alert(`Please answer all questions before generating your report. (${unanswered.length} remaining)`);
         return;
       }
-      
+
       const normalizedScore = getNormalizedScore();
       const risk = getRiskLevel(normalizedScore).title;
       const { strengths, gaps } = getStrengthsAndGaps();
-      
+
       setStep(7);
       submitToCRM(normalizedScore, risk, strengths, gaps);
     }
@@ -413,7 +413,7 @@ DIMENSION RATINGS:
 
         <section className={styles.section} style={{ padding: "70px var(--container-padding) 60px", position: "relative", zIndex: 5 }}>
           <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-            
+
             <AnimatePresence mode="wait">
               {/* STEP 0: INTAKE & WELCOME */}
               {step === 0 && (
@@ -434,7 +434,7 @@ DIMENSION RATINGS:
                   </div>
 
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px", alignItems: "stretch" }}>
-                    
+
                     {/* Welcome Context */}
                     <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "24px", padding: "32px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--secondary-bg)" }}>
                       <div>
@@ -442,7 +442,7 @@ DIMENSION RATINGS:
                         <p style={{ color: "var(--text-muted)", fontSize: "15px", lineHeight: 1.6, marginBottom: "20px" }}>
                           This framework measures maturity across 6 strategic pillars: Strategy, Data Readiness, Validation, Security, Compliance, and Live Operations.
                         </p>
-                        
+
                         <div style={{ display: "grid", gap: "16px" }}>
                           <div style={{ display: "flex", alignItems: "start", gap: "12px" }}>
                             <div style={{ width: "28px", height: "28px", borderRadius: "8px", background: "rgba(59, 130, 246, 0.1)", color: "var(--accent)", display: "flex", alignItems: "center", justifyItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "2px" }}>
@@ -485,7 +485,7 @@ DIMENSION RATINGS:
                     {/* Intake Form Card */}
                     <div style={{ padding: "36px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)" }}>
                       <h3 style={{ fontSize: "20px", marginBottom: "20px" }}>{"Let's customize your report"}</h3>
-                      
+
                       <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                           <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Full Name *</label>
@@ -742,10 +742,10 @@ DIMENSION RATINGS:
                   </div>
 
                   <div className={styles.assessmentGrid}>
-                    
+
                     {/* LEFT COLUMN: GAUGE & RADAR CHART */}
                     <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                      
+
                       {/* Gauge Card */}
                       <div style={{ padding: "24px 28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", textAlign: "center", boxShadow: "var(--shadow)", position: "relative", overflow: "hidden" }}>
                         <div style={{ color: "var(--text-muted)", fontSize: "13px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>
@@ -793,7 +793,7 @@ DIMENSION RATINGS:
                         <div style={{ padding: "12px", borderRadius: "8px", backgroundColor: riskDetails.bg, color: scoreColor, fontWeight: 800, fontSize: "16px", marginBottom: "12px", display: "inline-block" }}>
                           {riskDetails.title}
                         </div>
-                        
+
                         <p style={{ margin: 0, color: "var(--text-muted)", fontSize: "14px", lineHeight: 1.5 }}>
                           {riskDetails.desc}
                         </p>
@@ -877,7 +877,7 @@ DIMENSION RATINGS:
                             ))}
                           </svg>
                         </div>
-                        
+
                         <p style={{ margin: 0, color: "var(--text-muted)", fontSize: "12px", lineHeight: 1.4 }}>
                           Risk-Adjusted Trust Score (v2 Weighted): <strong style={{ color: "var(--text-main)" }}>{dims.overallWeighted}/100</strong>
                         </p>
@@ -887,7 +887,7 @@ DIMENSION RATINGS:
 
                     {/* RIGHT COLUMN: STRENGTHS, GAPS, CRM & CALL TO ACTIONS */}
                     <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                      
+
                       {/* Dimension Breakdown Cards */}
                       <div style={{ padding: "24px 28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)" }}>
                         <h3 style={{ fontSize: "18px", marginBottom: "18px", display: "flex", alignItems: "center", gap: "8px" }}>
@@ -1018,9 +1018,11 @@ DIMENSION RATINGS:
                         >
                           <Printer size={16} /> Print Report
                         </button>
-                        
+
                         <Link
-                          href={`/contact?source=aitra&score=${getNormalizedScore()}`}
+                          href="https://calendly.com/vishwanath-akuthota/30min"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className={`${styles.button} ${styles.primary}`}
                           style={{
                             flex: 1.5,

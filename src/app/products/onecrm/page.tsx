@@ -137,7 +137,12 @@ export default function OneCrmPage() {
               Manage leads, deals, follow-ups, customer context, and sales reporting with one secure CRM workflow.
             </motion.p>
             <motion.div variants={FADE_UP}>
-              <Link href="/contact" className={`${styles.button} ${styles.primary}`}>
+              <Link
+                href="https://calendly.com/vishwanath-akuthota/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.button} ${styles.primary}`}
+              >
                 Request OneCRM Demo
               </Link>
             </motion.div>

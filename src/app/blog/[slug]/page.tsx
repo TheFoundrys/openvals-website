@@ -165,10 +165,12 @@ export default async function BlogPost({
 
           <div style={{ marginTop: "60px", paddingTop: "40px", borderTop: "1px solid var(--border)", textAlign: "center" }}>
             <p style={{ fontSize: "18px", marginBottom: "24px", color: "var(--text-muted)" }}>Interested in securing your AI deployment?</p>
-            <Link 
+            <Link
               id="blog-cta-discuss"
-              href="/contact" 
-              className={styles.button} 
+              href="https://calendly.com/vishwanath-akuthota/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.button}
               style={{ background: "var(--accent)", color: "#fff" }}
             >
               Discuss Custom Validation

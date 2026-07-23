@@ -113,9 +113,9 @@ function FAQItem({
   onClick: () => void;
 }) {
   return (
-    <div 
-      style={{ 
-        borderBottom: "1px solid var(--border)", 
+    <div
+      style={{
+        borderBottom: "1px solid var(--border)",
         padding: "24px 0",
         cursor: "pointer"
       }}
@@ -133,7 +133,7 @@ function FAQItem({
           {isOpen ? <Minus size={20} /> : <Plus size={20} />}
         </motion.div>
       </div>
-      
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -159,7 +159,7 @@ export default function FAQSection({ wide = false }: { wide?: boolean }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section style={{ 
+    <section style={{
       padding: "var(--section-padding) var(--container-padding)",
       backgroundColor: "var(--primary-bg)",
       position: "relative"
@@ -169,7 +169,7 @@ export default function FAQSection({ wide = false }: { wide?: boolean }) {
         style={wide ? { width: "auto" } : { maxWidth: "800px" }}
       >
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -177,7 +177,7 @@ export default function FAQSection({ wide = false }: { wide?: boolean }) {
           >
             Frequently Asked Questions
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -188,14 +188,14 @@ export default function FAQSection({ wide = false }: { wide?: boolean }) {
           </motion.p>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
           {FAQ_DATA.map((faq, index) => (
-            <FAQItem 
+            <FAQItem
               key={index}
               question={faq.question}
               answer={faq.answer}
@@ -205,13 +205,13 @@ export default function FAQSection({ wide = false }: { wide?: boolean }) {
           ))}
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          style={{ 
-            marginTop: "60px", 
+          style={{
+            marginTop: "60px",
             textAlign: "center",
             padding: "40px",
             borderRadius: "24px",
@@ -223,9 +223,11 @@ export default function FAQSection({ wide = false }: { wide?: boolean }) {
           <p style={{ color: "var(--text-muted)", marginBottom: "24px" }}>
             Our team is ready to help you navigate the complexities of AI validation.
           </p>
-          <a 
-            href="/contact" 
-            style={{ 
+          <a
+            href="https://calendly.com/vishwanath-akuthota/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
               display: "inline-block",
               padding: "12px 32px",
               backgroundColor: "var(--accent)",

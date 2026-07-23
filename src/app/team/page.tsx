@@ -233,7 +233,13 @@ export default function TeamPage() {
             <p style={{ color: "var(--text-muted)", marginBottom: "40px" }}>
               We are always looking for passionate minds to join the OpenVals journey. If you believe you have what it takes to build the future of AI trust, let&apos;s talk.
             </p>
-            <Link href="/contact" className={styles.button} style={{ background: "var(--accent)", color: "#fff" }}>
+            <Link
+              href="https://calendly.com/vishwanath-akuthota/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.button}
+              style={{ background: "var(--accent)", color: "#fff" }}
+            >
               Work With Us
             </Link>
           </motion.div>

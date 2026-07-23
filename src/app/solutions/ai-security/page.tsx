@@ -81,7 +81,12 @@ export default function AISecurityPage() {
                   <p style={{ color: "var(--text-muted)", marginBottom: "32px" }}>
                     Securing AI systems requires a fundamentally different approach than traditional IT security. We protect against specific ML threats like model inversion, reconstruction attacks, and poisoning.
                   </p>
-                  <Link href="/contact" className={styles.directionLink}>
+                  <Link
+                    href="https://calendly.com/vishwanath-akuthota/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.directionLink}
+                  >
                     Learn About Our Security Protocols <ArrowRight size={16} />
                   </Link>
                 </div>
@@ -111,7 +116,12 @@ export default function AISecurityPage() {
               Ensure your AI infrastructure is as hardened as your core banking systems.
             </motion.p>
             <motion.div variants={FADE_UP}>
-              <Link href="/contact" className={`${styles.button} ${styles.primary}`}>
+              <Link
+                href="https://calendly.com/vishwanath-akuthota/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.button} ${styles.primary}`}
+              >
                 Security Audit
               </Link>
             </motion.div>

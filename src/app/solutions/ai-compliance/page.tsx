@@ -103,7 +103,12 @@ export default function CompliancePage() {
               Regulations are coming. OpenVals makes sure your systems are already ahead of them.
             </motion.p>
             <motion.div variants={FADE_UP}>
-              <Link href="/contact" className={`${styles.button} ${styles.primary}`}>
+              <Link
+                href="https://calendly.com/vishwanath-akuthota/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.button} ${styles.primary}`}
+              >
                 Consult Compliance Expert
               </Link>
             </motion.div>

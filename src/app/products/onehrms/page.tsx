@@ -132,7 +132,12 @@ export default function OneHrmsPage() {
               Streamline employee operations with secure workflows, cleaner data, and AI assistance built for HR teams.
             </motion.p>
             <motion.div variants={FADE_UP}>
-              <Link href="/contact" className={`${styles.button} ${styles.primary}`}>
+              <Link
+                href="https://calendly.com/vishwanath-akuthota/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.button} ${styles.primary}`}
+              >
                 Request OneHrms Demo
               </Link>
             </motion.div>

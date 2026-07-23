@@ -63,16 +63,34 @@ export default function Contact() {
                             animate="show"
                             variants={STAGGER}
                         >
-                            <motion.h1 
-                                variants={FADE_UP} 
+                            <motion.h1
+                                variants={FADE_UP}
                                 style={{ fontSize: "clamp(48px, 8vw, 80px)", margin: "0 0 24px 0", lineHeight: 1.1, color: "var(--text-main)" }}
                                 className={styles.sectionTitleHighlighted}
                             >
                                 Say <span style={{ color: "var(--accent)" }}>Hello</span>.
                             </motion.h1>
-                            <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--text-muted)", lineHeight: 1.6, margin: "0 auto 60px" }}>
-                                Whether you&apos;re looking for admissions, partnership, or just want to see our campus, we&apos;re here to help. Reach out to us directly or visit one of our global offices.
+                            <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--text-muted)", lineHeight: 1.6, margin: "0 auto 40px" }}>
+                                Whether you&apos;re looking for admissions, partnership, or just want to see our campus, we&apos;re here to help. Reach out to us <a href="https://calendly.com/vishwanath-akuthota/30min" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "underline" }}>directly</a> or visit one of our global offices.
                             </motion.p>
+                            <motion.div 
+                                variants={FADE_UP}
+                                style={{ 
+                                    marginBottom: "40px",
+                                    display: "flex",
+                                    justifyContent: "center"
+                                }}
+                            >
+                                <a 
+                                    href="https://calendly.com/vishwanath-akuthota/30min" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className={`${styles.button} ${styles.primary}`}
+                                    style={{ display: "inline-flex", alignItems: "center", gap: "8px", textDecoration: "none" }}
+                                >
+                                    Contact <ArrowRight size={16} />
+                                </a>
+                            </motion.div>
                         </motion.div>
 
                         {/* Quick Contact Cards */}
@@ -90,8 +108,8 @@ export default function Contact() {
 
                         <motion.div className={styles.officeGrid} variants={STAGGER}>
                             {offices.map((office, index) => (
-                                <motion.div 
-                                    key={index} 
+                                <motion.div
+                                    key={index}
                                     className={`${styles.officeCard} ${index === 0 ? styles.officeCardPrimary : ""}`}
                                     variants={FADE_UP}
                                 >
