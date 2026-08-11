@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-what-actually-happens-when-openvals-validates-an-ai-system",
+    title: "What Actually Happens When OpenVals Validates an AI System?",
+    slug: { current: "what-actually-happens-when-openvals-validates-an-ai-system" },
+    publishedAt: "2026-08-11T03:32:35.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/ai_validation_process.png",
+    externalUrl: "https://x.com/Vishakuthota/status/2087019318177562654",
+  },
+  {
     _id: "local-case-study-choosing-the-right-ai-model-isnt-about-benchmarks",
     title: "Case Study: Choosing the Right AI Model Isn’t About Benchmarks",
     slug: { current: "case-study-choosing-the-right-ai-model-isnt-about-benchmarks" },
