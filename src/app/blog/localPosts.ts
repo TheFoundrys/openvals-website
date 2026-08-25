@@ -15,6 +15,24 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-model-drift-why-ai-gets-worse-over-time",
+    title: "Model Drift: Why AI Gets Worse Over Time",
+    slug: { current: "model-drift-why-ai-gets-worse-over-time" },
+    publishedAt: "2026-08-25T12:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
+    externalUrl: "https://www.linkedin.com/pulse/model-drift-why-ai-gets-worse-over-time-vishwa-akuthota--2vfoc",
+  },
+  {
+    _id: "local-ai-trust-brief-youre-talking-to-attackers",
+    title: "AI Trust Brief: You're Talking to Attackers",
+    slug: { current: "ai-trust-brief-youre-talking-to-attackers" },
+    publishedAt: "2026-08-25T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
+    externalUrl: "https://www.linkedin.com/pulse/ai-trust-brief-your-talking-attackers-vishwa-akuthota--ph8mc",
+  },
+  {
     _id: "local-what-actually-happens-when-openvals-validates-an-ai-system",
     title: "What Actually Happens When OpenVals Validates an AI System?",
     slug: { current: "what-actually-happens-when-openvals-validates-an-ai-system" },
