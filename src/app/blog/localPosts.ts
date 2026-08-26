@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-executive-ai-intelligence-brief",
+    title: "Executive AI Intelligence Brief",
+    slug: { current: "executive-ai-intelligence-brief" },
+    publishedAt: "2026-08-26T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/executive_ai_intelligence_brief_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/executive-ai-intelligence-brief-vishwa-akuthota--gpe0f",
+  },
+  {
     _id: "local-model-drift-why-ai-gets-worse-over-time",
     title: "Model Drift: Why AI Gets Worse Over Time",
     slug: { current: "model-drift-why-ai-gets-worse-over-time" },
