@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-what-your-employees-are-feeding-ai",
+    title: "What Your Employees Are Feeding AI",
+    slug: { current: "what-your-employees-are-feeding-ai" },
+    publishedAt: "2026-09-01T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200",
+    externalUrl: "https://www.linkedin.com/pulse/what-your-employees-feeding-ai-vishwa-akuthota--pfcvc",
+  },
+  {
     _id: "local-executive-ai-intelligence-brief",
     title: "Executive AI Intelligence Brief",
     slug: { current: "executive-ai-intelligence-brief" },
