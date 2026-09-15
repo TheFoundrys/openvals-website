@@ -71,7 +71,7 @@ export default function Contact() {
                                 Say <span style={{ color: "var(--accent)" }}>Hello</span>.
                             </motion.h1>
                             <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--text-muted)", lineHeight: 1.6, margin: "0 auto 40px" }}>
-                                Whether you&apos;re looking for admissions, partnership, or just want to see our campus, we&apos;re here to help. Reach out to us <a href="https://calendly.com/vishwanath-akuthota/30min" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "underline" }}>directly</a> or visit one of our global offices.
+                                Whether you&apos;re looking for AI model validation, enterprise partnership, or technical evaluation, we&apos;re here to help. Reach out to us <a href="https://calendly.com/vishwanath-akuthota/30min" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "underline" }}>directly</a> or visit one of our global offices.
                             </motion.p>
                             <motion.div 
                                 variants={FADE_UP}

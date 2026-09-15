@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-ai-regulation-coming-faster-than-you-think",
+    title: "AI Regulation Is Coming Faster Than You Think",
+    slug: { current: "ai-regulation-coming-faster-than-you-think" },
+    publishedAt: "2026-09-15T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/ai_regulation_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/ai-regulation-coming-faster-than-you-think-vishwa-akuthota--pwjac",
+  },
+  {
     _id: "local-what-your-employees-are-feeding-ai",
     title: "What Your Employees Are Feeding AI",
     slug: { current: "what-your-employees-are-feeding-ai" },
