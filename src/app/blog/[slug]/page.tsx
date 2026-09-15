@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { postBySlugQuery, postSlugsQuery } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
@@ -32,19 +31,23 @@ const components = {
   },
 };
 
+import { localBlogPosts } from "../localPosts";
+
 const toStaticParams = (slugs: string[]) => (
   Array.from(new Set(slugs)).map((slug) => ({ slug }))
 );
 
 export async function generateStaticParams() {
+  const localSlugs = localBlogPosts.map((p) => p.slug.current);
   try {
     const slugs = await client.fetch(postSlugsQuery);
-    return toStaticParams(slugs);
+    return toStaticParams([...slugs, ...localSlugs]);
   } catch (error) {
     console.error("Failed to fetch slugs from Sanity", error);
     return toStaticParams([
       "future-of-ai-validation",
       "understanding-adversarial-attacks",
+      ...localSlugs,
     ]);
   }
 }
@@ -59,7 +62,22 @@ export default async function BlogPost({
   const localPost = getLocalBlogPost(decodedSlug);
 
   if (localPost?.externalUrl) {
-    redirect(localPost.externalUrl);
+    return (
+      <html lang="en">
+        <head>
+          <meta httpEquiv="refresh" content={`0;url=${localPost.externalUrl}`} />
+          <title>Redirecting...</title>
+        </head>
+        <body style={{ background: "#0a0a0c", color: "#fff", fontFamily: "sans-serif", padding: "40px", textAlign: "center" }}>
+          <p>Redirecting to <a href={localPost.externalUrl} style={{ color: "#00d4ff" }}>{localPost.title}</a>...</p>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.location.href = ${JSON.stringify(localPost.externalUrl)};`,
+            }}
+          />
+        </body>
+      </html>
+    );
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
