@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-who-really-owns-your-intelligence",
+    title: "Who Really Owns Your Intelligence?",
+    slug: { current: "who-really-owns-your-intelligence" },
+    publishedAt: "2026-09-22T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/who_owns_your_intelligence_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/who-really-owns-your-intelligence-vishwa-akuthota--lrhlc",
+  },
+  {
     _id: "local-ai-regulation-coming-faster-than-you-think",
     title: "AI Regulation Is Coming Faster Than You Think",
     slug: { current: "ai-regulation-coming-faster-than-you-think" },
