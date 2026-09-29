@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-what-your-ai-learned-from-a-lie",
+    title: "What Your AI Learned from a Lie",
+    slug: { current: "what-your-ai-learned-from-lie" },
+    publishedAt: "2026-09-29T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/what_your_ai_learned_from_lie_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/what-your-ai-learned-from-lie-vishwa-akuthota--z8j0c",
+  },
+  {
     _id: "local-who-really-owns-your-intelligence",
     title: "Who Really Owns Your Intelligence?",
     slug: { current: "who-really-owns-your-intelligence" },
@@ -134,7 +143,9 @@ export const localBlogPosts: LocalBlogPost[] = [
 ];
 
 export function getLocalBlogPost(slug: string) {
-  return localBlogPosts.find((post) => post.slug.current === slug);
+  return localBlogPosts.find(
+    (post) => post.slug.current === slug || post.slug.current.replace(/-a-/g, "-") === slug.replace(/-a-/g, "-")
+  );
 }
 
 export function mergeLocalBlogPosts<T extends BlogPostLike>(posts: T[]): Array<T | LocalBlogPost> {
