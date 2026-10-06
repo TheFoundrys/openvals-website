@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-your-ai-only-trustworthy-what-retrieves",
+    title: "Your AI Is Only as Trustworthy as What It Retrieves",
+    slug: { current: "your-ai-only-trustworthy-what-retrieves" },
+    publishedAt: "2026-10-06T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/your_ai_only_trustworthy_what_retrieves_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/your-ai-only-trustworthy-what-retrieves-vishwa-akuthota--rqlif",
+  },
+  {
     _id: "local-what-your-ai-learned-from-a-lie",
     title: "What Your AI Learned from a Lie",
     slug: { current: "what-your-ai-learned-from-lie" },
@@ -143,8 +152,12 @@ export const localBlogPosts: LocalBlogPost[] = [
 ];
 
 export function getLocalBlogPost(slug: string) {
+  const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
   return localBlogPosts.find(
-    (post) => post.slug.current === slug || post.slug.current.replace(/-a-/g, "-") === slug.replace(/-a-/g, "-")
+    (post) =>
+      post.slug.current === slug ||
+      post.slug.current.replace(/-a-/g, "-") === slug.replace(/-a-/g, "-") ||
+      normalize(post.slug.current) === normalize(slug)
   );
 }
 
