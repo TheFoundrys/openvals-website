@@ -5,7 +5,8 @@ import styles from "../components/ui.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AmbientGrid from "../components/AmbientGrid";
-import { ActionButtonsPart, HeroPart } from "../components/TrustSection";
+import RealWorldBenchmarks from "../components/RealWorldBenchmarks";
+import LatestReports from "../components/LatestReports";
 import { ServicesPart, PillarsPart } from "../components/ServicesPillars";
 import { HomepageConversionStack } from "../components/ConversionPage";
 
@@ -31,7 +32,7 @@ export default function Home() {
 
       <main>
         {/* SECTION 1: TRUST LAYER + AI FAILS QUIETLY */}
-        <section className={styles.snapSection} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding)" }}>
+        {/* <section className={styles.snapSection} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding)" }}>
           <AmbientGrid />
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div className={styles.scaledContent}>
@@ -41,9 +42,19 @@ export default function Home() {
               <ActionButtonsPart />
             </div>
           </div>
+        </section> */}
+
+        {/* SECTION 2: REAL-WORLD AI BENCHMARKS LEADERBOARD & LATEST REPORTS */}
+        <section id="benchmarks" className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding)", background: "var(--primary-bg)" }}>
+          <div className={`${styles.containerFull} ${styles.snapInner}`}>
+            <div className={styles.scaledContent}>
+              <RealWorldBenchmarks />
+              <LatestReports />
+            </div>
+          </div>
         </section>
 
-        {/* SECTION 2: OUR SERVICES + OUR CORE PILLARS */}
+        {/* SECTION 3: OUR SERVICES + OUR CORE PILLARS */}
         <section id="services" className={styles.snapSection} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding)", background: "var(--secondary-bg)" }}>
           <AmbientGrid />
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
@@ -56,7 +67,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 3: PROOF + PACKAGES + LEAD MAGNET */}
+        {/* SECTION 4: PROOF + PACKAGES + LEAD MAGNET */}
         <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding) 0" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>

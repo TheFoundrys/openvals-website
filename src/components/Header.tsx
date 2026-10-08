@@ -81,6 +81,8 @@ export default function Header() {
         {
           title: "Most Popular Tools",
           items: [
+            { name: "OpenVals Index", description: "GDP-weighted agentic model benchmark", href: "/openvals-index" },
+            { name: "Methodology", description: "Model deep dives & benchmark specs", href: "/methodology" },
             { name: "Openvals", description: "Open-source AI evaluation toolkit", href: "/docs" },
             { name: "OpenVals APIP", description: "AI Profitability Intelligence", href: "https://apip.openvalidations.com" },
             { name: "EYE", description: "Intelligent discovery and search", href: "https://optsearch.in/" },
@@ -191,9 +193,6 @@ export default function Header() {
           ))}
         </nav>
         <div className={styles.headerCTAContainer}>
-          <Link href={leadMagnetHref} className={`${styles.button} ${styles.primary} ${styles.headerCTA} ${styles.headerCTAHeader}`} style={{ padding: "8px 16px", fontSize: "14px" }}>
-            Book Your AI Trust
-          </Link>
           <button className={styles.menuToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -208,14 +207,6 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
           >
-            <Link
-              href={leadMagnetHref}
-              className={`${styles.button} ${styles.primary}`}
-              style={{ width: "100%", textAlign: "center", marginBottom: "20px" }}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Book Your AI Trust
-            </Link>
             {navLinks.map((link) => (
               <div key={link.name}>
                 <Link href={link.href} onClick={() => setIsMenuOpen(false)} style={{ fontWeight: 600 }}>
