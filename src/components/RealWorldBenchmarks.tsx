@@ -463,7 +463,7 @@ export default function RealWorldBenchmarks() {
           </Link>
 
           <span className={styles.metaDot}>•</span>
-          <span className={styles.dateLabel}>SEP 23, 2026</span>
+          <span className={styles.dateLabel}>OCT 8, 2026</span>
 
           <span className={styles.tuneIcon} title="Benchmark Filter & Settings">
             <SlidersHorizontal size={14} />

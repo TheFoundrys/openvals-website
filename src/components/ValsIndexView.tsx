@@ -55,7 +55,7 @@ export default function ValsIndexView() {
           <h1 className={styles.title}>OpenVals Index</h1>
 
           <div className={styles.metaLine}>
-            <span>UPDATED 9/23/2026</span>
+            <span>UPDATED 10/8/2026</span>
             <span>|</span>
             <div className={styles.versionDropdown}>
               <span>VERSION 0.5.5</span>

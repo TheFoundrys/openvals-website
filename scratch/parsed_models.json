@@ -2420,5 +2420,33 @@
     "safety": "1",
     "reliability": "0.65",
     "drs": "0.448"
+  },
+  {
+    "name": "h2o-danube3",
+    "params": "0.5b",
+    "size": "318 MB",
+    "lab": "Hugging Face",
+    "accuracy": "0.512",
+    "semantic": "0.443",
+    "latency": "10128.4 ms",
+    "factuality": "0.535",
+    "hallucination": "0.616",
+    "safety": "1",
+    "reliability": "0.817",
+    "drs": "0.499"
+  },
+  {
+    "name": "olmo",
+    "params": "1b",
+    "size": "791 MB",
+    "lab": "Hugging Face",
+    "accuracy": "0.463",
+    "semantic": "0.429",
+    "latency": "15029.2 ms",
+    "factuality": "0.524",
+    "hallucination": "0.625",
+    "safety": "1",
+    "reliability": "0.835",
+    "drs": "0.487"
   }
 ]

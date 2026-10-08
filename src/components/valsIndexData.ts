@@ -664,6 +664,32 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
     "hasPattern": false
   },
   {
+    "id": "h2o-danube3-0-5b",
+    "name": "H2O-DANUBE3 0.5B",
+    "shortName": "H2O-DANUBE3",
+    "version": "0.5B",
+    "lab": "Hugging Face",
+    "labKey": "Hugging Face",
+    "cost": 0.08,
+    "costLabel": "$0.08",
+    "accuracy": 51.2,
+    "latency": 10128,
+    "latencyLabel": "10128 ms",
+    "drs": 49.9,
+    "drsLabel": "49.9%",
+    "tokenUsage": 6200,
+    "tokenLabel": "6.2k",
+    "onFrontier": false,
+    "breakdown": {
+      "finance": 100,
+      "coding": 53.5,
+      "legal": 61.6
+    },
+    "badgeColor": "#f59e0b",
+    "badgeTextColor": "#1e293b",
+    "hasPattern": false
+  },
+  {
     "id": "onellm-doey-v1-1-0b",
     "name": "ONELLM DOEY 1.0B",
     "shortName": "ONELLM",
@@ -686,6 +712,32 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "legal": 53
     },
     "badgeColor": "#e7a44f",
+    "badgeTextColor": "#1e293b",
+    "hasPattern": false
+  },
+  {
+    "id": "olmo-1b",
+    "name": "OLMO 1.0B",
+    "shortName": "OLMO",
+    "version": "1.0B",
+    "lab": "Hugging Face",
+    "labKey": "Hugging Face",
+    "cost": 0.15,
+    "costLabel": "$0.15",
+    "accuracy": 46.3,
+    "latency": 15029,
+    "latencyLabel": "15029 ms",
+    "drs": 48.7,
+    "drsLabel": "48.7%",
+    "tokenUsage": 6500,
+    "tokenLabel": "6.5k",
+    "onFrontier": false,
+    "breakdown": {
+      "finance": 100,
+      "coding": 52.4,
+      "legal": 62.5
+    },
+    "badgeColor": "#f59e0b",
     "badgeTextColor": "#1e293b",
     "hasPattern": false
   },
