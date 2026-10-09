@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useMemo } from "react";
+import React, { useState, useRef, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import {
@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import styles from "./RealWorldBenchmarks.module.css";
 
-import { ModelData, MODELS } from "./realWorldBenchmarksData";
+import { ModelData, MODELS, LATEST_BENCHMARK_DATE } from "./realWorldBenchmarksData";
 
 type MetricType =
   | "accuracy"
@@ -230,9 +230,16 @@ const FADE_UP: Variants = {
 
 export default function RealWorldBenchmarks() {
   const [activeMetric, setActiveMetric] = useState<MetricType>("accuracy");
+  const [todayDate, setTodayDate] = useState<string>(LATEST_BENCHMARK_DATE || "OCT 9, 2026");
   const [hoveredModel, setHoveredModel] = useState<ModelData | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null);
   const chartAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const now = new Date();
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    setTodayDate(`${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`);
+  }, []);
 
   // Sort models in descending order based on the active metric
   const sortedModels = useMemo(() => {
@@ -463,7 +470,7 @@ export default function RealWorldBenchmarks() {
           </Link>
 
           <span className={styles.metaDot}>•</span>
-          <span className={styles.dateLabel}>OCT 8, 2026</span>
+          <span className={styles.dateLabel}>{todayDate}</span>
 
           <span className={styles.tuneIcon} title="Benchmark Filter & Settings">
             <SlidersHorizontal size={14} />

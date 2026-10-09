@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/syncTracker.js",
     "build": "next build",
     "start": "next start",
+    "sync-tracker": "node scripts/syncTracker.js",
     "lint": "eslint"
   },
   "dependencies": {
@@ -24,7 +26,8 @@
     "react-dom": "19.2.4",
     "sanity": "^3.99.0",
     "styled-components": "^6.3.12",
-    "three": "^0.184.0"
+    "three": "^0.184.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",

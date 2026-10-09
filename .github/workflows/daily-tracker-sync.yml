@@ -1,0 +1,42 @@
+name: Daily Validation Tracker Sync
+
+on:
+  schedule:
+    # Runs twice daily: 09:00 AM IST (03:30 UTC) and 07:00 PM IST (13:30 UTC)
+    - cron: '30 3,13 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Sync tracker from SharePoint
+        run: npm run sync-tracker
+
+      - name: Commit and push changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --local user.name "github-actions[bot]"
+            git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/components/modelBenchmarkData.ts src/components/realWorldBenchmarksData.ts scratch/tracker.xlsx
+            git commit -m "chore: auto-sync validation tracker metrics from SharePoint [skip ci]"
+            git push
+            echo "Changes pushed successfully."
+          else
+            echo "No changes found in validation tracker."
+          fi

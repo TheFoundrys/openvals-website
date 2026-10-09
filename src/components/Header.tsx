@@ -5,10 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "./Logo";
 import styles from "./ui.module.css";
-
-const leadMagnetHref = "/assessment";
-const showWhoWeServe = true;
-
 type NavSubItem = {
   name: string;
   href?: string;
@@ -36,80 +32,25 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navLinks: NavLink[] = [
-    ...(showWhoWeServe ? [
-      {
-        name: "Who We Serve",
-        href: "#",
-        highlight: true,
-        centeredHeader: true,
-        megaGroups: [
-          {
-            title: "Industry Domains",
-            items: [
-              { name: "Finance", description: "Financial reasoning and risk evaluation", href: "/finance" },
-              { name: "Healthcare", description: "Clinical reasoning and safety validation", href: "/healthcare" },
-              { name: "Legal", description: "Legal reasoning and compliance validation", href: "/legal" },
-              { name: "Cybersecurity", description: "Cybersecurity reasoning and threat analysis", href: "/cybersecurity" },
-              { name: "Enterprise Ops", description: "Enterprise operations and decision-making evaluation", href: "/enterprise-ops" },
-            ]
-          },
-          {
-            title: "",
-            items: [
-              { name: "Developer", description: "Coding and software engineering evaluation", href: "/developer" },
-              { name: "Reasoning", description: "General reasoning and problem-solving evaluation", href: "/reasoning" },
-              { name: "Math", description: "Mathematical reasoning and problem-solving evaluation", href: "/math" },
-            ]
-          }
-        ]
-      }
-    ] : []),
     {
       name: "Our Solutions",
-      href: "/services/ai-compass",
-      highlight: true,
-      megaGroups: [
-        {
-          title: "Ways We Help",
-          items: [
-            { name: "AI Compass", description: "Strategic AI direction and clarity", href: "/services/ai-compass" },
-            { name: "AI Engineering & Data Analytics", description: "Build scalable AI and data systems", href: "/services/ai-engineering-data" },
-            { name: "AI Quality & Assurance", description: "Validate safety, quality, and reliability", href: "/services/ai-quality-assurance" },
-            { name: "Book Your AI Trust", description: "Start with a trust score baseline", href: leadMagnetHref },
-          ]
-        },
-        {
-          title: "Most Popular Tools",
-          items: [
-            { name: "OpenVals Index", description: "GDP-weighted agentic model benchmark", href: "/openvals-index" },
-            { name: "Methodology", description: "Model deep dives & benchmark specs", href: "/methodology" },
-            { name: "Openvals", description: "Open-source AI evaluation toolkit", href: "/docs" },
-            { name: "OpenVals APIP", description: "AI Profitability Intelligence", href: "https://apip.openvalidations.com" },
-            { name: "EYE", description: "Intelligent discovery and search", href: "https://optsearch.in/" },
-          ]
-        },
-      ]
-    },
-    {
-      name: "One AI Platform",
       href: "#",
       highlight: true,
       subItems: [
-        { name: "OneCRM", href: "/products/onecrm" },
-        { name: "OneHrms", href: "/products/onehrms" },
-        { name: "Skill Compass", href: "https://compass.thefoundrys.com/" },
-      ]
+        { name: "AI Excellence", href: "/services" },
+        { name: "Open Elections", href: "#" },
+        { name: "OpenVals", href: "/docs" },
+        { name: "RedShield", href: "#" },
+      ],
     },
-    { name: "About Us", href: "/about", highlight: true },
-    { name: "Resources", href: "/blog", highlight: true },
-    { name: "Contact", href: "/contact", highlight: true },
   ];
 
   return (
     <>
       <header className={styles.header}>
-        <Logo size="sm" />
-        <nav className={styles.nav}>
+        <div className={styles.headerLeft}>
+          <Logo size="sm" />
+          <nav className={styles.nav}>
           {navLinks.map((link) => (
             <div
               key={link.name}
@@ -192,6 +133,7 @@ export default function Header() {
             </div>
           ))}
         </nav>
+        </div>
         <div className={styles.headerCTAContainer}>
           <button className={styles.menuToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
