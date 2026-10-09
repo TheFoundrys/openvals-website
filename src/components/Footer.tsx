@@ -49,28 +49,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2: One AI Platform */}
-          <div className={styles.col}>
-            <div className={styles.colTitle}>One AI Platform</div>
-            <ul className={styles.linkList}>
-              <li className={styles.linkItem}>
-                <Link href="/products/onecrm">OneCRM</Link>
-              </li>
-              <li className={styles.linkItem}>
-                <Link href="/products/onehrms">OneHrms</Link>
-              </li>
-              <li className={styles.linkItem}>
-                <Link
-                  href="https://compass.thefoundrys.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Skill Compass
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Column 3: About Us */}
           <div className={styles.col}>
             <div className={styles.colTitle}>About Us</div>

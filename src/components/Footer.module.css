@@ -1,18 +1,17 @@
 .footer {
   padding: 60px var(--container-padding) 40px;
   background: var(--primary-bg);
+  border-top: 1px solid var(--border);
   color: var(--text-muted);
   font-size: 14px;
 }
 
 .footerContainer {
-  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--border);
 }
 
 @media (min-width: 900px) {
@@ -37,21 +36,26 @@
 }
 
 .columnsGroup {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 36px;
+  margin-left: auto;
 }
 
 @media (min-width: 600px) {
   .columnsGroup {
-    grid-template-columns: repeat(3, minmax(130px, auto));
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     gap: 48px 64px;
+    margin-left: auto;
   }
 }
 
 .col {
   display: flex;
   flex-direction: column;
+  min-width: 130px;
 }
 
 .colTitle {
