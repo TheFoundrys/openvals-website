@@ -782,10 +782,11 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
           <div style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "16px 28px",
+            gap: "22px 34px",
             alignItems: "center",
             justifyItems: "center",
             flexGrow: 1,
+            padding: "6px 0",
           }}>
             {/* Forbes */}
             <motion.div
@@ -794,8 +795,8 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
                 color: "var(--text-main)",
                 fontFamily: "Georgia, serif",
                 fontWeight: 900,
-                fontSize: "17px",
-                opacity: 0.85,
+                fontSize: "24px",
+                opacity: 0.9,
                 cursor: "default",
                 transition: "opacity 0.2s, transform 0.2s",
                 userSelect: "none",
@@ -810,8 +811,8 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
               src="/logos/tradeflock.webp"
               alt="TradeFlock"
               style={{
-                maxHeight: "22px",
-                maxWidth: "100px",
+                maxHeight: "50px",
+                maxWidth: "180px",
                 objectFit: "contain",
                 filter: "var(--logo-filter-standard)",
                 mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
@@ -826,8 +827,8 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
               src="/logos/ehealth-300-98.png"
               alt="Elets Healthcare"
               style={{
-                maxHeight: "26px",
-                maxWidth: "100px",
+                maxHeight: "38px",
+                maxWidth: "140px",
                 objectFit: "contain",
                 filter: "var(--logo-filter-standard)",
                 mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
@@ -842,8 +843,8 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
               src="/logos/blindwink.png"
               alt="Blindwink"
               style={{
-                maxHeight: "100px",
-                maxWidth: "150px",
+                maxHeight: "155px",
+                maxWidth: "190px",
                 objectFit: "contain",
                 filter: "var(--logo-filter-darkbg)",
                 mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
@@ -858,8 +859,8 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
               src="/logos/pride india awards.png"
               alt="Pride India Awards"
               style={{
-                maxHeight: "50px",
-                maxWidth: "120px",
+                maxHeight: "68px",
+                maxWidth: "150px",
                 objectFit: "contain",
                 filter: "var(--logo-filter-standard)",
                 mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
@@ -874,8 +875,8 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
               src="/logos/cconnects.webp"
               alt="The CConnects"
               style={{
-                maxHeight: "115px",
-                maxWidth: "180px",
+                maxHeight: "145px",
+                maxWidth: "210px",
                 objectFit: "contain",
                 filter: "var(--logo-filter-standard)",
                 mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],

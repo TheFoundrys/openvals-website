@@ -37,10 +37,10 @@ export default function Header() {
       href: "#",
       highlight: true,
       subItems: [
-        { name: "AI Excellence", href: "/services" },
-        { name: "Open Elections", href: "#" },
+        { name: "AIxLence", href: "/aixlence" },
+        { name: "OpenLxM", href: "/openlxm" },
         { name: "OpenVals", href: "/docs" },
-        { name: "RedShield", href: "#" },
+        { name: "RedShield", href: "/redshield" },
       ],
     },
   ];
