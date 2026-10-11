@@ -18,7 +18,6 @@ import {
   Terminal,
 } from "lucide-react";
 import Link from "next/link";
-import { CSSProperties } from "react";
 import AmbientGrid from "./AmbientGrid";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -706,17 +705,17 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
       variants={STAGGER}
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))",
-        gap: compact ? "24px" : "40px",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
+        gap: compact ? "24px" : "36px",
         alignItems: "center",
         width: "100%",
       }}
     >
-      <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "flex-start", gap: "18px", minWidth: 0 }}>
+      <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "flex-start", gap: "16px", minWidth: 0 }}>
         <div
           style={{
-            width: compact ? "86px" : "112px",
-            height: compact ? "86px" : "112px",
+            width: compact ? "clamp(68px, 16vw, 86px)" : "112px",
+            height: compact ? "clamp(68px, 16vw, 86px)" : "112px",
             borderRadius: "16px",
             overflow: "hidden",
             border: "1px solid var(--border)",
@@ -729,23 +728,23 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
           role="img"
           aria-label="Vishwanath Akuthota"
         />
-        <div style={{ minWidth: 0, marginTop: "-6px" }}>
-          <h3 style={{ margin: "0 0 8px", fontSize: compact ? "24px" : "32px", lineHeight: 1.15 }}>
+        <div style={{ minWidth: 0, marginTop: "-4px" }}>
+          <h3 style={{ margin: "0 0 8px", fontSize: compact ? "clamp(19px, 3.8vw, 24px)" : "clamp(24px, 4.5vw, 32px)", lineHeight: 1.15 }}>
             Research, books, media, and IEEE publications behind the trust layer.
           </h3>
-          <Link href="/vishwanathakuthota" className={styles.textLink} style={{ color: "var(--accent)", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "6px" }}>
+          <Link href="/vishwanathakuthota" className={styles.textLink} style={{ color: "var(--accent)", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "14px" }}>
             View founder profile <ArrowRight size={16} />
           </Link>
         </div>
       </motion.div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "24px", width: "100%" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%" }}>
         <motion.div
           variants={STAGGER}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 170px), 1fr))",
-            gap: "12px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 130px), 1fr))",
+            gap: "10px",
           }}
         >
           {founderProof.map((item) => (
@@ -753,15 +752,15 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
               key={item.label}
               variants={FADE_UP}
               style={{
-                minHeight: compact ? "96px" : "116px",
-                padding: compact ? "18px" : "22px",
+                minHeight: compact ? "88px" : "116px",
+                padding: compact ? "14px 16px" : "22px",
                 border: "1px solid var(--border)",
                 borderRadius: "12px",
                 background: "var(--card-bg)",
               }}
             >
-              <div style={{ color: "var(--accent)", fontSize: compact ? "24px" : "30px", fontWeight: 900, lineHeight: 1 }}>{item.value}</div>
-              <p style={{ margin: "10px 0 0", color: "var(--text-muted)", fontSize: "13px", lineHeight: 1.4 }}>{item.label}</p>
+              <div style={{ color: "var(--accent)", fontSize: compact ? "clamp(20px, 4vw, 26px)" : "30px", fontWeight: 900, lineHeight: 1 }}>{item.value}</div>
+              <p style={{ margin: "8px 0 0", color: "var(--text-muted)", fontSize: "12.5px", lineHeight: 1.35 }}>{item.label}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -769,136 +768,87 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
         {/* Media Logos Band */}
         <motion.div
           variants={FADE_UP}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "24px",
-            padding: "16px 8px 0",
-            borderTop: "1px solid var(--border)",
-          }}
+          className={styles.mediaLogosBand}
         >
-          {/* 3x2 Logos Grid */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "22px 34px",
-            alignItems: "center",
-            justifyItems: "center",
-            flexGrow: 1,
-            padding: "6px 0",
-          }}>
+          {/* Logos Grid */}
+          <div className={styles.mediaLogosGrid}>
             {/* Forbes */}
-            <motion.div
-              whileHover={{ opacity: 0.95, scale: 1.05 }}
-              style={{
-                color: "var(--text-main)",
-                fontFamily: "Georgia, serif",
-                fontWeight: 900,
-                fontSize: "24px",
-                opacity: 0.9,
-                cursor: "default",
-                transition: "opacity 0.2s, transform 0.2s",
-                userSelect: "none",
-              }}
-            >
-              Forbes
-            </motion.div>
+            <div className={styles.mediaLogoCell}>
+              <motion.div
+                whileHover={{ opacity: 0.95, scale: 1.05 }}
+                style={{
+                  color: "var(--text-main)",
+                  fontFamily: "Georgia, serif",
+                  fontWeight: 900,
+                  fontSize: "clamp(24px, 5.5vw, 28px)",
+                  opacity: 0.9,
+                  cursor: "default",
+                  transition: "opacity 0.2s, transform 0.2s",
+                  userSelect: "none",
+                }}
+              >
+                Forbes
+              </motion.div>
+            </div>
 
             {/* TradeFlock */}
-            <motion.img
-              whileHover={{ opacity: 0.95, scale: 1.05 }}
-              src="/logos/tradeflock.webp"
-              alt="TradeFlock"
-              style={{
-                maxHeight: "50px",
-                maxWidth: "180px",
-                objectFit: "contain",
-                filter: "var(--logo-filter-standard)",
-                mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
-                cursor: "default",
-                transition: "opacity 0.2s, transform 0.2s",
-              }}
-            />
+            <div className={styles.mediaLogoCell}>
+              <motion.img
+                whileHover={{ opacity: 0.95, scale: 1.05 }}
+                src="/logos/tradeflock.webp"
+                alt="TradeFlock"
+                className={styles.logoTradeflock}
+              />
+            </div>
 
             {/* Elets */}
-            <motion.img
-              whileHover={{ opacity: 0.95, scale: 1.05 }}
-              src="/logos/ehealth-300-98.png"
-              alt="Elets Healthcare"
-              style={{
-                maxHeight: "38px",
-                maxWidth: "140px",
-                objectFit: "contain",
-                filter: "var(--logo-filter-standard)",
-                mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
-                cursor: "default",
-                transition: "opacity 0.2s, transform 0.2s",
-              }}
-            />
+            <div className={styles.mediaLogoCell}>
+              <motion.img
+                whileHover={{ opacity: 0.95, scale: 1.05 }}
+                src="/logos/ehealth-300-98.png"
+                alt="Elets Healthcare"
+                className={styles.logoEhealth}
+              />
+            </div>
 
             {/* Blindwink */}
-            <motion.img
-              whileHover={{ opacity: 0.95, scale: 1.05 }}
-              src="/logos/blindwink.png"
-              alt="Blindwink"
-              style={{
-                maxHeight: "155px",
-                maxWidth: "190px",
-                objectFit: "contain",
-                filter: "var(--logo-filter-darkbg)",
-                mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
-                cursor: "default",
-                transition: "opacity 0.2s, transform 0.2s",
-              }}
-            />
+            <div className={styles.mediaLogoCell}>
+              <motion.img
+                whileHover={{ opacity: 0.95, scale: 1.05 }}
+                src="/logos/blindwink.png"
+                alt="Blindwink"
+                className={styles.logoBlindwink}
+              />
+            </div>
 
             {/* Pride India */}
-            <motion.img
-              whileHover={{ opacity: 0.95, scale: 1.05 }}
-              src="/logos/pride india awards.png"
-              alt="Pride India Awards"
-              style={{
-                maxHeight: "68px",
-                maxWidth: "150px",
-                objectFit: "contain",
-                filter: "var(--logo-filter-standard)",
-                mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
-                cursor: "default",
-                transition: "opacity 0.2s, transform 0.2s",
-              }}
-            />
+            <div className={styles.mediaLogoCell}>
+              <motion.img
+                whileHover={{ opacity: 0.95, scale: 1.05 }}
+                src="/logos/pride india awards.png"
+                alt="Pride India Awards"
+                className={styles.logoPride}
+              />
+            </div>
 
             {/* CConnects */}
-            <motion.img
-              whileHover={{ opacity: 0.95, scale: 1.05 }}
-              src="/logos/cconnects.webp"
-              alt="The CConnects"
-              style={{
-                maxHeight: "145px",
-                maxWidth: "210px",
-                objectFit: "contain",
-                filter: "var(--logo-filter-standard)",
-                mixBlendMode: "var(--logo-blend-mode)" as CSSProperties["mixBlendMode"],
-                cursor: "default",
-                transition: "opacity 0.2s, transform 0.2s",
-              }}
-            />
+            <div className={styles.mediaLogoCell}>
+              <motion.img
+                whileHover={{ opacity: 0.95, scale: 1.05 }}
+                src="/logos/cconnects.webp"
+                alt="The CConnects"
+                className={styles.logoCconnects}
+              />
+            </div>
           </div>
 
           {/* Show More Link */}
-          <div style={{
-            flexShrink: 0,
-            borderLeft: "1px solid var(--border)",
-            paddingLeft: "20px",
-            display: "flex",
-            alignItems: "center",
-          }}>
+          <div className={styles.mediaLogosMore}>
             <span
               style={{
                 color: "var(--text-muted)",
                 fontWeight: 700,
-                fontSize: "14px",
+                fontSize: "13px",
                 whiteSpace: "nowrap",
                 userSelect: "none",
               }}
@@ -915,12 +865,12 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
 export function EngagementPackages({ compact = false, featuredPackage }: { compact?: boolean; featuredPackage?: string }) {
   return (
     <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} style={{ width: "100%" }}>
-      <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "24px", marginBottom: "22px" }}>
+      <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "20px", marginBottom: "22px", flexWrap: "wrap" }}>
         <div>
           <div style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 800, textTransform: "uppercase", letterSpacing: 0 }}>
             Engagement Packages
           </div>
-          <h2 style={{ margin: "8px 0 0", fontSize: compact ? "28px" : "42px", lineHeight: 1.1 }}>
+          <h2 style={{ margin: "8px 0 0", fontSize: compact ? "clamp(22px, 4vw, 28px)" : "clamp(28px, 5vw, 42px)", lineHeight: 1.15 }}>
             Start with the right level of AI assurance.
           </h2>
         </div>
@@ -935,7 +885,7 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
         variants={STAGGER}
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 230px), 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
           gap: "16px",
         }}
       >
@@ -1018,17 +968,17 @@ export function LeadMagnetCta({ compact = false }: { compact?: boolean }) {
       variants={STAGGER}
       style={{
         textAlign: "center",
-        padding: compact ? "28px 24px" : "56px 32px",
+        padding: compact ? "clamp(24px, 4vw, 28px) clamp(16px, 4vw, 24px)" : "clamp(36px, 6vw, 56px) clamp(18px, 4vw, 32px)",
         border: "1px solid var(--border)",
         borderRadius: "16px",
         background: "linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, var(--card-bg)), var(--card-bg))",
         width: "100%",
       }}
     >
-      <motion.h2 variants={FADE_UP} style={{ margin: "0 auto 14px", maxWidth: "760px", fontSize: compact ? "30px" : "46px", lineHeight: 1.08 }}>
+      <motion.h2 variants={FADE_UP} style={{ margin: "0 auto 14px", maxWidth: "760px", fontSize: compact ? "clamp(24px, 5vw, 30px)" : "clamp(30px, 6vw, 46px)", lineHeight: 1.1 }}>
         Book Your AI Trust
       </motion.h2>
-      <motion.p variants={FADE_UP} style={{ margin: "0 auto 26px", maxWidth: "680px", color: "var(--text-muted)", fontSize: compact ? "15px" : "18px", lineHeight: 1.6 }}>
+      <motion.p variants={FADE_UP} style={{ margin: "0 auto 26px", maxWidth: "680px", color: "var(--text-muted)", fontSize: compact ? "clamp(14px, 2.5vw, 15px)" : "clamp(15px, 2.8vw, 18px)", lineHeight: 1.6 }}>
         Get a fast baseline of your model&apos;s reliability, safety, compliance, and deployment risk before you invest in a full validation program.
       </motion.p>
       <motion.div variants={FADE_UP}>

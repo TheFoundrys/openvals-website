@@ -591,3 +591,81 @@
 .viewModelLink:hover svg {
   transform: translate(2px, -2px);
 }
+
+@media (max-width: 768px) {
+  .reportsContainer {
+    margin-top: 36px;
+  }
+
+  .carouselBar {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .navArrowBtn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .tabPill {
+    padding: 5px 10px;
+    font-size: 11.5px;
+  }
+
+  .filterRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .reportHeadline {
+    font-size: 19px;
+  }
+
+  .filterControlsRight {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .toggleGroup {
+    width: 100%;
+    display: flex;
+  }
+
+  .toggleBtn {
+    flex: 1;
+    text-align: center;
+    padding: 6px 8px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .searchBoxWrap {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .cardTopBar {
+    padding: 10px 14px;
+  }
+
+  .cardFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .viewModelLink {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .toggleBtn {
+    font-size: 10.5px;
+    padding: 6px 4px;
+  }
+}

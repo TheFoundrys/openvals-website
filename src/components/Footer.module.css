@@ -1,9 +1,11 @@
 .footer {
-  padding: 60px var(--container-padding) 40px;
+  padding: clamp(36px, 6vw, 54px) var(--container-padding) 36px;
   background: var(--primary-bg);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
   font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footerContainer {
@@ -11,7 +13,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 32px;
 }
 
 @media (min-width: 900px) {
@@ -25,21 +27,22 @@
 .brandSide {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  min-width: 260px;
+  gap: 12px;
+  min-width: 0;
 }
 
 .copyright {
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.5;
 }
 
 .columnsGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+  margin-left: 0;
+  width: 100%;
 }
 
 @media (min-width: 600px) {
@@ -49,13 +52,14 @@
     justify-content: flex-end;
     gap: 48px 64px;
     margin-left: auto;
+    width: auto;
   }
 }
 
 .col {
   display: flex;
   flex-direction: column;
-  min-width: 130px;
+  min-width: 0;
 }
 
 .colTitle {

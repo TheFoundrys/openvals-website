@@ -44,7 +44,7 @@ export function HeroPart() {
         <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(36px, 6vw, 84px)", marginBottom: "24px" }}>
           The Trust Layer for AI
         </motion.h2>
-        <motion.p variants={FADE_UP} style={{ fontSize: "20px", marginBottom: "32px", width: "100%" }}>
+        <motion.p variants={FADE_UP} style={{ fontSize: "clamp(16px, 3.2vw, 20px)", marginBottom: "32px", width: "100%" }}>
           OpenVals helps enterprises validate, secure, and trust AI before production.
         </motion.p>
         <motion.div variants={FADE_UP} className={styles.commandBoxWrapper} style={{ display: "flex", alignItems: "center", gap: "12px", width: "100%" }}>

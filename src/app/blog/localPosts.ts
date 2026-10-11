@@ -15,6 +15,24 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-your-ai-only-trustworthy-what-retrieves",
+    title: "Your AI Is Only as Trustworthy as What It Retrieves",
+    slug: { current: "your-ai-only-trustworthy-what-retrieves" },
+    publishedAt: "2026-10-06T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/your_ai_only_trustworthy_what_retrieves_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/your-ai-only-trustworthy-what-retrieves-vishwa-akuthota--rqlif",
+  },
+  {
+    _id: "local-what-your-ai-learned-from-a-lie",
+    title: "What Your AI Learned from a Lie",
+    slug: { current: "what-your-ai-learned-from-lie" },
+    publishedAt: "2026-09-29T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/what_your_ai_learned_from_lie_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/what-your-ai-learned-from-lie-vishwa-akuthota--z8j0c",
+  },
+  {
     _id: "local-who-really-owns-your-intelligence",
     title: "Who Really Owns Your Intelligence?",
     slug: { current: "who-really-owns-your-intelligence" },

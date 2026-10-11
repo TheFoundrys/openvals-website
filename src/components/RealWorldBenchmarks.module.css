@@ -368,10 +368,45 @@
 @media (max-width: 768px) {
   .controlBar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 0;
+  }
+  .tabsGroup {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tabsGroup::-webkit-scrollbar {
+    display: none;
+  }
+  .tabButton {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 6px 10px;
+    font-size: 11px;
   }
   .metaGroup {
     width: 100%;
     justify-content: space-between;
+    font-size: 11px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chartArea {
+    height: 380px;
+    padding: 20px 8px 0 8px;
+  }
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  .viewFullLink {
+    align-self: flex-end;
   }
 }

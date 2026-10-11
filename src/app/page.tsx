@@ -55,16 +55,16 @@ export default function Home() {
         </section>
 
         {/* SECTION 3: PROOF + PACKAGES + LEAD MAGNET */}
-        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding) 0" }}>
+        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(40px, 8vh, 80px) 0 0" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 var(--container-padding)" }}>
               <motion.div 
                 initial="hidden" 
                 whileInView="show" 
                 viewport={{ once: true }} 
                 variants={STAGGER}
                 className={styles.scaledContent}
-                style={{ padding: "clamp(20px, 3vw, 34px)", borderRadius: "16px", backgroundColor: "var(--secondary-bg)", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}
+                style={{ padding: "clamp(16px, 3vw, 34px)", borderRadius: "16px", backgroundColor: "var(--secondary-bg)", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}
               >
                 <motion.div variants={FADE_UP}>
                   <HomepageConversionStack />
