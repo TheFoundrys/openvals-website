@@ -66,26 +66,6 @@ export default function OpenLxMPage() {
                   <Server size={18} /> Explore Core Capabilities
                 </a>
               </motion.div>
-
-              {/* Sovereign Performance Metric Strip */}
-              <motion.div variants={FADE_UP} className={styles.statStrip}>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>100%</div>
-                  <div className={styles.statLabel}>Data Sovereignty &amp; Zero Public Egress</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>&lt;15ms</div>
-                  <div className={styles.statLabel}>Time-to-First-Token Ultra-Low Latency</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>70%+</div>
-                  <div className={styles.statLabel}>TCO Savings vs Commercial Cloud APIs</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>Air-Gap</div>
-                  <div className={styles.statLabel}>Ready for Defense, Banking &amp; Health</div>
-                </div>
-              </motion.div>
             </motion.div>
           </div>
         </section>

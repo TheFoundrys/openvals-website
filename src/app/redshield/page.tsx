@@ -66,26 +66,6 @@ export default function RedShieldPage() {
                   <ShieldAlert size={18} /> Explore Defense Capabilities
                 </a>
               </motion.div>
-
-              {/* Security Performance Metric Strip */}
-              <motion.div variants={FADE_UP} className={styles.statStrip}>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>50,000+</div>
-                  <div className={styles.statLabel}>Automated Adversarial Attack Payloads</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>100%</div>
-                  <div className={styles.statLabel}>OWASP Top 10 for LLMs Vulnerability Coverage</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>&lt;1ms</div>
-                  <div className={styles.statLabel}>Sub-Millisecond Inline Guardrail Latency</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>0</div>
-                  <div className={styles.statLabel}>Unmitigated Critical Jailbreaks in Production</div>
-                </div>
-              </motion.div>
             </motion.div>
           </div>
         </section>

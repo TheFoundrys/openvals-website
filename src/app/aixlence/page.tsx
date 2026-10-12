@@ -75,25 +75,6 @@ export default function AIxLencePage() {
                 </a>
               </motion.div>
 
-              {/* Enterprise Impact Metric Strip */}
-              <motion.div variants={FADE_UP} className={styles.statStrip}>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>5-Tier</div>
-                  <div className={styles.statLabel}>Enterprise AI Maturity Diagnostic Framework</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>3.4x</div>
-                  <div className={styles.statLabel}>Accelerated Time-to-Value for Production AI</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>100%</div>
-                  <div className={styles.statLabel}>Audit-Ready Compliance &amp; Risk Governance</div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={styles.statValue}>0</div>
-                  <div className={styles.statLabel}>Unvalidated Models Released to Production</div>
-                </div>
-              </motion.div>
             </motion.div>
           </div>
         </section>
