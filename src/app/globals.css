@@ -191,8 +191,8 @@ canvas {
 }
 
 @media (max-width: 480px) {
-  main [style*="display: flex"][style*="gap: 24px"],
-  main [style*="display: flex"][style*="gap: 20px"] {
+  main [style*="display: flex"][style*="gap: 24px"]:not([style*="space-between"]),
+  main [style*="display: flex"][style*="gap: 20px"]:not([style*="space-between"]) {
     flex-wrap: wrap !important;
     gap: 16px !important;
   }

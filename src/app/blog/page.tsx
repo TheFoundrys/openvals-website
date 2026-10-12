@@ -55,7 +55,7 @@ export default async function BlogIndex() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: "24px" }}>
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {posts.map((post: any) => (
               <Link
@@ -66,22 +66,21 @@ export default async function BlogIndex() {
                 className={styles.card}
                 style={{ display: "flex", flexDirection: "column", padding: 0, overflow: "hidden", border: "1px solid var(--border)", background: "var(--secondary-bg)", height: "100%" }}
               >
-                <div style={{ position: "relative", width: "100%", height: "220px", background: "#000" }}>
+                <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9", background: "#000", overflow: "hidden", borderBottom: "1px solid var(--border)" }}>
                   {(post.mainImage || post.imageUrl) ? (
                     <img
                       src={post.mainImage ? urlFor(post.mainImage).url() : post.imageUrl}
                       alt={post.title}
-                      style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.9 }}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                     />
                   ) : (
                     <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,212,255,0.05)", color: "var(--accent)" }}>
                       OpenVals Research
                     </div>
                   )}
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "100px", background: "linear-gradient(to top, var(--secondary-bg), transparent)" }} />
                 </div>
 
-                <div style={{ padding: "32px", flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                <div style={{ padding: "clamp(20px, 4vw, 32px)", flexGrow: 1, display: "flex", flexDirection: "column" }}>
                   <h3 style={{ fontSize: "24px", fontWeight: 600, marginBottom: "16px", lineHeight: 1.3 }}>{post.title}</h3>
                   <div style={{ marginTop: "auto" }}>
                     <p style={{ fontSize: "14px", color: "var(--text-muted)", marginBottom: "20px" }}>

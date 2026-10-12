@@ -121,14 +121,14 @@ function FAQItem({
       }}
       onClick={onClick}
     >
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "20px" }}>
-        <h4 style={{ margin: 0, fontSize: "18px", fontWeight: 600, color: "var(--text-main)" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", flexWrap: "nowrap", width: "100%" }}>
+        <h4 style={{ margin: 0, fontSize: "18px", fontWeight: 600, color: "var(--text-main)", flex: 1, paddingRight: "8px" }}>
           {question}
         </h4>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          style={{ display: "flex", color: "var(--accent)" }}
+          style={{ display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)", flexShrink: 0, minWidth: "24px" }}
         >
           {isOpen ? <Minus size={20} /> : <Plus size={20} />}
         </motion.div>

@@ -183,11 +183,11 @@ export default function VishwanathAkuthota() {
                     <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
                   </div>
 
-                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify", maxWidth: "800px" }}>
+                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "left", maxWidth: "800px" }}>
                     Vishwanath Akuthota is a distinguished deep-tech entrepreneur and AI architect with over 1.5 decades of experience in Artificial Intelligence, Machine Learning, and Generative AI. He has been at the forefront of building world-class AI products and Large Language Model (LLM) applications.
                   </p>
 
-                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify", maxWidth: "800px" }}>
+                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "left", maxWidth: "800px" }}>
                     His work is characterized by a mission to develop responsible and trustworthy AI systems that align with ethical principles and industry standards.
                   </p>
 

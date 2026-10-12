@@ -168,7 +168,7 @@ export default function About() {
                     <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
                   </div>
 
-                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "justify", maxWidth: "800px" }}>
+                  <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "left", maxWidth: "800px" }}>
                     Vishwanath Akuthota is a distinguished deep-tech entrepreneur and Al
                     architect with over 1.5 decades of experience in Artificial Intelligence,
                     Machine Learning, and Generative Al. He has been at the forefront of
