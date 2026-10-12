@@ -152,7 +152,13 @@ export const localBlogPosts: LocalBlogPost[] = [
 ];
 
 export function getLocalBlogPost(slug: string) {
-  return localBlogPosts.find((post) => post.slug.current === slug);
+  const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return localBlogPosts.find(
+    (post) =>
+      post.slug.current === slug ||
+      post.slug.current.replace(/-a-/g, "-") === slug.replace(/-a-/g, "-") ||
+      normalize(post.slug.current) === normalize(slug)
+  );
 }
 
 export function mergeLocalBlogPosts<T extends BlogPostLike>(posts: T[]): Array<T | LocalBlogPost> {
