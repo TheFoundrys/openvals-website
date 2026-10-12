@@ -137,6 +137,7 @@ function FAQItem({
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            key="faq-content"
             initial={{ height: 0, opacity: 0, marginTop: 0 }}
             animate={{ height: "auto", opacity: 1, marginTop: 16 }}
             exit={{ height: 0, opacity: 0, marginTop: 0 }}

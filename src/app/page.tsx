@@ -32,15 +32,17 @@ export default function Home() {
 
       <main>
         {/* SECTION 1: TRUST LAYER + AI FAILS QUIETLY */}
-        <section className={styles.snapSection} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding)" }}>
+        <section
+          className={styles.snapSection}
+          style={{ padding: "clamp(30px, 5vh, 60px) var(--container-padding) 0" }}
+        >
           <AmbientGrid />
-          <div className={`${styles.containerFull} ${styles.snapInner}`}>
-            <div className={styles.scaledContent}>
-              <HeroPart />
-            </div>
-            <div className={styles.scaledContent}>
-              <ActionButtonsPart />
-            </div>
+          <div
+            className={`${styles.containerFull} ${styles.snapInner}`}
+            style={{ justifyContent: "space-between" }}
+          >
+            <HeroPart />
+            <ActionButtonsPart />
           </div>
         </section>
 
@@ -58,10 +60,10 @@ export default function Home() {
         <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(40px, 8vh, 80px) 0 0" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 var(--container-padding)" }}>
-              <motion.div 
-                initial="hidden" 
-                whileInView="show" 
-                viewport={{ once: true }} 
+              <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
                 variants={STAGGER}
                 className={styles.scaledContent}
                 style={{ padding: "clamp(16px, 3vw, 34px)", borderRadius: "16px", backgroundColor: "var(--secondary-bg)", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}

@@ -9,6 +9,16 @@ const nextConfig: NextConfig = {
         destination: "/openvals-index",
         permanent: true,
       },
+      {
+        source: "/docs",
+        destination: "/openvals-docs",
+        permanent: true,
+      },
+      {
+        source: "/docs/:slug*",
+        destination: "/openvals-docs/:slug*",
+        permanent: true,
+      },
     ];
   },
 };

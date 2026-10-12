@@ -33,7 +33,7 @@ export function HeroPart() {
   };
 
   return (
-    <section className={styles.hero} style={{ padding: 0, minHeight: "auto" }}>
+    <section className={styles.hero} style={{ padding: 0, minHeight: "auto", width: "100%" }}>
       <motion.div
         className={styles.heroContent}
         initial="hidden"
@@ -64,6 +64,25 @@ export function HeroPart() {
               )}
             </button>
           </div>
+        </motion.div>
+
+        <motion.div variants={FADE_UP} className={styles.trustActions} style={{ marginTop: "24px" }}>
+          <Link
+            href="/openvals-docs"
+            className={`${styles.button} ${styles.secondary} ${styles.trustActionButton}`}
+          >
+            OpenVals Docs
+            <ExternalLink size={18} />
+          </Link>
+          <a
+            href="https://github.com/vishwanathakuthota/openvals"
+            className={`${styles.button} ${styles.secondary} ${styles.trustActionButton}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on GitHub
+            <ExternalLink size={18} />
+          </a>
         </motion.div>
       </motion.div>
 
@@ -97,37 +116,21 @@ export function ActionButtonsPart() {
   const marqueeCapabilities = [...uniqueCapabilities, ...uniqueCapabilities];
 
   return (
-    <div className={styles.trustCtaStack}>
-      <div className={styles.trustActions}>
-        <Link
-          href="/docs"
-          className={`${styles.button} ${styles.secondary} ${styles.trustActionButton}`}
-        >
-          OpenVals Docs
-          <ExternalLink size={18} />
-        </Link>
-        <a
-          href="https://github.com/vishwanathakuthota/openvals"
-          className={`${styles.button} ${styles.secondary} ${styles.trustActionButton}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View on GitHub
-          <ExternalLink size={18} />
-        </a>
-      </div>
-      <div className={styles.trustStats}>
-        {stats.map((stat) => (
-          <div className={styles.trustStat} key={stat.label}>
-            <div 
-              className={styles.trustStatValue}
-              style={stat.value.length > 8 ? { fontSize: "clamp(18px, 1.8vw, 24px)" } : undefined}
-            >
-              {stat.value}
+    <div className={styles.wFull}>
+      <div className={styles.trustCtaStack}>
+        <div className={styles.trustStats}>
+          {stats.map((stat) => (
+            <div className={styles.trustStat} key={stat.label}>
+              <div
+                className={styles.trustStatValue}
+                style={stat.value.length > 8 ? { fontSize: "clamp(18px, 1.8vw, 24px)" } : undefined}
+              >
+                {stat.value}
+              </div>
+              <div className={styles.trustStatLabel}>{stat.label}</div>
             </div>
-            <div className={styles.trustStatLabel}>{stat.label}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <div className={styles.trustMarquee} aria-label="OpenVals capabilities">
         <div className={styles.trustMarqueeTrack} aria-hidden="true">
