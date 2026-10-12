@@ -266,11 +266,7 @@ export default function AssessmentPage() {
 
     // Construct rich AI description with assessment summary
     const formattedDescription = `
-AI USE CASE:
-${leadData.aiDescription}
-
-------------------------------------------------
-AITRA ASSESSMENT DETAILS:
+${leadData.aiDescription ? `AI USE CASE:\n${leadData.aiDescription}\n\n------------------------------------------------\n` : ""}AITRA ASSESSMENT DETAILS:
 Overall Score: ${finalScore}/100
 Risk Profile: ${finalRisk}
 Top Strengths: ${strengths.join(", ")}
@@ -320,11 +316,43 @@ DIMENSION RATINGS:
   const handleNextStep = () => {
     if (step === 0) {
       // Verify lead data is filled
-      if (!leadData.name || !leadData.email || !leadData.eduBackground || !leadData.aiDescription) {
+      if (!leadData.name.trim() || !leadData.email.trim() || !leadData.eduBackground.trim()) {
         alert("Please fill out all required fields to start the assessment.");
         return;
       }
-      setStep(1);
+
+      // Record lead in CRM
+      try {
+        fetch("https://crm.thefoundrys.com/api/v1/lms/external", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "default-lms-secret-key"
+          },
+          keepalive: true,
+          body: JSON.stringify({
+            name: leadData.name.trim(),
+            phone: leadData.phone || "N/A",
+            email: leadData.email.trim(),
+            location: leadData.location || "Online Assessment",
+            eduBackground: leadData.eduBackground.trim(),
+            aiDescription: "Direct Signup via Assessment Form",
+            leadSource: "AITRA Assessment"
+          })
+        }).catch(() => {});
+      } catch {
+        // ignore background logging errors
+      }
+
+      const params = new URLSearchParams();
+      params.set("name", leadData.name.trim());
+      params.set("fullName", leadData.name.trim());
+      params.set("email", leadData.email.trim());
+      params.set("organization", leadData.eduBackground.trim());
+      params.set("company", leadData.eduBackground.trim());
+
+      window.location.href = `https://dev.openvalidations.com/signup?${params.toString()}`;
+      return;
     } else if (step >= 1 && step <= 5) {
       // Verify all questions in current pillar are answered
       const unanswered = getCurrentPillarUnanswered();
@@ -500,68 +528,29 @@ DIMENSION RATINGS:
                           />
                         </div>
 
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-                          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                            <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Email Address *</label>
-                            <input
-                              type="email"
-                              name="email"
-                              required
-                              placeholder="john@organization.com"
-                              value={leadData.email}
-                              onChange={handleLeadChange}
-                              style={{ padding: "10px 14px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)", outline: "none", fontSize: "14px" }}
-                            />
-                          </div>
-                          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                            <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Phone Number</label>
-                            <input
-                              type="tel"
-                              name="phone"
-                              placeholder="+1 (555) 019-2834"
-                              value={leadData.phone}
-                              onChange={handleLeadChange}
-                              style={{ padding: "10px 14px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)", outline: "none", fontSize: "14px" }}
-                            />
-                          </div>
-                        </div>
-
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-                          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                            <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Company / Org *</label>
-                            <input
-                              type="text"
-                              name="eduBackground"
-                              required
-                              placeholder="Acme Corporation"
-                              value={leadData.eduBackground}
-                              onChange={handleLeadChange}
-                              style={{ padding: "10px 14px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)", outline: "none", fontSize: "14px" }}
-                            />
-                          </div>
-                          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                            <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Location</label>
-                            <input
-                              type="text"
-                              name="location"
-                              placeholder="San Francisco, CA"
-                              value={leadData.location}
-                              onChange={handleLeadChange}
-                              style={{ padding: "10px 14px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)", outline: "none", fontSize: "14px" }}
-                            />
-                          </div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                          <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Email Address *</label>
+                          <input
+                            type="email"
+                            name="email"
+                            required
+                            placeholder="john@organization.com"
+                            value={leadData.email}
+                            onChange={handleLeadChange}
+                            style={{ padding: "10px 14px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)", outline: "none", fontSize: "14px" }}
+                          />
                         </div>
 
                         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                          <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>AI System or Use Case *</label>
-                          <textarea
-                            name="aiDescription"
+                          <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Company / Org *</label>
+                          <input
+                            type="text"
+                            name="eduBackground"
                             required
-                            placeholder="e.g. Deploying a customer service copilot connected to corporate databases for document retrieval."
-                            rows={3}
-                            value={leadData.aiDescription}
+                            placeholder="Acme Corporation"
+                            value={leadData.eduBackground}
                             onChange={handleLeadChange}
-                            style={{ padding: "10px 14px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)", outline: "none", fontSize: "14px", resize: "none" }}
+                            style={{ padding: "10px 14px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)", outline: "none", fontSize: "14px" }}
                           />
                         </div>
 
