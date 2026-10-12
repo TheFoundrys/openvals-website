@@ -1,0 +1,93 @@
+.footer {
+  padding: clamp(36px, 6vw, 54px) var(--container-padding) 36px;
+  background: var(--primary-bg);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footerContainer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (min-width: 900px) {
+  .footerContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.brandSide {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.copyright {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.columnsGroup {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+  margin-left: 0;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .columnsGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 48px 64px;
+    margin-left: auto;
+    width: auto;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.colTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkItem a {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  display: inline-block;
+}
+
+.linkItem a:hover {
+  color: var(--text-main);
+}

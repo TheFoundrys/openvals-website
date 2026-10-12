@@ -1,14 +1,11 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "./Logo";
 import styles from "./ui.module.css";
-
-const leadMagnetHref = "/assessment";
-const showWhoWeServe = true;
-
 type NavSubItem = {
   name: string;
   href?: string;
@@ -34,80 +31,33 @@ type NavLink = {
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setOpenDropdown(null);
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   const navLinks: NavLink[] = [
-    ...(showWhoWeServe ? [
-      {
-        name: "Who We Serve",
-        href: "#",
-        highlight: true,
-        centeredHeader: true,
-        megaGroups: [
-          {
-            title: "Industry Domains",
-            items: [
-              { name: "Finance", description: "Financial reasoning and risk evaluation", href: "/finance" },
-              { name: "Healthcare", description: "Clinical reasoning and safety validation", href: "/healthcare" },
-              { name: "Legal", description: "Legal reasoning and compliance validation", href: "/legal" },
-              { name: "Cybersecurity", description: "Cybersecurity reasoning and threat analysis", href: "/cybersecurity" },
-              { name: "Enterprise Ops", description: "Enterprise operations and decision-making evaluation", href: "/enterprise-ops" },
-            ]
-          },
-          {
-            title: "",
-            items: [
-              { name: "Developer", description: "Coding and software engineering evaluation", href: "/developer" },
-              { name: "Reasoning", description: "General reasoning and problem-solving evaluation", href: "/reasoning" },
-              { name: "Math", description: "Mathematical reasoning and problem-solving evaluation", href: "/math" },
-            ]
-          }
-        ]
-      }
-    ] : []),
     {
       name: "Our Solutions",
-      href: "/services/ai-compass",
-      highlight: true,
-      megaGroups: [
-        {
-          title: "Ways We Help",
-          items: [
-            { name: "AI Compass", description: "Strategic AI direction and clarity", href: "/services/ai-compass" },
-            { name: "AI Engineering & Data Analytics", description: "Build scalable AI and data systems", href: "/services/ai-engineering-data" },
-            { name: "AI Quality & Assurance", description: "Validate safety, quality, and reliability", href: "/services/ai-quality-assurance" },
-            { name: "Book Your AI Trust", description: "Start with a trust score baseline", href: leadMagnetHref },
-          ]
-        },
-        {
-          title: "Most Popular Tools",
-          items: [
-            { name: "Openvals", description: "Open-source AI evaluation toolkit", href: "/docs" },
-            { name: "OpenVals APIP", description: "AI Profitability Intelligence", href: "https://apip.openvalidations.com" },
-            { name: "EYE", description: "Intelligent discovery and search", href: "https://optsearch.in/" },
-          ]
-        },
-      ]
-    },
-    {
-      name: "One AI Platform",
       href: "#",
       highlight: true,
       subItems: [
-        { name: "OneCRM", href: "/products/onecrm" },
-        { name: "OneHrms", href: "/products/onehrms" },
-        { name: "Skill Compass", href: "https://compass.thefoundrys.com/" },
-      ]
+        { name: "AIxLence", href: "/aixlence" },
+        { name: "OpenLxM", href: "/openlxm" },
+        { name: "OpenVals", href: "/openvals-docs" },
+        { name: "RedShield", href: "/redshield" },
+      ],
     },
-    { name: "About Us", href: "/about", highlight: true },
-    { name: "Resources", href: "/blog", highlight: true },
-    { name: "Contact", href: "/contact", highlight: true },
   ];
 
   return (
     <>
       <header className={styles.header}>
-        <Logo size="sm" />
-        <nav className={styles.nav}>
+        <div className={styles.headerLeft}>
+          <Logo size="sm" />
+          <nav className={styles.nav}>
           {navLinks.map((link) => (
             <div
               key={link.name}
@@ -122,142 +72,142 @@ export default function Header() {
                 {link.name} {(link.subItems || link.megaGroups) && <ChevronDown size={14} />}
               </Link>
 
-              {(link.subItems || link.megaGroups) && (
-                <AnimatePresence>
-                  {openDropdown === link.name && (
-                    <motion.div
-                      className={
-                        link.megaGroups
-                          ? link.centeredHeader
-                            ? `${styles.dropdownContent} ${styles.dropdownMega} ${styles.dropdownMegaCentered}`
-                            : `${styles.dropdownContent} ${styles.dropdownMega}`
-                          : styles.dropdownContent
-                      }
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {link.megaGroups ? (
-                        link.centeredHeader ? (
-                          <div className={styles.dropdownMegaCenteredContainer}>
-                            <div className={styles.dropdownMegaTitleCentered}>
-                              {link.megaGroups[0].title}
-                            </div>
-                            <div className={styles.dropdownMegaColsGrid}>
-                              {link.megaGroups.map((group, idx) => (
-                                <div key={group.title || idx} className={styles.dropdownMegaColumn}>
-                                  {group.items.map((item) => (
-                                    <Link key={item.name} href={item.href || "#"} className={styles.dropdownMegaItem}>
-                                      <span>{item.name}</span>
-                                      {item.description && <small>{item.description}</small>}
-                                    </Link>
-                                  ))}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        ) : (
-                          link.megaGroups.map((group) => (
-                            <div key={group.title} className={styles.dropdownMegaColumn}>
-                              <div className={styles.dropdownMegaTitle}>{group.title}</div>
+              {(link.subItems || link.megaGroups) && openDropdown === link.name && (
+                <motion.div
+                  key={`dropdown-${link.name}`}
+                  className={
+                    link.megaGroups
+                      ? link.centeredHeader
+                        ? `${styles.dropdownContent} ${styles.dropdownMega} ${styles.dropdownMegaCentered}`
+                        : `${styles.dropdownContent} ${styles.dropdownMega}`
+                      : styles.dropdownContent
+                  }
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  {link.megaGroups ? (
+                    link.centeredHeader ? (
+                      <div className={styles.dropdownMegaCenteredContainer}>
+                        <div className={styles.dropdownMegaTitleCentered}>
+                          {link.megaGroups[0].title}
+                        </div>
+                        <div className={styles.dropdownMegaColsGrid}>
+                          {link.megaGroups.map((group, idx) => (
+                            <div key={group.title || idx} className={styles.dropdownMegaColumn}>
                               {group.items.map((item) => (
-                                <Link key={item.name} href={item.href || "#"} className={styles.dropdownMegaItem}>
+                                <Link
+                                  key={item.name}
+                                  href={item.href || "#"}
+                                  className={styles.dropdownMegaItem}
+                                  onClick={() => setOpenDropdown(null)}
+                                >
                                   <span>{item.name}</span>
                                   {item.description && <small>{item.description}</small>}
                                 </Link>
                               ))}
                             </div>
-                          ))
-                        )
-                      ) : (
-                        link.subItems?.map((sub) => (
-                          sub.isHeader ? (
-                            <div key={sub.name} className={`${styles.dropdownSectionLabel} ${sub.hasMargin ? styles.dropdownSection : ""}`}>
-                              {sub.name}
-                            </div>
-                          ) : (
-                            <Link key={sub.name} href={sub.href || "#"} className={styles.dropdownItem}>
-                              {sub.name}
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      link.megaGroups.map((group) => (
+                        <div key={group.title} className={styles.dropdownMegaColumn}>
+                          <div className={styles.dropdownMegaTitle}>{group.title}</div>
+                          {group.items.map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.href || "#"}
+                              className={styles.dropdownMegaItem}
+                              onClick={() => setOpenDropdown(null)}
+                            >
+                              <span>{item.name}</span>
+                              {item.description && <small>{item.description}</small>}
                             </Link>
-                          )
-                        ))
-                      )}
-                    </motion.div>
+                          ))}
+                        </div>
+                      ))
+                    )
+                  ) : (
+                    link.subItems?.map((sub) => (
+                      sub.isHeader ? (
+                        <div key={sub.name} className={`${styles.dropdownSectionLabel} ${sub.hasMargin ? styles.dropdownSection : ""}`}>
+                          {sub.name}
+                        </div>
+                      ) : (
+                        <Link
+                          key={sub.name}
+                          href={sub.href || "#"}
+                          className={styles.dropdownItem}
+                          onClick={() => setOpenDropdown(null)}
+                        >
+                          {sub.name}
+                        </Link>
+                      )
+                    ))
                   )}
-                </AnimatePresence>
+                </motion.div>
               )}
             </div>
           ))}
         </nav>
+        </div>
         <div className={styles.headerCTAContainer}>
-          <Link href={leadMagnetHref} className={`${styles.button} ${styles.primary} ${styles.headerCTA} ${styles.headerCTAHeader}`} style={{ padding: "8px 16px", fontSize: "14px" }}>
-            Book Your AI Trust
-          </Link>
           <button className={styles.menuToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </header>
 
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className={styles.mobileMenu}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-          >
-            <Link
-              href={leadMagnetHref}
-              className={`${styles.button} ${styles.primary}`}
-              style={{ width: "100%", textAlign: "center", marginBottom: "20px" }}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Book Your AI Trust
-            </Link>
-            {navLinks.map((link) => (
-              <div key={link.name}>
-                <Link href={link.href} onClick={() => setIsMenuOpen(false)} style={{ fontWeight: 600 }}>
-                  {link.name}
-                </Link>
-                {(link.subItems || link.megaGroups) && (
-                  <div style={{ paddingLeft: "20px", marginTop: "12px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                    {link.megaGroups ? (
-                      link.megaGroups.map((group, idx) => (
-                        <div key={group.title || idx} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                          {group.title && (
-                            <div style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", letterSpacing: "0.1em" }}>
-                              {group.title}
-                            </div>
-                          )}
-                          {group.items.map((item) => (
-                            <Link key={item.name} href={item.href || "#"} onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                      ))
-                    ) : (
-                      link.subItems?.map((sub) => (
-                        sub.isHeader ? (
-                          <div key={sub.name} style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", marginTop: sub.hasMargin ? "12px" : "0", letterSpacing: "0.1em" }}>
-                            {sub.name}
+      {isMenuOpen && (
+        <motion.div
+          key="mobile-nav-panel"
+          className={styles.mobileMenu}
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.15 }}
+        >
+          {navLinks.map((link) => (
+            <div key={link.name}>
+              <Link href={link.href} onClick={() => setIsMenuOpen(false)} style={{ fontWeight: 600 }}>
+                {link.name}
+              </Link>
+              {(link.subItems || link.megaGroups) && (
+                <div style={{ paddingLeft: "20px", marginTop: "12px", display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {link.megaGroups ? (
+                    link.megaGroups.map((group, idx) => (
+                      <div key={group.title || idx} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                        {group.title && (
+                          <div style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", letterSpacing: "0.1em" }}>
+                            {group.title}
                           </div>
-                        ) : (
-                          <Link key={sub.name} href={sub.href || "#"} onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
-                            {sub.name}
+                        )}
+                        {group.items.map((item) => (
+                          <Link key={item.name} href={item.href || "#"} onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
+                            {item.name}
                           </Link>
-                        )
-                      ))
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+                        ))}
+                      </div>
+                    ))
+                  ) : (
+                    link.subItems?.map((sub) => (
+                      sub.isHeader ? (
+                        <div key={sub.name} style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", marginTop: sub.hasMargin ? "12px" : "0", letterSpacing: "0.1em" }}>
+                          {sub.name}
+                        </div>
+                      ) : (
+                        <Link key={sub.name} href={sub.href || "#"} onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
+                          {sub.name}
+                        </Link>
+                      )
+                    ))
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+        </motion.div>
+      )}
     </>
   );
 }

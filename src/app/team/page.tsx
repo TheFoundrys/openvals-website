@@ -49,7 +49,7 @@ function BioText({ text }: { text: string }) {
         lineHeight: 1.7,
         margin: 0,
         maxWidth: "800px",
-        textAlign: "justify"
+        textAlign: "left"
       }}>
         {displayedText}
       </p>

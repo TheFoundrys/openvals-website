@@ -262,7 +262,7 @@ const aiSafetyReportTypes = [
 ];
 
 function pagePath(id: DocsPageId) {
-  return id === "welcome" ? "/docs" : `/docs/${id}`;
+  return id === "welcome" ? "/openvals-docs" : `/openvals-docs/${id}`;
 }
 
 function anchor(label: string) {
@@ -2184,7 +2184,7 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
           <Link className="docsTopbarBrand" href="/">
             OpenVals
           </Link>
-          <Link className="docsTopbarLink" href="/docs" style={{ color: "var(--docs-heading)", textDecoration: "none", fontWeight: 700, height: "100%", display: "flex", alignItems: "center", borderBottom: "2px solid var(--docs-heading)" }}>
+          <Link className="docsTopbarLink" href="/openvals-docs" style={{ color: "var(--docs-heading)", textDecoration: "none", fontWeight: 700, height: "100%", display: "flex", alignItems: "center", borderBottom: "2px solid var(--docs-heading)" }}>
             Documentation
           </Link>
         </header>

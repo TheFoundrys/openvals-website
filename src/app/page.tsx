@@ -5,8 +5,9 @@ import styles from "../components/ui.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AmbientGrid from "../components/AmbientGrid";
-import { ActionButtonsPart, HeroPart } from "../components/TrustSection";
-import { ServicesPart, PillarsPart } from "../components/ServicesPillars";
+import RealWorldBenchmarks from "../components/RealWorldBenchmarks";
+import LatestReports from "../components/LatestReports";
+import { HeroPart, ActionButtonsPart } from "../components/TrustSection";
 import { HomepageConversionStack } from "../components/ConversionPage";
 
 const FADE_UP: Variants = {
@@ -31,42 +32,41 @@ export default function Home() {
 
       <main>
         {/* SECTION 1: TRUST LAYER + AI FAILS QUIETLY */}
-        <section className={styles.snapSection} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding)" }}>
+        <section
+          className={styles.snapSection}
+          style={{ padding: "clamp(30px, 5vh, 60px) var(--container-padding) 0" }}
+        >
           <AmbientGrid />
-          <div className={`${styles.containerFull} ${styles.snapInner}`}>
-            <div className={styles.scaledContent}>
-              <HeroPart />
-            </div>
-            <div className={styles.scaledContent}>
-              <ActionButtonsPart />
-            </div>
+          <div
+            className={`${styles.containerFull} ${styles.snapInner}`}
+            style={{ justifyContent: "space-between" }}
+          >
+            <HeroPart />
+            <ActionButtonsPart />
           </div>
         </section>
 
-        {/* SECTION 2: OUR SERVICES + OUR CORE PILLARS */}
-        <section id="services" className={styles.snapSection} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding)", background: "var(--secondary-bg)" }}>
-          <AmbientGrid />
+        {/* SECTION 2: REAL-WORLD AI BENCHMARKS LEADERBOARD & LATEST REPORTS */}
+        <section id="benchmarks" className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding)", background: "var(--primary-bg)" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div className={styles.scaledContent}>
-              <ServicesPart />
-            </div>
-            <div className={styles.scaledContent}>
-              <PillarsPart />
+              <RealWorldBenchmarks />
+              <LatestReports />
             </div>
           </div>
         </section>
 
         {/* SECTION 3: PROOF + PACKAGES + LEAD MAGNET */}
-        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(40px, 8vh, 80px) var(--container-padding) 0" }}>
+        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(40px, 8vh, 80px) 0 0" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <motion.div 
-                initial="hidden" 
-                whileInView="show" 
-                viewport={{ once: true }} 
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 var(--container-padding)" }}>
+              <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
                 variants={STAGGER}
                 className={styles.scaledContent}
-                style={{ padding: "clamp(20px, 3vw, 34px)", borderRadius: "16px", backgroundColor: "var(--secondary-bg)", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}
+                style={{ padding: "clamp(16px, 3vw, 34px)", borderRadius: "16px", backgroundColor: "var(--secondary-bg)", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}
               >
                 <motion.div variants={FADE_UP}>
                   <HomepageConversionStack />
