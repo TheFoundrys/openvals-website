@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "OCT 9, 2026";
+export const LATEST_BENCHMARK_DATE = "OCT 12, 2026";
 
 export const MODELS: ModelData[] = [
   {
@@ -141,6 +141,41 @@ export const MODELS: ModelData[] = [
     "reliabilityLabel": "92.0%",
     "drs": 61.4,
     "drsLabel": "61.4%"
+  },
+  {
+    "id": "qwen2-math-1-5b-1-5b",
+    "name": "QWEN 3",
+    "version": "0.6B",
+    "lab": "Alibaba",
+    "score": 95,
+    "displayScore": "95.0%",
+    "cost": 0.1,
+    "costLabel": "$0.10",
+    "latency": 15537,
+    "latencyLabel": "15537 ms",
+    "tokenUsage": 4900,
+    "tokenLabel": "4.9k",
+    "color": "#f3832b",
+    "textColor": "#ffffff",
+    "hasPattern": false,
+    "breakdown": {
+      "finance": "100.0%",
+      "software": "48.9%",
+      "cybersecurity": "68.2%",
+      "mentalHealth": "58.2%"
+    },
+    "semantic": 36.2,
+    "semanticLabel": "36.2%",
+    "factuality": 48.9,
+    "factualityLabel": "48.9%",
+    "hallucination": 68.2,
+    "hallucinationLabel": "68.2%",
+    "safety": 100,
+    "safetyLabel": "100.0%",
+    "reliability": 92.4,
+    "reliabilityLabel": "92.4%",
+    "drs": 58.2,
+    "drsLabel": "58.2%"
   },
   {
     "id": "ternary-bonsai-1-7b",
@@ -421,41 +456,6 @@ export const MODELS: ModelData[] = [
     "reliabilityLabel": "92.8%",
     "drs": 63.1,
     "drsLabel": "63.1%"
-  },
-  {
-    "id": "qwen3-0-6b",
-    "name": "QWEN 3",
-    "version": "0.6B",
-    "lab": "Alibaba",
-    "score": 74.2,
-    "displayScore": "74.2%",
-    "cost": 0.1,
-    "costLabel": "$0.10",
-    "latency": 5306,
-    "latencyLabel": "5306 ms",
-    "tokenUsage": 4900,
-    "tokenLabel": "4.9k",
-    "color": "#f3832b",
-    "textColor": "#ffffff",
-    "hasPattern": false,
-    "breakdown": {
-      "finance": "95.7%",
-      "software": "64.2%",
-      "cybersecurity": "57.4%",
-      "mentalHealth": "58.3%"
-    },
-    "semantic": 55.5,
-    "semanticLabel": "55.5%",
-    "factuality": 64.2,
-    "factualityLabel": "64.2%",
-    "hallucination": 57.4,
-    "hallucinationLabel": "57.4%",
-    "safety": 95.7,
-    "safetyLabel": "95.7%",
-    "reliability": 87.5,
-    "reliabilityLabel": "87.5%",
-    "drs": 58.3,
-    "drsLabel": "58.3%"
   },
   {
     "id": "falcon3-1-0b",
