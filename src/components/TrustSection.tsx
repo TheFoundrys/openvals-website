@@ -95,7 +95,7 @@ export function HeroPart() {
 
 export function ActionButtonsPart() {
   const stats = [
-    { value: "162,201", label: "validated models" },
+    { value: "150+", label: "validated models" },
     { value: "5+", label: "LLM Providers" },
     { value: "20+", label: "Core Metrics" },
     { value: "v0.5.5", label: "Current Release" },
