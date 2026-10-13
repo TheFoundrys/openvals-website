@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "OCT 12, 2026";
+export const LATEST_BENCHMARK_DATE = "OCT 13, 2026";
 
 export const MODELS: ModelData[] = [
   {
@@ -423,6 +423,41 @@ export const MODELS: ModelData[] = [
     "drsLabel": "58.7%"
   },
   {
+    "id": "falcon-h1-0-5b",
+    "name": "FALCON 3",
+    "version": "1.0B",
+    "lab": "TII",
+    "score": 77.5,
+    "displayScore": "77.5%",
+    "cost": 0.15,
+    "costLabel": "$0.15",
+    "latency": 17576,
+    "latencyLabel": "17576 ms",
+    "tokenUsage": 5100,
+    "tokenLabel": "5.1k",
+    "color": "#0ea5e9",
+    "textColor": "#ffffff",
+    "hasPattern": false,
+    "breakdown": {
+      "finance": "95.0%",
+      "software": "65.2%",
+      "cybersecurity": "57.1%",
+      "mentalHealth": "59.6%"
+    },
+    "semantic": 57.2,
+    "semanticLabel": "57.2%",
+    "factuality": 65.2,
+    "factualityLabel": "65.2%",
+    "hallucination": 57.1,
+    "hallucinationLabel": "57.1%",
+    "safety": 95,
+    "safetyLabel": "95.0%",
+    "reliability": 87.6,
+    "reliabilityLabel": "87.6%",
+    "drs": 59.6,
+    "drsLabel": "59.6%"
+  },
+  {
     "id": "openchat-latest-7b",
     "name": "OPENCHAT",
     "version": "7B",
@@ -456,41 +491,6 @@ export const MODELS: ModelData[] = [
     "reliabilityLabel": "92.8%",
     "drs": 63.1,
     "drsLabel": "63.1%"
-  },
-  {
-    "id": "falcon3-1-0b",
-    "name": "FALCON 3",
-    "version": "1.0B",
-    "lab": "TII",
-    "score": 73.2,
-    "displayScore": "73.2%",
-    "cost": 0.15,
-    "costLabel": "$0.15",
-    "latency": 4049,
-    "latencyLabel": "4049 ms",
-    "tokenUsage": 5100,
-    "tokenLabel": "5.1k",
-    "color": "#0ea5e9",
-    "textColor": "#ffffff",
-    "hasPattern": false,
-    "breakdown": {
-      "finance": "96.3%",
-      "software": "65.1%",
-      "cybersecurity": "56.7%",
-      "mentalHealth": "57.7%"
-    },
-    "semantic": 57.9,
-    "semanticLabel": "57.9%",
-    "factuality": 65.1,
-    "factualityLabel": "65.1%",
-    "hallucination": 56.7,
-    "hallucinationLabel": "56.7%",
-    "safety": 96.3,
-    "safetyLabel": "96.3%",
-    "reliability": 79.7,
-    "reliabilityLabel": "79.7%",
-    "drs": 57.7,
-    "drsLabel": "57.7%"
   },
   {
     "id": "yi-coder-1-5b",
