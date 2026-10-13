@@ -22,6 +22,7 @@
 }
 
 .heroGlow {
+  display: none;
   position: absolute;
   top: -20%;
   left: 50%;
@@ -32,6 +33,32 @@
   filter: blur(65px);
   pointer-events: none;
   z-index: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .heroGlow {
+    display: block;
+  }
+
+  .badgePill {
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.15);
+  }
+}
+
+:global(html.dark) .heroGlow {
+  display: block;
+}
+
+:global(html.dark) .badgePill {
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.15);
+}
+
+:global(html.light) .heroGlow {
+  display: none !important;
+}
+
+:global(html.light) .badgePill {
+  box-shadow: none !important;
 }
 
 .heroContent {
@@ -54,7 +81,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 28px;
-  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.08);
+  box-shadow: none;
 }
 
 .heroTitle {
@@ -297,4 +324,13 @@
   font-size: 12.5px;
   color: var(--text-main);
   line-height: 1.45;
+}
+
+.pillarFeatureItem svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  margin-top: 1px;
 }

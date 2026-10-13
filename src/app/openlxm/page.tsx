@@ -154,11 +154,11 @@ export default function OpenLxMPage() {
                     <CheckCircle2 size={16} color="#059669" />
                     <span>LoRA, QLoRA, and DPO alignment pipelines</span>
                   </div>
-                  <div className={styles.capFeaturesList}>
+                  <div className={styles.capFeatureItem}>
                     <CheckCircle2 size={16} color="#059669" />
                     <span>FP8, AWQ, and INT4 weight compression</span>
                   </div>
-                  <div className={styles.capFeaturesList}>
+                  <div className={styles.capFeatureItem}>
                     <CheckCircle2 size={16} color="#059669" />
                     <span>Deterministic structured output &amp; grammar enforcement</span>
                   </div>
@@ -180,11 +180,11 @@ export default function OpenLxMPage() {
                     <CheckCircle2 size={16} color="#059669" />
                     <span>Role-based access control (RBAC) &amp; mTLS endpoints</span>
                   </div>
-                  <div className={styles.capFeaturesList}>
+                  <div className={styles.capFeatureItem}>
                     <CheckCircle2 size={16} color="#059669" />
                     <span>Pre-execution prompt firewalls &amp; PII redaction</span>
                   </div>
-                  <div className={styles.capFeaturesList}>
+                  <div className={styles.capFeatureItem}>
                     <CheckCircle2 size={16} color="#059669" />
                     <span>Tamper-evident audit logging and token billing tracking</span>
                   </div>

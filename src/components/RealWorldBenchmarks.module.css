@@ -270,12 +270,22 @@
   padding: 11px 14px;
   border-radius: 8px;
   border: 1px solid var(--border);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
   width: 220px;
   pointer-events: none;
   z-index: 100;
   font-size: 11px;
   backdrop-filter: blur(8px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .tooltipCard {
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+  }
+}
+
+:global(html.dark) .tooltipCard {
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
 }
 
 .tooltipTitle {
@@ -303,6 +313,29 @@
 .tooltipVal {
   font-weight: 700;
   color: var(--text-main);
+}
+
+.tooltipMetricsList {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+  font-size: 9.5px;
+  color: var(--text-muted);
+}
+
+.tooltipMetricRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.tooltipMetricRow:last-child {
+  margin-bottom: 0;
+}
+
+.tooltipMetricVal {
+  color: var(--text-main);
+  font-weight: 700;
 }
 
 @keyframes fadeIn {

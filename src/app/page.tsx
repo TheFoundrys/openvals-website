@@ -66,7 +66,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 variants={STAGGER}
                 className={styles.scaledContent}
-                style={{ padding: "clamp(16px, 3vw, 34px)", borderRadius: "16px", backgroundColor: "var(--secondary-bg)", border: "1px solid var(--border)", boxShadow: "var(--shadow)" }}
+                style={{ padding: "clamp(16px, 3vw, 34px)", borderRadius: "16px", backgroundColor: "var(--secondary-bg)", border: "1px solid var(--border)", boxShadow: "none" }}
               >
                 <motion.div variants={FADE_UP}>
                   <HomepageConversionStack />

@@ -225,13 +225,31 @@ export default function VishwanathAkuthota() {
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "24px" }}>
                   {BOOKS.map((book, idx) => (
                     <motion.a key={idx} variants={FADE_UP} href={book.link} target="_blank" rel="noopener noreferrer" className={styles.card} style={{ display: "flex", alignItems: "flex-start", gap: "20px", padding: "32px", textAlign: "left" }}>
-                      <div style={{ padding: "16px", background: "rgba(0, 212, 255, 0.1)", borderRadius: "12px", color: "var(--accent)" }}>
-                        <Book size={32} />
+                      <div
+                        style={{
+                          width: "56px",
+                          height: "56px",
+                          minWidth: "56px",
+                          minHeight: "56px",
+                          maxWidth: "56px",
+                          maxHeight: "56px",
+                          flex: "0 0 56px",
+                          flexShrink: 0,
+                          alignSelf: "flex-start",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          background: "rgba(0, 212, 255, 0.1)",
+                          borderRadius: "14px",
+                          color: "var(--accent)",
+                        }}
+                      >
+                        <Book size={28} style={{ margin: 0, flexShrink: 0 }} />
                       </div>
-                      <div>
+                      <div style={{ flex: "1 1 auto", minWidth: 0 }}>
                         <h4 style={{ fontSize: "20px", marginBottom: "8px" }}>{book.title}</h4>
                         <p style={{ fontSize: "15px", color: "var(--text-muted)", lineHeight: 1.5, marginBottom: "16px" }}>{book.subtitle}</p>
-                        <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--accent)", display: "flex", alignItems: "center", gap: "6px" }}>View on Amazon <ExternalLink size={14} /></span>
+                        <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--accent)", display: "flex", alignItems: "center", gap: "6px" }}>View on Amazon <ExternalLink size={14} style={{ margin: 0, flexShrink: 0 }} /></span>
                       </div>
                     </motion.a>
                   ))}
@@ -245,13 +263,31 @@ export default function VishwanathAkuthota() {
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "24px" }}>
                   {PUBLICATIONS.map((publication, idx) => (
                     <motion.a key={idx} variants={FADE_UP} href={publication.link} target="_blank" rel="noopener noreferrer" className={styles.card} style={{ display: "flex", alignItems: "flex-start", gap: "20px", padding: "32px", textAlign: "left" }}>
-                      <div style={{ padding: "16px", background: "rgba(0, 212, 255, 0.1)", borderRadius: "12px", color: "var(--accent)" }}>
-                        <FileText size={32} />
+                      <div
+                        style={{
+                          width: "56px",
+                          height: "56px",
+                          minWidth: "56px",
+                          minHeight: "56px",
+                          maxWidth: "56px",
+                          maxHeight: "56px",
+                          flex: "0 0 56px",
+                          flexShrink: 0,
+                          alignSelf: "flex-start",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          background: "rgba(0, 212, 255, 0.1)",
+                          borderRadius: "14px",
+                          color: "var(--accent)",
+                        }}
+                      >
+                        <FileText size={28} style={{ margin: 0, flexShrink: 0 }} />
                       </div>
-                      <div>
+                      <div style={{ flex: "1 1 auto", minWidth: 0 }}>
                         <h4 style={{ fontSize: "20px", marginBottom: "8px" }}>{publication.title}</h4>
                         <p style={{ fontSize: "15px", color: "var(--text-muted)", lineHeight: 1.5, marginBottom: "16px" }}>{publication.subtitle}</p>
-                        <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--accent)", display: "flex", alignItems: "center", gap: "6px" }}>View on IEEE Xplore <ExternalLink size={14} /></span>
+                        <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--accent)", display: "flex", alignItems: "center", gap: "6px" }}>View on IEEE Xplore <ExternalLink size={14} style={{ margin: 0, flexShrink: 0 }} /></span>
                       </div>
                     </motion.a>
                   ))}
@@ -325,7 +361,7 @@ export default function VishwanathAkuthota() {
                         <p style={{ fontSize: "15px", color: "var(--text-muted)", lineHeight: "1.5", margin: 0 }}>{item.desc}</p>
 
                         <div style={{ marginTop: "auto", paddingTop: "20px", borderTop: "1px solid var(--border)", display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", fontWeight: "600", color: "var(--accent)" }}>
-                          View Official Press Release <ExternalLink size={14} />
+                          View Official Press Release <ExternalLink size={14} style={{ margin: 0 }} />
                         </div>
                       </div>
                     </motion.a>

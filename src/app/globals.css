@@ -8,7 +8,7 @@
   --border: #E5E7EB;
   --card-bg: #FFFFFF;
   --grid-dot: rgba(0, 0, 0, 0.1);
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow: none;
   --logo-color: #1a2b3d;
   --orb-bg: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(240, 249, 255, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
   --orb-border: rgba(0, 0, 0, 0.1);
@@ -51,12 +51,14 @@
 }
 
 html.dark {
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   --logo-filter-standard: invert(1) grayscale(100%) opacity(0.85);
   --logo-filter-darkbg: grayscale(100%) opacity(0.85);
   --logo-blend-mode: screen;
 }
 
 html.light {
+  --shadow: none;
   --logo-filter-standard: grayscale(100%) opacity(0.85);
   --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
   --logo-blend-mode: multiply;

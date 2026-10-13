@@ -6,7 +6,6 @@ import { motion, Variants } from "framer-motion";
 import {
   ArrowLeftRight,
   ExternalLink,
-  SlidersHorizontal,
   Sparkles,
   CheckCircle2,
   AlertTriangle,
@@ -471,10 +470,6 @@ export default function RealWorldBenchmarks() {
 
           <span className={styles.metaDot}>•</span>
           <span className={styles.dateLabel}>{todayDate}</span>
-
-          <span className={styles.tuneIcon} title="Benchmark Filter & Settings">
-            <SlidersHorizontal size={14} />
-          </span>
         </div>
       </div>
 
@@ -516,32 +511,24 @@ export default function RealWorldBenchmarks() {
                   <span>Latency:</span>
                   <span className={styles.tooltipVal}>{hoveredModel.latencyLabel}</span>
                 </div>
-                <div
-                  style={{
-                    marginTop: 6,
-                    paddingTop: 6,
-                    borderTop: "1px solid rgba(255,255,255,0.12)",
-                    fontSize: "9.5px",
-                    color: "#9ca3af",
-                  }}
-                >
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 2 }}>
-                    <span>Semantic:</span> <b style={{ color: "#e5e7eb" }}>{hoveredModel.semanticLabel}</b>
+                <div className={styles.tooltipMetricsList}>
+                  <div className={styles.tooltipMetricRow}>
+                    <span>Semantic:</span> <b className={styles.tooltipMetricVal}>{hoveredModel.semanticLabel}</b>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 2 }}>
-                    <span>Factuality:</span> <b style={{ color: "#e5e7eb" }}>{hoveredModel.factualityLabel}</b>
+                  <div className={styles.tooltipMetricRow}>
+                    <span>Factuality:</span> <b className={styles.tooltipMetricVal}>{hoveredModel.factualityLabel}</b>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 2 }}>
-                    <span>Hallucination:</span> <b style={{ color: "#e5e7eb" }}>{hoveredModel.hallucinationLabel}</b>
+                  <div className={styles.tooltipMetricRow}>
+                    <span>Hallucination:</span> <b className={styles.tooltipMetricVal}>{hoveredModel.hallucinationLabel}</b>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 2 }}>
-                    <span>Safety:</span> <b style={{ color: "#e5e7eb" }}>{hoveredModel.safetyLabel}</b>
+                  <div className={styles.tooltipMetricRow}>
+                    <span>Safety:</span> <b className={styles.tooltipMetricVal}>{hoveredModel.safetyLabel}</b>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 2 }}>
-                    <span>Reliability:</span> <b style={{ color: "#e5e7eb" }}>{hoveredModel.reliabilityLabel}</b>
+                  <div className={styles.tooltipMetricRow}>
+                    <span>Reliability:</span> <b className={styles.tooltipMetricVal}>{hoveredModel.reliabilityLabel}</b>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <span>Reasoning (DRS):</span> <b style={{ color: "#e5e7eb" }}>{hoveredModel.drsLabel}</b>
+                  <div className={styles.tooltipMetricRow}>
+                    <span>Reasoning (DRS):</span> <b className={styles.tooltipMetricVal}>{hoveredModel.drsLabel}</b>
                   </div>
                 </div>
               </div>

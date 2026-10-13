@@ -180,11 +180,11 @@ export default function RedShieldPage() {
                     <CheckCircle2 size={16} color="#dc2626" />
                     <span>Sub-millisecond semantic prompt firewall inspection</span>
                   </div>
-                  <div className={styles.pillarFeaturesList}>
+                  <div className={styles.pillarFeatureItem}>
                     <CheckCircle2 size={16} color="#dc2626" />
                     <span>Dynamic output verification and confidential PII redaction</span>
                   </div>
-                  <div className={styles.pillarFeaturesList}>
+                  <div className={styles.pillarFeatureItem}>
                     <CheckCircle2 size={16} color="#dc2626" />
                     <span>Automated anomaly alerting and adaptive threat rule updates</span>
                   </div>
