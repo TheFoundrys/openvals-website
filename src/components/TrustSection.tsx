@@ -47,7 +47,7 @@ export function HeroPart() {
         <motion.p variants={FADE_UP} style={{ fontSize: "clamp(16px, 3.2vw, 20px)", marginBottom: "32px", width: "100%" }}>
           OpenVals helps enterprises validate, secure, and trust AI before production.
         </motion.p>
-        <motion.div variants={FADE_UP} className={styles.commandBoxWrapper} style={{ display: "flex", alignItems: "center", gap: "12px", width: "100%" }}>
+        <motion.div variants={FADE_UP} className={styles.commandBoxWrapper}>
           <div className={styles.commandBox}>
             <code className={styles.commandText}>
               <span className={styles.commandTextLabel}>{command}</span>

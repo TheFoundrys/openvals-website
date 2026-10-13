@@ -971,7 +971,8 @@ export function LeadMagnetCta({ compact = false }: { compact?: boolean }) {
         padding: compact ? "clamp(24px, 4vw, 28px) clamp(16px, 4vw, 24px)" : "clamp(36px, 6vw, 56px) clamp(18px, 4vw, 32px)",
         border: "1px solid var(--border)",
         borderRadius: "16px",
-        background: "linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, var(--card-bg)), var(--card-bg))",
+        background: "var(--card-bg)",
+        boxShadow: "none",
         width: "100%",
       }}
     >
@@ -1043,7 +1044,7 @@ export function ConversionPage({ page }: { page: ConversionPageData }) {
                   borderRadius: "16px",
                   padding: "28px",
                   background: "var(--card-bg)",
-                  boxShadow: "var(--shadow)",
+                  boxShadow: "none",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", paddingBottom: "18px", borderBottom: "1px solid var(--border)" }}>
