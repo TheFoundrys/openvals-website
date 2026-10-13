@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-what-happens-when-ai-stops-answering-starts-acting",
+    title: "What Happens When AI Stops Answering and Starts Acting",
+    slug: { current: "what-happens-when-ai-stops-answering-starts-acting" },
+    publishedAt: "2026-10-13T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/what_happens_when_ai_stops_answering_starts_acting_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/what-happens-when-ai-stops-answering-starts-acting-vishwa-akuthota--mbacc",
+  },
+  {
     _id: "local-your-ai-only-trustworthy-what-retrieves",
     title: "Your AI Is Only as Trustworthy as What It Retrieves",
     slug: { current: "your-ai-only-trustworthy-what-retrieves" },
