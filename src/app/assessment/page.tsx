@@ -19,6 +19,10 @@ import {
   RefreshCw,
   AlertTriangle,
   Award,
+  KeyRound,
+  UserRound,
+  Mail,
+  Building2,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -127,7 +131,11 @@ export default function AssessmentPage() {
     phone: "",
     location: "",
     aiDescription: "",
+    password: "",
+    confirmPassword: "",
   });
+
+  const [signupError, setSignupError] = useState<string | null>(null);
 
   // Assessment Answers state: maps question ID (1 to 30) to score (1 to 4)
   const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -313,11 +321,63 @@ DIMENSION RATINGS:
     }
   };
 
-  const handleNextStep = () => {
+  const handleNextStep = async () => {
     if (step === 0) {
-      // Verify lead data is filled
-      if (!leadData.name.trim() || !leadData.email.trim() || !leadData.eduBackground.trim()) {
-        alert("Please fill out all required fields to start the assessment.");
+      // Verify required fields
+      if (!leadData.name.trim() || !leadData.email.trim() || !leadData.password) {
+        setSignupError("Please fill out all required fields to create your account.");
+        return;
+      }
+      if (leadData.password.length < 8) {
+        setSignupError("Password must be at least 8 characters.");
+        return;
+      }
+      if (leadData.password !== leadData.confirmPassword) {
+        setSignupError("Passwords do not match.");
+        return;
+      }
+
+      setSignupError(null);
+      setSubmitting(true);
+
+      const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL;
+      const appBase = process.env.NEXT_PUBLIC_APP_URL;
+
+      let accessToken: string | undefined;
+      let refreshToken: string | undefined;
+
+      try {
+        const response = await fetch(`${apiBase}/auth/signup`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: leadData.name.trim(),
+            email: leadData.email.trim(),
+            password: leadData.password,
+            organization: leadData.eduBackground.trim(),
+          }),
+        });
+
+        const json = await response.json().catch(() => null);
+
+        if (!response.ok) {
+          const message =
+            json?.error?.message ?? json?.message ?? `Signup failed (${response.status})`;
+          throw new Error(message);
+        }
+
+        // Backend may wrap the payload in a { data: ... } envelope
+        const data = json?.data ?? json;
+        accessToken = data?.accessToken ?? data?.access_token;
+        refreshToken = data?.refreshToken ?? data?.refresh_token;
+      } catch (err) {
+        console.error("Account creation failed:", err);
+        setSignupError(
+          err instanceof Error && err.message
+            ? err.message
+            : "Could not create your account. Please try again."
+        );
+        setSubmitting(false);
         return;
       }
 
@@ -351,7 +411,20 @@ DIMENSION RATINGS:
       params.set("organization", leadData.eduBackground.trim());
       params.set("company", leadData.eduBackground.trim());
 
-      window.location.href = `https://dev.openvalidations.com/signup?${params.toString()}`;
+      // URLSearchParams encodes spaces as "+", use %20 encoding instead
+      const encodeQuery = (p: URLSearchParams) => p.toString().replace(/\+/g, "%20");
+
+      if (accessToken && refreshToken) {
+        // Hand the token pair to the app's /callback route so the user lands
+        // signed in — the app stores them and routes to /command-center.
+        const handoff = new URLSearchParams();
+        handoff.set("access_token", accessToken);
+        handoff.set("refresh_token", refreshToken);
+        window.location.href = `${appBase}/callback?${encodeQuery(handoff)}`;
+      } else {
+        const query = encodeQuery(params);
+        window.location.href = `${appBase}/signup?${query}`;
+      }
       return;
     } else if (step >= 1 && step <= 5) {
       // Verify all questions in current pillar are answered
@@ -513,8 +586,114 @@ DIMENSION RATINGS:
                     {/* Intake Form Card */}
                     <div style={{ padding: "36px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)" }}>
                       <h3 style={{ fontSize: "20px", marginBottom: "20px" }}>{"Let's customize your report"}</h3>
+  <div className={styles.formGroup}>
+    <label htmlFor="name">Full Name</label>
+    <div className={styles.inputWrapper}>
+      <UserRound size={20} />
+      <input
+        id="name"
+        type="text"
+        name="name"
+        required
+        placeholder=" "
+        value={leadData.name}
+        onChange={handleLeadChange}
+      />
+    </div>
+  </div>
 
-                      <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+  {/* Email */}
+  <div className={styles.formGroup}>
+    <label htmlFor="email">Email</label>
+    <div className={styles.inputWrapper}>
+      <Mail size={20} />
+      <input
+        id="email"
+        type="email"
+        name="email"
+        required
+        placeholder="you@company.com"
+        value={leadData.email}
+        onChange={handleLeadChange}
+      />
+    </div>
+  </div>
+
+  {/* Organization */}
+  <div className={styles.formGroup}>
+    <label htmlFor="organization">
+      Organization (optional)
+    </label>
+    <div className={styles.inputWrapper}>
+      <Building2 size={20} />
+      <input
+        id="organization"
+        type="text"
+        name="eduBackground"
+        placeholder="Names your workspace"
+        value={leadData.eduBackground}
+        onChange={handleLeadChange}
+      />
+    </div>
+  </div>
+
+  {/* Password */}
+  <div className={styles.formGroup}>
+    <label htmlFor="password">Password</label>
+    <div className={styles.inputWrapper}>
+      <KeyRound size={20} />
+      <input
+        id="password"
+        type="password"
+        name="password"
+        required
+        minLength={8}
+        placeholder=" "
+        value={leadData.password}
+        onChange={handleLeadChange}
+      />
+    </div>
+    <span className={styles.helperText}>
+      At least 8 characters
+    </span>
+  </div>
+
+  {/* Confirm Password */}
+  <div className={styles.formGroup}>
+    <label htmlFor="confirmPassword">
+      Confirm Password
+    </label>
+    <div className={styles.inputWrapper}>
+      <KeyRound size={20} />
+      <input
+        id="confirmPassword"
+        type="password"
+        name="confirmPassword"
+        required
+        minLength={8}
+        placeholder=" "
+        value={leadData.confirmPassword}
+        onChange={handleLeadChange}
+      />
+    </div>
+  </div>
+
+  {/* Submit Button */}
+  <div className={styles.buttonContainer}>
+    {signupError && (
+      <p className={styles.formError}>{signupError}</p>
+    )}
+    <button
+      type="button"
+      onClick={handleNextStep}
+      className={styles.createAccountButton}
+      disabled={submitting}
+    >
+      {submitting ? "Creating Account..." : "Create Account"}
+      <ArrowRight size={21} />
+    </button>
+  </div>
+                      {/* <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                           <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Full Name *</label>
                           <input
@@ -561,7 +740,7 @@ DIMENSION RATINGS:
                         >
                           Start Free Assessment <ArrowRight size={18} />
                         </button>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </motion.div>
