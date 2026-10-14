@@ -47,10 +47,16 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logos/open%20vals%20logo.png",
+        url: "/openvals-og.png",
         width: 1200,
         height: 630,
-        alt: "OpenVals Logo",
+        alt: "OpenVals",
+      },
+      {
+        url: "/openvals-square.png",
+        width: 1200,
+        height: 1200,
+        alt: "OpenVals",
       },
     ],
   },
@@ -58,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "OpenVals - The Trust Layer for AI",
     description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
-    images: ["/logos/open%20vals%20logo.png"],
+    images: ["/openvals-og.png"],
   },
 
 };
