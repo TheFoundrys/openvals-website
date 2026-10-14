@@ -50,6 +50,11 @@ export default function Header() {
         { name: "RedShield", href: "/redshield" },
       ],
     },
+    {
+      name: "Pricing",
+      href: "/pricing",
+      highlight: true,
+    },
   ];
 
   return (
@@ -69,7 +74,7 @@ export default function Header() {
                 href={link.href}
                 className={`${styles.dropdownTrigger} ${link.highlight ? styles.navLinkHighlighted : ""}`}
               >
-                {link.name} {(link.subItems || link.megaGroups) && <ChevronDown size={14} />}
+                {link.name} {(link.subItems || link.megaGroups) && <ChevronDown size={15} />}
               </Link>
 
               {(link.subItems || link.megaGroups) && openDropdown === link.name && (
