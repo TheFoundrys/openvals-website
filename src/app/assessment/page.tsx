@@ -491,7 +491,7 @@ DIMENSION RATINGS:
 
                       <div style={{ marginTop: "32px" }}>
                         <a
-                          href="https://dev.openvalidations.com/signup"
+                          href="https://dev.openvalidations.com/auth/signup"
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`${styles.button} ${styles.primary}`}

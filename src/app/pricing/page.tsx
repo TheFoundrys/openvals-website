@@ -73,7 +73,7 @@ export default function PricingPage() {
                   </div>
 
                   <Link 
-                    href="https://dev.openvalidations.com/signup" 
+                    href="https://dev.openvalidations.com/auth/signup" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className={`${styles.ctaBtn} ${styles.ctaBtnSecondary}`}
@@ -125,7 +125,7 @@ export default function PricingPage() {
                   </div>
 
                   <Link 
-                    href="https://dev.openvalidations.com/signup" 
+                    href="https://dev.openvalidations.com/auth/signup" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className={`${styles.ctaBtn} ${styles.ctaBtnPrimary}`}
