@@ -41,48 +41,52 @@ export function HeroPart() {
         variants={STAGGER}
         style={{ flex: 1 }}
       >
-        <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(36px, 6vw, 84px)", marginBottom: "24px" }}>
-          The Trust Layer for AI
-        </motion.h2>
-        <motion.p variants={FADE_UP} style={{ fontSize: "clamp(16px, 3.2vw, 20px)", marginBottom: "32px", width: "100%" }}>
-          OpenVals helps enterprises validate, secure, and trust AI before production.
-        </motion.p>
-        <motion.div variants={FADE_UP} className={styles.commandBoxWrapper}>
-          <div className={styles.commandBox}>
-            <code className={styles.commandText}>
-              <span className={styles.commandTextLabel}>{command}</span>
-            </code>
-            <button
-              onClick={handleCopy}
-              className={styles.commandCopy}
-              title="Copy to clipboard"
-            >
-              {copied ? (
-                <Check size={18} />
-              ) : (
-                <Copy size={18} />
-              )}
-            </button>
-          </div>
+        <motion.div variants={STAGGER} className={styles.heroTextGroup}>
+          <motion.h2 variants={FADE_UP} className={styles.heroHeading}>
+            The Trust Layer for AI
+          </motion.h2>
+          <motion.p variants={FADE_UP} className={styles.heroSubheading}>
+            OpenVals helps enterprises validate, secure, and trust AI before production.
+          </motion.p>
         </motion.div>
+        <motion.div variants={FADE_UP} className={styles.heroActionsRow}>
+          <div className={styles.commandBoxWrapper}>
+            <div className={styles.commandBox}>
+              <code className={styles.commandText}>
+                <span className={styles.commandTextLabel}>{command}</span>
+              </code>
+              <button
+                onClick={handleCopy}
+                className={styles.commandCopy}
+                title="Copy to clipboard"
+              >
+                {copied ? (
+                  <Check size={18} />
+                ) : (
+                  <Copy size={18} />
+                )}
+              </button>
+            </div>
+          </div>
 
-        <motion.div variants={FADE_UP} className={styles.trustActions} style={{ marginTop: "24px" }}>
-          <Link
-            href="/openvals-docs"
-            className={`${styles.button} ${styles.secondary} ${styles.trustActionButton}`}
-          >
-            OpenVals Docs
-            <ExternalLink size={18} />
-          </Link>
-          <a
-            href="https://github.com/vishwanathakuthota/openvals"
-            className={`${styles.button} ${styles.secondary} ${styles.trustActionButton}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View on GitHub
-            <ExternalLink size={18} />
-          </a>
+          <div className={styles.trustActions}>
+            <Link
+              href="/openvals-docs"
+              className={`${styles.button} ${styles.secondary} ${styles.trustActionButton}`}
+            >
+              OpenVals Docs
+              <ExternalLink size={18} />
+            </Link>
+            <a
+              href="https://github.com/vishwanathakuthota/openvals"
+              className={`${styles.button} ${styles.secondary} ${styles.trustActionButton}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub
+              <ExternalLink size={18} />
+            </a>
+          </div>
         </motion.div>
       </motion.div>
 
