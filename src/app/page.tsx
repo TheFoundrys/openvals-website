@@ -59,16 +59,26 @@ export default function Home() {
         {/* SECTION 3: PROOF + PACKAGES + LEAD MAGNET */}
         <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(40px, 8vh, 80px) 0 0" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 var(--container-padding)" }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 var(--container-padding)", width: "100%", minWidth: 0, boxSizing: "border-box" }}>
               <motion.div
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
                 variants={STAGGER}
                 className={styles.scaledContent}
-                style={{ padding: "clamp(16px, 3vw, 34px)", borderRadius: "16px", backgroundColor: "var(--secondary-bg)", border: "1px solid var(--border)", boxShadow: "none" }}
+                style={{
+                  padding: "clamp(16px, 3vw, 34px)",
+                  borderRadius: "16px",
+                  backgroundColor: "var(--secondary-bg)",
+                  border: "1px solid var(--border)",
+                  boxShadow: "none",
+                  width: "100%",
+                  maxWidth: "100%",
+                  minWidth: 0,
+                  boxSizing: "border-box",
+                }}
               >
-                <motion.div variants={FADE_UP}>
+                <motion.div variants={FADE_UP} style={{ width: "100%", minWidth: 0 }}>
                   <HomepageConversionStack />
                 </motion.div>
               </motion.div>

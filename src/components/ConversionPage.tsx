@@ -703,19 +703,13 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
       whileInView="show"
       viewport={{ once: true }}
       variants={STAGGER}
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
-        gap: compact ? "24px" : "36px",
-        alignItems: "center",
-        width: "100%",
-      }}
+      className={`${styles.founderProofBand} ${compact ? styles.founderProofBandCompact : ""}`}
     >
-      <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "flex-start", gap: "16px", minWidth: 0 }}>
+      <motion.div variants={FADE_UP} className={styles.founderProofLeft}>
         <div
           style={{
-            width: compact ? "clamp(68px, 16vw, 86px)" : "112px",
-            height: compact ? "clamp(68px, 16vw, 86px)" : "112px",
+            width: compact ? "clamp(64px, 14vw, 84px)" : "112px",
+            height: compact ? "clamp(64px, 14vw, 84px)" : "112px",
             borderRadius: "16px",
             overflow: "hidden",
             border: "1px solid var(--border)",
@@ -729,7 +723,7 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
           aria-label="Vishwanath Akuthota"
         />
         <div style={{ minWidth: 0, marginTop: "-4px" }}>
-          <h3 style={{ margin: "0 0 8px", fontSize: compact ? "clamp(19px, 3.8vw, 24px)" : "clamp(24px, 4.5vw, 32px)", lineHeight: 1.15 }}>
+          <h3 style={{ margin: "0 0 8px", fontSize: compact ? "clamp(18px, 3.2vw, 23px)" : "clamp(24px, 4.5vw, 32px)", lineHeight: 1.15 }}>
             Research, books, media, and IEEE publications behind the trust layer.
           </h3>
           <Link href="/vishwanathakuthota" className={styles.textLink} style={{ color: "var(--accent)", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "14px" }}>
@@ -738,29 +732,29 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
         </div>
       </motion.div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%" }}>
+      <div className={styles.founderProofRight}>
         <motion.div
           variants={STAGGER}
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 130px), 1fr))",
-            gap: "10px",
-          }}
+          className={styles.founderProofStats}
         >
           {founderProof.map((item) => (
             <motion.div
               key={item.label}
               variants={FADE_UP}
               style={{
-                minHeight: compact ? "88px" : "116px",
-                padding: compact ? "14px 16px" : "22px",
+                minHeight: compact ? "82px" : "112px",
+                padding: compact ? "12px 14px" : "20px",
                 border: "1px solid var(--border)",
                 borderRadius: "12px",
                 background: "var(--card-bg)",
+                minWidth: 0,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
               }}
             >
-              <div style={{ color: "var(--accent)", fontSize: compact ? "clamp(20px, 4vw, 26px)" : "30px", fontWeight: 900, lineHeight: 1 }}>{item.value}</div>
-              <p style={{ margin: "8px 0 0", color: "var(--text-muted)", fontSize: "12.5px", lineHeight: 1.35 }}>{item.label}</p>
+              <div style={{ color: "var(--accent)", fontSize: compact ? "clamp(18px, 3.5vw, 24px)" : "30px", fontWeight: 900, lineHeight: 1 }}>{item.value}</div>
+              <p style={{ margin: "6px 0 0", color: "var(--text-muted)", fontSize: compact ? "11.5px" : "12.5px", lineHeight: 1.35 }}>{item.label}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -780,7 +774,7 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
                   color: "var(--text-main)",
                   fontFamily: "Georgia, serif",
                   fontWeight: 900,
-                  fontSize: "clamp(24px, 5.5vw, 28px)",
+                  fontSize: compact ? "clamp(18px, 3.2vw, 23px)" : "clamp(22px, 4vw, 26px)",
                   opacity: 0.9,
                   cursor: "default",
                   transition: "opacity 0.2s, transform 0.2s",
@@ -848,12 +842,12 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
               style={{
                 color: "var(--text-muted)",
                 fontWeight: 700,
-                fontSize: "13px",
+                fontSize: "12.5px",
                 whiteSpace: "nowrap",
                 userSelect: "none",
               }}
             >
-              And more.....
+              And more...
             </span>
           </div>
         </motion.div>
@@ -864,7 +858,7 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
 
 export function EngagementPackages({ compact = false, featuredPackage }: { compact?: boolean; featuredPackage?: string }) {
   return (
-    <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} style={{ width: "100%" }}>
+    <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} style={{ width: "100%", minWidth: 0 }}>
       <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "20px", marginBottom: "22px", flexWrap: "wrap" }}>
         <div>
           <div style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 800, textTransform: "uppercase", letterSpacing: 0 }}>
@@ -883,11 +877,7 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
 
       <motion.div
         variants={STAGGER}
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
-          gap: "16px",
-        }}
+        className={styles.engagementPackagesGrid}
       >
         {engagementPackages.map((pkg) => {
           const PackageIcon = pkg.icon;
@@ -904,6 +894,7 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
                 borderColor: featured ? "var(--accent)" : "var(--border)",
                 height: "100%",
                 cursor: isAssessment ? "pointer" : "default",
+                minWidth: 0,
               }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", gap: "14px", alignItems: "flex-start", marginBottom: "16px" }}>
@@ -935,7 +926,7 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
               <motion.div
                 key={pkg.title}
                 variants={FADE_UP}
-                style={{ height: "100%" }}
+                style={{ height: "100%", minWidth: 0 }}
               >
                 <Link href="/assessment" style={{ textDecoration: "none", color: "inherit", display: "block", height: "100%" }}>
                   {cardContent}
@@ -948,7 +939,7 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
             <motion.div
               key={pkg.title}
               variants={FADE_UP}
-              style={{ height: "100%" }}
+              style={{ height: "100%", minWidth: 0 }}
             >
               {cardContent}
             </motion.div>
@@ -974,6 +965,8 @@ export function LeadMagnetCta({ compact = false }: { compact?: boolean }) {
         background: "var(--card-bg)",
         boxShadow: "none",
         width: "100%",
+        minWidth: 0,
+        boxSizing: "border-box",
       }}
     >
       <motion.h2 variants={FADE_UP} style={{ margin: "0 auto 14px", maxWidth: "760px", fontSize: compact ? "clamp(24px, 5vw, 30px)" : "clamp(30px, 6vw, 46px)", lineHeight: 1.1 }}>
@@ -993,7 +986,7 @@ export function LeadMagnetCta({ compact = false }: { compact?: boolean }) {
 
 export function HomepageConversionStack() {
   return (
-    <div style={{ display: "grid", gap: "26px", width: "100%" }}>
+    <div style={{ display: "grid", gap: "26px", width: "100%", minWidth: 0, maxWidth: "100%", boxSizing: "border-box" }}>
       <FounderProofBand compact />
       <EngagementPackages compact />
       <LeadMagnetCta compact />
