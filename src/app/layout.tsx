@@ -38,6 +38,18 @@ export const metadata: Metadata = {
     "Predictive Modeling",
     "Data Pipelines"
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/openvals-square.png", type: "image/png", sizes: "192x192" },
+      { url: "/openvals-square.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "OpenVals - AI Validation & Assurance Platform",
     description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
@@ -47,15 +59,15 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/openvals-og.png",
-        width: 1200,
-        height: 630,
-        alt: "OpenVals",
-      },
-      {
         url: "/openvals-square.png",
         width: 1200,
         height: 1200,
+        alt: "OpenVals",
+      },
+      {
+        url: "/openvals-og.png",
+        width: 1200,
+        height: 630,
         alt: "OpenVals",
       },
     ],
@@ -64,9 +76,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "OpenVals - The Trust Layer for AI",
     description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
-    images: ["/openvals-og.png"],
+    images: ["/openvals-square.png", "/openvals-og.png"],
   },
-
 };
 
 
@@ -80,12 +91,17 @@ export default function RootLayout({
     "@type": "Organization",
     name: "OpenVals",
     url: "https://openvalidations.com",
+    logo: "https://openvalidations.com/openvals-square.png",
+    image: "https://openvalidations.com/openvals-square.png",
     description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
   };
 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
