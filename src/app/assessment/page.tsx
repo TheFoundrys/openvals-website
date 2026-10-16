@@ -315,43 +315,7 @@ DIMENSION RATINGS:
 
   const handleNextStep = () => {
     if (step === 0) {
-      // Verify lead data is filled
-      if (!leadData.name.trim() || !leadData.email.trim() || !leadData.eduBackground.trim()) {
-        alert("Please fill out all required fields to start the assessment.");
-        return;
-      }
-
-      // Record lead in CRM
-      try {
-        fetch("https://crm.thefoundrys.com/api/v1/lms/external", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": "default-lms-secret-key"
-          },
-          keepalive: true,
-          body: JSON.stringify({
-            name: leadData.name.trim(),
-            phone: leadData.phone || "N/A",
-            email: leadData.email.trim(),
-            location: leadData.location || "Online Assessment",
-            eduBackground: leadData.eduBackground.trim(),
-            aiDescription: "Direct Signup via Assessment Form",
-            leadSource: "AITRA Assessment"
-          })
-        }).catch(() => {});
-      } catch {
-        // ignore background logging errors
-      }
-
-      const params = new URLSearchParams();
-      params.set("name", leadData.name.trim());
-      params.set("fullName", leadData.name.trim());
-      params.set("email", leadData.email.trim());
-      params.set("organization", leadData.eduBackground.trim());
-      params.set("company", leadData.eduBackground.trim());
-
-      window.location.href = `https://dev.openvalidations.com/signup?${params.toString()}`;
+      window.open("https://dev.openvalidations.com/signup", "_blank", "noopener,noreferrer");
       return;
     } else if (step >= 1 && step <= 5) {
       // Verify all questions in current pillar are answered
@@ -510,57 +474,31 @@ DIMENSION RATINGS:
                       </div>
                     </div>
 
-                    {/* Intake Form Card */}
-                    <div style={{ padding: "36px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)" }}>
-                      <h3 style={{ fontSize: "20px", marginBottom: "20px" }}>{"Let's customize your report"}</h3>
-
-                      <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                          <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Full Name *</label>
-                          <input
-                            type="text"
-                            name="name"
-                            required
-                            placeholder="John Doe"
-                            value={leadData.name}
-                            onChange={handleLeadChange}
-                            style={{ padding: "10px 14px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)", outline: "none", fontSize: "14px" }}
-                          />
+                    {/* Assessment Action Card */}
+                    <div style={{ padding: "36px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                      <div>
+                        <h3 style={{ fontSize: "22px", marginBottom: "18px", color: "var(--text-main)" }}>Ready to Begin Your Assessment?</h3>
+                        
+                        <div style={{ display: "flex", flexDirection: "column", gap: "16px", color: "var(--text-muted)", fontSize: "15px", lineHeight: "1.7" }}>
+                          <p style={{ margin: 0 }}>
+                            Create your free OpenVals account to evaluate your models across strategic pillars including data readiness, model security, and regulatory compliance.
+                          </p>
+                          <p style={{ margin: 0 }}>
+                            Upon signing in, you will get immediate access to real-time maturity scoring, automated vulnerability checks, and audit-ready executive reports tailored for your organization.
+                          </p>
                         </div>
+                      </div>
 
-                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                          <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Email Address *</label>
-                          <input
-                            type="email"
-                            name="email"
-                            required
-                            placeholder="john@organization.com"
-                            value={leadData.email}
-                            onChange={handleLeadChange}
-                            style={{ padding: "10px 14px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)", outline: "none", fontSize: "14px" }}
-                          />
-                        </div>
-
-                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                          <label style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-muted)" }}>Company / Org *</label>
-                          <input
-                            type="text"
-                            name="eduBackground"
-                            required
-                            placeholder="Acme Corporation"
-                            value={leadData.eduBackground}
-                            onChange={handleLeadChange}
-                            style={{ padding: "10px 14px", borderRadius: "8px", background: "var(--secondary-bg)", border: "1px solid var(--border)", color: "var(--text-main)", outline: "none", fontSize: "14px" }}
-                          />
-                        </div>
-
-                        <button
-                          onClick={handleNextStep}
+                      <div style={{ marginTop: "32px" }}>
+                        <a
+                          href="https://dev.openvalidations.com/auth/signup"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className={`${styles.button} ${styles.primary}`}
-                          style={{ width: "100%", padding: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginTop: "10px", fontSize: "15px", fontWeight: 700 }}
+                          style={{ width: "100%", padding: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", fontSize: "15px", fontWeight: 700, textDecoration: "none" }}
                         >
                           Start Free Assessment <ArrowRight size={18} />
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>

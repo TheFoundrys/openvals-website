@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/ai-compliance-readiness', 0.9],
     ['/trust-score-engine', 0.9],
     ['/apply', 0.85],
+    ['/pricing', 0.9],
     ['/blog', 0.8],
     ['/contact', 0.5],
   ] as const
