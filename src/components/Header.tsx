@@ -50,11 +50,11 @@ export default function Header() {
         { name: "RedShield", href: "/redshield" },
       ],
     },
-    {
-      name: "Pricing",
-      href: "/pricing",
-      highlight: true,
-    },
+    // {
+    //   name: "Pricing",
+    //   href: "/pricing",
+    //   highlight: true,
+    // },
   ];
 
   return (
