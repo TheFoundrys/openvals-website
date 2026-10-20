@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-shadow-ai-your-employees-may-already-deploying",
+    title: "Shadow AI: Your Employees May Already Be Deploying It (And You Don't Even Know)",
+    slug: { current: "shadow-ai-your-employees-may-already-deploying" },
+    publishedAt: "2026-10-20T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/shadow_ai_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/shadow-ai-your-employees-may-already-deploying-you-dont-akuthota--3qptc",
+  },
+  {
     _id: "local-what-happens-when-ai-stops-answering-starts-acting",
     title: "What Happens When AI Stops Answering and Starts Acting",
     slug: { current: "what-happens-when-ai-stops-answering-starts-acting" },
