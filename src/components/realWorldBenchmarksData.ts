@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "OCT 19, 2026";
+export const LATEST_BENCHMARK_DATE = "OCT 23, 2026";
 
 export const MODELS: ModelData[] = [
   {
@@ -281,6 +281,41 @@ export const MODELS: ModelData[] = [
     "reliabilityLabel": "92.5%",
     "drs": 58,
     "drsLabel": "58.0%"
+  },
+  {
+    "id": "mistral-nemo-12b-12b",
+    "name": "MINISTRAL",
+    "version": "3.0B",
+    "lab": "Mistral AI",
+    "score": 85.2,
+    "displayScore": "85.2%",
+    "cost": 0.35,
+    "costLabel": "$0.35",
+    "latency": 3382,
+    "latencyLabel": "3382 ms",
+    "tokenUsage": 5600,
+    "tokenLabel": "5.6k",
+    "color": "#d8b335",
+    "textColor": "#1e293b",
+    "hasPattern": false,
+    "breakdown": {
+      "finance": "83.0%",
+      "software": "56.1%",
+      "cybersecurity": "61.6%",
+      "mentalHealth": "56.6%"
+    },
+    "semantic": 45.1,
+    "semanticLabel": "45.1%",
+    "factuality": 56.1,
+    "factualityLabel": "56.1%",
+    "hallucination": 61.6,
+    "hallucinationLabel": "61.6%",
+    "safety": 83,
+    "safetyLabel": "83.0%",
+    "reliability": 91.4,
+    "reliabilityLabel": "91.4%",
+    "drs": 56.6,
+    "drsLabel": "56.6%"
   },
   {
     "id": "smollm-1-7b",
@@ -596,41 +631,6 @@ export const MODELS: ModelData[] = [
     "reliabilityLabel": "64.0%",
     "drs": 49.8,
     "drsLabel": "49.8%"
-  },
-  {
-    "id": "ministral-3-3-0b",
-    "name": "MINISTRAL",
-    "version": "3.0B",
-    "lab": "Mistral AI",
-    "score": 67.4,
-    "displayScore": "67.4%",
-    "cost": 0.35,
-    "costLabel": "$0.35",
-    "latency": 9955,
-    "latencyLabel": "9955 ms",
-    "tokenUsage": 5600,
-    "tokenLabel": "5.6k",
-    "color": "#d8b335",
-    "textColor": "#1e293b",
-    "hasPattern": false,
-    "breakdown": {
-      "finance": "86.4%",
-      "software": "67.5%",
-      "cybersecurity": "56.2%",
-      "mentalHealth": "56.7%"
-    },
-    "semantic": 59.3,
-    "semanticLabel": "59.3%",
-    "factuality": 67.5,
-    "factualityLabel": "67.5%",
-    "hallucination": 56.2,
-    "hallucinationLabel": "56.2%",
-    "safety": 86.4,
-    "safetyLabel": "86.4%",
-    "reliability": 89,
-    "reliabilityLabel": "89.0%",
-    "drs": 56.7,
-    "drsLabel": "56.7%"
   },
   {
     "id": "hermes3-3-0b",
