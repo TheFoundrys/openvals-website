@@ -18,6 +18,7 @@ type DocsPageId =
   | "reporting"
   | "screenshots"
   | "metrics"
+  | "integrations"
   | "domains"
   | "roadmap"
   | "vision"
@@ -49,6 +50,7 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
       { id: "semantic-intelligence", label: "Semantic Intelligence" },
       { id: "reporting", label: "Executive Reporting" },
       { id: "screenshots", label: "Screenshots & Previews" },
+      { id: "integrations", label: "Integrations & User Guide" },
     ],
   },
   {
@@ -83,6 +85,23 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   "semantic-intelligence": { group: "Core Capabilities", title: "Semantic Intelligence Engine", onThisPage: ["Embeddings", "Roadmap"] },
   reporting: { group: "Core Capabilities", title: "Executive Reporting", onThisPage: ["Overview", "Dashboard Report", "Sample-Level Report"] },
   screenshots: { group: "Core Capabilities", title: "Screenshots & Previews", onThisPage: ["Trust Dashboard", "Single Model Executive Report", "Dataset Validation CLI"] },
+  integrations: {
+    group: "Core Capabilities",
+    title: "OpenVals Integrations Analysis & User Documentation",
+    onThisPage: [
+      "1. Integration Architecture & Current Maturity",
+      "Integration levels",
+      "L3 explorer capabilities",
+      "Important limitation: downstream model consumption",
+      "2. User Guide",
+      "Connecting a provider",
+      "What you can do after connecting",
+      "Imported Models",
+      "Custom connectors",
+      "Disconnecting a provider",
+      "Troubleshooting",
+    ],
+  },
   metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
   domains: { group: "Reference", title: "Supported Benchmark Domains", onThisPage: ["Available Datasets", "Finance", "Healthcare", "Legal", "Developer", "Sample", "Cybersecurity", "Reasoning", "Math", "Enterprise Ops"] },
   roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.5.5", "v0.6.0", "Future"] },
@@ -1422,6 +1441,186 @@ READY FOR PRODUCTION`}</CodeBlock>
           </Paragraph>
           <H2>Evaluation Signals</H2>
           <MetricsTable />
+        </>
+      );
+    case "integrations":
+      return (
+        <>
+          <div style={{ fontSize: "17px", color: "var(--docs-muted)", lineHeight: 1.7, marginBottom: "28px" }}>
+            Comprehensive analysis and user manual for connecting OpenVals to model registries, code repositories, databases, storage, and inference providers.
+          </div>
+
+          <H2>1. Integration Architecture & Current Maturity</H2>
+          <Paragraph>
+            The Integrations feature is connected to a dedicated backend service (Express + PostgreSQL, as described by the project types), separate from the main application API. Other dashboard areas—such as Model Compare and Command Center—still use the main API and/or mock-enabled data paths. Therefore, integrations are currently implemented at the integrations-service level and are not yet federated into all downstream features.
+          </Paragraph>
+
+          <H2>Integration levels</H2>
+          <DocsTable
+            headers={["Level", "Meaning", "Coverage"]}
+            rows={[
+              [
+                <strong key="l1" style={{ color: "var(--docs-heading)" }}>L1 — Catalog</strong>,
+                "Providers are shown dynamically from GET /providers. Users can register custom connectors with POST /providers.",
+                "All 50+ provider slugs listed in registry.ts."
+              ],
+              [
+                <strong key="l2" style={{ color: "var(--docs-heading)" }}>L2 — Connect & store</strong>,
+                "A generic API-key dialog is driven by provider.config.form. Credentials are probed and stored through POST /credentials; connection state uses GET/DELETE /connections.",
+                "Providers without a dedicated explorer."
+              ],
+              [
+                <strong key="l3" style={{ color: "var(--docs-heading)" }}>L3 — Full explorer</strong>,
+                "Dedicated explorer UIs proxy live operations through GET/POST /api/integrations/{provider} with an action parameter. Provider credentials are sent in Authorization; the app JWT is sent in X-OpenVals-Token.",
+                "Eight dedicated explorers plus a shared model-hub explorer for approximately 45 inference providers."
+              ]
+            ]}
+          />
+
+          <H2>L3 explorer capabilities</H2>
+          <div style={{ display: "grid", gap: "14px", margin: "20px 0" }}>
+            {[
+              {
+                title: "Hugging Face",
+                desc: "Identify the authenticated user (whoami); search models and datasets; inspect repository files and model details; run hosted inference; import models into the OpenVals catalog."
+              },
+              {
+                title: "GitHub",
+                desc: "Browse repositories, branches, file contents, commits, pull requests, issues, and Actions workflows/runs; dispatch workflows; push files; create branches, pull requests, and issues."
+              },
+              {
+                title: "GitLab",
+                desc: "Browse projects and groups, inspect project details, view pipelines, trigger pipelines, and configure self-hosted instance URLs."
+              },
+              {
+                title: "Postgres",
+                desc: "Connect and run queries; list/create databases and tables; preview, insert, update, and delete rows. Destructive operations require confirmation."
+              },
+              {
+                title: "S3",
+                desc: "Verify credentials; browse buckets and objects; inspect object metadata; generate presigned URLs; select a region."
+              },
+              {
+                title: "Ollama",
+                desc: "Ping a host; list, pull, inspect, and delete models; generate chat responses; create models from a Modelfile."
+              },
+              {
+                title: "vLLM",
+                desc: "Check service health; list served models; run completions; inspect metrics."
+              },
+              {
+                title: "MLflow",
+                desc: "Check the tracking URI; browse registered models, experiments, and runs; transition model stages; import models."
+              },
+              {
+                title: "Shared model-hub explorer",
+                desc: "For approximately 45 inference providers—including OpenAI, Anthropic, Gemini, Groq, Mistral, Together, and OpenRouter—connect, search, inspect model details, and run inference where supported. The chat tab is hidden when the provider configuration disables chat."
+              }
+            ].map((item, idx) => (
+              <div key={idx} style={{
+                border: "1px solid var(--docs-border)",
+                borderRadius: "10px",
+                padding: "16px 20px",
+                background: "var(--docs-card)"
+              }}>
+                <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
+                  {item.title}
+                </div>
+                <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
+                  {item.desc}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <H2>Important limitation: downstream model consumption</H2>
+          <div style={{
+            background: "rgba(234, 88, 12, 0.08)",
+            border: "1px solid rgba(234, 88, 12, 0.3)",
+            borderRadius: "12px",
+            padding: "20px 24px",
+            margin: "24px 0",
+            color: "var(--docs-text)"
+          }}>
+            <div style={{ fontWeight: 700, color: "#ea580c", fontSize: "15px", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <span>⚠️</span> Current gap
+            </div>
+            <p style={{ margin: 0, fontSize: "15px", lineHeight: 1.65, color: "var(--docs-text)" }}>
+              Models imported through <code>POST /models</code> currently appear in the Imported Models table on the Integrations page. Model Compare, Validation Runs, and Command Center still read from the main app API (which may use mock-enabled paths), so imported models are not yet consumed end-to-end by those features. This is an implementation gap, not merely a documentation issue.
+            </p>
+          </div>
+
+          <H2>2. User Guide</H2>
+          <Paragraph>
+            The Integrations page connects OpenVals to model sources, registries, repositories, databases, and storage. Connected credentials are verified when saved and stored encrypted by the integrations service.
+          </Paragraph>
+
+          <H2>Connecting a provider</H2>
+          <ol style={{ color: "var(--docs-muted)", fontSize: "16.5px", lineHeight: 1.8, margin: "0 0 24px", paddingLeft: "24px" }}>
+            <li style={{ marginBottom: "8px" }}>Open <strong>Integrations</strong> from the sidebar.</li>
+            <li style={{ marginBottom: "8px" }}>Find the provider under <strong>Available Connectors</strong> and select <strong>Connect</strong>.</li>
+            <li style={{ marginBottom: "8px" }}>
+              Enter the requested credentials. Explorer providers (Hugging Face, GitHub, GitLab, Postgres, S3, Ollama, vLLM, and MLflow) open a dedicated explorer where the connection can be tested live. Other providers use a simple API-key dialog.
+            </li>
+            <li style={{ marginBottom: "8px" }}>After a successful connection, the provider card appears under <strong>Connected Integrations</strong>.</li>
+          </ol>
+
+          <H2>What you can do after connecting</H2>
+          <BulletList
+            items={[
+              "Hugging Face and inference providers: Search and browse models and datasets, view model cards, run hosted inference where supported, and import models into the OpenVals catalog.",
+              "GitHub and GitLab: Browse repositories, branches, files, commits, pull requests/issues, and CI runs; create branches, pull requests, and issues; trigger pipelines or workflows where supported.",
+              "Ollama and vLLM: List locally served models, pull or create Ollama models, and send test prompts.",
+              "MLflow: Browse registered models, experiments, and runs; transition model stages; import models.",
+              "Postgres: Run queries and manage databases, tables, and rows. Destructive actions require confirmation.",
+              "S3: Browse buckets and objects and generate presigned download URLs."
+            ]}
+          />
+
+          <H2>Imported Models</H2>
+          <Paragraph>
+            Models imported from explorers appear in the Imported Models table on the Integrations page. The table includes fields such as name, provider, family, deployment, and lifecycle. Select <strong>Remove</strong> to delete an entry.
+          </Paragraph>
+
+          <H2>Custom connectors</H2>
+          <Paragraph>
+            Select <strong>Add Connector</strong> to register a custom provider in the catalog. Provide a slug, display name, type, icon, and optional connection-form labels. The connector then appears under Available Connectors.
+          </Paragraph>
+
+          <H2>Disconnecting a provider</H2>
+          <Paragraph>
+            On a connected provider card, select <strong>Disconnect</strong> and confirm. This deletes the stored credentials and closes the connection. You can reconnect later by following the connection steps.
+          </Paragraph>
+
+          <H2>Troubleshooting</H2>
+          <div style={{ display: "grid", gap: "14px", margin: "20px 0" }}>
+            <div style={{ border: "1px solid var(--docs-border)", borderRadius: "10px", padding: "16px 20px", background: "var(--docs-card)" }}>
+              <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "15px", marginBottom: "4px" }}>
+                &ldquo;Integrations API unreachable&rdquo;
+              </div>
+              <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
+                The integrations service may be unavailable, or your session may have expired. Try Retry; if the issue persists, sign in again or contact your administrator.
+              </div>
+            </div>
+
+            <div style={{ border: "1px solid var(--docs-border)", borderRadius: "10px", padding: "16px 20px", background: "var(--docs-card)" }}>
+              <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "15px", marginBottom: "4px" }}>
+                Connection probe fails
+              </div>
+              <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
+                The provider may have rejected the credential. Verify the API key/token, required scopes or permissions, provider endpoint, and any required region or instance URL.
+              </div>
+            </div>
+
+            <div style={{ border: "1px solid var(--docs-border)", borderRadius: "10px", padding: "16px 20px", background: "var(--docs-card)" }}>
+              <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "15px", marginBottom: "4px" }}>
+                Session expired
+              </div>
+              <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
+                Sign in again when redirected. A failed provider credential probe should not, by itself, sign you out of OpenVals.
+              </div>
+            </div>
+          </div>
         </>
       );
     case "factuality-engine":

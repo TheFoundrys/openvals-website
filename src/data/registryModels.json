@@ -1,0 +1,269 @@
+[
+  {
+    "id": 1,
+    "name": "GPT-4.1 Mini",
+    "version": "2025-04",
+    "provider": "OpenAI",
+    "lifecycle": "Active",
+    "primaryUseCase": "General Reasoning & Code",
+    "bestUse": "Balanced production assistant where speed, cost, and quality all matter.",
+    "architecture": "Transformer LLM",
+    "tags": [
+      "LLM",
+      "Low Latency",
+      "Cost Efficient",
+      "Tool Calling"
+    ],
+    "lastAssessedAt": "2026-09-28T14:32:00Z",
+    "decisionStatus": "Approved",
+    "guardrailsActive": 4,
+    "metrics": {
+      "accuracy": 94.2,
+      "safetyScore": 96.5,
+      "reliabilityScore": 98.1,
+      "latencyP95Ms": 240,
+      "costPer1kTokens": 0.0003,
+      "complianceScore": 95,
+      "driftIndex": 0.04,
+      "riskLevel": "Low",
+      "overallFitScore": 94
+    }
+  },
+  {
+    "id": 2,
+    "name": "Claude 3.7 Sonnet",
+    "version": "2025-06",
+    "provider": "Anthropic",
+    "lifecycle": "Active",
+    "primaryUseCase": "Deep Reasoning & Compliance Analysis",
+    "bestUse": "Sensitive advisory workflows that need strong instruction following and safer responses.",
+    "architecture": "Transformer LLM",
+    "tags": [
+      "LLM",
+      "Extended Thinking",
+      "High Safety",
+      "Nuance"
+    ],
+    "lastAssessedAt": "2026-09-29T08:15:00Z",
+    "decisionStatus": "Approved",
+    "guardrailsActive": 5,
+    "metrics": {
+      "accuracy": 97.4,
+      "safetyScore": 98.9,
+      "reliabilityScore": 97.8,
+      "latencyP95Ms": 510,
+      "costPer1kTokens": 0.003,
+      "complianceScore": 98.5,
+      "driftIndex": 0.02,
+      "riskLevel": "Low",
+      "overallFitScore": 97
+    }
+  },
+  {
+    "id": 3,
+    "name": "Llama 3.3 70B",
+    "version": "Instruct-v1.2",
+    "provider": "Meta",
+    "lifecycle": "Active",
+    "primaryUseCase": "Self-Hosted Enterprise Agent Orchestration",
+    "bestUse": "Regulated teams that need private hosting and model control.",
+    "architecture": "Transformer LLM",
+    "tags": [
+      "Open Weights",
+      "Self-Hosted",
+      "VPC Safe",
+      "Custom Tunable"
+    ],
+    "lastAssessedAt": "2026-09-27T19:40:00Z",
+    "decisionStatus": "Approved",
+    "guardrailsActive": 3,
+    "metrics": {
+      "accuracy": 92.8,
+      "safetyScore": 91,
+      "reliabilityScore": 94.5,
+      "latencyP95Ms": 380,
+      "costPer1kTokens": 0.0008,
+      "complianceScore": 92,
+      "driftIndex": 0.05,
+      "riskLevel": "Medium",
+      "overallFitScore": 91
+    }
+  },
+  {
+    "id": 4,
+    "name": "Mistral Small",
+    "version": "24B-Latest",
+    "provider": "Mistral",
+    "lifecycle": "Active",
+    "primaryUseCase": "Summarization & High-Volume Routing",
+    "bestUse": "Fast, inexpensive workflows with clear inputs and well-bounded decisions.",
+    "architecture": "Transformer LLM",
+    "tags": [
+      "Multilingual",
+      "Fast",
+      "European Sovereign",
+      "Low Cost"
+    ],
+    "lastAssessedAt": "2026-09-25T11:20:00Z",
+    "decisionStatus": "Approved",
+    "guardrailsActive": 3,
+    "metrics": {
+      "accuracy": 89.6,
+      "safetyScore": 92.4,
+      "reliabilityScore": 93.2,
+      "latencyP95Ms": 195,
+      "costPer1kTokens": 0.0002,
+      "complianceScore": 94,
+      "driftIndex": 0.06,
+      "riskLevel": "Low",
+      "overallFitScore": 89
+    }
+  },
+  {
+    "id": 5,
+    "name": "FinBERT",
+    "version": "v2.1",
+    "provider": "Hugging Face",
+    "lifecycle": "Active",
+    "primaryUseCase": "Financial Sentiment & SEC Disclosure Analysis",
+    "bestUse": "Finance-specific text classification with explainable outputs.",
+    "architecture": "Encoder",
+    "tags": [
+      "Domain-Specific",
+      "Finance",
+      "Sentiment",
+      "Audit Ready"
+    ],
+    "lastAssessedAt": "2026-09-24T16:00:00Z",
+    "decisionStatus": "Approved",
+    "guardrailsActive": 2,
+    "metrics": {
+      "accuracy": 95.1,
+      "safetyScore": 99,
+      "reliabilityScore": 96,
+      "latencyP95Ms": 45,
+      "costPer1kTokens": 0.00005,
+      "complianceScore": 96.5,
+      "driftIndex": 0.03,
+      "riskLevel": "Low",
+      "overallFitScore": 93
+    }
+  },
+  {
+    "id": 6,
+    "name": "BERT Base Classifier",
+    "version": "Legal-Tuned-v3",
+    "provider": "Custom / In-House",
+    "lifecycle": "Staging",
+    "primaryUseCase": "Contract Clause Triage & Clause Tagging",
+    "bestUse": "Stable classification tasks with known labels and limited language variation.",
+    "architecture": "Encoder",
+    "tags": [
+      "Private VPC",
+      "No External API",
+      "High Throughput"
+    ],
+    "lastAssessedAt": "2026-09-26T10:10:00Z",
+    "decisionStatus": "Conditional",
+    "guardrailsActive": 2,
+    "metrics": {
+      "accuracy": 88.3,
+      "safetyScore": 99.5,
+      "reliabilityScore": 91.2,
+      "latencyP95Ms": 38,
+      "costPer1kTokens": 0.00003,
+      "complianceScore": 95,
+      "driftIndex": 0.07,
+      "riskLevel": "Medium",
+      "overallFitScore": 86
+    }
+  },
+  {
+    "id": 7,
+    "name": "Random Forest Risk v2",
+    "version": "2.4.1",
+    "provider": "Custom / In-House",
+    "lifecycle": "Active",
+    "primaryUseCase": "Transaction Fraud Scoring & Credit Triage",
+    "bestUse": "Legacy tabular risk scoring that needs drift monitoring and challenger comparison.",
+    "architecture": "Ensemble",
+    "tags": [
+      "Tabular",
+      "Explainable",
+      "Deterministic",
+      "Sub-10ms"
+    ],
+    "lastAssessedAt": "2026-09-29T02:00:00Z",
+    "decisionStatus": "Approved",
+    "guardrailsActive": 1,
+    "metrics": {
+      "accuracy": 93.7,
+      "safetyScore": 100,
+      "reliabilityScore": 99.4,
+      "latencyP95Ms": 8,
+      "costPer1kTokens": 0.00001,
+      "complianceScore": 99,
+      "driftIndex": 0.02,
+      "riskLevel": "Low",
+      "overallFitScore": 95
+    }
+  },
+  {
+    "id": 8,
+    "name": "XGBoost Tabular Baseline",
+    "version": "1.9.0",
+    "provider": "Custom / In-House",
+    "lifecycle": "Evaluation",
+    "primaryUseCase": "Customer Churn Prediction & Life-Cycle Modeling",
+    "bestUse": "Business-critical tabular decisions where explainability and auditability beat generative flexibility.",
+    "architecture": "Gradient Boosted Tree",
+    "tags": [
+      "Tabular",
+      "Fast Training",
+      "SHAP Values"
+    ],
+    "lastAssessedAt": "2026-09-21T18:45:00Z",
+    "decisionStatus": "Pending Review",
+    "guardrailsActive": 1,
+    "metrics": {
+      "accuracy": 87.2,
+      "safetyScore": 98,
+      "reliabilityScore": 89.5,
+      "latencyP95Ms": 12,
+      "costPer1kTokens": 0.00001,
+      "complianceScore": 88,
+      "driftIndex": 0.09,
+      "riskLevel": "Medium",
+      "overallFitScore": 84
+    }
+  },
+  {
+    "id": 9,
+    "name": "GPT-3.5 Turbo",
+    "version": "0125-Legacy",
+    "provider": "OpenAI",
+    "lifecycle": "Deprecated",
+    "primaryUseCase": "Legacy Customer Feedback Tagging",
+    "bestUse": "Existing low-risk support automations that need migration planning.",
+    "architecture": "Transformer LLM",
+    "tags": [
+      "Legacy",
+      "Pending Migration",
+      "High Drift"
+    ],
+    "lastAssessedAt": "2026-08-15T09:00:00Z",
+    "decisionStatus": "Conditional",
+    "guardrailsActive": 2,
+    "metrics": {
+      "accuracy": 81.4,
+      "safetyScore": 85,
+      "reliabilityScore": 88,
+      "latencyP95Ms": 420,
+      "costPer1kTokens": 0.0005,
+      "complianceScore": 82,
+      "driftIndex": 0.18,
+      "riskLevel": "High",
+      "overallFitScore": 74
+    }
+  }
+]

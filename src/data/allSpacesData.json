@@ -1,0 +1,342 @@
+﻿{
+    "data":  {
+                 "items":  [
+                               {
+                                   "slug":  "pii-leak-scanner",
+                                   "title":  "PII Leak Scanner",
+                                   "description":  "Paste output or stream completions to detect personal-data leakage in real time.",
+                                   "category":  "Security",
+                                   "runtime":  "Zero",
+                                   "uses":  312,
+                                   "daysAgo":  9,
+                                   "featured":  true,
+                                   "gradient":  "blue"
+                               },
+                               {
+                                   "slug":  "eu-ai-act-checklist",
+                                   "title":  "EU AI Act Checklist",
+                                   "description":  "Interactive obligation mapper for your model\u0027s risk classification.",
+                                   "category":  "Compliance",
+                                   "runtime":  "Featured",
+                                   "uses":  264,
+                                   "daysAgo":  12,
+                                   "featured":  false,
+                                   "gradient":  "red"
+                               },
+                               {
+                                   "slug":  "red-team-studio",
+                                   "title":  "Adversarial Red-Team Studio",
+                                   "description":  "Interactive jailbreak and prompt-injection playground for any registered model.",
+                                   "category":  "Security",
+                                   "runtime":  "Agents",
+                                   "uses":  261,
+                                   "daysAgo":  14,
+                                   "featured":  true,
+                                   "gradient":  "violet"
+                               },
+                               {
+                                   "slug":  "rag-grounding-eval",
+                                   "title":  "RAG Grounding Evaluator",
+                                   "description":  "Score answer faithfulness and citation accuracy against your own corpus.",
+                                   "category":  "Grounding",
+                                   "runtime":  "GPU",
+                                   "uses":  228,
+                                   "daysAgo":  5,
+                                   "featured":  true,
+                                   "gradient":  "red"
+                               },
+                               {
+                                   "slug":  "multi-model-judge",
+                                   "title":  "Multi-Model Judge",
+                                   "description":  "Blind pairwise comparison harness with calibrated judge prompts.",
+                                   "category":  "Comparison",
+                                   "runtime":  "GPU",
+                                   "uses":  201,
+                                   "daysAgo":  8,
+                                   "featured":  false,
+                                   "gradient":  "indigo"
+                               },
+                               {
+                                   "slug":  "latency-slo-sim",
+                                   "title":  "Latency SLO Simulator",
+                                   "description":  "Replay the probe corpus and visualize p95 breaches under load.",
+                                   "category":  "Performance",
+                                   "runtime":  "Agents",
+                                   "uses":  187,
+                                   "daysAgo":  3,
+                                   "featured":  false,
+                                   "gradient":  "purple"
+                               },
+                               {
+                                   "slug":  "hallucination-heatmap",
+                                   "title":  "Hallucination Heatmap",
+                                   "description":  "Segment responses by claim and color unsupported spans.",
+                                   "category":  "Grounding",
+                                   "runtime":  "Agents",
+                                   "uses":  172,
+                                   "daysAgo":  4,
+                                   "featured":  false,
+                                   "gradient":  "rose"
+                               },
+                               {
+                                   "slug":  "evidence-pack-builder",
+                                   "title":  "Evidence Pack Builder",
+                                   "description":  "Assemble audit-ready evidence bundles from completed gate runs.",
+                                   "category":  "Compliance",
+                                   "runtime":  "Featured",
+                                   "uses":  160,
+                                   "daysAgo":  18,
+                                   "featured":  false,
+                                   "gradient":  "amber"
+                               },
+                               {
+                                   "slug":  "guardrail-policy-ide",
+                                   "title":  "Guardrail Policy IDE",
+                                   "description":  "Author and dry-run policy rules against real production samples.",
+                                   "category":  "Security",
+                                   "runtime":  "Zero",
+                                   "uses":  157,
+                                   "daysAgo":  2,
+                                   "featured":  false,
+                                   "gradient":  "red"
+                               },
+                               {
+                                   "slug":  "soc2-evidence",
+                                   "title":  "SOC2 Evidence Mixer",
+                                   "description":  "Map validation artifacts onto SOC2 control IDs automatically.",
+                                   "category":  "Compliance",
+                                   "runtime":  "Featured",
+                                   "uses":  143,
+                                   "daysAgo":  6,
+                                   "featured":  false,
+                                   "gradient":  "slate"
+                               },
+                               {
+                                   "slug":  "injection-arena",
+                                   "title":  "Prompt Injection Arena",
+                                   "description":  "Head-to-head injection challenges ranked by defense rate.",
+                                   "category":  "Security",
+                                   "runtime":  "Agents",
+                                   "uses":  142,
+                                   "daysAgo":  4,
+                                   "featured":  false,
+                                   "gradient":  "violet"
+                               },
+                               {
+                                   "slug":  "multilingual-tox",
+                                   "title":  "Multilingual Toxicity Scan",
+                                   "description":  "Toxicity probes across 17 languages with per-language breakdown.",
+                                   "category":  "Multilingual",
+                                   "runtime":  "Zero",
+                                   "uses":  133,
+                                   "daysAgo":  5,
+                                   "featured":  false,
+                                   "gradient":  "teal"
+                               },
+                               {
+                                   "slug":  "fairness-report",
+                                   "title":  "Fairness Report Card",
+                                   "description":  "Generate stakeholder-readable fairness summaries from gate runs.",
+                                   "category":  "Fairness",
+                                   "runtime":  "Zero",
+                                   "uses":  121,
+                                   "daysAgo":  10,
+                                   "featured":  false,
+                                   "gradient":  "blue"
+                               },
+                               {
+                                   "slug":  "cost-projection-lab",
+                                   "title":  "Cost Projection Lab",
+                                   "description":  "Estimate monthly token spend across candidate models and providers.",
+                                   "category":  "FinOps",
+                                   "runtime":  "PRO",
+                                   "uses":  110,
+                                   "daysAgo":  15,
+                                   "featured":  false,
+                                   "gradient":  "slate"
+                               },
+                               {
+                                   "slug":  "regression-diff",
+                                   "title":  "Regression Diff Studio",
+                                   "description":  "Visual diff of benchmark scores between two model versions.",
+                                   "category":  "Comparison",
+                                   "runtime":  "CPU",
+                                   "uses":  98,
+                                   "daysAgo":  14,
+                                   "featured":  false,
+                                   "gradient":  "indigo"
+                               },
+                               {
+                                   "slug":  "drift-visualizer",
+                                   "title":  "Drift Visualizer",
+                                   "description":  "Watch distribution shift accumulate across production traffic windows.",
+                                   "category":  "Observability",
+                                   "runtime":  "Zero",
+                                   "uses":  96,
+                                   "daysAgo":  6,
+                                   "featured":  false,
+                                   "gradient":  "emerald"
+                               },
+                               {
+                                   "slug":  "bias-probe-bench",
+                                   "title":  "Bias Probe Bench",
+                                   "description":  "Run BBQ and BOLD-style probes, get a fairness report card per dimension.",
+                                   "category":  "Fairness",
+                                   "runtime":  "Featured",
+                                   "uses":  95,
+                                   "daysAgo":  7,
+                                   "featured":  true,
+                                   "gradient":  "sky"
+                               },
+                               {
+                                   "slug":  "agent-trace-replay",
+                                   "title":  "Agent Trace Replay",
+                                   "description":  "Replay recorded tool-call trajectories and diff expected vs actual actions.",
+                                   "category":  "Agents",
+                                   "runtime":  "Agents",
+                                   "uses":  88,
+                                   "daysAgo":  2,
+                                   "featured":  false,
+                                   "gradient":  "green"
+                               },
+                               {
+                                   "slug":  "canary-watch",
+                                   "title":  "Canary Deploy Watch",
+                                   "description":  "Live gate verdicts for canary traffic slices before promotion.",
+                                   "category":  "Observability",
+                                   "runtime":  "Agents",
+                                   "uses":  84,
+                                   "daysAgo":  3,
+                                   "featured":  false,
+                                   "gradient":  "emerald"
+                               },
+                               {
+                                   "slug":  "image-safety-gate",
+                                   "title":  "Image Safety Gate",
+                                   "description":  "Vision-model caption screening against the image-caption-bias pack.",
+                                   "category":  "Image",
+                                   "runtime":  "CPU",
+                                   "uses":  76,
+                                   "daysAgo":  11,
+                                   "featured":  false,
+                                   "gradient":  "pink"
+                               },
+                               {
+                                   "slug":  "token-budget-opt",
+                                   "title":  "Token Budget Optimizer",
+                                   "description":  "Find the cheapest prompt variant that keeps eval scores above threshold.",
+                                   "category":  "FinOps",
+                                   "runtime":  "PRO",
+                                   "uses":  64,
+                                   "daysAgo":  7,
+                                   "featured":  false,
+                                   "gradient":  "violet"
+                               },
+                               {
+                                   "slug":  "gguf-gate",
+                                   "title":  "GGUF Conversion Gate",
+                                   "description":  "Quantization checks for GGUF exports before registry promotion.",
+                                   "category":  "Infra",
+                                   "runtime":  "CPU",
+                                   "uses":  52,
+                                   "daysAgo":  9,
+                                   "featured":  false,
+                                   "gradient":  "teal"
+                               },
+                               {
+                                   "slug":  "voice-guardrail",
+                                   "title":  "Voice Guardrail Tester",
+                                   "description":  "ASR stress suite with accented and noisy speech scenarios.",
+                                   "category":  "Audio",
+                                   "runtime":  "GPU",
+                                   "uses":  45,
+                                   "daysAgo":  9,
+                                   "featured":  false,
+                                   "gradient":  "orange"
+                               },
+                               {
+                                   "slug":  "streaming-speech",
+                                   "title":  "Streaming Speech Judge",
+                                   "description":  "Evaluate streaming TTS quality with interruption and latency probes.",
+                                   "category":  "Audio",
+                                   "runtime":  "GPU",
+                                   "uses":  39,
+                                   "daysAgo":  13,
+                                   "featured":  false,
+                                   "gradient":  "purple"
+                               }
+                           ],
+                 "featured":  [
+                                  {
+                                      "slug":  "red-team-studio",
+                                      "title":  "Adversarial Red-Team Studio",
+                                      "description":  "Interactive jailbreak and prompt-injection playground for any registered model.",
+                                      "category":  "Security",
+                                      "runtime":  "Agents",
+                                      "uses":  261,
+                                      "daysAgo":  14,
+                                      "featured":  true,
+                                      "gradient":  "violet"
+                                  },
+                                  {
+                                      "slug":  "pii-leak-scanner",
+                                      "title":  "PII Leak Scanner",
+                                      "description":  "Paste output or stream completions to detect personal-data leakage in real time.",
+                                      "category":  "Security",
+                                      "runtime":  "Zero",
+                                      "uses":  312,
+                                      "daysAgo":  9,
+                                      "featured":  true,
+                                      "gradient":  "blue"
+                                  },
+                                  {
+                                      "slug":  "rag-grounding-eval",
+                                      "title":  "RAG Grounding Evaluator",
+                                      "description":  "Score answer faithfulness and citation accuracy against your own corpus.",
+                                      "category":  "Grounding",
+                                      "runtime":  "GPU",
+                                      "uses":  228,
+                                      "daysAgo":  5,
+                                      "featured":  true,
+                                      "gradient":  "red"
+                                  },
+                                  {
+                                      "slug":  "bias-probe-bench",
+                                      "title":  "Bias Probe Bench",
+                                      "description":  "Run BBQ and BOLD-style probes, get a fairness report card per dimension.",
+                                      "category":  "Fairness",
+                                      "runtime":  "Featured",
+                                      "uses":  95,
+                                      "daysAgo":  7,
+                                      "featured":  true,
+                                      "gradient":  "sky"
+                                  }
+                              ],
+                 "categories":  [
+                                    "Agents",
+                                    "Audio",
+                                    "Comparison",
+                                    "Compliance",
+                                    "Fairness",
+                                    "FinOps",
+                                    "Grounding",
+                                    "Image",
+                                    "Infra",
+                                    "Multilingual",
+                                    "Observability",
+                                    "Performance",
+                                    "Security"
+                                ],
+                 "total":  24,
+                 "page":  1,
+                 "pageSize":  500
+             },
+    "meta":  {
+                 "total":  null,
+                 "page":  null,
+                 "pageSize":  null,
+                 "timestamp":  "2026-10-25T11:38:10.627491+00:00",
+                 "version":  "v1"
+             },
+    "error":  null
+}

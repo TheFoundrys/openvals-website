@@ -51,8 +51,28 @@ export default function Header() {
       ],
     },
     {
+      name: "Models",
+      href: "/models",
+      highlight: true,
+    },
+    {
+      name: "Datasets",
+      href: "/datasets",
+      highlight: true,
+    },
+    {
+      name: "Spaces",
+      href: "/spaces",
+      highlight: true,
+    },
+    {
       name: "Pricing",
       href: "/pricing",
+      highlight: true,
+    },
+    {
+      name: "Enterprise",
+      href: "/enterprise",
       highlight: true,
     },
   ];
