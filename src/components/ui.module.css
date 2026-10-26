@@ -337,6 +337,68 @@
   gap: 4px;
 }
 
+.headerCTAContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  background: #2563eb;
+  color: #ffffff !important;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: -0.01em;
+}
+
+.headerCtaButton:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  color: #ffffff !important;
+}
+
+.headerCtaButton:active {
+  transform: translateY(0);
+}
+
+.mobileCtaWrapper {
+  display: none;
+  margin-bottom: 8px;
+}
+
+.mobileCtaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 20px;
+  background: #2563eb;
+  color: #ffffff !important;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+}
+
+.mobileCtaButton:hover {
+  background: #1d4ed8;
+  color: #ffffff !important;
+}
+
 .menuToggle {
   display: none;
   background: none;
@@ -1036,6 +1098,10 @@
     gap: 20px;
   }
 
+  .mobileCtaWrapper {
+    display: block;
+  }
+
   .mobileMenu a:not(.button) {
     font-size: 17px;
     line-height: 1.35;
@@ -1208,6 +1274,12 @@
     font-size: 10px;
     letter-spacing: 0.14em;
     margin-top: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .headerDesktopCta {
+    display: none;
   }
 }
 

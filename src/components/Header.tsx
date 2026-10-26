@@ -46,7 +46,7 @@ export default function Header() {
       subItems: [
         { name: "AIxLence", href: "/aixlence" },
         { name: "OpenLxM", href: "/openlxm" },
-        { name: "OpenVals", href: "/openvals-docs" },
+        { name: "OpenVals", href: "/openvals" },
         { name: "RedShield", href: "/redshield" },
       ],
     },
@@ -178,7 +178,19 @@ export default function Header() {
         </nav>
         </div>
         <div className={styles.headerCTAContainer}>
-          <button className={styles.menuToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <Link
+            href="https://dev.openvalidations.com/auth/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.headerCtaButton} ${styles.headerDesktopCta}`}
+          >
+            Sign Up / Login
+          </Link>
+          <button
+            className={styles.menuToggle}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -192,6 +204,17 @@ export default function Header() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.15 }}
         >
+          <div className={styles.mobileCtaWrapper}>
+            <Link
+              href="https://dev.openvalidations.com/auth/signup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mobileCtaButton}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Sign Up / Login
+            </Link>
+          </div>
           {navLinks.map((link) => (
             <div key={link.name}>
               <Link href={link.href} onClick={() => setIsMenuOpen(false)} style={{ fontWeight: 600 }}>

@@ -344,7 +344,7 @@ export default function RealWorldBenchmarks() {
         <div className={styles.eyebrow}>
           Independent Evaluation, Unbiased Benchmarks
         </div>
-        <h2 className={styles.headline}>Testing AI on Real-World Tasks</h2>
+        <h2 className={styles.headline}>AI Models, Rigorously Tested.</h2>
         <p className={styles.description}>
           We benchmark the world&apos;s leading AI models on economically valuable
           tasks such as finance, software, and frontier risk like cybersecurity,

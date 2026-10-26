@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 /* ──────────────────────────────────────────────
    Config
    ────────────────────────────────────────────── */
-const SHIELD_RADIUS = 140;
-const THREAT_START = 300; // Increased to avoid label overlap
+const SHIELD_RADIUS = 165;
+const THREAT_START = 350; // Increased to match larger shield and avoid label overlap
 
 const THREAT_NAMES = [
   "Hallucinations",
@@ -133,8 +133,8 @@ function DeflectedThreat({ angle, index }: { angle: number; index: number }) {
   const hitY = Math.sin(angle) * SHIELD_RADIUS;
 
   const deflectAngle = angle + Math.PI * 0.4; // Slightly tighter bounce
-  const deflectX = Math.cos(deflectAngle) * (SHIELD_RADIUS + 150);
-  const deflectY = Math.sin(deflectAngle) * (SHIELD_RADIUS + 150);
+  const deflectX = Math.cos(deflectAngle) * (SHIELD_RADIUS + 175);
+  const deflectY = Math.sin(deflectAngle) * (SHIELD_RADIUS + 175);
 
   return (
     <>
@@ -258,7 +258,7 @@ export default function TrustLayerGraphic() {
       style={{
         position: "relative",
         width: "100%",
-        maxWidth: "min(500px, 80vw)",
+        maxWidth: "min(580px, 85vw)",
         aspectRatio: "1/1",
         display: "flex",
         justifyContent: "center",

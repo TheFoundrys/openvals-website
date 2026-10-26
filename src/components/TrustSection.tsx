@@ -99,8 +99,8 @@ export function HeroPart() {
 
 export function ActionButtonsPart() {
   const stats = [
-    { value: "150+", label: "validated models" },
-    { value: "5+", label: "LLM Providers" },
+    { value: "2 lakhs+", label: "Experiment as done" },
+    { value: "53", label: "LLM Providers" },
     { value: "20+", label: "Core Metrics" },
     { value: "v0.5.5", label: "Current Release" },
     { value: "Dr.Pinnacle", label: "License" },
