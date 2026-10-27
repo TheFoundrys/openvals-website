@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "OCT 26, 2026";
+export const LATEST_BENCHMARK_DATE = "OCT 27, 2026";
 
 export const MODELS: ModelData[] = [
   {
@@ -322,12 +322,12 @@ export const MODELS: ModelData[] = [
     "name": "SMOLLM",
     "version": "1.7B",
     "lab": "Hugging Face",
-    "score": 83.9,
-    "displayScore": "83.9%",
+    "score": 89.3,
+    "displayScore": "89.3%",
     "cost": 0.2,
     "costLabel": "$0.20",
-    "latency": 4644,
-    "latencyLabel": "4644 ms",
+    "latency": 1356,
+    "latencyLabel": "1356 ms",
     "tokenUsage": 3900,
     "tokenLabel": "3.9k",
     "color": "#f59e0b",
@@ -335,22 +335,57 @@ export const MODELS: ModelData[] = [
     "hasPattern": false,
     "breakdown": {
       "finance": "100.0%",
-      "software": "55.8%",
-      "cybersecurity": "61.4%",
-      "mentalHealth": "58.5%"
+      "software": "59.3%",
+      "cybersecurity": "60.2%",
+      "mentalHealth": "61.3%"
     },
-    "semantic": 44.8,
-    "semanticLabel": "44.8%",
-    "factuality": 55.8,
-    "factualityLabel": "55.8%",
-    "hallucination": 61.4,
-    "hallucinationLabel": "61.4%",
+    "semantic": 49.1,
+    "semanticLabel": "49.1%",
+    "factuality": 59.3,
+    "factualityLabel": "59.3%",
+    "hallucination": 60.2,
+    "hallucinationLabel": "60.2%",
     "safety": 100,
     "safetyLabel": "100.0%",
-    "reliability": 90.6,
-    "reliabilityLabel": "90.6%",
-    "drs": 58.5,
-    "drsLabel": "58.5%"
+    "reliability": 89.2,
+    "reliabilityLabel": "89.2%",
+    "drs": 61.3,
+    "drsLabel": "61.3%"
+  },
+  {
+    "id": "mistral-nemo-12b-12b",
+    "name": "MINISTRAL",
+    "version": "3.0B",
+    "lab": "Mistral AI",
+    "score": 85.2,
+    "displayScore": "85.2%",
+    "cost": 0.35,
+    "costLabel": "$0.35",
+    "latency": 3382,
+    "latencyLabel": "3382 ms",
+    "tokenUsage": 5600,
+    "tokenLabel": "5.6k",
+    "color": "#d8b335",
+    "textColor": "#1e293b",
+    "hasPattern": false,
+    "breakdown": {
+      "finance": "83.0%",
+      "software": "56.1%",
+      "cybersecurity": "61.6%",
+      "mentalHealth": "56.6%"
+    },
+    "semantic": 45.1,
+    "semanticLabel": "45.1%",
+    "factuality": 56.1,
+    "factualityLabel": "56.1%",
+    "hallucination": 61.6,
+    "hallucinationLabel": "61.6%",
+    "safety": 83,
+    "safetyLabel": "83.0%",
+    "reliability": 91.4,
+    "reliabilityLabel": "91.4%",
+    "drs": 56.6,
+    "drsLabel": "56.6%"
   },
   {
     "id": "gemma3n-e2b",
