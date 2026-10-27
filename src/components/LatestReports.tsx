@@ -321,11 +321,11 @@ export default function LatestReports() {
                     </td>
                   </tr>
                 ) : (
-                  filteredAggregated.map((row) => {
+                  filteredAggregated.map((row, idx) => {
                     const solidWidth = Math.min(100, Math.max(2, row.accuracyNum * 100));
 
                     return (
-                      <tr key={row.id} className={styles.tableDataRow}>
+                      <tr key={`${row.id}-${idx}`} className={styles.tableDataRow}>
                         {/* Model Name, Params, Size, Lab */}
                         <td>
                           <div className={styles.modelCell}>
@@ -396,11 +396,11 @@ export default function LatestReports() {
                     </td>
                   </tr>
                 ) : (
-                  filteredRuns.map((row) => {
+                  filteredRuns.map((row, idx) => {
                     const solidWidth = Math.min(100, Math.max(2, row.accuracyNum * 100));
 
                     return (
-                      <tr key={row.id} className={styles.tableDataRow}>
+                      <tr key={`${row.id}-${idx}`} className={styles.tableDataRow}>
                         {/* Model Name, Params, Size */}
                         <td>
                           <div className={styles.modelCell}>

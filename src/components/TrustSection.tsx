@@ -33,17 +33,16 @@ export function HeroPart() {
   };
 
   return (
-    <section className={styles.hero} style={{ padding: 0, minHeight: "auto", width: "100%" }}>
+    <section className={styles.hero}>
       <motion.div
         className={styles.heroContent}
         initial="hidden"
         animate="show"
         variants={STAGGER}
-        style={{ flex: 1 }}
       >
         <motion.div variants={STAGGER} className={styles.heroTextGroup}>
           <motion.h2 variants={FADE_UP} className={styles.heroHeading}>
-            The Trust Layer for AI
+            The Trust Layer for<br />AI
           </motion.h2>
           <motion.p variants={FADE_UP} className={styles.heroSubheading}>
             OpenVals helps enterprises validate, secure, and trust AI before production.
@@ -90,7 +89,7 @@ export function HeroPart() {
         </motion.div>
       </motion.div>
 
-      <div className={styles.heroGraphic} style={{ flex: 1 }}>
+      <div className={styles.heroGraphic}>
         <TrustLayerGraphic />
       </div>
     </section>

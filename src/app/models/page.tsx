@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import {
   Search,
@@ -15,11 +15,11 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AmbientGrid from "@/components/AmbientGrid";
-import allModelsJson from "@/data/allModelsData.json";
+import { AGGREGATED_MODELS, AggregatedModel } from "@/components/modelBenchmarkData";
 import styles from "./models.module.css";
 
-interface ModelItem {
-  id: number;
+export interface ModelItem {
+  id: string;
   name: string;
   version?: string;
   provider: string;
@@ -31,8 +31,21 @@ interface ModelItem {
   lastAssessedAt: string;
   lifecycle?: string;
   bestUse?: string;
-  guardrailsActive?: number;
-  benchmarks?: Record<string, number>;
+  // Sheet benchmark evaluation data
+  params: string;
+  size: string;
+  accuracy: string;
+  accuracyNum: number;
+  semantic: string;
+  latency: string;
+  factuality: string;
+  hallucination: string;
+  safety: string;
+  reliability: string;
+  drs: string;
+  drsNum: number;
+  rank: string;
+  runsCount: number;
 }
 
 interface FacetItem {
@@ -48,21 +61,36 @@ interface Facets {
 }
 
 const PROVIDER_COLORS: Record<string, { bg: string; text: string; border: string }> = {
-  OpenAI: { bg: "rgba(16, 185, 129, 0.12)", text: "#059669", border: "rgba(16, 185, 129, 0.3)" },
-  Anthropic: { bg: "rgba(249, 115, 22, 0.12)", text: "#ea580c", border: "rgba(249, 115, 22, 0.3)" },
-  Mistral: { bg: "rgba(245, 158, 11, 0.12)", text: "#d97706", border: "rgba(245, 158, 11, 0.3)" },
-  Meta: { bg: "rgba(59, 130, 246, 0.12)", text: "#2563eb", border: "rgba(59, 130, 246, 0.3)" },
-  "Hugging Face": { bg: "rgba(234, 179, 8, 0.15)", text: "#ca8a04", border: "rgba(234, 179, 8, 0.35)" },
-  "AWS Bedrock": { bg: "rgba(249, 115, 22, 0.12)", text: "#ea580c", border: "rgba(249, 115, 22, 0.3)" },
-  "Azure AI": { bg: "rgba(14, 165, 233, 0.12)", text: "#0284c7", border: "rgba(14, 165, 233, 0.3)" },
-  "Google Vertex AI": { bg: "rgba(34, 197, 94, 0.12)", text: "#16a34a", border: "rgba(34, 197, 94, 0.3)" },
-  "Google Gemini": { bg: "rgba(59, 130, 246, 0.12)", text: "#2563eb", border: "rgba(59, 130, 246, 0.3)" },
-  "NVIDIA NIM": { bg: "rgba(118, 185, 0, 0.15)", text: "#4d7c0f", border: "rgba(118, 185, 0, 0.35)" },
+  Alibaba: { bg: "rgba(243, 131, 43, 0.12)", text: "#f3832b", border: "rgba(243, 131, 43, 0.3)" },
+  "Alibaba Cloud": { bg: "rgba(243, 131, 43, 0.12)", text: "#f3832b", border: "rgba(243, 131, 43, 0.3)" },
+  Deepseek: { bg: "rgba(30, 64, 175, 0.12)", text: "#3b82f6", border: "rgba(30, 64, 175, 0.3)" },
+  Google: { bg: "rgba(70, 177, 124, 0.12)", text: "#10b981", border: "rgba(70, 177, 124, 0.3)" },
+  Meta: { bg: "rgba(82, 142, 240, 0.12)", text: "#3b82f6", border: "rgba(82, 142, 240, 0.3)" },
+  Microsoft: { bg: "rgba(0, 164, 239, 0.12)", text: "#0ea5e9", border: "rgba(0, 164, 239, 0.3)" },
+  IBM: { bg: "rgba(15, 98, 254, 0.12)", text: "#2563eb", border: "rgba(15, 98, 254, 0.3)" },
+  "Liquid AI": { bg: "rgba(2, 132, 199, 0.12)", text: "#0284c7", border: "rgba(2, 132, 199, 0.3)" },
+  "Hugging Face": { bg: "rgba(245, 158, 11, 0.12)", text: "#f59e0b", border: "rgba(245, 158, 11, 0.3)" },
+  "Mistral AI": { bg: "rgba(216, 179, 53, 0.12)", text: "#d97706", border: "rgba(216, 179, 53, 0.3)" },
+  "Stability AI": { bg: "rgba(168, 85, 247, 0.12)", text: "#a855f7", border: "rgba(168, 85, 247, 0.3)" },
+  "Nous Research": { bg: "rgba(84, 109, 136, 0.12)", text: "#64748b", border: "rgba(84, 109, 136, 0.3)" },
+  "Open Source": { bg: "rgba(100, 116, 139, 0.12)", text: "#94a3b8", border: "rgba(100, 116, 139, 0.3)" },
+  TII: { bg: "rgba(14, 165, 233, 0.12)", text: "#0ea5e9", border: "rgba(14, 165, 233, 0.3)" },
+  "01.AI": { bg: "rgba(73, 143, 240, 0.12)", text: "#3b82f6", border: "rgba(73, 143, 240, 0.3)" },
+  Agentica: { bg: "rgba(223, 139, 124, 0.12)", text: "#f87171", border: "rgba(223, 139, 124, 0.3)" },
+  Tencent: { bg: "rgba(58, 58, 58, 0.12)", text: "#a3a3a3", border: "rgba(58, 58, 58, 0.3)" },
+  "Prism ML": { bg: "rgba(16, 185, 129, 0.12)", text: "#10b981", border: "rgba(16, 185, 129, 0.3)" },
+  QVAC: { bg: "rgba(124, 58, 237, 0.12)", text: "#8b5cf6", border: "rgba(124, 58, 237, 0.3)" },
+  "Big Science": { bg: "rgba(112, 128, 146, 0.12)", text: "#64748b", border: "rgba(112, 128, 146, 0.3)" },
+  NVIDIA: { bg: "rgba(118, 185, 0, 0.15)", text: "#4d7c0f", border: "rgba(118, 185, 0, 0.35)" },
+  Apple: { bg: "rgba(163, 163, 163, 0.12)", text: "#a3a3a3", border: "rgba(163, 163, 163, 0.3)" },
+  AMD: { bg: "rgba(239, 68, 68, 0.12)", text: "#ef4444", border: "rgba(239, 68, 68, 0.3)" },
+  Baidu: { bg: "rgba(37, 99, 235, 0.12)", text: "#2563eb", border: "rgba(37, 99, 235, 0.3)" },
   Cohere: { bg: "rgba(147, 51, 234, 0.12)", text: "#9333ea", border: "rgba(147, 51, 234, 0.3)" },
-  CivitAI: { bg: "rgba(236, 72, 153, 0.12)", text: "#db2777", border: "rgba(236, 72, 153, 0.3)" },
-  Ollama: { bg: "rgba(99, 102, 241, 0.12)", text: "#4f46e5", border: "rgba(99, 102, 241, 0.3)" },
-  "Custom / In-House": { bg: "rgba(100, 116, 139, 0.12)", text: "#475569", border: "rgba(100, 116, 139, 0.3)" },
-  "Z.Ai": { bg: "rgba(168, 85, 247, 0.12)", text: "#a855f7", border: "rgba(168, 85, 247, 0.3)" },
+  "Doey LLM": { bg: "rgba(231, 164, 79, 0.12)", text: "#e7a44f", border: "rgba(231, 164, 79, 0.3)" },
+  Supra: { bg: "rgba(142, 200, 76, 0.12)", text: "#8ec84c", border: "rgba(142, 200, 76, 0.3)" },
+  "PROMTECH Inc": { bg: "rgba(234, 179, 8, 0.12)", text: "#eab308", border: "rgba(234, 179, 8, 0.3)" },
+  "North ML": { bg: "rgba(91, 102, 112, 0.12)", text: "#5b6670", border: "rgba(91, 102, 112, 0.3)" },
+  "Open BMB": { bg: "rgba(99, 102, 241, 0.12)", text: "#6366f1", border: "rgba(99, 102, 241, 0.3)" },
 };
 
 const DOT_COLORS = [
@@ -83,16 +111,10 @@ const DOT_COLORS = [
   "#84cc16",
 ];
 
-const TABS = [
-  { key: "all", label: "All" },
-  { key: "provider", label: "Providers" },
-  { key: "lifecycle", label: "Lifecycle" },
-  { key: "architecture", label: "Architecture" },
-];
-
 const SORT_OPTIONS = [
-  { value: "trending", label: "Sort: Trending" },
-  { value: "recent", label: "Sort: Recently assessed" },
+  { value: "trending", label: "Sort: DRS Trust Score" },
+  { value: "accuracy", label: "Sort: Accuracy (High to Low)" },
+  { value: "latency", label: "Sort: Fastest Latency" },
   { value: "name", label: "Sort: Name A–Z" },
 ];
 
@@ -103,37 +125,156 @@ const PAGE_SIZE_OPTIONS = [
   { value: 500, label: "Show All" },
 ];
 
-function formatDate(dateStr: string) {
-  try {
-    const d = new Date(dateStr);
-    return d.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  } catch {
-    return dateStr;
+function cleanProviderName(rawLab: string): string {
+  if (!rawLab) return "Open Source";
+  const l = rawLab.trim();
+  if (l.includes("Alibaba") || l.toLowerCase().includes("qwen")) return "Alibaba";
+  if (l.includes("Technology Innovation Institute") || l === "TII") return "TII";
+  if (l.startsWith("Stability")) return "Stability AI";
+  if (l.includes("Google Gemma") || l === "Google") return "Google";
+  if (l.toLowerCase().includes("bigscience") || l.toLowerCase().includes("big science")) return "Big Science";
+  if (l.toLowerCase().includes("open-source") || l.toLowerCase().includes("open source")) return "Open Source";
+  return l;
+}
+
+function cleanParamSize(rawParam: string): string {
+  if (!rawParam) return "Other";
+  const p = rawParam.toLowerCase().trim();
+  if (
+    p.includes("350m") ||
+    p.includes("500m") ||
+    p.includes("560m") ||
+    p.includes("494") ||
+    p.includes("45b") ||
+    p.includes("41b") ||
+    p.includes("360m") ||
+    p.includes("270m") ||
+    p.includes("135m") ||
+    p.includes("121m") ||
+    p.includes("0.27") ||
+    p.includes("0.3") ||
+    p.includes("0.5b") ||
+    p.includes("0.6b") ||
+    p.includes("0.8b") ||
+    p.includes("0.05")
+  ) {
+    return "< 1B";
   }
+  if (p === "1b" || p === "1.0b" || p === "1 b" || p.includes("1.1b") || p.includes("1.2b") || p.includes("1.24b") || p.includes("1.3b")) {
+    return "1B";
+  }
+  if (p.includes("1.5b") || p.includes("1.54b") || p.includes("1.6b") || p.includes("1.6 billion") || p.includes("1.7b") || p.includes("1.8b")) {
+    return "1.5B - 2B";
+  }
+  if (p === "2b" || p === "2.0b" || p.includes("2.2b") || p.includes("2.4b") || p.includes("2.7b") || p.includes("e2b")) {
+    return "2B - 3B";
+  }
+  if (p.startsWith("3b") || p.startsWith("3.0b") || p.startsWith("3.8b") || p.startsWith("4b") || p.startsWith("4.0b")) {
+    return "3B - 4B";
+  }
+  if (p.startsWith("7b") || p.startsWith("7.9b")) {
+    return "7B";
+  }
+  if (p.startsWith("8b") || p.startsWith("12b")) {
+    return "8B+";
+  }
+  return rawParam.toUpperCase();
+}
+
+function mapSheetModelToItem(m: AggregatedModel, index: number): ModelItem {
+  const drsNum = m.drsNum || 0;
+  const status =
+    drsNum >= 0.75 ? "Approved" : drsNum >= 0.55 ? "In Review" : "Needs Review";
+
+  const lifecycle =
+    drsNum >= 0.75
+      ? "Production Ready"
+      : drsNum >= 0.55
+      ? "Active Benchmark"
+      : "High Risk Candidate";
+
+  const provider = cleanProviderName(m.lab);
+
+  return {
+    id: m.id || `sheet-model-${index + 1}`,
+    name: m.name,
+    version: m.params,
+    provider,
+    architecture: m.params ? `${m.params.toUpperCase()}${m.size ? ` • ${m.size}` : ""}` : "Dense LLM",
+    primaryUseCase: `Accuracy ${m.accuracy} • DRS ${m.drs} • Factuality ${m.factuality} • Latency ${m.latency}`,
+    tags: [
+      m.params,
+      m.size,
+      provider,
+      `${m.accuracy} Acc`,
+      `DRS ${m.drs}`,
+      `HPI ${m.hallucination}`,
+    ].filter(Boolean),
+    decisionStatus: status,
+    overallFitScore: Math.round(drsNum * 100),
+    lastAssessedAt: "2026-10-27T10:00:00Z",
+    lifecycle,
+    bestUse: `Evaluated across multi-turn benchmarks with ${m.accuracy} accuracy, ${m.factuality} factuality alignment, and ${m.latency} latency.`,
+    params: m.params,
+    size: m.size,
+    accuracy: m.accuracy,
+    accuracyNum: m.accuracyNum,
+    semantic: m.semantic,
+    latency: m.latency,
+    factuality: m.factuality,
+    hallucination: m.hallucination,
+    safety: m.safety,
+    reliability: m.reliability,
+    drs: m.drs,
+    drsNum: m.drsNum,
+    rank: m.rank,
+    runsCount: m.runsCount,
+  };
+}
+
+function computeFacetsFromModels(models: ModelItem[]): Facets {
+  const providerCounts: Record<string, number> = {};
+  const lifecycleCounts: Record<string, number> = {};
+  const statusCounts: Record<string, number> = {};
+  const archCounts: Record<string, number> = {};
+
+  for (const m of models) {
+    if (m.provider) {
+      providerCounts[m.provider] = (providerCounts[m.provider] || 0) + 1;
+    }
+    const lc = m.lifecycle || "Active";
+    lifecycleCounts[lc] = (lifecycleCounts[lc] || 0) + 1;
+
+    if (m.decisionStatus) {
+      statusCounts[m.decisionStatus] = (statusCounts[m.decisionStatus] || 0) + 1;
+    }
+    const paramKey = cleanParamSize(m.params);
+    archCounts[paramKey] = (archCounts[paramKey] || 0) + 1;
+  }
+
+  const toFacetList = (counts: Record<string, number>) =>
+    Object.entries(counts)
+      .map(([value, count]) => ({ value, count }))
+      .sort((a, b) => b.count - a.count);
+
+  return {
+    providers: toFacetList(providerCounts),
+    lifecycles: toFacetList(lifecycleCounts),
+    decisionStatuses: toFacetList(statusCounts),
+    architectures: toFacetList(archCounts),
+  };
 }
 
 export default function ModelsRegistryPage() {
-  // Load full 376 models dataset
-  const fullModelsList = useMemo(() => {
-    return ((allModelsJson?.data?.items as ModelItem[]) || []);
+  // Load models from the SharePoint tracker sheet via AGGREGATED_MODELS
+  const sheetModels = useMemo(() => {
+    return AGGREGATED_MODELS.map(mapSheetModelToItem);
   }, []);
 
-  const [allModels, setAllModels] = useState<ModelItem[]>(fullModelsList);
-  const [facets, setFacets] = useState<Facets>(
-    (allModelsJson?.data?.facets as Facets) || {
-      providers: [],
-      lifecycles: [],
-      decisionStatuses: [],
-      architectures: [],
-    }
-  );
+  const [allModels] = useState<ModelItem[]>(sheetModels);
+  const facets = useMemo(() => computeFacetsFromModels(allModels), [allModels]);
 
   // Filters & State
-  const [activeTab, setActiveTab] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [debouncedQuery, setDebouncedQuery] = useState<string>("");
   const [fullText, setFullText] = useState<boolean>(false);
@@ -149,6 +290,17 @@ export default function ModelsRegistryPage() {
   // Detail Modal State
   const [selectedModel, setSelectedModel] = useState<ModelItem | null>(null);
 
+  // Read search query param from URL on initial load if present
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get("search") || params.get("q");
+      if (q) {
+        setSearchQuery(q);
+      }
+    }
+  }, []);
+
   // Debounce search query
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -157,27 +309,6 @@ export default function ModelsRegistryPage() {
     }, 200);
     return () => clearTimeout(timer);
   }, [searchQuery]);
-
-  // Sync with live server API proxy in background (no CORS issues)
-  useEffect(() => {
-    async function syncRemoteData() {
-      try {
-        const res = await fetch("/api/models?page=1&pageSize=500");
-        if (res.ok) {
-          const json = await res.json();
-          if (json?.data?.items && json.data.items.length > 0) {
-            setAllModels(json.data.items);
-            if (json.data.facets) {
-              setFacets(json.data.facets);
-            }
-          }
-        }
-      } catch (err) {
-        console.warn("Using offline complete models registry", err);
-      }
-    }
-    syncRemoteData();
-  }, []);
 
   // Filter and sort the models
   const filteredModels = useMemo(() => {
@@ -190,12 +321,18 @@ export default function ModelsRegistryPage() {
       if (selectedLifecycle && (model.lifecycle || "Active") !== selectedLifecycle) {
         return false;
       }
-      // Architecture filter
-      if (selectedArchitecture && model.architecture !== selectedArchitecture) {
-        return false;
+      // Architecture / Param bucket filter
+      if (selectedArchitecture) {
+        const bucket = cleanParamSize(model.params);
+        if (bucket !== selectedArchitecture) {
+          return false;
+        }
       }
-      // Min score filter
-      if (minFitScore > 0 && (model.overallFitScore === null || model.overallFitScore < minFitScore)) {
+      // Min score filter (DRS * 100)
+      if (
+        minFitScore > 0 &&
+        (model.overallFitScore === null || model.overallFitScore < minFitScore)
+      ) {
         return false;
       }
       // Search query filter
@@ -203,31 +340,42 @@ export default function ModelsRegistryPage() {
         const q = debouncedQuery.toLowerCase();
         const matchesName = model.name.toLowerCase().includes(q);
         const matchesProvider = model.provider.toLowerCase().includes(q);
+        const matchesParams = model.params.toLowerCase().includes(q);
         const matchesUseCase = model.primaryUseCase?.toLowerCase().includes(q);
-        const matchesArch = model.architecture?.toLowerCase().includes(q);
         const matchesTags = model.tags?.some((t) => t.toLowerCase().includes(q));
 
         if (fullText) {
-          if (!matchesName && !matchesProvider && !matchesUseCase && !matchesArch && !matchesTags) {
+          if (!matchesName && !matchesProvider && !matchesParams && !matchesUseCase && !matchesTags) {
             return false;
           }
         } else {
-          if (!matchesName && !matchesProvider) {
+          if (!matchesName && !matchesProvider && !matchesParams) {
             return false;
           }
         }
       }
       return true;
     });
-  }, [allModels, selectedProvider, selectedLifecycle, selectedArchitecture, minFitScore, debouncedQuery, fullText]);
+  }, [
+    allModels,
+    selectedProvider,
+    selectedLifecycle,
+    selectedArchitecture,
+    minFitScore,
+    debouncedQuery,
+    fullText,
+  ]);
 
   // Sort the filtered models
   const sortedModels = useMemo(() => {
     const list = [...filteredModels];
     if (sort === "trending") {
-      list.sort((a, b) => (b.overallFitScore ?? 0) - (a.overallFitScore ?? 0));
-    } else if (sort === "recent") {
-      list.sort((a, b) => new Date(b.lastAssessedAt).getTime() - new Date(a.lastAssessedAt).getTime());
+      list.sort((a, b) => (b.drsNum ?? 0) - (a.drsNum ?? 0));
+    } else if (sort === "accuracy") {
+      list.sort((a, b) => (b.accuracyNum ?? 0) - (a.accuracyNum ?? 0));
+    } else if (sort === "latency") {
+      const parseLat = (s: string) => parseFloat(s.replace(/[^0-9.]/g, "")) || 999999;
+      list.sort((a, b) => parseLat(a.latency) - parseLat(b.latency));
     } else if (sort === "name") {
       list.sort((a, b) => `${a.provider} ${a.name}`.localeCompare(`${b.provider} ${b.name}`));
     }
@@ -255,11 +403,11 @@ export default function ModelsRegistryPage() {
 
   const hasActiveFilters = Boolean(
     selectedProvider ||
-    selectedLifecycle ||
-    selectedArchitecture ||
-    minFitScore > 0 ||
-    debouncedQuery.trim() ||
-    fullText
+      selectedLifecycle ||
+      selectedArchitecture ||
+      minFitScore > 0 ||
+      debouncedQuery.trim() ||
+      fullText
   );
 
   const clearAllFilters = () => {
@@ -292,31 +440,15 @@ export default function ModelsRegistryPage() {
         <AmbientGrid />
 
         <div className={styles.container}>
-          {/* TOP NAVIGATION TABS */}
-          <div className={styles.tabBar}>
-            {TABS.map((tab) => (
-              <button
-                key={tab.key}
-                type="button"
-                onClick={() => {
-                  setActiveTab(tab.key);
-                }}
-                className={`${styles.tabBtn} ${activeTab === tab.key ? styles.tabBtnActive : ""}`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
           {/* MAIN GRID: SIDEBAR + CONTENT */}
           <div className={styles.mainGrid}>
             {/* SIDEBAR FILTERS */}
             <aside className={styles.sidebar}>
               {/* Providers facet */}
-              {(activeTab === "all" || activeTab === "provider") && facets.providers.length > 0 && (
+              {facets.providers.length > 0 && (
                 <div className={styles.filterGroup}>
-                  <h3 className={styles.filterGroupTitle}>Providers</h3>
-                  <div className={styles.filterPillsGrid}>
+                  <h3 className={styles.filterGroupTitle}>Providers / Labs</h3>
+                  <div className={styles.filterPillsList}>
                     {facets.providers.map((item, idx) => {
                       const isSelected = selectedProvider === item.value;
                       return (
@@ -330,12 +462,50 @@ export default function ModelsRegistryPage() {
                           className={`${styles.filterPill} ${isSelected ? styles.filterPillActive : ""}`}
                           title={`${item.value} (${item.count})`}
                         >
-                          <span
-                            className={styles.filterDot}
-                            style={{ backgroundColor: DOT_COLORS[idx % DOT_COLORS.length] }}
-                            aria-hidden="true"
-                          />
-                          <span className={styles.filterPillText}>{item.value}</span>
+                          <div className={styles.filterPillLeft}>
+                            <span
+                              className={styles.filterDot}
+                              style={{ backgroundColor: DOT_COLORS[idx % DOT_COLORS.length] }}
+                              aria-hidden="true"
+                            />
+                            <span className={styles.filterPillText}>{item.value}</span>
+                          </div>
+                          <span className={styles.filterCount}>{item.count}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* Architecture / Param size facet */}
+              {facets.architectures.length > 0 && (
+                <div className={styles.filterGroup}>
+                  <h3 className={styles.filterGroupTitle}>Parameters / Size</h3>
+                  <div className={styles.filterPillsList}>
+                    {facets.architectures.map((item, idx) => {
+                      const isSelected =
+                        selectedArchitecture?.toLowerCase() === item.value.toLowerCase();
+                      return (
+                        <button
+                          key={item.value}
+                          type="button"
+                          onClick={() => {
+                            setSelectedArchitecture(isSelected ? undefined : item.value);
+                            setPage(1);
+                          }}
+                          className={`${styles.filterPill} ${isSelected ? styles.filterPillActive : ""}`}
+                          title={`${item.value} (${item.count})`}
+                        >
+                          <div className={styles.filterPillLeft}>
+                            <span
+                              className={styles.filterDot}
+                              style={{ backgroundColor: DOT_COLORS[(idx + 4) % DOT_COLORS.length] }}
+                              aria-hidden="true"
+                            />
+                            <span className={styles.filterPillText}>{item.value}</span>
+                          </div>
+                          <span className={styles.filterCount}>{item.count}</span>
                         </button>
                       );
                     })}
@@ -344,10 +514,10 @@ export default function ModelsRegistryPage() {
               )}
 
               {/* Lifecycle facet */}
-              {(activeTab === "all" || activeTab === "lifecycle") && facets.lifecycles.length > 0 && (
+              {facets.lifecycles.length > 0 && (
                 <div className={styles.filterGroup}>
                   <h3 className={styles.filterGroupTitle}>Lifecycle</h3>
-                  <div className={styles.filterPillsGrid}>
+                  <div className={styles.filterPillsList}>
                     {facets.lifecycles.map((item, idx) => {
                       const isSelected = selectedLifecycle === item.value;
                       return (
@@ -361,12 +531,15 @@ export default function ModelsRegistryPage() {
                           className={`${styles.filterPill} ${isSelected ? styles.filterPillActive : ""}`}
                           title={`${item.value} (${item.count})`}
                         >
-                          <span
-                            className={styles.filterDot}
-                            style={{ backgroundColor: DOT_COLORS[(idx + 4) % DOT_COLORS.length] }}
-                            aria-hidden="true"
-                          />
-                          <span className={styles.filterPillText}>{item.value}</span>
+                          <div className={styles.filterPillLeft}>
+                            <span
+                              className={styles.filterDot}
+                              style={{ backgroundColor: DOT_COLORS[(idx + 8) % DOT_COLORS.length] }}
+                              aria-hidden="true"
+                            />
+                            <span className={styles.filterPillText}>{item.value}</span>
+                          </div>
+                          <span className={styles.filterCount}>{item.count}</span>
                         </button>
                       );
                     })}
@@ -374,40 +547,9 @@ export default function ModelsRegistryPage() {
                 </div>
               )}
 
-              {/* Architecture facet */}
-              {(activeTab === "all" || activeTab === "architecture") && facets.architectures.length > 0 && (
-                <div className={styles.filterGroup}>
-                  <h3 className={styles.filterGroupTitle}>Architecture</h3>
-                  <div className={styles.filterPillsGrid}>
-                    {facets.architectures.map((item, idx) => {
-                      const isSelected = selectedArchitecture === item.value;
-                      return (
-                        <button
-                          key={item.value}
-                          type="button"
-                          onClick={() => {
-                            setSelectedArchitecture(isSelected ? undefined : item.value);
-                            setPage(1);
-                          }}
-                          className={`${styles.filterPill} ${isSelected ? styles.filterPillActive : ""}`}
-                          title={`${item.value} (${item.count})`}
-                        >
-                          <span
-                            className={styles.filterDot}
-                            style={{ backgroundColor: DOT_COLORS[(idx + 8) % DOT_COLORS.length] }}
-                            aria-hidden="true"
-                          />
-                          <span className={styles.filterPillText}>{item.value}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {/* Min Fit Score Slider */}
+              {/* Min DRS Fit Score Slider */}
               <div className={styles.filterGroup}>
-                <h3 className={styles.filterGroupTitle}>Min fit score</h3>
+                <h3 className={styles.filterGroupTitle}>Min DRS Trust Score</h3>
                 <input
                   type="range"
                   min={0}
@@ -440,51 +582,41 @@ export default function ModelsRegistryPage() {
               )}
             </aside>
 
-            {/* CONTENT AREA */}
+            {/* MAIN CONTENT AREA */}
             <div className={styles.contentArea}>
-              {/* HEADER CONTROLS BAR */}
+              {/* TOP CONTROLS BAR */}
               <div className={styles.controlsBar}>
-                <div className={styles.modelsCountHeading}>
-                  <h1>Models</h1>
-                  <span className={styles.modelsCountBadge}>
-                    {totalFiltered.toLocaleString()}
-                    {totalFiltered !== allModels.length && ` (of ${allModels.length})`}
-                  </span>
+                {/* SEARCH INPUT */}
+                <div className={styles.searchInputWrap}>
+                  <Search className={styles.searchIcon} size={16} />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search models by name, provider, or size..."
+                    className={styles.searchInput}
+                    aria-label="Search models"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery("")}
+                      className={styles.clearSearchBtn}
+                      aria-label="Clear search"
+                    >
+                      <X size={14} />
+                    </button>
+                  )}
                 </div>
 
+                {/* RIGHT ACTIONS: FULL TEXT, PAGE SIZE, SORT */}
                 <div className={styles.rightControls}>
-                  {/* SEARCH INPUT */}
-                  <div className={styles.searchInputWrap}>
-                    <Search className={styles.searchIcon} size={15} />
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Filter by name"
-                      className={styles.searchInput}
-                      aria-label="Filter models by name"
-                    />
-                    {searchQuery && (
-                      <button
-                        type="button"
-                        onClick={() => setSearchQuery("")}
-                        className={styles.clearSearchBtn}
-                        aria-label="Clear search"
-                      >
-                        <X size={14} />
-                      </button>
-                    )}
-                  </div>
-
-                  {/* FULL TEXT SEARCH TOGGLE */}
+                  {/* FULL TEXT TOGGLE */}
                   <button
                     type="button"
-                    onClick={() => {
-                      setFullText(!fullText);
-                      setPage(1);
-                    }}
-                    aria-pressed={fullText}
+                    onClick={() => setFullText(!fullText)}
                     className={`${styles.fullTextBtn} ${fullText ? styles.fullTextBtnActive : ""}`}
+                    title="Toggle full-text search across all benchmark metadata"
                   >
                     Full-text search
                   </button>
@@ -588,23 +720,11 @@ export default function ModelsRegistryPage() {
                           <div className={styles.modelMeta}>
                             <span className={styles.metaArchitecture}>{model.architecture}</span>
                             <span className={styles.metaBullet}>•</span>
-                            <span className={styles.metaUseCase} title={model.primaryUseCase}>
-                              {model.primaryUseCase}
-                            </span>
-                            {model.lastAssessedAt && (
-                              <>
-                                <span className={styles.metaBullet}>•</span>
-                                <span className={styles.metaDate}>
-                                  Assessed {formatDate(model.lastAssessedAt)}
-                                </span>
-                              </>
-                            )}
-                            <span className={styles.metaBullet}>•</span>
                             <span
                               className={`${styles.decisionStatus} ${
                                 model.decisionStatus === "Approved"
                                   ? styles.statusApproved
-                                  : model.decisionStatus === "Rejected"
+                                  : model.decisionStatus === "Needs Review"
                                   ? styles.statusRejected
                                   : styles.statusReview
                               }`}
@@ -612,11 +732,27 @@ export default function ModelsRegistryPage() {
                               ● {model.decisionStatus}
                             </span>
                             {model.overallFitScore !== null && (
-                              <span className={styles.fitScore}>
+                              <span className={styles.fitScore} title="Decision Reliability Score">
                                 <Gauge size={13} className={styles.gaugeIcon} />
                                 <span>{Math.round(model.overallFitScore)}</span>
                               </span>
                             )}
+                          </div>
+
+                          {/* Mini metrics row directly from sheet */}
+                          <div className={styles.modelMetricsRow}>
+                            <span className={styles.modelMetricBadge}>
+                              Acc: {model.accuracy}
+                            </span>
+                            <span className={styles.modelMetricBadge}>
+                              DRS: {model.drs}
+                            </span>
+                            <span className={styles.modelMetricBadge}>
+                              HPI: {model.hallucination}
+                            </span>
+                            <span className={styles.modelMetricBadge}>
+                              Lat: {model.latency}
+                            </span>
                           </div>
                         </div>
 
@@ -727,12 +863,12 @@ export default function ModelsRegistryPage() {
                   >
                     {selectedModel.provider.slice(0, 1)}
                   </div>
-                  <div>
+                  <div className={styles.modalHeaderMeta}>
                     <h2 className={styles.modalTitle}>
                       {selectedModel.provider} / {selectedModel.name}
                     </h2>
                     <p className={styles.modalSubtitle}>
-                      {selectedModel.architecture} {selectedModel.version ? `• v${selectedModel.version}` : ""}
+                      {selectedModel.params ? selectedModel.params.toUpperCase() : "LLM"} • {selectedModel.size}
                     </p>
                   </div>
                 </div>
@@ -756,7 +892,7 @@ export default function ModelsRegistryPage() {
                       className={`${styles.statValue} ${
                         selectedModel.decisionStatus === "Approved"
                           ? styles.statusApproved
-                          : selectedModel.decisionStatus === "Rejected"
+                          : selectedModel.decisionStatus === "Needs Review"
                           ? styles.statusRejected
                           : styles.statusReview
                       }`}
@@ -766,31 +902,65 @@ export default function ModelsRegistryPage() {
                   </div>
 
                   <div className={styles.modalStatCard}>
-                    <div className={styles.statLabel}>Overall Fit Score</div>
+                    <div className={styles.statLabel}>DRS Trust Score</div>
                     <div className={styles.statValueScore}>
                       <Gauge size={18} />
-                      <span>{selectedModel.overallFitScore ? Math.round(selectedModel.overallFitScore) : "N/A"}/100</span>
+                      <span>{selectedModel.overallFitScore !== null && selectedModel.overallFitScore !== undefined ? Math.round(selectedModel.overallFitScore) : "N/A"}/100</span>
                     </div>
                   </div>
 
                   <div className={styles.modalStatCard}>
-                    <div className={styles.statLabel}>Lifecycle</div>
-                    <div className={styles.statValue}>{selectedModel.lifecycle || "Active"}</div>
+                    <div className={styles.statLabel}>Benchmark Rank</div>
+                    <div className={styles.statValue}>#{selectedModel.rank}</div>
+                  </div>
+                </div>
+
+                {/* 8-METRIC EVALUATION GRID (FROM SHEET) */}
+                <div className={styles.modalSection}>
+                  <h4 className={styles.modalSectionTitle}>Evaluation Benchmark Signals</h4>
+                  <div className={styles.modalMetricsGrid}>
+                    <div className={styles.modalMetricCard}>
+                      <span className={styles.modalMetricLabel}>Accuracy</span>
+                      <span className={styles.modalMetricVal}>{selectedModel.accuracy}</span>
+                    </div>
+                    <div className={styles.modalMetricCard}>
+                      <span className={styles.modalMetricLabel}>Semantic</span>
+                      <span className={styles.modalMetricVal}>{selectedModel.semantic}</span>
+                    </div>
+                    <div className={styles.modalMetricCard}>
+                      <span className={styles.modalMetricLabel}>Latency</span>
+                      <span className={styles.modalMetricVal}>{selectedModel.latency}</span>
+                    </div>
+                    <div className={styles.modalMetricCard}>
+                      <span className={styles.modalMetricLabel}>Factuality</span>
+                      <span className={styles.modalMetricVal}>{selectedModel.factuality}</span>
+                    </div>
+                    <div className={styles.modalMetricCard}>
+                      <span className={styles.modalMetricLabel}>Hallucination</span>
+                      <span className={styles.modalMetricVal}>{selectedModel.hallucination}</span>
+                    </div>
+                    <div className={styles.modalMetricCard}>
+                      <span className={styles.modalMetricLabel}>Safety</span>
+                      <span className={styles.modalMetricVal}>{selectedModel.safety}</span>
+                    </div>
+                    <div className={styles.modalMetricCard}>
+                      <span className={styles.modalMetricLabel}>Reliability</span>
+                      <span className={styles.modalMetricVal}>{selectedModel.reliability}</span>
+                    </div>
+                    <div className={styles.modalMetricCard}>
+                      <span className={styles.modalMetricLabel}>DRS Score</span>
+                      <span className={styles.modalMetricVal}>{selectedModel.drs}</span>
+                    </div>
                   </div>
                 </div>
 
                 {/* DETAILS SECTIONS */}
                 <div className={styles.modalSection}>
-                  <h4 className={styles.modalSectionTitle}>Primary Use Case</h4>
-                  <p className={styles.modalSectionText}>{selectedModel.primaryUseCase}</p>
+                  <h4 className={styles.modalSectionTitle}>Lifecycle &amp; Best Use</h4>
+                  <p className={styles.modalSectionText}>
+                    <strong>{selectedModel.lifecycle}</strong>: {selectedModel.bestUse}
+                  </p>
                 </div>
-
-                {selectedModel.bestUse && (
-                  <div className={styles.modalSection}>
-                    <h4 className={styles.modalSectionTitle}>Best Use Scenario</h4>
-                    <p className={styles.modalSectionText}>{selectedModel.bestUse}</p>
-                  </div>
-                )}
 
                 {selectedModel.tags && selectedModel.tags.length > 0 && (
                   <div className={styles.modalSection}>
@@ -806,9 +976,9 @@ export default function ModelsRegistryPage() {
                 )}
 
                 <div className={styles.modalSection}>
-                  <h4 className={styles.modalSectionTitle}>Assessed Information</h4>
+                  <h4 className={styles.modalSectionTitle}>Evaluated Runs</h4>
                   <p className={styles.modalSectionText}>
-                    Last validated: {formatDate(selectedModel.lastAssessedAt)}
+                    Consolidated from {selectedModel.runsCount} independent multi-turn benchmark run(s) recorded in the OpenVals registry.
                   </p>
                 </div>
               </div>

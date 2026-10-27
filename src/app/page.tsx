@@ -34,12 +34,15 @@ export default function Home() {
         {/* SECTION 1: TRUST LAYER + AI FAILS QUIETLY */}
         <section
           className={styles.snapSection}
-          style={{ padding: "clamp(30px, 5vh, 60px) var(--container-padding) 0" }}
+          style={{ padding: "clamp(30px, 4.5vh, 46px) var(--container-padding) 0" }}
         >
           <AmbientGrid />
           <div
             className={`${styles.containerFull} ${styles.snapInner}`}
-            style={{ justifyContent: "space-between" }}
+            style={{
+              width: "100%",
+              justifyContent: "space-between",
+            }}
           >
             <HeroPart />
             <ActionButtonsPart />
