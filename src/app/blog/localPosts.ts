@@ -15,6 +15,15 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-ai-supply-chain-risk",
+    title: "AI Supply Chain Risk",
+    slug: { current: "ai-supply-chain-risk" },
+    publishedAt: "2026-10-27T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/ai_supply_chain_risk_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/ai-supply-chain-risk-vishwa-akuthota--zokac",
+  },
+  {
     _id: "local-shadow-ai-your-employees-may-already-deploying",
     title: "Shadow AI: Your Employees May Already Be Deploying It (And You Don't Even Know)",
     slug: { current: "shadow-ai-your-employees-may-already-deploying" },
