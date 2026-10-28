@@ -186,6 +186,7 @@ async function sync() {
 
   const avg = (arr) => (arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : 0);
 
+  const seenIds = new Set();
   const aggregatedModels = Object.values(grouped).map((g) => {
     const accAvg = avg(g.runs.map((r) => r.accuracyNum));
     const semAvg = avg(g.runs.map((r) => r.semanticNum));
@@ -196,8 +197,17 @@ async function sync() {
     const relAvg = avg(g.runs.map((r) => r.reliabilityNum));
     const drsAvg = avg(g.runs.map((r) => r.drsNum));
 
+    const baseId = `${g.name}-${g.params}`.replace(/[^a-zA-Z0-9-]/g, '-').replace(/-+/g, '-').toLowerCase();
+    let uniqueId = baseId;
+    let counter = 1;
+    while (seenIds.has(uniqueId)) {
+      counter++;
+      uniqueId = `${baseId}-${counter}`;
+    }
+    seenIds.add(uniqueId);
+
     return {
-      id: `${g.name}-${g.params}`.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase(),
+      id: uniqueId,
       name: g.name,
       params: g.params,
       size: g.size,

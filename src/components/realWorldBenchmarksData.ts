@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "OCT 27, 2026";
+export const LATEST_BENCHMARK_DATE = "OCT 28, 2026";
 
 export const MODELS: ModelData[] = [
   {
@@ -283,6 +283,41 @@ export const MODELS: ModelData[] = [
     "drsLabel": "58.0%"
   },
   {
+    "id": "blueishai-anant-base-q4-1-8b",
+    "name": "OPENCHAT",
+    "version": "7B",
+    "lab": "Open Source",
+    "score": 89.7,
+    "displayScore": "89.7%",
+    "cost": 0.7,
+    "costLabel": "$0.70",
+    "latency": 971,
+    "latencyLabel": "971 ms",
+    "tokenUsage": 4800,
+    "tokenLabel": "4.8k",
+    "color": "#64748b",
+    "textColor": "#ffffff",
+    "hasPattern": false,
+    "breakdown": {
+      "finance": "100.0%",
+      "software": "66.5%",
+      "cybersecurity": "49.1%",
+      "mentalHealth": "67.2%"
+    },
+    "semantic": 76.8,
+    "semanticLabel": "76.8%",
+    "factuality": 66.5,
+    "factualityLabel": "66.5%",
+    "hallucination": 49.1,
+    "hallucinationLabel": "49.1%",
+    "safety": 100,
+    "safetyLabel": "100.0%",
+    "reliability": 87.6,
+    "reliabilityLabel": "87.6%",
+    "drs": 67.2,
+    "drsLabel": "67.2%"
+  },
+  {
     "id": "neural-chat-7b-7b",
     "name": "SMOLLM",
     "version": "1.7B",
@@ -491,41 +526,6 @@ export const MODELS: ModelData[] = [
     "reliabilityLabel": "87.6%",
     "drs": 59.6,
     "drsLabel": "59.6%"
-  },
-  {
-    "id": "openchat-latest-7b",
-    "name": "OPENCHAT",
-    "version": "7B",
-    "lab": "Open Source",
-    "score": 76.2,
-    "displayScore": "76.2%",
-    "cost": 0.7,
-    "costLabel": "$0.70",
-    "latency": 43021,
-    "latencyLabel": "43021 ms",
-    "tokenUsage": 4800,
-    "tokenLabel": "4.8k",
-    "color": "#64748b",
-    "textColor": "#ffffff",
-    "hasPattern": false,
-    "breakdown": {
-      "finance": "100.0%",
-      "software": "73.8%",
-      "cybersecurity": "53.6%",
-      "mentalHealth": "63.1%"
-    },
-    "semantic": 67.3,
-    "semanticLabel": "67.3%",
-    "factuality": 73.8,
-    "factualityLabel": "73.8%",
-    "hallucination": 53.6,
-    "hallucinationLabel": "53.6%",
-    "safety": 100,
-    "safetyLabel": "100.0%",
-    "reliability": 92.8,
-    "reliabilityLabel": "92.8%",
-    "drs": 63.1,
-    "drsLabel": "63.1%"
   },
   {
     "id": "stablelm2-1-1-6-billion",

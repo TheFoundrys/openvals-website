@@ -1,0 +1,441 @@
+﻿{
+    "data":  {
+                 "items":  [
+                               {
+                                   "slug":  "openvals/mt-bench",
+                                   "name":  "MT-Bench",
+                                   "owner":  "OpenVals",
+                                   "description":  "Multi-turn conversation benchmark with 80 high-quality questions.",
+                                   "modality":  "Text",
+                                   "format":  "json",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "\u003c1K",
+                                   "rows":  160,
+                                   "uses":  2310,
+                                   "updatedAt":  "2026-10-10",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/jailbreakbench",
+                                   "name":  "JailbreakBench",
+                                   "owner":  "OpenVals",
+                                   "description":  "Adversarial jailbreak prompts covering DAN, obfuscation, and role-play attacks.",
+                                   "modality":  "Text",
+                                   "format":  "json",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "10K-100K",
+                                   "rows":  15000,
+                                   "uses":  1980,
+                                   "updatedAt":  "2026-10-24",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/truthfulqa",
+                                   "name":  "TruthfulQA",
+                                   "owner":  "OpenVals",
+                                   "description":  "817 questions testing whether models reproduce human falsehoods.",
+                                   "modality":  "Text",
+                                   "format":  "parquet",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "\u003c1K",
+                                   "rows":  817,
+                                   "uses":  1240,
+                                   "updatedAt":  "2026-10-20",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/owasp-llm-top10",
+                                   "name":  "OWASP LLM Top-10",
+                                   "owner":  "OpenVals",
+                                   "description":  "Prompt sets mapped to every OWASP LLM risk category, from injection to exfiltration.",
+                                   "modality":  "Text",
+                                   "format":  "json",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "1K-10K",
+                                   "rows":  4800,
+                                   "uses":  1150,
+                                   "updatedAt":  "2026-09-25",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/mmlu-pro",
+                                   "name":  "MMLU-Pro",
+                                   "owner":  "OpenVals",
+                                   "description":  "Harder multi-choice knowledge benchmark across 14 domains.",
+                                   "modality":  "Text",
+                                   "format":  "parquet",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "10K-100K",
+                                   "rows":  12032,
+                                   "uses":  980,
+                                   "updatedAt":  "2026-09-22",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/bbq-bias",
+                                   "name":  "BBQ Bias",
+                                   "owner":  "OpenVals",
+                                   "description":  "Bias benchmarks across 9 social dimensions in ambiguous and disambiguated contexts.",
+                                   "modality":  "Text",
+                                   "format":  "json",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "10K-100K",
+                                   "rows":  58492,
+                                   "uses":  965,
+                                   "updatedAt":  "2026-10-18",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/toxigen",
+                                   "name":  "ToxiGen",
+                                   "owner":  "OpenVals",
+                                   "description":  "Machine-generated implicit toxicity statements for 13 minority groups.",
+                                   "modality":  "Text",
+                                   "format":  "csv",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "100K-1M",
+                                   "rows":  274186,
+                                   "uses":  870,
+                                   "updatedAt":  "2026-10-15",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/gsm8k-verify",
+                                   "name":  "GSM8K Verify",
+                                   "owner":  "OpenVals",
+                                   "description":  "Grade-school math problems for reasoning-chain verification.",
+                                   "modality":  "Text",
+                                   "format":  "parquet",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "1K-10K",
+                                   "rows":  8500,
+                                   "uses":  830,
+                                   "updatedAt":  "2026-08-10",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/harmbench",
+                                   "name":  "HarmBench",
+                                   "owner":  "OpenVals",
+                                   "description":  "Standardized evaluation for automated red teaming across 400+ harmful behaviors.",
+                                   "modality":  "Text",
+                                   "format":  "parquet",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "1K-10K",
+                                   "rows":  2040,
+                                   "uses":  754,
+                                   "updatedAt":  "2026-10-12",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/pii-redaction",
+                                   "name":  "PII Redaction Probes",
+                                   "owner":  "OpenVals",
+                                   "description":  "Synthetic prompts embedding emails, SSNs, and card numbers for leak testing.",
+                                   "modality":  "Text",
+                                   "format":  "json",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "10K-100K",
+                                   "rows":  44000,
+                                   "uses":  690,
+                                   "updatedAt":  "2026-10-08",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/grounding-rag",
+                                   "name":  "RAG Grounding Pack",
+                                   "owner":  "OpenVals",
+                                   "description":  "Question/context/answer triples scored for faithfulness and citation accuracy.",
+                                   "modality":  "Text",
+                                   "format":  "parquet",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "10K-100K",
+                                   "rows":  21500,
+                                   "uses":  640,
+                                   "updatedAt":  "2026-10-05",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/code-injection",
+                                   "name":  "Code Injection Probes",
+                                   "owner":  "OpenVals",
+                                   "description":  "Prompts attempting to coerce code-generation models into unsafe output.",
+                                   "modality":  "Text",
+                                   "format":  "json",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "1K-10K",
+                                   "rows":  5600,
+                                   "uses":  610,
+                                   "updatedAt":  "2026-09-10",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/agent-traces",
+                                   "name":  "Agent Tool-Use Traces",
+                                   "owner":  "OpenVals",
+                                   "description":  "Recorded multi-step tool-call trajectories with expected action sequences.",
+                                   "modality":  "Text",
+                                   "format":  "json",
+                                   "dtype":  "Traces",
+                                   "sizeBucket":  "1K-10K",
+                                   "rows":  6400,
+                                   "uses":  520,
+                                   "updatedAt":  "2026-10-02",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/multilingual-safety",
+                                   "name":  "Multilingual Safety",
+                                   "owner":  "OpenVals",
+                                   "description":  "Toxicity and jailbreak probes across 17 languages.",
+                                   "modality":  "Text",
+                                   "format":  "parquet",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "10K-100K",
+                                   "rows":  36000,
+                                   "uses":  445,
+                                   "updatedAt":  "2026-09-15",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/latency-probes",
+                                   "name":  "Latency Probe Suite",
+                                   "owner":  "OpenVals",
+                                   "description":  "Fixed prompt corpus replayed to measure p50/p95/p99 latency under load.",
+                                   "modality":  "Text",
+                                   "format":  "csv",
+                                   "dtype":  "Traces",
+                                   "sizeBucket":  "1K-10K",
+                                   "rows":  3300,
+                                   "uses":  415,
+                                   "updatedAt":  "2026-09-28",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/med-misinformation",
+                                   "name":  "Med Misinformation",
+                                   "owner":  "OpenVals",
+                                   "description":  "Clinical claims with verified verdicts for healthcare deployments.",
+                                   "modality":  "Text",
+                                   "format":  "json",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "1K-10K",
+                                   "rows":  2900,
+                                   "uses":  388,
+                                   "updatedAt":  "2026-09-12",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/bold-gender",
+                                   "name":  "BOLD Gender",
+                                   "owner":  "OpenVals",
+                                   "description":  "Open-ended generation prompts measuring gender bias in completions.",
+                                   "modality":  "Text",
+                                   "format":  "json",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "10K-100K",
+                                   "rows":  23679,
+                                   "uses":  305,
+                                   "updatedAt":  "2026-09-20",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/finance-compliance",
+                                   "name":  "Finance Compliance QA",
+                                   "owner":  "OpenVals",
+                                   "description":  "SEC-style disclosure questions with grounded answers.",
+                                   "modality":  "Document",
+                                   "format":  "parquet",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "1K-10K",
+                                   "rows":  3750,
+                                   "uses":  265,
+                                   "updatedAt":  "2026-08-15",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/cost-traces-prod",
+                                   "name":  "Production Cost Traces",
+                                   "owner":  "OpenVals",
+                                   "description":  "Anonymized token-usage traces for cost regression testing.",
+                                   "modality":  "Time-series",
+                                   "format":  "csv",
+                                   "dtype":  "Traces",
+                                   "sizeBucket":  "100K-1M",
+                                   "rows":  412000,
+                                   "uses":  260,
+                                   "updatedAt":  "2026-09-18",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/drift-monitor-logs",
+                                   "name":  "Drift Monitor Logs",
+                                   "owner":  "OpenVals",
+                                   "description":  "Time-series prediction logs to replay distribution-shift scenarios.",
+                                   "modality":  "Time-series",
+                                   "format":  "parquet",
+                                   "dtype":  "Traces",
+                                   "sizeBucket":  "1M-100M",
+                                   "rows":  4200000,
+                                   "uses":  210,
+                                   "updatedAt":  "2026-08-20",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/image-caption-bias",
+                                   "name":  "Image Caption Bias",
+                                   "owner":  "OpenVals",
+                                   "description":  "Occupation/neutral image pairs scored for biased captioning.",
+                                   "modality":  "Image",
+                                   "format":  "imagefolder",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "1K-10K",
+                                   "rows":  8200,
+                                   "uses":  190,
+                                   "updatedAt":  "2026-09-05",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/tabular-fairness",
+                                   "name":  "Tabular Fairness Pack",
+                                   "owner":  "OpenVals",
+                                   "description":  "Lending and hiring tables with protected-attribute ground truth.",
+                                   "modality":  "Tabular",
+                                   "format":  "csv",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "10K-100K",
+                                   "rows":  48842,
+                                   "uses":  175,
+                                   "updatedAt":  "2026-08-28",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/audio-asr-stress",
+                                   "name":  "ASR Stress Suite",
+                                   "owner":  "OpenVals",
+                                   "description":  "Accented, noisy, and overlapping speech for ASR robustness gates.",
+                                   "modality":  "Audio",
+                                   "format":  "soundfolder",
+                                   "dtype":  "Benchmark",
+                                   "sizeBucket":  "10K-100K",
+                                   "rows":  18400,
+                                   "uses":  150,
+                                   "updatedAt":  "2026-09-01",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               },
+                               {
+                                   "slug":  "openvals/rl-safety-env",
+                                   "name":  "RL Safety Environment",
+                                   "owner":  "OpenVals",
+                                   "description":  "Simulated environment where agents learn to evade safety controls.",
+                                   "modality":  "Text",
+                                   "format":  "json",
+                                   "dtype":  "RL Environment",
+                                   "sizeBucket":  "\u003c1K",
+                                   "rows":  240,
+                                   "uses":  96,
+                                   "updatedAt":  "2026-08-25",
+                                   "gateReady":  true,
+                                   "preview":  true
+                               }
+                           ],
+                 "total":  24,
+                 "page":  1,
+                 "pageSize":  500,
+                 "facets":  {
+                                "modalities":  [
+                                                   {
+                                                       "value":  "Text",
+                                                       "count":  18
+                                                   },
+                                                   {
+                                                       "value":  "Time-series",
+                                                       "count":  2
+                                                   },
+                                                   {
+                                                       "value":  "Image",
+                                                       "count":  1
+                                                   },
+                                                   {
+                                                       "value":  "Audio",
+                                                       "count":  1
+                                                   },
+                                                   {
+                                                       "value":  "Tabular",
+                                                       "count":  1
+                                                   },
+                                                   {
+                                                       "value":  "Document",
+                                                       "count":  1
+                                                   }
+                                               ],
+                                "formats":  [
+                                                {
+                                                    "value":  "json",
+                                                    "count":  10
+                                                },
+                                                {
+                                                    "value":  "parquet",
+                                                    "count":  8
+                                                },
+                                                {
+                                                    "value":  "csv",
+                                                    "count":  4
+                                                },
+                                                {
+                                                    "value":  "imagefolder",
+                                                    "count":  1
+                                                },
+                                                {
+                                                    "value":  "soundfolder",
+                                                    "count":  1
+                                                }
+                                            ],
+                                "dtypes":  [
+                                               {
+                                                   "value":  "Benchmark",
+                                                   "count":  19
+                                               },
+                                               {
+                                                   "value":  "Traces",
+                                                   "count":  4
+                                               },
+                                               {
+                                                   "value":  "RL Environment",
+                                                   "count":  1
+                                               }
+                                           ]
+                            }
+             },
+    "meta":  {
+                 "total":  null,
+                 "page":  null,
+                 "pageSize":  null,
+                 "timestamp":  "2026-10-25T11:14:09.537918+00:00",
+                 "version":  "v1"
+             },
+    "error":  null
+}

@@ -1,0 +1,61 @@
+﻿{
+    "data":  {
+                 "comparison":  [
+                                    {
+                                        "capability":  "Models under governance",
+                                        "team":  "Unlimited",
+                                        "enterprise":  "Unlimited, multi-tenant"
+                                    },
+                                    {
+                                        "capability":  "Validation runs",
+                                        "team":  "500 / month, metered beyond",
+                                        "enterprise":  "Unlimited, committed-use pricing"
+                                    },
+                                    {
+                                        "capability":  "Access control",
+                                        "team":  "Workspace-wide access",
+                                        "enterprise":  "SSO/SAML + SCIM"
+                                    },
+                                    {
+                                        "capability":  "Compliance frameworks",
+                                        "team":  "EU AI Act, NIST AI RMF, SOC 2",
+                                        "enterprise":  "All + custom framework mapping"
+                                    },
+                                    {
+                                        "capability":  "Deployment",
+                                        "team":  "Managed cloud",
+                                        "enterprise":  "VPC, on-prem, or air-gapped"
+                                    },
+                                    {
+                                        "capability":  "Audit \u0026 evidence",
+                                        "team":  "Evidence pack export",
+                                        "enterprise":  "Immutable audit API + retention policy"
+                                    },
+                                    {
+                                        "capability":  "Support",
+                                        "team":  "Email, next business day",
+                                        "enterprise":  "Dedicated engineer, 24/7 SLA"
+                                    }
+                                ],
+                 "securityFeatures":  [
+                                          "SOC 2 Type II aligned controls",
+                                          "Credentials stored in an encrypted vault, never in browser code",
+                                          "Route-level and API-level RBAC on every endpoint",
+                                          "Tamper-evident audit trail for every gate decision",
+                                          "Regional data residency on request"
+                                      ],
+                 "deploymentOptions":  [
+                                           "Managed cloud (multi-tenant)",
+                                           "Private VPC deployment",
+                                           "On-prem / air-gapped clusters"
+                                       ]
+             },
+    "meta":  {
+                 "total":  null,
+                 "page":  null,
+                 "pageSize":  null,
+                 "timestamp":  "2026-10-25T11:51:56.349598+00:00",
+                 "version":  "v1"
+             },
+    "error":  null
+}

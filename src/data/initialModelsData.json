@@ -1,0 +1,457 @@
+﻿{
+    "data":  {
+                 "items":  [
+                               {
+                                   "id":  21,
+                                   "name":  "Claude 3.7 Sonnet",
+                                   "version":  "3.7",
+                                   "provider":  "Anthropic",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Long-context reasoning and analysis",
+                                   "tags":  [
+                                                "reasoning",
+                                                "agentic"
+                                            ],
+                                   "decisionStatus":  "Approved",
+                                   "overallFitScore":  95.0,
+                                   "lastAssessedAt":  "2026-10-08T05:03:05.151388+00:00"
+                               },
+                               {
+                                   "id":  18,
+                                   "name":  "Claude Sonnet 4.5",
+                                   "version":  "4.5",
+                                   "provider":  "Anthropic",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Code review assistance",
+                                   "tags":  [
+                                                "code",
+                                                "evaluation"
+                                            ],
+                                   "decisionStatus":  "Pending Review",
+                                   "overallFitScore":  92.0,
+                                   "lastAssessedAt":  "2026-10-08T05:03:05.151342+00:00"
+                               },
+                               {
+                                   "id":  35,
+                                   "name":  "Sentence-BERT Retriever",
+                                   "version":  "2.0",
+                                   "provider":  "Hugging Face",
+                                   "architecture":  "Encoder",
+                                   "primaryUseCase":  "Semantic retrieval for RAG grounding",
+                                   "tags":  [
+                                                "embeddings",
+                                                "retrieval"
+                                            ],
+                                   "decisionStatus":  "Approved",
+                                   "overallFitScore":  90.0,
+                                   "lastAssessedAt":  "2026-10-05T05:03:05.151545+00:00"
+                               },
+                               {
+                                   "id":  17,
+                                   "name":  "GPT-4o Enterprise",
+                                   "version":  "2024-11",
+                                   "provider":  "OpenAI",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Customer support summarization",
+                                   "tags":  [
+                                                "chat",
+                                                "production"
+                                            ],
+                                   "decisionStatus":  "Approved",
+                                   "overallFitScore":  89.0,
+                                   "lastAssessedAt":  "2026-10-07T05:03:05.151290+00:00"
+                               },
+                               {
+                                   "id":  36,
+                                   "name":  "Qwen 2.5 Coder 32B",
+                                   "version":  "2.5",
+                                   "provider":  "Hugging Face",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Secure code generation sandbox",
+                                   "tags":  [
+                                                "code",
+                                                "open-weights"
+                                            ],
+                                   "decisionStatus":  "Pending Review",
+                                   "overallFitScore":  88.0,
+                                   "lastAssessedAt":  "2026-10-03T05:03:05.151556+00:00"
+                               },
+                               {
+                                   "id":  31,
+                                   "name":  "Gemini 2.0 Flash",
+                                   "version":  "2.0",
+                                   "provider":  "Google Vertex AI",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Multimodal triage assistant",
+                                   "tags":  [
+                                                "multimodal",
+                                                "fast"
+                                            ],
+                                   "decisionStatus":  "Pending Review",
+                                   "overallFitScore":  88.0,
+                                   "lastAssessedAt":  "2026-10-07T05:03:05.151499+00:00"
+                               },
+                               {
+                                   "id":  24,
+                                   "name":  "FinBERT Sentiment",
+                                   "version":  "v2.1",
+                                   "provider":  "Hugging Face",
+                                   "architecture":  "Encoder",
+                                   "primaryUseCase":  "Financial sentiment classification",
+                                   "tags":  [
+                                                "finance",
+                                                "classification"
+                                            ],
+                                   "decisionStatus":  "Approved",
+                                   "overallFitScore":  88.0,
+                                   "lastAssessedAt":  "2026-10-02T05:03:05.151421+00:00"
+                               },
+                               {
+                                   "id":  32,
+                                   "name":  "Whisper Large v3",
+                                   "version":  "v3",
+                                   "provider":  "AWS Bedrock",
+                                   "architecture":  "Encoder",
+                                   "primaryUseCase":  "Call-center speech transcription",
+                                   "tags":  [
+                                                "audio",
+                                                "asr"
+                                            ],
+                                   "decisionStatus":  "Approved",
+                                   "overallFitScore":  87.0,
+                                   "lastAssessedAt":  "2026-09-27T05:03:05.151511+00:00"
+                               },
+                               {
+                                   "id":  20,
+                                   "name":  "GPT-4.1 Mini",
+                                   "version":  "4.1-mini",
+                                   "provider":  "OpenAI",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Summarization and extraction",
+                                   "tags":  [
+                                                "chat",
+                                                "fast"
+                                            ],
+                                   "decisionStatus":  "Approved",
+                                   "overallFitScore":  87.0,
+                                   "lastAssessedAt":  "2026-10-06T05:03:05.151377+00:00"
+                               },
+                               {
+                                   "id":  22,
+                                   "name":  "Llama 3.3 70B Instruct",
+                                   "version":  "3.3",
+                                   "provider":  "Meta",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Open-weight general assistant",
+                                   "tags":  [
+                                                "open-weights",
+                                                "chat"
+                                            ],
+                                   "decisionStatus":  "Conditional",
+                                   "overallFitScore":  86.0,
+                                   "lastAssessedAt":  "2026-10-05T05:03:05.151400+00:00"
+                               },
+                               {
+                                   "id":  26,
+                                   "name":  "XGBoost Tabular Baseline",
+                                   "version":  "2.0",
+                                   "provider":  "Custom / In-House",
+                                   "architecture":  "Gradient Boosted Tree",
+                                   "primaryUseCase":  "Credit risk scoring baseline",
+                                   "tags":  [
+                                                "tabular",
+                                                "baseline"
+                                            ],
+                                   "decisionStatus":  "Approved",
+                                   "overallFitScore":  85.0,
+                                   "lastAssessedAt":  "2026-09-30T05:03:05.151445+00:00"
+                               },
+                               {
+                                   "id":  30,
+                                   "name":  "Mixtral 8x22B",
+                                   "version":  "8x22b",
+                                   "provider":  "Mistral",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Multilingual document QA",
+                                   "tags":  [
+                                                "moe",
+                                                "multilingual"
+                                            ],
+                                   "decisionStatus":  "Conditional",
+                                   "overallFitScore":  84.0,
+                                   "lastAssessedAt":  "2026-09-29T05:03:05.151489+00:00"
+                               },
+                               {
+                                   "id":  19,
+                                   "name":  "Fraud-GBT v9",
+                                   "version":  "9.2.1",
+                                   "provider":  "Custom / In-House",
+                                   "architecture":  "Gradient Boosted Tree",
+                                   "primaryUseCase":  "Transaction fraud scoring",
+                                   "tags":  [
+                                                "tabular",
+                                                "real-time"
+                                            ],
+                                   "decisionStatus":  "Conditional",
+                                   "overallFitScore":  84.0,
+                                   "lastAssessedAt":  "2026-10-04T05:03:05.151362+00:00"
+                               },
+                               {
+                                   "id":  33,
+                                   "name":  "ViT Document Classifier",
+                                   "version":  "1.4",
+                                   "provider":  "Azure AI",
+                                   "architecture":  "Encoder",
+                                   "primaryUseCase":  "Scanned document classification",
+                                   "tags":  [
+                                                "image",
+                                                "document"
+                                            ],
+                                   "decisionStatus":  "Pending Review",
+                                   "overallFitScore":  83.0,
+                                   "lastAssessedAt":  "2026-09-24T05:03:05.151523+00:00"
+                               },
+                               {
+                                   "id":  23,
+                                   "name":  "Mistral Small 3",
+                                   "version":  "3.0",
+                                   "provider":  "Mistral",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Low-latency classification and routing",
+                                   "tags":  [
+                                                "fast",
+                                                "efficient"
+                                            ],
+                                   "decisionStatus":  "Pending Review",
+                                   "overallFitScore":  82.0,
+                                   "lastAssessedAt":  "2026-10-03T05:03:05.151411+00:00"
+                               },
+                               {
+                                   "id":  29,
+                                   "name":  "Llama 3.1 8B Instruct",
+                                   "version":  "3.1",
+                                   "provider":  "Meta",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Edge-deployed assistant",
+                                   "tags":  [
+                                                "open-weights",
+                                                "edge"
+                                            ],
+                                   "decisionStatus":  "Pending Review",
+                                   "overallFitScore":  81.0,
+                                   "lastAssessedAt":  "2026-10-01T05:03:05.151477+00:00"
+                               },
+                               {
+                                   "id":  34,
+                                   "name":  "Chronos Forecaster",
+                                   "version":  "1.2",
+                                   "provider":  "Custom / In-House",
+                                   "architecture":  "Ensemble",
+                                   "primaryUseCase":  "Demand forecasting for inventory",
+                                   "tags":  [
+                                                "time-series",
+                                                "forecast"
+                                            ],
+                                   "decisionStatus":  "Conditional",
+                                   "overallFitScore":  80.0,
+                                   "lastAssessedAt":  "2026-09-25T05:03:05.151533+00:00"
+                               },
+                               {
+                                   "id":  27,
+                                   "name":  "RandomForest Risk v2",
+                                   "version":  "2.4",
+                                   "provider":  "Custom / In-House",
+                                   "architecture":  "Ensemble",
+                                   "primaryUseCase":  "Portfolio risk estimation",
+                                   "tags":  [
+                                                "tabular",
+                                                "risk"
+                                            ],
+                                   "decisionStatus":  "Conditional",
+                                   "overallFitScore":  78.0,
+                                   "lastAssessedAt":  "2026-09-28T05:03:05.151455+00:00"
+                               },
+                               {
+                                   "id":  47,
+                                   "name":  "mistral:latest",
+                                   "version":  "local",
+                                   "provider":  "Ollama",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Local inference via Ollama",
+                                   "tags":  [
+                                                "ollama",
+                                                "local"
+                                            ],
+                                   "decisionStatus":  "Approved",
+                                   "overallFitScore":  77.1,
+                                   "lastAssessedAt":  "2026-10-21T15:20:43.302264+00:00"
+                               },
+                               {
+                                   "id":  44,
+                                   "name":  "mistral:latest",
+                                   "version":  "local",
+                                   "provider":  "Ollama",
+                                   "architecture":  "Transformer LLM",
+                                   "primaryUseCase":  "Local inference via Ollama",
+                                   "tags":  [
+                                                "ollama",
+                                                "local"
+                                            ],
+                                   "decisionStatus":  "Approved",
+                                   "overallFitScore":  77.1,
+                                   "lastAssessedAt":  "2026-10-14T07:57:29.552189+00:00"
+                               }
+                           ],
+                 "total":  376,
+                 "facets":  {
+                                "providers":  [
+                                                  {
+                                                      "value":  "Hugging Face",
+                                                      "count":  110
+                                                  },
+                                                  {
+                                                      "value":  "NVIDIA NIM",
+                                                      "count":  84
+                                                  },
+                                                  {
+                                                      "value":  "Google Gemini",
+                                                      "count":  66
+                                                  },
+                                                  {
+                                                      "value":  "Cohere",
+                                                      "count":  37
+                                                  },
+                                                  {
+                                                      "value":  "CivitAI",
+                                                      "count":  33
+                                                  },
+                                                  {
+                                                      "value":  "Ollama",
+                                                      "count":  29
+                                                  },
+                                                  {
+                                                      "value":  "Custom / In-House",
+                                                      "count":  4
+                                                  },
+                                                  {
+                                                      "value":  "OpenAI",
+                                                      "count":  3
+                                                  },
+                                                  {
+                                                      "value":  "Mistral",
+                                                      "count":  2
+                                                  },
+                                                  {
+                                                      "value":  "Anthropic",
+                                                      "count":  2
+                                                  },
+                                                  {
+                                                      "value":  "Meta",
+                                                      "count":  2
+                                                  },
+                                                  {
+                                                      "value":  "Z.Ai",
+                                                      "count":  1
+                                                  },
+                                                  {
+                                                      "value":  "AWS Bedrock",
+                                                      "count":  1
+                                                  },
+                                                  {
+                                                      "value":  "Azure AI",
+                                                      "count":  1
+                                                  },
+                                                  {
+                                                      "value":  "Google Vertex AI",
+                                                      "count":  1
+                                                  }
+                                              ],
+                                "lifecycles":  [
+                                                   {
+                                                       "value":  "Decommissioned",
+                                                       "count":  206
+                                                   },
+                                                   {
+                                                       "value":  "Evaluation",
+                                                       "count":  126
+                                                   },
+                                                   {
+                                                       "value":  "Active",
+                                                       "count":  39
+                                                   },
+                                                   {
+                                                       "value":  "Staging",
+                                                       "count":  3
+                                                   },
+                                                   {
+                                                       "value":  "Deprecated",
+                                                       "count":  2
+                                                   }
+                                               ],
+                                "decisionStatuses":  [
+                                                         {
+                                                             "value":  "Evaluation",
+                                                             "count":  327
+                                                         },
+                                                         {
+                                                             "value":  "Approved",
+                                                             "count":  36
+                                                         },
+                                                         {
+                                                             "value":  "Pending Review",
+                                                             "count":  6
+                                                         },
+                                                         {
+                                                             "value":  "Conditional",
+                                                             "count":  5
+                                                         },
+                                                         {
+                                                             "value":  "Rejected",
+                                                             "count":  2
+                                                         }
+                                                     ],
+                                "architectures":  [
+                                                      {
+                                                          "value":  "Imported model",
+                                                          "count":  298
+                                                      },
+                                                      {
+                                                          "value":  "Transformer LLM",
+                                                          "count":  40
+                                                      },
+                                                      {
+                                                          "value":  "Checkpoint",
+                                                          "count":  23
+                                                      },
+                                                      {
+                                                          "value":  "LORA",
+                                                          "count":  5
+                                                      },
+                                                      {
+                                                          "value":  "Encoder",
+                                                          "count":  5
+                                                      },
+                                                      {
+                                                          "value":  "Gradient Boosted Tree",
+                                                          "count":  2
+                                                      },
+                                                      {
+                                                          "value":  "Ensemble",
+                                                          "count":  2
+                                                      },
+                                                      {
+                                                          "value":  "Controlnet",
+                                                          "count":  1
+                                                      }
+                                                  ]
+                            }
+             },
+    "meta":  {
+                 "total":  null,
+                 "page":  null,
+                 "pageSize":  null,
+                 "timestamp":  "2026-10-25T10:45:16.816714+00:00",
+                 "version":  "v1"
+             },
+    "error":  null
+}

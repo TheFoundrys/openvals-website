@@ -22,6 +22,42 @@
   --logo-filter-standard: grayscale(100%) opacity(0.85);
   --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
   --logo-blend-mode: multiply;
+
+  /* ── Hero Animation Tokens (Light Mode Default) ── */
+  --hero-stream-stroke-1: rgba(2, 132, 199, 0.38);
+  --hero-stream-stroke-2: rgba(14, 165, 233, 0.30);
+  --hero-stream-stroke-3: rgba(2, 132, 199, 0.34);
+  --hero-stream-packet-1: #0284c7;
+  --hero-stream-packet-2: #0ea5e9;
+  --hero-stream-packet-trailing: #0369a1;
+  --hero-stream-glow: none;
+  --hero-connector-line: rgba(2, 132, 199, 0.16);
+
+  --hero-orbit-stroke-1: rgba(2, 132, 199, 0.38);
+  --hero-orbit-stroke-2: rgba(14, 165, 233, 0.32);
+  --hero-orbit-stroke-3: rgba(56, 189, 248, 0.35);
+  --hero-orbit-pulse: rgba(2, 132, 199, 0.7);
+  --hero-orbit-particle-1: #0284c7;
+  --hero-orbit-particle-2: #0ea5e9;
+  --hero-orbit-particle-white: #0369a1;
+  --hero-orbit-filter: none;
+
+  --hero-label-bg: rgba(255, 255, 255, 0.94);
+  --hero-label-border: rgba(220, 38, 38, 0.35);
+  --hero-label-border-pulse: rgba(2, 132, 199, 0.85);
+  --hero-label-text: #b91c1c;
+  --hero-label-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.12);
+  --hero-label-dot: #dc2626;
+  --hero-label-dot-flash: #0284c7;
+
+  --hero-part-left-opacity-mult: 0.36;
+  --hero-part-mid-opacity-mult: 0.55;
+  --hero-part-right-opacity-mult: 0.85;
+  --hero-part-bottom-opacity-mult: 0.25;
+  --hero-part-color-cyan: rgba(2, 132, 199, 0.65);
+  --hero-part-color-pale: rgba(14, 165, 233, 0.7);
+  --hero-part-color-mid: #0284c7;
+  --hero-part-glow-mid: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,6 +83,42 @@
     --logo-filter-standard: invert(1) grayscale(100%) opacity(0.85);
     --logo-filter-darkbg: grayscale(100%) opacity(0.85);
     --logo-blend-mode: screen;
+
+    /* ── Hero Animation Tokens (Dark Mode) ── */
+    --hero-stream-stroke-1: url(#streamGrad1);
+    --hero-stream-stroke-2: url(#streamGrad2);
+    --hero-stream-stroke-3: url(#streamGrad3);
+    --hero-stream-packet-1: #00f0ff;
+    --hero-stream-packet-2: #38bdf8;
+    --hero-stream-packet-trailing: #ffffff;
+    --hero-stream-glow: url(#cyanGlow);
+    --hero-connector-line: rgba(56, 189, 248, 0.30);
+
+    --hero-orbit-stroke-1: url(#orbGrad1);
+    --hero-orbit-stroke-2: url(#orbGrad2);
+    --hero-orbit-stroke-3: url(#orbGrad3);
+    --hero-orbit-pulse: #00f0ff;
+    --hero-orbit-particle-1: #00f0ff;
+    --hero-orbit-particle-2: #38bdf8;
+    --hero-orbit-particle-white: #ffffff;
+    --hero-orbit-filter: url(#orbGlow);
+
+    --hero-label-bg: rgba(8, 14, 28, 0.96);
+    --hero-label-border: rgba(255, 77, 90, 0.5);
+    --hero-label-border-pulse: rgba(0, 240, 255, 0.95);
+    --hero-label-text: #ff4d5a;
+    --hero-label-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 77, 90, 0.4);
+    --hero-label-dot: #ff4d5a;
+    --hero-label-dot-flash: #00f0ff;
+
+    --hero-part-left-opacity-mult: 0.85;
+    --hero-part-mid-opacity-mult: 1.0;
+    --hero-part-right-opacity-mult: 1.0;
+    --hero-part-bottom-opacity-mult: 0.38;
+    --hero-part-color-cyan: #38bdf8;
+    --hero-part-color-pale: #7dd3fc;
+    --hero-part-color-mid: #00f0ff;
+    --hero-part-glow-mid: 0 0 10px rgba(0, 240, 255, 0.9), 0 0 4px #ffffff;
   }
 }
 
@@ -55,6 +127,42 @@ html.dark {
   --logo-filter-standard: invert(1) grayscale(100%) opacity(0.85);
   --logo-filter-darkbg: grayscale(100%) opacity(0.85);
   --logo-blend-mode: screen;
+
+  /* ── Hero Animation Tokens (html.dark) ── */
+  --hero-stream-stroke-1: url(#streamGrad1);
+  --hero-stream-stroke-2: url(#streamGrad2);
+  --hero-stream-stroke-3: url(#streamGrad3);
+  --hero-stream-packet-1: #00f0ff;
+  --hero-stream-packet-2: #38bdf8;
+  --hero-stream-packet-trailing: #ffffff;
+  --hero-stream-glow: url(#cyanGlow);
+  --hero-connector-line: rgba(56, 189, 248, 0.30);
+
+  --hero-orbit-stroke-1: url(#orbGrad1);
+  --hero-orbit-stroke-2: url(#orbGrad2);
+  --hero-orbit-stroke-3: url(#orbGrad3);
+  --hero-orbit-pulse: #00f0ff;
+  --hero-orbit-particle-1: #00f0ff;
+  --hero-orbit-particle-2: #38bdf8;
+  --hero-orbit-particle-white: #ffffff;
+  --hero-orbit-filter: url(#orbGlow);
+
+  --hero-label-bg: rgba(8, 14, 28, 0.96);
+  --hero-label-border: rgba(255, 77, 90, 0.5);
+  --hero-label-border-pulse: rgba(0, 240, 255, 0.95);
+  --hero-label-text: #ff4d5a;
+  --hero-label-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 77, 90, 0.4);
+  --hero-label-dot: #ff4d5a;
+  --hero-label-dot-flash: #00f0ff;
+
+  --hero-part-left-opacity-mult: 0.85;
+  --hero-part-mid-opacity-mult: 1.0;
+  --hero-part-right-opacity-mult: 1.0;
+  --hero-part-bottom-opacity-mult: 0.38;
+  --hero-part-color-cyan: #38bdf8;
+  --hero-part-color-pale: #7dd3fc;
+  --hero-part-color-mid: #00f0ff;
+  --hero-part-glow-mid: 0 0 10px rgba(0, 240, 255, 0.9), 0 0 4px #ffffff;
 }
 
 html.light {
@@ -62,6 +170,42 @@ html.light {
   --logo-filter-standard: grayscale(100%) opacity(0.85);
   --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
   --logo-blend-mode: multiply;
+
+  /* ── Hero Animation Tokens (html.light) ── */
+  --hero-stream-stroke-1: rgba(2, 132, 199, 0.38);
+  --hero-stream-stroke-2: rgba(14, 165, 233, 0.30);
+  --hero-stream-stroke-3: rgba(2, 132, 199, 0.34);
+  --hero-stream-packet-1: #0284c7;
+  --hero-stream-packet-2: #0ea5e9;
+  --hero-stream-packet-trailing: #0369a1;
+  --hero-stream-glow: none;
+  --hero-connector-line: rgba(2, 132, 199, 0.16);
+
+  --hero-orbit-stroke-1: rgba(2, 132, 199, 0.38);
+  --hero-orbit-stroke-2: rgba(14, 165, 233, 0.32);
+  --hero-orbit-stroke-3: rgba(56, 189, 248, 0.35);
+  --hero-orbit-pulse: rgba(2, 132, 199, 0.7);
+  --hero-orbit-particle-1: #0284c7;
+  --hero-orbit-particle-2: #0ea5e9;
+  --hero-orbit-particle-white: #0369a1;
+  --hero-orbit-filter: none;
+
+  --hero-label-bg: rgba(255, 255, 255, 0.94);
+  --hero-label-border: rgba(220, 38, 38, 0.35);
+  --hero-label-border-pulse: rgba(2, 132, 199, 0.85);
+  --hero-label-text: #b91c1c;
+  --hero-label-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.12);
+  --hero-label-dot: #dc2626;
+  --hero-label-dot-flash: #0284c7;
+
+  --hero-part-left-opacity-mult: 0.36;
+  --hero-part-mid-opacity-mult: 0.55;
+  --hero-part-right-opacity-mult: 0.85;
+  --hero-part-bottom-opacity-mult: 0.25;
+  --hero-part-color-cyan: rgba(2, 132, 199, 0.65);
+  --hero-part-color-pale: rgba(14, 165, 233, 0.7);
+  --hero-part-color-mid: #0284c7;
+  --hero-part-glow-mid: none;
 }
 
 html,
