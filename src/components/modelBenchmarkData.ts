@@ -2518,7 +2518,9 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
   },
   {
     "id": "medllama-1b-instruct-v3-gguf-q4-k-m-1-b",
+    "id": "medllama-1b-instruct-v3-gguf-q4-k-m-1-b",
     "name": "Medllama-1B-Instruct-v3-GGUF:Q4_K_M",
+    "params": "1 b",
     "params": "1 b",
     "size": "807 MB",
     "lab": "Hugging Face",
@@ -7634,6 +7636,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
   {
     "id": "run-209",
     "name": "Medllama-1B-Instruct-v3-GGUF:Q4_K_M",
+    "params": "1 b",
     "params": "1 b",
     "size": "807 MB",
     "lab": "Hugging Face",
