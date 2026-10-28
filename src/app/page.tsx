@@ -5,6 +5,7 @@ import styles from "../components/ui.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AmbientGrid from "../components/AmbientGrid";
+import HeroParticleField from "../components/HeroParticleField";
 import RealWorldBenchmarks from "../components/RealWorldBenchmarks";
 import LatestReports from "../components/LatestReports";
 import { HeroPart, ActionButtonsPart } from "../components/TrustSection";
@@ -37,12 +38,9 @@ export default function Home() {
           style={{ padding: "clamp(30px, 4.5vh, 46px) var(--container-padding) 0" }}
         >
           <AmbientGrid />
+          <HeroParticleField />
           <div
-            className={`${styles.containerFull} ${styles.snapInner}`}
-            style={{
-              width: "100%",
-              justifyContent: "space-between",
-            }}
+            className={`${styles.containerFull} ${styles.snapInner} ${styles.heroSectionInner}`}
           >
             <HeroPart />
             <ActionButtonsPart />

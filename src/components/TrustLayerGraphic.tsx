@@ -167,6 +167,15 @@ function DeflectedThreat({ angle, index }: { angle: number; index: number }) {
   // Calm, steady pacing so threats glide gracefully and text is easily readable
   const delay = (index % 4) * 2.25 + Math.floor(index / 4) * 0.85;
 
+  // Staggered floating movement (4 to 8 pixels gentle organic bobbing)
+  const floatDistance = 4.5 + ((index * 3) % 4) * 1.2; // 4.5px, 5.7px, 6.9px, 8.1px
+  const floatDuration = 2.8 + ((index * 7) % 5) * 0.35; // 2.8s, 3.15s, 3.5s, 3.85s, 4.2s
+  const floatDelay = ((index * 11) % 7) * 0.3; // Asynchronous start offset
+  const lateralSway = index % 2 === 0 ? 3 : -3;
+
+  // Staggered security monitoring pulse cycle
+  const pulseDelay = (index * 0.7) % 2.8;
+
   return (
     <>
       <motion.div
@@ -197,32 +206,93 @@ function DeflectedThreat({ angle, index }: { angle: number; index: number }) {
           pointerEvents: "none",
         }}
       >
-        <motion.span
-          animate={{ opacity: [1, 1, 0, 0] }}
+        {/* Subtle, staggered floating container for gentle 4-8px movement and lateral sway */}
+        <motion.div
+          animate={{
+            y: [0, -floatDistance, floatDistance * 0.5, 0],
+            x: [0, lateralSway, -lateralSway * 0.5, 0],
+          }}
           transition={{
-            duration: 9.0,
+            duration: floatDuration,
             repeat: Infinity,
-            delay: delay,
-            times: [0, 0.49, 0.54, 1],
+            delay: floatDelay,
+            ease: "easeInOut",
           }}
           style={{
-            fontSize: "9.5px",
-            fontWeight: 800,
-            color: "#ff4d5a",
-            textTransform: "uppercase",
-            letterSpacing: "0.08em",
-            whiteSpace: "nowrap",
-            textShadow: "0 0 8px rgba(255, 77, 90, 0.6)",
-            background: "rgba(10, 15, 29, 0.92)",
-            padding: "2px 7px",
-            borderRadius: "4px",
-            border: "1px solid rgba(255, 77, 90, 0.4)",
-            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.35)",
-            backdropFilter: "blur(6px)",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          {mode}
-        </motion.span>
+          <motion.span
+            animate={{
+              opacity: [1, 1, 0, 0],
+              borderColor: [
+                "var(--hero-label-border)",
+                "var(--hero-label-border)",
+                "var(--hero-label-border-pulse)",
+                "var(--hero-label-border)",
+              ],
+            }}
+            transition={{
+              opacity: {
+                duration: 9.0,
+                repeat: Infinity,
+                delay: delay,
+                times: [0, 0.49, 0.54, 1],
+              },
+              borderColor: {
+                duration: 3.5,
+                repeat: Infinity,
+                delay: pulseDelay,
+                ease: "easeInOut",
+              },
+            }}
+            style={{
+              fontSize: "10px",
+              fontWeight: 800,
+              color: "var(--hero-label-text)",
+              textTransform: "uppercase",
+              letterSpacing: "0.09em",
+              whiteSpace: "nowrap",
+              background: "var(--hero-label-bg)",
+              padding: "2.5px 8px",
+              borderRadius: "4px",
+              border: "1.5px solid var(--hero-label-border)",
+              boxShadow: "var(--hero-label-shadow)",
+              backdropFilter: "blur(8px)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "5px",
+            }}
+          >
+            {/* Tiny security status indicator dot with bright pulse flash */}
+            <motion.span
+              animate={{
+                backgroundColor: [
+                  "var(--hero-label-dot)",
+                  "var(--hero-label-dot)",
+                  "var(--hero-label-dot-flash)",
+                  "var(--hero-label-dot)",
+                ],
+                scale: [1, 1, 1.7, 1],
+              }}
+              transition={{
+                duration: 3.5,
+                repeat: Infinity,
+                delay: pulseDelay,
+                ease: "easeInOut",
+              }}
+              style={{
+                width: "4.5px",
+                height: "4.5px",
+                borderRadius: "50%",
+                display: "inline-block",
+                backgroundColor: "var(--hero-label-dot)",
+              }}
+            />
+            {mode}
+          </motion.span>
+        </motion.div>
 
         <motion.div
           animate={{
@@ -344,7 +414,50 @@ export default function TrustLayerGraphic() {
         }}
       />
 
-      {/* ── OUTER ORBITAL TECH RING (r = 205px) ── */}
+      {/* ── ADDITIONAL INNER-MID ORBITAL PATH (r = 186px, d = 372px) ── */}
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ duration: 110, repeat: Infinity, ease: "linear" }}
+        style={{
+          position: "absolute",
+          width: "372px",
+          height: "372px",
+          borderRadius: "50%",
+          border: "1px solid rgba(125, 211, 252, 0.16)",
+          zIndex: 2,
+        }}
+      >
+        {/* Orbiting particles along inner-mid path */}
+        <div
+          style={{
+            position: "absolute",
+            top: -2,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: 4,
+            height: 4,
+            borderRadius: "50%",
+            background: "#7dd3fc",
+            boxShadow: "0 0 8px rgba(56, 189, 248, 0.85)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: -2,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: 3,
+            height: 3,
+            borderRadius: "50%",
+            background: "#38bdf8",
+            opacity: 0.8,
+            boxShadow: "0 0 5px rgba(56, 189, 248, 0.6)",
+          }}
+        />
+      </motion.div>
+
+      {/* ── EXISTING OUTER ORBITAL TECH RING (r = 205px) ── */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
@@ -358,7 +471,40 @@ export default function TrustLayerGraphic() {
         }}
       />
 
-      {/* ── SECONDARY OUTER TELEMETRY RING (r = 225px) ── */}
+      {/* ── SOFT SCANNING PULSE AROUND 410px RING ── */}
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+        style={{
+          position: "absolute",
+          width: "410px",
+          height: "410px",
+          borderRadius: "50%",
+          zIndex: 3,
+          pointerEvents: "none",
+        }}
+      >
+        <svg width="410" height="410" viewBox="0 0 410 410" style={{ position: "absolute", inset: 0 }}>
+          <defs>
+            <linearGradient id="scanPulseGrad410" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.95" />
+              <stop offset="60%" stopColor="#38bdf8" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M 205 0 A 205 205 0 0 1 370 100"
+            fill="none"
+            stroke="url(#scanPulseGrad410)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            filter="drop-shadow(0 0 4px #38bdf8)"
+          />
+          <circle cx="205" cy="0" r="2.5" fill="#ffffff" filter="drop-shadow(0 0 6px #38bdf8)" />
+        </svg>
+      </motion.div>
+
+      {/* ── EXISTING SECONDARY OUTER TELEMETRY RING (r = 225px) ── */}
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
@@ -372,7 +518,208 @@ export default function TrustLayerGraphic() {
         }}
       />
 
-      {/* ── ORBITING SENSOR NODES ── */}
+      {/* ── SOFT SCANNING PULSE AROUND 450px RING ── */}
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+        style={{
+          position: "absolute",
+          width: "450px",
+          height: "450px",
+          borderRadius: "50%",
+          zIndex: 3,
+          pointerEvents: "none",
+        }}
+      >
+        <svg width="450" height="450" viewBox="0 0 450 450" style={{ position: "absolute", inset: 0 }}>
+          <defs>
+            <linearGradient id="scanPulseGrad450" x1="100%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stopColor="#7dd3fc" stopOpacity="0.85" />
+              <stop offset="60%" stopColor="#38bdf8" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M 225 450 A 225 225 0 0 1 70 380"
+            fill="none"
+            stroke="url(#scanPulseGrad450)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            filter="drop-shadow(0 0 4px #38bdf8)"
+          />
+          <circle cx="225" cy="450" r="2" fill="#7dd3fc" filter="drop-shadow(0 0 5px #38bdf8)" />
+        </svg>
+      </motion.div>
+
+      {/* ── EXPANSIVE ELLIPTICAL SVG ORBIT PATHS & TRAVELING CYAN PARTICLES ── */}
+      <svg
+        style={{
+          position: "absolute",
+          width: "680px",
+          height: "680px",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          overflow: "visible",
+          pointerEvents: "none",
+          zIndex: 2,
+        }}
+        viewBox="0 0 680 680"
+      >
+        <defs>
+          <linearGradient id="orbGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#00f0ff" stopOpacity="0.85" />
+            <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#00f0ff" stopOpacity="0.75" />
+          </linearGradient>
+
+          <linearGradient id="orbGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#7dd3fc" stopOpacity="0.8" />
+            <stop offset="60%" stopColor="#0284c7" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.75" />
+          </linearGradient>
+
+          <linearGradient id="orbGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.75" />
+            <stop offset="50%" stopColor="#00f0ff" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#7dd3fc" stopOpacity="0.7" />
+          </linearGradient>
+
+          <filter id="orbGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="2.2" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* ── ORBIT ELLIPSE 1 (Tilted -28deg, rx=270, ry=125) ── */}
+        <g transform="rotate(-28 340 340)">
+          <ellipse
+            id="orbitPath1"
+            cx="340"
+            cy="340"
+            rx="270"
+            ry="125"
+            fill="none"
+            stroke="var(--hero-orbit-stroke-1)"
+            strokeWidth="1.5"
+            strokeDasharray="6 8"
+            filter="var(--hero-orbit-filter, none)"
+          />
+
+          {/* Soft scanning pulse sweeping along Path 1 */}
+          <path
+            d="M 610 340 A 270 125 0 0 1 340 465"
+            fill="none"
+            stroke="var(--hero-orbit-pulse)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            opacity="0.8"
+            filter="var(--hero-orbit-filter, none)"
+          >
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              from="0 340 340"
+              to="360 340 340"
+              dur="15s"
+              repeatCount="indefinite"
+            />
+          </path>
+
+          {/* Traveling cyan particle 1A */}
+          <circle r="4.5" fill="var(--hero-orbit-particle-1)" filter="var(--hero-orbit-filter, none)">
+            <animateMotion
+              path="M 610 340 A 270 125 0 1 0 70 340 A 270 125 0 1 0 610 340"
+              dur="18s"
+              repeatCount="indefinite"
+            />
+          </circle>
+
+          {/* Traveling particle 1B */}
+          <circle r="3" fill="var(--hero-orbit-particle-white)" filter="var(--hero-orbit-filter, none)">
+            <animateMotion
+              path="M 610 340 A 270 125 0 1 0 70 340 A 270 125 0 1 0 610 340"
+              dur="18s"
+              begin="-9s"
+              repeatCount="indefinite"
+            />
+          </circle>
+        </g>
+
+        {/* ── ORBIT ELLIPSE 2 (Tilted +32deg, rx=290, ry=140) ── */}
+        <g transform="rotate(32 340 340)">
+          <ellipse
+            id="orbitPath2"
+            cx="340"
+            cy="340"
+            rx="290"
+            ry="140"
+            fill="none"
+            stroke="var(--hero-orbit-stroke-2)"
+            strokeWidth="1.5"
+            strokeDasharray="8 6"
+            filter="var(--hero-orbit-filter, none)"
+          />
+
+          {/* Traveling cyan particle 2A (counter-clockwise) */}
+          <circle r="5" fill="var(--hero-orbit-particle-2)" filter="var(--hero-orbit-filter, none)">
+            <animateMotion
+              path="M 630 340 A 290 140 0 1 1 50 340 A 290 140 0 1 1 630 340"
+              dur="24s"
+              repeatCount="indefinite"
+            />
+          </circle>
+
+          {/* Traveling particle 2B */}
+          <circle r="3.5" fill="var(--hero-orbit-particle-1)" filter="var(--hero-orbit-filter, none)">
+            <animateMotion
+              path="M 630 340 A 290 140 0 1 1 50 340 A 290 140 0 1 1 630 340"
+              dur="24s"
+              begin="-12s"
+              repeatCount="indefinite"
+            />
+          </circle>
+        </g>
+
+        {/* ── ORBIT ELLIPSE 3 (Tilted -8deg, expansive rx=320, ry=165) ── */}
+        <g transform="rotate(-8 340 340)">
+          <ellipse
+            id="orbitPath3"
+            cx="340"
+            cy="340"
+            rx="320"
+            ry="165"
+            fill="none"
+            stroke="var(--hero-orbit-stroke-3)"
+            strokeWidth="1.25"
+            strokeDasharray="4 10"
+            filter="var(--hero-orbit-filter, none)"
+          />
+
+          {/* Traveling cyan particle 3A */}
+          <circle r="4.5" fill="var(--hero-orbit-particle-1)" filter="var(--hero-orbit-filter, none)">
+            <animateMotion
+              path="M 660 340 A 320 165 0 1 0 20 340 A 320 165 0 1 0 660 340"
+              dur="30s"
+              repeatCount="indefinite"
+            />
+          </circle>
+          {/* Traveling particle 3B */}
+          <circle r="3" fill="var(--hero-orbit-particle-white)" filter="var(--hero-orbit-filter, none)">
+            <animateMotion
+              path="M 660 340 A 320 165 0 1 0 20 340 A 320 165 0 1 0 660 340"
+              dur="30s"
+              begin="-15s"
+              repeatCount="indefinite"
+            />
+          </circle>
+        </g>
+      </svg>
+
+      {/* ── EXISTING ORBITING SENSOR NODES ── */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 80, repeat: Infinity, ease: "linear" }}

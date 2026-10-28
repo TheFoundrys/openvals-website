@@ -717,20 +717,9 @@ export default function ModelsRegistryPage() {
                             <span className={styles.modelName}>{model.name}</span>
                           </h3>
 
+                          {/* META: ARCHITECTURE + DRS FIT SCORE */}
                           <div className={styles.modelMeta}>
                             <span className={styles.metaArchitecture}>{model.architecture}</span>
-                            <span className={styles.metaBullet}>•</span>
-                            <span
-                              className={`${styles.decisionStatus} ${
-                                model.decisionStatus === "Approved"
-                                  ? styles.statusApproved
-                                  : model.decisionStatus === "Needs Review"
-                                  ? styles.statusRejected
-                                  : styles.statusReview
-                              }`}
-                            >
-                              ● {model.decisionStatus}
-                            </span>
                             {model.overallFitScore !== null && (
                               <span className={styles.fitScore} title="Decision Reliability Score">
                                 <Gauge size={13} className={styles.gaugeIcon} />
@@ -887,21 +876,6 @@ export default function ModelsRegistryPage() {
                 {/* STATUS & SCORE ROW */}
                 <div className={styles.modalStatsGrid}>
                   <div className={styles.modalStatCard}>
-                    <div className={styles.statLabel}>Decision Status</div>
-                    <div
-                      className={`${styles.statValue} ${
-                        selectedModel.decisionStatus === "Approved"
-                          ? styles.statusApproved
-                          : selectedModel.decisionStatus === "Needs Review"
-                          ? styles.statusRejected
-                          : styles.statusReview
-                      }`}
-                    >
-                      ● {selectedModel.decisionStatus}
-                    </div>
-                  </div>
-
-                  <div className={styles.modalStatCard}>
                     <div className={styles.statLabel}>DRS Trust Score</div>
                     <div className={styles.statValueScore}>
                       <Gauge size={18} />
@@ -974,13 +948,6 @@ export default function ModelsRegistryPage() {
                     </div>
                   </div>
                 )}
-
-                <div className={styles.modalSection}>
-                  <h4 className={styles.modalSectionTitle}>Evaluated Runs</h4>
-                  <p className={styles.modalSectionText}>
-                    Consolidated from {selectedModel.runsCount} independent multi-turn benchmark run(s) recorded in the OpenVals registry.
-                  </p>
-                </div>
               </div>
 
               <div className={styles.modalFooter}>
