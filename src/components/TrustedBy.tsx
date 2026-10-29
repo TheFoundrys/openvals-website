@@ -16,12 +16,20 @@ const LOGOS = [
   { name: "Universal Surgicals", src: "/logos/universal-surgicals.png", url: "https://universalsurgicals.com/" },
   { name: "The Foundrys", src: "/logos/the foundrys.avif", url: "https://thefoundrys.com" },
   { name: "Transforma", src: "/logos/transforma.avif", url: "https://www.transforma.in/" },
+  { name: "Plugscale", src: "/logos/plugscale.png", url: "https://www.plugscale.com/" },
 ];
 
 function LogoImage({ logo }: { logo: (typeof LOGOS)[number] }) {
   const isTransforma = logo.src.toLowerCase().includes("transforma");
   const isWide = logo.src.toLowerCase().includes("alovie");
-  const className = isTransforma ? styles.largeLogo : isWide ? styles.wideLogo : "";
+  const isPlugscale = logo.src.toLowerCase().includes("plugscale");
+  const className = isTransforma
+    ? styles.largeLogo
+    : isWide
+    ? styles.wideLogo
+    : isPlugscale
+    ? styles.plugscaleLogo
+    : "";
 
   return (
     <img

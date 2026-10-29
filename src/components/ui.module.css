@@ -1847,6 +1847,11 @@
   max-height: clamp(35px, 6vh, 55px);
 }
 
+.logoItem img.plugscaleLogo {
+  max-height: clamp(48px, 9vh, 76px);
+  filter: invert(var(--icon-invert));
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
