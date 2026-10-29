@@ -382,6 +382,7 @@ export default function Header() {
           </button>
         </div>
       </header>
+      <div className={styles.headerSpacer} aria-hidden="true" />
 
       {isMenuOpen && (
         <motion.div
