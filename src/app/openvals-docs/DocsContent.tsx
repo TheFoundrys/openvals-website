@@ -19,6 +19,7 @@ type DocsPageId =
   | "screenshots"
   | "metrics"
   | "integrations"
+  | "use-case-advisor"
   | "domains"
   | "roadmap"
   | "vision"
@@ -51,6 +52,7 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
       { id: "reporting", label: "Executive Reporting" },
       { id: "screenshots", label: "Screenshots & Previews" },
       { id: "integrations", label: "Integrations & User Guide" },
+      { id: "use-case-advisor", label: "Use Case Advisor & Validation Runs" },
     ],
   },
   {
@@ -100,6 +102,32 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
       "Custom connectors",
       "Disconnecting a provider",
       "Troubleshooting",
+    ],
+  },
+  "use-case-advisor": {
+    group: "Core Capabilities",
+    title: "Use Case Advisor & Validation Runs",
+    onThisPage: [
+      "1. Overview",
+      "End-to-end workflow",
+      "2. Use Case Advisor",
+      "Starting or restoring a decision",
+      "Complete the intake form",
+      "Run a recommendation",
+      "Understand progress",
+      "Review recommendations",
+      "Errors and partial results",
+      "History and versions",
+      "Select models for validation",
+      "3. Validation Runs",
+      "Choose an entry path",
+      "Configure the run",
+      "Submit and track progress",
+      "How validation executes",
+      "Read the evidence pack",
+      "History, filters, and reports",
+      "4. Troubleshooting",
+      "5. Key concepts",
     ],
   },
   metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
@@ -1620,6 +1648,251 @@ READY FOR PRODUCTION`}</CodeBlock>
                 Sign in again when redirected. A failed provider credential probe should not, by itself, sign you out of OpenVals.
               </div>
             </div>
+          </div>
+        </>
+      );
+    case "use-case-advisor":
+      return (
+        <>
+          <div style={{ fontSize: "17px", color: "var(--docs-muted)", lineHeight: 1.7, marginBottom: "28px" }}>
+            A practical guide to model recommendations, validation, evidence, and reporting.
+          </div>
+
+          <H2>1. Overview</H2>
+          <Paragraph>
+            OpenVals provides a workflow for describing a business use case, receiving model recommendations, and validating selected models. The Use Case Advisor recommends suitable models using online provider models, locally installed Ollama models, or both. Validation Runs execute configured checks and present an evidence pack and report.
+          </Paragraph>
+
+          <H2>End-to-end workflow</H2>
+          <div style={{ display: "grid", gap: "12px", margin: "20px 0 28px" }}>
+            {[
+              "Describe the use case and choose an evaluation mode in Use Case Advisor.",
+              "Run the recommendation job and monitor progress.",
+              "Review ranked model recommendations, fit/risk indicators, metrics, and probe evidence.",
+              "Select one or more models and choose Run Validation.",
+              "Review validation status, trust score, decision, and evidence pack.",
+              "Preview or download the trust report."
+            ].map((step, idx) => (
+              <div key={idx} style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "14px",
+                padding: "14px 18px",
+                border: "1px solid var(--docs-border)",
+                borderRadius: "10px",
+                background: "var(--docs-card)"
+              }}>
+                <span style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "24px",
+                  height: "24px",
+                  borderRadius: "50%",
+                  background: "var(--accent, #3776ab)",
+                  color: "#fff",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  flexShrink: 0,
+                  marginTop: "1px"
+                }}>
+                  {idx + 1}
+                </span>
+                <span style={{ fontSize: "16px", color: "var(--docs-text)", lineHeight: 1.6 }}>{step}</span>
+              </div>
+            ))}
+          </div>
+
+          <H2>2. Use Case Advisor</H2>
+          <Paragraph>
+            The page uses a two-column layout: the intake form on the left and a Recommended Decision panel on the right. Previous submissions and recommendations can be restored from history or cached state.
+          </Paragraph>
+
+          <H2>Starting or restoring a decision</H2>
+          <Paragraph>
+            On first visit, OpenVals normally restores the most recent history entry unless a run is in progress or cached results are available. Submission and recommendation data are retained in the application query cache while navigating. Select <strong>New Decision</strong> in the header, or <strong>Cancel</strong> where available, to reset the form to an empty submission.
+          </Paragraph>
+
+          <H2>Complete the intake form</H2>
+          <BulletList
+            items={[
+              "Use case title.",
+              "Domain (choose from the available domain options).",
+              "Problem statement.",
+              "Data type.",
+              "Primary priority.",
+              "Business risk.",
+              "Evaluation mode: Online, Offline, or Both."
+            ]}
+          />
+          <Paragraph>
+            The form is validated before submission. <strong>Run Recommendation</strong> remains disabled until the required title, problem statement, and evaluation mode are supplied.
+          </Paragraph>
+
+          <H2>Run a recommendation</H2>
+          <Paragraph>
+            Select <strong>Run Recommendation</strong>. OpenVals creates an asynchronous recommendation job and returns a job ID. The page polls the job status every five seconds, up to a 45-minute deadline. A minimum pending display time helps ensure the progress UI is visible.
+          </Paragraph>
+
+          <H2>Understand progress</H2>
+          <DocsTable
+            headers={["Evaluation track", "What it does"]}
+            rows={[
+              [
+                <strong key="offline" style={{ color: "var(--docs-heading)" }}>Offline</strong>,
+                "Synchronizes installed Ollama models, runs live probe evaluations, and scores results."
+              ],
+              [
+                <strong key="online" style={{ color: "var(--docs-heading)" }}>Online</strong>,
+                "Resolves models available through connected providers, then scores and ranks them."
+              ],
+              [
+                <strong key="both" style={{ color: "var(--docs-heading)" }}>Both</strong>,
+                "Runs online and offline tracks in parallel. One track may fail while the other completes."
+              ]
+            ]}
+          />
+
+          <H2>Review recommendations</H2>
+          <Paragraph>
+            Ranked recommendation cards can show a fit-score ring, fit and risk badges, and five metric bars: accuracy, safety, reliability, latency, and compliance. Expand a card to inspect probe evidence, including grounded, adversarial, and PII checks.
+          </Paragraph>
+
+          <H2>Errors and partial results</H2>
+          <Paragraph>
+            Online evaluation failures may appear in a rose banner; partial failures may appear in an amber banner. Provider-specific messages can indicate insufficient balance or credits, or a model that is not served by the selected provider. Follow the displayed guidance, verify the provider account and model availability, and use Retry when offered. In Both mode, review results from the track that completed.
+          </Paragraph>
+
+          <H2>History and versions</H2>
+          <Paragraph>
+            The use-case dropdown lists saved use cases deduplicated by title. The version dropdown lists each run/version for the selected title. Selecting a history entry fetches its stored details and restores the submission and recommendations without rerunning the job. The title field becomes read-only while a history item is selected. Rerunning the same title creates a new version.
+          </Paragraph>
+
+          <H2>Select models for validation</H2>
+          <Paragraph>
+            Use <strong>Select for validation</strong> on individual cards or <strong>Select all</strong>. Starting a new recommendation clears the current selection. Once at least one model is selected, choose <strong>Run Validation</strong>. OpenVals carries the selected model IDs, use-case title, exact use-case version ID, and evaluation mode into Validation Runs.
+          </Paragraph>
+
+          <H2>3. Validation Runs</H2>
+          <Paragraph>
+            The page shows the run configuration form on the left and audit history on the right, with progress and the latest evidence pack below. Validation can be started from the Use Case Advisor or directly.
+          </Paragraph>
+
+          <H2>Choose an entry path</H2>
+          <DocsTable
+            headers={["Entry path", "Behavior"]}
+            rows={[
+              [
+                <strong key="from-advisor" style={{ color: "var(--docs-heading)" }}>From Use Case Advisor</strong>,
+                "The promoted model selection, use case, and evaluation mode are locked to the advisor selection. The use-case version ID is submitted to scope validation to that version's recommendations."
+              ],
+              [
+                <strong key="direct-visit" style={{ color: "var(--docs-heading)" }}>Direct visit</strong>,
+                "The form is editable. Use cases are selected from previously submitted use cases when available, with presets as a fallback. The model list is scoped to the selected use case."
+              ]
+            ]}
+          />
+
+          <H2>Configure the run</H2>
+          <BulletList
+            items={[
+              "Models: select one or more models. Ollama models are associated with offline evaluation; connected-provider models are associated with online evaluation.",
+              "Evaluation mode: Online, Offline, or the mode passed from the advisor.",
+              "Use case: choose the use case being validated.",
+              "Suite profile: select the appropriate validation suite profile.",
+              "Included checks: hallucination, prompt injection, PII, bias drift, latency SLO, and audit trail."
+            ]}
+          />
+
+          <H2>Submit and track progress</H2>
+          <Paragraph>
+            Submit the form to queue the validation gate. The interface shows staged progress for provisioning a sandbox, loading the adversarial corpus, executing suites, scoring thresholds and the trust index, and compiling the audit trail. These stages communicate progress; the backend run status determines the actual outcome.
+          </Paragraph>
+
+          <H2>How validation executes</H2>
+          <Paragraph>
+            OpenVals sends a validation request with the selected model or models, use-case name and ID, suite IDs, and Standard strictness. The backend fans out a run per model and associates the runs with a shared batch ID. Each returned run is polled until it completes or fails, subject to the configured polling limit. The history list refreshes periodically after submission to reconcile batch runs not echoed in the initial response.
+          </Paragraph>
+
+          <H2>Read the evidence pack</H2>
+          <BulletList
+            items={[
+              "OpenVals trust score.",
+              "Security status.",
+              "Decision label, such as Pilot ready, Passed with guardrails, Needs monitoring, Failed, or Blocked.",
+              "Summaries of passed checks and checks needing monitoring.",
+              "For multi-model batches, the strongest evidence pack among the completed model runs."
+            ]}
+          />
+          <Paragraph>
+            Queued or failed runs may show a limited evidence card. Full evidence is published when the run completes and produces results. Check the run status and explanatory message to determine whether evidence is final.
+          </Paragraph>
+
+          <H2>History, filters, and reports</H2>
+          <Paragraph>
+            Validation history lists terminal runs (completed or failed). Use the use-case filter to narrow the history; it also scopes the displayed evidence pack and report. Select <strong>Preview Report</strong> to open the trust report modal, or <strong>Download Report</strong> to download a PDF.
+          </Paragraph>
+
+          <H2>4. Troubleshooting</H2>
+          <div style={{ display: "grid", gap: "12px", margin: "20px 0" }}>
+            {[
+              { title: "Recommendation is disabled", desc: "Complete the title, problem statement, and evaluation mode." },
+              { title: "Online recommendation fails", desc: "Check provider credentials, account balance/credits, model serving availability, and the displayed provider error." },
+              { title: "Only one track returns results in Both mode", desc: "Review the completed track and the error banner for the failed track; retry after resolving the issue." },
+              { title: "A model is missing from validation choices", desc: "Confirm that the model is available for the selected evaluation mode and associated with the selected use case." },
+              { title: "Evidence is not available yet", desc: "Check whether the run is queued or running. Evidence appears when the run completes and results are available." },
+              { title: "A previous decision or run is needed", desc: "Use Use Case Advisor history/version selectors or the Validation Runs history and use-case filter." }
+            ].map((item, idx) => (
+              <div key={idx} style={{
+                border: "1px solid var(--docs-border)",
+                borderRadius: "10px",
+                padding: "16px 20px",
+                background: "var(--docs-card)"
+              }}>
+                <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
+                  {item.title}
+                </div>
+                <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
+                  {item.desc}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <H2>5. Key concepts</H2>
+          <div style={{ display: "grid", gap: "12px", margin: "20px 0" }}>
+            {[
+              {
+                concept: "Evaluation mode",
+                definition: "Determines whether online provider models, offline Ollama models, or both are evaluated."
+              },
+              {
+                concept: "Use-case version",
+                definition: "A specific saved recommendation run for a use-case title."
+              },
+              {
+                concept: "Batch run",
+                definition: "A validation submission for multiple models, with one individual run per model and a shared batch ID."
+              },
+              {
+                concept: "Trust score and evidence pack",
+                definition: "A summary of validation results, security status, decision, and check outcomes for review and reporting."
+              }
+            ].map((item, idx) => (
+              <div key={idx} style={{
+                border: "1px solid var(--docs-border)",
+                borderRadius: "10px",
+                padding: "16px 20px",
+                background: "var(--docs-card)"
+              }}>
+                <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
+                  {item.concept}
+                </div>
+                <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
+                  {item.definition}
+                </div>
+              </div>
+            ))}
           </div>
         </>
       );
