@@ -220,23 +220,6 @@ export default function LatestReports() {
 
       {/* REPORT CARD */}
       <div className={styles.reportCard}>
-        {/* TOP BAR / LEGEND */}
-        <div className={styles.cardTopBar}>
-          <div className={styles.valsLogoBadge}>
-            <svg viewBox="0 0 20 20" width="16" height="16" fill="none">
-              <circle cx="10" cy="10" r="8" stroke="#10b981" strokeWidth="1.6" />
-              <path
-                d="M6.5 7L10 13.5L13.5 7"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span>Latest Openvals Validation Metrics</span>
-          </div>
-        </div>
-
         {/* VALIDATION METRICS MULTI-TIER TABLE */}
         <div className={styles.tableResponsiveWrapper}>
           <table
