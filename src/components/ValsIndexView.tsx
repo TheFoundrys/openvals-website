@@ -25,6 +25,7 @@ export default function ValsIndexView() {
     null
   );
   const [showTable, setShowTable] = useState(false);
+  const [mobileTab, setMobileTab] = useState<"chart" | "list">("chart");
 
   const toggleLabFilter = (labKey: string) => {
     if (selectedLab === labKey) {
@@ -34,7 +35,11 @@ export default function ValsIndexView() {
     }
   };
 
-  const sortedModels = [...VALS_INDEX_MODELS].sort((a, b) => {
+  const filteredModels = selectedLab
+    ? VALS_INDEX_MODELS.filter((m) => m.labKey === selectedLab)
+    : VALS_INDEX_MODELS;
+
+  const sortedModels = [...filteredModels].sort((a, b) => {
     if (sortOrder === "accuracy") {
       return b.accuracy - a.accuracy;
     }
@@ -175,6 +180,7 @@ export default function ValsIndexView() {
                   color: "#ef4444",
                   cursor: "pointer",
                   fontWeight: 700,
+                  padding: "4px 8px",
                 }}
               >
                 Clear Filter &times;
@@ -183,16 +189,135 @@ export default function ValsIndexView() {
           </div>
 
           <div className={styles.showingCount}>
-            SHOWING LATEST, TOP &amp; FRONTIER MODELS ({VALS_INDEX_MODELS.length})
+            SHOWING LATEST, TOP &amp; FRONTIER MODELS ({filteredModels.length})
           </div>
         </div>
 
+        {/* MOBILE VIEW SWITCHER (CHART vs LIST) */}
+        <div className={styles.mobileViewSwitcher}>
+          <button
+            type="button"
+            className={`${styles.mobileViewBtn} ${
+              mobileTab === "chart" ? styles.mobileViewBtnActive : ""
+            }`}
+            onClick={() => setMobileTab("chart")}
+          >
+            <TrendingUp size={14} />
+            <span>Frontier Chart</span>
+          </button>
+          <button
+            type="button"
+            className={`${styles.mobileViewBtn} ${
+              mobileTab === "list" ? styles.mobileViewBtnActive : ""
+            }`}
+            onClick={() => setMobileTab("list")}
+          >
+            <SlidersHorizontal size={14} />
+            <span>Model List ({filteredModels.length})</span>
+          </button>
+        </div>
+
         {/* 5. INTERACTIVE SCATTER PLOT & PARETO FRONTIER */}
-        <ValsIndexChart
-          selectedLab={selectedLab}
-          onSelectModel={setSelectedModel}
-          viewMode={viewMode}
-        />
+        {mobileTab === "chart" ? (
+          <ValsIndexChart
+            selectedLab={selectedLab}
+            onSelectModel={setSelectedModel}
+            viewMode={viewMode}
+          />
+        ) : (
+          /* MOBILE MODEL LIST VIEW */
+          <div className={styles.tableMobileCardsWrapper} style={{ display: "flex" }}>
+            {sortedModels.map((m, idx) => (
+              <div
+                key={m.id}
+                className={styles.modelCardItem}
+                style={{
+                  borderColor:
+                    selectedModel?.id === m.id ? "#0284c7" : "var(--border)",
+                }}
+              >
+                <div className={styles.modelCardHeader}>
+                  <div className={styles.modelCardName}>
+                    <span
+                      style={{
+                        color: "var(--text-muted)",
+                        fontSize: "11px",
+                        fontWeight: 700,
+                      }}
+                    >
+                      #{idx + 1}
+                    </span>
+                    <span>{m.name}</span>
+                  </div>
+                  <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
+                    {m.onFrontier && (
+                      <span
+                        style={{
+                          fontSize: "9px",
+                          fontWeight: 700,
+                          padding: "2px 5px",
+                          borderRadius: "4px",
+                          background: "rgba(16, 185, 129, 0.15)",
+                          color: "#16a34a",
+                        }}
+                      >
+                        FRONTIER
+                      </span>
+                    )}
+                    <span
+                      style={{
+                        fontSize: "10px",
+                        fontWeight: 700,
+                        padding: "2px 6px",
+                        borderRadius: "4px",
+                        background: m.badgeColor,
+                        color: m.badgeTextColor,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {m.lab}
+                    </span>
+                  </div>
+                </div>
+
+                <div className={styles.modelCardMetrics}>
+                  <div className={styles.modelCardMetricCol}>
+                    <span className={styles.modelCardMetricLabel}>Accuracy</span>
+                    <span
+                      className={styles.modelCardMetricVal}
+                      style={{ color: "#16a34a" }}
+                    >
+                      {m.accuracy.toFixed(1)}%
+                    </span>
+                  </div>
+                  <div className={styles.modelCardMetricCol}>
+                    <span className={styles.modelCardMetricLabel}>Latency</span>
+                    <span
+                      className={styles.modelCardMetricVal}
+                      style={{
+                        color:
+                          viewMode === "latency"
+                            ? "#16a34a"
+                            : "var(--text-main)",
+                      }}
+                    >
+                      {m.latencyLabel}
+                    </span>
+                  </div>
+                  <div className={styles.modelCardMetricCol}>
+                    <span className={styles.modelCardMetricLabel}>DRS Score</span>
+                    <span
+                      className={styles.modelCardMetricVal}
+                      style={{ color: "#38bdf8" }}
+                    >
+                      {m.drsLabel}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* 6. KEY TAKEAWAYS SECTION */}
         <div className={styles.takeawaysSection}>
@@ -252,7 +377,6 @@ export default function ValsIndexView() {
             </div>
           </div>
 
-
           {/* TABLE EXPANDER */}
           <div style={{ marginTop: "24px", textAlign: "center" }}>
             <button
@@ -277,101 +401,197 @@ export default function ValsIndexView() {
               <span>
                 {showTable
                   ? "Hide Model Data Table"
-                  : `View Full Model Data Table (${VALS_INDEX_MODELS.length} Models)`}
+                  : `View Full Model Data Table (${filteredModels.length} Models)`}
               </span>
             </button>
           </div>
 
           {/* COLLAPSIBLE DATA TABLE */}
           {showTable && (
-            <div
-              style={{
-                marginTop: "20px",
-                overflowX: "auto",
-                background: "var(--card-bg)",
-                border: "1px solid var(--border)",
-                borderRadius: "10px",
-              }}
-            >
-              <table
-                style={{
-                  width: "100%",
-                  borderCollapse: "collapse",
-                  fontSize: "12px",
-                  textAlign: "left",
-                }}
-              >
-                <thead>
-                  <tr
-                    style={{
-                      background: "var(--secondary-bg)",
-                      borderBottom: "1px solid var(--border)",
-                      color: "var(--text-muted)",
-                      fontSize: "11px",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em",
-                    }}
-                  >
-                    <th style={{ padding: "12px 16px" }}>Model</th>
-                    <th style={{ padding: "12px 16px" }}>Lab</th>
-                    <th style={{ padding: "12px 16px" }}>Accuracy %</th>
-                    <th style={{ padding: "12px 16px" }}>Latency</th>
-                    <th style={{ padding: "12px 16px" }}>DRS Score</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sortedModels.map((m, idx) => (
+            <>
+              {/* Desktop Table */}
+              <div className={styles.tableDesktopWrapper}>
+                <table
+                  style={{
+                    width: "100%",
+                    borderCollapse: "collapse",
+                    fontSize: "12px",
+                    textAlign: "left",
+                  }}
+                >
+                  <thead>
                     <tr
-                      key={m.id}
                       style={{
+                        background: "var(--secondary-bg)",
                         borderBottom: "1px solid var(--border)",
-                        background:
-                          selectedModel?.id === m.id
-                            ? "rgba(59, 130, 246, 0.15)"
-                            : idx % 2 === 0
-                            ? "transparent"
-                            : "var(--secondary-bg)",
+                        color: "var(--text-muted)",
+                        fontSize: "11px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
                       }}
                     >
-                      <td style={{ padding: "10px 16px", fontWeight: 700, color: "var(--text-main)" }}>
-                        {m.name}
-                      </td>
-                      <td style={{ padding: "10px 16px", color: "var(--text-muted)" }}>
-                        {m.lab}
-                      </td>
-                      <td
-                        style={{
-                          padding: "10px 16px",
-                          fontWeight: 700,
-                          color: "#16a34a",
-                        }}
-                      >
-                        {m.accuracy.toFixed(1)}%
-                      </td>
-                      <td
-                        style={{
-                          padding: "10px 16px",
-                          fontWeight: 600,
-                          color:
-                            viewMode === "latency" ? "#16a34a" : "var(--text-muted)",
-                        }}
-                      >
-                        {m.latencyLabel}
-                      </td>
-                      <td
-                        style={{
-                          padding: "10px 16px",
-                          fontWeight: 600,
-                          color: viewMode === "drs" ? "#38bdf8" : "var(--text-muted)",
-                        }}
-                      >
-                        {m.drsLabel}
-                      </td>
+                      <th style={{ padding: "12px 16px" }}>Model</th>
+                      <th style={{ padding: "12px 16px" }}>Lab</th>
+                      <th style={{ padding: "12px 16px" }}>Accuracy %</th>
+                      <th style={{ padding: "12px 16px" }}>Latency</th>
+                      <th style={{ padding: "12px 16px" }}>DRS Score</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                    {sortedModels.map((m, idx) => (
+                      <tr
+                        key={m.id}
+                        style={{
+                          borderBottom: "1px solid var(--border)",
+                          background:
+                            selectedModel?.id === m.id
+                              ? "rgba(59, 130, 246, 0.15)"
+                              : idx % 2 === 0
+                              ? "transparent"
+                              : "var(--secondary-bg)",
+                        }}
+                      >
+                        <td
+                          style={{
+                            padding: "10px 16px",
+                            fontWeight: 700,
+                            color: "var(--text-main)",
+                          }}
+                        >
+                          {m.name}
+                        </td>
+                        <td
+                          style={{
+                            padding: "10px 16px",
+                            color: "var(--text-muted)",
+                          }}
+                        >
+                          {m.lab}
+                        </td>
+                        <td
+                          style={{
+                            padding: "10px 16px",
+                            fontWeight: 700,
+                            color: "#16a34a",
+                          }}
+                        >
+                          {m.accuracy.toFixed(1)}%
+                        </td>
+                        <td
+                          style={{
+                            padding: "10px 16px",
+                            fontWeight: 600,
+                            color:
+                              viewMode === "latency"
+                                ? "#16a34a"
+                                : "var(--text-muted)",
+                          }}
+                        >
+                          {m.latencyLabel}
+                        </td>
+                        <td
+                          style={{
+                            padding: "10px 16px",
+                            fontWeight: 600,
+                            color:
+                              viewMode === "drs"
+                                ? "#38bdf8"
+                                : "var(--text-muted)",
+                          }}
+                        >
+                          {m.drsLabel}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Mobile Table Cards (Zero side scrolling!) */}
+              <div className={styles.tableMobileCardsWrapper}>
+                {sortedModels.map((m, idx) => (
+                  <div
+                    key={m.id}
+                    className={styles.modelCardItem}
+                    style={{
+                      borderColor:
+                        selectedModel?.id === m.id
+                          ? "#0284c7"
+                          : "var(--border)",
+                    }}
+                  >
+                    <div className={styles.modelCardHeader}>
+                      <div className={styles.modelCardName}>
+                        <span
+                          style={{
+                            color: "var(--text-muted)",
+                            fontSize: "11px",
+                            fontWeight: 700,
+                          }}
+                        >
+                          #{idx + 1}
+                        </span>
+                        <span>{m.name}</span>
+                      </div>
+                      <span
+                        style={{
+                          fontSize: "10px",
+                          fontWeight: 700,
+                          padding: "2px 6px",
+                          borderRadius: "4px",
+                          background: m.badgeColor,
+                          color: m.badgeTextColor,
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        {m.lab}
+                      </span>
+                    </div>
+
+                    <div className={styles.modelCardMetrics}>
+                      <div className={styles.modelCardMetricCol}>
+                        <span className={styles.modelCardMetricLabel}>
+                          Accuracy
+                        </span>
+                        <span
+                          className={styles.modelCardMetricVal}
+                          style={{ color: "#16a34a" }}
+                        >
+                          {m.accuracy.toFixed(1)}%
+                        </span>
+                      </div>
+                      <div className={styles.modelCardMetricCol}>
+                        <span className={styles.modelCardMetricLabel}>
+                          Latency
+                        </span>
+                        <span
+                          className={styles.modelCardMetricVal}
+                          style={{
+                            color:
+                              viewMode === "latency"
+                                ? "#16a34a"
+                                : "var(--text-main)",
+                          }}
+                        >
+                          {m.latencyLabel}
+                        </span>
+                      </div>
+                      <div className={styles.modelCardMetricCol}>
+                        <span className={styles.modelCardMetricLabel}>
+                          DRS Score
+                        </span>
+                        <span
+                          className={styles.modelCardMetricVal}
+                          style={{ color: "#38bdf8" }}
+                        >
+                          {m.drsLabel}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
           )}
         </div>
       </div>

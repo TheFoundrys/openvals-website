@@ -1,5 +1,5 @@
 .footer {
-  padding: clamp(36px, 6vw, 54px) var(--container-padding) 36px;
+  padding: clamp(28px, 4vw, 40px) var(--container-padding) 28px;
   background: var(--primary-bg);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
@@ -10,6 +10,7 @@
 
 .footerContainer {
   width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

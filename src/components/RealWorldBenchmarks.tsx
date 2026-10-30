@@ -11,12 +11,17 @@ import {
   AlertTriangle,
   Activity,
   Zap,
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
+  Check,
+  X,
 } from "lucide-react";
 import styles from "./RealWorldBenchmarks.module.css";
 
 import { ModelData, MODELS, LATEST_BENCHMARK_DATE } from "./realWorldBenchmarksData";
 
-type MetricType =
+export type MetricType =
   | "accuracy"
   | "latency"
   | "semantic"
@@ -25,6 +30,85 @@ type MetricType =
   | "safety"
   | "reliability"
   | "drs";
+
+interface MetricOption {
+  id: MetricType;
+  label: string;
+  shortLabel: string;
+  description: string;
+  renderIcon: (active: boolean) => React.ReactNode;
+}
+
+const METRICS: MetricOption[] = [
+  {
+    id: "accuracy",
+    label: "Accuracy %",
+    shortLabel: "Accuracy",
+    description: "Real-world task benchmark accuracy",
+    renderIcon: (active) => (
+      <svg
+        viewBox="0 0 16 16"
+        width="14"
+        height="14"
+        fill="currentColor"
+        className={active ? styles.metricIconActive : ""}
+      >
+        <rect x="1.5" y="8" width="3" height="7" rx="0.8" />
+        <rect x="6.5" y="3.5" width="3" height="11.5" rx="0.8" />
+        <rect x="11.5" y="6" width="3" height="9" rx="0.8" />
+      </svg>
+    ),
+  },
+  {
+    id: "latency",
+    label: "Latency",
+    shortLabel: "Latency",
+    description: "Model response latency (ms)",
+    renderIcon: () => <ArrowLeftRight size={13} />,
+  },
+  {
+    id: "semantic",
+    label: "Semantic %",
+    shortLabel: "Semantic",
+    description: "Semantic similarity score",
+    renderIcon: () => <Sparkles size={13} />,
+  },
+  {
+    id: "factuality",
+    label: "Factuality %",
+    shortLabel: "Factuality",
+    description: "Ground truth factuality validation",
+    renderIcon: () => <CheckCircle2 size={13} />,
+  },
+  {
+    id: "hallucination",
+    label: "Hallucination %",
+    shortLabel: "Hallucination",
+    description: "Hallucination rate detection",
+    renderIcon: () => <AlertTriangle size={13} />,
+  },
+  {
+    id: "safety",
+    label: "Safety %",
+    shortLabel: "Safety",
+    description: "Enterprise safety guardrails score",
+    renderIcon: () => <CheckCircle2 size={13} />,
+  },
+  {
+    id: "reliability",
+    label: "Reliability %",
+    shortLabel: "Reliability",
+    description: "Cross-run consistency and stability",
+    renderIcon: () => <Activity size={13} />,
+  },
+  {
+    id: "drs",
+    label: "DRS %",
+    shortLabel: "DRS",
+    description: "Decision Reliability Score",
+    renderIcon: () => <Zap size={13} />,
+  },
+];
 
 // Lab Brand Icons
 function LabIcon({ lab, id }: { lab?: string; id?: string }) {
@@ -229,16 +313,67 @@ const FADE_UP: Variants = {
 
 export default function RealWorldBenchmarks() {
   const [activeMetric, setActiveMetric] = useState<MetricType>("accuracy");
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   const [todayDate, setTodayDate] = useState<string>(LATEST_BENCHMARK_DATE || "OCT 9, 2026");
   const [hoveredModel, setHoveredModel] = useState<ModelData | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null);
   const chartAreaRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [selectedCount, setSelectedCount] = useState<"top8" | "top12" | "all" | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
+  const [canScrollRight, setCanScrollRight] = useState<boolean>(false);
+  const [visibleRangeText, setVisibleRangeText] = useState<string>("1–8");
 
   useEffect(() => {
     const now = new Date();
     const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     setTodayDate(`${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`);
+
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    if (isDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside, { passive: true });
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+        document.removeEventListener("touchstart", handleClickOutside);
+      };
+    }
+  }, [isDropdownOpen]);
+
+  // Close dropdown on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsDropdownOpen(false);
+      }
+    };
+    if (isDropdownOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      return () => document.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [isDropdownOpen]);
+
+  const currentMetricObj = useMemo(() => {
+    return METRICS.find((m) => m.id === activeMetric) || METRICS[0];
+  }, [activeMetric]);
 
   // Sort models in descending order based on the active metric
   const sortedModels = useMemo(() => {
@@ -266,6 +401,65 @@ export default function RealWorldBenchmarks() {
     });
   }, [activeMetric]);
 
+  const activeCount: "top8" | "top12" | "all" = selectedCount ?? (isMobile ? "top8" : "all");
+
+  const displayedModels = useMemo(() => {
+    if (activeCount === "top8") return sortedModels.slice(0, 8);
+    if (activeCount === "top12") return sortedModels.slice(0, 12);
+    return sortedModels;
+  }, [sortedModels, activeCount]);
+
+  const updateScrollState = () => {
+    if (!scrollContainerRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+    setCanScrollLeft(scrollLeft > 6);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 6);
+
+    if (activeCount === "all" && displayedModels.length > 0) {
+      const barWidth = scrollWidth / displayedModels.length;
+      const first = Math.max(1, Math.min(displayedModels.length, Math.floor(scrollLeft / barWidth) + 1));
+      const count = Math.max(1, Math.round(clientWidth / barWidth));
+      const last = Math.min(displayedModels.length, first + count - 1);
+      setVisibleRangeText(`${first}–${last}`);
+    }
+  };
+
+  useEffect(() => {
+    updateScrollState();
+  }, [displayedModels, activeCount]);
+
+  const handleScroll = () => {
+    if (hoveredModel) {
+      setHoveredModel(null);
+      setTooltipPos(null);
+    }
+    updateScrollState();
+  };
+
+  const scrollByDirection = (dir: "left" | "right") => {
+    if (!scrollContainerRef.current) return;
+    const amount = Math.max(200, scrollContainerRef.current.clientWidth * 0.75);
+    scrollContainerRef.current.scrollBy({
+      left: dir === "right" ? amount : -amount,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent | TouchEvent) => {
+      if (chartAreaRef.current && !chartAreaRef.current.contains(e.target as Node)) {
+        setHoveredModel(null);
+        setTooltipPos(null);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick, { passive: true });
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+    };
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!chartAreaRef.current) return;
     const rect = chartAreaRef.current.getBoundingClientRect();
@@ -277,9 +471,28 @@ export default function RealWorldBenchmarks() {
     const clampedX = Math.min(Math.max(12, rawX - tooltipWidth / 2), chartWidth - tooltipWidth - 12);
 
     const tooltipHeight = 220;
-    // If mouse is near top (rawY < 240), show tooltip below cursor; else show above cursor
     const clampedY = rawY < 240 ? rawY + 18 : Math.max(12, rawY - tooltipHeight - 12);
 
+    setTooltipPos({ x: clampedX, y: clampedY });
+  };
+
+  const handleBarSelect = (model: ModelData, clientX: number, clientY: number) => {
+    if (hoveredModel?.id === model.id) {
+      setHoveredModel(null);
+      setTooltipPos(null);
+      return;
+    }
+    setHoveredModel(model);
+    if (!chartAreaRef.current) return;
+    const rect = chartAreaRef.current.getBoundingClientRect();
+    const rawX = clientX - rect.left;
+    const rawY = clientY - rect.top;
+
+    const tooltipWidth = 220;
+    const chartWidth = rect.width;
+    const clampedX = Math.min(Math.max(12, rawX - tooltipWidth / 2), chartWidth - tooltipWidth - 12);
+    const tooltipHeight = 220;
+    const clampedY = rawY < 240 ? rawY + 18 : Math.max(12, rawY - tooltipHeight - 12);
     setTooltipPos({ x: clampedX, y: clampedY });
   };
 
@@ -355,129 +568,171 @@ export default function RealWorldBenchmarks() {
 
       {/* FILTER & METRIC CONTROLS BAR */}
       <div className={styles.controlBar}>
-        <div className={styles.tabsGroup}>
+        {/* METRIC SELECTION DROPDOWN */}
+        <div className={styles.metricDropdownWrapper} ref={dropdownRef}>
           <button
-            onClick={() => setActiveMetric("accuracy")}
-            className={`${styles.tabButton} ${
-              activeMetric === "accuracy" ? styles.tabButtonActive : ""
+            type="button"
+            onClick={() => setIsDropdownOpen((prev) => !prev)}
+            className={`${styles.metricDropdownTrigger} ${
+              isDropdownOpen ? styles.metricDropdownTriggerOpen : ""
             }`}
-            title="View Real-World Accuracy %"
+            aria-haspopup="listbox"
+            aria-expanded={isDropdownOpen}
+            aria-label="Select benchmark metric"
           >
-            {/* Custom 3-bar histogram icon */}
-            <svg
-              viewBox="0 0 16 16"
-              width="14"
-              height="14"
-              fill="currentColor"
-              className={activeMetric === "accuracy" ? styles.tabIconActive : ""}
-            >
-              <rect x="1.5" y="8" width="3" height="7" rx="0.8" />
-              <rect x="6.5" y="3.5" width="3" height="11.5" rx="0.8" />
-              <rect x="11.5" y="6" width="3" height="9" rx="0.8" />
-            </svg>
-            <span>Accuracy %</span>
+            <span className={styles.metricPrefix}>Metric:</span>
+            <span className={styles.metricTriggerIcon}>
+              {currentMetricObj.renderIcon(true)}
+            </span>
+            <span className={styles.metricTriggerLabel}>
+              {currentMetricObj.label}
+            </span>
+            <ChevronDown
+              size={14}
+              className={`${styles.metricChevron} ${
+                isDropdownOpen ? styles.metricChevronOpen : ""
+              }`}
+            />
           </button>
 
-          <button
-            onClick={() => setActiveMetric("latency")}
-            className={`${styles.tabButton} ${
-              activeMetric === "latency" ? styles.tabButtonActive : ""
-            }`}
-            title="Sort / inspect by Response Latency"
-          >
-            <ArrowLeftRight size={13} />
-            <span>Latency</span>
-          </button>
-
-          <button
-            onClick={() => setActiveMetric("semantic")}
-            className={`${styles.tabButton} ${
-              activeMetric === "semantic" ? styles.tabButtonActive : ""
-            }`}
-            title="View Semantic Similarity %"
-          >
-            <Sparkles size={13} />
-            <span>Semantic %</span>
-          </button>
-
-          <button
-            onClick={() => setActiveMetric("factuality")}
-            className={`${styles.tabButton} ${
-              activeMetric === "factuality" ? styles.tabButtonActive : ""
-            }`}
-            title="View Factuality %"
-          >
-            <CheckCircle2 size={13} />
-            <span>Factuality %</span>
-          </button>
-
-          <button
-            onClick={() => setActiveMetric("hallucination")}
-            className={`${styles.tabButton} ${
-              activeMetric === "hallucination" ? styles.tabButtonActive : ""
-            }`}
-            title="View Hallucination %"
-          >
-            <AlertTriangle size={13} />
-            <span>Hallucination %</span>
-          </button>
-
-
-          <button
-            onClick={() => setActiveMetric("reliability")}
-            className={`${styles.tabButton} ${
-              activeMetric === "reliability" ? styles.tabButtonActive : ""
-            }`}
-            title="View Reliability %"
-          >
-            <Activity size={13} />
-            <span>Reliability %</span>
-          </button>
-
-          <button
-            onClick={() => setActiveMetric("drs")}
-            className={`${styles.tabButton} ${
-              activeMetric === "drs" ? styles.tabButtonActive : ""
-            }`}
-            title="View Decision Reliability Score (DRS) %"
-          >
-            <Zap size={13} />
-            <span>DRS %</span>
-          </button>
+          {isDropdownOpen && (
+            <div className={styles.metricDropdownMenu} role="listbox">
+              <div className={styles.metricDropdownHeader}>
+                Select Evaluation Metric
+              </div>
+              {METRICS.map((metric) => {
+                const isSelected = activeMetric === metric.id;
+                return (
+                  <button
+                    key={metric.id}
+                    type="button"
+                    role="option"
+                    aria-selected={isSelected}
+                    onClick={() => {
+                      setActiveMetric(metric.id);
+                      setIsDropdownOpen(false);
+                    }}
+                    className={`${styles.metricOption} ${
+                      isSelected ? styles.metricOptionActive : ""
+                    }`}
+                  >
+                    <span className={styles.metricOptionIcon}>
+                      {metric.renderIcon(isSelected)}
+                    </span>
+                    <div className={styles.metricOptionText}>
+                      <span className={styles.metricOptionLabel}>
+                        {metric.label}
+                      </span>
+                      <span className={styles.metricOptionDesc}>
+                        {metric.description}
+                      </span>
+                    </div>
+                    {isSelected && (
+                      <Check size={14} className={styles.metricCheckIcon} />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         <div className={styles.metaGroup}>
-          <Link
-            href="/openvals-index"
-            className={styles.valsIndexBadge}
-            title="Explore full OpenVals Index benchmark"
-          >
-            <div className={styles.valsLogoIcon}>
-              {/* OpenVals Index emblem */}
-              <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
-                <circle cx="10" cy="10" r="8.5" stroke="#10b981" strokeWidth="1.6" />
-                <path
-                  d="M6.5 7L10 14L13.5 7"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-            <span>OPENVALS INDEX</span>
-          </Link>
+          <div className={styles.indexInfoRow}>
+            <Link
+              href="/openvals-index"
+              className={styles.valsIndexBadge}
+              title="Explore full OpenVals Index benchmark"
+            >
+              <div className={styles.valsLogoIcon}>
+                <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
+                  <circle cx="10" cy="10" r="8.5" stroke="#10b981" strokeWidth="1.6" />
+                  <path
+                    d="M6.5 7L10 14L13.5 7"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <span>OPENVALS INDEX</span>
+            </Link>
 
-          <span className={styles.metaDot}>•</span>
-          <span className={styles.dateLabel}>{todayDate}</span>
+            <span className={styles.metaDot}>•</span>
+            <span className={styles.dateLabel}>{todayDate}</span>
+          </div>
+
+          <div className={styles.viewControlsWrapper}>
+            <div className={styles.viewModeGroup} role="group" aria-label="Models display count">
+              <button
+                type="button"
+                onClick={() => setSelectedCount("top8")}
+                className={`${styles.viewModeBtn} ${activeCount === "top8" ? styles.viewModeBtnActive : ""}`}
+                title="Fit Top 8 models to screen width"
+              >
+                Top 8
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedCount("top12")}
+                className={`${styles.viewModeBtn} ${activeCount === "top12" ? styles.viewModeBtnActive : ""}`}
+                title="View Top 12 models"
+              >
+                Top 12
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedCount("all")}
+                className={`${styles.viewModeBtn} ${activeCount === "all" ? styles.viewModeBtnActive : ""}`}
+                title="View all 23 evaluated models"
+              >
+                All 23
+              </button>
+            </div>
+
+            {activeCount === "all" && (
+              <div className={styles.scrollNavGroup}>
+                <button
+                  type="button"
+                  onClick={() => scrollByDirection("left")}
+                  disabled={!canScrollLeft}
+                  className={styles.scrollNavBtn}
+                  aria-label="Scroll left to view previous models"
+                  title="Previous models"
+                >
+                  <ChevronLeft size={13} />
+                </button>
+                <span className={styles.scrollNavCounter}>
+                  {visibleRangeText} of {sortedModels.length}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => scrollByDirection("right")}
+                  disabled={!canScrollRight}
+                  className={styles.scrollNavBtn}
+                  aria-label="Scroll right to view more models"
+                  title="Next models"
+                >
+                  <ChevronRight size={13} />
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       {/* CHART AREA */}
       <div className={styles.chartOuterWrapper}>
-        <div className={styles.chartScrollContainer}>
+        <div
+          className={styles.chartScrollContainer}
+          ref={scrollContainerRef}
+          onScroll={handleScroll}
+        >
           <div
-            className={styles.chartArea}
+            className={`${styles.chartArea} ${
+              activeCount !== "all" ? styles.chartAreaFit : ""
+            }`}
             ref={chartAreaRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={() => {
@@ -494,15 +749,32 @@ export default function RealWorldBenchmarks() {
                   top: tooltipPos.y,
                 }}
               >
-                <div className={styles.tooltipTitle}>
-                  {hoveredModel.name}
-                  {hoveredModel.version && (
-                    <span style={{ marginLeft: 6, fontSize: "9.5px", opacity: 0.85 }}>
-                      {hoveredModel.version}
-                    </span>
-                  )}
+                <div className={styles.tooltipHeader}>
+                  <div>
+                    <div className={styles.tooltipTitle}>
+                      {hoveredModel.name}
+                      {hoveredModel.version && (
+                        <span style={{ marginLeft: 6, fontSize: "9.5px", opacity: 0.85 }}>
+                          {hoveredModel.version}
+                        </span>
+                      )}
+                    </div>
+                    <div className={styles.tooltipLab}>Lab: {hoveredModel.lab}</div>
+                  </div>
+                  <button
+                    type="button"
+                    className={styles.tooltipCloseBtn}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setHoveredModel(null);
+                      setTooltipPos(null);
+                    }}
+                    aria-label="Close tooltip"
+                  >
+                    <X size={12} />
+                  </button>
                 </div>
-                <div className={styles.tooltipLab}>Lab: {hoveredModel.lab}</div>
+
                 <div className={styles.tooltipRow}>
                   <span>Accuracy %:</span>
                   <span className={styles.tooltipVal}>{hoveredModel.displayScore}</span>
@@ -535,20 +807,29 @@ export default function RealWorldBenchmarks() {
             )}
 
             <div className={styles.barsContainer}>
-              {sortedModels.map((model) => {
+              {displayedModels.map((model) => {
                 const heightVal = calculateHeight(model);
                 const metricLabel = getMetricTopLabel(model);
 
                 return (
                   <div
                     key={model.id}
-                    className={styles.barCol}
+                    className={`${styles.barCol} ${
+                      hoveredModel?.id === model.id ? styles.barColActive : ""
+                    }`}
+                    onClick={(e) => handleBarSelect(model, e.clientX, e.clientY)}
+                    onTouchStart={(e) => {
+                      if (e.touches && e.touches.length > 0) {
+                        handleBarSelect(model, e.touches[0].clientX, e.touches[0].clientY);
+                      }
+                    }}
                     onMouseEnter={(e) => {
-                      setHoveredModel(model);
-                      handleMouseMove(e);
+                      if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
+                        setHoveredModel(model);
+                        handleMouseMove(e);
+                      }
                     }}
                   >
-
                     {/* The Bar Fill */}
                     <div
                       className={`${styles.barFill} ${
@@ -587,17 +868,30 @@ export default function RealWorldBenchmarks() {
         <div className={styles.bottomBar}>
           <div className={styles.bottomInfo}>
             <span className={styles.infoIcon}>i</span>
-            <span>Showing evaluation models in descending order</span>
+            <span>
+              {activeCount === "top8"
+                ? "Showing Top 8 evaluation models (fit to screen)"
+                : activeCount === "top12"
+                ? "Showing Top 12 evaluation models in descending order"
+                : `Showing all ${sortedModels.length} models (${visibleRangeText} in view)`}
+            </span>
           </div>
 
-          <Link
-            href="/openvals-index"
-            className={styles.viewFullLink}
-            title="Explore full Vals Index benchmarks and methodology"
-          >
-            <span>View Full Results</span>
-            <ExternalLink size={14} />
-          </Link>
+          <div className={styles.bottomActions}>
+            {activeCount === "all" && (
+              <span className={styles.swipeHint}>
+                Swipe or use arrows to view all {sortedModels.length} models →
+              </span>
+            )}
+            <Link
+              href="/openvals-index"
+              className={styles.viewFullLink}
+              title="Explore full Vals Index benchmarks and methodology"
+            >
+              <span>View Full Results</span>
+              <ExternalLink size={14} />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

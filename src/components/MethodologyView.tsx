@@ -33,6 +33,7 @@ export default function MethodologyView() {
   const [companyDropdownOpen, setCompanyDropdownOpen] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<"ACCURACY" | "LATENCY">("ACCURACY");
   const [viewScope, setViewScope] = useState<"SELECTED" | "ALL">("SELECTED");
+  const [showAllModels, setShowAllModels] = useState<boolean>(false);
 
   const weightDropdownRef = useRef<HTMLDivElement>(null);
   const companyDropdownRef = useRef<HTMLDivElement>(null);
@@ -73,7 +74,7 @@ export default function MethodologyView() {
     return ["ALL", ...list];
   }, []);
 
-  // Filtered sidebar models
+  // Filtered sidebar models based on user filters
   const filteredModels = useMemo(() => {
     return METHODOLOGY_MODELS.filter((m) => {
       const matchesSearch =
@@ -86,6 +87,20 @@ export default function MethodologyView() {
       return matchesSearch && matchesWeight && matchesCompany;
     });
   }, [searchQuery, weightFilter, companyFilter]);
+
+  // Visible sidebar models: default to 6 items (shows less initially) with expand toggle
+  const visibleModels = useMemo(() => {
+    if (showAllModels || searchQuery.trim() !== "") {
+      return filteredModels;
+    }
+    const INITIAL_COUNT = 6;
+    const top = filteredModels.slice(0, INITIAL_COUNT);
+    // Ensure currently selected model is always visible in the list
+    if (currentModel && !top.some((m) => m.id === currentModel.id)) {
+      return [...filteredModels.slice(0, INITIAL_COUNT - 1), currentModel];
+    }
+    return top;
+  }, [showAllModels, searchQuery, filteredModels, currentModel]);
 
   // Helper to match a benchmark run to the current selected model
   const runMatchesModel = (
@@ -220,49 +235,42 @@ export default function MethodologyView() {
                 setWeightDropdownOpen((prev) => !prev);
                 setCompanyDropdownOpen(false);
               }}
-              aria-expanded={weightDropdownOpen}
-              aria-haspopup="listbox"
+              title="Filter by open weights or proprietary"
             >
               <span>
+                WEIGHTS:{" "}
                 {weightFilter === "ALL"
-                  ? "OPEN WEIGHTS & PROPRIETARY"
+                  ? "ALL"
                   : weightFilter === "OPEN"
-                  ? "OPEN WEIGHTS ONLY"
-                  : "PROPRIETARY ONLY"}
+                  ? "OPEN"
+                  : "PROPRIETARY"}
               </span>
-              <ChevronsUpDown size={12} className={styles.chevronIcon} />
+              <ChevronsUpDown size={11} className={styles.chevronIcon} />
             </button>
 
             {weightDropdownOpen && (
-              <div className={styles.dropdownMenu} role="listbox">
-                {[
-                  {
-                    label: "OPEN WEIGHTS & PROPRIETARY",
-                    value: "ALL" as const,
-                  },
-                  {
-                    label: "OPEN WEIGHTS ONLY",
-                    value: "OPEN" as const,
-                  },
-                  {
-                    label: "PROPRIETARY ONLY",
-                    value: "PRIVATE" as const,
-                  },
-                ].map((opt) => (
+              <div className={styles.dropdownMenu}>
+                {(["ALL", "OPEN", "PRIVATE"] as const).map((opt) => (
                   <button
-                    key={opt.value}
+                    key={opt}
                     type="button"
                     className={`${styles.dropdownOption} ${
-                      weightFilter === opt.value ? styles.dropdownOptionActive : ""
+                      weightFilter === opt ? styles.dropdownOptionActive : ""
                     }`}
                     onClick={() => {
-                      setWeightFilter(opt.value);
+                      setWeightFilter(opt);
                       setWeightDropdownOpen(false);
                     }}
                   >
-                    <span>{opt.label}</span>
-                    {weightFilter === opt.value && (
-                      <Check size={13} className={styles.checkIcon} />
+                    <span>
+                      {opt === "ALL"
+                        ? "All Weights & Proprietary"
+                        : opt === "OPEN"
+                        ? "Open Weights Only"
+                        : "Proprietary Only"}
+                    </span>
+                    {weightFilter === opt && (
+                      <Check size={12} className={styles.checkIcon} />
                     )}
                   </button>
                 ))}
@@ -270,7 +278,7 @@ export default function MethodologyView() {
             )}
           </div>
 
-          {/* Company / Lab Filter Dropdown */}
+          {/* Company Filter Dropdown */}
           <div className={styles.dropdownWrapper} ref={companyDropdownRef}>
             <button
               type="button"
@@ -281,72 +289,69 @@ export default function MethodologyView() {
                 setCompanyDropdownOpen((prev) => !prev);
                 setWeightDropdownOpen(false);
               }}
-              aria-expanded={companyDropdownOpen}
-              aria-haspopup="listbox"
+              title="Filter by model developer or lab"
             >
-              <span>
-                {companyFilter === "ALL"
-                  ? "ALL COMPANIES"
-                  : companyFilter.toUpperCase()}
-              </span>
-              <ChevronsUpDown size={12} className={styles.chevronIcon} />
+              <span>COMPANY: {companyFilter}</span>
+              <ChevronsUpDown size={11} className={styles.chevronIcon} />
             </button>
 
             {companyDropdownOpen && (
               <div
                 className={`${styles.dropdownMenu} ${styles.dropdownMenuScrollable}`}
-                role="listbox"
               >
-                {companiesList.map((company) => (
+                {companiesList.map((comp) => (
                   <button
-                    key={company}
+                    key={comp}
                     type="button"
                     className={`${styles.dropdownOption} ${
-                      companyFilter === company ? styles.dropdownOptionActive : ""
+                      companyFilter === comp ? styles.dropdownOptionActive : ""
                     }`}
                     onClick={() => {
-                      setCompanyFilter(company);
+                      setCompanyFilter(comp);
                       setCompanyDropdownOpen(false);
                     }}
                   >
-                    <span>
-                      {company === "ALL"
-                        ? "ALL COMPANIES"
-                        : company.toUpperCase()}
-                    </span>
-                    {companyFilter === company && (
-                      <Check size={13} className={styles.checkIcon} />
+                    <span>{comp === "ALL" ? "All Companies / Labs" : comp}</span>
+                    {companyFilter === comp && (
+                      <Check size={12} className={styles.checkIcon} />
                     )}
                   </button>
                 ))}
               </div>
             )}
           </div>
+
+          {/* Active Filters Clear Button */}
+          {(weightFilter !== "ALL" ||
+            companyFilter !== "ALL" ||
+            searchQuery) && (
+            <button
+              type="button"
+              onClick={() => {
+                setWeightFilter("ALL");
+                setCompanyFilter("ALL");
+                setSearchQuery("");
+              }}
+              style={{
+                background: "none",
+                border: "none",
+                fontSize: "11px",
+                color: "#ef4444",
+                cursor: "pointer",
+                fontWeight: 700,
+                padding: "4px 8px",
+              }}
+            >
+              Clear Filters &times;
+            </button>
+          )}
         </div>
 
         <div className={styles.topBarRight}>
-          <button
-            type="button"
-            className={styles.actionBtn}
-            onClick={() => {
-              const jsonStr = JSON.stringify(currentModel, null, 2);
-              const blob = new Blob([jsonStr], { type: "application/json" });
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement("a");
-              a.href = url;
-              a.download = `${currentModel.id}-evaluation-methodology.json`;
-              a.click();
-            }}
-            title="Download full evaluation metrics as JSON"
-          >
-            <Download size={13} />
-            <span>DOWNLOAD</span>
-          </button>
-
           <Link
             href="/openvals-index"
             className={styles.actionBtn}
-            style={{ textDecoration: "none" }}
+            title="Compare models on the Pareto frontier"
           >
             <SlidersHorizontal size={13} />
             <span>COMPARE MODELS</span>
@@ -379,8 +384,9 @@ export default function MethodologyView() {
             <span>MODEL</span>
           </div>
 
+          {/* MODEL LIST: Shows less by default (6 items) with expand/collapse */}
           <div className={styles.modelList}>
-            {filteredModels.map((model) => {
+            {visibleModels.map((model) => {
               const isActive = model.id === currentModel.id;
               return (
                 <div
@@ -406,18 +412,23 @@ export default function MethodologyView() {
             })}
           </div>
 
+          {/* SIDEBAR FOOTER: Toggle Show All / Show Less */}
           <div className={styles.sidebarFooter}>
-            <button
-              type="button"
-              className={styles.viewMoreBtn}
-              onClick={() => {
-                setSearchQuery("");
-                setWeightFilter("ALL");
-                setCompanyFilter("ALL");
-              }}
-            >
-              SHOWING {filteredModels.length} MODELS ⌵
-            </button>
+            {filteredModels.length > 6 && !searchQuery.trim() ? (
+              <button
+                type="button"
+                className={styles.viewMoreBtn}
+                onClick={() => setShowAllModels((prev) => !prev)}
+              >
+                {showAllModels
+                  ? "SHOW LESS ∧"
+                  : `SHOW ALL ${filteredModels.length} MODELS ⌵`}
+              </button>
+            ) : (
+              <span className={styles.viewMoreBtn}>
+                SHOWING {visibleModels.length} MODEL{visibleModels.length === 1 ? "" : "S"}
+              </span>
+            )}
           </div>
         </aside>
 
@@ -435,8 +446,7 @@ export default function MethodologyView() {
             </div>
           </div>
 
-
-          {/* THREE STAT CARDS */}
+          {/* TWO STAT CARDS */}
           <div className={styles.statCardsRow}>
             {/* 1. Accuracy Card */}
             <div
@@ -489,12 +499,9 @@ export default function MethodologyView() {
           </div>
 
           {/* BENCHMARK CATEGORY TABS & RUN SEARCH */}
-          <div
-            className={styles.benchmarkTabs}
-            style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
-          >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div style={{ display: "flex" }}>
+          <div className={styles.benchmarkTabs}>
+            <div className={styles.tabsAndScopeWrap}>
+              <div className={styles.tabButtonsGroup}>
                 <button
                   type="button"
                   className={`${styles.tabBtn} ${
@@ -539,14 +546,7 @@ export default function MethodologyView() {
               </div>
             </div>
 
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-                paddingRight: "12px",
-              }}
-            >
+            <div className={styles.runSearchWrap}>
               <Search size={12} color="var(--text-muted)" />
               <input
                 type="text"
@@ -557,28 +557,13 @@ export default function MethodologyView() {
                 }
                 value={runSearchQuery}
                 onChange={(e) => setRunSearchQuery(e.target.value)}
-                style={{
-                  fontSize: "11px",
-                  padding: "4px 8px",
-                  border: "1px solid var(--border)",
-                  borderRadius: "4px",
-                  outline: "none",
-                  background: "var(--card-bg)",
-                  color: "var(--text-main)",
-                }}
+                className={styles.runSearchInput}
               />
               {runSearchQuery && (
                 <button
                   type="button"
                   onClick={() => setRunSearchQuery("")}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: "12px",
-                    color: "#ef4444",
-                    fontWeight: 700,
-                  }}
+                  className={styles.runSearchClear}
                 >
                   &times;
                 </button>
@@ -586,118 +571,168 @@ export default function MethodologyView() {
             </div>
           </div>
 
-          {/* BENCHMARK BREAKDOWN TABLE */}
-          <div className={styles.benchmarkTableWrap}>
-            <table className={styles.benchmarkTable}>
-              <thead>
-                <tr>
-                  <th style={{ width: "240px" }}>
-                    {viewScope === "SELECTED" ? "MODEL RUNS" : "BENCHMARKS"} ({benchmarkTableRows.length})
-                  </th>
-                  <th>
-                    {activeTab === "ACCURACY"
-                      ? "SCORE DISTRIBUTION"
-                      : "LATENCY DISTRIBUTION"}
-                  </th>
-                  <th style={{ textAlign: "right", width: "135px" }}>
-                    {activeTab === "ACCURACY" ? "ACCURACY" : "LATENCY"}
-                  </th>
-                  <th style={{ textAlign: "right", width: "90px" }}>RANKINGS</th>
-                </tr>
-              </thead>
-              <tbody>
-                {benchmarkTableRows.map((bench) => {
-                  const barClass =
-                    bench.category === "proprietary"
-                      ? styles.barFillProprietary
-                      : bench.category === "academic"
-                      ? styles.barFillAcademic
-                      : styles.barFillPartner;
+          {/* BENCHMARK BREAKDOWN: DESKTOP TABLE & MOBILE CARDS */}
+          <div className={styles.benchmarkContainerWrap}>
+            {/* Desktop Table View */}
+            <div className={styles.tableDesktopWrapper}>
+              <table className={styles.benchmarkTable}>
+                <thead>
+                  <tr>
+                    <th style={{ width: "240px" }}>
+                      {viewScope === "SELECTED" ? "MODEL RUNS" : "BENCHMARKS"} ({benchmarkTableRows.length})
+                    </th>
+                    <th>
+                      {activeTab === "ACCURACY"
+                        ? "SCORE DISTRIBUTION"
+                        : "LATENCY DISTRIBUTION"}
+                    </th>
+                    <th style={{ textAlign: "right", width: "135px" }}>
+                      {activeTab === "ACCURACY" ? "ACCURACY" : "LATENCY"}
+                    </th>
+                    <th style={{ textAlign: "right", width: "90px" }}>RANKINGS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {benchmarkTableRows.map((bench) => {
+                    const barClass =
+                      bench.category === "proprietary"
+                        ? styles.barFillProprietary
+                        : bench.category === "academic"
+                        ? styles.barFillAcademic
+                        : styles.barFillPartner;
 
-                  return (
-                    <tr key={bench.id}>
-                      <td>
-                        <div className={styles.benchmarkNameCell}>
-                          <span
-                            style={{
-                              fontWeight: 700,
-                              fontSize: "12px",
-                              color: "var(--text-main)",
-                            }}
-                          >
-                            {bench.name}
-                          </span>
-                          <span
-                            style={{
-                              fontSize: "10.5px",
-                              color: "var(--text-muted)",
-                              fontWeight: 600,
-                              marginLeft: "6px",
-                            }}
-                          >
-                            {bench.params}
-                          </span>
-                          <span
-                            style={{
-                              fontSize: "9px",
-                              padding: "1px 5px",
-                              background: "var(--secondary-bg)",
-                              borderRadius: "3px",
-                              border: "1px solid var(--border)",
-                              color: "var(--text-muted)",
-                              marginLeft: "6px",
-                              fontWeight: 700,
-                              textTransform: "uppercase",
-                            }}
-                          >
-                            {bench.lab}
-                          </span>
-                          {bench.runIndex && (
+                    return (
+                      <tr key={bench.id}>
+                        <td>
+                          <div className={styles.benchmarkNameCell}>
+                            <span
+                              style={{
+                                fontWeight: 700,
+                                fontSize: "12px",
+                                color: "var(--text-main)",
+                              }}
+                            >
+                              {bench.name}
+                            </span>
+                            <span
+                              style={{
+                                fontSize: "10.5px",
+                                color: "var(--text-muted)",
+                                fontWeight: 600,
+                                marginLeft: "6px",
+                              }}
+                            >
+                              {bench.params}
+                            </span>
                             <span
                               style={{
                                 fontSize: "9px",
-                                color: "#38bdf8",
-                                fontWeight: 600,
-                                marginLeft: "6px",
-                                background: "rgba(56, 189, 248, 0.12)",
-                                border: "1px solid rgba(56, 189, 248, 0.3)",
-                                padding: "1px 4px",
+                                padding: "1px 5px",
+                                background: "var(--secondary-bg)",
                                 borderRadius: "3px",
+                                border: "1px solid var(--border)",
+                                color: "var(--text-muted)",
+                                marginLeft: "6px",
+                                fontWeight: 700,
+                                textTransform: "uppercase",
                               }}
                             >
-                              Run #{bench.runIndex}
+                              {bench.lab}
+                            </span>
+                            {bench.runIndex && (
+                              <span
+                                style={{
+                                  fontSize: "9px",
+                                  color: "#38bdf8",
+                                  fontWeight: 600,
+                                  marginLeft: "6px",
+                                  background: "rgba(56, 189, 248, 0.12)",
+                                  border: "1px solid rgba(56, 189, 248, 0.3)",
+                                  padding: "1px 4px",
+                                  borderRadius: "3px",
+                                }}
+                              >
+                                Run #{bench.runIndex}
+                              </span>
+                            )}
+                          </div>
+                        </td>
+                        <td>
+                          <div className={styles.barTrack}>
+                            <div
+                              className={barClass}
+                              style={{ width: `${bench.barWidthPercent}%` }}
+                            />
+                          </div>
+                        </td>
+                        <td className={styles.accValCell}>
+                          {bench.mainValue}{" "}
+                          {bench.subValue && (
+                            <span
+                              style={{
+                                fontSize: "10.5px",
+                                color: "#78716c",
+                                fontWeight: 400,
+                              }}
+                            >
+                              {bench.subValue}
                             </span>
                           )}
-                        </div>
-                      </td>
-                      <td>
-                        <div className={styles.barTrack}>
-                          <div
-                            className={barClass}
-                            style={{ width: `${bench.barWidthPercent}%` }}
-                          />
-                        </div>
-                      </td>
-                      <td className={styles.accValCell}>
-                        {bench.mainValue}{" "}
-                        {bench.subValue && (
-                          <span
-                            style={{
-                              fontSize: "10.5px",
-                              color: "#78716c",
-                              fontWeight: 400,
-                            }}
-                          >
-                            {bench.subValue}
-                          </span>
+                        </td>
+                        <td className={styles.rankCell}>{bench.rankText}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile Cards View (Zero side-scroll, perfectly aligned!) */}
+            <div className={styles.tableMobileCardsWrapper}>
+              {benchmarkTableRows.map((bench) => {
+                const barClass =
+                  bench.category === "proprietary"
+                    ? styles.barFillProprietary
+                    : bench.category === "academic"
+                    ? styles.barFillAcademic
+                    : styles.barFillPartner;
+
+                return (
+                  <div key={bench.id} className={styles.mobileBenchmarkCard}>
+                    <div className={styles.mobileCardHeader}>
+                      <div className={styles.mobileCardNameWrap}>
+                        <span className={styles.mobileModelName}>{bench.name}</span>
+                        <span className={styles.mobileParamBadge}>{bench.params}</span>
+                        <span className={styles.mobileLabBadge}>{bench.lab}</span>
+                        {bench.runIndex && (
+                          <span className={styles.mobileRunBadge}>Run #{bench.runIndex}</span>
                         )}
-                      </td>
-                      <td className={styles.rankCell}>{bench.rankText}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                      </div>
+                      <span className={styles.mobileRankBadge}>{bench.rankText}</span>
+                    </div>
+
+                    <div className={styles.mobileScoreRow}>
+                      <span className={styles.mobileDistLabel}>
+                        {activeTab === "ACCURACY" ? "Score Distribution" : "Latency Distribution"}
+                      </span>
+                      <div className={styles.mobileScoreVal}>
+                        <span>{bench.mainValue}</span>
+                        {bench.subValue && (
+                          <span className={styles.mobileSubValue}>{bench.subValue}</span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className={styles.mobileBarTrack}>
+                      <div
+                        className={barClass}
+                        style={{ width: `${bench.barWidthPercent}%` }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
             {/* BENCHMARK FOOTER LEGEND */}
             <div className={styles.tableLegendBar}>
@@ -740,7 +775,6 @@ export default function MethodologyView() {
               </div>
             </div>
           </div>
-
 
           {/* EDITORIAL UPDATES SECTION */}
           <div className={styles.updatesSection}>

@@ -63,7 +63,6 @@ function formatPercent(val: string | number | undefined | null): string {
   return `${(num * 100).toFixed(1)}%`;
 }
 
-
 export default function LatestReports() {
   const [selectedLab, setSelectedLab] = useState<string>("All Models");
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -220,7 +219,7 @@ export default function LatestReports() {
 
       {/* REPORT CARD */}
       <div className={styles.reportCard}>
-        {/* VALIDATION METRICS MULTI-TIER TABLE */}
+        {/* DESKTOP TABLE VIEW */}
         <div className={styles.tableResponsiveWrapper}>
           <table
             className={styles.reportTable}
@@ -371,7 +370,7 @@ export default function LatestReports() {
                   })
                 )
               ) : (
-                /* RAW BENCHMARK RUNS VIEW (All 173 rows) */
+                /* RAW BENCHMARK RUNS VIEW */
                 filteredRuns.length === 0 ? (
                   <tr>
                     <td colSpan={10} style={{ textAlign: "center", padding: "30px", color: "var(--text-muted)" }}>
@@ -445,6 +444,172 @@ export default function LatestReports() {
               )}
             </tbody>
           </table>
+        </div>
+
+        {/* MOBILE CARDS VIEW (All metrics visible directly with zero horizontal scroll) */}
+        <div className={styles.mobileCardsWrapper}>
+          {viewMode === "aggregated" ? (
+            filteredAggregated.length === 0 ? (
+              <div className={styles.mobileEmptyState}>
+                No models found matching your search.
+              </div>
+            ) : (
+              filteredAggregated.map((row, idx) => {
+                const solidWidth = Math.min(100, Math.max(2, row.accuracyNum * 100));
+
+                return (
+                  <div key={`m-agg-${row.id}-${idx}`} className={styles.mobileModelCard}>
+                    {/* Header */}
+                    <div className={styles.mobileCardHeader}>
+                      <div className={styles.mobileModelIdentity}>
+                        <span className={styles.modelIconWrap}>
+                          {row.name.includes("coder") || row.name.includes("instruct") ? (
+                            <Code2 size={14} />
+                          ) : (
+                            <Cpu size={14} />
+                          )}
+                        </span>
+                        <span className={styles.mobileModelName}>{row.name}</span>
+                        <span className={styles.paramBadge}>{row.params}</span>
+                        <span className={styles.sizeBadge}>{row.size}</span>
+                      </div>
+                      <span className={styles.mobileRankBadge}>Rank #{row.rank}</span>
+                    </div>
+
+                    {/* Primary Metric: Accuracy */}
+                    <div className={styles.mobileAccuracySection}>
+                      <div className={styles.mobileAccuracyLabelRow}>
+                        <span className={styles.mobileMetricLabel}>Accuracy</span>
+                        <span className={styles.mobileAccuracyValue}>{row.accuracy}</span>
+                      </div>
+                      <div className={styles.mobileMicroBarTrack}>
+                        <div
+                          className={styles.mobileMicroBarFill}
+                          style={{
+                            width: `${solidWidth}%`,
+                            backgroundColor: "#10b981",
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* All Metrics Grid */}
+                    <div className={styles.mobileMetricsGrid}>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Latency</span>
+                        <span className={styles.mobileGridValue}>{row.latency}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>DRS</span>
+                        <span className={`${styles.mobileGridValue} ${styles.drsHighlight}`}>
+                          {formatPercent(row.drs)}
+                        </span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Semantic</span>
+                        <span className={styles.mobileGridValue}>{formatPercent(row.semantic)}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Factuality</span>
+                        <span className={styles.mobileGridValue}>{formatPercent(row.factuality)}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Safety</span>
+                        <span className={styles.mobileGridValue}>{formatPercent(row.safety)}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Reliability</span>
+                        <span className={styles.mobileGridValue}>{formatPercent(row.reliability)}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Hallucination</span>
+                        <span className={styles.mobileGridValue}>{formatPercent(row.hallucination)}</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )
+          ) : (
+            filteredRuns.length === 0 ? (
+              <div className={styles.mobileEmptyState}>
+                No evaluation runs found matching your search.
+              </div>
+            ) : (
+              filteredRuns.map((row, idx) => {
+                const solidWidth = Math.min(100, Math.max(2, row.accuracyNum * 100));
+
+                return (
+                  <div key={`m-run-${row.id}-${idx}`} className={styles.mobileModelCard}>
+                    {/* Header */}
+                    <div className={styles.mobileCardHeader}>
+                      <div className={styles.mobileModelIdentity}>
+                        <span className={styles.modelIconWrap}>
+                          <Layers size={13} />
+                        </span>
+                        <span className={styles.mobileModelName}>{row.name}</span>
+                        <span className={styles.paramBadge}>{row.params}</span>
+                        <span className={styles.sizeBadge}>{row.size}</span>
+                        <span className={styles.modelTag}>{row.lab}</span>
+                      </div>
+                      <span className={styles.mobileRankBadge}>Rank #{row.rank}</span>
+                    </div>
+
+                    {/* Primary Metric: Accuracy */}
+                    <div className={styles.mobileAccuracySection}>
+                      <div className={styles.mobileAccuracyLabelRow}>
+                        <span className={styles.mobileMetricLabel}>Accuracy</span>
+                        <span className={styles.mobileAccuracyValue}>{row.accuracy}</span>
+                      </div>
+                      <div className={styles.mobileMicroBarTrack}>
+                        <div
+                          className={styles.mobileMicroBarFill}
+                          style={{
+                            width: `${solidWidth}%`,
+                            backgroundColor: "#0284c7",
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* All Metrics Grid */}
+                    <div className={styles.mobileMetricsGrid}>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Latency</span>
+                        <span className={styles.mobileGridValue}>{row.latency}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>DRS</span>
+                        <span className={`${styles.mobileGridValue} ${styles.drsHighlight}`}>
+                          {formatPercent(row.drs)}
+                        </span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Semantic</span>
+                        <span className={styles.mobileGridValue}>{formatPercent(row.semantic)}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Factuality</span>
+                        <span className={styles.mobileGridValue}>{formatPercent(row.factuality)}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Safety</span>
+                        <span className={styles.mobileGridValue}>{formatPercent(row.safety)}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Reliability</span>
+                        <span className={styles.mobileGridValue}>{formatPercent(row.reliability)}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Hallucination</span>
+                        <span className={styles.mobileGridValue}>{formatPercent(row.hallucination)}</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )
+          )}
         </div>
 
         {/* FOOTER */}

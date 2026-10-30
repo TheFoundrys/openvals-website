@@ -1,14 +1,15 @@
 :root {
   --primary-bg: #FFFFFF;
-  --primary-bg-alpha: rgba(255, 255, 255, 0.8);
+  --primary-bg-alpha: rgba(255, 255, 255, 0.85);
   --secondary-bg: #F9FAFB;
   --text-main: #111827;
   --text-muted: #6B7280;
   --accent: #002856;
+  --accent-light: #2563eb;
   --border: #E5E7EB;
   --card-bg: #FFFFFF;
-  --grid-dot: rgba(0, 0, 0, 0.1);
-  --shadow: none;
+  --grid-dot: rgba(0, 40, 86, 0.09);
+  --shadow: 0 4px 20px rgba(0, 40, 86, 0.06);
   --logo-color: #1a2b3d;
   --orb-bg: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(240, 249, 255, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
   --orb-border: rgba(0, 0, 0, 0.1);
@@ -23,51 +24,64 @@
   --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
   --logo-blend-mode: multiply;
 
+  /* ── Hero Background & Ambient Lighting (Light Mode) ── */
+  --hero-bg: radial-gradient(ellipse 90% 65% at 50% -10%, rgba(224, 242, 254, 0.45) 0%, rgba(248, 250, 252, 0.95) 50%, #ffffff 100%);
+  --hero-glow-ambient: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.16) 0%, rgba(59, 130, 246, 0.08) 35%, rgba(99, 102, 241, 0.03) 60%, transparent 75%);
+
   /* ── Hero Animation Tokens (Light Mode Default) ── */
-  --hero-stream-stroke-1: rgba(2, 132, 199, 0.38);
-  --hero-stream-stroke-2: rgba(14, 165, 233, 0.30);
-  --hero-stream-stroke-3: rgba(2, 132, 199, 0.34);
+  --hero-stream-stroke-1: rgba(2, 132, 199, 0.45);
+  --hero-stream-stroke-2: rgba(14, 165, 233, 0.38);
+  --hero-stream-stroke-3: rgba(56, 189, 248, 0.40);
   --hero-stream-packet-1: #0284c7;
   --hero-stream-packet-2: #0ea5e9;
   --hero-stream-packet-trailing: #0369a1;
   --hero-stream-glow: none;
-  --hero-connector-line: rgba(2, 132, 199, 0.16);
+  --hero-connector-line: rgba(2, 132, 199, 0.20);
 
-  --hero-orbit-stroke-1: rgba(2, 132, 199, 0.38);
-  --hero-orbit-stroke-2: rgba(14, 165, 233, 0.32);
-  --hero-orbit-stroke-3: rgba(56, 189, 248, 0.35);
-  --hero-orbit-pulse: rgba(2, 132, 199, 0.7);
+  --hero-orbit-stroke-1: rgba(2, 132, 199, 0.45);
+  --hero-orbit-stroke-2: rgba(14, 165, 233, 0.40);
+  --hero-orbit-stroke-3: rgba(56, 189, 248, 0.36);
+  --hero-orbit-pulse: rgba(2, 132, 199, 0.8);
   --hero-orbit-particle-1: #0284c7;
   --hero-orbit-particle-2: #0ea5e9;
   --hero-orbit-particle-white: #0369a1;
   --hero-orbit-filter: none;
 
-  --hero-label-bg: rgba(255, 255, 255, 0.94);
-  --hero-label-border: rgba(220, 38, 38, 0.35);
-  --hero-label-border-pulse: rgba(2, 132, 199, 0.85);
-  --hero-label-text: #b91c1c;
-  --hero-label-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.12);
+  --hero-label-bg: rgba(255, 255, 255, 0.98);
+  --hero-label-border: rgba(220, 38, 38, 0.85);
+  --hero-label-border-pulse: rgba(2, 132, 199, 0.9);
+  --hero-label-text: #991b1b;
+  --hero-label-shadow: 0 3px 12px rgba(220, 38, 38, 0.18), 0 1px 4px rgba(0, 0, 0, 0.12);
   --hero-label-dot: #dc2626;
   --hero-label-dot-flash: #0284c7;
 
-  --hero-part-left-opacity-mult: 0.36;
-  --hero-part-mid-opacity-mult: 0.55;
-  --hero-part-right-opacity-mult: 0.85;
-  --hero-part-bottom-opacity-mult: 0.25;
-  --hero-part-color-cyan: rgba(2, 132, 199, 0.65);
-  --hero-part-color-pale: rgba(14, 165, 233, 0.7);
-  --hero-part-color-mid: #0284c7;
-  --hero-part-glow-mid: none;
+  /* Floating Telemetry Badges (Light Mode) */
+  --hero-badge-bg: rgba(255, 255, 255, 0.96);
+  --hero-badge-border: rgba(2, 132, 199, 0.35);
+  --hero-badge-shadow: 0 4px 16px rgba(0, 40, 86, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --hero-badge-text: #0f172a;
+  --hero-badge-accent: #0284c7;
+  --hero-badge-dot: #0ea5e9;
+
+  --hero-part-left-opacity-mult: 0.55;
+  --hero-part-mid-opacity-mult: 0.70;
+  --hero-part-right-opacity-mult: 0.90;
+  --hero-part-bottom-opacity-mult: 0.38;
+  --hero-part-color-cyan: #0284c7;
+  --hero-part-color-pale: #38bdf8;
+  --hero-part-color-mid: #0ea5e9;
+  --hero-part-glow-mid: 0 0 8px rgba(14, 165, 233, 0.35);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-bg: #0b0f19;
-    --primary-bg-alpha: rgba(11, 15, 25, 0.8);
+    --primary-bg-alpha: rgba(11, 15, 25, 0.85);
     --secondary-bg: #111827;
     --text-main: #FFFFFF;
     --text-muted: #D1D5DB;
     --accent: #3b82f6;
+    --accent-light: #60a5fa;
     --border: #1f2937;
     --card-bg: #111827;
     --grid-dot: rgba(255, 255, 255, 0.1);
@@ -83,6 +97,10 @@
     --logo-filter-standard: invert(1) grayscale(100%) opacity(0.85);
     --logo-filter-darkbg: grayscale(100%) opacity(0.85);
     --logo-blend-mode: screen;
+
+    /* ── Hero Background & Ambient Lighting (Dark Mode) ── */
+    --hero-bg: radial-gradient(ellipse 85% 65% at 50% -10%, rgba(30, 58, 138, 0.22) 0%, rgba(15, 23, 42, 0.6) 50%, transparent 100%);
+    --hero-glow-ambient: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.38) 0%, rgba(56, 189, 248, 0.18) 45%, transparent 70%);
 
     /* ── Hero Animation Tokens (Dark Mode) ── */
     --hero-stream-stroke-1: url(#streamGrad1);
@@ -103,13 +121,21 @@
     --hero-orbit-particle-white: #ffffff;
     --hero-orbit-filter: url(#orbGlow);
 
-    --hero-label-bg: rgba(8, 14, 28, 0.96);
-    --hero-label-border: rgba(255, 77, 90, 0.5);
+    --hero-label-bg: rgba(15, 23, 42, 0.96);
+    --hero-label-border: rgba(248, 113, 113, 0.72);
     --hero-label-border-pulse: rgba(0, 240, 255, 0.95);
-    --hero-label-text: #ff4d5a;
-    --hero-label-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 77, 90, 0.4);
+    --hero-label-text: #ff858d;
+    --hero-label-shadow: 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 10px rgba(239, 68, 68, 0.28);
     --hero-label-dot: #ff4d5a;
     --hero-label-dot-flash: #00f0ff;
+
+    /* Floating Telemetry Badges (Dark Mode) */
+    --hero-badge-bg: rgba(15, 23, 42, 0.94);
+    --hero-badge-border: rgba(56, 189, 248, 0.38);
+    --hero-badge-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.16);
+    --hero-badge-text: #f8fafc;
+    --hero-badge-accent: #38bdf8;
+    --hero-badge-dot: #00f0ff;
 
     --hero-part-left-opacity-mult: 0.85;
     --hero-part-mid-opacity-mult: 1.0;
@@ -123,10 +149,32 @@
 }
 
 html.dark {
+  --primary-bg: #0b0f19;
+  --primary-bg-alpha: rgba(11, 15, 25, 0.85);
+  --secondary-bg: #111827;
+  --text-main: #FFFFFF;
+  --text-muted: #D1D5DB;
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --border: #1f2937;
+  --card-bg: #111827;
+  --grid-dot: rgba(255, 255, 255, 0.1);
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  --logo-color: #FFFFFF;
+  --orb-bg: radial-gradient(circle at 30% 30%, rgba(17, 24, 39, 0.8) 0%, rgba(11, 15, 25, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
+  --orb-border: rgba(255, 255, 255, 0.2);
+  --icon-invert: 1;
+  --shield-base: #2F80ED;
+  --shield-glow: rgba(47, 128, 237, 0.6);
+  --shield-glow-strong: rgba(47, 128, 237, 0.4);
+  --shield-impact: rgba(47, 128, 237, 0.7);
   --logo-filter-standard: invert(1) grayscale(100%) opacity(0.85);
   --logo-filter-darkbg: grayscale(100%) opacity(0.85);
   --logo-blend-mode: screen;
+
+  /* ── Hero Background & Ambient Lighting (html.dark) ── */
+  --hero-bg: radial-gradient(ellipse 85% 65% at 50% -10%, rgba(30, 58, 138, 0.22) 0%, rgba(15, 23, 42, 0.6) 50%, transparent 100%);
+  --hero-glow-ambient: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.38) 0%, rgba(56, 189, 248, 0.18) 45%, transparent 70%);
 
   /* ── Hero Animation Tokens (html.dark) ── */
   --hero-stream-stroke-1: url(#streamGrad1);
@@ -147,13 +195,21 @@ html.dark {
   --hero-orbit-particle-white: #ffffff;
   --hero-orbit-filter: url(#orbGlow);
 
-  --hero-label-bg: rgba(8, 14, 28, 0.96);
-  --hero-label-border: rgba(255, 77, 90, 0.5);
-  --hero-label-border-pulse: rgba(0, 240, 255, 0.95);
-  --hero-label-text: #ff4d5a;
-  --hero-label-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 77, 90, 0.4);
-  --hero-label-dot: #ff4d5a;
-  --hero-label-dot-flash: #00f0ff;
+  --hero-label-bg: rgba(15, 23, 42, 0.96);
+    --hero-label-border: rgba(248, 113, 113, 0.72);
+    --hero-label-border-pulse: rgba(0, 240, 255, 0.95);
+    --hero-label-text: #ff858d;
+    --hero-label-shadow: 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 10px rgba(239, 68, 68, 0.28);
+    --hero-label-dot: #ff4d5a;
+    --hero-label-dot-flash: #00f0ff;
+
+  /* Floating Telemetry Badges (html.dark) */
+  --hero-badge-bg: rgba(15, 23, 42, 0.94);
+    --hero-badge-border: rgba(56, 189, 248, 0.38);
+    --hero-badge-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.16);
+    --hero-badge-text: #f8fafc;
+    --hero-badge-accent: #38bdf8;
+    --hero-badge-dot: #00f0ff;
 
   --hero-part-left-opacity-mult: 0.85;
   --hero-part-mid-opacity-mult: 1.0;
@@ -166,46 +222,71 @@ html.dark {
 }
 
 html.light {
-  --shadow: none;
+  --primary-bg: #FFFFFF;
+  --primary-bg-alpha: rgba(255, 255, 255, 0.85);
+  --secondary-bg: #F9FAFB;
+  --text-main: #111827;
+  --text-muted: #6B7280;
+  --accent: #002856;
+  --accent-light: #2563eb;
+  --border: #E5E7EB;
+  --card-bg: #FFFFFF;
+  --grid-dot: rgba(0, 40, 86, 0.09);
+  --shadow: 0 4px 20px rgba(0, 40, 86, 0.06);
+  --logo-color: #1a2b3d;
+  --orb-bg: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(240, 249, 255, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
+  --orb-border: rgba(0, 0, 0, 0.1);
   --logo-filter-standard: grayscale(100%) opacity(0.85);
   --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
   --logo-blend-mode: multiply;
 
+  /* ── Hero Background & Ambient Lighting (html.light) ── */
+  --hero-bg: radial-gradient(ellipse 90% 65% at 50% -10%, rgba(224, 242, 254, 0.45) 0%, rgba(248, 250, 252, 0.95) 50%, #ffffff 100%);
+  --hero-glow-ambient: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.16) 0%, rgba(59, 130, 246, 0.08) 35%, rgba(99, 102, 241, 0.03) 60%, transparent 75%);
+
   /* ── Hero Animation Tokens (html.light) ── */
-  --hero-stream-stroke-1: rgba(2, 132, 199, 0.38);
-  --hero-stream-stroke-2: rgba(14, 165, 233, 0.30);
-  --hero-stream-stroke-3: rgba(2, 132, 199, 0.34);
+  --hero-stream-stroke-1: rgba(2, 132, 199, 0.45);
+  --hero-stream-stroke-2: rgba(14, 165, 233, 0.38);
+  --hero-stream-stroke-3: rgba(56, 189, 248, 0.40);
   --hero-stream-packet-1: #0284c7;
   --hero-stream-packet-2: #0ea5e9;
   --hero-stream-packet-trailing: #0369a1;
   --hero-stream-glow: none;
-  --hero-connector-line: rgba(2, 132, 199, 0.16);
+  --hero-connector-line: rgba(2, 132, 199, 0.20);
 
-  --hero-orbit-stroke-1: rgba(2, 132, 199, 0.38);
-  --hero-orbit-stroke-2: rgba(14, 165, 233, 0.32);
-  --hero-orbit-stroke-3: rgba(56, 189, 248, 0.35);
-  --hero-orbit-pulse: rgba(2, 132, 199, 0.7);
+  --hero-orbit-stroke-1: rgba(2, 132, 199, 0.45);
+  --hero-orbit-stroke-2: rgba(14, 165, 233, 0.40);
+  --hero-orbit-stroke-3: rgba(56, 189, 248, 0.36);
+  --hero-orbit-pulse: rgba(2, 132, 199, 0.8);
   --hero-orbit-particle-1: #0284c7;
   --hero-orbit-particle-2: #0ea5e9;
   --hero-orbit-particle-white: #0369a1;
   --hero-orbit-filter: none;
 
-  --hero-label-bg: rgba(255, 255, 255, 0.94);
-  --hero-label-border: rgba(220, 38, 38, 0.35);
-  --hero-label-border-pulse: rgba(2, 132, 199, 0.85);
-  --hero-label-text: #b91c1c;
-  --hero-label-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.12);
+  --hero-label-bg: rgba(255, 255, 255, 0.98);
+  --hero-label-border: rgba(220, 38, 38, 0.85);
+  --hero-label-border-pulse: rgba(2, 132, 199, 0.9);
+  --hero-label-text: #991b1b;
+  --hero-label-shadow: 0 3px 12px rgba(220, 38, 38, 0.18), 0 1px 4px rgba(0, 0, 0, 0.12);
   --hero-label-dot: #dc2626;
   --hero-label-dot-flash: #0284c7;
 
-  --hero-part-left-opacity-mult: 0.36;
-  --hero-part-mid-opacity-mult: 0.55;
-  --hero-part-right-opacity-mult: 0.85;
-  --hero-part-bottom-opacity-mult: 0.25;
-  --hero-part-color-cyan: rgba(2, 132, 199, 0.65);
-  --hero-part-color-pale: rgba(14, 165, 233, 0.7);
-  --hero-part-color-mid: #0284c7;
-  --hero-part-glow-mid: none;
+  /* Floating Telemetry Badges (html.light) */
+  --hero-badge-bg: rgba(255, 255, 255, 0.96);
+  --hero-badge-border: rgba(2, 132, 199, 0.35);
+  --hero-badge-shadow: 0 4px 16px rgba(0, 40, 86, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --hero-badge-text: #0f172a;
+  --hero-badge-accent: #0284c7;
+  --hero-badge-dot: #0ea5e9;
+
+  --hero-part-left-opacity-mult: 0.55;
+  --hero-part-mid-opacity-mult: 0.70;
+  --hero-part-right-opacity-mult: 0.90;
+  --hero-part-bottom-opacity-mult: 0.38;
+  --hero-part-color-cyan: #0284c7;
+  --hero-part-color-pale: #38bdf8;
+  --hero-part-color-mid: #0ea5e9;
+  --hero-part-glow-mid: 0 0 8px rgba(14, 165, 233, 0.35);
 }
 
 html,
@@ -220,8 +301,6 @@ body {
   overflow-x: hidden;
 }
 
-h1,
-h2,
 h1,
 h2,
 h3,
@@ -341,5 +420,16 @@ canvas {
   main [style*="display: flex"][style*="gap: 20px"]:not([style*="space-between"]) {
     flex-wrap: wrap !important;
     gap: 16px !important;
+  }
+}
+
+/* ── Reduced Motion Support (Independent of Theme) ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

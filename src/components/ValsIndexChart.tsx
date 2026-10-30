@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { ValsIndexModel, VALS_INDEX_MODELS } from "./valsIndexData";
 
 interface ValsIndexChartProps {
@@ -15,11 +15,25 @@ export default function ValsIndexChart({
   viewMode = "latency",
 }: ValsIndexChartProps) {
   const [hoveredModel, setHoveredModel] = useState<ValsIndexModel | null>(null);
+  const [selectedPointModel, setSelectedPointModel] =
+    useState<ValsIndexModel | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // SVG dimensions & coordinate bounds
-  const width = 1140;
-  const height = 540;
-  const margin = { top: 45, right: 45, bottom: 50, left: 65 };
+  useEffect(() => {
+    const updateSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  // SVG dimensions & coordinate bounds (adaptive for mobile & desktop)
+  const width = isMobile ? 540 : 1140;
+  const height = isMobile ? 480 : 540;
+  const margin = isMobile
+    ? { top: 36, right: 20, bottom: 42, left: 46 }
+    : { top: 45, right: 45, bottom: 50, left: 65 };
 
   const plotWidth = width - margin.left - margin.right;
   const plotHeight = height - margin.top - margin.bottom;
@@ -140,8 +154,11 @@ export default function ValsIndexChart({
     return d;
   }, [activeFrontierModels, getModelX, scaleX, scaleY, viewMode]);
 
-  // Callouts customized for each mode
-  const latencyCallouts: Record<string, { text: string; dx: number; dy: number }> = {
+  // Desktop Callouts
+  const latencyCallouts: Record<
+    string,
+    { text: string; dx: number; dy: number }
+  > = {
     "deepscaler-1-5b": { text: "DeepScaler 1.5B (100%)", dx: 26, dy: -12 },
     "hunyuan-instruct-1-8b": { text: "Hunyuan 1.8B", dx: 26, dy: 14 },
     "granite3-3-2-0b": { text: "Granite 3.3", dx: 26, dy: -10 },
@@ -157,20 +174,57 @@ export default function ValsIndexChart({
     "willow-alpha-0-3b": { text: "Willow Alpha", dx: 24, dy: 8 },
   };
 
-  const drsCallouts: Record<string, { text: string; dx: number; dy: number }> = {
-    "deepscaler-1-5b": { text: "DeepScaler 1.5B (100%)", dx: 26, dy: -12 },
-    "hunyuan-instruct-1-8b": { text: "Hunyuan 1.8B", dx: -94, dy: 12 },
-    "granite3-3-2-0b": { text: "Granite 3.3", dx: -84, dy: -10 },
-    "lfm2-5-thinking-1-2b": { text: "LFM 2.5", dx: 26, dy: -10 },
-    "openchat-latest-7b": { text: "OpenChat 7B", dx: 26, dy: 8 },
-    "bloom-560m-0-8b": { text: "Bloom 560M", dx: 26, dy: -8 },
-    "supra-50m-instruct-0-0518b": { text: "Supra 50M", dx: 26, dy: 8 },
-    "deepseek-r1-distill-qwen-1-5b": { text: "DeepSeek R1", dx: 26, dy: -8 },
-    "onellm-doey-v1-1-0b": { text: "OneLLM Doey", dx: 24, dy: -8 },
-    "willow-alpha-0-3b": { text: "Willow Alpha", dx: 24, dy: 8 },
+  const drsCallouts: Record<string, { text: string; dx: number; dy: number }> =
+    {
+      "deepscaler-1-5b": { text: "DeepScaler 1.5B (100%)", dx: 26, dy: -12 },
+      "hunyuan-instruct-1-8b": { text: "Hunyuan 1.8B", dx: -94, dy: 12 },
+      "granite3-3-2-0b": { text: "Granite 3.3", dx: -84, dy: -10 },
+      "lfm2-5-thinking-1-2b": { text: "LFM 2.5", dx: 26, dy: -10 },
+      "openchat-latest-7b": { text: "OpenChat 7B", dx: 26, dy: 8 },
+      "bloom-560m-0-8b": { text: "Bloom 560M", dx: 26, dy: -8 },
+      "supra-50m-instruct-0-0518b": { text: "Supra 50M", dx: 26, dy: 8 },
+      "deepseek-r1-distill-qwen-1-5b": { text: "DeepSeek R1", dx: 26, dy: -8 },
+      "onellm-doey-v1-1-0b": { text: "OneLLM Doey", dx: 24, dy: -8 },
+      "willow-alpha-0-3b": { text: "Willow Alpha", dx: 24, dy: 8 },
+    };
+
+  // Mobile Callouts: Optimized for 540x480 space
+  const mobileLatencyCallouts: Record<
+    string,
+    { text: string; dx: number; dy: number }
+  > = {
+    "deepscaler-1-5b": { text: "DeepScaler 1.5B (100%)", dx: -18, dy: -14 },
+    "hunyuan-instruct-1-8b": { text: "Hunyuan 1.8B", dx: -70, dy: 14 },
+    "granite3-3-2-0b": { text: "Granite 3.3", dx: 16, dy: -8 },
+    "yi-coder-1-5b": { text: "Yi-Coder", dx: 16, dy: 10 },
+    "lfm2-5-thinking-1-2b": { text: "LFM 2.5", dx: 16, dy: -10 },
+    "onellm-doey-v1-1-0b": { text: "OneLLM", dx: 16, dy: -8 },
+    "supra-50m-instruct-0-0518b": { text: "Supra 50M", dx: 16, dy: 8 },
+    "willow-alpha-0-3b": { text: "Willow Alpha", dx: 16, dy: 8 },
   };
 
-  const currentCallouts = viewMode === "latency" ? latencyCallouts : drsCallouts;
+  const mobileDrsCallouts: Record<
+    string,
+    { text: string; dx: number; dy: number }
+  > = {
+    "deepscaler-1-5b": { text: "DeepScaler 1.5B (100%)", dx: -18, dy: -14 },
+    "granite3-3-2-0b": { text: "Granite 3.3", dx: -68, dy: -10 },
+    "lfm2-5-thinking-1-2b": { text: "LFM 2.5", dx: 16, dy: -10 },
+    "openchat-latest-7b": { text: "OpenChat 7B", dx: 16, dy: 8 },
+    "bloom-560m-0-8b": { text: "Bloom 560M", dx: 16, dy: -8 },
+    "supra-50m-instruct-0-0518b": { text: "Supra 50M", dx: 16, dy: 8 },
+    "willow-alpha-0-3b": { text: "Willow Alpha", dx: 16, dy: 8 },
+  };
+
+  const currentCallouts = isMobile
+    ? viewMode === "latency"
+      ? mobileLatencyCallouts
+      : mobileDrsCallouts
+    : viewMode === "latency"
+    ? latencyCallouts
+    : drsCallouts;
+
+  const activeModel = selectedPointModel || hoveredModel;
 
   const renderLabIcon = (model: ValsIndexModel) => {
     const normLab = (model.lab || "").toLowerCase();
@@ -439,12 +493,12 @@ export default function ValsIndexChart({
     return (
       <svg
         viewBox="0 0 24 24"
-        width="20"
-        height="20"
+        width={isMobile ? "18" : "20"}
+        height={isMobile ? "18" : "20"}
         fill={model.badgeTextColor || "#ffffff"}
         color={model.badgeTextColor || "#ffffff"}
         style={{
-          transform: "translate(-10px, -10px)",
+          transform: isMobile ? "translate(-9px, -9px)" : "translate(-10px, -10px)",
           pointerEvents: "none",
         }}
       >
@@ -458,13 +512,14 @@ export default function ValsIndexChart({
       style={{
         position: "relative",
         width: "100%",
-        maxWidth: `${width}px`,
+        maxWidth: `${isMobile ? 720 : 1140}px`,
         margin: "0 auto",
-        overflowX: "auto",
+        overflow: "hidden", // Completely eliminates horizontal side scrollbar
         background: "var(--card-bg)",
         borderRadius: "12px",
         boxShadow: "var(--shadow)",
         border: "1px solid var(--border)",
+        boxSizing: "border-box",
       }}
     >
       <svg
@@ -472,7 +527,7 @@ export default function ValsIndexChart({
         style={{
           width: "100%",
           height: "auto",
-          minWidth: "860px",
+          maxWidth: "100%",
           display: "block",
         }}
       >
@@ -482,11 +537,17 @@ export default function ValsIndexChart({
             id="valsGridDots"
             x="0"
             y="0"
-            width="20"
-            height="20"
+            width={isMobile ? "18" : "20"}
+            height={isMobile ? "18" : "20"}
             patternUnits="userSpaceOnUse"
           >
-            <circle cx="2" cy="2" r="0.9" fill="var(--text-muted)" opacity="0.3" />
+            <circle
+              cx="2"
+              cy="2"
+              r={isMobile ? "0.8" : "0.9"}
+              fill="var(--text-muted)"
+              opacity="0.3"
+            />
           </pattern>
 
           {/* Glow filter for frontier line */}
@@ -580,39 +641,39 @@ export default function ValsIndexChart({
           <>
             <text
               x={(margin.left + midX) / 2}
-              y={margin.top + 24}
+              y={margin.top + (isMobile ? 18 : 24)}
               textAnchor="middle"
               fill="#16a34a"
-              fontSize="11"
+              fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
-              letterSpacing="0.12em"
+              letterSpacing={isMobile ? "0.08em" : "0.12em"}
               fontFamily="monospace, sans-serif"
             >
               EFFICIENT (FAST &amp; ACCURATE)
             </text>
             <text
               x={(midX + margin.left + plotWidth) / 2}
-              y={margin.top + plotHeight - 14}
+              y={margin.top + plotHeight - (isMobile ? 10 : 14)}
               textAnchor="middle"
               fill="#dc2626"
-              fontSize="11"
+              fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
-              letterSpacing="0.12em"
+              letterSpacing={isMobile ? "0.08em" : "0.12em"}
               fontFamily="monospace, sans-serif"
             >
-              INEFFICIENT (SLOW &amp; LOWER ACCURACY)
+              {isMobile ? "INEFFICIENT" : "INEFFICIENT (SLOW & LOWER ACCURACY)"}
             </text>
             <text
-              x={margin.left + 14}
-              y={margin.top + plotHeight - 20}
+              x={margin.left + (isMobile ? 12 : 14)}
+              y={margin.top + plotHeight - (isMobile ? 14 : 20)}
               textAnchor="start"
               fill="#64748b"
-              fontSize="10"
+              fontSize={isMobile ? "9" : "10"}
               fontWeight="600"
-              letterSpacing="0.08em"
+              letterSpacing="0.06em"
               fontFamily="sans-serif"
-              transform={`rotate(-90 ${margin.left + 14} ${
-                margin.top + plotHeight - 20
+              transform={`rotate(-90 ${margin.left + (isMobile ? 12 : 14)} ${
+                margin.top + plotHeight - (isMobile ? 14 : 20)
               })`}
             >
               FASTEST (LOW LATENCY)
@@ -622,39 +683,39 @@ export default function ValsIndexChart({
           <>
             <text
               x={(midX + margin.left + plotWidth) / 2}
-              y={margin.top + 24}
+              y={margin.top + (isMobile ? 18 : 24)}
               textAnchor="middle"
               fill="#16a34a"
-              fontSize="11"
+              fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
-              letterSpacing="0.12em"
+              letterSpacing={isMobile ? "0.08em" : "0.12em"}
               fontFamily="monospace, sans-serif"
             >
               OPTIMAL (HIGH DRS &amp; ACCURACY)
             </text>
             <text
               x={(margin.left + midX) / 2}
-              y={margin.top + plotHeight - 14}
+              y={margin.top + plotHeight - (isMobile ? 10 : 14)}
               textAnchor="middle"
               fill="#dc2626"
-              fontSize="11"
+              fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
-              letterSpacing="0.12em"
+              letterSpacing={isMobile ? "0.08em" : "0.12em"}
               fontFamily="monospace, sans-serif"
             >
-              SUB-OPTIMAL (LOW DRS &amp; ACCURACY)
+              {isMobile ? "SUB-OPTIMAL" : "SUB-OPTIMAL (LOW DRS & ACCURACY)"}
             </text>
             <text
-              x={margin.left + 14}
-              y={margin.top + plotHeight - 20}
+              x={margin.left + (isMobile ? 12 : 14)}
+              y={margin.top + plotHeight - (isMobile ? 14 : 20)}
               textAnchor="start"
               fill="#64748b"
-              fontSize="10"
+              fontSize={isMobile ? "9" : "10"}
               fontWeight="600"
-              letterSpacing="0.08em"
+              letterSpacing="0.06em"
               fontFamily="sans-serif"
-              transform={`rotate(-90 ${margin.left + 14} ${
-                margin.top + plotHeight - 20
+              transform={`rotate(-90 ${margin.left + (isMobile ? 12 : 14)} ${
+                margin.top + plotHeight - (isMobile ? 14 : 20)
               })`}
             >
               LOWER DRS %
@@ -663,45 +724,47 @@ export default function ValsIndexChart({
         )}
 
         {/* BEST PERFORMANCE corner label */}
-        <text
-          x={margin.left + plotWidth - 10}
-          y={margin.top + 50}
-          textAnchor="end"
-          fill="#64748b"
-          fontSize="10"
-          fontWeight="600"
-          letterSpacing="0.08em"
-          fontFamily="sans-serif"
-        >
-          {viewMode === "latency" ? "BEST ACCURACY" : "HIGHEST DRS & ACCURACY"}
-        </text>
+        {!isMobile && (
+          <text
+            x={margin.left + plotWidth - 10}
+            y={margin.top + 50}
+            textAnchor="end"
+            fill="#64748b"
+            fontSize="10"
+            fontWeight="600"
+            letterSpacing="0.08em"
+            fontFamily="sans-serif"
+          >
+            {viewMode === "latency" ? "BEST ACCURACY" : "HIGHEST DRS & ACCURACY"}
+          </text>
+        )}
 
         {/* Top-Right OPENVALS Logo Emblem */}
         <g
-          transform={`translate(${margin.left + plotWidth - 85}, ${
-            margin.top + 10
-          })`}
+          transform={`translate(${
+            margin.left + plotWidth - (isMobile ? 74 : 85)
+          }, ${margin.top + (isMobile ? 8 : 10)})`}
         >
           <circle
-            cx="10"
-            cy="10"
-            r="8.5"
+            cx="8"
+            cy="8"
+            r={isMobile ? "7.5" : "8.5"}
             stroke="#10b981"
-            strokeWidth="1.6"
+            strokeWidth="1.5"
             fill="none"
           />
           <path
-            d="M6.5 7L10 14L13.5 7"
+            d={isMobile ? "M5 6L8 11.5L11 6" : "M6.5 7L10 14L13.5 7"}
             stroke="#10b981"
-            strokeWidth="1.8"
+            strokeWidth="1.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <text
-            x="24"
-            y="14"
+            x={isMobile ? "20" : "24"}
+            y={isMobile ? "11.5" : "14"}
             fill="var(--text-main)"
-            fontSize="12"
+            fontSize={isMobile ? "10.5" : "12"}
             fontWeight="800"
             letterSpacing="0.06em"
             fontFamily="sans-serif"
@@ -726,11 +789,11 @@ export default function ValsIndexChart({
                 strokeDasharray="2 3"
               />
               <text
-                x={margin.left - 8}
+                x={margin.left - (isMobile ? 6 : 8)}
                 y={y + 4}
                 textAnchor="end"
                 fill="var(--text-muted)"
-                fontSize="11"
+                fontSize={isMobile ? "10" : "11"}
                 fontFamily="sans-serif"
               >
                 {acc}%
@@ -755,10 +818,10 @@ export default function ValsIndexChart({
               />
               <text
                 x={x}
-                y={margin.top + plotHeight + 20}
+                y={margin.top + plotHeight + (isMobile ? 16 : 20)}
                 textAnchor="middle"
                 fill="var(--text-muted)"
-                fontSize="11"
+                fontSize={isMobile ? "10" : "11"}
                 fontFamily="sans-serif"
               >
                 {formatXTick(val)}
@@ -772,7 +835,7 @@ export default function ValsIndexChart({
           d={frontierPathD}
           fill="none"
           stroke="#4ade80"
-          strokeWidth="2.4"
+          strokeWidth={isMobile ? "2.6" : "2.4"}
           filter="url(#frontierGlow)"
           opacity="0.9"
         />
@@ -799,11 +862,11 @@ export default function ValsIndexChart({
             >
               <line
                 x1={x}
-                y1={y - 8}
+                y1={y - (isMobile ? 6 : 8)}
                 x2={labelX}
-                y2={labelY + 4}
+                y2={labelY + (isMobile ? 3 : 4)}
                 stroke="var(--border)"
-                strokeWidth="1.2"
+                strokeWidth={isMobile ? "1" : "1.2"}
                 strokeDasharray="2 2"
               />
               <text
@@ -811,9 +874,12 @@ export default function ValsIndexChart({
                 y={labelY}
                 textAnchor={callout.dx < 0 ? "end" : "start"}
                 fill="var(--text-main)"
-                fontSize="11"
+                fontSize={isMobile ? "10" : "11"}
                 fontWeight="700"
                 fontFamily="sans-serif"
+                stroke="var(--card-bg)"
+                strokeWidth={isMobile ? "2.5" : "0"}
+                paintOrder="stroke fill"
               >
                 {callout.text}
               </text>
@@ -827,11 +893,14 @@ export default function ValsIndexChart({
           const y = scaleY(model.accuracy);
 
           const isHovered = hoveredModel?.id === model.id;
+          const isSelected = selectedPointModel?.id === model.id;
+          const isActive = isHovered || isSelected;
           const isFaded =
             selectedLab &&
             selectedLab !== "All Models" &&
             model.labKey !== selectedLab;
           const isOnActiveFrontier = frontierSet.has(model.id);
+          const badgeRadius = isMobile ? 12 : 12;
 
           return (
             <g
@@ -839,28 +908,49 @@ export default function ValsIndexChart({
               transform={`translate(${x}, ${y})`}
               opacity={isFaded ? 0.2 : 1}
               cursor="pointer"
+              onClick={() => {
+                if (selectedPointModel?.id === model.id) {
+                  setSelectedPointModel(null);
+                  onSelectModel?.(null);
+                } else {
+                  setSelectedPointModel(model);
+                  onSelectModel?.(model);
+                }
+              }}
               onMouseEnter={() => {
-                setHoveredModel(model);
-                onSelectModel?.(model);
+                if (!isMobile) {
+                  setHoveredModel(model);
+                  onSelectModel?.(model);
+                }
               }}
               onMouseLeave={() => {
-                setHoveredModel(null);
-                onSelectModel?.(null);
+                if (!isMobile) {
+                  setHoveredModel(null);
+                  onSelectModel?.(null);
+                }
               }}
               style={{
                 transition: "transform 0.15s ease, opacity 0.2s ease",
               }}
             >
-              {/* Outer halo on hover */}
-              {isHovered && (
+              {/* Invisible large touch target for mobile (44px target) */}
+              <circle
+                cx="0"
+                cy="0"
+                r={isMobile ? "22" : "15"}
+                fill="transparent"
+              />
+
+              {/* Outer halo on hover or selected */}
+              {isActive && (
                 <circle
                   cx="0"
                   cy="0"
-                  r="20"
+                  r={isMobile ? "18" : "20"}
                   fill="none"
                   stroke="#10b981"
                   strokeWidth="2.5"
-                  opacity="0.85"
+                  opacity="0.9"
                 />
               )}
 
@@ -869,7 +959,7 @@ export default function ValsIndexChart({
                 <circle
                   cx="0"
                   cy="0"
-                  r="15"
+                  r={isMobile ? "15" : "15"}
                   fill="none"
                   stroke="#4ade80"
                   strokeWidth="2"
@@ -881,12 +971,12 @@ export default function ValsIndexChart({
               <circle
                 cx="0"
                 cy="0"
-                r="12"
+                r={badgeRadius}
                 fill={model.badgeColor}
                 stroke="#ffffff"
                 strokeWidth="2"
                 style={{
-                  filter: isHovered
+                  filter: isActive
                     ? "drop-shadow(0 4px 10px rgba(0,0,0,0.35))"
                     : "drop-shadow(0 2px 5px rgba(0,0,0,0.15))",
                 }}
@@ -899,8 +989,201 @@ export default function ValsIndexChart({
         })}
       </svg>
 
-      {/* FLOATING HOVER TOOLTIP */}
-      {hoveredModel && (
+      {/* MOBILE DOCKED MODEL CARD */}
+      {isMobile && activeModel && (
+        <div
+          style={{
+            padding: "12px 14px",
+            background: "var(--secondary-bg)",
+            borderTop: "1px solid var(--border)",
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                flexWrap: "wrap",
+              }}
+            >
+              <span
+                style={{
+                  fontWeight: 800,
+                  fontSize: "13px",
+                  color: "var(--text-main)",
+                }}
+              >
+                {activeModel.name}
+              </span>
+              <span
+                style={{
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  padding: "2px 6px",
+                  borderRadius: "4px",
+                  background: activeModel.badgeColor,
+                  color: activeModel.badgeTextColor,
+                  textTransform: "uppercase",
+                }}
+              >
+                {activeModel.lab}
+              </span>
+              {frontierSet.has(activeModel.id) && (
+                <span
+                  style={{
+                    fontSize: "9.5px",
+                    fontWeight: 700,
+                    padding: "2px 5px",
+                    borderRadius: "4px",
+                    background: "rgba(16, 185, 129, 0.15)",
+                    color: "#16a34a",
+                    border: "1px solid rgba(16, 185, 129, 0.3)",
+                  }}
+                >
+                  FRONTIER CHAMPION
+                </span>
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedPointModel(null);
+                setHoveredModel(null);
+                onSelectModel?.(null);
+              }}
+              style={{
+                background: "var(--card-bg)",
+                border: "1px solid var(--border)",
+                borderRadius: "6px",
+                width: "24px",
+                height: "24px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "16px",
+                lineHeight: 1,
+                color: "var(--text-muted)",
+                cursor: "pointer",
+                flexShrink: 0,
+              }}
+              aria-label="Close details"
+            >
+              &times;
+            </button>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "8px",
+              background: "var(--card-bg)",
+              padding: "8px 10px",
+              borderRadius: "8px",
+              border: "1px solid var(--border)",
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  fontSize: "10px",
+                  color: "var(--text-muted)",
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                }}
+              >
+                Accuracy
+              </div>
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: 800,
+                  color: "#16a34a",
+                }}
+              >
+                {activeModel.accuracy.toFixed(1)}%
+              </div>
+            </div>
+            <div>
+              <div
+                style={{
+                  fontSize: "10px",
+                  color: "var(--text-muted)",
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                }}
+              >
+                Avg Latency
+              </div>
+              <div
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  color:
+                    viewMode === "latency" ? "#16a34a" : "var(--text-main)",
+                }}
+              >
+                {activeModel.latencyLabel}
+              </div>
+            </div>
+            <div>
+              <div
+                style={{
+                  fontSize: "10px",
+                  color: "var(--text-muted)",
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                }}
+              >
+                DRS Score
+              </div>
+              <div
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  color: "#38bdf8",
+                }}
+              >
+                {activeModel.drsLabel}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MOBILE TAP HINT */}
+      {isMobile && !activeModel && (
+        <div
+          style={{
+            padding: "8px 12px",
+            background: "var(--secondary-bg)",
+            borderTop: "1px solid var(--border)",
+            fontSize: "11px",
+            color: "var(--text-muted)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            textAlign: "center",
+          }}
+        >
+          <span>Tap any model badge to inspect accuracy, latency &amp; DRS</span>
+        </div>
+      )}
+
+      {/* FLOATING HOVER TOOLTIP (DESKTOP) */}
+      {!isMobile && hoveredModel && (
         <div
           style={{
             position: "absolute",

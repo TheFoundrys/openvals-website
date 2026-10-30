@@ -888,11 +888,14 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
             <div
               className={styles.card}
               style={{
+                display: "flex",
+                flexDirection: "column",
                 padding: compact ? "20px" : "28px",
                 borderRadius: "12px",
                 background: featured ? "color-mix(in srgb, var(--accent) 10%, var(--card-bg))" : "var(--card-bg)",
                 borderColor: featured ? "var(--accent)" : "var(--border)",
                 height: "100%",
+                boxSizing: "border-box",
                 cursor: isAssessment ? "pointer" : "default",
                 minWidth: 0,
               }}
@@ -915,7 +918,7 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
                   ))}
                 </ul>
               )}
-              <div style={{ marginTop: compact ? "16px" : "24px", paddingTop: "14px", borderTop: "1px solid var(--border)", color: "var(--text-muted)", fontSize: "13px", fontWeight: 700 }}>
+              <div style={{ marginTop: "auto", paddingTop: "14px", borderTop: "1px solid var(--border)", color: "var(--text-muted)", fontSize: "13px", fontWeight: 700 }}>
                 {pkg.duration}
               </div>
             </div>

@@ -19,7 +19,7 @@ export default function OpenValsIndexPage() {
   return (
     <>
       <Header />
-      <main style={{ minHeight: "100vh", backgroundColor: "#fbfbfb" }}>
+      <main style={{ minHeight: "100vh", backgroundColor: "var(--primary-bg)" }}>
         <ValsIndexView />
       </main>
       <Footer />

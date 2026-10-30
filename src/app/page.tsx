@@ -4,8 +4,8 @@ import { motion, Variants } from "framer-motion";
 import styles from "../components/ui.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import AmbientGrid from "../components/AmbientGrid";
-import HeroParticleField from "../components/HeroParticleField";
+import HeroAmbientWaves from "../components/HeroAmbientWaves";
+
 import RealWorldBenchmarks from "../components/RealWorldBenchmarks";
 import LatestReports from "../components/LatestReports";
 import { HeroPart, ActionButtonsPart } from "../components/TrustSection";
@@ -35,10 +35,10 @@ export default function Home() {
         {/* SECTION 1: TRUST LAYER + AI FAILS QUIETLY */}
         <section
           className={styles.snapSection}
-          style={{ padding: "clamp(30px, 4.5vh, 46px) var(--container-padding) 0" }}
+          style={{ padding: "clamp(12px, 2vh, 20px) var(--container-padding) 0", background: "var(--hero-bg)" }}
         >
-          <AmbientGrid />
-          <HeroParticleField />
+          <HeroAmbientWaves />
+
           <div
             className={`${styles.containerFull} ${styles.snapInner} ${styles.heroSectionInner}`}
           >
@@ -48,7 +48,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: REAL-WORLD AI BENCHMARKS LEADERBOARD & LATEST REPORTS */}
-        <section id="benchmarks" className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(76px, 10vh, 96px) var(--container-padding) clamp(40px, 8vh, 80px)", background: "var(--primary-bg)" }}>
+        <section id="benchmarks" className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(36px, 4.5vh, 52px) var(--container-padding) clamp(30px, 4vh, 44px)", background: "var(--primary-bg)" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div className={styles.scaledContent}>
               <RealWorldBenchmarks />
@@ -58,7 +58,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 3: PROOF + PACKAGES + LEAD MAGNET */}
-        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(76px, 10vh, 96px) 0 0" }}>
+        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(36px, 4.5vh, 52px) 0 0" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 var(--container-padding)", width: "100%", minWidth: 0, boxSizing: "border-box" }}>
               <motion.div
@@ -74,7 +74,8 @@ export default function Home() {
                   border: "1px solid var(--border)",
                   boxShadow: "none",
                   width: "100%",
-                  maxWidth: "100%",
+                  maxWidth: "1280px",
+                  margin: "0 auto",
                   minWidth: 0,
                   boxSizing: "border-box",
                 }}

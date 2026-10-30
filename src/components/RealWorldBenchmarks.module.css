@@ -45,58 +45,206 @@
   justify-content: space-between;
   border-top: 1px solid var(--border);
   padding: 14px 4px;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
+  position: relative;
 }
 
-.tabsGroup {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+/* Metric Selection Dropdown */
+.metricDropdownWrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 40;
 }
 
-.tabButton {
+.metricDropdownTrigger {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 4px;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 6px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
   cursor: pointer;
-  background: transparent;
-  border: 1px solid transparent;
-  color: var(--text-muted);
-  transition: all 0.2s ease;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: var(--font-inter), sans-serif;
   text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-.tabButton:hover {
-  color: var(--text-main);
+.metricDropdownTrigger:hover {
   background: var(--secondary-bg);
+  border-color: rgba(16, 185, 129, 0.4);
 }
 
-.tabButtonActive {
-  background: rgba(16, 185, 129, 0.12) !important;
-  color: #10b981 !important;
-  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+.metricDropdownTriggerOpen {
+  border-color: #10b981 !important;
+  background: var(--card-bg) !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.18) !important;
 }
 
-.tabIconActive {
+.metricPrefix {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.metricTriggerIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #10b981;
 }
 
+.metricTriggerLabel {
+  color: var(--text-main);
+  font-weight: 800;
+}
+
+.metricChevron {
+  color: var(--text-muted);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+  margin-left: 2px;
+}
+
+.metricChevronOpen {
+  transform: rotate(180deg);
+  color: #10b981;
+}
+
+.metricIconActive {
+  color: #10b981;
+}
+
+/* Dropdown Menu Panel */
+.metricDropdownMenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 270px;
+  max-width: min(340px, calc(100vw - 32px));
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+  padding: 6px;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  animation: dropdownFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.metricDropdownHeader {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 6px 10px 6px 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.metricOption {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  gap: 10px;
+  transition: all 0.15s ease;
+  color: var(--text-main);
+  box-sizing: border-box;
+}
+
+.metricOption:hover {
+  background: var(--secondary-bg);
+}
+
+.metricOptionActive {
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #10b981 !important;
+}
+
+.metricOptionActive .metricOptionLabel {
+  color: #10b981;
+  font-weight: 800;
+}
+
+.metricOptionIcon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #10b981;
+}
+
+.metricOptionText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 2px;
+}
+
+.metricOptionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.metricOptionDesc {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.metricCheckIcon {
+  color: #10b981;
+  flex-shrink: 0;
+  margin-left: 6px;
+}
+
+/* Meta Group */
 .metaGroup {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.indexInfoRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .valsIndexBadge {
@@ -128,6 +276,93 @@
   letter-spacing: 0.04em;
 }
 
+/* View Mode Controls & Scroll Navigation */
+.viewControlsWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.viewModeGroup {
+  display: inline-flex;
+  align-items: center;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.viewModeBtn {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.viewModeBtn:hover {
+  color: var(--text-main);
+}
+
+.viewModeBtnActive {
+  background: var(--card-bg);
+  color: var(--text-main);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+}
+
+.scrollNavGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+.scrollNavBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  padding: 0;
+}
+
+.scrollNavBtn:hover:not(:disabled) {
+  background: var(--card-bg);
+  border-color: var(--border);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.scrollNavBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.scrollNavCounter {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-inter), monospace, sans-serif;
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
 .tuneIcon {
   color: var(--text-muted);
   cursor: pointer;
@@ -157,6 +392,19 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.chartScrollContainer::-webkit-scrollbar {
+  height: 6px;
+}
+
+.chartScrollContainer::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+}
+
+.chartScrollContainer::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
 .chartArea {
   min-width: 980px;
   height: 480px;
@@ -168,6 +416,12 @@
   align-items: flex-end;
   padding: 30px 10px 0 10px;
   border-bottom: 1px solid var(--border);
+}
+
+/* Fit to container width without horizontal scroll */
+.chartAreaFit {
+  min-width: 100% !important;
+  width: 100% !important;
 }
 
 /* Grid of Bars */
@@ -188,16 +442,19 @@
   position: relative;
   cursor: pointer;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 0;
 }
 
-.barCol:hover {
+.barCol:hover,
+.barColActive {
   transform: translateY(-4px);
   z-index: 10;
 }
 
-.barCol:hover .barFill {
-  filter: brightness(1.05);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+.barCol:hover .barFill,
+.barColActive .barFill {
+  filter: brightness(1.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
 .barFill {
@@ -221,6 +478,9 @@
   letter-spacing: -0.02em;
   padding-left: 2px;
   user-select: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .barBottom {
@@ -247,6 +507,7 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .modelVersion {
@@ -272,10 +533,37 @@
   border: 1px solid var(--border);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
   width: 220px;
-  pointer-events: none;
+  max-width: calc(100% - 24px);
+  pointer-events: auto;
   z-index: 100;
   font-size: 11px;
   backdrop-filter: blur(8px);
+}
+
+.tooltipHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.tooltipCloseBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+}
+
+.tooltipCloseBtn:hover {
+  color: var(--text-main);
+  background: var(--secondary-bg);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -298,7 +586,7 @@
 .tooltipLab {
   font-size: 10px;
   color: var(--text-muted);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -352,6 +640,7 @@
   background: var(--card-bg);
   font-size: 12px;
   color: var(--text-muted);
+  gap: 12px;
 }
 
 .bottomInfo {
@@ -372,6 +661,19 @@
   font-size: 10px;
   font-style: italic;
   font-family: Georgia, serif;
+  flex-shrink: 0;
+}
+
+.bottomActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.swipeHint {
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.85;
 }
 
 .viewFullLink {
@@ -384,6 +686,7 @@
   text-transform: uppercase;
   font-size: 11.5px;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .viewFullLink:hover {
@@ -405,39 +708,66 @@
     gap: 12px;
     padding: 12px 0;
   }
-  .tabsGroup {
-    overflow-x: auto;
-    flex-wrap: nowrap;
+  .metricDropdownWrapper {
     width: 100%;
-    padding-bottom: 6px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
   }
-  .tabsGroup::-webkit-scrollbar {
-    display: none;
+  .metricDropdownTrigger {
+    width: 100%;
+    justify-content: space-between;
   }
-  .tabButton {
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding: 6px 10px;
-    font-size: 11px;
+  .metricDropdownMenu {
+    width: 100%;
+    max-width: 100%;
   }
   .metaGroup {
     width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .indexInfoRow {
+    width: 100%;
     justify-content: space-between;
-    font-size: 11px;
-    flex-wrap: wrap;
-    gap: 8px;
+  }
+  .viewControlsWrapper {
+    width: 100%;
+    justify-content: space-between;
   }
   .chartArea {
     height: 380px;
-    padding: 20px 8px 0 8px;
+    padding: 20px 6px 0 6px;
+  }
+  .scoreTop {
+    font-size: clamp(8px, 2.2vw, 10px);
+    padding-left: 0;
+    text-align: center;
+  }
+  .modelName {
+    font-size: clamp(7.5px, 2vw, 9px);
+    line-height: 1.1;
+  }
+  .modelVersion {
+    font-size: clamp(6.5px, 1.8vw, 7.5px);
+  }
+  .modelIconWrap svg {
+    width: 14px;
+    height: 14px;
+  }
+  .barFill {
+    padding: 6px 2px 8px 2px;
   }
   .bottomBar {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
     padding: 12px 14px;
+  }
+  .bottomActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .swipeHint {
+    display: none;
   }
   .viewFullLink {
     align-self: flex-end;
