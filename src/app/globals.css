@@ -24,9 +24,30 @@
   --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
   --logo-blend-mode: multiply;
 
+  /* ── Docs Suite Design Tokens (Light Mode Default) ── */
+  --docs-bg: #ffffff;
+  --docs-panel: #ffffff;
+  --docs-header: rgba(255, 255, 255, 0.94);
+  --docs-card: #ffffff;
+  --docs-code-bg: #f8fafc;
+  --docs-heading: #0f172a;
+  --docs-text: #334155;
+  --docs-muted: #64748b;
+  --docs-border: #e2e8f0;
+  --docs-border-soft: #f1f5f9;
+  --docs-zebra: #f8fafc;
+  --docs-accent: #2563eb;
+  --docs-accent-subtle: rgba(37, 99, 235, 0.08);
+  --docs-pill-bg: #f1f5f9;
+  --docs-pill-border: #cbd5e1;
+  --docs-pill-border-hover: #94a3b8;
+  --docs-dropdown-bg: #ffffff;
+  --docs-dropdown-border: #e2e8f0;
+  --docs-dropdown-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.06);
+
   /* ── Hero Background & Ambient Lighting (Light Mode) ── */
-  --hero-bg: radial-gradient(ellipse 90% 65% at 50% -10%, rgba(224, 242, 254, 0.45) 0%, rgba(248, 250, 252, 0.95) 50%, #ffffff 100%);
-  --hero-glow-ambient: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.16) 0%, rgba(59, 130, 246, 0.08) 35%, rgba(99, 102, 241, 0.03) 60%, transparent 75%);
+  --hero-bg: var(--primary-bg);
+  --hero-glow-ambient: none;
 
   /* ── Hero Animation Tokens (Light Mode Default) ── */
   --hero-stream-stroke-1: rgba(2, 132, 199, 0.45);
@@ -98,9 +119,30 @@
     --logo-filter-darkbg: grayscale(100%) opacity(0.85);
     --logo-blend-mode: screen;
 
+    /* ── Docs Suite Design Tokens (Dark Mode) ── */
+    --docs-bg: #07090e;
+    --docs-panel: #07090e;
+    --docs-header: rgba(7, 9, 14, 0.94);
+    --docs-card: #0e111a;
+    --docs-code-bg: #131722;
+    --docs-heading: #f8fafc;
+    --docs-text: #cbd5e1;
+    --docs-muted: #94a3b8;
+    --docs-border: #1e2433;
+    --docs-border-soft: #141824;
+    --docs-zebra: #0d1018;
+    --docs-accent: #3b82f6;
+    --docs-accent-subtle: rgba(59, 130, 246, 0.14);
+    --docs-pill-bg: #12151f;
+    --docs-pill-border: #232a3b;
+    --docs-pill-border-hover: #3b82f6;
+    --docs-dropdown-bg: #0e111a;
+    --docs-dropdown-border: #232a3b;
+    --docs-dropdown-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.3);
+
     /* ── Hero Background & Ambient Lighting (Dark Mode) ── */
-    --hero-bg: radial-gradient(ellipse 85% 65% at 50% -10%, rgba(30, 58, 138, 0.22) 0%, rgba(15, 23, 42, 0.6) 50%, transparent 100%);
-    --hero-glow-ambient: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.38) 0%, rgba(56, 189, 248, 0.18) 45%, transparent 70%);
+    --hero-bg: var(--primary-bg);
+    --hero-glow-ambient: none;
 
     /* ── Hero Animation Tokens (Dark Mode) ── */
     --hero-stream-stroke-1: url(#streamGrad1);
@@ -172,9 +214,30 @@ html.dark {
   --logo-filter-darkbg: grayscale(100%) opacity(0.85);
   --logo-blend-mode: screen;
 
+  /* ── Docs Suite Design Tokens (html.dark) ── */
+  --docs-bg: #07090e;
+  --docs-panel: #07090e;
+  --docs-header: rgba(7, 9, 14, 0.94);
+  --docs-card: #0e111a;
+  --docs-code-bg: #131722;
+  --docs-heading: #f8fafc;
+  --docs-text: #cbd5e1;
+  --docs-muted: #94a3b8;
+  --docs-border: #1e2433;
+  --docs-border-soft: #141824;
+  --docs-zebra: #0d1018;
+  --docs-accent: #3b82f6;
+  --docs-accent-subtle: rgba(59, 130, 246, 0.14);
+  --docs-pill-bg: #12151f;
+  --docs-pill-border: #232a3b;
+  --docs-pill-border-hover: #3b82f6;
+  --docs-dropdown-bg: #0e111a;
+  --docs-dropdown-border: #232a3b;
+  --docs-dropdown-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.3);
+
   /* ── Hero Background & Ambient Lighting (html.dark) ── */
-  --hero-bg: radial-gradient(ellipse 85% 65% at 50% -10%, rgba(30, 58, 138, 0.22) 0%, rgba(15, 23, 42, 0.6) 50%, transparent 100%);
-  --hero-glow-ambient: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.38) 0%, rgba(56, 189, 248, 0.18) 45%, transparent 70%);
+  --hero-bg: var(--primary-bg);
+  --hero-glow-ambient: none;
 
   /* ── Hero Animation Tokens (html.dark) ── */
   --hero-stream-stroke-1: url(#streamGrad1);
@@ -240,9 +303,30 @@ html.light {
   --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
   --logo-blend-mode: multiply;
 
+  /* ── Docs Suite Design Tokens (Light Mode Default) ── */
+  --docs-bg: #ffffff;
+  --docs-panel: #ffffff;
+  --docs-header: rgba(255, 255, 255, 0.94);
+  --docs-card: #ffffff;
+  --docs-code-bg: #f8fafc;
+  --docs-heading: #0f172a;
+  --docs-text: #334155;
+  --docs-muted: #64748b;
+  --docs-border: #e2e8f0;
+  --docs-border-soft: #f1f5f9;
+  --docs-zebra: #f8fafc;
+  --docs-accent: #2563eb;
+  --docs-accent-subtle: rgba(37, 99, 235, 0.08);
+  --docs-pill-bg: #f1f5f9;
+  --docs-pill-border: #cbd5e1;
+  --docs-pill-border-hover: #94a3b8;
+  --docs-dropdown-bg: #ffffff;
+  --docs-dropdown-border: #e2e8f0;
+  --docs-dropdown-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.06);
+
   /* ── Hero Background & Ambient Lighting (html.light) ── */
-  --hero-bg: radial-gradient(ellipse 90% 65% at 50% -10%, rgba(224, 242, 254, 0.45) 0%, rgba(248, 250, 252, 0.95) 50%, #ffffff 100%);
-  --hero-glow-ambient: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.16) 0%, rgba(59, 130, 246, 0.08) 35%, rgba(99, 102, 241, 0.03) 60%, transparent 75%);
+  --hero-bg: var(--primary-bg);
+  --hero-glow-ambient: none;
 
   /* ── Hero Animation Tokens (html.light) ── */
   --hero-stream-stroke-1: rgba(2, 132, 199, 0.45);

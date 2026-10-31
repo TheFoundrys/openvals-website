@@ -3,7 +3,18 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Search, ArrowRight } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Search,
+  ArrowRight,
+  Check,
+  Sparkles,
+  Box,
+  Database,
+  BookOpen,
+} from "lucide-react";
 import Logo from "./Logo";
 import styles from "./ui.module.css";
 
@@ -25,27 +36,7 @@ function GithubIcon({ size = 18, className = "" }: { size?: number; className?: 
     </svg>
   );
 }
-type NavSubItem = {
-  name: string;
-  href?: string;
-  description?: string;
-  isHeader?: boolean;
-  hasMargin?: boolean;
-};
 
-type NavGroup = {
-  title: string;
-  items: NavSubItem[];
-};
-
-type NavLink = {
-  name: string;
-  href: string;
-  highlight?: boolean;
-  subItems?: NavSubItem[];
-  megaGroups?: NavGroup[];
-  centeredHeader?: boolean;
-};
 
 const QUICK_SEARCH_LINKS = [
   { name: "Models", category: "Explore", href: "/models", desc: "117+ validated models & benchmarks" },
@@ -55,7 +46,8 @@ const QUICK_SEARCH_LINKS = [
   { name: "OpenLxM", category: "Solutions", href: "/openlxm", desc: "Autonomous agent evaluation" },
   { name: "RedShield", category: "Solutions", href: "/redshield", desc: "AI red teaming & security defense" },
   { name: "Pricing", category: "General", href: "/pricing", desc: "Enterprise & developer tiers" },
-  { name: "Docs", category: "Documentation", href: "/docs", desc: "All OpenVals technical guides & API references" },
+  { name: "OpenVals Docs", category: "Documentation", href: "/openvals-docs", desc: "Trust infrastructure, DRS & API references" },
+  { name: "AIxLence Docs", category: "Documentation", href: "/aixlence-docs", desc: "Enterprise AI readiness & capability diagnostics" },
   { name: "Research & Blog", category: "Insights", href: "/blog", desc: "Technical papers & security briefs" },
 ];
 
@@ -154,159 +146,23 @@ export default function Header() {
       )
     : POPULAR_MODELS.slice(0, 3);
 
-  const navLinks: NavLink[] = [
-    {
-      name: "Our Solutions",
-      href: "#",
-      highlight: true,
-      subItems: [
-        { name: "AIxLence", href: "/aixlence" },
-        { name: "OpenLxM", href: "/openlxm" },
-        { name: "OpenVals", href: "/openvals" },
-        { name: "RedShield", href: "/redshield" },
-      ],
-    },
-    {
-      name: "Models",
-      href: "/models",
-      highlight: true,
-    },
-    {
-      name: "Datasets",
-      href: "/datasets",
-      highlight: true,
-    },
-    {
-      name: "Spaces",
-      href: "/spaces",
-      highlight: true,
-    },
-    {
-      name: "Docs",
-      href: "/docs",
-      highlight: true,
-    },
-    {
-      name: "Pricing",
-      href: "/pricing",
-      highlight: true,
-    },
-    // {
-    //   name: "Enterprise",
-    //   href: "/enterprise",
-    //   highlight: true,
-    // },
-  ];
+
 
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.headerLeft}>
+        {/* ── LEFT CLUSTER: LOGO + SEARCH BAR ── */}
+        <div className={styles.headerLeftCluster}>
           <Logo size="sm" />
-          <nav className={styles.nav}>
-          {navLinks.map((link) => (
-            <div
-              key={link.name}
-              className={styles.dropdown}
-              onMouseEnter={() => (link.subItems || link.megaGroups) && setOpenDropdown(link.name)}
-              onMouseLeave={() => (link.subItems || link.megaGroups) && setOpenDropdown(null)}
-            >
-              <Link
-                href={link.href}
-                className={`${styles.dropdownTrigger} ${link.highlight ? styles.navLinkHighlighted : ""}`}
-              >
-                {link.name} {(link.subItems || link.megaGroups) && <ChevronDown size={15} />}
-              </Link>
 
-              {(link.subItems || link.megaGroups) && openDropdown === link.name && (
-                <motion.div
-                  key={`dropdown-${link.name}`}
-                  className={
-                    link.megaGroups
-                      ? link.centeredHeader
-                        ? `${styles.dropdownContent} ${styles.dropdownMega} ${styles.dropdownMegaCentered}`
-                        : `${styles.dropdownContent} ${styles.dropdownMega}`
-                      : styles.dropdownContent
-                  }
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  {link.megaGroups ? (
-                    link.centeredHeader ? (
-                      <div className={styles.dropdownMegaCenteredContainer}>
-                        <div className={styles.dropdownMegaTitleCentered}>
-                          {link.megaGroups[0].title}
-                        </div>
-                        <div className={styles.dropdownMegaColsGrid}>
-                          {link.megaGroups.map((group, idx) => (
-                            <div key={group.title || idx} className={styles.dropdownMegaColumn}>
-                              {group.items.map((item) => (
-                                <Link
-                                  key={item.name}
-                                  href={item.href || "#"}
-                                  className={styles.dropdownMegaItem}
-                                  onClick={() => setOpenDropdown(null)}
-                                >
-                                  <span>{item.name}</span>
-                                  {item.description && <small>{item.description}</small>}
-                                </Link>
-                              ))}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ) : (
-                      link.megaGroups.map((group) => (
-                        <div key={group.title} className={styles.dropdownMegaColumn}>
-                          <div className={styles.dropdownMegaTitle}>{group.title}</div>
-                          {group.items.map((item) => (
-                            <Link
-                              key={item.name}
-                              href={item.href || "#"}
-                              className={styles.dropdownMegaItem}
-                              onClick={() => setOpenDropdown(null)}
-                            >
-                              <span>{item.name}</span>
-                              {item.description && <small>{item.description}</small>}
-                            </Link>
-                          ))}
-                        </div>
-                      ))
-                    )
-                  ) : (
-                    link.subItems?.map((sub) => (
-                      sub.isHeader ? (
-                        <div key={sub.name} className={`${styles.dropdownSectionLabel} ${sub.hasMargin ? styles.dropdownSection : ""}`}>
-                          {sub.name}
-                        </div>
-                      ) : (
-                        <Link
-                          key={sub.name}
-                          href={sub.href || "#"}
-                          className={styles.dropdownItem}
-                          onClick={() => setOpenDropdown(null)}
-                        >
-                          {sub.name}
-                        </Link>
-                      )
-                    ))
-                  )}
-                </motion.div>
-              )}
-            </div>
-          ))}
-        </nav>
-        </div>
-        <div className={styles.headerCTAContainer}>
-          {/* SEARCH BAR IN FRONT OF SIGN UP / LOGIN */}
+          {/* Search Box */}
           <div ref={searchContainerRef} className={styles.headerSearchContainer}>
             <form onSubmit={handleSearchSubmit} className={styles.headerSearchWrap}>
               <Search size={15} className={styles.headerSearchIcon} />
               <input
                 ref={searchInputRef}
                 type="text"
-                placeholder="Search models, datasets..."
+                placeholder="Search models, datasets, users..."
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
@@ -394,28 +250,200 @@ export default function Header() {
               )}
             </AnimatePresence>
           </div>
+        </div>
 
-          {/* GitHub link beside Login button */}
+        {/* ── RIGHT CLUSTER: NAV LINKS WITH ICONS + DIVIDER + AUTH ACTIONS ── */}
+        <div className={styles.headerRightCluster}>
+          <nav className={styles.navBarWithIcons} aria-label="Main Navigation">
+            {/* 0. AIxLence */}
+            <Link
+              href="/aixlence"
+              className={`${styles.navIconLink} ${pathname?.startsWith("/aixlence") && !pathname?.startsWith("/aixlence-docs") ? styles.navIconLinkActive : ""}`}
+            >
+              <Sparkles size={15} className={styles.navItemIcon} />
+              <span>AIxLence</span>
+            </Link>
+
+            {/* 1. Models */}
+            <Link
+              href="/models"
+              className={`${styles.navIconLink} ${pathname?.startsWith("/models") ? styles.navIconLinkActive : ""}`}
+            >
+              <Box size={15} className={styles.navItemIcon} />
+              <span>Models</span>
+            </Link>
+
+            {/* 2. Datasets */}
+            <Link
+              href="/datasets"
+              className={`${styles.navIconLink} ${pathname?.startsWith("/datasets") ? styles.navIconLinkActive : ""}`}
+            >
+              <Database size={15} className={styles.navItemIcon} />
+              <span>Datasets</span>
+            </Link>
+
+            {/* 3. Spaces */}
+            {/* <Link
+              href="/spaces"
+              className={`${styles.navIconLink} ${pathname?.startsWith("/spaces") ? styles.navIconLinkActive : ""}`}
+            >
+              <LayoutGrid size={15} className={styles.navItemIcon} />
+              <span>Spaces</span>
+            </Link> */}
+
+            {/* 5. Docs */}
+            <div
+              className={styles.dropdown}
+              onMouseEnter={() => setOpenDropdown("Docs")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <Link
+                href="/openvals-docs"
+                className={`${styles.navIconLink} ${pathname?.includes("docs") ? styles.navIconLinkActive : ""}`}
+              >
+                <BookOpen size={15} className={styles.navItemIcon} />
+                <span>Docs</span>
+              </Link>
+
+              {openDropdown === "Docs" && (
+                <motion.div
+                  key="dropdown-docs"
+                  className={styles.dropdownContent}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <Link
+                    href="/openvals-docs"
+                    className={styles.dropdownItem}
+                    onClick={() => setOpenDropdown(null)}
+                    style={{
+                      background: pathname?.startsWith("/openvals-docs") ? "rgba(59, 130, 246, 0.1)" : undefined,
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", width: "100%" }}>
+                      <div style={{ fontWeight: 600, color: pathname?.startsWith("/openvals-docs") ? "#3b82f6" : "var(--text-main)" }}>
+                        OpenVals Docs
+                      </div>
+                      {pathname?.startsWith("/openvals-docs") && <Check size={14} style={{ color: "#3b82f6", flexShrink: 0, strokeWidth: 2.4 }} />}
+                    </div>
+                    <div style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px", whiteSpace: "normal" }}>
+                      AI evaluation, DRS & benchmarking
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/aixlence-docs"
+                    className={styles.dropdownItem}
+                    onClick={() => setOpenDropdown(null)}
+                    style={{
+                      background: pathname?.startsWith("/aixlence-docs") ? "rgba(59, 130, 246, 0.1)" : undefined,
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", width: "100%" }}>
+                      <div style={{ fontWeight: 600, color: pathname?.startsWith("/aixlence-docs") ? "#3b82f6" : "var(--text-main)" }}>
+                        AIxLence Docs
+                      </div>
+                      {pathname?.startsWith("/aixlence-docs") && <Check size={14} style={{ color: "#3b82f6", flexShrink: 0, strokeWidth: 2.4 }} />}
+                    </div>
+                    <div style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px", whiteSpace: "normal" }}>
+                      Readiness diagnostics & roadmap
+                    </div>
+                  </Link>
+                </motion.div>
+              )}
+            </div>
+            
+            {/* 7. Pricing */}
+            <Link
+              href="/pricing"
+              className={`${styles.navIconLink} ${pathname?.startsWith("/pricing") ? styles.navIconLinkActive : ""}`}
+            >
+              <span>Pricing</span>
+            </Link>
+
+            {/* 8. More Dropdown (˅≡) */}
+            <div
+              className={styles.dropdown}
+              onMouseEnter={() => setOpenDropdown("More")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button
+                type="button"
+                className={styles.navMoreBtn}
+                aria-label="More navigation items"
+                onClick={() => setOpenDropdown(openDropdown === "More" ? null : "More")}
+              >
+                <ChevronDown size={12} />
+                <Menu size={13} />
+              </button>
+
+              {openDropdown === "More" && (
+                <motion.div
+                  key="dropdown-more"
+                  className={styles.dropdownContent}
+                  style={{ right: 0, left: "auto", minWidth: "240px" }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <div className={`${styles.dropdownSectionLabel} ${styles.dropdownSection}`}>Resources</div>
+                  <Link href="/blog" className={styles.dropdownItem} onClick={() => setOpenDropdown(null)}>
+                    <div style={{ fontWeight: 600, color: "var(--text-main)" }}>Research & Blog</div>
+                    <div style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px" }}>Technical papers & security briefs</div>
+                  </Link>
+                  <a
+                    href="https://github.com/vishwanathakuthota/openvals"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.dropdownItem}
+                    onClick={() => setOpenDropdown(null)}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", fontWeight: 600, color: "var(--text-main)" }}>
+                      <span>GitHub</span>
+                      <GithubIcon size={15} />
+                    </div>
+                  </a>
+                </motion.div>
+              )}
+            </div>
+          </nav>
+
+          {/* Vertical Divider */}
+          <div className={styles.headerVerticalDivider} aria-hidden="true" />
+
+          {/* Log In */}
           <Link
-            href="https://github.com/vishwanathakuthota/openvals"
+              href="https://github.com/vishwanathakuthota/openvals"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mobileGithubBtn}
+              aria-label="OpenVals on GitHub"
+              title="OpenVals on GitHub"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <GithubIcon size={18} />
+            </Link>
+          <Link
+            href="https://dev.openvalidations.com/auth/login"
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.headerGithubBtn}
-            aria-label="OpenVals on GitHub"
-            title="OpenVals on GitHub"
+            className={styles.headerLoginTextBtn}
           >
-            <GithubIcon size={17} />
-            <span className={styles.headerGithubText}>GitHub</span>
+            Log In
           </Link>
 
+          {/* Sign Up */}
           <Link
             href="https://dev.openvalidations.com/auth/signup"
             target="_blank"
             rel="noopener noreferrer"
-            className={`${styles.headerCtaButton} ${styles.headerDesktopCta}`}
+            className={styles.headerSignUpPillBtn}
           >
-            Sign Up / Login
+            Sign Up
           </Link>
+
+          {/* Mobile Menu Toggle Button */}
           <button
             className={styles.menuToggle}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -427,6 +455,7 @@ export default function Header() {
       </header>
       <div className={styles.headerSpacer} aria-hidden="true" />
 
+      {/* ── MOBILE MENU DRAWER ── */}
       {isMenuOpen && (
         <motion.div
           key="mobile-nav-panel"
@@ -446,7 +475,7 @@ export default function Header() {
             <Search size={16} className={styles.headerSearchIcon} />
             <input
               type="text"
-              placeholder="Search models, datasets, docs..."
+              placeholder="Search models, datasets, users..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className={styles.mobileSearchInputField}
@@ -454,6 +483,7 @@ export default function Header() {
             />
           </form>
 
+          {/* Mobile CTA Buttons */}
           <div className={styles.mobileCtaWrapper}>
             <Link
               href="https://dev.openvalidations.com/auth/signup"
@@ -462,7 +492,16 @@ export default function Header() {
               className={styles.mobileCtaButton}
               onClick={() => setIsMenuOpen(false)}
             >
-              Sign Up / Login
+              Sign Up
+            </Link>
+            <Link
+              href="https://dev.openvalidations.com/auth/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.headerGithubBtn}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Log In
             </Link>
             <Link
               href="https://github.com/vishwanathakuthota/openvals"
@@ -477,45 +516,94 @@ export default function Header() {
               <span>GitHub</span>
             </Link>
           </div>
-          {navLinks.map((link) => (
-            <div key={link.name}>
-              <Link href={link.href} onClick={() => setIsMenuOpen(false)} style={{ fontWeight: 600 }}>
-                {link.name}
-              </Link>
-              {(link.subItems || link.megaGroups) && (
-                <div style={{ paddingLeft: "20px", marginTop: "12px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {link.megaGroups ? (
-                    link.megaGroups.map((group, idx) => (
-                      <div key={group.title || idx} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                        {group.title && (
-                          <div style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", letterSpacing: "0.1em" }}>
-                            {group.title}
-                          </div>
-                        )}
-                        {group.items.map((item) => (
-                          <Link key={item.name} href={item.href || "#"} onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    ))
-                  ) : (
-                    link.subItems?.map((sub) => (
-                      sub.isHeader ? (
-                        <div key={sub.name} style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", marginTop: sub.hasMargin ? "12px" : "0", letterSpacing: "0.1em" }}>
-                          {sub.name}
-                        </div>
-                      ) : (
-                        <Link key={sub.name} href={sub.href || "#"} onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
-                          {sub.name}
-                        </Link>
-                      )
-                    ))
-                  )}
-                </div>
-              )}
+
+          {/* Mobile Nav Links */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <Link
+              href="/aixlence"
+              onClick={() => setIsMenuOpen(false)}
+              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+            >
+              <Sparkles size={18} color="var(--text-muted)" />
+              <span>AIxLence</span>
+            </Link>
+
+            <Link
+              href="/models"
+              onClick={() => setIsMenuOpen(false)}
+              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+            >
+              <Box size={18} color="var(--text-muted)" />
+              <span>Models</span>
+            </Link>
+
+            <Link
+              href="/datasets"
+              onClick={() => setIsMenuOpen(false)}
+              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+            >
+              <Database size={18} color="var(--text-muted)" />
+              <span>Datasets</span>
+            </Link>
+
+            {/* <Link
+              href="/spaces"
+              onClick={() => setIsMenuOpen(false)}
+              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+            >
+              <LayoutGrid size={18} color="var(--text-muted)" />
+              <span>Spaces</span>
+            </Link> */}
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}>
+                <BookOpen size={18} color="var(--text-muted)" />
+                <span>Docs</span>
+              </div>
+              <div style={{ paddingLeft: "28px", display: "flex", flexDirection: "column", gap: "10px", marginTop: "4px" }}>
+                <Link
+                  href="/openvals-docs"
+                  onClick={() => setIsMenuOpen(false)}
+                  style={{ fontSize: "14.5px", color: pathname?.startsWith("/openvals-docs") ? "#3b82f6" : "var(--text-muted)" }}
+                >
+                  OpenVals Docs
+                </Link>
+                <Link
+                  href="/aixlence-docs"
+                  onClick={() => setIsMenuOpen(false)}
+                  style={{ fontSize: "14.5px", color: pathname?.startsWith("/aixlence-docs") ? "#3b82f6" : "var(--text-muted)" }}
+                >
+                  AIxLence Docs
+                </Link>
+              </div>
             </div>
-          ))}
+            
+            <Link
+              href="/pricing"
+              onClick={() => setIsMenuOpen(false)}
+              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+            >
+              <span>Pricing</span>
+            </Link>
+
+            <div style={{ borderTop: "1px solid var(--border)", paddingTop: "14px", marginTop: "6px", display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", letterSpacing: "0.08em" }}>
+                Solutions & Insights
+              </div>
+              <Link href="/aixlence" onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
+                AIxLence
+              </Link>
+              <Link href="/openlxm" onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
+                OpenLxM
+              </Link>
+              <Link href="/redshield" onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
+                RedShield
+              </Link>
+              <Link href="/blog" onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
+                Research & Blog
+              </Link>
+            </div>
+          </div>
         </motion.div>
       )}
     </>

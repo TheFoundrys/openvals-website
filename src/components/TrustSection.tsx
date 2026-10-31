@@ -2,9 +2,7 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import { Box, Share2, BarChart3, Tag, ShieldCheck } from "lucide-react";
 import styles from "./ui.module.css";
-import TrustLayerGraphic from "./TrustLayerGraphic";
 import HeroInteractiveStart from "./HeroInteractiveStart";
 
 const FADE_UP: Variants = {
@@ -25,7 +23,6 @@ const STAGGER: Variants = {
 export function HeroPart() {
   return (
     <section className={styles.heroSectionGrid}>
-      {/* ── LEFT COLUMN: MAIN CONTENT ── */}
       <motion.div
         className={styles.heroContentCol}
         initial="hidden"
@@ -36,14 +33,13 @@ export function HeroPart() {
         <motion.div variants={FADE_UP} className={styles.heroEyebrowBadge}>
           <span className={styles.heroEyebrowDot} />
           <span className={styles.heroEyebrowText}>
-            ENTERPRISE AI ASSURANCE & BENCHMARKING
+            ENTERPRISE AI TRUST PLATFORM
           </span>
         </motion.div>
 
         {/* Main Headline */}
         <motion.h1 variants={FADE_UP} className={styles.heroMainHeadline}>
-          The Trust Layer <br className={styles.desktopOnlyBr} />
-          for <span className={styles.heroHeadlineAccent}>AI</span>
+          The Trust Layer for AI
         </motion.h1>
 
         {/* Supporting Description */}
@@ -56,11 +52,6 @@ export function HeroPart() {
           <HeroInteractiveStart />
         </motion.div>
       </motion.div>
-
-      {/* ── RIGHT COLUMN: ANIMATED AI SPHERE & FLOATING CARDS ── */}
-      <div className={styles.heroVisualizationCol}>
-        <TrustLayerGraphic />
-      </div>
     </section>
   );
 }
@@ -68,29 +59,24 @@ export function HeroPart() {
 export function ActionButtonsPart() {
   const stats = [
     {
-      value: "2 lakhs+",
+      value: "200,000+",
       label: "EXPERIMENTS COMPLETED",
-      icon: Box,
     },
     {
       value: "53",
       label: "LLM PROVIDERS",
-      icon: Share2,
     },
     {
       value: "20+",
       label: "CORE METRICS",
-      icon: BarChart3,
     },
     {
       value: "v0.5.5",
       label: "CURRENT RELEASE",
-      icon: Tag,
     },
     {
       value: "Dr. Pinnacle",
       label: "LICENSE",
-      icon: ShieldCheck,
     },
   ];
 
@@ -117,25 +103,16 @@ export function ActionButtonsPart() {
     <div className={styles.wFull}>
       <div className={styles.heroStatsSectionWrap}>
         <div className={styles.heroStatsCardMain}>
-          {stats.map((stat) => {
-            const Icon = stat.icon;
-            return (
-              <div key={stat.label} className={styles.heroStatColumn}>
-                <div className={styles.heroStatIconBox}>
-                  <Icon size={22} className={styles.heroStatIconSvg} />
+          {stats.map((stat) => (
+            <div key={stat.label} className={styles.heroStatColumn}>
+              <div className={styles.heroStatContent}>
+                <div className={styles.heroStatValueText}>
+                  {stat.value}
                 </div>
-                <div className={styles.heroStatContent}>
-                  <div
-                    className={styles.heroStatValueText}
-                    style={stat.value.length > 8 ? { fontSize: "clamp(15px, 1.2vw, 19px)" } : undefined}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className={styles.heroStatLabelText}>{stat.label}</div>
-                </div>
+                <div className={styles.heroStatLabelText}>{stat.label}</div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
 

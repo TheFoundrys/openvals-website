@@ -16,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/apply', 0.85],
     ['/pricing', 0.9],
     ['/docs', 0.9],
+    ['/openvals-docs', 0.9],
+    ['/aixlence-docs', 0.9],
     ['/blog', 0.8],
     ['/contact', 0.5],
   ] as const

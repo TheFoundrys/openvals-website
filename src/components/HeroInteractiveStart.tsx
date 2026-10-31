@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Copy, Check, Info } from "lucide-react";
+import { Copy, Check, Info } from "lucide-react";
 import styles from "./ui.module.css";
 
 export default function HeroInteractiveStart() {
@@ -74,10 +74,12 @@ export default function HeroInteractiveStart() {
               </Link>
 
               <Link
-                href="/assessment"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={styles.heroSecondaryBtn}
               >
-                <span>Book a Free Assessment</span>
+                <span>Book a Demo</span>
                 {/* <ArrowRight size={16} /> */}
               </Link>
             </motion.div>
@@ -102,18 +104,11 @@ export default function HeroInteractiveStart() {
                     >
                       pip
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => setPkgManager("uv")}
-                      className={`${styles.terminalTabBtn} ${pkgManager === "uv" ? styles.terminalTabBtnActive : ""}`}
-                    >
-                      uv
-                    </button>
                     <span className={styles.terminalSubLabel}>install</span>
                   </div>
                 </div>
 
-                {/* Command Line with Hot Pink $ and Copy Button */}
+                {/* Command Line with Blue $ and Copy Button */}
                 <div className={styles.terminalBody}>
                   <div className={styles.terminalCodeLine}>
                     <span className={styles.terminalPromptSign}>$</span>

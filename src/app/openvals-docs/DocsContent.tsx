@@ -1,6 +1,8 @@
 import { ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import CopyableCodeBlock from "./CopyableCodeBlock";
+import DocsGlobalHeader from "@/components/DocsGlobalHeader";
+import { DocsTabItem } from "@/components/DocsTopNavTabs";
 
 type DocsPageId =
   | "welcome"
@@ -20,6 +22,7 @@ type DocsPageId =
   | "metrics"
   | "integrations"
   | "use-case-advisor"
+  | "aixlence"
   | "domains"
   | "roadmap"
   | "vision"
@@ -53,6 +56,7 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
       { id: "screenshots", label: "Screenshots & Previews" },
       { id: "integrations", label: "Integrations & User Guide" },
       { id: "use-case-advisor", label: "Use Case Advisor & Validation Runs" },
+      { id: "aixlence", label: "AIxLence Suite & Readiness" },
     ],
   },
   {
@@ -128,6 +132,25 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
       "History, filters, and reports",
       "4. Troubleshooting",
       "5. Key concepts",
+    ],
+  },
+  aixlence: {
+    group: "Core Capabilities",
+    title: "AIxLence Analysis & User Documentation",
+    onThisPage: [
+      "1. Module Overview & Capability Levels",
+      "The six foundation pillars",
+      "Capability levels",
+      "2. User Guide: Navigating the Suite",
+      "Step 1: Organisation Profile & Currency Configuration",
+      "Step 2: The 36-Question Diagnostic Assessment",
+      "Step 3: Pillar Summary & Radar Diagnostics",
+      "Step 4: Transformation Roadmap",
+      "Step 5: Investment Simulator & Value Realization",
+      "Step 6: Service Mapping & Interventions",
+      "Step 7: Executive Dashboard",
+      "Step 8: Exporting Board-Ready Reports",
+      "Reference: Rules and Thresholds at a Glance",
     ],
   },
   metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
@@ -1896,6 +1919,387 @@ READY FOR PRODUCTION`}</CodeBlock>
           </div>
         </>
       );
+    case "aixlence":
+      return (
+        <>
+          <div style={{ fontSize: "17px", color: "var(--docs-muted)", lineHeight: 1.7, marginBottom: "28px" }}>
+            Comprehensive analysis and user documentation for the AIxLence multi-pillar diagnostic suite, capability levels, investment simulator, and sequenced transformation roadmap.
+          </div>
+
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "16px 20px",
+            border: "1px solid var(--accent)",
+            background: "rgba(37, 99, 235, 0.06)",
+            borderRadius: "12px",
+            marginBottom: "32px",
+            flexWrap: "wrap",
+            gap: "12px"
+          }}>
+            <div>
+              <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "15px" }}>
+                Dedicated AIxLence Documentation Portal
+              </div>
+              <div style={{ fontSize: "13.5px", color: "var(--docs-muted)", marginTop: "2px" }}>
+                Browse the interactive multi-page guide with step-by-step navigation and formula references.
+              </div>
+            </div>
+            <Link
+              href="/aixlence-docs"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "8px 14px",
+                borderRadius: "8px",
+                background: "var(--accent)",
+                color: "#fff",
+                fontSize: "13.5px",
+                fontWeight: 600,
+                textDecoration: "none"
+              }}
+            >
+              Open AIxLence Docs <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <H2>1. Module Overview & Capability Levels</H2>
+          <Paragraph>
+            Enterprise AI initiatives commonly stall because of fragmented data, security gaps, missing validation standards, and unpredictable ROI. <strong>AIxLence</strong> replaces guesswork with an evidence-backed, multi-pillar diagnostic. It measures real AI readiness, quantifies the risk-adjusted value of closing capability gaps, and produces a sequenced roadmap.
+          </Paragraph>
+
+          <H2>The six foundation pillars</H2>
+          <DocsTable
+            headers={["Pillar", "Weight", "Focus"]}
+            rows={[
+              [
+                <strong key="p1" style={{ color: "var(--docs-heading)" }}>1. AI Strategy & Readiness</strong>,
+                <strong key="w1" style={{ color: "var(--accent)" }}>20%</strong>,
+                "Business value alignment, executive sponsorship, portfolio visibility, 12–24 month roadmap"
+              ],
+              [
+                <strong key="p2" style={{ color: "var(--docs-heading)" }}>2. Private AI / LLM Transformation</strong>,
+                <strong key="w2" style={{ color: "var(--accent)" }}>15%</strong>,
+                "Sovereign LLM deployment, RAG architecture, model selection/routing, prompt and output security gates"
+              ],
+              [
+                <strong key="p3" style={{ color: "var(--docs-heading)" }}>3. Data Intelligence & Knowledge Systems</strong>,
+                <strong key="w3" style={{ color: "var(--accent)" }}>20%</strong>,
+                "Data ownership, observable pipelines, lineage, vector retrieval, dataset governance"
+              ],
+              [
+                <strong key="p4" style={{ color: "var(--docs-heading)" }}>4. AI Security & Cyber Transformation</strong>,
+                <strong key="w4" style={{ color: "var(--accent)" }}>20%</strong>,
+                "AI threat modeling, prompt-injection defenses, least-privilege access, red teaming, incident monitoring"
+              ],
+              [
+                <strong key="p5" style={{ color: "var(--docs-heading)" }}>5. AI Validation & Assurance</strong>,
+                <strong key="w5" style={{ color: "var(--accent)" }}>15%</strong>,
+                "Production acceptance gates, multi-dimensional benchmarking, drift monitoring, reproducible evidence"
+              ],
+              [
+                <strong key="p6" style={{ color: "var(--docs-heading)" }}>6. AI Operating Model & CoE</strong>,
+                <strong key="w6" style={{ color: "var(--accent)" }}>10%</strong>,
+                "Decision rights, governance gatekeeping, reusable templates, skills enablement, KPI cadences"
+              ]
+            ]}
+          />
+
+          <H2>Capability levels</H2>
+          <Paragraph>
+            The suite unlocks in three levels. Each level depends on the one before it.
+          </Paragraph>
+          <DocsTable
+            headers={["Level", "Meaning", "Views", "Requirement"]}
+            rows={[
+              [
+                <strong key="l1" style={{ color: "var(--docs-heading)" }}>L1: Baseline</strong>,
+                "Organization metadata, currency, and financial parameters are stored",
+                <code key="v1">Organisation Profile</code>,
+                "None. Start here."
+              ],
+              [
+                <strong key="l2" style={{ color: "var(--docs-heading)" }}>L2: Diagnose</strong>,
+                "36 capability statements scored 1–5, with evidence notes",
+                <code key="v2">Assessment</code>,
+                "Profile saved (recommended)"
+              ],
+              [
+                <strong key="l3" style={{ color: "var(--docs-heading)" }}>L3: Analyze & Act</strong>,
+                "Maturity analytics, roadmap, ROI simulation, intervention mapping, executive reporting",
+                "Pillar Summary, Roadmap, Investment Simulator, Service Mapping, Executive Dashboard",
+                <strong key="r3" style={{ color: "#ef4444" }}>All 36 questions scored and saved</strong>
+              ]
+            ]}
+          />
+
+          <H2>2. User Guide: Navigating the Suite</H2>
+          <Paragraph>
+            In the dark navigation sidebar, expand the AIxlence menu to reach seven views.
+          </Paragraph>
+          <DocsTable
+            headers={["View", "Route"]}
+            rows={[
+              ["Overview", <code key="r1">/aixlence</code>],
+              ["Organisation Profile", <code key="r2">/aixlence/organization-profile</code>],
+              ["Assessment", <code key="r3">/aixlence/assessment</code>],
+              ["Pillar Summary", <code key="r4">/aixlence/pillar-summary</code>],
+              ["Roadmap", <code key="r5">/aixlence/roadmap</code>],
+              ["Investment Simulator", <code key="r6">/aixlence/investment-simulator</code>],
+              ["Service Mapping", <code key="r7">/aixlence/service-mapping</code>],
+              ["Executive Dashboard", <code key="r8">/aixlence/executive-dashboard</code>]
+            ]}
+          />
+
+          <Paragraph>
+            <strong>Recommended workflow:</strong> Start with Organisation Profile, then complete the Assessment. Once the assessment is saved, Pillar Summary, Roadmap, Investment Simulator, Service Mapping, and Executive Dashboard unlock automatically.
+          </Paragraph>
+
+          <H2>Step 1: Organisation Profile & Currency Configuration</H2>
+          <Paragraph>
+            <strong>Route:</strong> <code>/aixlence/organization-profile</code>. The profile anchors your assessment with company metadata, currency settings, and financial parameters.
+          </Paragraph>
+          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "16px 0 8px" }}>Enterprise metadata:</div>
+          <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
+            <li><strong>Organization Name</strong> — Legal or operating entity being assessed.</li>
+            <li><strong>Organization Logo URL (optional)</strong> — Rendered in executive report headers.</li>
+            <li><strong>Industry Sector</strong> — For example Financial Services, Healthcare & Life Sciences, Retail & eCommerce, Manufacturing, Public Sector.</li>
+            <li><strong>Country / Region</strong> — Primary headquarters or target deployment jurisdiction.</li>
+            <li><strong>Organization Size (FTEs)</strong> — Startup (&lt;50), Mid-Market (50–500), Enterprise (500–5,000), Global Enterprise (5,000+).</li>
+            <li><strong>Primary User Persona</strong> — For example C-Suite Executive, Enterprise AI Architect, Security Officer, Data Science Lead.</li>
+            <li><strong>AI Adoption Stage</strong> — Exploring (initial experimentation), Piloting (proofs of concept in staging), Scaling (multiple production deployments), Mature (enterprise-wide orchestration with automated governance).</li>
+            <li><strong>Regulatory Exposure</strong> — Low, Moderate, High, or Critical (for example EU AI Act, HIPAA, SOC 2, FINRA, PCI-DSS).</li>
+            <li><strong>Assessment Owner & Date</strong> — Accountable lead and date of assessment.</li>
+          </ul>
+
+          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Multi-currency normalization:</div>
+          <Paragraph>All calculations run in USD, with localized display.</Paragraph>
+          <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
+            <li><strong>Base Currency</strong> — Fixed to USD for consistent cross-region comparison.</li>
+            <li><strong>Display Currency</strong> — INR, EUR, GBP, AED, SGD, CAD, JPY, CHF, or AUD.</li>
+            <li><strong>Exchange Rate (FX per USD)</strong> — Current rate, for example 83.00 for USD/INR or 0.92 for USD/EUR.</li>
+          </ul>
+
+          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "20px 0 8px" }}>AI financial parameters:</div>
+          <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
+            <li><strong>Planned AI Investment</strong> — Total capital and operating budget for AI over the next 12–24 months.</li>
+            <li><strong>Estimated Annual AI Benefit</strong> — Gross projected benefit (productivity savings, new revenue, efficiency).</li>
+            <li><strong>Annual AI Operating Cost</strong> — Recurring compute, hosting, licensing, and maintenance cost.</li>
+          </ul>
+          <Paragraph>
+            Click <strong>Save Profile</strong>. USD and local-currency conversions are computed and synchronized across the platform.
+          </Paragraph>
+
+          <H2>Step 2: The 36-Question Diagnostic Assessment</H2>
+          <Paragraph>
+            <strong>Route:</strong> <code>/aixlence/assessment</code>. The assessment contains 36 capability statements (six per pillar), each scored on a 5-point evidence scale.
+          </Paragraph>
+          <DocsTable
+            headers={["Score", "Label", "Definition", "Evidence expected"]}
+            rows={[
+              [
+                <strong key="s1" style={{ color: "#ef4444" }}>1</strong>,
+                "Absent",
+                "No repeatable capability exists",
+                "No documentation, tooling, or assigned responsibility"
+              ],
+              [
+                <strong key="s2" style={{ color: "#f97316" }}>2</strong>,
+                "Reactive",
+                "Ad hoc, informal, manual",
+                "Informal scripts, isolated spreadsheets, individual efforts"
+              ],
+              [
+                <strong key="s3" style={{ color: "#f59e0b" }}>3</strong>,
+                "Defined",
+                "Documented and repeatable in some teams",
+                "Documented procedures, defined roles, standard tooling in primary teams"
+              ],
+              [
+                <strong key="s4" style={{ color: "#3b82f6" }}>4</strong>,
+                "Managed",
+                "Measured, governed, operationalized",
+                "Automated monitoring, cross-functional enforcement, SLAs, regular reviews"
+              ],
+              [
+                <strong key="s5" style={{ color: "#10b981" }}>5</strong>,
+                "Optimized",
+                "Continuously improved and automated",
+                "Self-healing architectures, continuous adversarial testing, enterprise feedback loops"
+              ]
+            ]}
+          />
+
+          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Interface features:</div>
+          <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
+            <li><strong>Pillar navigation</strong> — Switch pillars with the tab bar. Each tab shows an icon, the pillar weight, and answered-question count.</li>
+            <li><strong>Scoring buttons (1–5)</strong> — Select the score that matches current maturity.</li>
+            <li><strong>Priority signals</strong> — Scores 1–2: Critical. Score 3: High. Score 4: Moderate. Score 5: Low.</li>
+            <li><strong>Audit evidence & notes</strong> — Add links, architecture documents, policy IDs, or caveats under each statement. Notes appear in the executive export for governance audits.</li>
+            <li><strong>Completeness check</strong> — All 36 questions must be scored before submission.</li>
+            <li><strong>Progress tracker</strong> — The sticky header shows live progress, for example &ldquo;36 / 36 Answered&rdquo;.</li>
+          </ul>
+          <Paragraph>
+            Click <strong>Save Assessment Responses</strong> when finished.
+          </Paragraph>
+          <div style={{ padding: "14px 18px", borderLeft: "4px solid var(--accent)", background: "var(--docs-card)", borderRadius: "4px", margin: "16px 0" }}>
+            <em><strong>Tip:</strong> Score against evidence you can point to, not intent. If a capability exists only in one team, it is a 2 or 3, not a 4.</em>
+          </div>
+
+          <H2>Step 3: Pillar Summary & Radar Diagnostics</H2>
+          <Paragraph>
+            <strong>Route:</strong> <code>/aixlence/pillar-summary</code>. The radar chart overlays Current Maturity (0–100) against Target State (default 80) on six axes. Lopsided shapes reveal imbalances, such as strong LLM adoption alongside weak security. The Target Score slider (50–95) recalculates gaps in real time.
+          </Paragraph>
+          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "16px 0 6px" }}>Key metrics:</div>
+          <Paragraph>
+            <strong>Normalized Pillar Score (0–100):</strong><br />
+            <code>Pillar Score = Σ(weight × score) ÷ Σ(weight × 5) × 100</code>
+          </Paragraph>
+          <Paragraph>
+            <strong>Target Gap:</strong> <code>Target Score − Current Score</code>.
+          </Paragraph>
+          <DocsTable
+            headers={["Execution risk", "Score range", "Meaning"]}
+            rows={[
+              [<strong key="er1" style={{ color: "#ef4444" }}>Critical</strong>, "below 40", "Immediate operational vulnerability"],
+              [<strong key="er2" style={{ color: "#f97316" }}>High</strong>, "40–59.9", "Structural capability bottleneck"],
+              [<strong key="er3" style={{ color: "#f59e0b" }}>Moderate</strong>, "60–74.9", "Operational friction"],
+              [<strong key="er4" style={{ color: "#10b981" }}>Low</strong>, "75 and above", "Stable foundation"]
+            ]}
+          />
+          <DocsTable
+            headers={["Roadmap priority", "Gap", "Timeframe"]}
+            rows={[
+              [<strong key="rp1" style={{ color: "#ef4444" }}>P1</strong>, "40 or more", "0–30 days"],
+              [<strong key="rp2" style={{ color: "#f97316" }}>P2</strong>, "25 or more", "31–90 days"],
+              [<strong key="rp3" style={{ color: "#f59e0b" }}>P3</strong>, "10 or more", "3–6 months"],
+              [<strong key="rp4" style={{ color: "#10b981" }}>Maintain</strong>, "below 10", "6–12 months"]
+            ]}
+          />
+
+          <H2>Step 4: Transformation Roadmap</H2>
+          <Paragraph>
+            <strong>Route:</strong> <code>/aixlence/roadmap</code>. The roadmap converts gaps into a time-phased plan across four horizons.
+          </Paragraph>
+          <DocsTable
+            headers={["Horizon", "Window", "Assigned to", "Typical focus"]}
+            rows={[
+              [
+                <strong key="h1">1: Immediate Stabilization</strong>,
+                "0–30 days",
+                <strong key="p1" style={{ color: "#ef4444" }}>P1 (gap ≥ 40)</strong>,
+                "Close critical cyber exposures, establish basic gatekeeping, stop unmanaged public API usage"
+              ],
+              [
+                <strong key="h2">2: Core Engineering & Architecture</strong>,
+                "31–90 days",
+                <strong key="p2" style={{ color: "#f97316" }}>P2 (gap 25–39.9)</strong>,
+                "Private RAG infrastructure, data pipeline observability, baseline validation suites"
+              ],
+              [
+                <strong key="h3">3: Enterprise Scale & Governance</strong>,
+                "3–6 months",
+                <strong key="p3" style={{ color: "#f59e0b" }}>P3 (gap 10–24.9)</strong>,
+                "Automated regression gates, federated CoE delivery pods, model lifecycle monitoring"
+              ],
+              [
+                <strong key="h4">4: Continuous Optimization</strong>,
+                "6–12 months",
+                <strong key="p4" style={{ color: "#10b981" }}>Maintain (gap &lt; 10)</strong>,
+                "Automated benchmarking, continuous cost optimization, advanced fine-tuning"
+              ]
+            ]}
+          />
+          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Solution accelerators:</div>
+          <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
+            <li><strong>OpenLxM</strong> — Private enterprise LLM platform, sovereign model routing, local RAG.</li>
+            <li><strong>OpenVals</strong> — Automated validation suites, continuous drift monitoring, Trust Reports.</li>
+            <li><strong>RedShield</strong> — AI cyber defense, prompt-injection shields, adversarial red teaming.</li>
+            <li><strong>AI CoE</strong> — Operating model advisory, decision rights, capability building.</li>
+            <li><strong>AIxlence</strong> — Strategic governance advisory and portfolio roadmap alignment.</li>
+          </ul>
+
+          <H2>Step 5: Investment Simulator & Value Realization</H2>
+          <Paragraph>
+            <strong>Route:</strong> <code>/aixlence/investment-simulator</code>. The simulator models the return of closing capability gaps using the <strong>DrPinnacle Value Realization Curve</strong>. Planned benefits are not guaranteed: capability maturity determines how much projected value you actually capture.
+          </Paragraph>
+          <div style={{ background: "var(--docs-code-bg)", border: "1px solid var(--docs-border)", padding: "16px 20px", borderRadius: "10px", margin: "18px 0" }}>
+            <code style={{ fontSize: "16px", fontWeight: 700, color: "var(--docs-heading)" }}>
+              P(Value) = min(90%, max(25%, 20% + Score × 0.7%))
+            </code>
+          </div>
+          <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
+            <li>At a score of 20 (Exploring), realization probability is about 34%. Up to 66% of projected returns can be lost to failed deployments, rework, and security incidents.</li>
+            <li>At a score of 80 (Managed/Optimized), probability rises to about 76%.</li>
+          </ul>
+          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Outputs:</div>
+          <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
+            <li><strong>Risk-Adjusted Annual Benefit</strong> — Gross Benefit × P(Value).</li>
+            <li><strong>Risk-Adjusted Net Value</strong> — Risk-Adjusted Benefit − Annual Operating Cost.</li>
+            <li><strong>Risk-Adjusted ROI</strong> — (Risk-Adjusted Net Value ÷ Planned AI Investment) × 100.</li>
+            <li><strong>Incremental Value Lift</strong> — Net gain from maturing capabilities from the current score to the target.</li>
+            <li><strong>Improvement Value Multiple</strong> — Return generated relative to estimated transformation cost.</li>
+            <li><strong>Currency switcher</strong> — Toggle between USD and your display currency using live FX conversion.</li>
+          </ul>
+
+          <H2>Step 6: Service Mapping & Interventions</H2>
+          <Paragraph>
+            <strong>Route:</strong> <code>/aixlence/service-mapping</code>. AIxLence follows a &ldquo;Diagnosis First, Service Second&rdquo; principle. A capability is marked Active (Needs Intervention) when:
+          </Paragraph>
+          <div style={{ background: "var(--docs-code-bg)", border: "1px solid var(--docs-border)", padding: "14px 20px", borderRadius: "10px", margin: "16px 0" }}>
+            <code style={{ fontSize: "16px", fontWeight: 700, color: "var(--docs-heading)" }}>
+              Target Gap ≥ 15 OR Current Score &lt; 70
+            </code>
+          </div>
+          <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
+            <li><strong>Advisory</strong> — Strategy alignment, AI ethics policies, decision-rights workshops, threat modeling.</li>
+            <li><strong>Transformation / Build Pod</strong> — Embedded engineering squads deploying private LLMs, vector knowledge systems, or data pipelines.</li>
+            <li><strong>Validation Lab / Managed Assurance</strong> — Independent continuous testing, red teaming, and release-gate verification.</li>
+          </ul>
+
+          <H2>Step 7: Executive Dashboard</H2>
+          <Paragraph>
+            <strong>Route:</strong> <code>/aixlence/executive-dashboard</code>. Built for CXO and board reviews.
+          </Paragraph>
+          <div style={{ display: "grid", gap: "12px", margin: "18px 0" }}>
+            <div style={{ border: "1px solid var(--docs-border)", borderRadius: "10px", padding: "16px", background: "var(--docs-card)" }}>
+              <strong>1. Executive headline metrics</strong> — Overall maturity score (0–100), maturity band, execution risk index, top priority bottleneck pillar, current vs target risk-adjusted ROI, and incremental net value creation.
+            </div>
+            <div style={{ border: "1px solid var(--docs-border)", borderRadius: "10px", padding: "16px", background: "var(--docs-card)" }}>
+              <strong>2. Capability benchmark grid</strong> — Current score, target score, and gap for all six pillars side by side.
+            </div>
+            <div style={{ border: "1px solid var(--docs-border)", borderRadius: "10px", padding: "16px", background: "var(--docs-card)" }}>
+              <strong>3. Top 3 Next Best Actions</strong> — Immediate interventions with timeframes, required investment, and target outcomes.
+            </div>
+          </div>
+
+          <H2>Step 8: Exporting Board-Ready Reports</H2>
+          <Paragraph>
+            From the top navigation bar or the Executive Dashboard, click <strong>Download Executive Report</strong> or <strong>Print / Export PDF</strong>.
+          </Paragraph>
+          <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
+            <li><strong>Standalone HTML report</strong> — Self-contained document with enterprise metadata and logo, radar chart, executive KPI cards, pillar-by-pillar gap analysis, the full 36-question audit register with evidence notes, ROI and value realization tables, and the phased roadmap.</li>
+            <li><strong>Print / PDF</strong> — Browser print stylesheets optimized for clean page breaks in portrait or landscape.</li>
+          </ul>
+
+          <H2>Reference: Rules and Thresholds at a Glance</H2>
+          <DocsTable
+            headers={["Item", "Rule"]}
+            rows={[
+              ["Pillar score", <code key="rt1">Σ(weight × score) ÷ Σ(weight × 5) × 100</code>],
+              ["Target score", "Default 80; adjustable 50–95"],
+              ["Target gap", <code key="rt2">Target score − current score</code>],
+              ["Execution risk", "Critical below 40; High 40–59.9; Moderate 60–74.9; Low 75 and above"],
+              ["Roadmap priority", "P1 gap ≥ 40; P2 gap ≥ 25; P3 gap ≥ 10; Maintain gap < 10"],
+              ["Intervention trigger", "Gap ≥ 15 or current score < 70"],
+              ["Value realization", <code key="rt3">min(90%, max(25%, 20% + score × 0.7%))</code>],
+              ["Assessment cadence", <strong key="c" style={{ color: "#10b981" }}>Every 90 days</strong>]
+            ]}
+          />
+        </>
+      );
     case "factuality-engine":
       return (
         <>
@@ -2383,6 +2787,27 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
 export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
   const meta = pageMeta[pageId];
 
+  const openvalsTabs: DocsTabItem[] = [
+    {
+      id: "get-started",
+      label: "Get Started",
+      href: "/openvals-docs",
+      active: meta.group === "Get started",
+    },
+    {
+      id: "core-capabilities",
+      label: "Core Capabilities",
+      href: "/openvals-docs/drs",
+      active: meta.group === "Core Capabilities",
+    },
+    {
+      id: "reference",
+      label: "Reference",
+      href: "/openvals-docs/metrics",
+      active: meta.group === "Reference",
+    },
+  ];
+
   return (
     <>
       <style
@@ -2391,29 +2816,72 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
             :root {
               --docs-bg: #ffffff;
               --docs-panel: #ffffff;
-              --docs-header: rgba(255, 255, 255, 0.92);
+              --docs-header: rgba(255, 255, 255, 0.94);
               --docs-card: #ffffff;
               --docs-code-bg: #f8fafc;
               --docs-heading: #111827;
               --docs-text: #1f2937;
               --docs-muted: #6b7280;
               --docs-border: #e5e7eb;
-              --docs-border-soft: #eef2f7;
+              --docs-border-soft: #f1f5f9;
+              --docs-zebra: #f8fafc;
+              --docs-accent: #2563eb;
+              --docs-accent-subtle: rgba(37, 99, 235, 0.08);
+              --docs-pill-bg: #f1f5f9;
+              --docs-pill-border: #cbd5e1;
+              --docs-pill-border-hover: #94a3b8;
+              --docs-dropdown-bg: #ffffff;
+              --docs-dropdown-border: #e2e8f0;
+              --docs-dropdown-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.06);
+              --accent: #2563eb;
             }
 
             @media (prefers-color-scheme: dark) {
               :root {
-                --docs-bg: #050505;
-                --docs-panel: #050505;
-                --docs-header: rgba(5, 5, 5, 0.92);
-                --docs-card: #090909;
-                --docs-code-bg: #0a0a0a;
-                --docs-heading: #f4f4f4;
-                --docs-text: #d8d8d8;
-                --docs-muted: #a8a8a8;
-                --docs-border: #202020;
-                --docs-border-soft: #151515;
+                --docs-bg: #07090e;
+                --docs-panel: #07090e;
+                --docs-header: rgba(7, 9, 14, 0.94);
+                --docs-card: #0e111a;
+                --docs-code-bg: #131722;
+                --docs-heading: #f8fafc;
+                --docs-text: #cbd5e1;
+                --docs-muted: #94a3b8;
+                --docs-border: #1e2433;
+                --docs-border-soft: #141824;
+                --docs-zebra: #0d1018;
+                --docs-accent: #3b82f6;
+                --docs-accent-subtle: rgba(59, 130, 246, 0.14);
+                --docs-pill-bg: #12151f;
+                --docs-pill-border: #232a3b;
+                --docs-pill-border-hover: #3b82f6;
+                --docs-dropdown-bg: #0e111a;
+                --docs-dropdown-border: #232a3b;
+                --docs-dropdown-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.3);
+                --accent: #3b82f6;
               }
+            }
+
+            html.dark :root {
+              --docs-bg: #07090e;
+              --docs-panel: #07090e;
+              --docs-header: rgba(7, 9, 14, 0.94);
+              --docs-card: #0e111a;
+              --docs-code-bg: #131722;
+              --docs-heading: #f8fafc;
+              --docs-text: #cbd5e1;
+              --docs-muted: #94a3b8;
+              --docs-border: #1e2433;
+              --docs-border-soft: #141824;
+              --docs-zebra: #0d1018;
+              --docs-accent: #3b82f6;
+              --docs-accent-subtle: rgba(59, 130, 246, 0.14);
+              --docs-pill-bg: #12151f;
+              --docs-pill-border: #232a3b;
+              --docs-pill-border-hover: #3b82f6;
+              --docs-dropdown-bg: #0e111a;
+              --docs-dropdown-border: #232a3b;
+              --docs-dropdown-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.3);
+              --accent: #3b82f6;
             }
 
             html,
@@ -2422,7 +2890,8 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
               color-scheme: light dark;
               margin: 0 !important;
               padding: 0 !important;
-              overflow: hidden !important;
+              overflow-x: hidden !important;
+              overflow-y: auto !important;
             }
 
             .docsShell * {
@@ -2453,47 +2922,22 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
               transform: translateX(4px);
             }
 
-            .docsTopbarBrand,
             .docsMobileNav {
               display: none;
             }
 
-            @media (max-width: 820px) {
-              .docsShell {
+            @media (max-width: 860px) {
+              .docsBodyGrid {
                 grid-template-columns: minmax(0, 1fr) !important;
-                width: 100vw !important;
-                height: 100dvh !important;
               }
 
               .docsSidebar {
                 display: none !important;
               }
 
-              .docsContent {
-                width: 100vw !important;
-                height: 100dvh !important;
-                overflow-x: hidden !important;
-              }
-
-              .docsTopbar {
-                height: 56px !important;
-                padding: 0 18px !important;
-                gap: 18px !important;
-              }
-
-              .docsTopbarBrand {
-                display: flex !important;
-                align-items: center;
-                color: var(--docs-heading);
-                font-size: 20px;
-                font-weight: 800;
-                text-decoration: none;
-                white-space: nowrap;
-              }
-
-              .docsTopbarLink {
-                margin-left: auto;
-                font-size: 14px !important;
+              .docsGlobalHeaderRow1,
+              .docsGlobalHeaderRow2 {
+                padding: 0 16px !important;
               }
 
               .docsMobileNav {
@@ -2502,8 +2946,8 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
                 overflow-x: auto;
                 padding: 10px 16px;
                 position: sticky;
-                top: 56px;
-                z-index: 2;
+                top: 96px;
+                z-index: 20;
                 background: var(--docs-header);
                 border-bottom: 1px solid var(--docs-border-soft);
                 backdrop-filter: blur(12px);
@@ -2527,12 +2971,19 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
                 line-height: 1;
                 text-decoration: none;
                 white-space: nowrap;
+                transition: all 0.15s ease;
+              }
+
+              .docsMobileNavItem:hover {
+                color: var(--docs-heading);
+                border-color: var(--docs-border-strong);
               }
 
               .docsMobileNavItem.isActive {
-                border-color: var(--docs-heading);
-                color: var(--docs-heading);
-                background: var(--docs-code-bg);
+                border-color: var(--docs-accent, #2563eb);
+                color: var(--docs-accent, #2563eb);
+                background: var(--docs-accent-subtle, rgba(37, 99, 235, 0.12));
+                font-weight: 700;
               }
 
               .docsPageWrap {
@@ -2586,110 +3037,98 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
             }
 
             @media (max-width: 380px) {
-              .docsTopbar {
-                padding: 0 14px !important;
-              }
-
-              .docsTopbarBrand {
-                font-size: 18px;
-              }
-
-              .docsTopbarLink {
-                font-size: 13px !important;
+              .docsGlobalHeaderRow1,
+              .docsGlobalHeaderRow2 {
+                padding: 0 12px !important;
               }
 
               .docsPageWrap {
-                padding-left: 16px !important;
-                padding-right: 16px !important;
+                padding-left: 14px !important;
+                padding-right: 14px !important;
               }
             }
           `,
         }}
       />
-    <main className="docsShell" style={{ position: "fixed", inset: 0, width: "100vw", height: "100vh", background: "var(--docs-bg)", color: "var(--docs-text)", display: "grid", gridTemplateColumns: "300px minmax(0, 1fr)", colorScheme: "light dark", overflow: "hidden" }}>
-      <aside className="docsSidebar" style={{ height: "100vh", borderRight: "1px solid var(--docs-border)", padding: "28px 32px", overflowY: "auto", background: "var(--docs-panel)" }}>
-        <Link href="/" style={{ display: "block", color: "var(--docs-heading)", fontSize: "22px", fontWeight: 800, textDecoration: "none", marginBottom: "36px" }}>
-          OpenVals
-        </Link>
+    <div className="docsShell" style={{ minHeight: "100vh", width: "100%", background: "var(--docs-bg)", color: "var(--docs-text)", display: "flex", flexDirection: "column", colorScheme: "light dark" }}>
+      {/* Unified 2-tier docs header matching Arize screenshot */}
+      <DocsGlobalHeader currentSuite="openvals" tabs={openvalsTabs} />
 
-        <nav style={{ display: "grid", gap: "34px" }}>
-          {navSections.map((section) => (
-            <div key={section.title}>
-              <div style={{ color: "var(--docs-heading)", fontSize: "15px", fontWeight: 700, marginBottom: "14px" }}>{section.title}</div>
-              <div style={{ borderLeft: "1px solid var(--docs-border)", display: "grid", gap: "14px" }}>
-                {section.items.map((item) => {
-                  const active = item.id === pageId;
-                  return (
-                    <Link
-                      key={item.id}
-                      href={pagePath(item.id)}
-                      style={{
-                        color: active ? "var(--docs-heading)" : "var(--docs-muted)",
-                        textDecoration: "none",
-                        fontSize: "15px",
-                        paddingLeft: "18px",
-                        borderLeft: active ? "1px solid var(--docs-heading)" : "1px solid transparent",
-                        marginLeft: "-1px"
-                      }}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
+      {/* Main split: Sidebar + Article */}
+      <div className="docsBodyGrid" style={{ display: "grid", gridTemplateColumns: "290px minmax(0, 1fr)", flex: 1, minHeight: 0 }}>
+        <aside className="docsSidebar" style={{ height: "calc(100vh - 96px)", position: "sticky", top: "96px", overflowY: "auto", borderRight: "1px solid var(--docs-border)", padding: "28px 24px", background: "var(--docs-panel)" }}>
+          <nav style={{ display: "grid", gap: "32px" }}>
+            {navSections.map((section) => (
+              <div key={section.title}>
+                <div style={{ color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{section.title}</div>
+                <div style={{ borderLeft: "1px solid var(--docs-border)", display: "grid", gap: "12px" }}>
+                  {section.items.map((item) => {
+                    const active = item.id === pageId;
+                    return (
+                      <Link
+                        key={item.id}
+                        href={pagePath(item.id)}
+                        style={{
+                          color: active ? "var(--docs-heading)" : "var(--docs-muted)",
+                          textDecoration: "none",
+                          fontSize: "14.5px",
+                          paddingLeft: "16px",
+                          borderLeft: active ? "2px solid #3b82f6" : "2px solid transparent",
+                          marginLeft: "-1px",
+                          fontWeight: active ? 600 : 400,
+                          transition: "color 0.15s ease",
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
-        </nav>
+            ))}
+          </nav>
 
-        <div style={{ borderTop: "1px solid var(--docs-border)", marginTop: "36px", paddingTop: "20px", display: "grid", gap: "16px" }}>
-          <a href="https://github.com/vishwanathakuthota/openvals" target="_blank" rel="noopener noreferrer" style={{ color: "var(--docs-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            GitHub <ExternalLink size={14} />
-          </a>
-          <Link href="/apply" style={{ color: "var(--docs-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            Support <ExternalLink size={14} />
-          </Link>
-        </div>
-      </aside>
+          <div style={{ borderTop: "1px solid var(--docs-border)", marginTop: "36px", paddingTop: "20px", display: "grid", gap: "16px" }}>
+            <a href="https://github.com/vishwanathakuthota/openvals" target="_blank" rel="noopener noreferrer" style={{ color: "var(--docs-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13.5px" }}>
+              GitHub <ExternalLink size={14} />
+            </a>
+            <Link href="/apply" style={{ color: "var(--docs-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13.5px" }}>
+              Enterprise Support <ExternalLink size={14} />
+            </Link>
+          </div>
+        </aside>
 
-      <section className="docsContent" style={{ minWidth: 0, height: "100vh", overflowY: "auto", background: "var(--docs-bg)" }}>
-        <header className="docsTopbar" style={{ height: "58px", borderBottom: "1px solid var(--docs-border-soft)", display: "flex", alignItems: "center", padding: "0 60px", gap: "32px", position: "sticky", top: 0, background: "var(--docs-header)", backdropFilter: "blur(12px)", zIndex: 3 }}>
-          <Link className="docsTopbarBrand" href="/">
-            OpenVals
-          </Link>
-          <Link className="docsTopbarLink" href="/openvals-docs" style={{ color: "var(--docs-heading)", textDecoration: "none", fontWeight: 700, height: "100%", display: "flex", alignItems: "center", borderBottom: "2px solid var(--docs-heading)" }}>
-            Documentation
-          </Link>
-        </header>
+        <section className="docsContent" style={{ minWidth: 0, padding: "0 0 96px 0" }}>
+          <nav className="docsMobileNav" aria-label="Docs navigation">
+            {navSections.flatMap((section) =>
+              section.items.map((item) => {
+                const active = item.id === pageId;
+                return (
+                  <Link
+                    key={`${section.title}-${item.id}`}
+                    href={pagePath(item.id)}
+                    className={`docsMobileNavItem${active ? " isActive" : ""}`}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })
+            )}
+          </nav>
 
-        <nav className="docsMobileNav" aria-label="Docs navigation">
-          {navSections.flatMap((section) =>
-            section.items.map((item) => {
-              const active = item.id === pageId;
-              return (
-                <Link
-                  key={`${section.title}-${item.id}`}
-                  href={pagePath(item.id)}
-                  className={`docsMobileNavItem${active ? " isActive" : ""}`}
-                  aria-current={active ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              );
-            })
-          )}
-        </nav>
-
-        <div className="docsPageWrap" style={{ maxWidth: "980px", margin: "0 auto", padding: "56px 48px 96px" }}>
-          <article className="docsArticle" style={{ minWidth: 0 }}>
-            <div className="docsEyebrow" style={{ color: "var(--docs-muted)", marginBottom: "14px", fontSize: "15px" }}>{meta.group}</div>
-            <h1 className="docsTitle" style={{ fontSize: "42px", lineHeight: 1.1, letterSpacing: 0, margin: "0 0 34px", color: "var(--docs-heading)" }}>
-              {meta.title}
-            </h1>
-            <PageBody pageId={pageId} />
-          </article>
-        </div>
-      </section>
-    </main>
+          <div className="docsPageWrap" style={{ maxWidth: "980px", margin: "0 auto", padding: "48px 48px 96px" }}>
+            <article className="docsArticle" style={{ minWidth: 0 }}>
+              <div className="docsEyebrow" style={{ color: "var(--docs-muted)", marginBottom: "14px", fontSize: "14px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>{meta.group}</div>
+              <h1 className="docsTitle" style={{ fontSize: "40px", lineHeight: 1.15, letterSpacing: "-0.02em", margin: "0 0 32px", color: "var(--docs-heading)", fontWeight: 800 }}>
+                {meta.title}
+              </h1>
+              <PageBody pageId={pageId} />
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
     </>
   );
 }

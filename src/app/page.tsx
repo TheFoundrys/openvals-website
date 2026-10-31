@@ -4,7 +4,6 @@ import { motion, Variants } from "framer-motion";
 import styles from "../components/ui.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import HeroAmbientWaves from "../components/HeroAmbientWaves";
 
 import RealWorldBenchmarks from "../components/RealWorldBenchmarks";
 import LatestReports from "../components/LatestReports";
@@ -35,10 +34,8 @@ export default function Home() {
         {/* SECTION 1: TRUST LAYER + AI FAILS QUIETLY */}
         <section
           className={styles.snapSection}
-          style={{ padding: "clamp(12px, 2vh, 20px) var(--container-padding) 0", background: "var(--hero-bg)" }}
+          style={{ padding: "clamp(12px, 2vh, 20px) var(--container-padding) 0", background: "var(--primary-bg)" }}
         >
-          <HeroAmbientWaves />
-
           <div
             className={`${styles.containerFull} ${styles.snapInner} ${styles.heroSectionInner}`}
           >
