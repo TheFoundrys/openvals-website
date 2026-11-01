@@ -31,7 +31,6 @@ export function HeroPart() {
       >
         {/* Eyebrow Badge */}
         <motion.div variants={FADE_UP} className={styles.heroEyebrowBadge}>
-          <span className={styles.heroEyebrowDot} />
           <span className={styles.heroEyebrowText}>
             ENTERPRISE AI TRUST PLATFORM
           </span>
@@ -102,14 +101,14 @@ export function ActionButtonsPart() {
   return (
     <div className={styles.wFull}>
       <div className={styles.heroStatsSectionWrap}>
-        <div className={styles.heroStatsCardMain}>
+        <div className={styles.heroStatsCardMain} style={{ fontFamily: '"Times New Roman", Times, serif' }}>
           {stats.map((stat) => (
             <div key={stat.label} className={styles.heroStatColumn}>
               <div className={styles.heroStatContent}>
-                <div className={styles.heroStatValueText}>
+                <div className={styles.heroStatValueText} style={{ fontFamily: '"Times New Roman", Times, serif' }}>
                   {stat.value}
                 </div>
-                <div className={styles.heroStatLabelText}>{stat.label}</div>
+                <div className={styles.heroStatLabelText} style={{ fontFamily: '"Times New Roman", Times, serif' }}>{stat.label}</div>
               </div>
             </div>
           ))}

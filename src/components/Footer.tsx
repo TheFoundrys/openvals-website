@@ -10,7 +10,7 @@ export default function Footer() {
       <div className={styles.footerContainer}>
         {/* Left Side: Brand & Copyright */}
         <div className={styles.brandSide}>
-          <Logo size="sm" />
+          <Logo size="sm" font="serif" />
           <div className={styles.copyright}>
             &copy; 2026 OpenVals. All rights reserved.
           </div>
@@ -37,15 +37,6 @@ export default function Footer() {
               <li className={styles.linkItem}>
                 <Link href="/developer">Developer</Link>
               </li>
-              {/* <li className={styles.linkItem}>
-                <Link href="/enterprise-ops">Enterprise Ops</Link>
-              </li> */}
-              {/* <li className={styles.linkItem}>
-                <Link href="/reasoning">Reasoning</Link>
-              </li>
-              <li className={styles.linkItem}>
-                <Link href="/math">Math</Link>
-              </li> */}
             </ul>
           </div>
 

@@ -74,13 +74,11 @@ export default function HeroInteractiveStart() {
               </Link>
 
               <Link
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/book-a-demo"
+                target="_self"
                 className={styles.heroSecondaryBtn}
               >
                 <span>Book a Demo</span>
-                {/* <ArrowRight size={16} /> */}
               </Link>
             </motion.div>
           ) : (
@@ -104,7 +102,7 @@ export default function HeroInteractiveStart() {
                     >
                       pip
                     </button>
-                    <span className={styles.terminalSubLabel}>install</span>
+                    {/* <span className={styles.terminalSubLabel}>install</span> */}
                   </div>
                 </div>
 

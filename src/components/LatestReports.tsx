@@ -225,6 +225,7 @@ export default function LatestReports() {
             className={styles.reportTable}
             style={{
               width: "100%",
+              tableLayout: "fixed",
               borderCollapse: "separate",
               borderSpacing: 0,
             }}
@@ -234,19 +235,19 @@ export default function LatestReports() {
               <tr className={styles.superHeaderRow}>
                 <th
                   className={styles.groupHeaderBenchmarks}
-                  style={{ width: "240px" }}
+                  style={{ width: "25%" }}
                 >
                   MODELS
                 </th>
-                <th colSpan={3} className={styles.groupHeaderPerformance}>
+                <th colSpan={3} className={styles.groupHeaderPerformance} style={{ width: "26%" }}>
                   Performance
                 </th>
-                <th colSpan={5} className={styles.groupHeaderTrust}>
+                <th colSpan={5} className={styles.groupHeaderTrust} style={{ width: "41%" }}>
                   Trust
                 </th>
                 <th
                   className={styles.groupHeaderRankings}
-                  style={{ width: "80px" }}
+                  style={{ width: "8%" }}
                 >
                   RANKINGS
                 </th>
@@ -256,41 +257,41 @@ export default function LatestReports() {
               <tr className={styles.subHeaderRow}>
                 <th
                   className={styles.groupHeaderBenchmarksSub}
-                  style={{ width: "240px" }}
+                  style={{ width: "25%" }}
                 />
                 {/* Performance columns */}
-                <th className={styles.subPerfTh} style={{ width: "110px" }}>
+                <th className={styles.subPerfTh} style={{ width: "10%" }}>
                   Accuracy
                 </th>
-                <th className={styles.subPerfTh} style={{ width: "80px" }}>
+                <th className={styles.subPerfTh} style={{ width: "7.5%" }}>
                   Semantic
                 </th>
-                <th className={styles.subPerfTh} style={{ width: "95px" }}>
+                <th className={styles.subPerfTh} style={{ width: "8.5%" }}>
                   Latency
                 </th>
 
                 {/* Trust columns */}
-                <th className={styles.subTrustTh} style={{ width: "85px" }}>
+                <th className={styles.subTrustTh} style={{ width: "8%" }}>
                   Factuality
                 </th>
-                <th className={styles.subTrustTh} style={{ width: "95px" }}>
+                <th className={styles.subTrustTh} style={{ width: "9.5%" }}>
                   Hallucination
                 </th>
-                <th className={styles.subTrustTh} style={{ width: "75px" }}>
+                <th className={styles.subTrustTh} style={{ width: "7.5%" }}>
                   Safety
                 </th>
-                <th className={styles.subTrustTh} style={{ width: "85px" }}>
+                <th className={styles.subTrustTh} style={{ width: "8%" }}>
                   Reliability
                 </th>
                 <th
                   className={`${styles.subTrustTh} ${styles.drsHeader}`}
-                  style={{ width: "75px" }}
+                  style={{ width: "8%" }}
                 >
                   DRS
                 </th>
                 <th
                   className={styles.groupHeaderRankingsSub}
-                  style={{ width: "80px" }}
+                  style={{ width: "8%" }}
                 />
               </tr>
             </thead>
@@ -318,7 +319,7 @@ export default function LatestReports() {
                                 <Cpu size={14} />
                               )}
                             </span>
-                            <span style={{ fontFamily: "var(--font-inter), monospace", fontWeight: 700 }}>
+                            <span className={styles.modelNameText} title={row.name}>
                               {row.name}
                             </span>
                             <span className={styles.paramBadge}>{row.params}</span>
@@ -389,7 +390,7 @@ export default function LatestReports() {
                             <span className={styles.modelIconWrap}>
                               <Layers size={13} />
                             </span>
-                            <span style={{ fontFamily: "var(--font-inter), monospace", fontWeight: 700 }}>
+                            <span className={styles.modelNameText} title={row.name}>
                               {row.name}
                             </span>
                             <span className={styles.paramBadge}>{row.params}</span>

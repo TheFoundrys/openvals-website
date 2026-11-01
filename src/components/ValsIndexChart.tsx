@@ -671,7 +671,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "9" : "10"}
               fontWeight="600"
               letterSpacing="0.06em"
-              fontFamily="sans-serif"
+              fontFamily="'Georgia', serif"
               transform={`rotate(-90 ${margin.left + (isMobile ? 12 : 14)} ${
                 margin.top + plotHeight - (isMobile ? 14 : 20)
               })`}
@@ -713,7 +713,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "9" : "10"}
               fontWeight="600"
               letterSpacing="0.06em"
-              fontFamily="sans-serif"
+              fontFamily="'Georgia', serif"
               transform={`rotate(-90 ${margin.left + (isMobile ? 12 : 14)} ${
                 margin.top + plotHeight - (isMobile ? 14 : 20)
               })`}
@@ -733,7 +733,7 @@ export default function ValsIndexChart({
             fontSize="10"
             fontWeight="600"
             letterSpacing="0.08em"
-            fontFamily="sans-serif"
+            fontFamily="'Georgia', serif"
           >
             {viewMode === "latency" ? "BEST ACCURACY" : "HIGHEST DRS & ACCURACY"}
           </text>
@@ -767,7 +767,7 @@ export default function ValsIndexChart({
             fontSize={isMobile ? "10.5" : "12"}
             fontWeight="800"
             letterSpacing="0.06em"
-            fontFamily="sans-serif"
+            fontFamily="'Georgia', serif"
           >
             OPENVALS
           </text>
@@ -794,7 +794,7 @@ export default function ValsIndexChart({
                 textAnchor="end"
                 fill="var(--text-muted)"
                 fontSize={isMobile ? "10" : "11"}
-                fontFamily="sans-serif"
+                fontFamily="'Georgia', serif"
               >
                 {acc}%
               </text>
@@ -822,7 +822,7 @@ export default function ValsIndexChart({
                 textAnchor="middle"
                 fill="var(--text-muted)"
                 fontSize={isMobile ? "10" : "11"}
-                fontFamily="sans-serif"
+                fontFamily="'Georgia', serif"
               >
                 {formatXTick(val)}
               </text>
@@ -876,7 +876,7 @@ export default function ValsIndexChart({
                 fill="var(--text-main)"
                 fontSize={isMobile ? "10" : "11"}
                 fontWeight="700"
-                fontFamily="sans-serif"
+                fontFamily="'Georgia', serif"
                 stroke="var(--card-bg)"
                 strokeWidth={isMobile ? "2.5" : "0"}
                 paintOrder="stroke fill"

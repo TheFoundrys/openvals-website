@@ -14,7 +14,6 @@ import {
   BarChart3, 
   ArrowRight,
   TrendingUp,
-  Sparkles
 } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
@@ -169,7 +168,7 @@ export default function WhoWeServePage() {
                   letterSpacing: "0.05em"
                 }}
               >
-                <Sparkles size={14} /> Who We Serve
+                Who We Serve
               </motion.div>
               
               <motion.h1 

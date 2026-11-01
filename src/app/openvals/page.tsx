@@ -11,7 +11,6 @@ import {
   FileCheck2,
   CheckCircle2,
   ArrowRight,
-  Sparkles,
   Layers
 } from "lucide-react";
 import Header from "@/components/Header";
@@ -47,7 +46,7 @@ export default function OpenValsSolutionPage() {
           <div className={styles.container}>
             <motion.div initial="hidden" animate="show" variants={STAGGER} className={styles.heroContent}>
               <motion.div variants={FADE_UP} className={styles.badgePill}>
-                <Sparkles size={16} /> OpenVals™ Evidence-Based AI Validation
+                OpenVals™ Evidence-Based AI Validation
               </motion.div>
 
               <motion.h1 variants={FADE_UP} className={styles.heroTitle}>

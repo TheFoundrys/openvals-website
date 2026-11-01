@@ -124,7 +124,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px var(--container-padding);
+  padding: 14px clamp(12px, 2vw, 28px);
   border-bottom: 1px solid var(--border);
   position: fixed;
   left: 0;
@@ -156,15 +156,15 @@
 .headerLeftCluster {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 1.8vw, 24px);
+  gap: clamp(10px, 1.4vw, 20px);
   min-width: 0;
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 
 .headerRightCluster {
   display: flex;
   align-items: center;
-  gap: clamp(8px, 1.2vw, 16px);
+  gap: clamp(6px, 1vw, 14px);
   min-width: 0;
   flex-shrink: 0;
 }
@@ -172,7 +172,7 @@
 .navBarWithIcons {
   display: flex;
   align-items: center;
-  gap: clamp(4px, 0.8vw, 12px);
+  gap: clamp(2px, 0.6vw, 10px);
   white-space: nowrap;
 }
 
@@ -184,7 +184,7 @@
   font-weight: 500;
   color: var(--text-muted);
   text-decoration: none;
-  padding: 5px 8px;
+  padding: 5px clamp(5px, 0.6vw, 8px);
   border-radius: 6px;
   transition: all 0.15s ease;
   cursor: pointer;
@@ -276,6 +276,7 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
   transition: all 0.15s ease;
   line-height: 1.2;
+  flex-shrink: 0;
 }
 
 .headerSignUpPillBtn:hover {
@@ -396,11 +397,21 @@
 
 @media (min-width: 1024px) {
   .headerSearchInput {
-    width: 190px;
+    width: clamp(130px, 11vw, 175px);
   }
 
   .headerSearchWrap:focus-within .headerSearchInput {
-    width: 240px;
+    width: clamp(160px, 14vw, 220px);
+  }
+}
+
+@media (min-width: 1360px) {
+  .headerSearchInput {
+    width: 200px;
+  }
+
+  .headerSearchWrap:focus-within .headerSearchInput {
+    width: 250px;
   }
 }
 
@@ -472,10 +483,9 @@
     min-width: 0;
   }
 
-  .headerSearchContainer {
-    flex: 1;
-    max-width: 220px;
-    min-width: 0;
+  .headerSearchContainer,
+  .headerSignUpPillBtn {
+    display: none !important;
   }
 
   .headerSearchWrap {
@@ -496,9 +506,6 @@
 }
 
 @media (max-width: 480px) {
-  .headerSearchContainer {
-    max-width: 180px;
-  }
 
   .headerSearchWrap {
     height: 36px;
@@ -521,9 +528,6 @@
 }
 
 @media (max-width: 360px) {
-  .headerSearchContainer {
-    max-width: 140px;
-  }
 
   .headerSearchWrap {
     height: 34px;
@@ -964,25 +968,33 @@
 }
 
 .mobileCtaWrapper {
-  display: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
   margin-bottom: 8px;
+  box-sizing: border-box;
 }
 
 .mobileCtaButton {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 12px 20px;
+  height: 42px;
+  padding: 0 16px;
   background: #2563eb;
   color: #ffffff !important;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
   text-align: center;
+  white-space: nowrap;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+  box-sizing: border-box;
 }
 
 .mobileCtaButton:hover {
@@ -990,29 +1002,59 @@
   color: #ffffff !important;
 }
 
+.mobileLoginBtn {
+  grid-column: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border);
+  color: var(--text-main) !important;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.mobileLoginBtn:hover {
+  background: var(--card-bg);
+  border-color: var(--text-muted);
+}
+
 /* Mobile Menu GitHub Button */
 .mobileGithubBtn {
-  display: inline-flex;
+  grid-column: 2 / 3;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 18px;
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
   border-radius: 8px;
-  background: rgba(241, 245, 249, 0.85);
-  border: 1px solid rgba(226, 232, 240, 0.95);
-  color: #334155 !important;
-  font-size: 14.5px;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border);
+  color: var(--text-main) !important;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1;
   text-decoration: none;
+  text-align: center;
   white-space: nowrap;
   box-sizing: border-box;
   transition: all 0.2s ease;
 }
 
 .mobileGithubBtn:hover {
-  background: rgba(226, 232, 240, 0.95);
-  color: #0284c7 !important;
+  background: var(--card-bg);
+  color: var(--accent) !important;
 }
 
 :global(html.dark) .mobileGithubBtn {
@@ -1106,20 +1148,26 @@
 
 .mobileMenu {
   position: fixed;
-  top: 73px;
+  top: 60px;
+  bottom: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  height: calc(100dvh - 60px);
+  min-height: calc(100dvh - 60px);
   background: var(--primary-bg);
-  padding: 40px var(--container-padding);
+  padding: 20px var(--container-padding) clamp(40px, 8vh, 64px);
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  border-bottom: 1px solid var(--border);
+  gap: 20px;
+  border-bottom: none;
   z-index: 999;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  max-height: calc(100vh - 73px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  box-sizing: border-box;
 }
 
 .mobileMenu a:not(.button) {
@@ -2153,10 +2201,15 @@
   }
 
   .mobileMenu {
-    top: 64px;
-    max-height: calc(100dvh - 64px);
-    padding: 24px var(--container-padding) 32px;
+    top: 60px;
+    bottom: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
+    min-height: calc(100dvh - 60px);
+    padding: 20px var(--container-padding) clamp(40px, 8vh, 64px);
     gap: 20px;
+    box-sizing: border-box;
   }
 }
 
@@ -2179,19 +2232,29 @@
   }
 
   .mobileCtaWrapper {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 10px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
     width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .mobileCtaButton {
-    flex: 1 !important;
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    height: 42px !important;
+  }
+
+  .mobileLoginBtn {
+    grid-column: 1 / 2 !important;
+    width: 100% !important;
+    height: 42px !important;
   }
 
   .mobileGithubBtn {
-    flex: 0 0 auto !important;
+    grid-column: 2 / 3 !important;
+    width: 100% !important;
+    height: 42px !important;
   }
 }
 
@@ -2212,23 +2275,35 @@
   .header {
     display: flex;
     justify-content: space-between;
-    min-height: 64px;
-    padding: 16px var(--container-padding);
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    padding: 0 var(--container-padding);
+    box-sizing: border-box;
   }
 
   .headerSpacer {
-    height: 64px;
+    height: 60px;
   }
 
   .mobileMenu {
-    top: 64px;
-    max-height: calc(100dvh - 64px);
-    padding: 24px var(--container-padding) 32px;
+    top: 60px;
+    bottom: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
+    min-height: calc(100dvh - 60px);
+    padding: 20px var(--container-padding) clamp(40px, 8vh, 64px);
     gap: 20px;
+    box-sizing: border-box;
   }
 
   .mobileCtaWrapper {
-    display: block;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .mobileMenu a:not(.button) {
@@ -2410,7 +2485,11 @@
 
 @media (max-width: 480px) {
   .header {
-    padding: 12px var(--container-padding);
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    padding: 0 var(--container-padding);
+    box-sizing: border-box;
   }
 
   .headerSpacer {
@@ -2418,8 +2497,14 @@
   }
 
   .mobileMenu {
-    top: 64px;
-    max-height: calc(100dvh - 64px);
+    top: 60px;
+    bottom: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
+    min-height: calc(100dvh - 60px);
+    padding: 16px var(--container-padding) clamp(40px, 8vh, 64px);
+    box-sizing: border-box;
   }
 
   .button {

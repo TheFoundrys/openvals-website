@@ -5,6 +5,7 @@ export const dynamic = 'force-static'
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     ['', 1],
+    ['/book-a-demo', 0.95],
     ['/aixlence', 0.95],
     ['/openlxm', 0.95],
     ['/redshield', 0.95],

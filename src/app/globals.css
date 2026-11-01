@@ -1,4 +1,9 @@
 :root {
+  --font-serif-main: "Georgia", "Newsreader", "Times New Roman", serif;
+  --font-logo: var(--font-inter), "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-inter: "Georgia", "Newsreader", "Times New Roman", serif;
+  --font-outfit: "Georgia", "Newsreader", "Times New Roman", serif;
+  --font-serif: "Georgia", "Newsreader", "Times New Roman", serif;
   --primary-bg: #FFFFFF;
   --primary-bg-alpha: rgba(255, 255, 255, 0.85);
   --secondary-bg: #F9FAFB;
@@ -379,7 +384,7 @@ body {
   padding: 0;
   background-color: var(--primary-bg);
   color: var(--text-main);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-serif-main) !important;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -391,10 +396,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-serif-main) !important;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: inherit;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
 }
 
 a {

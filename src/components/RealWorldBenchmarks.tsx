@@ -6,7 +6,7 @@ import { motion, Variants } from "framer-motion";
 import {
   ArrowLeftRight,
   ExternalLink,
-  Sparkles,
+  Layers,
   CheckCircle2,
   AlertTriangle,
   Activity,
@@ -71,7 +71,7 @@ const METRICS: MetricOption[] = [
     label: "Semantic %",
     shortLabel: "Semantic",
     description: "Semantic similarity score",
-    renderIcon: () => <Sparkles size={13} />,
+    renderIcon: () => <Layers size={13} />,
   },
   {
     id: "factuality",

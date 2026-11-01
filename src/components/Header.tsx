@@ -10,10 +10,6 @@ import {
   Search,
   ArrowRight,
   Check,
-  Sparkles,
-  Box,
-  Database,
-  BookOpen,
 } from "lucide-react";
 import Logo from "./Logo";
 import styles from "./ui.module.css";
@@ -45,6 +41,7 @@ const QUICK_SEARCH_LINKS = [
   { name: "AIxLence", category: "Solutions", href: "/aixlence", desc: "Evaluation & benchmarking engine" },
   { name: "OpenLxM", category: "Solutions", href: "/openlxm", desc: "Autonomous agent evaluation" },
   { name: "RedShield", category: "Solutions", href: "/redshield", desc: "AI red teaming & security defense" },
+  { name: "Book a Demo", category: "Demo", href: "/book-a-demo", desc: "Schedule a 30-minute technical walkthrough" },
   { name: "Pricing", category: "General", href: "/pricing", desc: "Enterprise & developer tiers" },
   { name: "OpenVals Docs", category: "Documentation", href: "/openvals-docs", desc: "Trust infrastructure, DRS & API references" },
   { name: "AIxLence Docs", category: "Documentation", href: "/aixlence-docs", desc: "Enterprise AI readiness & capability diagnostics" },
@@ -153,7 +150,7 @@ export default function Header() {
       <header className={styles.header}>
         {/* ── LEFT CLUSTER: LOGO + SEARCH BAR ── */}
         <div className={styles.headerLeftCluster}>
-          <Logo size="sm" />
+          <Logo size="sm" font="sans" className={styles.headerTopLeftLogo} />
 
           {/* Search Box */}
           <div ref={searchContainerRef} className={styles.headerSearchContainer}>
@@ -252,7 +249,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* ── RIGHT CLUSTER: NAV LINKS WITH ICONS + DIVIDER + AUTH ACTIONS ── */}
+        {/* ── RIGHT CLUSTER: NAV LINKS + DIVIDER + AUTH ACTIONS ── */}
         <div className={styles.headerRightCluster}>
           <nav className={styles.navBarWithIcons} aria-label="Main Navigation">
             {/* 0. AIxLence */}
@@ -260,7 +257,6 @@ export default function Header() {
               href="/aixlence"
               className={`${styles.navIconLink} ${pathname?.startsWith("/aixlence") && !pathname?.startsWith("/aixlence-docs") ? styles.navIconLinkActive : ""}`}
             >
-              <Sparkles size={15} className={styles.navItemIcon} />
               <span>AIxLence</span>
             </Link>
 
@@ -269,7 +265,6 @@ export default function Header() {
               href="/models"
               className={`${styles.navIconLink} ${pathname?.startsWith("/models") ? styles.navIconLinkActive : ""}`}
             >
-              <Box size={15} className={styles.navItemIcon} />
               <span>Models</span>
             </Link>
 
@@ -278,7 +273,6 @@ export default function Header() {
               href="/datasets"
               className={`${styles.navIconLink} ${pathname?.startsWith("/datasets") ? styles.navIconLinkActive : ""}`}
             >
-              <Database size={15} className={styles.navItemIcon} />
               <span>Datasets</span>
             </Link>
 
@@ -287,7 +281,6 @@ export default function Header() {
               href="/spaces"
               className={`${styles.navIconLink} ${pathname?.startsWith("/spaces") ? styles.navIconLinkActive : ""}`}
             >
-              <LayoutGrid size={15} className={styles.navItemIcon} />
               <span>Spaces</span>
             </Link> */}
 
@@ -301,7 +294,6 @@ export default function Header() {
                 href="/openvals-docs"
                 className={`${styles.navIconLink} ${pathname?.includes("docs") ? styles.navIconLinkActive : ""}`}
               >
-                <BookOpen size={15} className={styles.navItemIcon} />
                 <span>Docs</span>
               </Link>
 
@@ -399,10 +391,6 @@ export default function Header() {
                     className={styles.dropdownItem}
                     onClick={() => setOpenDropdown(null)}
                   >
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", fontWeight: 600, color: "var(--text-main)" }}>
-                      <span>GitHub</span>
-                      <GithubIcon size={15} />
-                    </div>
                   </a>
                 </motion.div>
               )}
@@ -412,18 +400,20 @@ export default function Header() {
           {/* Vertical Divider */}
           <div className={styles.headerVerticalDivider} aria-hidden="true" />
 
-          {/* Log In */}
+          {/* GitHub Icon (visible on tablet/desktop) */}
           <Link
-              href="https://github.com/vishwanathakuthota/openvals"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.mobileGithubBtn}
-              aria-label="OpenVals on GitHub"
-              title="OpenVals on GitHub"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <GithubIcon size={18} />
-            </Link>
+            href="https://github.com/vishwanathakuthota/openvals"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.headerGithubBtn}
+            aria-label="OpenVals on GitHub"
+            title="OpenVals on GitHub"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <GithubIcon size={18} />
+          </Link>
+
+          {/* Log In */}
           <Link
             href="https://dev.openvalidations.com/auth/login"
             target="_blank"
@@ -498,7 +488,7 @@ export default function Header() {
               href="https://dev.openvalidations.com/auth/login"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.headerGithubBtn}
+              className={styles.mobileLoginBtn}
               onClick={() => setIsMenuOpen(false)}
             >
               Log In
@@ -522,42 +512,37 @@ export default function Header() {
             <Link
               href="/aixlence"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
             >
-              <Sparkles size={18} color="var(--text-muted)" />
               <span>AIxLence</span>
             </Link>
 
             <Link
               href="/models"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
             >
-              <Box size={18} color="var(--text-muted)" />
               <span>Models</span>
             </Link>
 
             <Link
               href="/datasets"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
             >
-              <Database size={18} color="var(--text-muted)" />
               <span>Datasets</span>
             </Link>
 
             {/* <Link
               href="/spaces"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
             >
-              <LayoutGrid size={18} color="var(--text-muted)" />
               <span>Spaces</span>
             </Link> */}
 
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}>
-                <BookOpen size={18} color="var(--text-muted)" />
+              <div style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}>
                 <span>Docs</span>
               </div>
               <div style={{ paddingLeft: "28px", display: "flex", flexDirection: "column", gap: "10px", marginTop: "4px" }}>
@@ -585,24 +570,31 @@ export default function Header() {
             >
               <span>Pricing</span>
             </Link>
+            
+            <Link
+              href="/blog"
+              onClick={() => setIsMenuOpen(false)}
+              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+            >
+              <span>Research & Blog</span>
+            </Link>
 
-            <div style={{ borderTop: "1px solid var(--border)", paddingTop: "14px", marginTop: "6px", display: "flex", flexDirection: "column", gap: "12px" }}>
+            {/* <Link
+              href="/book-a-demo"
+              onClick={() => setIsMenuOpen(false)}
+              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+            >
+              <span>Book A Demo</span>
+            </Link> */}
+            {/* <div style={{ borderTop: "1px solid var(--border)", paddingTop: "14px", marginTop: "6px", display: "flex", flexDirection: "column", gap: "12px" }}>
               <div style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", letterSpacing: "0.08em" }}>
                 Solutions & Insights
               </div>
-              <Link href="/aixlence" onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
-                AIxLence
+              <Link href="/book-a-demo" onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
+                Book a Demo
               </Link>
-              <Link href="/openlxm" onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
-                OpenLxM
-              </Link>
-              <Link href="/redshield" onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
-                RedShield
-              </Link>
-              <Link href="/blog" onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>
-                Research & Blog
-              </Link>
-            </div>
+              
+            </div> */}
           </div>
         </motion.div>
       )}
