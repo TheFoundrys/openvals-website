@@ -106,10 +106,9 @@ export default function HeroInteractiveStart() {
                   </div>
                 </div>
 
-                {/* Command Line with Blue $ and Copy Button */}
+                {/* Command Line with Copy Button */}
                 <div className={styles.terminalBody}>
                   <div className={styles.terminalCodeLine}>
-                    <span className={styles.terminalPromptSign}>$</span>
                     <span className={styles.terminalCodeText}>{command}</span>
                   </div>
 

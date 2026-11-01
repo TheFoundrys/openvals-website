@@ -337,6 +337,151 @@
   margin: 0;
 }
 
+.bookAnotherBtn {
+  margin-top: 10px;
+  padding: 9px 18px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bookAnotherBtn:hover {
+  color: var(--text-main);
+  border-color: var(--text-muted);
+  background: var(--nav-hover, rgba(255, 255, 255, 0.04));
+}
+
+/* ── Pending Scheduling State (Details submitted, awaiting calendar selection) ── */
+.pendingBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 0;
+  gap: 16px;
+}
+
+.pendingIconWrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.12);
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(html.dark) .pendingIconWrap {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+
+.pendingTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.pendingText {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 380px;
+}
+
+.pendingActions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.reopenCalendarBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 20px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 9px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.25);
+}
+
+.reopenCalendarBtn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.openNewTabBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 18px;
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.openNewTabBtn:hover {
+  background: var(--nav-hover, rgba(255, 255, 255, 0.04));
+  border-color: var(--text-muted);
+}
+
+.pendingFooterLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 12.5px;
+}
+
+.editDetailsBtn,
+.manualConfirmBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.15s ease;
+}
+
+.editDetailsBtn:hover,
+.manualConfirmBtn:hover {
+  color: var(--text-main);
+}
+
+.dotDivider {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
 /* ── Popup Modal Overlay for Date Selection ── */
 @keyframes modalFadeIn {
   from {

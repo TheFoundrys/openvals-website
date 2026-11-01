@@ -80,9 +80,45 @@ export default function BookADemoContent() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasSubmittedDetails, setHasSubmittedDetails] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [showCalendarModal, setShowCalendarModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  // Listen for Calendly event_scheduled postMessage
+  useEffect(() => {
+    const handleMessage = (e: MessageEvent) => {
+      const isCalendlyOrigin =
+        typeof e.origin === "string" && e.origin.includes("calendly.com");
+      if (!isCalendlyOrigin) return;
+
+      let eventName = "";
+      if (typeof e.data === "object" && e.data !== null) {
+        eventName = e.data.event;
+      } else if (typeof e.data === "string") {
+        try {
+          const parsed = JSON.parse(e.data);
+          eventName = parsed.event;
+        } catch {
+          if (e.data.includes("calendly.event_scheduled")) {
+            eventName = "calendly.event_scheduled";
+          }
+        }
+      }
+
+      if (eventName === "calendly.event_scheduled") {
+        setIsSuccess(true);
+        setTimeout(() => {
+          setShowCalendarModal(false);
+        }, 1500);
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
 
   const calendlyUrl = useMemo(() => {
     const base = "https://calendly.com/vishwanath-akuthota/30min";
@@ -143,7 +179,7 @@ export default function BookADemoContent() {
         throw new Error(data.error || "Failed to submit demo request.");
       }
 
-      setIsSuccess(true);
+      setHasSubmittedDetails(true);
       setShowCalendarModal(true);
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -216,22 +252,99 @@ export default function BookADemoContent() {
           <div className={styles.rightColumn}>
             <div className={styles.formCard}>
               <div className={styles.formHeader}>
-                <h2 className={styles.formTitle}>Book time with our team</h2>
+                <h2 className={styles.formTitle}>
+                  {isSuccess
+                    ? "Demo Confirmed"
+                    : hasSubmittedDetails
+                    ? "Select Date & Time"
+                    : "Book time with our team"}
+                </h2>
                 <p className={styles.formSubtitle}>
-                  Fill out the form below and an AI evaluation engineer will contact you within 1 business day.
+                  {isSuccess
+                    ? "We look forward to demonstrating OpenVals for your team."
+                    : hasSubmittedDetails
+                    ? "Choose a 30-minute slot that works best for your schedule."
+                    : "Fill out the form below and an AI evaluation engineer will contact you within 1 business day."}
                 </p>
               </div>
 
               {isSuccess ? (
-                /* Success View */
+                /* Success View - ONLY SHOWN AFTER MEETING IS SCHEDULED */
                 <div className={styles.successBox}>
                   <div className={styles.successIconWrap}>
                     <CheckCircle2 size={28} />
                   </div>
                   <h3 className={styles.successTitle}>Thank You!</h3>
                   <p className={styles.successText}>
-                    We have received your demo request. An OpenVals advisor will reach out to you.
+                    Your demo meeting has been confirmed. A calendar invitation and video link have been sent to your email.
                   </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsSuccess(false);
+                      setHasSubmittedDetails(false);
+                      setFormData({
+                        firstName: "",
+                        lastName: "",
+                        workEmail: "",
+                        company: "",
+                        role: "",
+                        message: "",
+                      });
+                    }}
+                    className={styles.bookAnotherBtn}
+                  >
+                    Book another demo
+                  </button>
+                </div>
+              ) : hasSubmittedDetails ? (
+                /* Pending Scheduling View - Details submitted, awaiting date selection */
+                <div className={styles.pendingBox}>
+                  <div className={styles.pendingIconWrap}>
+                    <Calendar size={26} />
+                  </div>
+                  <h3 className={styles.pendingTitle}>Choose Your Demo Time</h3>
+                  <p className={styles.pendingText}>
+                    Your contact information has been saved. Please choose a date and time on the calendar with Vishwanath Akuthota to finalize your booking.
+                  </p>
+
+                  <div className={styles.pendingActions}>
+                    <button
+                      type="button"
+                      onClick={() => setShowCalendarModal(true)}
+                      className={styles.reopenCalendarBtn}
+                    >
+                      <Calendar size={16} />
+                      <span>Choose Date &amp; Time</span>
+                    </button>
+                    <a
+                      href={calendlyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.openNewTabBtn}
+                    >
+                      <ExternalLink size={14} />
+                      <span>Open Calendar in New Tab</span>
+                    </a>
+                  </div>
+
+                  <div className={styles.pendingFooterLinks}>
+                    <button
+                      type="button"
+                      onClick={() => setHasSubmittedDetails(false)}
+                      className={styles.editDetailsBtn}
+                    >
+                      Edit details
+                    </button>
+                    <span className={styles.dotDivider}>•</span>
+                    <button
+                      type="button"
+                      onClick={() => setIsSuccess(true)}
+                      className={styles.manualConfirmBtn}
+                    >
+                      Already scheduled in new tab?
+                    </button>
+                  </div>
                 </div>
               ) : (
                 /* Standard Booking Form */
@@ -340,7 +453,7 @@ export default function BookADemoContent() {
                     disabled={isSubmitting}
                     className={styles.submitBtn}
                   >
-                    <span>{isSubmitting ? "Submitting Request..." : "Request a Demo"}</span>
+                    <span>{isSubmitting ? "Saving Details..." : "Proceed to Select Date & Time"}</span>
                     <ArrowRight size={16} />
                   </button>
 
@@ -400,7 +513,7 @@ export default function BookADemoContent() {
                   Select a Date &amp; Time for Your 30-Minute Demo
                 </h3>
                 <p className={styles.modalSubtitle}>
-                  Meeting with Vishwanath Akuthota (Founder &amp; AI Architect)
+                  Meeting with Vishwanath Akuthota (Founder)
                 </p>
               </div>
 
