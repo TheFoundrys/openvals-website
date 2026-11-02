@@ -1,19 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "../components/ThemeProvider";
 import "./globals.css";
 
 const inter = Inter({
+  subsets: ["latin"],
   variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0f19" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "MLOps",
     "AI Quality Assurance",
     "Predictive Modeling",
-    "Data Pipelines"
+    "Data Pipelines",
   ],
   icons: {
     icon: [
@@ -80,7 +80,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -99,6 +98,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Synchronous inline script to prevent flash of incorrect theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{localStorage.removeItem('theme');localStorage.removeItem('next-themes');localStorage.removeItem('openvals-theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;var r=document.documentElement;r.classList.remove('light','dark');r.classList.add(d?'dark':'light');r.style.colorScheme=d?'dark':'light';}catch(e){}})();`,
+          }}
+        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
@@ -107,10 +112,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${outfit.variable}`}>
-        {children}
+      <body className={inter.variable}>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
 }
-

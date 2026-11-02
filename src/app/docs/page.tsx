@@ -21,6 +21,7 @@ type DocEntry = {
   title: string;
   description: string;
   color: SquareColor;
+  href?: string;
 };
 
 type DocSection = {
@@ -192,6 +193,39 @@ const DOC_SECTIONS: DocSection[] = [
       },
     ],
   },
+  {
+    sectionTitle: "ENTERPRISE AI READINESS & STRATEGY (AIXLENCE)",
+    items: [
+      {
+        id: "aixlence-overview",
+        href: "/aixlence-docs",
+        title: "AIxLence Suite & 6 Pillars",
+        description: "Evidence-backed enterprise AI readiness diagnostic, 6 foundation pillars, and gap analysis",
+        color: "squarePurple",
+      },
+      {
+        id: "aixlence-levels",
+        href: "/aixlence-docs/capability-levels",
+        title: "Capability Levels (L1–L3)",
+        description: "Progressive unlocking from baseline metadata (L1) to 36-question diagnosis (L2) and value analytics (L3)",
+        color: "squareBlue",
+      },
+      {
+        id: "aixlence-simulator",
+        href: "/aixlence-docs/investment-simulator",
+        title: "Investment Simulator & ROI",
+        description: "DrPinnacle Value Realization Curve modeling captured returns, risk-adjusted ROI, and net value creation",
+        color: "squareGreen",
+      },
+      {
+        id: "aixlence-roadmap",
+        href: "/aixlence-docs/roadmap",
+        title: "Transformation Roadmap",
+        description: "Sequenced 4-horizon execution blueprint (0–30d to 6–12m) and integrated solution accelerators",
+        color: "squareOrange",
+      },
+    ],
+  },
 ];
 
 export default function DocsPage() {
@@ -278,7 +312,7 @@ export default function DocsPage() {
                   {section.items.map((item) => (
                     <Link
                       key={item.id}
-                      href={`/openvals-docs${item.id === "welcome" ? "" : `/${item.id}`}`}
+                      href={item.href || `/openvals-docs${item.id === "welcome" ? "" : `/${item.id}`}`}
                       className={styles.gridItem}
                     >
                       <div className={styles.itemTitleRow}>

@@ -10,7 +10,6 @@ import {
   X,
   Flame,
   Heart,
-  Sparkles,
   ExternalLink,
   Mic,
 } from "lucide-react";
@@ -173,7 +172,7 @@ export default function SpacesPage() {
                 rel="noopener noreferrer"
                 className={styles.newSpaceBtn}
               >
-                <Sparkles size={15} /> New Space
+                New Space
               </Link>
               <Link
                 href="/pricing"

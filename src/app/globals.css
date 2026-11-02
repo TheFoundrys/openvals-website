@@ -1,14 +1,23 @@
 :root {
+  --font-serif-main: Georgia, "Newsreader", serif;
+  --font-logo: var(--font-inter), "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-inter: Georgia, "Newsreader", serif;
+  --font-outfit: Georgia, "Newsreader", serif;
+  --font-serif: Georgia, "Newsreader", serif;
+  --font-weight-body: 400;
+  --font-weight-heading: 500;
+  --font-weight-emphasis: 500;
   --primary-bg: #FFFFFF;
-  --primary-bg-alpha: rgba(255, 255, 255, 0.8);
+  --primary-bg-alpha: rgba(255, 255, 255, 0.85);
   --secondary-bg: #F9FAFB;
   --text-main: #111827;
   --text-muted: #6B7280;
   --accent: #002856;
+  --accent-light: #2563eb;
   --border: #E5E7EB;
   --card-bg: #FFFFFF;
-  --grid-dot: rgba(0, 0, 0, 0.1);
-  --shadow: none;
+  --grid-dot: rgba(0, 40, 86, 0.09);
+  --shadow: 0 4px 20px rgba(0, 40, 86, 0.06);
   --logo-color: #1a2b3d;
   --orb-bg: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(240, 249, 255, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
   --orb-border: rgba(0, 0, 0, 0.1);
@@ -23,51 +32,85 @@
   --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
   --logo-blend-mode: multiply;
 
+  /* ── Docs Suite Design Tokens (Light Mode Default) ── */
+  --docs-bg: #ffffff;
+  --docs-panel: #ffffff;
+  --docs-header: rgba(255, 255, 255, 0.94);
+  --docs-card: #ffffff;
+  --docs-code-bg: #f8fafc;
+  --docs-heading: #0f172a;
+  --docs-text: #334155;
+  --docs-muted: #64748b;
+  --docs-border: #e2e8f0;
+  --docs-border-soft: #f1f5f9;
+  --docs-zebra: #f8fafc;
+  --docs-accent: #2563eb;
+  --docs-accent-subtle: rgba(37, 99, 235, 0.08);
+  --docs-pill-bg: #f1f5f9;
+  --docs-pill-border: #cbd5e1;
+  --docs-pill-border-hover: #94a3b8;
+  --docs-dropdown-bg: #ffffff;
+  --docs-dropdown-border: #e2e8f0;
+  --docs-dropdown-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.06);
+
+  /* ── Hero Background & Ambient Lighting (Light Mode) ── */
+  --hero-bg: var(--primary-bg);
+  --hero-glow-ambient: none;
+
   /* ── Hero Animation Tokens (Light Mode Default) ── */
-  --hero-stream-stroke-1: rgba(2, 132, 199, 0.38);
-  --hero-stream-stroke-2: rgba(14, 165, 233, 0.30);
-  --hero-stream-stroke-3: rgba(2, 132, 199, 0.34);
+  --hero-stream-stroke-1: rgba(2, 132, 199, 0.45);
+  --hero-stream-stroke-2: rgba(14, 165, 233, 0.38);
+  --hero-stream-stroke-3: rgba(56, 189, 248, 0.40);
   --hero-stream-packet-1: #0284c7;
   --hero-stream-packet-2: #0ea5e9;
   --hero-stream-packet-trailing: #0369a1;
   --hero-stream-glow: none;
-  --hero-connector-line: rgba(2, 132, 199, 0.16);
+  --hero-connector-line: rgba(2, 132, 199, 0.20);
 
-  --hero-orbit-stroke-1: rgba(2, 132, 199, 0.38);
-  --hero-orbit-stroke-2: rgba(14, 165, 233, 0.32);
-  --hero-orbit-stroke-3: rgba(56, 189, 248, 0.35);
-  --hero-orbit-pulse: rgba(2, 132, 199, 0.7);
+  --hero-orbit-stroke-1: rgba(2, 132, 199, 0.45);
+  --hero-orbit-stroke-2: rgba(14, 165, 233, 0.40);
+  --hero-orbit-stroke-3: rgba(56, 189, 248, 0.36);
+  --hero-orbit-pulse: rgba(2, 132, 199, 0.8);
   --hero-orbit-particle-1: #0284c7;
   --hero-orbit-particle-2: #0ea5e9;
   --hero-orbit-particle-white: #0369a1;
   --hero-orbit-filter: none;
 
-  --hero-label-bg: rgba(255, 255, 255, 0.94);
-  --hero-label-border: rgba(220, 38, 38, 0.35);
-  --hero-label-border-pulse: rgba(2, 132, 199, 0.85);
-  --hero-label-text: #b91c1c;
-  --hero-label-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.12);
+  --hero-label-bg: rgba(255, 255, 255, 0.98);
+  --hero-label-border: rgba(220, 38, 38, 0.85);
+  --hero-label-border-pulse: rgba(2, 132, 199, 0.9);
+  --hero-label-text: #991b1b;
+  --hero-label-shadow: 0 3px 12px rgba(220, 38, 38, 0.18), 0 1px 4px rgba(0, 0, 0, 0.12);
   --hero-label-dot: #dc2626;
   --hero-label-dot-flash: #0284c7;
 
-  --hero-part-left-opacity-mult: 0.36;
-  --hero-part-mid-opacity-mult: 0.55;
-  --hero-part-right-opacity-mult: 0.85;
-  --hero-part-bottom-opacity-mult: 0.25;
-  --hero-part-color-cyan: rgba(2, 132, 199, 0.65);
-  --hero-part-color-pale: rgba(14, 165, 233, 0.7);
-  --hero-part-color-mid: #0284c7;
-  --hero-part-glow-mid: none;
+  /* Floating Telemetry Badges (Light Mode) */
+  --hero-badge-bg: rgba(255, 255, 255, 0.96);
+  --hero-badge-border: rgba(2, 132, 199, 0.35);
+  --hero-badge-shadow: 0 4px 16px rgba(0, 40, 86, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --hero-badge-text: #0f172a;
+  --hero-badge-accent: #0284c7;
+  --hero-badge-dot: #0ea5e9;
+
+  --hero-part-left-opacity-mult: 0.55;
+  --hero-part-mid-opacity-mult: 0.70;
+  --hero-part-right-opacity-mult: 0.90;
+  --hero-part-bottom-opacity-mult: 0.38;
+  --hero-part-color-cyan: #0284c7;
+  --hero-part-color-pale: #38bdf8;
+  --hero-part-color-mid: #0ea5e9;
+  --hero-part-glow-mid: 0 0 8px rgba(14, 165, 233, 0.35);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-bg: #0b0f19;
-    --primary-bg-alpha: rgba(11, 15, 25, 0.8);
+    --primary-bg-alpha: rgba(11, 15, 25, 0.85);
     --secondary-bg: #111827;
     --text-main: #FFFFFF;
     --text-muted: #D1D5DB;
     --accent: #3b82f6;
+    --accent-light: #60a5fa;
     --border: #1f2937;
     --card-bg: #111827;
     --grid-dot: rgba(255, 255, 255, 0.1);
@@ -83,6 +126,31 @@
     --logo-filter-standard: invert(1) grayscale(100%) opacity(0.85);
     --logo-filter-darkbg: grayscale(100%) opacity(0.85);
     --logo-blend-mode: screen;
+
+    /* ── Docs Suite Design Tokens (Dark Mode) ── */
+    --docs-bg: #07090e;
+    --docs-panel: #07090e;
+    --docs-header: rgba(7, 9, 14, 0.94);
+    --docs-card: #0e111a;
+    --docs-code-bg: #131722;
+    --docs-heading: #f8fafc;
+    --docs-text: #cbd5e1;
+    --docs-muted: #94a3b8;
+    --docs-border: #1e2433;
+    --docs-border-soft: #141824;
+    --docs-zebra: #0d1018;
+    --docs-accent: #3b82f6;
+    --docs-accent-subtle: rgba(59, 130, 246, 0.14);
+    --docs-pill-bg: #12151f;
+    --docs-pill-border: #232a3b;
+    --docs-pill-border-hover: #3b82f6;
+    --docs-dropdown-bg: #0e111a;
+    --docs-dropdown-border: #232a3b;
+    --docs-dropdown-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.3);
+
+    /* ── Hero Background & Ambient Lighting (Dark Mode) ── */
+    --hero-bg: var(--primary-bg);
+    --hero-glow-ambient: none;
 
     /* ── Hero Animation Tokens (Dark Mode) ── */
     --hero-stream-stroke-1: url(#streamGrad1);
@@ -103,13 +171,21 @@
     --hero-orbit-particle-white: #ffffff;
     --hero-orbit-filter: url(#orbGlow);
 
-    --hero-label-bg: rgba(8, 14, 28, 0.96);
-    --hero-label-border: rgba(255, 77, 90, 0.5);
+    --hero-label-bg: rgba(15, 23, 42, 0.96);
+    --hero-label-border: rgba(248, 113, 113, 0.72);
     --hero-label-border-pulse: rgba(0, 240, 255, 0.95);
-    --hero-label-text: #ff4d5a;
-    --hero-label-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 77, 90, 0.4);
+    --hero-label-text: #ff858d;
+    --hero-label-shadow: 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 10px rgba(239, 68, 68, 0.28);
     --hero-label-dot: #ff4d5a;
     --hero-label-dot-flash: #00f0ff;
+
+    /* Floating Telemetry Badges (Dark Mode) */
+    --hero-badge-bg: rgba(15, 23, 42, 0.94);
+    --hero-badge-border: rgba(56, 189, 248, 0.38);
+    --hero-badge-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.16);
+    --hero-badge-text: #f8fafc;
+    --hero-badge-accent: #38bdf8;
+    --hero-badge-dot: #00f0ff;
 
     --hero-part-left-opacity-mult: 0.85;
     --hero-part-mid-opacity-mult: 1.0;
@@ -123,10 +199,53 @@
 }
 
 html.dark {
+  --primary-bg: #0b0f19;
+  --primary-bg-alpha: rgba(11, 15, 25, 0.85);
+  --secondary-bg: #111827;
+  --text-main: #FFFFFF;
+  --text-muted: #D1D5DB;
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --border: #1f2937;
+  --card-bg: #111827;
+  --grid-dot: rgba(255, 255, 255, 0.1);
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  --logo-color: #FFFFFF;
+  --orb-bg: radial-gradient(circle at 30% 30%, rgba(17, 24, 39, 0.8) 0%, rgba(11, 15, 25, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
+  --orb-border: rgba(255, 255, 255, 0.2);
+  --icon-invert: 1;
+  --shield-base: #2F80ED;
+  --shield-glow: rgba(47, 128, 237, 0.6);
+  --shield-glow-strong: rgba(47, 128, 237, 0.4);
+  --shield-impact: rgba(47, 128, 237, 0.7);
   --logo-filter-standard: invert(1) grayscale(100%) opacity(0.85);
   --logo-filter-darkbg: grayscale(100%) opacity(0.85);
   --logo-blend-mode: screen;
+
+  /* ── Docs Suite Design Tokens (html.dark) ── */
+  --docs-bg: #07090e;
+  --docs-panel: #07090e;
+  --docs-header: rgba(7, 9, 14, 0.94);
+  --docs-card: #0e111a;
+  --docs-code-bg: #131722;
+  --docs-heading: #f8fafc;
+  --docs-text: #cbd5e1;
+  --docs-muted: #94a3b8;
+  --docs-border: #1e2433;
+  --docs-border-soft: #141824;
+  --docs-zebra: #0d1018;
+  --docs-accent: #3b82f6;
+  --docs-accent-subtle: rgba(59, 130, 246, 0.14);
+  --docs-pill-bg: #12151f;
+  --docs-pill-border: #232a3b;
+  --docs-pill-border-hover: #3b82f6;
+  --docs-dropdown-bg: #0e111a;
+  --docs-dropdown-border: #232a3b;
+  --docs-dropdown-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  /* ── Hero Background & Ambient Lighting (html.dark) ── */
+  --hero-bg: var(--primary-bg);
+  --hero-glow-ambient: none;
 
   /* ── Hero Animation Tokens (html.dark) ── */
   --hero-stream-stroke-1: url(#streamGrad1);
@@ -147,13 +266,21 @@ html.dark {
   --hero-orbit-particle-white: #ffffff;
   --hero-orbit-filter: url(#orbGlow);
 
-  --hero-label-bg: rgba(8, 14, 28, 0.96);
-  --hero-label-border: rgba(255, 77, 90, 0.5);
-  --hero-label-border-pulse: rgba(0, 240, 255, 0.95);
-  --hero-label-text: #ff4d5a;
-  --hero-label-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 77, 90, 0.4);
-  --hero-label-dot: #ff4d5a;
-  --hero-label-dot-flash: #00f0ff;
+  --hero-label-bg: rgba(15, 23, 42, 0.96);
+    --hero-label-border: rgba(248, 113, 113, 0.72);
+    --hero-label-border-pulse: rgba(0, 240, 255, 0.95);
+    --hero-label-text: #ff858d;
+    --hero-label-shadow: 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 10px rgba(239, 68, 68, 0.28);
+    --hero-label-dot: #ff4d5a;
+    --hero-label-dot-flash: #00f0ff;
+
+  /* Floating Telemetry Badges (html.dark) */
+  --hero-badge-bg: rgba(15, 23, 42, 0.94);
+    --hero-badge-border: rgba(56, 189, 248, 0.38);
+    --hero-badge-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.16);
+    --hero-badge-text: #f8fafc;
+    --hero-badge-accent: #38bdf8;
+    --hero-badge-dot: #00f0ff;
 
   --hero-part-left-opacity-mult: 0.85;
   --hero-part-mid-opacity-mult: 1.0;
@@ -166,46 +293,92 @@ html.dark {
 }
 
 html.light {
-  --shadow: none;
+  --primary-bg: #FFFFFF;
+  --primary-bg-alpha: rgba(255, 255, 255, 0.85);
+  --secondary-bg: #F9FAFB;
+  --text-main: #111827;
+  --text-muted: #6B7280;
+  --accent: #002856;
+  --accent-light: #2563eb;
+  --border: #E5E7EB;
+  --card-bg: #FFFFFF;
+  --grid-dot: rgba(0, 40, 86, 0.09);
+  --shadow: 0 4px 20px rgba(0, 40, 86, 0.06);
+  --logo-color: #1a2b3d;
+  --orb-bg: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(240, 249, 255, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
+  --orb-border: rgba(0, 0, 0, 0.1);
   --logo-filter-standard: grayscale(100%) opacity(0.85);
   --logo-filter-darkbg: invert(1) grayscale(100%) opacity(0.85);
   --logo-blend-mode: multiply;
 
+  /* ── Docs Suite Design Tokens (Light Mode Default) ── */
+  --docs-bg: #ffffff;
+  --docs-panel: #ffffff;
+  --docs-header: rgba(255, 255, 255, 0.94);
+  --docs-card: #ffffff;
+  --docs-code-bg: #f8fafc;
+  --docs-heading: #0f172a;
+  --docs-text: #334155;
+  --docs-muted: #64748b;
+  --docs-border: #e2e8f0;
+  --docs-border-soft: #f1f5f9;
+  --docs-zebra: #f8fafc;
+  --docs-accent: #2563eb;
+  --docs-accent-subtle: rgba(37, 99, 235, 0.08);
+  --docs-pill-bg: #f1f5f9;
+  --docs-pill-border: #cbd5e1;
+  --docs-pill-border-hover: #94a3b8;
+  --docs-dropdown-bg: #ffffff;
+  --docs-dropdown-border: #e2e8f0;
+  --docs-dropdown-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.06);
+
+  /* ── Hero Background & Ambient Lighting (html.light) ── */
+  --hero-bg: var(--primary-bg);
+  --hero-glow-ambient: none;
+
   /* ── Hero Animation Tokens (html.light) ── */
-  --hero-stream-stroke-1: rgba(2, 132, 199, 0.38);
-  --hero-stream-stroke-2: rgba(14, 165, 233, 0.30);
-  --hero-stream-stroke-3: rgba(2, 132, 199, 0.34);
+  --hero-stream-stroke-1: rgba(2, 132, 199, 0.45);
+  --hero-stream-stroke-2: rgba(14, 165, 233, 0.38);
+  --hero-stream-stroke-3: rgba(56, 189, 248, 0.40);
   --hero-stream-packet-1: #0284c7;
   --hero-stream-packet-2: #0ea5e9;
   --hero-stream-packet-trailing: #0369a1;
   --hero-stream-glow: none;
-  --hero-connector-line: rgba(2, 132, 199, 0.16);
+  --hero-connector-line: rgba(2, 132, 199, 0.20);
 
-  --hero-orbit-stroke-1: rgba(2, 132, 199, 0.38);
-  --hero-orbit-stroke-2: rgba(14, 165, 233, 0.32);
-  --hero-orbit-stroke-3: rgba(56, 189, 248, 0.35);
-  --hero-orbit-pulse: rgba(2, 132, 199, 0.7);
+  --hero-orbit-stroke-1: rgba(2, 132, 199, 0.45);
+  --hero-orbit-stroke-2: rgba(14, 165, 233, 0.40);
+  --hero-orbit-stroke-3: rgba(56, 189, 248, 0.36);
+  --hero-orbit-pulse: rgba(2, 132, 199, 0.8);
   --hero-orbit-particle-1: #0284c7;
   --hero-orbit-particle-2: #0ea5e9;
   --hero-orbit-particle-white: #0369a1;
   --hero-orbit-filter: none;
 
-  --hero-label-bg: rgba(255, 255, 255, 0.94);
-  --hero-label-border: rgba(220, 38, 38, 0.35);
-  --hero-label-border-pulse: rgba(2, 132, 199, 0.85);
-  --hero-label-text: #b91c1c;
-  --hero-label-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.12);
+  --hero-label-bg: rgba(255, 255, 255, 0.98);
+  --hero-label-border: rgba(220, 38, 38, 0.85);
+  --hero-label-border-pulse: rgba(2, 132, 199, 0.9);
+  --hero-label-text: #991b1b;
+  --hero-label-shadow: 0 3px 12px rgba(220, 38, 38, 0.18), 0 1px 4px rgba(0, 0, 0, 0.12);
   --hero-label-dot: #dc2626;
   --hero-label-dot-flash: #0284c7;
 
-  --hero-part-left-opacity-mult: 0.36;
-  --hero-part-mid-opacity-mult: 0.55;
-  --hero-part-right-opacity-mult: 0.85;
-  --hero-part-bottom-opacity-mult: 0.25;
-  --hero-part-color-cyan: rgba(2, 132, 199, 0.65);
-  --hero-part-color-pale: rgba(14, 165, 233, 0.7);
-  --hero-part-color-mid: #0284c7;
-  --hero-part-glow-mid: none;
+  /* Floating Telemetry Badges (html.light) */
+  --hero-badge-bg: rgba(255, 255, 255, 0.96);
+  --hero-badge-border: rgba(2, 132, 199, 0.35);
+  --hero-badge-shadow: 0 4px 16px rgba(0, 40, 86, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --hero-badge-text: #0f172a;
+  --hero-badge-accent: #0284c7;
+  --hero-badge-dot: #0ea5e9;
+
+  --hero-part-left-opacity-mult: 0.55;
+  --hero-part-mid-opacity-mult: 0.70;
+  --hero-part-right-opacity-mult: 0.90;
+  --hero-part-bottom-opacity-mult: 0.38;
+  --hero-part-color-cyan: #0284c7;
+  --hero-part-color-pale: #38bdf8;
+  --hero-part-color-mid: #0ea5e9;
+  --hero-part-glow-mid: 0 0 8px rgba(14, 165, 233, 0.35);
 }
 
 html,
@@ -214,7 +387,7 @@ body {
   padding: 0;
   background-color: var(--primary-bg);
   color: var(--text-main);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-serif-main) !important;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -222,16 +395,22 @@ body {
 
 h1,
 h2,
-h1,
-h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-inter), sans-serif;
-  font-weight: 600;
+  font-family: var(--font-serif-main) !important;
+  font-weight: var(--font-weight-heading);
   letter-spacing: -0.01em;
   color: inherit;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
 }
 
 a {
@@ -341,5 +520,16 @@ canvas {
   main [style*="display: flex"][style*="gap: 20px"]:not([style*="space-between"]) {
     flex-wrap: wrap !important;
     gap: 16px !important;
+  }
+}
+
+/* ── Reduced Motion Support (Independent of Theme) ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

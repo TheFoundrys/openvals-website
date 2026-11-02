@@ -7,11 +7,11 @@ export default function AmbientGrid() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
-  // Fade the grid in and out as user scrolls through the section
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 0.4, 0.1]);
+  // Keep ambient grid visibly present at top and gently fade on scroll
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.65, 0.85, 0.25]);
 
   return (
     <motion.div
@@ -22,10 +22,10 @@ export default function AmbientGrid() {
         pointerEvents: "none",
         zIndex: 0,
         opacity,
-        backgroundSize: "40px 40px",
-        backgroundImage: "radial-gradient(circle, var(--grid-dot) 1px, transparent 1px)",
-        maskImage: "linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",
-        WebkitMaskImage: "linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",
+        backgroundSize: "44px 44px",
+        backgroundImage: "radial-gradient(circle, var(--grid-dot) 1.2px, transparent 1.2px)",
+        maskImage: "linear-gradient(to bottom, black 0%, black 85%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 85%, transparent 100%)",
       }}
     />
   );

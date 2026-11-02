@@ -61,7 +61,7 @@ export default function AICompassPage() {
               borderRadius: "100px",
               color: "var(--accent)",
               fontSize: "12px",
-              fontWeight: "700",
+              fontWeight: "500",
               letterSpacing: "0.2em",
               marginBottom: "24px",
               border: "1px solid rgba(59, 130, 246, 0.2)"
@@ -77,8 +77,8 @@ export default function AICompassPage() {
               marginBottom: "24px",
               color: "var(--text-main)"
             }}>
-              Navigate AI with <span style={{ fontWeight: 800 }}>Confidence.</span><br />
-              <span style={{ color: "var(--accent)", fontWeight: 800 }}>Build with Clarity.</span>
+              Navigate AI with <span style={{ fontWeight: 500 }}>Confidence.</span><br />
+              <span style={{ color: "var(--accent)", fontWeight: 500 }}>Build with Clarity.</span>
             </motion.h1>
 
             <motion.p variants={FADE_UP} style={{ 
@@ -105,7 +105,7 @@ export default function AICompassPage() {
           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }}>
               <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER}>
-                <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 700, marginBottom: "32px", letterSpacing: "-0.01em" }}>
+                <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 500, marginBottom: "32px", letterSpacing: "-0.01em" }}>
                   What is AI Compass?
                 </motion.h2>
                 <motion.p variants={FADE_UP} style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.8, marginBottom: "24px" }}>
@@ -121,7 +121,7 @@ export default function AICompassPage() {
                     "Risk-aware and secure",
                     "Designed for long-term success"
                   ].map((item, i) => (
-                    <motion.div key={i} variants={FADE_UP} style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "15px", fontWeight: "600" }}>
+                    <motion.div key={i} variants={FADE_UP} style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "15px", fontWeight: "500" }}>
                       <CheckCircle2 color="var(--accent)" size={20} /> {item}
                     </motion.div>
                   ))}
@@ -140,7 +140,7 @@ export default function AICompassPage() {
         <section className={styles.section}>
           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: "64px" }}>
-              <h2 style={{ fontSize: "40px", fontWeight: 700, marginBottom: "20px" }}>Why AI Compass?</h2>
+              <h2 style={{ fontSize: "40px", fontWeight: 500, marginBottom: "20px" }}>Why AI Compass?</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "700px", margin: "0 auto" }}>
                 Many AI projects fail — not due to lack of technology, but due to lack of clarity, direction, and strategy.
               </p>
@@ -154,7 +154,7 @@ export default function AICompassPage() {
                 { title: "Measurable Success", desc: "Define clear KPIs and track performance at every stage." }
               ].map((benefit, i) => (
                 <motion.div key={i} whileHover={{ y: -5 }} className={styles.card} style={{ padding: "32px", background: "rgba(255,255,255,0.02)", border: "1px solid var(--border)" }}>
-                  <h3 style={{ fontSize: "22px", fontWeight: 600, marginBottom: "16px", color: "var(--accent)" }}>{benefit.title}</h3>
+                  <h3 style={{ fontSize: "22px", fontWeight: 500, marginBottom: "16px", color: "var(--accent)" }}>{benefit.title}</h3>
                   <p style={{ color: "var(--text-muted)", fontSize: "15px", lineHeight: 1.6 }}>{benefit.desc}</p>
                 </motion.div>
               ))}
@@ -166,7 +166,7 @@ export default function AICompassPage() {
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: "50px" }}>
-              <h2 style={{ fontSize: "40px", fontWeight: 700, marginBottom: "16px" }}>Our AI Compass Framework</h2>
+              <h2 style={{ fontSize: "40px", fontWeight: 500, marginBottom: "16px" }}>Our AI Compass Framework</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px" }}>Six essential pillars that ensure successful AI adoption</p>
             </div>
             
@@ -198,7 +198,7 @@ export default function AICompassPage() {
                   }}>
                     <pillar.icon size={24} strokeWidth={2.5} style={{ display: "block", margin: 0 }} />
                   </div>
-                  <h4 style={{ fontSize: "20px", fontWeight: 600, margin: 0 }}>{pillar.title}</h4>
+                  <h4 style={{ fontSize: "20px", fontWeight: 500, margin: 0 }}>{pillar.title}</h4>
                   <p style={{ color: "var(--text-muted)", fontSize: "15px", lineHeight: 1.6, margin: 0 }}>{pillar.desc}</p>
                 </motion.div>
               ))}
@@ -209,7 +209,7 @@ export default function AICompassPage() {
         {/* WHO SHOULD USE? */}
         <section className={styles.section}>
           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-            <h2 style={{ fontSize: "40px", fontWeight: 700, textAlign: "center", marginBottom: "64px" }}>Who Should Use AI Compass?</h2>
+            <h2 style={{ fontSize: "40px", fontWeight: 500, textAlign: "center", marginBottom: "64px" }}>Who Should Use AI Compass?</h2>
             <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
               {[
                 { icon: Briefcase, title: "Business Leaders & Executives", desc: "Drive growth, efficiency, and competitive advantage through AI." },
@@ -220,7 +220,7 @@ export default function AICompassPage() {
                    <div style={{ color: "var(--accent)", display: "inline-flex", padding: "20px", background: "var(--secondary-bg)", borderRadius: "50%", marginBottom: "24px" }}>
                      <user.icon size={32} />
                    </div>
-                   <h4 style={{ fontSize: "20px", fontWeight: 600, marginBottom: "16px" }}>{user.title}</h4>
+                   <h4 style={{ fontSize: "20px", fontWeight: 500, marginBottom: "16px" }}>{user.title}</h4>
                    <p style={{ color: "var(--text-muted)", fontSize: "15px" }}>{user.desc}</p>
                 </div>
               ))}
@@ -231,7 +231,7 @@ export default function AICompassPage() {
         {/* INDUSTRY USE CASES */}
         <section className={styles.section} style={{ background: "var(--primary-bg)", borderTop: "1px solid var(--border)" }}>
            <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-              <h2 style={{ fontSize: "40px", fontWeight: 700, textAlign: "center", marginBottom: "64px" }}>Industry Use Cases</h2>
+              <h2 style={{ fontSize: "40px", fontWeight: 500, textAlign: "center", marginBottom: "64px" }}>Industry Use Cases</h2>
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>
                 {[
                   { domain: "Healthcare", use: "Predictive analytics & diagnostics" },
@@ -241,7 +241,7 @@ export default function AICompassPage() {
                   { domain: "Education", use: "Intelligent learning systems" }
                 ].map((item, i) => (
                   <div key={i} style={{ padding: "24px 32px", background: "var(--secondary-bg)", border: "1px solid var(--border)", borderRadius: "16px" }}>
-                    <div style={{ fontWeight: 800, color: "var(--accent)", marginBottom: "4px" }}>{item.domain}</div>
+                    <div style={{ fontWeight: 500, color: "var(--accent)", marginBottom: "4px" }}>{item.domain}</div>
                     <div style={{ fontSize: "14px", color: "var(--text-muted)" }}>{item.use}</div>
                   </div>
                 ))}
@@ -255,11 +255,11 @@ export default function AICompassPage() {
         {/* CALL TO ACTION */}
         <section className={styles.section} style={{ background: "var(--accent)", color: "#fff", textAlign: "center" }}>
            <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-              <h2 style={{ fontSize: "clamp(32px, 5vw, 42px)", fontWeight: 700, marginBottom: "24px", color: "#fff" }}>Ready to transform your business with AI?</h2>
+              <h2 style={{ fontSize: "clamp(32px, 5vw, 42px)", fontWeight: 500, marginBottom: "24px", color: "#fff" }}>Ready to transform your business with AI?</h2>
               <p style={{ fontSize: "20px", marginBottom: "40px", opacity: 0.9 }}>
                 Start your journey with AI Compass today and turn complexity into clarity.
               </p>
-              <Link href="/apply" className={styles.button} style={{ background: "#fff", color: "var(--accent)", padding: "18px 40px", fontWeight: 800 }}>
+              <Link href="/apply" className={styles.button} style={{ background: "#fff", color: "var(--accent)", padding: "18px 40px", fontWeight: 500 }}>
                 Schedule Your Free Consultation Now
               </Link>
            </div>

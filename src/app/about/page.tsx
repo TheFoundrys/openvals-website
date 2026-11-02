@@ -165,7 +165,7 @@ export default function About() {
                 <motion.div variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "24px", textAlign: "left", alignItems: "flex-start", flex: "1 1 500px", minWidth: "min(100%, 300px)" }}>
                   <div>
                     <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", lineHeight: 1.1, marginBottom: "8px" }}>Vishwanath Akuthota</h2>
-                    <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
+                    <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 500 }}>Founder</p>
                   </div>
 
                   <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "left", maxWidth: "800px" }}>

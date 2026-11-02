@@ -92,7 +92,7 @@ export default function ServicesPage() {
                   <div style={{ color: "var(--accent)", marginBottom: "32px" }}>
                     <service.icon size={40} />
                   </div>
-                  <h3 style={{ fontSize: "28px", fontWeight: "700", marginBottom: "20px", minHeight: "76px" }}>{service.title}</h3>
+                  <h3 style={{ fontSize: "28px", fontWeight: "500", marginBottom: "20px", minHeight: "76px" }}>{service.title}</h3>
                   <p style={{ color: "var(--text-muted)", marginBottom: "32px", fontSize: "16px", lineHeight: "1.7", minHeight: "82px" }}>{service.desc}</p>
                   
                   <div style={{ borderTop: "1px solid var(--border)", paddingTop: "32px", marginTop: "auto" }}>

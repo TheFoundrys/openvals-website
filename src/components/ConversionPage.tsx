@@ -726,7 +726,7 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
           <h3 style={{ margin: "0 0 8px", fontSize: compact ? "clamp(18px, 3.2vw, 23px)" : "clamp(24px, 4.5vw, 32px)", lineHeight: 1.15 }}>
             Research, books, media, and IEEE publications behind the trust layer.
           </h3>
-          <Link href="/vishwanathakuthota" className={styles.textLink} style={{ color: "var(--accent)", fontWeight: 700, display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "14px" }}>
+          <Link href="/vishwanathakuthota" className={styles.textLink} style={{ color: "var(--accent)", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "14px" }}>
             View founder profile <ArrowRight size={16} />
           </Link>
         </div>
@@ -753,7 +753,7 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
                 justifyContent: "center",
               }}
             >
-              <div style={{ color: "var(--accent)", fontSize: compact ? "clamp(18px, 3.5vw, 24px)" : "30px", fontWeight: 900, lineHeight: 1 }}>{item.value}</div>
+              <div style={{ color: "var(--accent)", fontSize: compact ? "clamp(18px, 3.5vw, 24px)" : "30px", fontWeight: 500, lineHeight: 1 }}>{item.value}</div>
               <p style={{ margin: "6px 0 0", color: "var(--text-muted)", fontSize: compact ? "11.5px" : "12.5px", lineHeight: 1.35 }}>{item.label}</p>
             </motion.div>
           ))}
@@ -773,7 +773,7 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
                 style={{
                   color: "var(--text-main)",
                   fontFamily: "Georgia, serif",
-                  fontWeight: 900,
+                  fontWeight: 500,
                   fontSize: compact ? "clamp(18px, 3.2vw, 23px)" : "clamp(22px, 4vw, 26px)",
                   opacity: 0.9,
                   cursor: "default",
@@ -841,7 +841,7 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
             <span
               style={{
                 color: "var(--text-muted)",
-                fontWeight: 700,
+                fontWeight: 500,
                 fontSize: "12.5px",
                 whiteSpace: "nowrap",
                 userSelect: "none",
@@ -861,7 +861,7 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
     <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} style={{ width: "100%", minWidth: 0 }}>
       <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "20px", marginBottom: "22px", flexWrap: "wrap" }}>
         <div>
-          <div style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 800, textTransform: "uppercase", letterSpacing: 0 }}>
+          <div style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 500, textTransform: "uppercase", letterSpacing: 0 }}>
             Engagement Packages
           </div>
           <h2 style={{ margin: "8px 0 0", fontSize: compact ? "clamp(22px, 4vw, 28px)" : "clamp(28px, 5vw, 42px)", lineHeight: 1.15 }}>
@@ -888,18 +888,21 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
             <div
               className={styles.card}
               style={{
+                display: "flex",
+                flexDirection: "column",
                 padding: compact ? "20px" : "28px",
                 borderRadius: "12px",
                 background: featured ? "color-mix(in srgb, var(--accent) 10%, var(--card-bg))" : "var(--card-bg)",
                 borderColor: featured ? "var(--accent)" : "var(--border)",
                 height: "100%",
+                boxSizing: "border-box",
                 cursor: isAssessment ? "pointer" : "default",
                 minWidth: 0,
               }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", gap: "14px", alignItems: "flex-start", marginBottom: "16px" }}>
                 <PackageIcon size={compact ? 24 : 30} strokeWidth={1.7} />
-                <span style={{ color: "var(--accent)", fontSize: "12px", fontWeight: 800, lineHeight: 1.2, textAlign: "right" }}>
+                <span style={{ color: "var(--accent)", fontSize: "12px", fontWeight: 500, lineHeight: 1.2, textAlign: "right" }}>
                   {pkg.label}
                 </span>
               </div>
@@ -915,7 +918,7 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
                   ))}
                 </ul>
               )}
-              <div style={{ marginTop: compact ? "16px" : "24px", paddingTop: "14px", borderTop: "1px solid var(--border)", color: "var(--text-muted)", fontSize: "13px", fontWeight: 700 }}>
+              <div style={{ marginTop: "auto", paddingTop: "14px", borderTop: "1px solid var(--border)", color: "var(--text-muted)", fontSize: "13px", fontWeight: 500 }}>
                 {pkg.duration}
               </div>
             </div>
@@ -1011,7 +1014,7 @@ export function ConversionPage({ page }: { page: ConversionPageData }) {
           >
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))", gap: "48px", alignItems: "center" }}>
               <div>
-                <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: 800, textTransform: "uppercase", fontSize: "14px", letterSpacing: 0 }}>
+                <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: 500, textTransform: "uppercase", fontSize: "14px", letterSpacing: 0 }}>
                   <PageIcon size={20} /> {page.eyebrow}
                 </motion.div>
                 <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(42px, 6vw, 76px)", lineHeight: 1.05, marginBottom: "28px" }}>
@@ -1042,7 +1045,7 @@ export function ConversionPage({ page }: { page: ConversionPageData }) {
               >
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", paddingBottom: "18px", borderBottom: "1px solid var(--border)" }}>
                   <div>
-                    <div style={{ color: "var(--text-muted)", fontSize: "13px", fontWeight: 700 }}>OpenVals Assessment</div>
+                    <div style={{ color: "var(--text-muted)", fontSize: "13px", fontWeight: 500 }}>OpenVals Assessment</div>
                     <h2 style={{ margin: "6px 0 0", fontSize: "28px" }}>Trust Score Preview</h2>
                   </div>
                   <div style={{ width: "64px", height: "64px", borderRadius: "14px", display: "grid", placeItems: "center", background: "color-mix(in srgb, var(--accent) 12%, transparent)", color: "var(--accent)" }}>
@@ -1052,7 +1055,7 @@ export function ConversionPage({ page }: { page: ConversionPageData }) {
                 <div style={{ display: "grid", gap: "14px", marginTop: "22px" }}>
                   {page.heroStats.map((stat) => (
                     <div key={stat.label} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "18px", padding: "16px", border: "1px solid var(--border)", borderRadius: "12px", background: "var(--secondary-bg)" }}>
-                      <span style={{ color: "var(--text-muted)", fontSize: "14px", fontWeight: 700 }}>{stat.label}</span>
+                      <span style={{ color: "var(--text-muted)", fontSize: "14px", fontWeight: 500 }}>{stat.label}</span>
                       <strong style={{ color: "var(--accent)", fontSize: "22px", whiteSpace: "nowrap" }}>{stat.value}</strong>
                     </div>
                   ))}
@@ -1102,7 +1105,7 @@ export function ConversionPage({ page }: { page: ConversionPageData }) {
             <motion.div variants={STAGGER} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 230px), 1fr))", gap: "20px" }}>
               {page.workflow.map((item) => (
                 <motion.div key={item.step} variants={FADE_UP} style={{ borderLeft: "2px solid var(--accent)", paddingLeft: "22px" }}>
-                  <div style={{ color: "var(--accent)", fontSize: "14px", fontWeight: 900, marginBottom: "12px" }}>{item.step}</div>
+                  <div style={{ color: "var(--accent)", fontSize: "14px", fontWeight: 500, marginBottom: "12px" }}>{item.step}</div>
                   <h3 style={{ margin: "0 0 8px", fontSize: "20px" }}>{item.title}</h3>
                   <p style={{ margin: 0, color: "var(--text-muted)", fontSize: "15px", lineHeight: 1.55 }}>{item.desc}</p>
                 </motion.div>

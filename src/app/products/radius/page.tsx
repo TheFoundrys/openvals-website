@@ -33,13 +33,13 @@ export default function RadiusPage() {
           <motion.div initial="hidden" animate="show" variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
             
             <div style={{ maxWidth: "1000px", marginBottom: "80px" }}>
-              <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "700", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
+              <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "500", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
                 <Shield size={20} /> AI-POWERED CYBERSECURITY
               </motion.div>
               <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(48px, 6vw, 75px)", lineHeight: 1.1, marginBottom: "32px" }}>
                 <span style={{ color: "var(--accent)" }}>Radius</span>.
               </motion.h1>
-              <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(24px, 3vw, 42px)", fontWeight: 600, color: "var(--text-main)", marginBottom: "24px" }}>
+              <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(24px, 3vw, 42px)", fontWeight: 500, color: "var(--text-main)", marginBottom: "24px" }}>
                 Your Data. Your AI. Your Compute. Your Future.
               </motion.h2>
               <motion.p variants={FADE_UP} style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--text-muted)", lineHeight: 1.6, maxWidth: "800px" }}>
@@ -104,7 +104,7 @@ export default function RadiusPage() {
                   }}>
                     <div style={{ color: "var(--accent)", display: "flex", alignItems: "center", gap: "16px" }}>
                       <layer.icon size={32} />
-                      <h3 style={{ fontSize: "22px", fontWeight: "700" }}>{layer.title}</h3>
+                      <h3 style={{ fontSize: "22px", fontWeight: "500" }}>{layer.title}</h3>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                       {layer.features.map((feat, idx) => (
@@ -127,11 +127,11 @@ export default function RadiusPage() {
                 </p>
                 <div style={{ display: "flex", gap: "24px" }}>
                   <div style={{ borderLeft: "2px solid var(--accent)", paddingLeft: "16px" }}>
-                    <div style={{ fontSize: "28px", fontWeight: "700" }}>100%</div>
+                    <div style={{ fontSize: "28px", fontWeight: "500" }}>100%</div>
                     <div style={{ fontSize: "14px", color: "var(--text-muted)" }}>Data Sovereignty</div>
                   </div>
                   <div style={{ borderLeft: "2px solid var(--accent)", paddingLeft: "16px" }}>
-                    <div style={{ fontSize: "28px", fontWeight: "700" }}>Zero</div>
+                    <div style={{ fontSize: "28px", fontWeight: "500" }}>Zero</div>
                     <div style={{ fontSize: "14px", color: "var(--text-muted)" }}>Public Exposure</div>
                   </div>
                 </div>

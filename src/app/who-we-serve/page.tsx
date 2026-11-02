@@ -14,7 +14,6 @@ import {
   BarChart3, 
   ArrowRight,
   TrendingUp,
-  Sparkles
 } from "lucide-react";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
@@ -162,19 +161,19 @@ export default function WhoWeServePage() {
                   padding: "6px 14px", 
                   borderRadius: "100px",
                   fontSize: "13px",
-                  fontWeight: "600",
+                  fontWeight: "500",
                   color: "var(--accent)",
                   marginBottom: "24px",
                   textTransform: "uppercase",
                   letterSpacing: "0.05em"
                 }}
               >
-                <Sparkles size={14} /> Who We Serve
+                Who We Serve
               </motion.div>
               
               <motion.h1 
                 variants={FADE_UP} 
-                style={{ fontSize: "clamp(42px, 6vw, 68px)", lineHeight: 1.1, marginBottom: "24px", fontWeight: "800" }}
+                style={{ fontSize: "clamp(42px, 6vw, 68px)", lineHeight: 1.1, marginBottom: "24px", fontWeight: "500" }}
                 className={styles.sectionTitleHighlighted}
               >
                 Trusted AI Validation for <span style={{ color: "var(--accent)" }}>Every Domain</span>.
@@ -191,7 +190,7 @@ export default function WhoWeServePage() {
                 variants={FADE_UP} 
                 style={{ 
                   fontSize: "24px", 
-                  fontWeight: "700", 
+                  fontWeight: "500", 
                   borderBottom: "1px solid var(--border)", 
                   paddingBottom: "16px",
                   marginBottom: "32px",
@@ -219,7 +218,7 @@ export default function WhoWeServePage() {
                 variants={FADE_UP} 
                 style={{ 
                   fontSize: "24px", 
-                  fontWeight: "700", 
+                  fontWeight: "500", 
                   borderBottom: "1px solid var(--border)", 
                   paddingBottom: "16px",
                   marginBottom: "32px",
@@ -253,7 +252,7 @@ export default function WhoWeServePage() {
             variants={STAGGER} 
             style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}
           >
-            <motion.h2 variants={FADE_UP} className={styles.sectionTitleHighlighted} style={{ fontSize: "clamp(32px, 5vw, 44px)", marginBottom: "20px", fontWeight: "800" }}>
+            <motion.h2 variants={FADE_UP} className={styles.sectionTitleHighlighted} style={{ fontSize: "clamp(32px, 5vw, 44px)", marginBottom: "20px", fontWeight: "500" }}>
               Ready to verify your model?
             </motion.h2>
             <motion.p variants={FADE_UP} style={{ color: "var(--text-muted)", marginBottom: "36px", fontSize: "18px", lineHeight: "1.6" }}>
@@ -303,7 +302,7 @@ function DomainCard({ domain }: { domain: DomainItem }) {
           }}>
             <domain.icon size={20} />
           </div>
-          <h3 style={{ fontSize: "18px", fontWeight: "700", letterSpacing: "-0.01em" }}>{domain.name}</h3>
+          <h3 style={{ fontSize: "18px", fontWeight: "500", letterSpacing: "-0.01em" }}>{domain.name}</h3>
         </div>
         
         <p style={{ color: "var(--text-muted)", marginBottom: "18px", fontSize: "14px", lineHeight: "1.5" }}>
@@ -322,15 +321,15 @@ function DomainCard({ domain }: { domain: DomainItem }) {
           gap: "10px"
         }}>
           <div>
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--accent)", fontWeight: "700" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--accent)", fontWeight: "500" }}>
               <TrendingUp size={11} /> Expected ROI
             </span>
-            <p style={{ fontSize: "13px", fontWeight: "600", color: "var(--text-main)", marginTop: "1px" }}>
+            <p style={{ fontSize: "13px", fontWeight: "500", color: "var(--text-main)", marginTop: "1px" }}>
               {domain.roi}
             </p>
           </div>
           <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.04)", paddingTop: "8px" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--accent)", fontWeight: "700" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--accent)", fontWeight: "500" }}>
               <ShieldCheck size={11} /> Trustworthy Outcome
             </span>
             <p style={{ fontSize: "13px", color: "var(--text-muted)", marginTop: "1px", lineHeight: "1.4" }}>
@@ -347,7 +346,7 @@ function DomainCard({ domain }: { domain: DomainItem }) {
           alignItems: "center", 
           gap: "6px", 
           fontSize: "13px", 
-          fontWeight: "600", 
+          fontWeight: "500", 
           color: "var(--accent)",
           textDecoration: "none",
           marginTop: "auto",

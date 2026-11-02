@@ -105,7 +105,7 @@ export default function ResearchPage() {
           >
             {/* Header Content with individual Variants */}
             <motion.div variants={FADE_UP} style={{ marginBottom: "60px" }}>
-              <Link href="/about" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--accent)", fontSize: "14px", fontWeight: "600", marginBottom: "32px", textDecoration: "none" }}>
+              <Link href="/about" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--accent)", fontSize: "14px", fontWeight: "500", marginBottom: "32px", textDecoration: "none" }}>
                 <ArrowLeft size={16} /> Back to About
               </Link>
               <h1 style={{ fontSize: "clamp(36px, 6vw, 64px)", lineHeight: 1.1, marginBottom: "24px" }}>
@@ -127,7 +127,7 @@ export default function ResearchPage() {
                     <div style={{ color: "var(--accent)", background: "rgba(0, 212, 255, 0.1)", padding: "10px", borderRadius: "10px" }}>
                       <FileText size={24} />
                     </div>
-                    <h2 style={{ fontSize: "22px", fontWeight: "700", margin: 0 }}>{category.category}</h2>
+                    <h2 style={{ fontSize: "22px", fontWeight: "500", margin: 0 }}>{category.category}</h2>
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -150,9 +150,9 @@ export default function ResearchPage() {
                           cursor: "pointer"
                         }}
                       >
-                        <h3 style={{ fontSize: "17px", fontWeight: 600, lineHeight: 1.4, margin: 0 }}>{paper.title}</h3>
+                        <h3 style={{ fontSize: "17px", fontWeight: 500, lineHeight: 1.4, margin: 0 }}>{paper.title}</h3>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto", paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-                          <span style={{ fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-muted)" }}>{paper.conf}</span>
+                          <span style={{ fontSize: "12px", fontWeight: "500", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-muted)" }}>{paper.conf}</span>
                           <ExternalLink size={16} color="var(--accent)" />
                         </div>
                       </motion.a>

@@ -5,6 +5,7 @@ export const dynamic = 'force-static'
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     ['', 1],
+    ['/book-a-demo', 0.95],
     ['/aixlence', 0.95],
     ['/openlxm', 0.95],
     ['/redshield', 0.95],
@@ -16,8 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/apply', 0.85],
     ['/pricing', 0.9],
     ['/docs', 0.9],
+    ['/openvals-docs', 0.9],
+    ['/aixlence-docs', 0.9],
     ['/blog', 0.8],
     ['/contact', 0.5],
+    ['/privacy', 0.4],
+    ['/terms', 0.4],
+    ['/data-platform-terms', 0.4],
   ] as const
 
   return routes.map(([path, priority]) => ({

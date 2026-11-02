@@ -136,7 +136,7 @@ export default async function BlogPost({
       <main className={styles.section} style={{ paddingTop: "clamp(100px, 12vw, 160px)" }}>
         <div className={styles.blogContainer}>
           {/* BREADCRUMBS */}
-          <div style={{ marginBottom: "32px", fontSize: "14px", fontWeight: 600 }}>
+          <div style={{ marginBottom: "32px", fontSize: "14px", fontWeight: 500 }}>
             <Link href="/blog" style={{ color: "var(--accent)" }}>Research</Link>
             <span style={{ margin: "0 12px", opacity: 0.3 }}>/</span>
             <span style={{ color: "var(--text-muted)" }}>Article</span>
@@ -144,18 +144,18 @@ export default async function BlogPost({
 
           <header className={styles.blogHeader}>
             {post.analytics?.topic && (
-              <div style={{ color: "var(--accent)", fontSize: "14px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "12px" }}>
+              <div style={{ color: "var(--accent)", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "12px" }}>
                 {post.analytics.topic}
               </div>
             )}
             <h1 className={styles.blogTitle}>{post.title}</h1>
 
             <div className={styles.authorRow}>
-              <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", fontWeight: "bold", color: "#fff" }}>
+              <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", fontWeight: "500", color: "#fff" }}>
                 {post.author?.name?.charAt(0) || "O"}
               </div>
               <div>
-                <div style={{ fontSize: "16px", fontWeight: 600 }}>{post.author?.name}</div>
+                <div style={{ fontSize: "16px", fontWeight: 500 }}>{post.author?.name}</div>
                 <div style={{ fontSize: "14px", color: "var(--text-muted)" }}>
                   {new Date(post.publishedAt).toLocaleDateString("en-US", {
                     year: "numeric",

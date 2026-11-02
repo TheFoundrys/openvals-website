@@ -81,7 +81,7 @@ export default async function BlogIndex() {
                 </div>
 
                 <div style={{ padding: "clamp(20px, 4vw, 32px)", flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                  <h3 style={{ fontSize: "24px", fontWeight: 600, marginBottom: "16px", lineHeight: 1.3 }}>{post.title}</h3>
+                  <h3 style={{ fontSize: "24px", fontWeight: 500, marginBottom: "16px", lineHeight: 1.3 }}>{post.title}</h3>
                   <div style={{ marginTop: "auto" }}>
                     <p style={{ fontSize: "14px", color: "var(--text-muted)", marginBottom: "20px" }}>
                       {new Date(post.publishedAt).toLocaleDateString("en-US", {
@@ -91,7 +91,7 @@ export default async function BlogIndex() {
                       })}
                     </p>
                     <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--border)", paddingTop: "20px" }}>
-                      <div style={{ width: "32px", height: "32px", borderRadius: "50%", overflow: "hidden", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", fontSize: "12px", color: "#fff" }}>
+                      <div style={{ width: "32px", height: "32px", borderRadius: "50%", overflow: "hidden", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "500", fontSize: "12px", color: "#fff" }}>
                         {post.author?.name?.charAt(0) || "O"}
                       </div>
                       <span style={{ fontSize: "14px", fontWeight: 500 }}>{post.author?.name}</span>

@@ -33,7 +33,7 @@ export default function OptGradPage() {
           <motion.div initial="hidden" animate="show" variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
             
             <div style={{ maxWidth: "800px", marginBottom: "80px" }}>
-              <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "700", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
+              <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "500", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
                 <GraduationCap size={20} /> AI EDUCATION
               </motion.div>
               <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(48px, 6vw, 75px)", lineHeight: 1.1, marginBottom: "32px" }}>

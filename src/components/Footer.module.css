@@ -1,5 +1,5 @@
 .footer {
-  padding: clamp(36px, 6vw, 54px) var(--container-padding) 36px;
+  padding: clamp(28px, 4vw, 40px) var(--container-padding) 28px;
   background: var(--primary-bg);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
@@ -10,6 +10,7 @@
 
 .footerContainer {
   width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -35,6 +36,26 @@
   color: var(--text-muted);
   font-size: 13.5px;
   line-height: 1.5;
+}
+
+.legalNav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.legalNav a {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.legalNav a:hover {
+  color: var(--text-main);
 }
 
 .columnsGroup {
@@ -64,7 +85,7 @@
 
 .colTitle {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text-main);
   margin-bottom: 16px;
   letter-spacing: -0.01em;

@@ -495,7 +495,7 @@ DIMENSION RATINGS:
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`${styles.button} ${styles.primary}`}
-                          style={{ width: "100%", padding: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", fontSize: "15px", fontWeight: 700, textDecoration: "none" }}
+                          style={{ width: "100%", padding: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", fontSize: "15px", fontWeight: 500, textDecoration: "none" }}
                         >
                           Start Free Assessment <ArrowRight size={18} />
                         </a>
@@ -518,13 +518,13 @@ DIMENSION RATINGS:
                   {/* Progress Header */}
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", marginBottom: "14px" }}>
                     <div>
-                      <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--accent)", fontSize: "13px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "4px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--accent)", fontSize: "13px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "4px" }}>
                         {React.createElement(pillars[step - 1].icon, { size: 16 })}
                         <span>Pillar {step} of 6</span>
                       </div>
                       <h2 style={{ fontSize: "28px", margin: 0 }}>{pillars[step - 1].title}</h2>
                     </div>
-                    <span style={{ fontSize: "14px", color: "var(--text-muted)", fontWeight: 600 }}>
+                    <span style={{ fontSize: "14px", color: "var(--text-muted)", fontWeight: 500 }}>
                       Question {((step - 1) * 5) + 1} to {step * 5} of 30
                     </span>
                   </div>
@@ -566,7 +566,7 @@ DIMENSION RATINGS:
                             transition: "all 0.2s ease"
                           }}
                         >
-                          <div style={{ fontSize: "16px", fontWeight: 600, marginBottom: "16px", color: "var(--text-main)", display: "flex", gap: "8px" }}>
+                          <div style={{ fontSize: "16px", fontWeight: 500, marginBottom: "16px", color: "var(--text-main)", display: "flex", gap: "8px" }}>
                             <span>{q.id}.</span>
                             <span>{q.text}</span>
                           </div>
@@ -617,7 +617,7 @@ DIMENSION RATINGS:
                         border: "1px solid var(--border)",
                         background: "var(--card-bg)",
                         color: "var(--text-main)",
-                        fontWeight: 600,
+                        fontWeight: 500,
                         fontSize: "14px",
                         display: "flex",
                         alignItems: "center",
@@ -634,7 +634,7 @@ DIMENSION RATINGS:
                       className={`${styles.button} ${styles.primary}`}
                       style={{
                         padding: "12px 24px",
-                        fontWeight: 700,
+                        fontWeight: 500,
                         fontSize: "14px",
                         display: "flex",
                         alignItems: "center",
@@ -659,7 +659,7 @@ DIMENSION RATINGS:
                   ref={resultsRef}
                 >
                   <div style={{ textAlign: "center", marginBottom: "40px" }} className="no-print">
-                    <span style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", display: "block", marginBottom: "8px" }}>
+                    <span style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", display: "block", marginBottom: "8px" }}>
                       OpenVals Executive Report
                     </span>
                     <h1 style={{ fontSize: "36px", margin: "0 0 10px" }}>AI Trust Readiness Score</h1>
@@ -675,7 +675,7 @@ DIMENSION RATINGS:
 
                       {/* Gauge Card */}
                       <div style={{ padding: "24px 28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", textAlign: "center", boxShadow: "var(--shadow)", position: "relative", overflow: "hidden" }}>
-                        <div style={{ color: "var(--text-muted)", fontSize: "13px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>
+                        <div style={{ color: "var(--text-muted)", fontSize: "13px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>
                           AI Trust Score
                         </div>
 
@@ -707,17 +707,17 @@ DIMENSION RATINGS:
                             />
                           </svg>
                           <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                            <span style={{ fontSize: "36px", fontWeight: 800, color: "var(--text-main)", lineHeight: 1 }}>
+                            <span style={{ fontSize: "36px", fontWeight: 500, color: "var(--text-main)", lineHeight: 1 }}>
                               {getNormalizedScore()}
                             </span>
-                            <span style={{ fontSize: "13px", color: "var(--text-muted)", fontWeight: 600, marginTop: "2px" }}>
+                            <span style={{ fontSize: "13px", color: "var(--text-muted)", fontWeight: 500, marginTop: "2px" }}>
                               / 100
                             </span>
                           </div>
                         </div>
 
                         {/* Risk Level Banner */}
-                        <div style={{ padding: "12px", borderRadius: "8px", backgroundColor: riskDetails.bg, color: scoreColor, fontWeight: 800, fontSize: "16px", marginBottom: "12px", display: "inline-block" }}>
+                        <div style={{ padding: "12px", borderRadius: "8px", backgroundColor: riskDetails.bg, color: scoreColor, fontWeight: 500, fontSize: "16px", marginBottom: "12px", display: "inline-block" }}>
                           {riskDetails.title}
                         </div>
 
@@ -728,7 +728,7 @@ DIMENSION RATINGS:
 
                       {/* Radar Chart Card */}
                       <div style={{ padding: "24px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)", textAlign: "center" }}>
-                        <div style={{ color: "var(--text-muted)", fontSize: "13px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>
+                        <div style={{ color: "var(--text-muted)", fontSize: "13px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>
                           AI Trust Radar (v2)
                         </div>
 
@@ -832,9 +832,9 @@ DIMENSION RATINGS:
                             <div key={d.name} style={{ padding: "14px", border: "1px solid var(--border)", borderRadius: "10px", background: "var(--secondary-bg)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                                 {React.createElement(d.icon, { size: 16, style: { color: "var(--accent)" } })}
-                                <span style={{ fontSize: "14px", fontWeight: 600 }}>{d.name}</span>
+                                <span style={{ fontSize: "14px", fontWeight: 500 }}>{d.name}</span>
                               </div>
-                              <span style={{ fontSize: "15px", fontWeight: 800, color: d.score >= 80 ? "#22C55E" : d.score >= 60 ? "#06B6D4" : d.score >= 40 ? "#EAB308" : "#EF4444" }}>
+                              <span style={{ fontSize: "15px", fontWeight: 500, color: d.score >= 80 ? "#22C55E" : d.score >= 60 ? "#06B6D4" : d.score >= 40 ? "#EAB308" : "#EF4444" }}>
                                 {d.score}%
                               </span>
                             </div>
@@ -845,7 +845,7 @@ DIMENSION RATINGS:
                       {/* Strengths & Gaps Card */}
                       <div style={{ padding: "24px 28px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--card-bg)", boxShadow: "var(--shadow)", display: "grid", gridTemplateColumns: "1fr", gap: "20px" }}>
                         <div>
-                          <h4 style={{ fontSize: "15px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.05em", color: "#22C55E", margin: "0 0 10px", display: "flex", alignItems: "center", gap: "6px" }}>
+                          <h4 style={{ fontSize: "15px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em", color: "#22C55E", margin: "0 0 10px", display: "flex", alignItems: "center", gap: "6px" }}>
                             <CheckCircle2 size={16} /> Top Strengths
                           </h4>
                           <ul style={{ margin: 0, paddingLeft: "18px", color: "var(--text-muted)", fontSize: "14px", display: "flex", flexDirection: "column", gap: "6px" }}>
@@ -856,7 +856,7 @@ DIMENSION RATINGS:
                         </div>
 
                         <div style={{ borderTop: "1px solid var(--border)", paddingTop: "16px" }}>
-                          <h4 style={{ fontSize: "15px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.05em", color: "#EF4444", margin: "0 0 10px", display: "flex", alignItems: "center", gap: "6px" }}>
+                          <h4 style={{ fontSize: "15px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em", color: "#EF4444", margin: "0 0 10px", display: "flex", alignItems: "center", gap: "6px" }}>
                             <AlertTriangle size={16} /> Priority Gaps
                           </h4>
                           <ul style={{ margin: 0, paddingLeft: "18px", color: "var(--text-muted)", fontSize: "14px", display: "flex", flexDirection: "column", gap: "6px" }}>
@@ -904,10 +904,10 @@ DIMENSION RATINGS:
                                 position: "relative"
                               }}
                             >
-                              <span style={{ position: "absolute", top: "14px", right: "14px", fontSize: "10px", fontWeight: 800, textTransform: "uppercase", padding: "3px 8px", borderRadius: "20px", background: srv.badge === "Recommended" ? "color-mix(in srgb, var(--accent) 15%, transparent)" : "var(--border)", color: srv.badge === "Recommended" ? "var(--accent)" : "var(--text-muted)" }}>
+                              <span style={{ position: "absolute", top: "14px", right: "14px", fontSize: "10px", fontWeight: 500, textTransform: "uppercase", padding: "3px 8px", borderRadius: "20px", background: srv.badge === "Recommended" ? "color-mix(in srgb, var(--accent) 15%, transparent)" : "var(--border)", color: srv.badge === "Recommended" ? "var(--accent)" : "var(--text-muted)" }}>
                                 {srv.badge}
                               </span>
-                              <h4 style={{ margin: "0 0 6px", fontSize: "15px", fontWeight: 700 }}>{srv.title}</h4>
+                              <h4 style={{ margin: "0 0 6px", fontSize: "15px", fontWeight: 500 }}>{srv.title}</h4>
                               <p style={{ margin: "0 0 12px", fontSize: "13px", color: "var(--text-muted)", lineHeight: 1.4 }}>{srv.desc}</p>
                               <a
                                 href={srv.href}
@@ -933,7 +933,7 @@ DIMENSION RATINGS:
                             border: "1px solid var(--border)",
                             background: "var(--card-bg)",
                             color: "var(--text-main)",
-                            fontWeight: 600,
+                            fontWeight: 500,
                             fontSize: "14px",
                             display: "flex",
                             alignItems: "center",
@@ -956,7 +956,7 @@ DIMENSION RATINGS:
                             minWidth: "180px",
                             padding: "12px 20px",
                             fontSize: "14px",
-                            fontWeight: 700,
+                            fontWeight: 500,
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -977,12 +977,12 @@ DIMENSION RATINGS:
                           </div>
                         )}
                         {crmStatus === "success" && (
-                          <div style={{ fontSize: "13px", color: "#22C55E", fontWeight: 600 }}>
+                          <div style={{ fontSize: "13px", color: "#22C55E", fontWeight: 500 }}>
                             ✓ Report registered successfully with OpenVals.
                           </div>
                         )}
                         {crmStatus === "error" && (
-                          <div style={{ fontSize: "13px", color: "#EF4444", fontWeight: 600 }}>
+                          <div style={{ fontSize: "13px", color: "#EF4444", fontWeight: 500 }}>
                             ⚠ CRM Sync offline. Please download or print your report.
                           </div>
                         )}
