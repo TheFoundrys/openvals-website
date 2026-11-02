@@ -34,7 +34,7 @@ export default function Home() {
         {/* SECTION 1: TRUST LAYER + AI FAILS QUIETLY */}
         <section
           className={styles.snapSection}
-          style={{ padding: "clamp(12px, 2vh, 20px) var(--container-padding) 0", background: "var(--primary-bg)" }}
+          style={{ padding: "clamp(36px, 5vh, 52px) var(--container-padding) clamp(12px, 2vh, 20px)", background: "var(--primary-bg)" }}
         >
           <div
             className={`${styles.containerFull} ${styles.snapInner} ${styles.heroSectionInner}`}
@@ -45,7 +45,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: REAL-WORLD AI BENCHMARKS LEADERBOARD & LATEST REPORTS */}
-        <section id="benchmarks" className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(36px, 4.5vh, 52px) var(--container-padding) clamp(30px, 4vh, 44px)", background: "var(--primary-bg)" }}>
+        <section id="benchmarks" className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(20px, 3vh, 32px) var(--container-padding) clamp(24px, 4vh, 40px)", background: "var(--primary-bg)" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div className={styles.scaledContent}>
               <RealWorldBenchmarks />
@@ -55,7 +55,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 3: PROOF + PACKAGES + LEAD MAGNET */}
-        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(36px, 4.5vh, 52px) 0 0" }}>
+        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(32px, 5vh, 48px) 0 0" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 var(--container-padding)", width: "100%", minWidth: 0, boxSizing: "border-box" }}>
               <motion.div
@@ -65,8 +65,8 @@ export default function Home() {
                 variants={STAGGER}
                 className={styles.scaledContent}
                 style={{
-                  padding: "clamp(16px, 3vw, 34px)",
-                  borderRadius: "16px",
+                  padding: "clamp(14px, 2.5vw, 24px)",
+                  borderRadius: "5px",
                   backgroundColor: "var(--secondary-bg)",
                   border: "1px solid var(--border)",
                   boxShadow: "none",
@@ -82,10 +82,10 @@ export default function Home() {
                 </motion.div>
               </motion.div>
             </div>
-            <Footer />
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }

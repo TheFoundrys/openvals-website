@@ -14,6 +14,11 @@ export default function Footer() {
           <div className={styles.copyright}>
             &copy; 2026 OpenVals. All rights reserved.
           </div>
+          <nav className={styles.legalNav} aria-label="Legal">
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Use</Link>
+            <Link href="/data-platform-terms">Data Platform Terms</Link>
+          </nav>
         </div>
 
         {/* Right Side: Columns */}

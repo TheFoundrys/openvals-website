@@ -6,11 +6,11 @@
 }
 
 .headerArea {
-  margin-bottom: 28px;
+  margin-bottom: clamp(16px, 2.5vh, 22px);
 }
 
 .eyebrow {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: Georgia, serif;
   font-size: 15px;
   color: var(--text-muted);
   margin-bottom: 12px;
@@ -19,7 +19,7 @@
 }
 
 .headline {
-  font-family: "Georgia", "Newsreader", "Times New Roman", serif;
+  font-family: Georgia, "Newsreader", serif;
   font-size: clamp(32px, 4.2vw, 52px);
   font-weight: 500;
   color: var(--text-main);
@@ -29,7 +29,7 @@
 }
 
 .description {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: Georgia, serif;
   font-size: clamp(16px, 1.35vw, 19px);
   color: var(--text-muted);
   line-height: 1.6;
@@ -64,7 +64,7 @@
   padding: 8px 14px;
   border-radius: 6px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.04em;
   cursor: pointer;
   background: var(--card-bg);
@@ -89,7 +89,7 @@
 
 .metricPrefix {
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.05em;
 }
@@ -103,7 +103,7 @@
 
 .metricTriggerLabel {
   color: var(--text-main);
-  font-weight: 800;
+  font-weight: 500;
 }
 
 .metricChevron {
@@ -151,7 +151,7 @@
 
 .metricDropdownHeader {
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -187,7 +187,7 @@
 
 .metricOptionActive .metricOptionLabel {
   color: #10b981;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 .metricOptionIcon {
@@ -210,7 +210,7 @@
 
 .metricOptionLabel {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   font-family: var(--font-inter), serif;
@@ -235,7 +235,7 @@
   align-items: center;
   gap: 14px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.05em;
   color: var(--text-muted);
   flex-wrap: wrap;
@@ -252,7 +252,7 @@
   align-items: center;
   gap: 6px;
   color: #10b981;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: 0.06em;
   font-size: 12px;
 }
@@ -272,7 +272,7 @@
 
 .dateLabel {
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.04em;
 }
 
@@ -296,7 +296,7 @@
 .viewModeBtn {
   font-family: var(--font-inter), serif;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 4px 8px;
   border-radius: 4px;
   background: transparent;
@@ -315,7 +315,7 @@
   background: var(--card-bg);
   color: var(--text-main);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .scrollNavGroup {
@@ -356,7 +356,7 @@
 
 .scrollNavCounter {
   font-size: 10.5px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text-muted);
   font-family: var(--font-inter), monospace, serif;
   padding: 0 4px;
@@ -410,8 +410,6 @@
   height: 480px;
   position: relative;
   background-color: var(--card-bg);
-  background-image: radial-gradient(var(--grid-dot) 1.2px, transparent 1.2px);
-  background-size: 16px 16px;
   display: flex;
   align-items: flex-end;
   padding: 30px 10px 0 10px;
@@ -473,7 +471,7 @@
 .scoreTop {
   font-family: var(--font-inter), monospace, serif;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: -0.02em;
   padding-left: 2px;
@@ -502,7 +500,7 @@
 .modelName {
   font-family: var(--font-inter), serif;
   font-size: 9.5px;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -512,15 +510,9 @@
 
 .modelVersion {
   font-size: 8.5px;
-  font-weight: 700;
+  font-weight: 500;
   opacity: 0.88;
   display: block;
-}
-
-/* Special dotted mesh pattern for Mercury bar */
-.mercuryPattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1.5px, transparent 1.5px) !important;
-  background-size: 6px 6px !important;
 }
 
 /* Tooltip */
@@ -577,7 +569,7 @@
 }
 
 .tooltipTitle {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 12px;
   margin-bottom: 2px;
   color: var(--text-main);
@@ -599,7 +591,7 @@
 }
 
 .tooltipVal {
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text-main);
 }
 
@@ -623,7 +615,7 @@
 
 .tooltipMetricVal {
   color: var(--text-main);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 @keyframes fadeIn {
@@ -680,7 +672,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.05em;
   color: var(--text-main);
   text-transform: uppercase;

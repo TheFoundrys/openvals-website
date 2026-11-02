@@ -20,14 +20,14 @@ export default function NotFound() {
         <h1
           style={{
             fontSize: "64px",
-            fontWeight: 800,
+            fontWeight: 500,
             color: "var(--accent, #00d4ff)",
             margin: "0 0 16px",
           }}
         >
           404
         </h1>
-        <h2 style={{ fontSize: "24px", fontWeight: 700, margin: "0 0 16px" }}>
+        <h2 style={{ fontSize: "24px", fontWeight: 500, margin: "0 0 16px" }}>
           Page Not Found
         </h2>
         <p
@@ -47,7 +47,7 @@ export default function NotFound() {
             style={{
               background: "var(--accent, #00d4ff)",
               color: "#050505",
-              fontWeight: 700,
+              fontWeight: 500,
               padding: "12px 24px",
               borderRadius: "8px",
               textDecoration: "none",
@@ -61,7 +61,7 @@ export default function NotFound() {
               background: "rgba(255, 255, 255, 0.08)",
               border: "1px solid rgba(255, 255, 255, 0.15)",
               color: "#f1f5f9",
-              fontWeight: 600,
+              fontWeight: 500,
               padding: "12px 24px",
               borderRadius: "8px",
               textDecoration: "none",

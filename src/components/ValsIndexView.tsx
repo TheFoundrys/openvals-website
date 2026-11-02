@@ -179,7 +179,7 @@ export default function ValsIndexView() {
                   fontSize: "11px",
                   color: "#ef4444",
                   cursor: "pointer",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   padding: "4px 8px",
                 }}
               >
@@ -242,7 +242,7 @@ export default function ValsIndexView() {
                       style={{
                         color: "var(--text-muted)",
                         fontSize: "11px",
-                        fontWeight: 700,
+                        fontWeight: 500,
                       }}
                     >
                       #{idx + 1}
@@ -254,7 +254,7 @@ export default function ValsIndexView() {
                       <span
                         style={{
                           fontSize: "9px",
-                          fontWeight: 700,
+                          fontWeight: 500,
                           padding: "2px 5px",
                           borderRadius: "4px",
                           background: "rgba(16, 185, 129, 0.15)",
@@ -267,7 +267,7 @@ export default function ValsIndexView() {
                     <span
                       style={{
                         fontSize: "10px",
-                        fontWeight: 700,
+                        fontWeight: 500,
                         padding: "2px 6px",
                         borderRadius: "4px",
                         background: m.badgeColor,
@@ -388,7 +388,7 @@ export default function ValsIndexView() {
                 borderRadius: "8px",
                 padding: "10px 20px",
                 fontSize: "12px",
-                fontWeight: 700,
+                fontWeight: 500,
                 color: "var(--text-main)",
                 cursor: "pointer",
                 display: "inline-flex",
@@ -454,7 +454,7 @@ export default function ValsIndexView() {
                         <td
                           style={{
                             padding: "10px 16px",
-                            fontWeight: 700,
+                            fontWeight: 500,
                             color: "var(--text-main)",
                           }}
                         >
@@ -471,7 +471,7 @@ export default function ValsIndexView() {
                         <td
                           style={{
                             padding: "10px 16px",
-                            fontWeight: 700,
+                            fontWeight: 500,
                             color: "#16a34a",
                           }}
                         >
@@ -480,7 +480,7 @@ export default function ValsIndexView() {
                         <td
                           style={{
                             padding: "10px 16px",
-                            fontWeight: 600,
+                            fontWeight: 500,
                             color:
                               viewMode === "latency"
                                 ? "#16a34a"
@@ -492,7 +492,7 @@ export default function ValsIndexView() {
                         <td
                           style={{
                             padding: "10px 16px",
-                            fontWeight: 600,
+                            fontWeight: 500,
                             color:
                               viewMode === "drs"
                                 ? "#38bdf8"
@@ -526,7 +526,7 @@ export default function ValsIndexView() {
                           style={{
                             color: "var(--text-muted)",
                             fontSize: "11px",
-                            fontWeight: 700,
+                            fontWeight: 500,
                           }}
                         >
                           #{idx + 1}
@@ -536,7 +536,7 @@ export default function ValsIndexView() {
                       <span
                         style={{
                           fontSize: "10px",
-                          fontWeight: 700,
+                          fontWeight: 500,
                           padding: "2px 6px",
                           borderRadius: "4px",
                           background: m.badgeColor,

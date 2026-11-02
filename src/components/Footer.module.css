@@ -38,6 +38,26 @@
   line-height: 1.5;
 }
 
+.legalNav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.legalNav a {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.legalNav a:hover {
+  color: var(--text-main);
+}
+
 .columnsGroup {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -65,7 +85,7 @@
 
 .colTitle {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text-main);
   margin-bottom: 16px;
   letter-spacing: -0.01em;

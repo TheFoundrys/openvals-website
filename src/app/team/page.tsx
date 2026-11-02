@@ -60,7 +60,7 @@ function BioText({ text }: { text: string }) {
             background: "none",
             border: "none",
             color: "var(--accent)",
-            fontWeight: 700,
+            fontWeight: 500,
             cursor: "pointer",
             padding: "4px 0",
             fontSize: "14px",
@@ -156,7 +156,7 @@ export default function TeamPage() {
             style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}
           >
             <div style={{ textAlign: "center", marginBottom: "80px" }}>
-              <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", fontWeight: "700", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
+              <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", fontWeight: "500", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
                 <Users size={20} /> OUR TEAM
               </motion.div>
               <motion.h1
@@ -217,7 +217,7 @@ export default function TeamPage() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "flex-start", textAlign: "left", flex: "1 1 500px", minWidth: "min(100%, 300px)" }}>
                     <div style={{ display: "flex", flexDirection: "column", gap: "4px", alignItems: "flex-start" }}>
                       <h2 style={{ fontSize: "clamp(28px, 4vw, 36px)", margin: 0, textAlign: "left" }}>{member.name}</h2>
-                      <p style={{ fontSize: "18px", color: "var(--accent)", fontWeight: 600, margin: 0, textAlign: "left" }}>{member.role}</p>
+                      <p style={{ fontSize: "18px", color: "var(--accent)", fontWeight: 500, margin: 0, textAlign: "left" }}>{member.role}</p>
                     </div>
                     <BioText text={member.bio} />
                   </div>

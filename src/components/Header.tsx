@@ -314,7 +314,7 @@ export default function Header() {
                     }}
                   >
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", width: "100%" }}>
-                      <div style={{ fontWeight: 600, color: pathname?.startsWith("/openvals-docs") ? "#3b82f6" : "var(--text-main)" }}>
+                      <div style={{ fontWeight: 500, color: pathname?.startsWith("/openvals-docs") ? "#3b82f6" : "var(--text-main)" }}>
                         OpenVals Docs
                       </div>
                       {pathname?.startsWith("/openvals-docs") && <Check size={14} style={{ color: "#3b82f6", flexShrink: 0, strokeWidth: 2.4 }} />}
@@ -333,7 +333,7 @@ export default function Header() {
                     }}
                   >
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", width: "100%" }}>
-                      <div style={{ fontWeight: 600, color: pathname?.startsWith("/aixlence-docs") ? "#3b82f6" : "var(--text-main)" }}>
+                      <div style={{ fontWeight: 500, color: pathname?.startsWith("/aixlence-docs") ? "#3b82f6" : "var(--text-main)" }}>
                         AIxLence Docs
                       </div>
                       {pathname?.startsWith("/aixlence-docs") && <Check size={14} style={{ color: "#3b82f6", flexShrink: 0, strokeWidth: 2.4 }} />}
@@ -381,7 +381,7 @@ export default function Header() {
                 >
                   <div className={`${styles.dropdownSectionLabel} ${styles.dropdownSection}`}>Resources</div>
                   <Link href="/blog" className={styles.dropdownItem} onClick={() => setOpenDropdown(null)}>
-                    <div style={{ fontWeight: 600, color: "var(--text-main)" }}>Research & Blog</div>
+                    <div style={{ fontWeight: 500, color: "var(--text-main)" }}>Research & Blog</div>
                     <div style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px" }}>Technical papers & security briefs</div>
                   </Link>
                   <a
@@ -512,7 +512,7 @@ export default function Header() {
             <Link
               href="/aixlence"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 500, color: "var(--text-main)" }}
             >
               <span>AIxLence</span>
             </Link>
@@ -520,7 +520,7 @@ export default function Header() {
             <Link
               href="/models"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 500, color: "var(--text-main)" }}
             >
               <span>Models</span>
             </Link>
@@ -528,7 +528,7 @@ export default function Header() {
             <Link
               href="/datasets"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 500, color: "var(--text-main)" }}
             >
               <span>Datasets</span>
             </Link>
@@ -536,13 +536,13 @@ export default function Header() {
             {/* <Link
               href="/spaces"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 500, color: "var(--text-main)" }}
             >
               <span>Spaces</span>
             </Link> */}
 
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <div style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}>
+              <div style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 500, color: "var(--text-main)" }}>
                 <span>Docs</span>
               </div>
               <div style={{ paddingLeft: "28px", display: "flex", flexDirection: "column", gap: "10px", marginTop: "4px" }}>
@@ -566,7 +566,7 @@ export default function Header() {
             <Link
               href="/pricing"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 500, color: "var(--text-main)" }}
             >
               <span>Pricing</span>
             </Link>
@@ -574,7 +574,7 @@ export default function Header() {
             <Link
               href="/blog"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 500, color: "var(--text-main)" }}
             >
               <span>Research & Blog</span>
             </Link>
@@ -582,12 +582,12 @@ export default function Header() {
             {/* <Link
               href="/book-a-demo"
               onClick={() => setIsMenuOpen(false)}
-              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 600, color: "var(--text-main)" }}
+              style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 500, color: "var(--text-main)" }}
             >
               <span>Book A Demo</span>
             </Link> */}
             {/* <div style={{ borderTop: "1px solid var(--border)", paddingTop: "14px", marginTop: "6px", display: "flex", flexDirection: "column", gap: "12px" }}>
-              <div style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", color: "var(--accent)", letterSpacing: "0.08em" }}>
+              <div style={{ fontSize: "12px", fontWeight: 500, textTransform: "uppercase", color: "var(--accent)", letterSpacing: "0.08em" }}>
                 Solutions & Insights
               </div>
               <Link href="/book-a-demo" onClick={() => setIsMenuOpen(false)} style={{ fontSize: "15px", color: "var(--text-muted)" }}>

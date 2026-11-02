@@ -44,25 +44,25 @@ export default function BlogPerformanceDashboard({ slug, analytics }: Props) {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "20px" }}>
         <div>
           <div style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase" }}>Views</div>
-          <div style={{ fontSize: "20px", fontWeight: 700 }}>{analytics.pageViews || 0}</div>
+          <div style={{ fontSize: "20px", fontWeight: 500 }}>{analytics.pageViews || 0}</div>
         </div>
         <div>
           <div style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase" }}>Visitors</div>
-          <div style={{ fontSize: "20px", fontWeight: 700 }}>{analytics.uniqueVisitors || 0}</div>
+          <div style={{ fontSize: "20px", fontWeight: 500 }}>{analytics.uniqueVisitors || 0}</div>
         </div>
         <div>
           <div style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase" }}>CTA Clicks</div>
-          <div style={{ fontSize: "20px", fontWeight: 700 }}>{analytics.ctaClicks || 0}</div>
+          <div style={{ fontSize: "20px", fontWeight: 500 }}>{analytics.ctaClicks || 0}</div>
         </div>
         <div>
           <div style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase" }}>Conv. Rate</div>
-          <div style={{ fontSize: "20px", fontWeight: 700 }}>{analytics.conversionRate || 0}%</div>
+          <div style={{ fontSize: "20px", fontWeight: 500 }}>{analytics.conversionRate || 0}%</div>
         </div>
       </div>
       <div style={{ marginTop: "24px", borderTop: "1px solid rgba(0,0,0,0.1)", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
           <div style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase" }}>Next Action</div>
-          <div style={{ fontSize: "16px", fontWeight: 600 }}>{analytics.nextAction || "None"}</div>
+          <div style={{ fontSize: "16px", fontWeight: 500 }}>{analytics.nextAction || "None"}</div>
         </div>
         <button 
           onClick={handleSync}
@@ -74,7 +74,7 @@ export default function BlogPerformanceDashboard({ slug, analytics }: Props) {
             padding: "8px 16px", 
             borderRadius: "8px", 
             cursor: isSyncing ? "not-allowed" : "pointer", 
-            fontWeight: 600, 
+            fontWeight: 500, 
             fontSize: "14px",
             opacity: isSyncing ? 0.7 : 1
           }}

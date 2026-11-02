@@ -33,7 +33,7 @@ export default function CompliancePage() {
           <motion.div initial="hidden" animate="show" variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
 
             <div style={{ maxWidth: "800px", marginBottom: "80px" }}>
-              <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "700", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
+              <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "500", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
                 <FileBadge size={20} /> CORE SOLUTION
               </motion.div>
               <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(48px, 6vw, 75px)", lineHeight: 1.1, marginBottom: "32px" }}>
@@ -81,13 +81,13 @@ export default function CompliancePage() {
                     {["Regulatory technical files", "Data governance logs", "Bias mitigation artifacts", "System performance thresholds"].map((t, idx) => (
                       <li key={idx} style={{ display: "flex", gap: "12px", alignItems: "center" }}>
                         <CheckCircle style={{ color: "var(--accent)" }} size={18} />
-                        <span style={{ fontWeight: 600 }}>{t}</span>
+                        <span style={{ fontWeight: 500 }}>{t}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div style={{ background: "rgba(0, 212, 255, 0.05)", padding: "48px", borderRadius: "24px", border: "1px dashed var(--accent)", textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                  <div style={{ color: "var(--accent)", fontSize: "64px", fontWeight: "800", marginBottom: "8px" }}>ISO</div>
+                  <div style={{ color: "var(--accent)", fontSize: "64px", fontWeight: "500", marginBottom: "8px" }}>ISO</div>
                   <div style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.2em" }}>Standards Alignment</div>
                 </div>
               </div>

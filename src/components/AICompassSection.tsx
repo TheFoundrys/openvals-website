@@ -87,7 +87,7 @@ export default function AICompassSection() {
               <div style={{ color: "var(--accent)", marginBottom: "20px" }}>
                 <pillar.icon size={28} />
               </div>
-              <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "12px", color: "var(--text-main)" }}>{pillar.title}</h3>
+              <h3 style={{ fontSize: "18px", fontWeight: "500", marginBottom: "12px", color: "var(--text-main)" }}>{pillar.title}</h3>
               <p style={{ color: "var(--text-muted)", fontSize: "14px", lineHeight: "1.6", flexGrow: 1 }}>{pillar.desc}</p>
             </motion.div>
           ))}
@@ -110,7 +110,7 @@ export default function AICompassSection() {
                 <div key={i} style={{ display: "flex", gap: "16px" }}>
                   <div style={{ flexShrink: 0, marginTop: "4px", color: "var(--accent)" }}><CheckCircle2 size={18} /></div>
                   <div>
-                    <h4 style={{ fontSize: "16px", fontWeight: "700", marginBottom: "4px" }}>{benefit.title}</h4>
+                    <h4 style={{ fontSize: "16px", fontWeight: "500", marginBottom: "4px" }}>{benefit.title}</h4>
                     <p style={{ fontSize: "14px", color: "var(--text-muted)" }}>{benefit.desc}</p>
                   </div>
                 </div>
@@ -138,7 +138,7 @@ export default function AICompassSection() {
                 <div key={i} style={{ display: "flex", gap: "20px", alignItems: "flex-start", padding: "20px", background: "var(--secondary-bg)", borderRadius: "16px", border: "1px solid var(--border)" }}>
                   <div style={{ color: "var(--accent)" }}><user.icon size={24} /></div>
                   <div>
-                    <h4 style={{ fontSize: "18px", fontWeight: "600", marginBottom: "4px" }}>{user.role}</h4>
+                    <h4 style={{ fontSize: "18px", fontWeight: "500", marginBottom: "4px" }}>{user.role}</h4>
                     <p style={{ fontSize: "14px", color: "var(--text-muted)" }}>{user.detail}</p>
                   </div>
                 </div>

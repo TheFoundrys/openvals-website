@@ -60,8 +60,8 @@ export default function AIQualityAssurancePage() {
               marginBottom: "20px",
               color: "var(--text-main)"
             }}>
-              AI Quality & <span style={{ fontWeight: 700 }}>Assurance.</span><br />
-              <span style={{ color: "var(--accent)", fontWeight: 700 }}>Trusted & Secure AI.</span>
+              AI Quality & <span style={{ fontWeight: 500 }}>Assurance.</span><br />
+              <span style={{ color: "var(--accent)", fontWeight: 500 }}>Trusted & Secure AI.</span>
             </motion.h1>
 
             <motion.p variants={FADE_UP} style={{ 
@@ -80,7 +80,7 @@ export default function AIQualityAssurancePage() {
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
             <div style={{ marginBottom: "40px" }}>
-              <h2 style={{ fontSize: "32px", fontWeight: 700, marginBottom: "16px" }}>1. AI Assurance</h2>
+              <h2 style={{ fontSize: "32px", fontWeight: 500, marginBottom: "16px" }}>1. AI Assurance</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "800px" }}>Build secure, ethical, and compliant AI systems with robust governance.</p>
             </div>
             
@@ -90,7 +90,7 @@ export default function AIQualityAssurancePage() {
                    <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(59, 130, 246, 0.1)", display: "grid", placeItems: "center", color: "var(--accent)", marginBottom: "16px" }}>
                      <item.icon size={20} strokeWidth={2.5} />
                    </div>
-                   <h4 style={{ fontSize: "18px", fontWeight: 800, marginBottom: "8px" }}>{item.title}</h4>
+                   <h4 style={{ fontSize: "18px", fontWeight: 500, marginBottom: "8px" }}>{item.title}</h4>
                    <p style={{ color: "var(--text-muted)", fontSize: "14px", lineHeight: 1.5 }}>{item.desc}</p>
                 </div>
               ))}
@@ -102,7 +102,7 @@ export default function AIQualityAssurancePage() {
         <section className={styles.section} style={{ borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
             <div style={{ marginBottom: "40px" }}>
-              <h2 style={{ fontSize: "32px", fontWeight: 700, marginBottom: "16px" }}>2. AI Quality Engineering</h2>
+              <h2 style={{ fontSize: "32px", fontWeight: 500, marginBottom: "16px" }}>2. AI Quality Engineering</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "800px" }}>Deliver reliable, high-performance systems with industrial-grade testing.</p>
             </div>
             
@@ -112,7 +112,7 @@ export default function AIQualityAssurancePage() {
                    <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(59, 130, 246, 0.1)", display: "grid", placeItems: "center", color: "var(--accent)", marginBottom: "16px" }}>
                      <item.icon size={20} strokeWidth={2.5} />
                    </div>
-                   <h4 style={{ fontSize: "18px", fontWeight: 800, marginBottom: "8px" }}>{item.title}</h4>
+                   <h4 style={{ fontSize: "18px", fontWeight: 500, marginBottom: "8px" }}>{item.title}</h4>
                    <p style={{ color: "var(--text-muted)", fontSize: "14px", lineHeight: 1.5 }}>{item.desc}</p>
                 </div>
               ))}
@@ -124,7 +124,7 @@ export default function AIQualityAssurancePage() {
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
              <div>
-                <h3 style={{ fontSize: "22px", fontWeight: 700, marginBottom: "20px" }}>Key Capabilities</h3>
+                <h3 style={{ fontSize: "22px", fontWeight: 500, marginBottom: "20px" }}>Key Capabilities</h3>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                    {["Explainable AI", "Bias Mitigation", "Data Privacy", "Model Drift", "Audit Trails", "Governance"].map((tag, i) => (
                      <div key={i} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "var(--text-muted)" }}>
@@ -134,10 +134,10 @@ export default function AIQualityAssurancePage() {
                 </div>
              </div>
              <div>
-                <h3 style={{ fontSize: "22px", fontWeight: 700, marginBottom: "20px" }}>Strategic Impact</h3>
+                <h3 style={{ fontSize: "22px", fontWeight: 500, marginBottom: "20px" }}>Strategic Impact</h3>
                 <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                    {["Regulatory Compliance", "Ethical AI Adoption", "Secure Infrastructure"].map((item, i) => (
-                     <li key={i} style={{ padding: "12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "14px", fontWeight: 600 }}>
+                     <li key={i} style={{ padding: "12px", background: "var(--primary-bg)", borderRadius: "8px", border: "1px solid var(--border)", fontSize: "14px", fontWeight: 500 }}>
                         {item}
                      </li>
                    ))}
@@ -149,11 +149,11 @@ export default function AIQualityAssurancePage() {
         {/* CTA */}
         <section className={styles.section} style={{ background: "var(--accent)", color: "#fff", textAlign: "center" }}>
            <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-              <h2 style={{ fontSize: "36px", fontWeight: 700, marginBottom: "20px", color: "#fff" }}>Secure Your Competitive Edge</h2>
+              <h2 style={{ fontSize: "36px", fontWeight: 500, marginBottom: "20px", color: "#fff" }}>Secure Your Competitive Edge</h2>
               <p style={{ fontSize: "18px", marginBottom: "32px", opacity: 0.9 }}>
                 Validate your AI systems for safety and peak performance.
               </p>
-              <Link href="/apply" className={styles.button} style={{ background: "#fff", color: "var(--accent)", fontWeight: 800 }}>
+              <Link href="/apply" className={styles.button} style={{ background: "#fff", color: "var(--accent)", fontWeight: 500 }}>
                 Schedule a Quality Audit
               </Link>
            </div>

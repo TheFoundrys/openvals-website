@@ -162,7 +162,7 @@ function H2({ children }: { children: string }) {
         margin: "44px 0 16px",
         color: "var(--docs-heading)",
         scrollMarginTop: "90px",
-        fontWeight: 700,
+        fontWeight: 500,
         letterSpacing: "-0.01em",
       }}
     >
@@ -213,7 +213,7 @@ function DocsTable({
                 style={{
                   padding: "14px 18px",
                   fontSize: "14px",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   borderBottom: "1px solid var(--docs-border)",
                   whiteSpace: "nowrap",
                 }}
@@ -285,7 +285,7 @@ function Callout({
       {title && (
         <div
           style={{
-            fontWeight: 700,
+            fontWeight: 500,
             fontSize: "15px",
             color: "var(--docs-heading)",
             marginBottom: "6px",
@@ -328,7 +328,7 @@ function FormulaBox({ formula, label }: { formula: string; label?: string }) {
           style={{
             fontSize: "12px",
             textTransform: "uppercase",
-            fontWeight: 700,
+            fontWeight: 500,
             letterSpacing: "0.08em",
             color: "var(--docs-muted)",
             marginBottom: "8px",
@@ -341,7 +341,7 @@ function FormulaBox({ formula, label }: { formula: string; label?: string }) {
         style={{
           fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
           fontSize: "17px",
-          fontWeight: 600,
+          fontWeight: 500,
           color: "var(--docs-heading)",
           letterSpacing: "0.02em",
         }}
@@ -372,32 +372,32 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
             rows={[
               [
                 <strong key="p1" style={{ color: "var(--docs-heading)" }}>1. AI Strategy & Readiness</strong>,
-                <span key="w1" style={{ fontWeight: 700, color: "#3b82f6" }}>20%</span>,
+                <span key="w1" style={{ fontWeight: 500, color: "#3b82f6" }}>20%</span>,
                 "Business value alignment, executive sponsorship, portfolio visibility, and 12–24 month strategic roadmap.",
               ],
               [
                 <strong key="p2" style={{ color: "var(--docs-heading)" }}>2. Private AI / LLM Transformation</strong>,
-                <span key="w2" style={{ fontWeight: 700, color: "#10b981" }}>15%</span>,
+                <span key="w2" style={{ fontWeight: 500, color: "#10b981" }}>15%</span>,
                 "Sovereign LLM deployment, private RAG architecture, model selection and routing, prompt and output security gates.",
               ],
               [
                 <strong key="p3" style={{ color: "var(--docs-heading)" }}>3. Data Intelligence & Knowledge Systems</strong>,
-                <span key="w3" style={{ fontWeight: 700, color: "#f59e0b" }}>20%</span>,
+                <span key="w3" style={{ fontWeight: 500, color: "#f59e0b" }}>20%</span>,
                 "Data ownership, observable data pipelines, semantic lineage, high-recall vector retrieval, and dataset governance.",
               ],
               [
                 <strong key="p4" style={{ color: "var(--docs-heading)" }}>4. AI Security & Cyber Transformation</strong>,
-                <span key="w4" style={{ fontWeight: 700, color: "#ef4444" }}>20%</span>,
+                <span key="w4" style={{ fontWeight: 500, color: "#ef4444" }}>20%</span>,
                 "AI threat modeling, prompt-injection defenses, least-privilege token access, automated red teaming, and incident monitoring.",
               ],
               [
                 <strong key="p5" style={{ color: "var(--docs-heading)" }}>5. AI Validation & Assurance</strong>,
-                <span key="w5" style={{ fontWeight: 700, color: "#8b5cf6" }}>15%</span>,
+                <span key="w5" style={{ fontWeight: 500, color: "#8b5cf6" }}>15%</span>,
                 "Production acceptance gates, multi-dimensional benchmarking, DRS and hallucination drift monitoring, reproducible evidence packs.",
               ],
               [
                 <strong key="p6" style={{ color: "var(--docs-heading)" }}>6. AI Operating Model & CoE</strong>,
-                <span key="w6" style={{ fontWeight: 700, color: "#06b6d4" }}>10%</span>,
+                <span key="w6" style={{ fontWeight: 500, color: "#06b6d4" }}>10%</span>,
                 "Decision rights, governance gatekeeping, reusable deployment templates, workforce skills enablement, and KPI cadences.",
               ],
             ]}
@@ -422,16 +422,16 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
             rows={[
               [
                 <div key="l1">
-                  <span style={{ display: "inline-block", padding: "3px 8px", borderRadius: "6px", fontSize: "12px", fontWeight: 700, background: "#3b82f6", color: "#fff", marginRight: "8px" }}>L1</span>
+                  <span style={{ display: "inline-block", padding: "3px 8px", borderRadius: "6px", fontSize: "12px", fontWeight: 500, background: "#3b82f6", color: "#fff", marginRight: "8px" }}>L1</span>
                   <strong style={{ color: "var(--docs-heading)" }}>Baseline</strong>
                 </div>,
                 "Organization metadata, base and display currency, and financial parameters are configured and stored.",
                 <code key="v1">Organisation Profile</code>,
-                <span key="r1" style={{ color: "#10b981", fontWeight: 600 }}>None. Start here.</span>,
+                <span key="r1" style={{ color: "#10b981", fontWeight: 500 }}>None. Start here.</span>,
               ],
               [
                 <div key="l2">
-                  <span style={{ display: "inline-block", padding: "3px 8px", borderRadius: "6px", fontSize: "12px", fontWeight: 700, background: "#f59e0b", color: "#fff", marginRight: "8px" }}>L2</span>
+                  <span style={{ display: "inline-block", padding: "3px 8px", borderRadius: "6px", fontSize: "12px", fontWeight: 500, background: "#f59e0b", color: "#fff", marginRight: "8px" }}>L2</span>
                   <strong style={{ color: "var(--docs-heading)" }}>Diagnose</strong>
                 </div>,
                 "All 36 capability statements scored on the 1–5 evidence scale, with supporting audit notes and artifacts.",
@@ -440,7 +440,7 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
               ],
               [
                 <div key="l3">
-                  <span style={{ display: "inline-block", padding: "3px 8px", borderRadius: "6px", fontSize: "12px", fontWeight: 700, background: "#10b981", color: "#fff", marginRight: "8px" }}>L3</span>
+                  <span style={{ display: "inline-block", padding: "3px 8px", borderRadius: "6px", fontSize: "12px", fontWeight: 500, background: "#10b981", color: "#fff", marginRight: "8px" }}>L3</span>
                   <strong style={{ color: "var(--docs-heading)" }}>Analyze & Act</strong>
                 </div>,
                 "Maturity analytics, 6-axis radar charts, 4-horizon roadmap, risk-adjusted ROI simulation, intervention mapping, and executive reporting.",
@@ -517,7 +517,7 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
                     color: "var(--docs-bg)",
                     display: "grid",
                     placeItems: "center",
-                    fontWeight: 800,
+                    fontWeight: 500,
                     fontSize: "14px",
                     flexShrink: 0,
                   }}
@@ -525,7 +525,7 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
                   {st.step}
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "4px" }}>
+                  <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "4px" }}>
                     {st.title}
                   </div>
                   <div style={{ color: "var(--docs-muted)", fontSize: "14.5px", lineHeight: 1.6 }}>
@@ -605,31 +605,31 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
             headers={["Score", "Label", "Operational Definition", "Evidence Expected for Audit"]}
             rows={[
               [
-                <span key="s1" style={{ fontWeight: 800, color: "#ef4444" }}>1</span>,
+                <span key="s1" style={{ fontWeight: 500, color: "#ef4444" }}>1</span>,
                 <strong key="l1" style={{ color: "#ef4444" }}>Absent</strong>,
                 "No repeatable capability exists.",
                 "No documentation, tooling, or assigned responsibility.",
               ],
               [
-                <span key="s2" style={{ fontWeight: 800, color: "#f97316" }}>2</span>,
+                <span key="s2" style={{ fontWeight: 500, color: "#f97316" }}>2</span>,
                 <strong key="l2" style={{ color: "#f97316" }}>Reactive</strong>,
                 "Ad hoc, informal, manual efforts.",
                 "Informal scripts, isolated spreadsheets, individual heroics, unvetted shadow tools.",
               ],
               [
-                <span key="s3" style={{ fontWeight: 800, color: "#f59e0b" }}>3</span>,
+                <span key="s3" style={{ fontWeight: 500, color: "#f59e0b" }}>3</span>,
                 <strong key="l3" style={{ color: "#f59e0b" }}>Defined</strong>,
                 "Documented and repeatable in primary teams.",
                 "Standard operating procedures, assigned roles, standard tooling in pilot squads.",
               ],
               [
-                <span key="s4" style={{ fontWeight: 800, color: "#3b82f6" }}>4</span>,
+                <span key="s4" style={{ fontWeight: 500, color: "#3b82f6" }}>4</span>,
                 <strong key="l4" style={{ color: "#3b82f6" }}>Managed</strong>,
                 "Measured, governed, operationalized across the enterprise.",
                 "Automated monitoring, cross-functional policy enforcement, SLAs, regular review cadences.",
               ],
               [
-                <span key="s5" style={{ fontWeight: 800, color: "#10b981" }}>5</span>,
+                <span key="s5" style={{ fontWeight: 500, color: "#10b981" }}>5</span>,
                 <strong key="l5" style={{ color: "#10b981" }}>Optimized</strong>,
                 "Continuously improved and self-healing.",
                 "Automated drift adaptation, continuous adversarial red teaming, enterprise feedback loops.",
@@ -646,7 +646,7 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
               { title: "Live Progress Tracker", desc: "Sticky header indicates real-time completion status (e.g. '36 / 36 Answered') and guards against incomplete submissions." },
             ].map((f, i) => (
               <div key={i} style={{ border: "1px solid var(--docs-border)", borderRadius: "10px", padding: "16px", background: "var(--docs-card)" }}>
-                <div style={{ fontWeight: 700, color: "var(--docs-heading)", marginBottom: "6px" }}>{f.title}</div>
+                <div style={{ fontWeight: 500, color: "var(--docs-heading)", marginBottom: "6px" }}>{f.title}</div>
                 <div style={{ fontSize: "14px", color: "var(--docs-muted)", lineHeight: 1.6 }}>{f.desc}</div>
               </div>
             ))}
@@ -691,22 +691,22 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
             rows={[
               [
                 "Below 40.0",
-                <span key="r1" style={{ padding: "4px 10px", borderRadius: "6px", background: "rgba(239, 68, 68, 0.15)", color: "#ef4444", fontWeight: 700 }}>Critical</span>,
+                <span key="r1" style={{ padding: "4px 10px", borderRadius: "6px", background: "rgba(239, 68, 68, 0.15)", color: "#ef4444", fontWeight: 500 }}>Critical</span>,
                 "Immediate operational vulnerability; unmanaged public API leaks or severe compliance exposure.",
               ],
               [
                 "40.0 – 59.9",
-                <span key="r2" style={{ padding: "4px 10px", borderRadius: "6px", background: "rgba(249, 115, 22, 0.15)", color: "#f97316", fontWeight: 700 }}>High</span>,
+                <span key="r2" style={{ padding: "4px 10px", borderRadius: "6px", background: "rgba(249, 115, 22, 0.15)", color: "#f97316", fontWeight: 500 }}>High</span>,
                 "Structural capability bottleneck; high failure rate in staging-to-production transitions.",
               ],
               [
                 "60.0 – 74.9",
-                <span key="r3" style={{ padding: "4px 10px", borderRadius: "6px", background: "rgba(245, 158, 11, 0.15)", color: "#f59e0b", fontWeight: 700 }}>Moderate</span>,
+                <span key="r3" style={{ padding: "4px 10px", borderRadius: "6px", background: "rgba(245, 158, 11, 0.15)", color: "#f59e0b", fontWeight: 500 }}>Moderate</span>,
                 "Operational friction; manual reviews slow down release velocity.",
               ],
               [
                 "75.0 and above",
-                <span key="r4" style={{ padding: "4px 10px", borderRadius: "6px", background: "rgba(16, 185, 129, 0.15)", color: "#10b981", fontWeight: 700 }}>Low</span>,
+                <span key="r4" style={{ padding: "4px 10px", borderRadius: "6px", background: "rgba(16, 185, 129, 0.15)", color: "#10b981", fontWeight: 500 }}>Low</span>,
                 "Stable, governed foundation enabling rapid, safe innovation.",
               ],
             ]}
@@ -742,25 +742,25 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
               [
                 <strong key="h1" style={{ color: "#ef4444" }}>1: Immediate Stabilization</strong>,
                 "0–30 days",
-                <span key="p1" style={{ color: "#ef4444", fontWeight: 700 }}>P1 (Gap ≥ 40)</span>,
+                <span key="p1" style={{ color: "#ef4444", fontWeight: 500 }}>P1 (Gap ≥ 40)</span>,
                 "Close critical cyber exposures, establish basic gatekeeping, terminate unmanaged shadow API keys, deploy prompt boundary filters.",
               ],
               [
                 <strong key="h2" style={{ color: "#f97316" }}>2: Core Engineering & Architecture</strong>,
                 "31–90 days",
-                <span key="p2" style={{ color: "#f97316", fontWeight: 700 }}>P2 (Gap 25–39.9)</span>,
+                <span key="p2" style={{ color: "#f97316", fontWeight: 500 }}>P2 (Gap 25–39.9)</span>,
                 "Deploy private sovereign RAG infrastructure, establish observable data pipelines, install baseline model validation suites.",
               ],
               [
                 <strong key="h3" style={{ color: "#f59e0b" }}>3: Enterprise Scale & Governance</strong>,
                 "3–6 months",
-                <span key="p3" style={{ color: "#f59e0b", fontWeight: 700 }}>P3 (Gap 10–24.9)</span>,
+                <span key="p3" style={{ color: "#f59e0b", fontWeight: 500 }}>P3 (Gap 10–24.9)</span>,
                 "Implement automated regression gates, instantiate federated CoE delivery pods, configure continuous model drift monitoring.",
               ],
               [
                 <strong key="h4" style={{ color: "#10b981" }}>4: Continuous Optimization</strong>,
                 "6–12 months",
-                <span key="p4" style={{ color: "#10b981", fontWeight: 700 }}>Maintain (Gap &lt; 10)</span>,
+                <span key="p4" style={{ color: "#10b981", fontWeight: 500 }}>Maintain (Gap &lt; 10)</span>,
                 "Automated multi-model benchmarking, continuous inference cost reduction, fine-tuning feedback loops, autonomous red teaming.",
               ],
             ]}
@@ -788,8 +788,8 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
                 }}
               >
                 <div style={{ minWidth: "120px" }}>
-                  <div style={{ fontWeight: 800, color: "var(--docs-heading)", fontSize: "16px" }}>{acc.name}</div>
-                  <div style={{ fontSize: "12px", color: "var(--accent)", fontWeight: 600 }}>{acc.tag}</div>
+                  <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "16px" }}>{acc.name}</div>
+                  <div style={{ fontSize: "12px", color: "var(--accent)", fontWeight: 500 }}>{acc.tag}</div>
                 </div>
                 <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>{acc.desc}</div>
               </div>
@@ -816,13 +816,13 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", margin: "20px 0" }}>
             <div style={{ border: "1px solid rgba(239, 68, 68, 0.3)", background: "rgba(239, 68, 68, 0.05)", borderRadius: "10px", padding: "16px" }}>
-              <div style={{ fontWeight: 700, color: "#ef4444", fontSize: "15px", marginBottom: "6px" }}>At Score 20 (Exploring)</div>
+              <div style={{ fontWeight: 500, color: "#ef4444", fontSize: "15px", marginBottom: "6px" }}>At Score 20 (Exploring)</div>
               <div style={{ fontSize: "14px", color: "var(--docs-text)", lineHeight: 1.6 }}>
                 Realization probability is only <strong>~34%</strong>. Up to <strong>66% of projected returns</strong> are lost to failed deployments, rework, compliance blocks, and security incidents.
               </div>
             </div>
             <div style={{ border: "1px solid rgba(16, 185, 129, 0.3)", background: "rgba(16, 185, 129, 0.05)", borderRadius: "10px", padding: "16px" }}>
-              <div style={{ fontWeight: 700, color: "#10b981", fontSize: "15px", marginBottom: "6px" }}>At Score 80 (Managed/Optimized)</div>
+              <div style={{ fontWeight: 500, color: "#10b981", fontSize: "15px", marginBottom: "6px" }}>At Score 80 (Managed/Optimized)</div>
               <div style={{ fontSize: "14px", color: "var(--docs-text)", lineHeight: 1.6 }}>
                 Realization probability rises to <strong>~76%</strong>, capturing maximum top-line efficiency with negligible rework.
               </div>
@@ -919,7 +919,7 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
           <H2>Core Dashboard Sections</H2>
           <div style={{ display: "grid", gap: "16px", margin: "20px 0" }}>
             <div style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "18px", background: "var(--docs-card)" }}>
-              <div style={{ fontWeight: 800, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
+              <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
                 1. Executive Headline Metrics
               </div>
               <ul style={{ color: "var(--docs-muted)", fontSize: "14.5px", lineHeight: 1.7, margin: 0, paddingLeft: "20px" }}>
@@ -932,7 +932,7 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
             </div>
 
             <div style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "18px", background: "var(--docs-card)" }}>
-              <div style={{ fontWeight: 800, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
+              <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
                 2. Capability Benchmark Grid
               </div>
               <p style={{ color: "var(--docs-muted)", fontSize: "14.5px", lineHeight: 1.6, margin: 0 }}>
@@ -941,7 +941,7 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
             </div>
 
             <div style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "18px", background: "var(--docs-card)" }}>
-              <div style={{ fontWeight: 800, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
+              <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
                 3. Top 3 Next Best Actions
               </div>
               <p style={{ color: "var(--docs-muted)", fontSize: "14.5px", lineHeight: 1.6, margin: 0 }}>
@@ -1030,7 +1030,7 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
               ],
               [
                 <strong key="f8">Assessment Cadence</strong>,
-                <span key="c5" style={{ fontWeight: 700, color: "#10b981" }}>Every 90 days</span>,
+                <span key="c5" style={{ fontWeight: 500, color: "#10b981" }}>Every 90 days</span>,
                 "Quarterly re-assessment recommended to capture capability progression.",
               ],
             ]}
@@ -1199,7 +1199,7 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
                 background: var(--docs-card);
                 color: var(--docs-muted);
                 font-size: 13.5px;
-                font-weight: 600;
+                font-weight: 500;
                 line-height: 1;
                 text-decoration: none;
                 white-space: nowrap;
@@ -1215,7 +1215,7 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
                 border-color: var(--docs-accent, #2563eb);
                 color: var(--docs-accent, #2563eb);
                 background: var(--docs-accent-subtle, rgba(37, 99, 235, 0.12));
-                font-weight: 700;
+                font-weight: 500;
               }
 
               .docsPageWrap {
@@ -1284,7 +1284,7 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
                   style={{
                     color: "var(--docs-heading)",
                     fontSize: "13px",
-                    fontWeight: 700,
+                    fontWeight: 500,
                     textTransform: "uppercase",
                     letterSpacing: "0.06em",
                     marginBottom: "12px",
@@ -1402,7 +1402,7 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
                   color: "var(--accent)",
                   marginBottom: "12px",
                   fontSize: "14px",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                 }}
@@ -1415,7 +1415,7 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
                 style={{
                   fontSize: "38px",
                   lineHeight: 1.15,
-                  fontWeight: 800,
+                  fontWeight: 500,
                   margin: "0 0 16px",
                   color: "var(--docs-heading)",
                   letterSpacing: "-0.02em",
@@ -1469,10 +1469,10 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
                       minWidth: "200px",
                     }}
                   >
-                    <span style={{ fontSize: "12px", color: "var(--docs-muted)", fontWeight: 600 }}>
+                    <span style={{ fontSize: "12px", color: "var(--docs-muted)", fontWeight: 500 }}>
                       &larr; Previous
                     </span>
-                    <span style={{ fontSize: "14.5px", color: "var(--docs-heading)", fontWeight: 700, marginTop: "4px" }}>
+                    <span style={{ fontSize: "14.5px", color: "var(--docs-heading)", fontWeight: 500, marginTop: "4px" }}>
                       {aixlencePageMeta[meta.prev]?.title?.replace(/^Step \d+: /, "") || "Previous Step"}
                     </span>
                   </Link>
@@ -1494,10 +1494,10 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
                       marginLeft: "auto",
                     }}
                   >
-                    <span style={{ fontSize: "12px", color: "var(--docs-muted)", fontWeight: 600 }}>
+                    <span style={{ fontSize: "12px", color: "var(--docs-muted)", fontWeight: 500 }}>
                       Next &rarr;
                     </span>
-                    <span style={{ fontSize: "14.5px", color: "var(--docs-heading)", fontWeight: 700, marginTop: "4px" }}>
+                    <span style={{ fontSize: "14.5px", color: "var(--docs-heading)", fontWeight: 500, marginTop: "4px" }}>
                       {aixlencePageMeta[meta.next]?.title?.replace(/^Step \d+: /, "") || "Next Step"}
                     </span>
                   </Link>

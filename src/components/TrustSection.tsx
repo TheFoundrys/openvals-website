@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import styles from "./ui.module.css";
+import HeroDashboardPreview from "./HeroDashboardPreview";
 import HeroInteractiveStart from "./HeroInteractiveStart";
 
 const FADE_UP: Variants = {
@@ -29,27 +30,30 @@ export function HeroPart() {
         animate="show"
         variants={STAGGER}
       >
-        {/* Eyebrow Badge */}
         <motion.div variants={FADE_UP} className={styles.heroEyebrowBadge}>
-          <span className={styles.heroEyebrowText}>
-            ENTERPRISE AI TRUST PLATFORM
-          </span>
+          <span className={styles.heroEyebrowText}>Enterprise AI Trust Platform</span>
         </motion.div>
 
-        {/* Main Headline */}
         <motion.h1 variants={FADE_UP} className={styles.heroMainHeadline}>
           The Trust Layer for AI
         </motion.h1>
 
-        {/* Supporting Description */}
         <motion.p variants={FADE_UP} className={styles.heroMainDescription}>
           Validate, secure, and benchmark AI systems before they reach production. Turn model behavior into measurable confidence.
         </motion.p>
 
-        {/* Interactive Start Options: Product CTAs vs Terminal Command */}
         <motion.div variants={FADE_UP} style={{ width: "100%" }}>
           <HeroInteractiveStart />
         </motion.div>
+      </motion.div>
+
+      <motion.div
+        className={styles.heroPreviewCol}
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 50, damping: 18, delay: 0.08 }}
+      >
+        <HeroDashboardPreview />
       </motion.div>
     </section>
   );
@@ -59,7 +63,7 @@ export function ActionButtonsPart() {
   const stats = [
     {
       value: "200,000+",
-      label: "EXPERIMENTS COMPLETED",
+      label: "EXPERIMENT AS DONE",
     },
     {
       value: "53",
@@ -101,14 +105,12 @@ export function ActionButtonsPart() {
   return (
     <div className={styles.wFull}>
       <div className={styles.heroStatsSectionWrap}>
-        <div className={styles.heroStatsCardMain} style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+        <div className={styles.heroStatsCardMain}>
           {stats.map((stat) => (
             <div key={stat.label} className={styles.heroStatColumn}>
               <div className={styles.heroStatContent}>
-                <div className={styles.heroStatValueText} style={{ fontFamily: '"Times New Roman", Times, serif' }}>
-                  {stat.value}
-                </div>
-                <div className={styles.heroStatLabelText} style={{ fontFamily: '"Times New Roman", Times, serif' }}>{stat.label}</div>
+                <div className={styles.heroStatValueText}>{stat.value}</div>
+                <div className={styles.heroStatLabelText}>{stat.label}</div>
               </div>
             </div>
           ))}

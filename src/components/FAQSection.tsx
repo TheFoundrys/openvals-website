@@ -122,7 +122,7 @@ function FAQItem({
       onClick={onClick}
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", flexWrap: "nowrap", width: "100%" }}>
-        <h4 style={{ margin: 0, fontSize: "18px", fontWeight: 600, color: "var(--text-main)", flex: 1, paddingRight: "8px" }}>
+        <h4 style={{ margin: 0, fontSize: "18px", fontWeight: 500, color: "var(--text-main)", flex: 1, paddingRight: "8px" }}>
           {question}
         </h4>
         <motion.div
@@ -234,7 +234,7 @@ export default function FAQSection({ wide = false }: { wide?: boolean }) {
               backgroundColor: "var(--accent)",
               color: "#fff",
               borderRadius: "12px",
-              fontWeight: 600,
+              fontWeight: 500,
               transition: "transform 0.2s"
             }}
             onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}

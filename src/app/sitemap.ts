@@ -21,6 +21,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/aixlence-docs', 0.9],
     ['/blog', 0.8],
     ['/contact', 0.5],
+    ['/privacy', 0.4],
+    ['/terms', 0.4],
+    ['/data-platform-terms', 0.4],
   ] as const
 
   return routes.map(([path, priority]) => ({

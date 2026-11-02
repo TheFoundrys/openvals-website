@@ -33,7 +33,7 @@ export default function AISecurityPage() {
           <motion.div initial="hidden" animate="show" variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
 
             <div style={{ maxWidth: "800px", marginBottom: "80px" }}>
-              <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "700", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
+              <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "500", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>
                 <Lock size={20} /> CORE SOLUTION
               </motion.div>
               <motion.h1
@@ -99,7 +99,7 @@ export default function AISecurityPage() {
                   ].map((feat, i) => (
                     <div key={i} style={{ padding: "24px", background: "var(--primary-bg)", borderRadius: "16px", border: "1px solid var(--border)", textAlign: "center" }}>
                       <div style={{ color: "var(--accent)", marginBottom: "12px" }}><feat.icon size={24} style={{ margin: "0 auto" }} /></div>
-                      <div style={{ fontSize: "14px", fontWeight: "600" }}>{feat.label}</div>
+                      <div style={{ fontSize: "14px", fontWeight: "500" }}>{feat.label}</div>
                     </div>
                   ))}
                 </div>

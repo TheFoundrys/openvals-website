@@ -338,7 +338,7 @@ export default function MethodologyView() {
                 fontSize: "11px",
                 color: "#ef4444",
                 cursor: "pointer",
-                fontWeight: 700,
+                fontWeight: 500,
                 padding: "4px 8px",
               }}
             >
@@ -607,7 +607,7 @@ export default function MethodologyView() {
                           <div className={styles.benchmarkNameCell}>
                             <span
                               style={{
-                                fontWeight: 700,
+                                fontWeight: 500,
                                 fontSize: "12px",
                                 color: "var(--text-main)",
                               }}
@@ -618,7 +618,7 @@ export default function MethodologyView() {
                               style={{
                                 fontSize: "10.5px",
                                 color: "var(--text-muted)",
-                                fontWeight: 600,
+                                fontWeight: 500,
                                 marginLeft: "6px",
                               }}
                             >
@@ -633,7 +633,7 @@ export default function MethodologyView() {
                                 border: "1px solid var(--border)",
                                 color: "var(--text-muted)",
                                 marginLeft: "6px",
-                                fontWeight: 700,
+                                fontWeight: 500,
                                 textTransform: "uppercase",
                               }}
                             >
@@ -644,7 +644,7 @@ export default function MethodologyView() {
                                 style={{
                                   fontSize: "9px",
                                   color: "#38bdf8",
-                                  fontWeight: 600,
+                                  fontWeight: 500,
                                   marginLeft: "6px",
                                   background: "rgba(56, 189, 248, 0.12)",
                                   border: "1px solid rgba(56, 189, 248, 0.3)",

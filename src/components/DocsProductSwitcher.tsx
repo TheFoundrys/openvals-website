@@ -80,7 +80,7 @@ export default function DocsProductSwitcher({
           background: "var(--docs-pill-bg, #f1f5f9)",
           color: "var(--docs-heading, #0f172a)",
           fontSize: "13.5px",
-          fontWeight: 600,
+          fontWeight: 500,
           cursor: "pointer",
           userSelect: "none",
           transition: "all 0.15s ease",

@@ -180,7 +180,7 @@ export default function VishwanathAkuthota() {
                 <motion.div variants={FADE_UP} style={{ display: "flex", flexDirection: "column", gap: "24px", textAlign: "left", alignItems: "flex-start", flex: "1 1 500px", minWidth: "min(100%, 300px)" }}>
                   <div>
                     <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", lineHeight: 1.1, marginBottom: "8px" }}>Vishwanath Akuthota</h1>
-                    <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 600 }}>Founder</p>
+                    <p style={{ fontSize: "20px", color: "var(--accent)", fontWeight: 500 }}>Founder</p>
                   </div>
 
                   <p style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.6, textAlign: "left", maxWidth: "800px" }}>
@@ -298,7 +298,7 @@ export default function VishwanathAkuthota() {
               <div style={{ marginTop: "80px" }}>
                 <div style={{ display: "flex", alignItems: "baseline", gap: "20px", marginBottom: "48px", borderBottom: "1px solid var(--border)", paddingBottom: "24px" }}>
                   <motion.h3 variants={FADE_UP} style={{ fontSize: "36px", margin: 0 }}>Media & Recognition</motion.h3>
-                  <motion.span variants={FADE_UP} style={{ color: "var(--accent)", fontSize: "14px", fontWeight: "600", letterSpacing: "0.1em", textTransform: "uppercase" }}>As seen in</motion.span>
+                  <motion.span variants={FADE_UP} style={{ color: "var(--accent)", fontSize: "14px", fontWeight: "500", letterSpacing: "0.1em", textTransform: "uppercase" }}>As seen in</motion.span>
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "24px" }}>
@@ -336,7 +336,7 @@ export default function VishwanathAkuthota() {
                               {item.logoText}
                             </div>
                             {item.logoSubtext && (
-                              <div style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.02em" }}>
+                              <div style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "0.02em" }}>
                                 {item.logoSubtext}
                               </div>
                             )}
@@ -353,14 +353,14 @@ export default function VishwanathAkuthota() {
                             }}
                           />
                         )}
-                        <div style={{ position: "absolute", top: "12px", right: "12px", background: "var(--accent)", color: "white", fontSize: "10px", fontWeight: "800", padding: "4px 8px", borderRadius: "4px", textTransform: "uppercase" }}>Feature</div>
+                        <div style={{ position: "absolute", top: "12px", right: "12px", background: "var(--accent)", color: "white", fontSize: "10px", fontWeight: "500", padding: "4px 8px", borderRadius: "4px", textTransform: "uppercase" }}>Feature</div>
                       </div>
 
                       <div style={{ padding: "28px", display: "flex", flexDirection: "column", gap: "10px", flexGrow: 1 }}>
-                        <h4 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-main)", margin: 0 }}>{item.title}</h4>
+                        <h4 style={{ fontSize: "20px", fontWeight: "500", color: "var(--text-main)", margin: 0 }}>{item.title}</h4>
                         <p style={{ fontSize: "15px", color: "var(--text-muted)", lineHeight: "1.5", margin: 0 }}>{item.desc}</p>
 
-                        <div style={{ marginTop: "auto", paddingTop: "20px", borderTop: "1px solid var(--border)", display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", fontWeight: "600", color: "var(--accent)" }}>
+                        <div style={{ marginTop: "auto", paddingTop: "20px", borderTop: "1px solid var(--border)", display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", fontWeight: "500", color: "var(--accent)" }}>
                           View Official Press Release <ExternalLink size={14} style={{ margin: 0 }} />
                         </div>
                       </div>

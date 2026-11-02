@@ -1019,7 +1019,7 @@ export default function ValsIndexChart({
             >
               <span
                 style={{
-                  fontWeight: 800,
+                  fontWeight: 500,
                   fontSize: "13px",
                   color: "var(--text-main)",
                 }}
@@ -1029,7 +1029,7 @@ export default function ValsIndexChart({
               <span
                 style={{
                   fontSize: "10px",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   padding: "2px 6px",
                   borderRadius: "4px",
                   background: activeModel.badgeColor,
@@ -1043,7 +1043,7 @@ export default function ValsIndexChart({
                 <span
                   style={{
                     fontSize: "9.5px",
-                    fontWeight: 700,
+                    fontWeight: 500,
                     padding: "2px 5px",
                     borderRadius: "4px",
                     background: "rgba(16, 185, 129, 0.15)",
@@ -1100,7 +1100,7 @@ export default function ValsIndexChart({
                   fontSize: "10px",
                   color: "var(--text-muted)",
                   textTransform: "uppercase",
-                  fontWeight: 700,
+                  fontWeight: 500,
                 }}
               >
                 Accuracy
@@ -1108,7 +1108,7 @@ export default function ValsIndexChart({
               <div
                 style={{
                   fontSize: "14px",
-                  fontWeight: 800,
+                  fontWeight: 500,
                   color: "#16a34a",
                 }}
               >
@@ -1121,7 +1121,7 @@ export default function ValsIndexChart({
                   fontSize: "10px",
                   color: "var(--text-muted)",
                   textTransform: "uppercase",
-                  fontWeight: 700,
+                  fontWeight: 500,
                 }}
               >
                 Avg Latency
@@ -1129,7 +1129,7 @@ export default function ValsIndexChart({
               <div
                 style={{
                   fontSize: "13px",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   color:
                     viewMode === "latency" ? "#16a34a" : "var(--text-main)",
                 }}
@@ -1143,7 +1143,7 @@ export default function ValsIndexChart({
                   fontSize: "10px",
                   color: "var(--text-muted)",
                   textTransform: "uppercase",
-                  fontWeight: 700,
+                  fontWeight: 500,
                 }}
               >
                 DRS Score
@@ -1151,7 +1151,7 @@ export default function ValsIndexChart({
               <div
                 style={{
                   fontSize: "13px",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   color: "#38bdf8",
                 }}
               >
@@ -1223,7 +1223,7 @@ export default function ValsIndexChart({
               marginBottom: "6px",
             }}
           >
-            <span style={{ fontWeight: 700, fontSize: "13px" }}>
+            <span style={{ fontWeight: 500, fontSize: "13px" }}>
               {hoveredModel.name}
             </span>
             <span
@@ -1233,7 +1233,7 @@ export default function ValsIndexChart({
                 borderRadius: "4px",
                 background: hoveredModel.badgeColor,
                 color: hoveredModel.badgeTextColor,
-                fontWeight: 700,
+                fontWeight: 500,
                 textTransform: "uppercase",
               }}
             >
@@ -1251,7 +1251,7 @@ export default function ValsIndexChart({
             }}
           >
             <span style={{ color: "#94a3b8" }}>Accuracy:</span>
-            <span style={{ fontWeight: 700, color: "#4ade80" }}>
+            <span style={{ fontWeight: 500, color: "#4ade80" }}>
               {hoveredModel.accuracy.toFixed(1)}%
             </span>
           </div>
@@ -1269,14 +1269,14 @@ export default function ValsIndexChart({
               <span
                 style={{
                   color: "#34d399",
-                  fontWeight: 700,
+                  fontWeight: 500,
                 }}
               >
                 Average Latency:
               </span>
               <span
                 style={{
-                  fontWeight: 600,
+                  fontWeight: 500,
                   color: "#34d399",
                 }}
               >
@@ -1296,14 +1296,14 @@ export default function ValsIndexChart({
               <span
                 style={{
                   color: "#38bdf8",
-                  fontWeight: 700,
+                  fontWeight: 500,
                 }}
               >
                 Decision Reliability (DRS):
               </span>
               <span
                 style={{
-                  fontWeight: 600,
+                  fontWeight: 500,
                   color: "#38bdf8",
                 }}
               >

@@ -832,9 +832,7 @@ export default function RealWorldBenchmarks() {
                   >
                     {/* The Bar Fill */}
                     <div
-                      className={`${styles.barFill} ${
-                        model.hasPattern ? styles.mercuryPattern : ""
-                      }`}
+                      className={styles.barFill}
                       style={{
                         height: heightVal,
                         backgroundColor: model.color,

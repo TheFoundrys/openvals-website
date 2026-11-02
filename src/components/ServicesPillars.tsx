@@ -24,7 +24,7 @@ export function ServicesPart() {
   return (
     <div className={styles.wFull}>
       <div style={{ marginBottom: "12px" }}>
-        <motion.h3 variants={FADE_UP} className={styles.sectionTitleHighlighted} style={{ fontSize: "32px", fontWeight: 700, margin: 0 }}>
+        <motion.h3 variants={FADE_UP} className={styles.sectionTitleHighlighted} style={{ fontSize: "32px", fontWeight: 500, margin: 0 }}>
           Our Services
         </motion.h3>
       </div>
@@ -71,10 +71,10 @@ export function ServicesPart() {
           >
             <div style={{ color: "var(--accent)" }}><service.icon size={32} strokeWidth={1.5} /></div>
             <div>
-              <h4 style={{ margin: "0 0 8px 0", fontSize: "20px", fontWeight: 600 }}>{service.title}</h4>
+              <h4 style={{ margin: "0 0 8px 0", fontSize: "20px", fontWeight: 500 }}>{service.title}</h4>
               <p style={{ margin: 0, fontSize: "14px", color: "var(--text-muted)", lineHeight: "1.5" }}>{service.desc}</p>
             </div>
-            <Link href={service.href} className={styles.textLink} style={{ marginTop: "auto", fontSize: "14px", color: "var(--accent)", display: "inline-flex", alignItems: "center", gap: "6px", fontWeight: 600 }}>
+            <Link href={service.href} className={styles.textLink} style={{ marginTop: "auto", fontSize: "14px", color: "var(--accent)", display: "inline-flex", alignItems: "center", gap: "6px", fontWeight: 500 }}>
               Explore <ArrowRight size={16} />
             </Link>
           </motion.div>
@@ -88,7 +88,7 @@ export function PillarsPart() {
   return (
     <div className={styles.wFull}>
       <div style={{ marginBottom: "12px" }}>
-        <motion.h3 variants={FADE_UP} className={styles.sectionTitleHighlighted} style={{ fontSize: "32px", fontWeight: 700, margin: 0 }}>
+        <motion.h3 variants={FADE_UP} className={styles.sectionTitleHighlighted} style={{ fontSize: "32px", fontWeight: 500, margin: 0 }}>
           Our Core Pillars
         </motion.h3>
       </div>
@@ -148,10 +148,10 @@ export function PillarsPart() {
             }} />
             <div style={{ color: item.color }}><item.icon size={32} strokeWidth={1.5} /></div>
             <div>
-              <h4 style={{ margin: "0 0 8px 0", fontSize: "20px", fontWeight: 600 }}>{item.title}</h4>
+              <h4 style={{ margin: "0 0 8px 0", fontSize: "20px", fontWeight: 500 }}>{item.title}</h4>
               <p style={{ margin: 0, fontSize: "14px", color: "var(--text-muted)", lineHeight: "1.5" }}>{item.desc}</p>
             </div>
-            <Link href={item.href} className={styles.textLink} style={{ marginTop: "auto", fontSize: "14px", color: item.color, display: "inline-flex", alignItems: "center", gap: "6px", fontWeight: 600 }}>
+            <Link href={item.href} className={styles.textLink} style={{ marginTop: "auto", fontSize: "14px", color: item.color, display: "inline-flex", alignItems: "center", gap: "6px", fontWeight: 500 }}>
               Learn More <ArrowRight size={16} />
             </Link>
           </motion.div>

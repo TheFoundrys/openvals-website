@@ -1,9 +1,12 @@
 :root {
-  --font-serif-main: "Georgia", "Newsreader", "Times New Roman", serif;
+  --font-serif-main: Georgia, "Newsreader", serif;
   --font-logo: var(--font-inter), "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-inter: "Georgia", "Newsreader", "Times New Roman", serif;
-  --font-outfit: "Georgia", "Newsreader", "Times New Roman", serif;
-  --font-serif: "Georgia", "Newsreader", "Times New Roman", serif;
+  --font-inter: Georgia, "Newsreader", serif;
+  --font-outfit: Georgia, "Newsreader", serif;
+  --font-serif: Georgia, "Newsreader", serif;
+  --font-weight-body: 400;
+  --font-weight-heading: 500;
+  --font-weight-emphasis: 500;
   --primary-bg: #FFFFFF;
   --primary-bg-alpha: rgba(255, 255, 255, 0.85);
   --secondary-bg: #F9FAFB;
@@ -397,7 +400,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-serif-main) !important;
-  font-weight: 600;
+  font-weight: var(--font-weight-heading);
   letter-spacing: -0.01em;
   color: inherit;
 }

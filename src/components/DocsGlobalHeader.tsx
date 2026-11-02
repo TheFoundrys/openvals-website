@@ -52,7 +52,7 @@ export default function DocsGlobalHeader({
               alignItems: "center",
               color: "var(--docs-heading, #0f172a)",
               fontSize: "19px",
-              fontWeight: 800,
+              fontWeight: 500,
               textDecoration: "none",
               letterSpacing: "-0.01em",
             }}

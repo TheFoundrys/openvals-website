@@ -19,7 +19,7 @@ export default function Logo({ className, size = "md", font = "sans" }: LogoProp
   const isSans = font === "sans";
   const sansFontStack =
     '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Outfit", "Helvetica Neue", Arial, sans-serif';
-  const serifFontStack = 'var(--font-serif-main), "Georgia", "Times New Roman", serif';
+  const serifFontStack = 'var(--font-serif-main), Georgia, serif';
   const activeFont = isSans ? sansFontStack : serifFontStack;
 
   return (
@@ -35,7 +35,7 @@ export default function Logo({ className, size = "md", font = "sans" }: LogoProp
         className={styles.logoText}
         style={{
           fontFamily: activeFont,
-          fontWeight: 700,
+          fontWeight: 500,
           letterSpacing: isSans ? "-0.025em" : "normal",
         }}
       >

@@ -51,8 +51,8 @@ export default function DataSciencePage() {
               marginBottom: "20px",
               color: "var(--text-main)"
             }}>
-              Applied <span style={{ fontWeight: 800 }}>Data Science.</span><br />
-              <span style={{ color: "var(--accent)", fontWeight: 800 }}>Turn Data into Intelligence.</span>
+              Applied <span style={{ fontWeight: 500 }}>Data Science.</span><br />
+              <span style={{ color: "var(--accent)", fontWeight: 500 }}>Turn Data into Intelligence.</span>
             </motion.h1>
 
             <motion.p variants={FADE_UP} style={{ 
@@ -77,7 +77,7 @@ export default function DataSciencePage() {
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "1000px", margin: "0 auto", textAlign: "center" }}>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER}>
-              <motion.h2 variants={FADE_UP} style={{ fontSize: "32px", fontWeight: 800, marginBottom: "24px" }}>Overview</motion.h2>
+              <motion.h2 variants={FADE_UP} style={{ fontSize: "32px", fontWeight: 500, marginBottom: "24px" }}>Overview</motion.h2>
               <motion.p variants={FADE_UP} style={{ fontSize: "18px", color: "var(--text-muted)", lineHeight: 1.8 }}>
                 Data is the foundation of AI. We help organizations harness structured and unstructured data 
                 to generate meaningful insights and predictions, empowering data-driven transformation.
@@ -89,14 +89,14 @@ export default function DataSciencePage() {
         {/* WHAT WE DO */}
         <section className={styles.section}>
           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-            <h2 style={{ fontSize: "36px", fontWeight: 800, textAlign: "center", marginBottom: "48px" }}>What We Do</h2>
+            <h2 style={{ fontSize: "36px", fontWeight: 500, textAlign: "center", marginBottom: "48px" }}>What We Do</h2>
             <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
               {whatWeDo.map((item, i) => (
                 <div key={i} style={{ padding: "32px", background: "var(--secondary-bg)", borderRadius: "20px", border: "1px solid var(--border)", position: "relative" }}>
                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "rgba(59, 130, 246, 0.12)", display: "grid", placeItems: "center", color: "var(--accent)", marginBottom: "20px" }}>
                      <item.icon size={24} strokeWidth={2.5} />
                    </div>
-                   <h4 style={{ fontSize: "20px", fontWeight: 800, marginBottom: "12px" }}>{item.title}</h4>
+                   <h4 style={{ fontSize: "20px", fontWeight: 500, marginBottom: "12px" }}>{item.title}</h4>
                    <p style={{ color: "var(--text-muted)", fontSize: "15px", lineHeight: 1.6 }}>{item.desc}</p>
                 </div>
               ))}
@@ -108,7 +108,7 @@ export default function DataSciencePage() {
         <section className={styles.section} style={{ background: "var(--secondary-bg)" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
             <div style={{ padding: "40px", background: "var(--primary-bg)", borderRadius: "24px", border: "1px solid var(--border)" }}>
-              <h3 style={{ fontSize: "24px", fontWeight: 800, marginBottom: "24px", display: "flex", alignItems: "center", gap: "10px" }}>
+              <h3 style={{ fontSize: "24px", fontWeight: 500, marginBottom: "24px", display: "flex", alignItems: "center", gap: "10px" }}>
                 <Search size={24} color="var(--accent)" /> Key Capabilities
               </h3>
               <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -126,7 +126,7 @@ export default function DataSciencePage() {
               </ul>
             </div>
             <div style={{ padding: "40px", background: "var(--primary-bg)", borderRadius: "24px", border: "1px solid var(--border)" }}>
-              <h3 style={{ fontSize: "24px", fontWeight: 800, marginBottom: "24px", display: "flex", alignItems: "center", gap: "10px" }}>
+              <h3 style={{ fontSize: "24px", fontWeight: 500, marginBottom: "24px", display: "flex", alignItems: "center", gap: "10px" }}>
                 <TrendingUp size={24} color="var(--accent)" /> Outcomes
               </h3>
               <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -148,7 +148,7 @@ export default function DataSciencePage() {
         {/* USE CASES */}
         <section className={styles.section}>
           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-            <h2 style={{ fontSize: "36px", fontWeight: 800, textAlign: "center", marginBottom: "48px" }}>Use Cases</h2>
+            <h2 style={{ fontSize: "36px", fontWeight: 500, textAlign: "center", marginBottom: "48px" }}>Use Cases</h2>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>
               {[
                 "Sales Forecasting",
@@ -156,7 +156,7 @@ export default function DataSciencePage() {
                 "Demand Prediction",
                 "Business Intelligence Dashboards"
               ].map((domain, i) => (
-                <div key={i} style={{ padding: "20px 32px", background: "var(--secondary-bg)", border: "1px solid var(--border)", borderRadius: "12px", fontWeight: 600 }}>
+                <div key={i} style={{ padding: "20px 32px", background: "var(--secondary-bg)", border: "1px solid var(--border)", borderRadius: "12px", fontWeight: 500 }}>
                   {domain}
                 </div>
               ))}
@@ -167,11 +167,11 @@ export default function DataSciencePage() {
         {/* CTA */}
         <section className={styles.section} style={{ background: "var(--accent)", color: "#fff", textAlign: "center" }}>
            <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-              <h2 style={{ fontSize: "36px", fontWeight: 900, marginBottom: "20px", color: "#fff" }}>Ready to master your data?</h2>
+              <h2 style={{ fontSize: "36px", fontWeight: 500, marginBottom: "20px", color: "#fff" }}>Ready to master your data?</h2>
               <p style={{ fontSize: "18px", marginBottom: "32px", opacity: 0.9 }}>
                 Convert your raw data into a competitive advantage today.
               </p>
-              <Link href="/apply" className={styles.button} style={{ background: "#fff", color: "var(--accent)", fontWeight: 800 }}>
+              <Link href="/apply" className={styles.button} style={{ background: "#fff", color: "var(--accent)", fontWeight: 500 }}>
                 Get a Data Strategy Session
               </Link>
            </div>

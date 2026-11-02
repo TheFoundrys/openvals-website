@@ -60,8 +60,8 @@ export default function AIEngineeringDataPage() {
               marginBottom: "20px",
               color: "var(--text-main)"
             }}>
-              AI Engineering & <span style={{ fontWeight: 700 }}>Data.</span><br />
-              <span style={{ color: "var(--accent)", fontWeight: 700 }}>Systems Built for Intelligence.</span>
+              AI Engineering & <span style={{ fontWeight: 500 }}>Data.</span><br />
+              <span style={{ color: "var(--accent)", fontWeight: 500 }}>Systems Built for Intelligence.</span>
             </motion.h1>
 
             <motion.p variants={FADE_UP} style={{ 
@@ -80,7 +80,7 @@ export default function AIEngineeringDataPage() {
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
             <div style={{ marginBottom: "40px" }}>
-              <h2 style={{ fontSize: "32px", fontWeight: 700, marginBottom: "16px" }}>1. AI/ML Engineering</h2>
+              <h2 style={{ fontSize: "32px", fontWeight: 500, marginBottom: "16px" }}>1. AI/ML Engineering</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "800px" }}>Transform ideas into scalable, production-ready intelligent systems.</p>
             </div>
             
@@ -90,7 +90,7 @@ export default function AIEngineeringDataPage() {
                    <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(59, 130, 246, 0.1)", display: "grid", placeItems: "center", color: "var(--accent)", marginBottom: "16px" }}>
                      <item.icon size={20} strokeWidth={2.5} />
                    </div>
-                   <h4 style={{ fontSize: "18px", fontWeight: 800, marginBottom: "8px" }}>{item.title}</h4>
+                   <h4 style={{ fontSize: "18px", fontWeight: 500, marginBottom: "8px" }}>{item.title}</h4>
                    <p style={{ color: "var(--text-muted)", fontSize: "14px", lineHeight: 1.5 }}>{item.desc}</p>
                 </div>
               ))}
@@ -102,7 +102,7 @@ export default function AIEngineeringDataPage() {
         <section className={styles.section} style={{ borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
             <div style={{ marginBottom: "40px" }}>
-              <h2 style={{ fontSize: "32px", fontWeight: 700, marginBottom: "16px" }}>2. Applied Data Science</h2>
+              <h2 style={{ fontSize: "32px", fontWeight: 500, marginBottom: "16px" }}>2. Applied Data Science</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "800px" }}>Turn raw data into actionable intelligence and competitive advantage.</p>
             </div>
             
@@ -112,7 +112,7 @@ export default function AIEngineeringDataPage() {
                    <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(59, 130, 246, 0.1)", display: "grid", placeItems: "center", color: "var(--accent)", marginBottom: "16px" }}>
                      <item.icon size={20} strokeWidth={2.5} />
                    </div>
-                   <h4 style={{ fontSize: "18px", fontWeight: 800, marginBottom: "8px" }}>{item.title}</h4>
+                   <h4 style={{ fontSize: "18px", fontWeight: 500, marginBottom: "8px" }}>{item.title}</h4>
                    <p style={{ color: "var(--text-muted)", fontSize: "14px", lineHeight: 1.5 }}>{item.desc}</p>
                 </div>
               ))}
@@ -124,15 +124,15 @@ export default function AIEngineeringDataPage() {
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "40px" }}>
              <div>
-                <h3 style={{ fontSize: "22px", fontWeight: 700, marginBottom: "20px" }}>Capabilities</h3>
+                <h3 style={{ fontSize: "22px", fontWeight: 500, marginBottom: "20px" }}>Capabilities</h3>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                    {["LLMs", "Computer Vision", "RecSys", "MLOps", "Big Data", "Spark", "Warehousing"].map((tag, i) => (
-                     <div key={i} style={{ padding: "8px 16px", background: "var(--primary-bg)", border: "1px solid var(--border)", borderRadius: "8px", fontSize: "13px", fontWeight: 600 }}>{tag}</div>
+                     <div key={i} style={{ padding: "8px 16px", background: "var(--primary-bg)", border: "1px solid var(--border)", borderRadius: "8px", fontSize: "13px", fontWeight: 500 }}>{tag}</div>
                    ))}
                 </div>
              </div>
              <div>
-                <h3 style={{ fontSize: "22px", fontWeight: 700, marginBottom: "20px" }}>Strategic Outcomes</h3>
+                <h3 style={{ fontSize: "22px", fontWeight: 500, marginBottom: "20px" }}>Strategic Outcomes</h3>
                 <ul style={{ listStyle: "none", padding: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                    {["Faster Deployment", "Reduced Overhead", "Data Optimized", "Scalable Growth"].map((item, i) => (
                      <li key={i} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "var(--text-muted)" }}>
@@ -147,11 +147,11 @@ export default function AIEngineeringDataPage() {
         {/* CTA */}
         <section className={styles.section} style={{ background: "var(--accent)", color: "#fff", textAlign: "center" }}>
            <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-              <h2 style={{ fontSize: "36px", fontWeight: 700, marginBottom: "20px", color: "#fff" }}>Build Your AI Foundation</h2>
+              <h2 style={{ fontSize: "36px", fontWeight: 500, marginBottom: "20px", color: "#fff" }}>Build Your AI Foundation</h2>
               <p style={{ fontSize: "18px", marginBottom: "32px", opacity: 0.9 }}>
                 Scale your intelligent systems with enterprise-grade engineering.
               </p>
-              <Link href="/apply" className={styles.button} style={{ background: "#fff", color: "var(--accent)", fontWeight: 800 }}>
+              <Link href="/apply" className={styles.button} style={{ background: "#fff", color: "var(--accent)", fontWeight: 500 }}>
                 Start a Consultation
               </Link>
            </div>

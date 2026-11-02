@@ -373,7 +373,7 @@ function Terminal({ children }: { children: React.ReactNode }) {
         <div style={{
           color: "#8b949e",
           fontSize: "11px",
-          fontWeight: 600,
+          fontWeight: 500,
           marginLeft: "auto",
           marginRight: "auto",
           letterSpacing: "0.5px"
@@ -399,35 +399,35 @@ function DatasetValidationTerminal() {
     <Terminal>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", fontFamily: "inherit" }}>
         <span style={{ color: "#8b949e" }}>(openv)</span>
-        <span style={{ color: "#34d399", fontWeight: 600 }}>to-00016@chintu-00</span>
+        <span style={{ color: "#34d399", fontWeight: 500 }}>to-00016@chintu-00</span>
         <span style={{ color: "#c9d1d9" }}>:</span>
-        <span style={{ color: "#58a6ff", fontWeight: 600 }}>~/Projects/openvals</span>
+        <span style={{ color: "#58a6ff", fontWeight: 500 }}>~/Projects/openvals</span>
         <span style={{ color: "#c9d1d9" }}>$</span>
         <span style={{ color: "#f0f6fc", fontWeight: 500 }}>openvals validate-dataset finance</span>
       </div>
       
       <div style={{ marginTop: "14px", color: "#f0f6fc", display: "flex", alignItems: "center", gap: "8px" }}>
         <span>🔍</span>
-        <span>Validating dataset: <span style={{ color: "#58a6ff", fontWeight: 600 }}>finance</span></span>
+        <span>Validating dataset: <span style={{ color: "#58a6ff", fontWeight: 500 }}>finance</span></span>
       </div>
       
       <div style={{ color: "#30363d", margin: "8px 0", letterSpacing: "-1px" }}>===================================</div>
-      <div style={{ color: "#f0f6fc", fontWeight: 700, fontSize: "15px" }}>OpenVals Dataset Validation</div>
+      <div style={{ color: "#f0f6fc", fontWeight: 500, fontSize: "15px" }}>OpenVals Dataset Validation</div>
       <div style={{ color: "#30363d", margin: "8px 0", letterSpacing: "-1px" }}>===================================</div>
       
       <div style={{ color: "#f0f6fc", marginTop: "12px" }}>
-        Status : <span style={{ color: "#34d399", fontWeight: 700 }}>Healthy</span>
+        Status : <span style={{ color: "#34d399", fontWeight: 500 }}>Healthy</span>
       </div>
       <div style={{ color: "#f0f6fc" }}>
         Samples: 10
       </div>
 
-      <div style={{ color: "#8b949e", fontWeight: 600, marginTop: "16px", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.5px" }}>Schema Validation</div>
-      <div style={{ color: "#34d399", fontWeight: 600, display: "flex", alignItems: "center", gap: "6px" }}>
+      <div style={{ color: "#8b949e", fontWeight: 500, marginTop: "16px", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.5px" }}>Schema Validation</div>
+      <div style={{ color: "#34d399", fontWeight: 500, display: "flex", alignItems: "center", gap: "6px" }}>
         <span>✓</span> <span>Passed</span>
       </div>
 
-      <div style={{ color: "#8b949e", fontWeight: 600, marginTop: "16px", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.5px" }}>Quality Validation</div>
+      <div style={{ color: "#8b949e", fontWeight: 500, marginTop: "16px", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.5px" }}>Quality Validation</div>
       <div style={{ display: "grid", gridTemplateColumns: "180px auto", gap: "4px 8px", color: "#f0f6fc", marginTop: "4px" }}>
         <span style={{ color: "#8b949e" }}>Empty Prompts</span><span>: 0</span>
         <span style={{ color: "#8b949e" }}>Empty Outputs</span><span>: 0</span>
@@ -438,10 +438,10 @@ function DatasetValidationTerminal() {
 
       <div style={{ color: "#f0f6fc", marginTop: "20px", display: "flex", alignItems: "baseline", gap: "8px" }}>
         <span>Dataset Health Score:</span>
-        <span style={{ color: "#34d399", fontWeight: 800, fontSize: "16px" }}>100</span>
+        <span style={{ color: "#34d399", fontWeight: 500, fontSize: "16px" }}>100</span>
       </div>
       <div style={{ color: "#f0f6fc" }}>
-        Health Status       : <span style={{ color: "#34d399", fontWeight: 700 }}>Healthy</span>
+        Health Status       : <span style={{ color: "#34d399", fontWeight: 500 }}>Healthy</span>
       </div>
       <div style={{ color: "#30363d", margin: "8px 0", letterSpacing: "-1px" }}>===================================</div>
     </Terminal>
@@ -561,13 +561,13 @@ const Sparkline = ({ points, color }: { points: string; color: string }) => (
 const GroupedBarChart = ({ title, maxVal, data, unit = "" }: { title: string; maxVal: number; data: Array<{ label: string; val: number; color: string }>; unit?: string }) => {
   return (
     <div style={{ flex: 1, minWidth: "130px", border: "1px solid var(--docs-border-soft)", borderRadius: "10px", padding: "12px 14px", background: "var(--docs-card)" }}>
-      <div style={{ fontSize: "11px", fontWeight: 600, color: "var(--docs-heading)", marginBottom: "14px", textAlign: "center" }}>{title}</div>
+      <div style={{ fontSize: "11px", fontWeight: 500, color: "var(--docs-heading)", marginBottom: "14px", textAlign: "center" }}>{title}</div>
       <div style={{ display: "flex", justifyContent: "space-around", alignItems: "flex-end", height: "100px", paddingBottom: "4px" }}>
         {data.map((item, idx) => {
           const heightPct = Math.min((item.val / maxVal) * 100, 100);
           return (
             <div key={idx} style={{ display: "flex", flexDirection: "column", alignItems: "center", height: "100%", justifyContent: "flex-end", width: "24px" }}>
-              <span style={{ fontSize: "9px", fontWeight: 700, color: "var(--docs-heading)", marginBottom: "4px" }}>{item.val}{unit}</span>
+              <span style={{ fontSize: "9px", fontWeight: 500, color: "var(--docs-heading)", marginBottom: "4px" }}>{item.val}{unit}</span>
               <div style={{ width: "100%", height: `${heightPct}%`, backgroundColor: item.color, borderRadius: "3px 3px 0 0" }}></div>
               <span style={{ fontSize: "9px", color: "var(--docs-muted)", marginTop: "6px", fontWeight: 500 }}>{item.label}</span>
             </div>
@@ -686,18 +686,18 @@ const ScreenshotsPage = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontWeight: "bold",
+                fontWeight: "500",
                 fontSize: "14px",
                 color: "#fff"
               }}>O</div>
-              <span style={{ fontSize: "22px", fontWeight: 800, letterSpacing: "-0.5px" }}>OpenVals</span>
+              <span style={{ fontSize: "22px", fontWeight: 500, letterSpacing: "-0.5px" }}>OpenVals</span>
               <span style={{
                 background: "rgba(255,255,255,0.08)",
                 fontSize: "12px",
                 padding: "2px 8px",
                 borderRadius: "4px",
                 color: "#a5b4fc",
-                fontWeight: 600,
+                fontWeight: 500,
                 marginLeft: "8px"
               }}>AI Trust Intelligence Report</span>
             </div>
@@ -740,16 +740,16 @@ const ScreenshotsPage = () => {
             alignItems: "center"
           }}>
             <div>
-              <div style={{ fontSize: "10px", fontWeight: 700, color: "#10b981", letterSpacing: "1px", textTransform: "uppercase" }}>Recommended Model</div>
-              <div style={{ fontSize: "20px", fontWeight: 800, color: "#ffffff", margin: "4px 0 6px" }}>Llama3</div>
-              <div style={{ display: "inline-block", background: "#10b981", color: "#064e3b", fontSize: "11px", fontWeight: 700, padding: "2px 8px", borderRadius: "4px" }}>Enterprise Ready</div>
+              <div style={{ fontSize: "10px", fontWeight: 500, color: "#10b981", letterSpacing: "1px", textTransform: "uppercase" }}>Recommended Model</div>
+              <div style={{ fontSize: "20px", fontWeight: 500, color: "#ffffff", margin: "4px 0 6px" }}>Llama3</div>
+              <div style={{ display: "inline-block", background: "#10b981", color: "#064e3b", fontSize: "11px", fontWeight: 500, padding: "2px 8px", borderRadius: "4px" }}>Enterprise Ready</div>
               <div style={{ fontSize: "11px", color: "#a5b4fc", marginTop: "6px", display: "flex", alignItems: "center", gap: "4px" }}>
                 <span style={{ color: "#10b981" }}>✓</span> High Trust
               </div>
             </div>
             <div style={{ textAlign: "right", borderLeft: "1px solid rgba(255,255,255,0.1)", paddingLeft: "16px" }}>
               <div style={{ fontSize: "10px", color: "#a5b4fc", textTransform: "uppercase" }}>DRS Score</div>
-              <div style={{ fontSize: "36px", fontWeight: 900, color: "#10b981" }}>0.89</div>
+              <div style={{ fontSize: "36px", fontWeight: 500, color: "#10b981" }}>0.89</div>
             </div>
           </div>
         </div>
@@ -778,10 +778,10 @@ const ScreenshotsPage = () => {
               alignItems: "center"
             }}>
               <div>
-                <div style={{ fontSize: "12px", color: "var(--docs-muted)", fontWeight: 600 }}>{cat.label}</div>
-                <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--docs-heading)", marginTop: "6px", display: "flex", alignItems: "baseline", gap: "6px" }}>
+                <div style={{ fontSize: "12px", color: "var(--docs-muted)", fontWeight: 500 }}>{cat.label}</div>
+                <div style={{ fontSize: "20px", fontWeight: 500, color: "var(--docs-heading)", marginTop: "6px", display: "flex", alignItems: "baseline", gap: "6px" }}>
                   {cat.score}
-                  <span style={{ fontSize: "11px", color: cat.color, fontWeight: 700 }}>{cat.rating}</span>
+                  <span style={{ fontSize: "11px", color: cat.color, fontWeight: 500 }}>{cat.rating}</span>
                 </div>
               </div>
               <Sparkline points={cat.points} color={cat.color} />
@@ -802,7 +802,7 @@ const ScreenshotsPage = () => {
             borderRadius: "12px",
             padding: "20px"
           }}>
-            <h4 style={{ margin: "0 0 16px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+            <h4 style={{ margin: "0 0 16px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 500, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
               TRUST INTELLIGENCE DASHBOARD
             </h4>
             <RadarChart />
@@ -822,7 +822,7 @@ const ScreenshotsPage = () => {
             </div>
 
             <div style={{ marginTop: "18px" }}>
-              <div style={{ fontSize: "11px", color: "var(--docs-muted)", fontWeight: 700, textTransform: "uppercase", marginBottom: "10px" }}>Key Takeaways</div>
+              <div style={{ fontSize: "11px", color: "var(--docs-muted)", fontWeight: 500, textTransform: "uppercase", marginBottom: "10px" }}>Key Takeaways</div>
               <div style={{ display: "grid", gap: "6px" }}>
                 {[
                   "Excellent factual accuracy and safety alignment",
@@ -844,7 +844,7 @@ const ScreenshotsPage = () => {
             borderRadius: "12px",
             padding: "20px"
           }}>
-            <h4 style={{ margin: "0 0 16px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+            <h4 style={{ margin: "0 0 16px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 500, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
               VISUAL INTELLIGENCE
             </h4>
             
@@ -923,11 +923,11 @@ const ScreenshotsPage = () => {
               padding: "20px",
               flex: 1
             }}>
-              <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+              <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 500, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
                 DEPLOYMENT READINESS
               </h4>
               
-              <div style={{ fontSize: "14px", fontWeight: 700, color: "#16a34a", marginBottom: "16px", display: "flex", alignItems: "center", gap: "6px" }}>
+              <div style={{ fontSize: "14px", fontWeight: 500, color: "#16a34a", marginBottom: "16px", display: "flex", alignItems: "center", gap: "6px" }}>
                 <span style={{ display: "inline-block", width: "8px", height: "8px", background: "#16a34a", borderRadius: "50%" }} /> Ready for Production
               </div>
 
@@ -941,10 +941,10 @@ const ScreenshotsPage = () => {
                 ].map((item, idx) => (
                   <div key={idx} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <div>
-                      <div style={{ fontSize: "12px", color: "var(--docs-text)", fontWeight: 600 }}>{item.label}</div>
+                      <div style={{ fontSize: "12px", color: "var(--docs-text)", fontWeight: 500 }}>{item.label}</div>
                       <div style={{ fontSize: "11px", color: "var(--docs-muted)" }}>{item.desc}</div>
                     </div>
-                    <span style={{ color: "#16a34a", fontWeight: "bold" }}>✓</span>
+                    <span style={{ color: "#16a34a", fontWeight: "500" }}>✓</span>
                   </div>
                 ))}
               </div>
@@ -956,7 +956,7 @@ const ScreenshotsPage = () => {
               borderRadius: "12px",
               padding: "20px"
             }}>
-              <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+              <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 500, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
                 RISK OVERVIEW
               </h4>
               <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
@@ -968,8 +968,8 @@ const ScreenshotsPage = () => {
                     <circle cx="50" cy="50" r="40" fill="transparent" stroke="#dc2626" strokeWidth="10" strokeDasharray="17.6 251.3" strokeDashoffset="-233.8" strokeLinecap="round" />
                   </svg>
                   <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <span style={{ fontSize: "13px", fontWeight: 800, color: "#16a34a" }}>Low</span>
-                    <span style={{ fontSize: "10px", fontWeight: 600, color: "var(--docs-muted)" }}>Risk</span>
+                    <span style={{ fontSize: "13px", fontWeight: 500, color: "#16a34a" }}>Low</span>
+                    <span style={{ fontSize: "10px", fontWeight: 500, color: "var(--docs-muted)" }}>Risk</span>
                   </div>
                 </div>
 
@@ -984,7 +984,7 @@ const ScreenshotsPage = () => {
                         <div style={{ width: "8px", height: "8px", background: risk.color, borderRadius: "50%" }} />
                         <span style={{ color: "var(--docs-text)", fontWeight: 500 }}>{risk.label}</span>
                       </div>
-                      <span style={{ color: "var(--docs-heading)", fontWeight: 700 }}>{risk.pct}</span>
+                      <span style={{ color: "var(--docs-heading)", fontWeight: 500 }}>{risk.pct}</span>
                     </div>
                   ))}
                 </div>
@@ -1020,7 +1020,7 @@ const ScreenshotsPage = () => {
             padding: "20px",
             overflowX: "auto"
           }}>
-            <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+            <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 500, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
               MODEL LEADERBOARD
             </h4>
             
@@ -1051,14 +1051,14 @@ const ScreenshotsPage = () => {
                     background: row.best ? "rgba(59,130,246,0.02)" : "transparent"
                   }}>
                     <td style={{ padding: "12px 4px" }}>{row.rank}</td>
-                    <td style={{ padding: "12px 4px", fontWeight: "bold" }}>{row.model}</td>
+                    <td style={{ padding: "12px 4px", fontWeight: "500" }}>{row.model}</td>
                     <td style={{ padding: "12px 4px" }}>{row.acc}%</td>
                     <td style={{ padding: "12px 4px" }}>{row.sem}</td>
                     <td style={{ padding: "12px 4px" }}>{row.fact}</td>
                     <td style={{ padding: "12px 4px" }}>{row.rel}</td>
                     <td style={{ padding: "12px 4px" }}>{row.safety}</td>
                     <td style={{ padding: "12px 4px" }}>{row.lat}</td>
-                    <td style={{ padding: "12px 4px", textAlign: "right", fontWeight: "bold", color: row.best ? "#10b981" : "inherit" }}>{row.drs}</td>
+                    <td style={{ padding: "12px 4px", textAlign: "right", fontWeight: "500", color: row.best ? "#10b981" : "inherit" }}>{row.drs}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1073,7 +1073,7 @@ const ScreenshotsPage = () => {
             display: "flex",
             flexDirection: "column"
           }}>
-            <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
+            <h4 style={{ margin: "0 0 14px", color: "var(--docs-heading)", fontSize: "13px", fontWeight: 500, borderBottom: "1px solid var(--docs-border-soft)", paddingBottom: "10px", letterSpacing: "0.5px" }}>
               AI ADVISOR RECOMMENDATION
             </h4>
             
@@ -1091,7 +1091,7 @@ const ScreenshotsPage = () => {
               }}>★</div>
               <div>
                 <div style={{ fontSize: "11px", color: "var(--docs-muted)", fontWeight: 500 }}>Recommended Model</div>
-                <div style={{ fontSize: "15px", fontWeight: 700, color: "var(--docs-heading)" }}>Llama3</div>
+                <div style={{ fontSize: "15px", fontWeight: 500, color: "var(--docs-heading)" }}>Llama3</div>
               </div>
             </div>
 
@@ -1115,7 +1115,7 @@ const ScreenshotsPage = () => {
               paddingTop: "14px"
             }}>
               <span style={{ fontSize: "12px", color: "var(--docs-muted)" }}>Confidence: <strong style={{ color: "#10b981" }}>92%</strong></span>
-              <span style={{ fontSize: "11px", background: "rgba(16,185,129,0.1)", color: "#10b981", fontWeight: 700, padding: "2px 8px", borderRadius: "4px" }}>Enterprise Confidence</span>
+              <span style={{ fontSize: "11px", background: "rgba(16,185,129,0.1)", color: "#10b981", fontWeight: 500, padding: "2px 8px", borderRadius: "4px" }}>Enterprise Confidence</span>
             </div>
           </div>
         </div>
@@ -1156,9 +1156,9 @@ const ScreenshotsPage = () => {
           borderBottom: "1px solid #1e293b"
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-            <span style={{ fontSize: "12px", background: "rgba(255,255,255,0.08)", padding: "2px 8px", borderRadius: "4px", color: "#a5b4fc", textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.5px" }}>OpenVals</span>
+            <span style={{ fontSize: "12px", background: "rgba(255,255,255,0.08)", padding: "2px 8px", borderRadius: "4px", color: "#a5b4fc", textTransform: "uppercase", fontWeight: 500, letterSpacing: "0.5px" }}>OpenVals</span>
           </div>
-          <h3 style={{ fontSize: "24px", fontWeight: 800, margin: "0 0 8px", color: "#ffffff" }}>AI Trust Intelligence Report</h3>
+          <h3 style={{ fontSize: "24px", fontWeight: 500, margin: "0 0 8px", color: "#ffffff" }}>AI Trust Intelligence Report</h3>
           <div style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px" }}>
             Comprehensive evaluation of AI models across trust, performance, factuality, hallucination, and operational readiness.
           </div>
@@ -1185,25 +1185,25 @@ const ScreenshotsPage = () => {
             padding: "24px",
             position: "relative"
           }}>
-            <div style={{ fontSize: "11px", color: "#94a3b8", textTransform: "uppercase", fontWeight: 700, letterSpacing: "1px" }}>Recommended Model</div>
-            <div style={{ fontSize: "20px", fontWeight: 800, color: "#ffffff", margin: "6px 0 20px" }}>lfm2.5-thinking:1.2b</div>
+            <div style={{ fontSize: "11px", color: "#94a3b8", textTransform: "uppercase", fontWeight: 500, letterSpacing: "1px" }}>Recommended Model</div>
+            <div style={{ fontSize: "20px", fontWeight: 500, color: "#ffffff", margin: "6px 0 20px" }}>lfm2.5-thinking:1.2b</div>
             
             <div style={{ borderTop: "1px solid #1e293b", paddingTop: "20px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "20px" }}>
               <div>
-                <div style={{ fontSize: "11px", color: "#94a3b8", textTransform: "uppercase", fontWeight: 600 }}>DRS Score</div>
-                <div style={{ fontSize: "40px", fontWeight: 900, color: "#f59e0b", marginTop: "4px" }}>0.576</div>
+                <div style={{ fontSize: "11px", color: "#94a3b8", textTransform: "uppercase", fontWeight: 500 }}>DRS Score</div>
+                <div style={{ fontSize: "40px", fontWeight: 500, color: "#f59e0b", marginTop: "4px" }}>0.576</div>
               </div>
               <div style={{ display: "flex", gap: "24px" }}>
                 <div>
                   <div style={{ fontSize: "11px", color: "#64748b", textTransform: "uppercase" }}>Status</div>
                   <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "6px" }}>
                     <div style={{ width: "8px", height: "8px", background: "#f59e0b", borderRadius: "50%" }} />
-                    <span style={{ fontSize: "13px", fontWeight: 700, color: "#f59e0b" }}>Experimental</span>
+                    <span style={{ fontSize: "13px", fontWeight: 500, color: "#f59e0b" }}>Experimental</span>
                   </div>
                 </div>
                 <div>
                   <div style={{ fontSize: "11px", color: "#64748b", textTransform: "uppercase" }}>Confidence</div>
-                  <div style={{ fontSize: "14px", fontWeight: 700, color: "#cbd5e1", marginTop: "6px" }}>0.396</div>
+                  <div style={{ fontSize: "14px", fontWeight: 500, color: "#cbd5e1", marginTop: "6px" }}>0.396</div>
                 </div>
               </div>
             </div>
@@ -1227,7 +1227,7 @@ const ScreenshotsPage = () => {
                 color: "#1e293b"
               }}>
                 <div>
-                  <div style={{ fontSize: "10px", color: "#64748b", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>{item.label}</div>
+                  <div style={{ fontSize: "10px", color: "#64748b", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1px" }}>{item.label}</div>
                   <div style={{ fontSize: "12px", color: "#64748b", marginTop: "4px" }}>{item.desc}</div>
                 </div>
                 <div style={{ fontSize: "22px", fontWeight: 850, color: "#0f172a" }}>
@@ -1244,18 +1244,18 @@ const ScreenshotsPage = () => {
             padding: "24px",
             marginTop: "10px"
           }}>
-            <div style={{ fontSize: "11px", color: "#94a3b8", textTransform: "uppercase", fontWeight: 700, letterSpacing: "1px", marginBottom: "14px" }}>Executive Overview</div>
+            <div style={{ fontSize: "11px", color: "#94a3b8", textTransform: "uppercase", fontWeight: 500, letterSpacing: "1px", marginBottom: "14px" }}>Executive Overview</div>
             
-            <h4 style={{ fontSize: "18px", fontWeight: 700, margin: "0 0 10px", color: "#ffffff" }}>Executive Summary</h4>
+            <h4 style={{ fontSize: "18px", fontWeight: 500, margin: "0 0 10px", color: "#ffffff" }}>Executive Summary</h4>
             <div style={{ fontSize: "14px", color: "#94a3b8", lineHeight: 1.6, marginBottom: "20px" }}>
               lfm2.5-thinking:1.2b demonstrated stable operational reliability, strong safety characteristics with a DRS score of 0.576.
             </div>
 
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", borderRadius: "20px", background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)" }}>
-              <span style={{ fontSize: "12px", fontWeight: 600, color: "#cbd5e1" }}>Trust Classification:</span>
+              <span style={{ fontSize: "12px", fontWeight: 500, color: "#cbd5e1" }}>Trust Classification:</span>
               <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                 <div style={{ width: "8px", height: "8px", background: "#f59e0b", borderRadius: "50%" }} />
-                <span style={{ fontSize: "13px", fontWeight: 700, color: "#f59e0b" }}>Experimental</span>
+                <span style={{ fontSize: "13px", fontWeight: 500, color: "#f59e0b" }}>Experimental</span>
               </div>
             </div>
           </div>
@@ -1279,7 +1279,7 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
           <div style={{ fontSize: "19px", color: "var(--docs-muted)", fontWeight: 500, marginTop: "-20px", marginBottom: "12px" }}>
             AI Trust Intelligence Platform for LLMs, SLMs, Private AI, and Enterprise AI Systems
           </div>
-          <div style={{ fontSize: "16px", color: "var(--accent, #3776ab)", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "24px" }}>
+          <div style={{ fontSize: "16px", color: "var(--accent, #3776ab)", fontWeight: 500, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "24px" }}>
             Evaluate &bull; Benchmark &bull; Trust Intelligence
           </div>
 
@@ -1301,8 +1301,8 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
 
           <H2>Trust Infrastructure for AI</H2>
           <blockquote style={{ margin: "32px 0", padding: "20px 24px", borderLeft: "4px solid var(--docs-heading)", background: "var(--docs-card)", borderRadius: "0 12px 12px 0" }}>
-            <div style={{ fontSize: "14px", color: "var(--docs-muted)", textTransform: "uppercase", letterSpacing: "1.5px", fontWeight: 600, marginBottom: "6px" }}>OpenVals answers one question:</div>
-            <div style={{ fontSize: "24px", color: "var(--docs-heading)", fontWeight: 700, fontStyle: "italic" }}>&ldquo;Can you trust your AI?&rdquo;</div>
+            <div style={{ fontSize: "14px", color: "var(--docs-muted)", textTransform: "uppercase", letterSpacing: "1.5px", fontWeight: 500, marginBottom: "6px" }}>OpenVals answers one question:</div>
+            <div style={{ fontSize: "24px", color: "var(--docs-heading)", fontWeight: 500, fontStyle: "italic" }}>&ldquo;Can you trust your AI?&rdquo;</div>
           </blockquote>
 
           <H2>What is OpenVals?</H2>
@@ -1345,12 +1345,12 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
               ["Accuracy", "✓", "✓"],
               ["Latency", "✓", "✓"],
               ["Semantic Similarity", "✓", "✓"],
-              ["Hallucination Detection", <span key="hall" style={{ color: "#d97706", fontWeight: 500 }}>Limited</span>, <span key="hall_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
-              ["Factuality Analysis", <span key="fact" style={{ color: "#d97706", fontWeight: 500 }}>Limited</span>, <span key="fact_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
-              ["Trust Scoring", <span key="trust" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="trust_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
-              ["Governance Readiness", <span key="gov" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="gov_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
-              ["Executive Reporting", <span key="rep" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="rep_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
-              ["Enterprise Validation", <span key="val" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="val_ok" style={{ color: "#16a34a", fontWeight: 700 }}>✓</span>],
+              ["Hallucination Detection", <span key="hall" style={{ color: "#d97706", fontWeight: 500 }}>Limited</span>, <span key="hall_ok" style={{ color: "#16a34a", fontWeight: 500 }}>✓</span>],
+              ["Factuality Analysis", <span key="fact" style={{ color: "#d97706", fontWeight: 500 }}>Limited</span>, <span key="fact_ok" style={{ color: "#16a34a", fontWeight: 500 }}>✓</span>],
+              ["Trust Scoring", <span key="trust" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="trust_ok" style={{ color: "#16a34a", fontWeight: 500 }}>✓</span>],
+              ["Governance Readiness", <span key="gov" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="gov_ok" style={{ color: "#16a34a", fontWeight: 500 }}>✓</span>],
+              ["Executive Reporting", <span key="rep" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="rep_ok" style={{ color: "#16a34a", fontWeight: 500 }}>✓</span>],
+              ["Enterprise Validation", <span key="val" style={{ color: "#dc2626", fontWeight: 500 }}>✗</span>, <span key="val_ok" style={{ color: "#16a34a", fontWeight: 500 }}>✓</span>],
             ]}
           />
 
@@ -1365,7 +1365,7 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
               { title: "Executive Reporting", desc: "Generate trust dashboards and executive-level AI readiness reports." }
             ].map((uc, index) => (
               <div key={index} style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "20px", background: "var(--docs-card)" }}>
-                <h4 style={{ margin: "0 0 8px", color: "var(--docs-heading)", fontSize: "16px", fontWeight: 600 }}>{uc.title}</h4>
+                <h4 style={{ margin: "0 0 8px", color: "var(--docs-heading)", fontSize: "16px", fontWeight: 500 }}>{uc.title}</h4>
                 <p style={{ margin: 0, color: "var(--docs-muted)", fontSize: "14px", lineHeight: 1.5 }}>{uc.desc}</p>
               </div>
             ))}
@@ -1398,7 +1398,7 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
   --dataset finance \\
   --models mistral,llama3`}</CodeBlock>
           
-          <h3 style={{ fontSize: "16px", color: "var(--docs-heading)", marginTop: "18px", marginBottom: "8px", fontWeight: 600 }}>Expected CLI Output:</h3>
+          <h3 style={{ fontSize: "16px", color: "var(--docs-heading)", marginTop: "18px", marginBottom: "8px", fontWeight: 500 }}>Expected CLI Output:</h3>
           <CodeBlock>{`Model      Accuracy    DRS
 --------------------------------
 llama3     91.4        89.2
@@ -1574,7 +1574,7 @@ READY FOR PRODUCTION`}</CodeBlock>
                 padding: "16px 20px",
                 background: "var(--docs-card)"
               }}>
-                <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
+                <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
                   {item.title}
                 </div>
                 <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
@@ -1593,7 +1593,7 @@ READY FOR PRODUCTION`}</CodeBlock>
             margin: "24px 0",
             color: "var(--docs-text)"
           }}>
-            <div style={{ fontWeight: 700, color: "#ea580c", fontSize: "15px", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
+            <div style={{ fontWeight: 500, color: "#ea580c", fontSize: "15px", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
               <span>⚠️</span> Current gap
             </div>
             <p style={{ margin: 0, fontSize: "15px", lineHeight: 1.65, color: "var(--docs-text)" }}>
@@ -1646,7 +1646,7 @@ READY FOR PRODUCTION`}</CodeBlock>
           <H2>Troubleshooting</H2>
           <div style={{ display: "grid", gap: "14px", margin: "20px 0" }}>
             <div style={{ border: "1px solid var(--docs-border)", borderRadius: "10px", padding: "16px 20px", background: "var(--docs-card)" }}>
-              <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "15px", marginBottom: "4px" }}>
+              <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "15px", marginBottom: "4px" }}>
                 &ldquo;Integrations API unreachable&rdquo;
               </div>
               <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
@@ -1655,7 +1655,7 @@ READY FOR PRODUCTION`}</CodeBlock>
             </div>
 
             <div style={{ border: "1px solid var(--docs-border)", borderRadius: "10px", padding: "16px 20px", background: "var(--docs-card)" }}>
-              <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "15px", marginBottom: "4px" }}>
+              <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "15px", marginBottom: "4px" }}>
                 Connection probe fails
               </div>
               <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
@@ -1664,7 +1664,7 @@ READY FOR PRODUCTION`}</CodeBlock>
             </div>
 
             <div style={{ border: "1px solid var(--docs-border)", borderRadius: "10px", padding: "16px 20px", background: "var(--docs-card)" }}>
-              <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "15px", marginBottom: "4px" }}>
+              <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "15px", marginBottom: "4px" }}>
                 Session expired
               </div>
               <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
@@ -1715,7 +1715,7 @@ READY FOR PRODUCTION`}</CodeBlock>
                   background: "var(--accent, #3776ab)",
                   color: "#fff",
                   fontSize: "12px",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   flexShrink: 0,
                   marginTop: "1px"
                 }}>
@@ -1872,7 +1872,7 @@ READY FOR PRODUCTION`}</CodeBlock>
                 padding: "16px 20px",
                 background: "var(--docs-card)"
               }}>
-                <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
+                <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
                   {item.title}
                 </div>
                 <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
@@ -1908,7 +1908,7 @@ READY FOR PRODUCTION`}</CodeBlock>
                 padding: "16px 20px",
                 background: "var(--docs-card)"
               }}>
-                <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
+                <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "16px", marginBottom: "6px" }}>
                   {item.concept}
                 </div>
                 <div style={{ fontSize: "14.5px", color: "var(--docs-muted)", lineHeight: 1.6 }}>
@@ -1939,7 +1939,7 @@ READY FOR PRODUCTION`}</CodeBlock>
             gap: "12px"
           }}>
             <div>
-              <div style={{ fontWeight: 700, color: "var(--docs-heading)", fontSize: "15px" }}>
+              <div style={{ fontWeight: 500, color: "var(--docs-heading)", fontSize: "15px" }}>
                 Dedicated AIxLence Documentation Portal
               </div>
               <div style={{ fontSize: "13.5px", color: "var(--docs-muted)", marginTop: "2px" }}>
@@ -1957,7 +1957,7 @@ READY FOR PRODUCTION`}</CodeBlock>
                 background: "var(--accent)",
                 color: "#fff",
                 fontSize: "13.5px",
-                fontWeight: 600,
+                fontWeight: 500,
                 textDecoration: "none"
               }}
             >
@@ -2061,7 +2061,7 @@ READY FOR PRODUCTION`}</CodeBlock>
           <Paragraph>
             <strong>Route:</strong> <code>/aixlence/organization-profile</code>. The profile anchors your assessment with company metadata, currency settings, and financial parameters.
           </Paragraph>
-          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "16px 0 8px" }}>Enterprise metadata:</div>
+          <div style={{ fontWeight: 500, color: "var(--docs-heading)", margin: "16px 0 8px" }}>Enterprise metadata:</div>
           <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
             <li><strong>Organization Name</strong> — Legal or operating entity being assessed.</li>
             <li><strong>Organization Logo URL (optional)</strong> — Rendered in executive report headers.</li>
@@ -2074,7 +2074,7 @@ READY FOR PRODUCTION`}</CodeBlock>
             <li><strong>Assessment Owner & Date</strong> — Accountable lead and date of assessment.</li>
           </ul>
 
-          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Multi-currency normalization:</div>
+          <div style={{ fontWeight: 500, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Multi-currency normalization:</div>
           <Paragraph>All calculations run in USD, with localized display.</Paragraph>
           <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
             <li><strong>Base Currency</strong> — Fixed to USD for consistent cross-region comparison.</li>
@@ -2082,7 +2082,7 @@ READY FOR PRODUCTION`}</CodeBlock>
             <li><strong>Exchange Rate (FX per USD)</strong> — Current rate, for example 83.00 for USD/INR or 0.92 for USD/EUR.</li>
           </ul>
 
-          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "20px 0 8px" }}>AI financial parameters:</div>
+          <div style={{ fontWeight: 500, color: "var(--docs-heading)", margin: "20px 0 8px" }}>AI financial parameters:</div>
           <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
             <li><strong>Planned AI Investment</strong> — Total capital and operating budget for AI over the next 12–24 months.</li>
             <li><strong>Estimated Annual AI Benefit</strong> — Gross projected benefit (productivity savings, new revenue, efficiency).</li>
@@ -2132,7 +2132,7 @@ READY FOR PRODUCTION`}</CodeBlock>
             ]}
           />
 
-          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Interface features:</div>
+          <div style={{ fontWeight: 500, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Interface features:</div>
           <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
             <li><strong>Pillar navigation</strong> — Switch pillars with the tab bar. Each tab shows an icon, the pillar weight, and answered-question count.</li>
             <li><strong>Scoring buttons (1–5)</strong> — Select the score that matches current maturity.</li>
@@ -2152,7 +2152,7 @@ READY FOR PRODUCTION`}</CodeBlock>
           <Paragraph>
             <strong>Route:</strong> <code>/aixlence/pillar-summary</code>. The radar chart overlays Current Maturity (0–100) against Target State (default 80) on six axes. Lopsided shapes reveal imbalances, such as strong LLM adoption alongside weak security. The Target Score slider (50–95) recalculates gaps in real time.
           </Paragraph>
-          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "16px 0 6px" }}>Key metrics:</div>
+          <div style={{ fontWeight: 500, color: "var(--docs-heading)", margin: "16px 0 6px" }}>Key metrics:</div>
           <Paragraph>
             <strong>Normalized Pillar Score (0–100):</strong><br />
             <code>Pillar Score = Σ(weight × score) ÷ Σ(weight × 5) × 100</code>
@@ -2212,7 +2212,7 @@ READY FOR PRODUCTION`}</CodeBlock>
               ]
             ]}
           />
-          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Solution accelerators:</div>
+          <div style={{ fontWeight: 500, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Solution accelerators:</div>
           <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
             <li><strong>OpenLxM</strong> — Private enterprise LLM platform, sovereign model routing, local RAG.</li>
             <li><strong>OpenVals</strong> — Automated validation suites, continuous drift monitoring, Trust Reports.</li>
@@ -2226,7 +2226,7 @@ READY FOR PRODUCTION`}</CodeBlock>
             <strong>Route:</strong> <code>/aixlence/investment-simulator</code>. The simulator models the return of closing capability gaps using the <strong>DrPinnacle Value Realization Curve</strong>. Planned benefits are not guaranteed: capability maturity determines how much projected value you actually capture.
           </Paragraph>
           <div style={{ background: "var(--docs-code-bg)", border: "1px solid var(--docs-border)", padding: "16px 20px", borderRadius: "10px", margin: "18px 0" }}>
-            <code style={{ fontSize: "16px", fontWeight: 700, color: "var(--docs-heading)" }}>
+            <code style={{ fontSize: "16px", fontWeight: 500, color: "var(--docs-heading)" }}>
               P(Value) = min(90%, max(25%, 20% + Score × 0.7%))
             </code>
           </div>
@@ -2234,7 +2234,7 @@ READY FOR PRODUCTION`}</CodeBlock>
             <li>At a score of 20 (Exploring), realization probability is about 34%. Up to 66% of projected returns can be lost to failed deployments, rework, and security incidents.</li>
             <li>At a score of 80 (Managed/Optimized), probability rises to about 76%.</li>
           </ul>
-          <div style={{ fontWeight: 700, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Outputs:</div>
+          <div style={{ fontWeight: 500, color: "var(--docs-heading)", margin: "20px 0 8px" }}>Outputs:</div>
           <ul style={{ color: "var(--docs-muted)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "24px" }}>
             <li><strong>Risk-Adjusted Annual Benefit</strong> — Gross Benefit × P(Value).</li>
             <li><strong>Risk-Adjusted Net Value</strong> — Risk-Adjusted Benefit − Annual Operating Cost.</li>
@@ -2249,7 +2249,7 @@ READY FOR PRODUCTION`}</CodeBlock>
             <strong>Route:</strong> <code>/aixlence/service-mapping</code>. AIxLence follows a &ldquo;Diagnosis First, Service Second&rdquo; principle. A capability is marked Active (Needs Intervention) when:
           </Paragraph>
           <div style={{ background: "var(--docs-code-bg)", border: "1px solid var(--docs-border)", padding: "14px 20px", borderRadius: "10px", margin: "16px 0" }}>
-            <code style={{ fontSize: "16px", fontWeight: 700, color: "var(--docs-heading)" }}>
+            <code style={{ fontSize: "16px", fontWeight: 500, color: "var(--docs-heading)" }}>
               Target Gap ≥ 15 OR Current Score &lt; 70
             </code>
           </div>
@@ -2618,11 +2618,11 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
           <Paragraph>Most platforms evaluate AI. OpenVals validates trust.</Paragraph>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px", marginTop: "24px", marginBottom: "24px" }}>
             <div style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "20px", background: "var(--docs-card)" }}>
-              <h4 style={{ margin: "0 0 8px", color: "var(--docs-heading)", fontSize: "16px", fontWeight: 600 }}>Evaluation answers:</h4>
+              <h4 style={{ margin: "0 0 8px", color: "var(--docs-heading)", fontSize: "16px", fontWeight: 500 }}>Evaluation answers:</h4>
               <p style={{ margin: 0, color: "var(--docs-muted)", fontSize: "15px", fontStyle: "italic" }}>&ldquo;How well does the model perform?&rdquo;</p>
             </div>
             <div style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "20px", background: "var(--docs-card)" }}>
-              <h4 style={{ margin: "0 0 8px", color: "var(--docs-heading)", fontSize: "16px", fontWeight: 600 }}>Validation answers:</h4>
+              <h4 style={{ margin: "0 0 8px", color: "var(--docs-heading)", fontSize: "16px", fontWeight: 500 }}>Validation answers:</h4>
               <p style={{ margin: 0, color: "var(--docs-muted)", fontSize: "15px", fontStyle: "italic" }}>&ldquo;Can the model be trusted in production?&rdquo;</p>
             </div>
           </div>
@@ -2904,7 +2904,7 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
               gap: 6px;
               color: var(--accent);
               font-size: 14px;
-              font-weight: 600;
+              font-weight: 500;
               text-decoration: none;
               transition: opacity 0.2s;
               margin-top: 16px;
@@ -2967,7 +2967,7 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
                 background: var(--docs-card);
                 color: var(--docs-muted);
                 font-size: 14px;
-                font-weight: 600;
+                font-weight: 500;
                 line-height: 1;
                 text-decoration: none;
                 white-space: nowrap;
@@ -2983,7 +2983,7 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
                 border-color: var(--docs-accent, #2563eb);
                 color: var(--docs-accent, #2563eb);
                 background: var(--docs-accent-subtle, rgba(37, 99, 235, 0.12));
-                font-weight: 700;
+                font-weight: 500;
               }
 
               .docsPageWrap {
@@ -3060,7 +3060,7 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
           <nav style={{ display: "grid", gap: "32px" }}>
             {navSections.map((section) => (
               <div key={section.title}>
-                <div style={{ color: "var(--docs-heading)", fontSize: "13px", fontWeight: 700, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{section.title}</div>
+                <div style={{ color: "var(--docs-heading)", fontSize: "13px", fontWeight: 500, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{section.title}</div>
                 <div style={{ borderLeft: "1px solid var(--docs-border)", display: "grid", gap: "12px" }}>
                   {section.items.map((item) => {
                     const active = item.id === pageId;
@@ -3119,8 +3119,8 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
 
           <div className="docsPageWrap" style={{ maxWidth: "980px", margin: "0 auto", padding: "48px 48px 96px" }}>
             <article className="docsArticle" style={{ minWidth: 0 }}>
-              <div className="docsEyebrow" style={{ color: "var(--docs-muted)", marginBottom: "14px", fontSize: "14px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>{meta.group}</div>
-              <h1 className="docsTitle" style={{ fontSize: "40px", lineHeight: 1.15, letterSpacing: "-0.02em", margin: "0 0 32px", color: "var(--docs-heading)", fontWeight: 800 }}>
+              <div className="docsEyebrow" style={{ color: "var(--docs-muted)", marginBottom: "14px", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>{meta.group}</div>
+              <h1 className="docsTitle" style={{ fontSize: "40px", lineHeight: 1.15, letterSpacing: "-0.02em", margin: "0 0 32px", color: "var(--docs-heading)", fontWeight: 500 }}>
                 {meta.title}
               </h1>
               <PageBody pageId={pageId} />
