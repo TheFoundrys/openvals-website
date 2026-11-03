@@ -153,7 +153,7 @@ export default function TeamPage() {
             initial="hidden"
             animate="show"
             variants={STAGGER}
-            style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}
+            className={styles.layoutShell} style={{ position: "relative", zIndex: 1 }}
           >
             <div style={{ textAlign: "center", marginBottom: "80px" }}>
               <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", fontWeight: "500", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>

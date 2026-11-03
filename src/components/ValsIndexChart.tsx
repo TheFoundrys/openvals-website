@@ -647,7 +647,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
               letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="monospace, sans-serif"
+              fontFamily="Georgia, serif"
             >
               EFFICIENT (FAST &amp; ACCURATE)
             </text>
@@ -659,7 +659,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
               letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="monospace, sans-serif"
+              fontFamily="Georgia, serif"
             >
               {isMobile ? "INEFFICIENT" : "INEFFICIENT (SLOW & LOWER ACCURACY)"}
             </text>
@@ -689,7 +689,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
               letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="monospace, sans-serif"
+              fontFamily="Georgia, serif"
             >
               OPTIMAL (HIGH DRS &amp; ACCURACY)
             </text>
@@ -701,7 +701,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
               letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="monospace, sans-serif"
+              fontFamily="Georgia, serif"
             >
               {isMobile ? "SUB-OPTIMAL" : "SUB-OPTIMAL (LOW DRS & ACCURACY)"}
             </text>

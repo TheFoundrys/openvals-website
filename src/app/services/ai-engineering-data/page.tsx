@@ -51,7 +51,7 @@ export default function AIEngineeringDataPage() {
         {/* HERO SECTION */}
         <section className={styles.section} style={{ paddingTop: "80px", paddingBottom: "60px", position: "relative" }}>
           <AmbientGrid />
-          <motion.div initial="hidden" animate="show" variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 10 }}>
+          <motion.div initial="hidden" animate="show" variants={STAGGER} className={styles.layoutShell} style={{ textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.h1 variants={FADE_UP} style={{ 
               fontSize: "clamp(32px, 6vw, 72px)", 
               fontWeight: 400, 
@@ -78,7 +78,7 @@ export default function AIEngineeringDataPage() {
 
         {/* ENGINEERING SECTION */}
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <div style={{ marginBottom: "40px" }}>
               <h2 style={{ fontSize: "32px", fontWeight: 500, marginBottom: "16px" }}>1. AI/ML Engineering</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "800px" }}>Transform ideas into scalable, production-ready intelligent systems.</p>
@@ -100,7 +100,7 @@ export default function AIEngineeringDataPage() {
 
         {/* DATA SECTION */}
         <section className={styles.section} style={{ borderTop: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <div style={{ marginBottom: "40px" }}>
               <h2 style={{ fontSize: "32px", fontWeight: 500, marginBottom: "16px" }}>2. Applied Data Science</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "800px" }}>Turn raw data into actionable intelligence and competitive advantage.</p>
@@ -122,7 +122,7 @@ export default function AIEngineeringDataPage() {
 
         {/* CAPABILITIES SUMMARY */}
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "40px" }}>
+          <div className={styles.layoutShell} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "40px" }}>
              <div>
                 <h3 style={{ fontSize: "22px", fontWeight: 500, marginBottom: "20px" }}>Capabilities</h3>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>

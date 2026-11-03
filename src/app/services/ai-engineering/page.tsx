@@ -42,7 +42,7 @@ export default function AIEngineeringPage() {
         {/* HERO SECTION */}
         <section className={styles.section} style={{ paddingTop: "80px", paddingBottom: "60px", position: "relative" }}>
           <AmbientGrid />
-          <motion.div initial="hidden" animate="show" variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 10 }}>
+          <motion.div initial="hidden" animate="show" variants={STAGGER} className={styles.layoutShell} style={{ textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.h1 variants={FADE_UP} style={{ 
               fontSize: "clamp(32px, 6vw, 72px)", 
               fontWeight: 400, 
@@ -95,7 +95,7 @@ export default function AIEngineeringPage() {
 
         {/* WHAT WE DO */}
         <section className={styles.section}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <h2 style={{ fontSize: "36px", fontWeight: 500, textAlign: "center", marginBottom: "48px" }}>What We Do</h2>
             <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
               {whatWeDo.map((item, i) => (
@@ -113,7 +113,7 @@ export default function AIEngineeringPage() {
 
         {/* CAPABILITIES & OUTCOMES */}
         <section className={styles.section} style={{ background: "var(--secondary-bg)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
+          <div className={styles.layoutShell} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
             <div style={{ padding: "40px", background: "var(--primary-bg)", borderRadius: "24px", border: "1px solid var(--border)" }}>
               <h3 style={{ fontSize: "24px", fontWeight: 500, marginBottom: "24px", display: "flex", alignItems: "center", gap: "10px" }}>
                 <Terminal size={24} color="var(--accent)" /> Key Capabilities
@@ -154,7 +154,7 @@ export default function AIEngineeringPage() {
 
         {/* USE CASES */}
         <section className={styles.section}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <h2 style={{ fontSize: "36px", fontWeight: 500, textAlign: "center", marginBottom: "48px" }}>Use Cases</h2>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>
               {[

@@ -30,10 +30,6 @@ export function HeroPart() {
         animate="show"
         variants={STAGGER}
       >
-        <motion.div variants={FADE_UP} className={styles.heroEyebrowBadge}>
-          <span className={styles.heroEyebrowText}>Enterprise AI Trust Platform</span>
-        </motion.div>
-
         <motion.h1 variants={FADE_UP} className={styles.heroMainHeadline}>
           The Trust Layer for AI
         </motion.h1>
@@ -63,23 +59,23 @@ export function ActionButtonsPart() {
   const stats = [
     {
       value: "200,000+",
-      label: "EXPERIMENT AS DONE",
+      label: "Experiments run",
     },
     {
       value: "53",
-      label: "LLM PROVIDERS",
+      label: "LLM providers",
     },
     {
       value: "20+",
-      label: "CORE METRICS",
+      label: "Core metrics",
     },
     {
       value: "v0.5.5",
-      label: "CURRENT RELEASE",
+      label: "Current release",
     },
     {
       value: "Dr. Pinnacle",
-      label: "LICENSE",
+      label: "License",
     },
   ];
 
@@ -87,12 +83,11 @@ export function ActionButtonsPart() {
     "Safety Detection",
     "Multi-Model Benchmarking",
     "Trust Score Engine",
-    "Ollama",
-    "OpenAI",
-    "Claude",
-    "Gemini",
     "Latency Scoring",
     "Reliability",
+    "DRS Scoring",
+    "Red Teaming",
+    "Agent Tracing",
   ];
   const uniqueCapabilities = Array.from(new Set(capabilities));
   const marqueeCapabilities = [

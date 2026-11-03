@@ -148,9 +148,10 @@ export default function Header() {
   return (
     <>
       <header className={styles.header}>
+        <div className={`${styles.layoutShell} ${styles.headerBar}`}>
         {/* ── LEFT CLUSTER: LOGO + SEARCH BAR ── */}
         <div className={styles.headerLeftCluster}>
-          <Logo size="sm" font="sans" className={styles.headerTopLeftLogo} />
+          <Logo size="sm" font="serif" className={styles.headerTopLeftLogo} />
 
           {/* Search Box */}
           <div ref={searchContainerRef} className={styles.headerSearchContainer}>
@@ -441,6 +442,7 @@ export default function Header() {
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
+        </div>
         </div>
       </header>
       <div className={styles.headerSpacer} aria-hidden="true" />
