@@ -6,6 +6,10 @@ export type LocalBlogPost = {
   author: { name: string };
   imageUrl: string;
   externalUrl: string;
+  topic?: string;
+  summary?: string;
+  paragraphs?: string[];
+  takeaways?: string[];
 };
 
 type BlogPostLike = {
@@ -14,6 +18,30 @@ type BlogPostLike = {
 };
 
 export const localBlogPosts: LocalBlogPost[] = [
+  {
+    _id: "local-ai-assurance",
+    title: "AI Assurance: Passing a Benchmark Is Not Permission to Deploy",
+    slug: { current: "ai-assurance" },
+    publishedAt: "2026-11-03T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/ai_assurance_cover.png",
+    externalUrl: "https://www.linkedin.com/pulse/ai-assurance-vishwa-akuthota--xitlc/",
+    topic: "AI Assurance & Trust",
+    summary: "Passing a benchmark is not permission to deploy. Benchmarking measures performance, validation establishes evidence, and assurance keeps asking whether that evidence still holds across real operating conditions, over time, and in the presence of continuous risk.",
+    paragraphs: [
+      "The demo was impressive. The AI answered almost every question correctly. The benchmark results looked excellent. Someone in the room finally said: “Looks good. Let’s put it into production.”",
+      "Then the security architect asked one question: “What happens when it gets something wrong?” Silence followed in the room.",
+      "They had measured accuracy. But nobody had tested hallucination under difficult scenarios. Nobody had checked whether the same prompt produced consistently reliable answers over multiple runs. They had tested normal, well-behaved users—nobody had behaved like an attacker attempting prompt injection. They had validated the model weights, but nobody had validated the data pipeline feeding it. The benchmark wasn’t wrong. It was incomplete.",
+      "Imagine that AI is now in production helping thousands of enterprise customers. One day, something changes. Perhaps the upstream provider silently updates model weights. Perhaps the RAG pipeline retrieves the wrong document. Perhaps an attacker discovers a new prompt injection vector. The monitoring dashboard remains green, but its real-world behavior has changed. And the leadership team asks: “Didn’t we validate this?” Yes. Once. In isolation. Under static conditions.",
+      "Benchmarking asks: “How did this AI perform during this test?” Validation asks: “Is this AI suitable for our intended use case?” Assurance asks something larger: “Can we prove that this AI remains trustworthy across real operating conditions, over time, and in the presence of continuous risk?”",
+      "That distinction becomes critical as AI moves deeper into enterprise operations. We’re not building OpenVals to create another leaderboard. There are already plenty of those. We’re building toward continuous assurance: where models are evaluated, datasets are validated, hallucination risk is quantified, and revalidation is automated. Trust isn’t claimed. It’s measured.",
+    ],
+    takeaways: [
+      "Passing a benchmark is not permission to deploy—benchmarks test static performance, not operational resilience.",
+      "Single-point evaluation fails to account for concept drift, retrieval corruption, and evolving prompt injection attacks.",
+      "Continuous assurance requires ongoing Decision Reliability Scoring (DRS), automated adversarial testing, and verified audit trails.",
+    ],
+  },
   {
     _id: "local-ai-supply-chain-risk",
     title: "AI Supply Chain Risk",
@@ -183,6 +211,7 @@ export function getLocalBlogPost(slug: string) {
   return localBlogPosts.find(
     (post) =>
       post.slug.current === slug ||
+      slug.startsWith(post.slug.current) ||
       post.slug.current.replace(/-a-/g, "-") === slug.replace(/-a-/g, "-") ||
       normalize(post.slug.current) === normalize(slug)
   );
@@ -204,4 +233,162 @@ export function mergeLocalBlogPosts<T extends BlogPostLike>(posts: T[]): Array<T
 
     return secondDate - firstDate;
   });
+}
+
+export type LocalPortableBlock = {
+  _type: "block";
+  style: "blockquote" | "h2" | "normal";
+  children: Array<{
+    _type: "span";
+    text: string;
+  }>;
+};
+
+export function getLocalPostPortableText(post: LocalBlogPost): LocalPortableBlock[] {
+  const blocks: LocalPortableBlock[] = [];
+
+  // Executive Summary blockquote
+  if (post.summary) {
+    blocks.push({
+      _type: "block",
+      style: "blockquote",
+      children: [
+        {
+          _type: "span",
+          text: `Executive Brief: ${post.summary}`,
+        },
+      ],
+    });
+  } else {
+    blocks.push({
+      _type: "block",
+      style: "blockquote",
+      children: [
+        {
+          _type: "span",
+          text: `Executive Brief: As enterprise organizations transition generative AI and autonomous agents from experimental sandboxes into core operational infrastructure, traditional software testing mechanisms no longer suffice. This research paper evaluates the architectural vulnerabilities, verification methodologies, and defensive controls required to ensure model reliability.`,
+        },
+      ],
+    });
+  }
+
+  // Section 1: The Core Vulnerability & Engineering Challenge
+  blocks.push({
+    _type: "block",
+    style: "h2",
+    children: [{ _type: "span", text: "1. The Operational Vulnerability" }],
+  });
+
+  if (post.paragraphs && post.paragraphs.length > 0) {
+    post.paragraphs.forEach((p) => {
+      blocks.push({
+        _type: "block",
+        style: "normal",
+        children: [{ _type: "span", text: p }],
+      });
+    });
+  } else {
+    blocks.push({
+      _type: "block",
+      style: "normal",
+      children: [
+        {
+          _type: "span",
+          text: `In mission-critical enterprise environments, ${post.title.toLowerCase()} represents a critical failure mode that cannot be mitigated through prompt tuning alone. Unlike deterministic software bugs, model vulnerabilities emerge probabilistically through shifting token distributions, latent dataset artifacts, and complex multi-turn agent interactions.`,
+        },
+      ],
+    });
+
+    blocks.push({
+      _type: "block",
+      style: "normal",
+      children: [
+        {
+          _type: "span",
+          text: `Standard academic benchmarks (such as MMLU, GSM8K, or HumanEval) test for static memorization rather than operational robustness. When models face real-world enterprise workloads—including sensitive financial queries, autonomous API calls, or multi-tenant database operations—minor hallucinations or adversarial prompt perturbations can trigger severe cascading failures.`,
+        },
+      ],
+    });
+  }
+
+  // Section 2: Technical Deep Dive & Validation Strategy
+  blocks.push({
+    _type: "block",
+    style: "h2",
+    children: [{ _type: "span", text: "2. The OpenVals Validation Framework" }],
+  });
+
+  blocks.push({
+    _type: "block",
+    style: "normal",
+    children: [
+      {
+        _type: "span",
+        text: `To solve this, OpenVals establishes an active validation layer combining Decision Reliability Scoring (DRS), automated adversarial red teaming, and continuous telemetry monitoring:`,
+      },
+    ],
+  });
+
+  blocks.push({
+    _type: "block",
+    style: "normal",
+    children: [
+      {
+        _type: "span",
+        text: `• Decision Reliability Scoring (DRS): Transforms raw output probabilities into decision-ready reliability coefficients, quantifying exactly when a model's confidence corresponds to ground truth.`,
+      },
+    ],
+  });
+
+  blocks.push({
+    _type: "block",
+    style: "normal",
+    children: [
+      {
+        _type: "span",
+        text: `• Automated Adversarial Red Teaming: Systematically stress-tests models against prompt injection, jailbreaks, data exfiltration attacks, and indirect instruction hijacking before production deployment.`,
+      },
+    ],
+  });
+
+  blocks.push({
+    _type: "block",
+    style: "normal",
+    children: [
+      {
+        _type: "span",
+        text: `• Autonomous Agent Trajectory Tracing: Validates multi-step agent reasoning chains, tool-calling execution parameters, and memory states to prevent rogue or unintended autonomous actions.`,
+      },
+    ],
+  });
+
+  // Section 3: Strategic Recommendations
+  blocks.push({
+    _type: "block",
+    style: "h2",
+    children: [{ _type: "span", text: "3. Strategic Recommendations for AI Teams" }],
+  });
+
+  if (post.takeaways && post.takeaways.length > 0) {
+    post.takeaways.forEach((t) => {
+      blocks.push({
+        _type: "block",
+        style: "normal",
+        children: [{ _type: "span", text: `• ${t}` }],
+      });
+    });
+  } else {
+    blocks.push({
+      _type: "block",
+      style: "normal",
+      children: [
+        {
+          _type: "span",
+          text: `AI leadership must transition from 'vibes-based' evaluation to verifiable, audit-ready validation. Every deployed model checkpoint, RAG vector index, and autonomous agent workflow should possess continuous reliability telemetry, regression benchmarking, and compliance alignment with standards like the EU AI Act and NIST AI RMF.`,
+        },
+      ],
+    });
+  }
+
+  return blocks;
 }
