@@ -1,67 +1,94 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
+
+const STORAGE_KEY = "openvals-theme";
 
 interface ThemeContextValue {
   theme: Theme;
   isDark: boolean;
+  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue>({
   theme: "light",
   isDark: false,
+  toggleTheme: () => {},
 });
 
 export function useSystemTheme() {
   return useContext(ThemeContext);
 }
 
+function applyTheme(active: Theme) {
+  const root = document.documentElement;
+  root.classList.remove("light", "dark");
+  root.classList.add(active);
+  root.style.colorScheme = active;
+
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.setAttribute("content", active === "dark" ? "#0b0f19" : "#ffffff");
+  }
+}
+
+function readStoredTheme(): Theme | null {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+  } catch {}
+  return null;
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
 
+  const setAndPersist = useCallback((active: Theme) => {
+    setTheme(active);
+    applyTheme(active);
+    try {
+      localStorage.setItem(STORAGE_KEY, active);
+    } catch {}
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    setAndPersist(theme === "dark" ? "light" : "dark");
+  }, [theme, setAndPersist]);
+
   useEffect(() => {
-    // 6. Remove conflicting localStorage or hardcoded theme preferences
     try {
       localStorage.removeItem("theme");
       localStorage.removeItem("next-themes");
-      localStorage.removeItem("openvals-theme");
     } catch {}
 
-    // 2. In React, use window.matchMedia('(prefers-color-scheme: dark)')
-    const mql = window.matchMedia("(prefers-color-scheme: dark)");
+    const stored = readStoredTheme();
+    if (stored) {
+      setAndPersist(stored);
+      return;
+    }
 
-    const updateTheme = (matches: boolean) => {
+    const mql = window.matchMedia("(prefers-color-scheme: dark)");
+    const syncSystem = (matches: boolean) => {
       const active: Theme = matches ? "dark" : "light";
       setTheme(active);
-
-      const root = document.documentElement;
-      root.classList.remove("light", "dark");
-      root.classList.add(active);
-      root.style.colorScheme = active;
-
-      // Also keep viewport meta theme-color in sync
-      const metaTheme = document.querySelector('meta[name="theme-color"]');
-      if (metaTheme) {
-        metaTheme.setAttribute("content", matches ? "#0b0f19" : "#ffffff");
-      }
+      applyTheme(active);
     };
 
-    // 3. Automatically apply the correct theme when the website loads
-    updateTheme(mql.matches);
+    syncSystem(mql.matches);
 
-    // 4. Listen for system theme changes and update without requiring a refresh
     const handleChange = (e: MediaQueryListEvent) => {
-      updateTheme(e.matches);
+      if (readStoredTheme()) return;
+      syncSystem(e.matches);
     };
 
     mql.addEventListener("change", handleChange);
     return () => mql.removeEventListener("change", handleChange);
-  }, []);
+  }, [setAndPersist]);
 
   return (
-    <ThemeContext.Provider value={{ theme, isDark: theme === "dark" }}>
+    <ThemeContext.Provider value={{ theme, isDark: theme === "dark", toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

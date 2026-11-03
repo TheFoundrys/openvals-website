@@ -44,7 +44,7 @@ export default function AIEngineeringAnalyticsPage() {
             initial="hidden" 
             animate="show" 
             variants={STAGGER} 
-            style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}
+            className={styles.layoutShell} style={{ position: "relative", zIndex: 1 }}
           >
             <div style={{ maxWidth: "800px", marginBottom: "80px" }}>
               <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(48px, 6vw, 72px)", lineHeight: 1.1, marginBottom: "32px" }}>

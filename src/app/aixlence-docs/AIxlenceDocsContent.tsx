@@ -339,7 +339,7 @@ function FormulaBox({ formula, label }: { formula: string; label?: string }) {
       )}
       <div
         style={{
-          fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+          fontFamily: "Georgia, serif",
           fontSize: "17px",
           fontWeight: 500,
           color: "var(--docs-heading)",

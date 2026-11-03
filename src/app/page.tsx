@@ -33,11 +33,11 @@ export default function Home() {
       <main>
         {/* SECTION 1: TRUST LAYER + AI FAILS QUIETLY */}
         <section
-          className={styles.snapSection}
-          style={{ padding: "clamp(36px, 5vh, 52px) var(--container-padding) clamp(12px, 2vh, 20px)", background: "var(--primary-bg)" }}
+          className={`${styles.snapSection} ${styles.snapSectionAuto} ${styles.snapSectionHero}`}
+          style={{ padding: "clamp(18px, 2.2vh, 28px) 0 clamp(12px, 2vh, 20px)", background: "var(--primary-bg)" }}
         >
           <div
-            className={`${styles.containerFull} ${styles.snapInner} ${styles.heroSectionInner}`}
+            className={`${styles.layoutShell} ${styles.containerFull} ${styles.snapInner} ${styles.heroSectionInner}`}
           >
             <HeroPart />
             <ActionButtonsPart />
@@ -45,8 +45,8 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: REAL-WORLD AI BENCHMARKS LEADERBOARD & LATEST REPORTS */}
-        <section id="benchmarks" className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(20px, 3vh, 32px) var(--container-padding) clamp(24px, 4vh, 40px)", background: "var(--primary-bg)" }}>
-          <div className={`${styles.containerFull} ${styles.snapInner}`}>
+        <section id="benchmarks" className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(20px, 3vh, 32px) 0 clamp(24px, 4vh, 40px)", background: "var(--primary-bg)" }}>
+          <div className={`${styles.layoutShell} ${styles.containerFull} ${styles.snapInner}`}>
             <div className={styles.scaledContent}>
               <RealWorldBenchmarks />
               <LatestReports />
@@ -57,7 +57,7 @@ export default function Home() {
         {/* SECTION 3: PROOF + PACKAGES + LEAD MAGNET */}
         <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(32px, 5vh, 48px) 0 0" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 var(--container-padding)", width: "100%", minWidth: 0, boxSizing: "border-box" }}>
+            <div className={styles.layoutShell} style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", width: "100%", minWidth: 0, boxSizing: "border-box" }}>
               <motion.div
                 initial="hidden"
                 whileInView="show"
@@ -71,8 +71,8 @@ export default function Home() {
                   border: "1px solid var(--border)",
                   boxShadow: "none",
                   width: "100%",
-                  maxWidth: "1280px",
-                  margin: "0 auto",
+                  maxWidth: "100%",
+                  margin: 0,
                   minWidth: 0,
                   boxSizing: "border-box",
                 }}

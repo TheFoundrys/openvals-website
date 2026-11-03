@@ -30,7 +30,7 @@ export default function OptSearchPage() {
       <main style={{ background: "var(--primary-bg)", minHeight: "100vh" }}>
         <section className={styles.section} style={{ paddingTop: "140px", position: "relative" }}>
           <AmbientGrid />
-          <motion.div initial="hidden" animate="show" variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <motion.div initial="hidden" animate="show" variants={STAGGER} className={styles.layoutShell} style={{ position: "relative", zIndex: 1 }}>
             
             <div style={{ maxWidth: "800px", marginBottom: "80px" }}>
               <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: "500", textTransform: "uppercase", fontSize: "14px", letterSpacing: "0.1em" }}>

@@ -277,7 +277,6 @@ export default function ModelsRegistryPage() {
   // Filters & State
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [debouncedQuery, setDebouncedQuery] = useState<string>("");
-  const [fullText, setFullText] = useState<boolean>(false);
   const [sort, setSort] = useState<string>("trending");
   const [page, setPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(20);
@@ -341,17 +340,8 @@ export default function ModelsRegistryPage() {
         const matchesName = model.name.toLowerCase().includes(q);
         const matchesProvider = model.provider.toLowerCase().includes(q);
         const matchesParams = model.params.toLowerCase().includes(q);
-        const matchesUseCase = model.primaryUseCase?.toLowerCase().includes(q);
-        const matchesTags = model.tags?.some((t) => t.toLowerCase().includes(q));
-
-        if (fullText) {
-          if (!matchesName && !matchesProvider && !matchesParams && !matchesUseCase && !matchesTags) {
-            return false;
-          }
-        } else {
-          if (!matchesName && !matchesProvider && !matchesParams) {
-            return false;
-          }
+        if (!matchesName && !matchesProvider && !matchesParams) {
+          return false;
         }
       }
       return true;
@@ -363,7 +353,6 @@ export default function ModelsRegistryPage() {
     selectedArchitecture,
     minFitScore,
     debouncedQuery,
-    fullText,
   ]);
 
   // Sort the filtered models
@@ -406,8 +395,7 @@ export default function ModelsRegistryPage() {
       selectedLifecycle ||
       selectedArchitecture ||
       minFitScore > 0 ||
-      debouncedQuery.trim() ||
-      fullText
+      debouncedQuery.trim()
   );
 
   const clearAllFilters = () => {
@@ -417,7 +405,6 @@ export default function ModelsRegistryPage() {
     setMinFitScore(0);
     setSearchQuery("");
     setDebouncedQuery("");
-    setFullText(false);
     setPage(1);
   };
 
@@ -442,6 +429,72 @@ export default function ModelsRegistryPage() {
         <div className={styles.container}>
           {/* MAIN GRID: SIDEBAR + CONTENT */}
           <div className={styles.mainGrid}>
+            <div className={styles.modelsToolbar}>
+              <div className={styles.sidebarSearchBlock}>
+                <div className={`${styles.searchInputWrap} ${styles.searchInputWrapSidebar}`}>
+                  <Search className={styles.searchIcon} size={16} />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search models by name, provider, or size..."
+                    className={styles.searchInput}
+                    aria-label="Search models"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery("")}
+                      className={styles.clearSearchBtn}
+                      aria-label="Clear search"
+                    >
+                      <X size={14} />
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              <div className={styles.toolbarActions}>
+                <div className={styles.sortSelectWrap}>
+                  <select
+                    value={pageSize}
+                    onChange={(e) => {
+                      setPageSize(Number(e.target.value));
+                      setPage(1);
+                    }}
+                    className={styles.sortSelect}
+                    aria-label="Models per page"
+                  >
+                    {PAGE_SIZE_OPTIONS.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className={styles.sortSelectIcon} size={14} />
+                </div>
+
+                <div className={styles.sortSelectWrap}>
+                  <select
+                    value={sort}
+                    onChange={(e) => {
+                      setSort(e.target.value);
+                      setPage(1);
+                    }}
+                    className={styles.sortSelect}
+                    aria-label="Sort models"
+                  >
+                    {SORT_OPTIONS.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className={styles.sortSelectIcon} size={14} />
+                </div>
+              </div>
+            </div>
+
             {/* SIDEBAR FILTERS */}
             <aside className={styles.sidebar}>
               {/* Providers facet */}
@@ -584,85 +637,6 @@ export default function ModelsRegistryPage() {
 
             {/* MAIN CONTENT AREA */}
             <div className={styles.contentArea}>
-              {/* TOP CONTROLS BAR */}
-              <div className={styles.controlsBar}>
-                {/* SEARCH INPUT */}
-                <div className={styles.searchInputWrap}>
-                  <Search className={styles.searchIcon} size={16} />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search models by name, provider, or size..."
-                    className={styles.searchInput}
-                    aria-label="Search models"
-                  />
-                  {searchQuery && (
-                    <button
-                      type="button"
-                      onClick={() => setSearchQuery("")}
-                      className={styles.clearSearchBtn}
-                      aria-label="Clear search"
-                    >
-                      <X size={14} />
-                    </button>
-                  )}
-                </div>
-
-                {/* RIGHT ACTIONS: FULL TEXT, PAGE SIZE, SORT */}
-                <div className={styles.rightControls}>
-                  {/* FULL TEXT TOGGLE */}
-                  <button
-                    type="button"
-                    onClick={() => setFullText(!fullText)}
-                    className={`${styles.fullTextBtn} ${fullText ? styles.fullTextBtnActive : ""}`}
-                    title="Toggle full-text search across all benchmark metadata"
-                  >
-                    Full-text search
-                  </button>
-
-                  {/* PAGE SIZE SELECTOR */}
-                  <div className={styles.sortSelectWrap}>
-                    <select
-                      value={pageSize}
-                      onChange={(e) => {
-                        setPageSize(Number(e.target.value));
-                        setPage(1);
-                      }}
-                      className={styles.sortSelect}
-                      aria-label="Models per page"
-                    >
-                      {PAGE_SIZE_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown className={styles.sortSelectIcon} size={14} />
-                  </div>
-
-                  {/* SORT DROPDOWN */}
-                  <div className={styles.sortSelectWrap}>
-                    <select
-                      value={sort}
-                      onChange={(e) => {
-                        setSort(e.target.value);
-                        setPage(1);
-                      }}
-                      className={styles.sortSelect}
-                      aria-label="Sort models"
-                    >
-                      {SORT_OPTIONS.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown className={styles.sortSelectIcon} size={14} />
-                  </div>
-                </div>
-              </div>
-
               {/* MODELS LIST */}
               {paginatedModels.length === 0 ? (
                 <div className={styles.emptyState}>

@@ -861,8 +861,8 @@ export function EngagementPackages({ compact = false, featuredPackage }: { compa
     <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} style={{ width: "100%", minWidth: 0 }}>
       <motion.div variants={FADE_UP} style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "20px", marginBottom: "22px", flexWrap: "wrap" }}>
         <div>
-          <div style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 500, textTransform: "uppercase", letterSpacing: 0 }}>
-            Engagement Packages
+          <div style={{ color: "var(--accent)", fontSize: "var(--font-size-body)", fontWeight: 500, letterSpacing: 0 }}>
+            Engagement packages
           </div>
           <h2 style={{ margin: "8px 0 0", fontSize: compact ? "clamp(22px, 4vw, 28px)" : "clamp(28px, 5vw, 42px)", lineHeight: 1.15 }}>
             Start with the right level of AI assurance.
@@ -1010,11 +1010,11 @@ export function ConversionPage({ page }: { page: ConversionPageData }) {
             initial="hidden"
             animate="show"
             variants={STAGGER}
-            style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}
+            className={styles.layoutShell} style={{ position: "relative", zIndex: 1 }}
           >
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))", gap: "48px", alignItems: "center" }}>
               <div>
-                <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: 500, textTransform: "uppercase", fontSize: "14px", letterSpacing: 0 }}>
+                <motion.div variants={FADE_UP} style={{ color: "var(--accent)", marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px", fontWeight: 500, fontSize: "var(--font-size-body)", letterSpacing: 0 }}>
                   <PageIcon size={20} /> {page.eyebrow}
                 </motion.div>
                 <motion.h1 variants={FADE_UP} style={{ fontSize: "clamp(42px, 6vw, 76px)", lineHeight: 1.05, marginBottom: "28px" }}>
@@ -1074,7 +1074,7 @@ export function ConversionPage({ page }: { page: ConversionPageData }) {
         </section>
 
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} className={styles.layoutShell}>
             <motion.div variants={FADE_UP} style={{ maxWidth: "720px", marginBottom: "34px" }}>
               <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", margin: "0 0 14px" }}>What you get.</h2>
               <p style={{ margin: 0, color: "var(--text-muted)", fontSize: "18px", lineHeight: 1.6 }}>
@@ -1098,7 +1098,7 @@ export function ConversionPage({ page }: { page: ConversionPageData }) {
         </section>
 
         <section className={styles.section}>
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER} className={styles.layoutShell}>
             <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(32px, 5vw, 48px)", margin: "0 0 34px" }}>
               Engagement workflow.
             </motion.h2>
@@ -1115,13 +1115,13 @@ export function ConversionPage({ page }: { page: ConversionPageData }) {
         </section>
 
         <section id="packages" className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <EngagementPackages featuredPackage={page.featuredPackage} />
           </div>
         </section>
 
         <section className={styles.section}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <LeadMagnetCta />
           </div>
         </section>
