@@ -40,36 +40,6 @@
   min-width: 0;
 }
 
-.brandLogosRow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: clamp(16px, 2.5vw, 28px);
-}
-
-.plugscaleLink {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  text-decoration: none;
-  opacity: 0.85;
-  transition: opacity 0.15s ease;
-}
-
-.plugscaleLink:hover {
-  opacity: 1;
-}
-
-.plugscaleLogo {
-  display: block;
-  width: auto;
-  max-width: 120px;
-  max-height: 32px;
-  height: auto;
-  object-fit: contain;
-  filter: invert(var(--icon-invert, 0));
-}
-
 .footerMetaRow {
   display: flex;
   flex-wrap: wrap;

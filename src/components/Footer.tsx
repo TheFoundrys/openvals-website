@@ -18,24 +18,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.brandSide}>
-          <div className={styles.brandLogosRow}>
-            <Logo size="sm" font="serif" />
-            <a
-              href="https://www.plugscale.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.plugscaleLink}
-              aria-label="PlugScale"
-            >
-              <img
-                src="/logos/plugscale.png"
-                alt="PlugScale"
-                className={styles.plugscaleLogo}
-                width={120}
-                height={36}
-              />
-            </a>
-          </div>
+          <Logo size="sm" font="serif" />
           <div className={styles.footerMetaRow}>
             <span className={styles.copyright}>&copy; 2026 OpenVals. All rights reserved.</span>
           </div>
