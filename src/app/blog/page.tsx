@@ -60,9 +60,7 @@ export default async function BlogIndex() {
             {posts.map((post: any) => (
               <Link
                 key={post._id}
-                href={post.externalUrl || `/blog/${post.slug.current}`}
-                target={post.externalUrl ? "_blank" : undefined}
-                rel={post.externalUrl ? "noopener noreferrer" : undefined}
+                href={`/blog/${post.slug?.current || post.slug}`}
                 className={styles.card}
                 style={{ display: "flex", flexDirection: "column", padding: 0, overflow: "hidden", border: "1px solid var(--border)", background: "var(--secondary-bg)", height: "100%" }}
               >
