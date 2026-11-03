@@ -9,8 +9,7 @@ import Footer from "@/components/Footer";
 import { urlFor } from "@/sanity/lib/image";
 import BlogAnalytics from "@/components/BlogAnalytics";
 import BlogPerformanceDashboard from "@/components/BlogPerformanceDashboard";
-import { getLocalBlogPost, getLocalPostPortableText, localBlogPosts } from "../localPosts";
-import { ExternalLink } from "lucide-react";
+import { getLocalBlogPost, localBlogPosts } from "../localPosts";
 
 export const revalidate = 60; // Revalidate every minute
 
@@ -60,29 +59,31 @@ export default async function BlogPost({
   const decodedSlug = decodeURIComponent(slug).trim();
   const localPost = getLocalBlogPost(decodedSlug);
 
+  if (localPost?.externalUrl) {
+    return (
+      <html lang="en">
+        <head>
+          <meta httpEquiv="refresh" content={`0;url=${localPost.externalUrl}`} />
+          <title>Redirecting...</title>
+        </head>
+        <body style={{ background: "#0a0a0c", color: "#fff", fontFamily: "sans-serif", padding: "40px", textAlign: "center" }}>
+          <p>Redirecting to <a href={localPost.externalUrl} style={{ color: "#00d4ff" }}>{localPost.title}</a>...</p>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.location.href = ${JSON.stringify(localPost.externalUrl)};`,
+            }}
+          />
+        </body>
+      </html>
+    );
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let post: any;
-
-  if (localPost) {
-    post = {
-      title: localPost.title,
-      slug: localPost.slug,
-      publishedAt: localPost.publishedAt,
-      author: localPost.author,
-      imageUrl: localPost.imageUrl,
-      externalUrl: localPost.externalUrl,
-      analytics: {
-        topic: localPost.topic || "AI Trust & Reliability",
-        readTime: "4 min read",
-      },
-      body: getLocalPostPortableText(localPost),
-    };
-  } else {
-    try {
-      post = await client.fetch(postBySlugQuery, { slug: decodedSlug });
-    } catch (error) {
-      console.error("Failed to fetch post from Sanity", error);
-    }
+  try {
+    post = await client.fetch(postBySlugQuery, { slug: decodedSlug });
+  } catch (error) {
+    console.error("Failed to fetch post from Sanity", error);
   }
 
   // Fallback data for specific demo slugs or when fetch fails entirely
@@ -177,20 +178,6 @@ export default async function BlogPost({
           <article className={styles.articleBody}>
             <PortableText value={post.body} components={components} />
           </article>
-
-          {post.externalUrl && (
-            <div style={{ marginTop: "32px", display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "var(--text-muted)" }}>
-              <span>Originally published on LinkedIn:</span>
-              <a
-                href={post.externalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--accent)", display: "inline-flex", alignItems: "center", gap: "4px", textDecoration: "underline" }}
-              >
-                Read original post <ExternalLink size={14} />
-              </a>
-            </div>
-          )}
 
           <div style={{ marginTop: "60px", paddingTop: "40px", borderTop: "1px solid var(--border)", textAlign: "center" }}>
             <p style={{ fontSize: "18px", marginBottom: "24px", color: "var(--text-muted)" }}>Interested in securing your AI deployment?</p>
