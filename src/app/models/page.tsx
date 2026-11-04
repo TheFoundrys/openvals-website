@@ -789,7 +789,7 @@ export default function ModelsRegistryPage() {
                   Full benchmarks, trade-off lenses, and audit trails are available in the workspace.
                 </p>
                 <Link
-                  href="https://dev.openvalidations.com/auth/signup"
+                  href="https://prod.openvalidations.com/auth/signup"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.promoLink}
@@ -926,7 +926,7 @@ export default function ModelsRegistryPage() {
 
               <div className={styles.modalFooter}>
                 <Link
-                  href="https://dev.openvalidations.com/auth/signup"
+                  href="https://prod.openvalidations.com/auth/signup"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.modalCtaBtn}

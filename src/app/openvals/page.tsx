@@ -249,7 +249,7 @@ export default function OpenValsSolutionPage() {
               </p>
               <div className={styles.ctaActions}>
                 <Link
-                  href="https://dev.openvalidations.com/auth/signup"
+                  href="https://prod.openvalidations.com/auth/signup"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.primaryBtn}
