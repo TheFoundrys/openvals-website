@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Copy, Check } from "lucide-react";
 import styles from "./ui.module.css";
 
-const SIGNUP_URL = "https://dev.openvalidations.com/auth/signup";
+const SIGNUP_URL = "https://prod.openvalidations.com/auth/signup";
 
 export default function HeroInteractiveStart() {
   const [copied, setCopied] = useState(false);
