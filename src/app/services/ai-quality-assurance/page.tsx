@@ -51,7 +51,7 @@ export default function AIQualityAssurancePage() {
         {/* HERO SECTION */}
         <section className={styles.section} style={{ paddingTop: "80px", paddingBottom: "60px", position: "relative" }}>
           <AmbientGrid />
-          <motion.div initial="hidden" animate="show" variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 10 }}>
+          <motion.div initial="hidden" animate="show" variants={STAGGER} className={styles.layoutShell} style={{ textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.h1 variants={FADE_UP} style={{ 
               fontSize: "clamp(32px, 6vw, 72px)", 
               fontWeight: 400, 
@@ -78,7 +78,7 @@ export default function AIQualityAssurancePage() {
 
         {/* ASSURANCE SECTION */}
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <div style={{ marginBottom: "40px" }}>
               <h2 style={{ fontSize: "32px", fontWeight: 500, marginBottom: "16px" }}>1. AI Assurance</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "800px" }}>Build secure, ethical, and compliant AI systems with robust governance.</p>
@@ -100,7 +100,7 @@ export default function AIQualityAssurancePage() {
 
         {/* QUALITY SECTION */}
         <section className={styles.section} style={{ borderTop: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <div style={{ marginBottom: "40px" }}>
               <h2 style={{ fontSize: "32px", fontWeight: 500, marginBottom: "16px" }}>2. AI Quality Engineering</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "800px" }}>Deliver reliable, high-performance systems with industrial-grade testing.</p>
@@ -122,7 +122,7 @@ export default function AIQualityAssurancePage() {
 
         {/* SECURITY CAPS */}
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
+          <div className={styles.layoutShell} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
              <div>
                 <h3 style={{ fontSize: "22px", fontWeight: 500, marginBottom: "20px" }}>Key Capabilities</h3>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>

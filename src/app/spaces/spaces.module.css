@@ -8,9 +8,11 @@
 }
 
 .container {
-  max-width: 1380px;
+  width: 100%;
+  max-width: var(--layout-max-width);
   margin: 0 auto;
   padding: 24px var(--container-padding) 40px;
+  box-sizing: border-box;
 }
 
 /* HEADER BAR */

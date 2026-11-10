@@ -147,7 +147,7 @@ export default function WhoWeServePage() {
             initial="hidden" 
             animate="show" 
             variants={STAGGER} 
-            style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1, padding: "0 24px" }}
+            className={styles.layoutShell} style={{ position: "relative", zIndex: 1, padding: "0 24px" }}
           >
             <div style={{ maxWidth: "800px", marginBottom: "60px" }}>
               <motion.div 

@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import { urlFor } from "@/sanity/lib/image";
 import BlogAnalytics from "@/components/BlogAnalytics";
 import BlogPerformanceDashboard from "@/components/BlogPerformanceDashboard";
-import { getLocalBlogPost } from "../localPosts";
+import { getLocalBlogPost, localBlogPosts } from "../localPosts";
 
 export const revalidate = 60; // Revalidate every minute
 
@@ -30,8 +30,6 @@ const components = {
     },
   },
 };
-
-import { localBlogPosts } from "../localPosts";
 
 const toStaticParams = (slugs: string[]) => (
   Array.from(new Set(slugs)).map((slug) => ({ slug }))

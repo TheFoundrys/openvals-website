@@ -1,12 +1,24 @@
 :root {
-  --font-serif-main: Georgia, "Newsreader", serif;
-  --font-logo: var(--font-inter), "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-inter: Georgia, "Newsreader", serif;
-  --font-outfit: Georgia, "Newsreader", serif;
-  --font-serif: Georgia, "Newsreader", serif;
+  --font-serif-main: Georgia, serif;
+  --font-logo: Georgia, serif;
+  --font-inter: Georgia, serif;
+  --font-outfit: Georgia, serif;
+  --font-serif: Georgia, serif;
+  --font-sans: Georgia, serif;
   --font-weight-body: 400;
   --font-weight-heading: 500;
   --font-weight-emphasis: 500;
+
+  /*
+   * Typography — three consistent tiers site-wide.
+   * Adjust sizes here only (pixel examples in briefs are not literal).
+   */
+  --font-size-heading: clamp(1.75rem, 3.2vw, 2.375rem);
+  --font-size-subheading: clamp(1.0625rem, 1.45vw, 1.25rem);
+  --font-size-body: 1rem;
+  --line-height-heading: 1.2;
+  --line-height-subheading: 1.4;
+  --line-height-body: 1.55;
   --primary-bg: #FFFFFF;
   --primary-bg-alpha: rgba(255, 255, 255, 0.85);
   --secondary-bg: #F9FAFB;
@@ -21,7 +33,8 @@
   --logo-color: #1a2b3d;
   --orb-bg: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(240, 249, 255, 0.4) 40%, rgba(26, 43, 109, 0.05) 80%, transparent 100%);
   --orb-border: rgba(0, 0, 0, 0.1);
-  --container-padding: clamp(12px, 3vw, 40px);
+  --layout-max-width: 1440px;
+  --container-padding: clamp(24px, 4vw, 56px);
   --section-padding: clamp(30px, 5vw, 60px);
   --icon-invert: 0;
   --shield-base: #2F80ED;
@@ -381,6 +394,14 @@ html.light {
   --hero-part-glow-mid: 0 0 8px rgba(14, 165, 233, 0.35);
 }
 
+button,
+input,
+select,
+textarea,
+optgroup {
+  font-family: var(--font-serif-main);
+}
+
 html,
 body {
   margin: 0;
@@ -388,21 +409,122 @@ body {
   background-color: var(--primary-bg);
   color: var(--text-main);
   font-family: var(--font-serif-main) !important;
-  line-height: 1.4;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 h1,
-h2,
+h2 {
+  font-family: var(--font-serif-main) !important;
+  font-size: var(--font-size-heading);
+  line-height: var(--line-height-heading);
+  font-weight: var(--font-weight-heading);
+  letter-spacing: -0.01em;
+  color: inherit;
+}
+
 h3,
 h4,
 h5,
 h6 {
   font-family: var(--font-serif-main) !important;
+  font-size: var(--font-size-subheading);
+  line-height: var(--line-height-subheading);
   font-weight: var(--font-weight-heading);
   letter-spacing: -0.01em;
   color: inherit;
+}
+
+p,
+li,
+dd,
+dt,
+blockquote,
+figcaption,
+label,
+td,
+th {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+.text-heading {
+  font-size: var(--font-size-heading);
+  line-height: var(--line-height-heading);
+  font-weight: var(--font-weight-heading);
+}
+
+.text-subheading {
+  font-size: var(--font-size-subheading);
+  line-height: var(--line-height-subheading);
+  font-weight: var(--font-weight-heading);
+}
+
+.text-body {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-body);
+}
+
+/*
+ * Muted / secondary copy uses the body tier (not legacy 9–13px overrides).
+ * Class fragments match CSS module hashed names.
+ */
+/* Marketing pages: avoid shouty all-caps unless a component opts in */
+main :where(
+  [class*="trustMarqueeItem"],
+  [class*="heroStatLabelText"],
+  [class*="heroCapability"],
+  [class*="legendItem"],
+  [class*="metricPrefix"],
+  [class*="metricDropdownTrigger"],
+  [class*="subHeaderRow"] th
+) {
+  text-transform: none !important;
+  letter-spacing: normal;
+}
+
+main
+  :where(
+    [class*="heroMainDescription"],
+    [class*="heroStatLabelText"],
+    [class*="heroCapabilityRow"],
+    [class*="heroCapabilityItem"],
+    [class*="heroBrowserUrl"],
+    [class*="heroFeatureItem"],
+    [class*="trustStatLabel"],
+    [class*="trustMarqueeItem"],
+    [class*="description"],
+    [class*="subtitle"],
+    [class*="eyebrow"],
+    [class*="tierDescription"],
+    [class*="heroLead"],
+    [class*="ctaLead"],
+    [class*="metricPrefix"],
+    [class*="tabPill"],
+    [class*="toggleBtn"],
+    [class*="sizeBadge"],
+    [class*="runsBadge"],
+    [class*="tooltipLab"],
+    [class*="cardExcerpt"],
+    [class*="reportExcerpt"],
+    [class*="legendItem"],
+    [class*="groupHeader"],
+    [class*="tierInProgress"],
+    [class*="modelTag"],
+    [class*="stdDev"],
+    [class*="heroKicker"],
+    [class*="mobileEmptyState"]
+  ) {
+  font-size: var(--font-size-body) !important;
+  line-height: var(--line-height-body);
+}
+
+main [class*="subHeaderRow"] th {
+  font-size: var(--font-size-body) !important;
+  line-height: var(--line-height-body);
 }
 
 button,
@@ -429,15 +551,28 @@ canvas {
   max-width: 100%;
 }
 
+.layout-shell {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  box-sizing: border-box;
+}
+
 .container {
-  max-width: 1280px;
+  width: 100%;
+  max-width: var(--layout-max-width);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   :root {
-    --container-padding: clamp(16px, 5vw, 24px);
+    --container-padding: clamp(20px, 5vw, 28px);
     --section-padding: clamp(44px, 10vw, 64px);
   }
 

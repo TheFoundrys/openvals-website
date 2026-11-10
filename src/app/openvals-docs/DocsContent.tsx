@@ -351,7 +351,7 @@ function Terminal({ children }: { children: React.ReactNode }) {
       border: "1px solid var(--docs-border)",
       overflow: "hidden",
       margin: "24px 0",
-      fontFamily: "var(--font-mono, 'Fira Code', ui-monospace, monospace)",
+      fontFamily: "Georgia, serif",
       fontSize: "14px",
       lineHeight: "1.6",
       boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)"
@@ -663,7 +663,7 @@ const ScreenshotsPage = () => {
         borderRadius: "16px",
         overflow: "hidden",
         margin: "24px 0 48px",
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        fontFamily: "Georgia, serif"
       }}>
         <div style={{
           background: "linear-gradient(135deg, #090e1a 0%, #1e1b4b 100%)",
@@ -1148,7 +1148,7 @@ const ScreenshotsPage = () => {
         overflow: "hidden",
         margin: "24px 0 24px",
         color: "#f8fafc",
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        fontFamily: "Georgia, serif"
       }}>
         <div style={{
           padding: "30px 40px",

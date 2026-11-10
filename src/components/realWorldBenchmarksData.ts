@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "NOV 2, 2026";
+export const LATEST_BENCHMARK_DATE = "NOV 9, 2026";
 
 export const MODELS: ModelData[] = [
   {
@@ -318,7 +318,7 @@ export const MODELS: ModelData[] = [
     "drsLabel": "67.2%"
   },
   {
-    "id": "mistral-nemo-12b-12b",
+    "id": "mistral-nemo-12b",
     "name": "MINISTRAL",
     "version": "3.0B",
     "lab": "Mistral AI",

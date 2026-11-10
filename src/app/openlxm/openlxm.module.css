@@ -7,9 +7,11 @@
 }
 
 .container {
-  max-width: 1240px;
+  width: 100%;
+  max-width: var(--layout-max-width);
   margin: 0 auto;
-  padding: 0 clamp(16px, 4vw, 32px);
+  padding: 0 var(--container-padding);
+  box-sizing: border-box;
   position: relative;
   z-index: 10;
 }

@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import Link from "next/link";
 import { Copy, Check } from "lucide-react";
 import styles from "./ui.module.css";
 
-const SIGNUP_URL = "https://dev.openvalidations.com/auth/signup";
+const SIGNUP_URL = "https://prod.openvalidations.com/auth/signup";
 
 export default function HeroInteractiveStart() {
   const [copied, setCopied] = useState(false);
@@ -68,6 +68,19 @@ export default function HeroInteractiveStart() {
           Book a Demo
         </Link>
       </div>
+
+      <p className={styles.heroCapabilityRow} aria-label="Core capabilities">
+        {(["Evaluate", "Benchmark", "Validate", "Trust"] as const).map((label, index) => (
+          <Fragment key={label}>
+            {index > 0 ? (
+              <span className={styles.heroCapabilitySep} aria-hidden="true">
+                ·
+              </span>
+            ) : null}
+            <span className={styles.heroCapabilityItem}>{label}</span>
+          </Fragment>
+        ))}
+      </p>
     </div>
   );
 }

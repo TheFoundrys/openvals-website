@@ -1,13 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import { ThemeProvider } from "../components/ThemeProvider";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: [
@@ -101,7 +94,7 @@ export default function RootLayout({
         {/* Synchronous inline script to prevent flash of incorrect theme */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{localStorage.removeItem('theme');localStorage.removeItem('next-themes');localStorage.removeItem('openvals-theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;var r=document.documentElement;r.classList.remove('light','dark');r.classList.add(d?'dark':'light');r.style.colorScheme=d?'dark':'light';}catch(e){}})();`,
+            __html: `(function(){try{var s=localStorage.getItem('openvals-theme');var d=s==='dark'||s==='light'?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;var r=document.documentElement;r.classList.remove('light','dark');r.classList.add(d?'dark':'light');r.style.colorScheme=d?'dark':'light';}catch(e){}})();`,
           }}
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -112,7 +105,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={inter.variable}>
+      <body>
         <ThemeProvider>
           {children}
         </ThemeProvider>

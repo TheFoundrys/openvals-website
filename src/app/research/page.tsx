@@ -101,7 +101,7 @@ export default function ResearchPage() {
             initial="hidden"
             animate="show"
             variants={STAGGER}
-            style={{ maxWidth: "1200px", margin: "0 auto" }}
+            className={styles.layoutShell}
           >
             {/* Header Content with individual Variants */}
             <motion.div variants={FADE_UP} style={{ marginBottom: "60px" }}>

@@ -2,7 +2,7 @@
   width: 100%;
   margin: 0 auto;
   position: relative;
-  font-family: var(--font-inter), serif;
+  font-family: var(--font-serif-main), Georgia, serif;
 }
 
 .headerArea {
@@ -11,28 +11,29 @@
 
 .eyebrow {
   font-family: Georgia, serif;
-  font-size: 15px;
+  font-size: var(--font-size-body);
   color: var(--text-muted);
   margin-bottom: 12px;
   letter-spacing: 0.01em;
   font-weight: 400;
+  line-height: var(--line-height-body);
 }
 
 .headline {
-  font-family: Georgia, "Newsreader", serif;
-  font-size: clamp(32px, 4.2vw, 52px);
+  font-family: Georgia, serif;
+  font-size: var(--font-size-heading);
   font-weight: 500;
   color: var(--text-main);
-  line-height: 1.15;
+  line-height: var(--line-height-heading);
   letter-spacing: -0.02em;
   margin: 0 0 16px 0;
 }
 
 .description {
   font-family: Georgia, serif;
-  font-size: clamp(16px, 1.35vw, 19px);
+  font-size: var(--font-size-body);
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: var(--line-height-body);
   max-width: 960px;
   margin: 0;
   font-weight: 400;
@@ -71,8 +72,8 @@
   border: 1px solid var(--border);
   color: var(--text-main);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  font-family: var(--font-inter), serif;
-  text-transform: uppercase;
+  font-family: var(--font-serif-main), Georgia, serif;
+  text-transform: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
@@ -90,7 +91,8 @@
 .metricPrefix {
   color: var(--text-muted);
   font-weight: 500;
-  font-size: 11px;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   letter-spacing: 0.05em;
 }
 
@@ -153,7 +155,7 @@
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--text-muted);
   padding: 6px 10px 6px 10px;
   border-bottom: 1px solid var(--border);
@@ -212,8 +214,8 @@
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.03em;
-  text-transform: uppercase;
-  font-family: var(--font-inter), serif;
+  text-transform: none;
+  font-family: var(--font-serif-main), Georgia, serif;
 }
 
 .metricOptionDesc {
@@ -294,7 +296,7 @@
 }
 
 .viewModeBtn {
-  font-family: var(--font-inter), serif;
+  font-family: var(--font-serif-main), Georgia, serif;
   font-size: 11px;
   font-weight: 500;
   padding: 4px 8px;
@@ -358,7 +360,7 @@
   font-size: 10.5px;
   font-weight: 500;
   color: var(--text-muted);
-  font-family: var(--font-inter), monospace, serif;
+  font-family: var(--font-serif-main), Georgia, serif;
   padding: 0 4px;
   white-space: nowrap;
 }
@@ -469,7 +471,7 @@
 }
 
 .scoreTop {
-  font-family: var(--font-inter), monospace, serif;
+  font-family: var(--font-serif-main), Georgia, serif;
   font-size: 11px;
   font-weight: 500;
   line-height: 1;
@@ -498,12 +500,12 @@
 }
 
 .modelName {
-  font-family: var(--font-inter), serif;
+  font-family: var(--font-serif-main), Georgia, serif;
   font-size: 9.5px;
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
+  text-transform: none;
   word-break: break-word;
   overflow-wrap: break-word;
 }
@@ -576,10 +578,11 @@
 }
 
 .tooltipLab {
-  font-size: 10px;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--text-muted);
   margin-bottom: 6px;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.04em;
 }
 
@@ -675,7 +678,7 @@
   font-weight: 500;
   letter-spacing: 0.05em;
   color: var(--text-main);
-  text-transform: uppercase;
+  text-transform: none;
   font-size: 11.5px;
   transition: all 0.2s;
   white-space: nowrap;

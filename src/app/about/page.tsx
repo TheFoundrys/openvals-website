@@ -31,13 +31,14 @@ export default function About() {
 
       <main style={{ position: "relative" }}>
         {/* HERO SECTION */}
-        <section className={styles.section} style={{ padding: "120px var(--container-padding) 80px", position: "relative" }}>
+        <section className={styles.section} style={{ padding: "120px 0 80px", position: "relative" }}>
           <AmbientGrid />
           <motion.div
             initial="hidden"
             animate="show"
             variants={STAGGER}
-            style={{ maxWidth: "1000px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 10 }}
+            className={styles.layoutShell}
+            style={{ textAlign: "center", position: "relative", zIndex: 10 }}
           >
             <motion.h1
               variants={FADE_UP}
@@ -59,7 +60,7 @@ export default function About() {
         <TrustedBy />
 
         {/* NARRATIVE SPLIT */}
-        <section className={styles.section} style={{ backgroundColor: "var(--secondary-bg)", padding: "100px var(--container-padding)" }}>
+        <section className={styles.section} style={{ backgroundColor: "var(--secondary-bg)", padding: "100px 0" }}>
           <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "60px", alignItems: "center" }}>
             <motion.div
               initial="hidden"
@@ -100,7 +101,7 @@ export default function About() {
         </section>
 
         {/* PILLARS OF VALIDATION */}
-        <section className={styles.section} style={{ padding: "100px var(--container-padding)" }}>
+        <section className={styles.section} style={{ padding: "100px 0" }}>
           <div className="container">
             <motion.div
               initial="hidden"
@@ -148,7 +149,7 @@ export default function About() {
         </section>
 
         {/* FOUNDER PROFILE */}
-        <section className={styles.section} style={{ backgroundColor: "var(--secondary-bg)", padding: "100px var(--container-padding)" }}>
+        <section className={styles.section} style={{ backgroundColor: "var(--secondary-bg)", padding: "100px 0" }}>
           <div className="container">
             <motion.div
               initial="hidden"
@@ -217,12 +218,13 @@ export default function About() {
         </section>
 
         {/* FINAL CTA */}
-        <section className={styles.section} style={{ backgroundColor: "var(--text-main)", color: "var(--primary-bg)", textAlign: "center", padding: "120px var(--container-padding)" }}>
+        <section className={styles.section} style={{ backgroundColor: "var(--text-main)", color: "var(--primary-bg)", textAlign: "center", padding: "120px 0" }}>
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={STAGGER}
+            className={styles.layoutShell}
           >
             <motion.h2 variants={FADE_UP} style={{ color: "var(--primary-bg)", fontSize: "clamp(32px, 6vw, 54px)", marginBottom: "32px", lineHeight: 1.1 }}>
               Ready to ensure your AI is <br /> as trustworthy as it is smart?

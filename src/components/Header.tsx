@@ -148,9 +148,10 @@ export default function Header() {
   return (
     <>
       <header className={styles.header}>
+        <div className={`${styles.layoutShell} ${styles.headerBar}`}>
         {/* ── LEFT CLUSTER: LOGO + SEARCH BAR ── */}
         <div className={styles.headerLeftCluster}>
-          <Logo size="sm" font="sans" className={styles.headerTopLeftLogo} />
+          <Logo size="sm" font="serif" className={styles.headerTopLeftLogo} />
 
           {/* Search Box */}
           <div ref={searchContainerRef} className={styles.headerSearchContainer}>
@@ -415,7 +416,7 @@ export default function Header() {
 
           {/* Log In */}
           <Link
-            href="https://dev.openvalidations.com/auth/login"
+            href="https://prod.openvalidations.com/auth/login"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.headerLoginTextBtn}
@@ -425,7 +426,7 @@ export default function Header() {
 
           {/* Sign Up */}
           <Link
-            href="https://dev.openvalidations.com/auth/signup"
+            href="https://prod.openvalidations.com/auth/signup"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.headerSignUpPillBtn}
@@ -441,6 +442,7 @@ export default function Header() {
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
+        </div>
         </div>
       </header>
       <div className={styles.headerSpacer} aria-hidden="true" />
@@ -476,7 +478,7 @@ export default function Header() {
           {/* Mobile CTA Buttons */}
           <div className={styles.mobileCtaWrapper}>
             <Link
-              href="https://dev.openvalidations.com/auth/signup"
+              href="https://prod.openvalidations.com/auth/signup"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.mobileCtaButton}
@@ -485,7 +487,7 @@ export default function Header() {
               Sign Up
             </Link>
             <Link
-              href="https://dev.openvalidations.com/auth/login"
+              href="https://prod.openvalidations.com/auth/login"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.mobileLoginBtn}

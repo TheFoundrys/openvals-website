@@ -51,7 +51,7 @@ export default function AICompassPage() {
         {/* HERO SECTION */}
         <section className={styles.section} style={{ paddingTop: "80px", paddingBottom: "60px", position: "relative" }}>
           <AmbientGrid />
-          <motion.div initial="hidden" animate="show" variants={STAGGER} style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 10 }}>
+          <motion.div initial="hidden" animate="show" variants={STAGGER} className={styles.layoutShell} style={{ textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div variants={FADE_UP} style={{ 
               display: "inline-flex", 
               alignItems: "center", 
@@ -102,7 +102,7 @@ export default function AICompassPage() {
 
         {/* ABOUT SECTION */}
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }}>
               <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={STAGGER}>
                 <motion.h2 variants={FADE_UP} style={{ fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 500, marginBottom: "32px", letterSpacing: "-0.01em" }}>
@@ -138,7 +138,7 @@ export default function AICompassPage() {
 
         {/* WHY AI COMPASS & BENEFITS */}
         <section className={styles.section}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <div style={{ textAlign: "center", marginBottom: "64px" }}>
               <h2 style={{ fontSize: "40px", fontWeight: 500, marginBottom: "20px" }}>Why AI Compass?</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px", maxWidth: "700px", margin: "0 auto" }}>
@@ -164,7 +164,7 @@ export default function AICompassPage() {
 
         {/* SIX PILLARS FRAMEWORK */}
         <section className={styles.section} style={{ background: "var(--secondary-bg)", borderTop: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <div style={{ textAlign: "center", marginBottom: "50px" }}>
               <h2 style={{ fontSize: "40px", fontWeight: 500, marginBottom: "16px" }}>Our AI Compass Framework</h2>
               <p style={{ color: "var(--text-muted)", fontSize: "18px" }}>Six essential pillars that ensure successful AI adoption</p>
@@ -208,7 +208,7 @@ export default function AICompassPage() {
 
         {/* WHO SHOULD USE? */}
         <section className={styles.section}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className={styles.layoutShell}>
             <h2 style={{ fontSize: "40px", fontWeight: 500, textAlign: "center", marginBottom: "64px" }}>Who Should Use AI Compass?</h2>
             <div className={styles.grid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
               {[
@@ -230,7 +230,7 @@ export default function AICompassPage() {
 
         {/* INDUSTRY USE CASES */}
         <section className={styles.section} style={{ background: "var(--primary-bg)", borderTop: "1px solid var(--border)" }}>
-           <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+           <div className={styles.layoutShell}>
               <h2 style={{ fontSize: "40px", fontWeight: 500, textAlign: "center", marginBottom: "64px" }}>Industry Use Cases</h2>
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>
                 {[

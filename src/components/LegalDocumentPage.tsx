@@ -28,10 +28,9 @@ export default function LegalDocumentPage({
           style={{
             paddingTop: "clamp(96px, 12vw, 140px)",
             paddingBottom: "clamp(48px, 8vw, 80px)",
-            maxWidth: 800,
-            margin: "0 auto",
           }}
         >
+          <div className={styles.layoutShell}>
           <p
             style={{
               fontSize: 13,
@@ -83,6 +82,7 @@ export default function LegalDocumentPage({
                 </div>
               </article>
             ))}
+          </div>
           </div>
         </section>
       </main>
