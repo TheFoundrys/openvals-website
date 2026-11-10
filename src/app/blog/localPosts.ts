@@ -15,6 +15,17 @@ type BlogPostLike = {
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
+    _id: "local-question-for-founders-cxos-investors-technology-leaders",
+    title:
+      "A question for fellow founders, CXOs, investors, and technology leaders:",
+    slug: { current: "question-for-fellow-founders-cxos-investors-technology-leaders" },
+    publishedAt: "2026-11-09T10:00:00.000Z",
+    author: { name: "Vishwanath Akuthota" },
+    imageUrl: "/question_for_founders_cxos_cover.png",
+    externalUrl:
+      "https://www.linkedin.com/pulse/question-fellow-founders-cxos-investors-technology-vishwa-akuthota--mk9wf",
+  },
+  {
     _id: "local-ai-supply-chain-risk",
     title: "AI Supply Chain Risk",
     slug: { current: "ai-supply-chain-risk" },
