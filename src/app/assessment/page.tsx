@@ -24,6 +24,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AmbientGrid from "@/components/AmbientGrid";
 import Link from "next/link";
+import { SIGNUP_URL } from "@/lib/app-links";
 import styles from "@/components/ui.module.css";
 
 // Questions structured under 6 pillars
@@ -491,7 +492,7 @@ DIMENSION RATINGS:
 
                       <div style={{ marginTop: "32px" }}>
                         <a
-                          href="https://prod.openvalidations.com/auth/signup"
+                          href={SIGNUP_URL}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`${styles.button} ${styles.primary}`}

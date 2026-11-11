@@ -4,10 +4,8 @@ import Link from "next/link";
 import { FormEvent, useState } from "react";
 import Logo from "@/components/Logo";
 import ThemeToggle from "@/components/ThemeToggle";
+import { FORGOT_PASSWORD_URL, LOGIN_URL } from "@/lib/app-links";
 import styles from "../auth.module.css";
-
-const APP_ORIGIN =
-  process.env.NEXT_PUBLIC_OPENVALS_APP_URL ?? "https://dev.openvalidations.com";
 
 export default function LoginPage() {
   const [pending, setPending] = useState(false);
@@ -30,7 +28,7 @@ export default function LoginPage() {
 
     void email;
     void password;
-    window.location.assign(`${APP_ORIGIN}/auth/login`);
+    window.location.assign(LOGIN_URL);
   }
 
   return (
@@ -68,7 +66,7 @@ export default function LoginPage() {
                 </label>
                 <a
                   className={styles.forgotLink}
-                  href={`${APP_ORIGIN}/auth/forgot-password`}
+                  href={FORGOT_PASSWORD_URL}
                 >
                   Forgot password?
                 </a>

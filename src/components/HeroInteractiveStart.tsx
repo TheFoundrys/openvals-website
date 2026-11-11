@@ -3,9 +3,8 @@
 import React, { Fragment, useState } from "react";
 import Link from "next/link";
 import { Copy, Check } from "lucide-react";
+import { SIGNUP_URL } from "@/lib/app-links";
 import styles from "./ui.module.css";
-
-const SIGNUP_URL = "https://prod.openvalidations.com/auth/signup";
 
 export default function HeroInteractiveStart() {
   const [copied, setCopied] = useState(false);

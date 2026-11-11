@@ -3,10 +3,8 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import ThemeToggle from "@/components/ThemeToggle";
+import { SIGNUP_URL, TRIAL_DAYS } from "@/lib/app-links";
 import styles from "../auth.module.css";
-
-const APP_ORIGIN =
-  process.env.NEXT_PUBLIC_OPENVALS_APP_URL ?? "https://dev.openvalidations.com";
 
 export default function SignupPage() {
   return (
@@ -19,10 +17,12 @@ export default function SignupPage() {
       <main className={styles.authMain}>
         <div className={styles.authCard}>
           <h1 className={styles.authTitle}>Create account</h1>
-          <p className={styles.authLead}>Start your free OpenVals workspace.</p>
+          <p className={styles.authLead}>
+            Start your {TRIAL_DAYS}-day free trial. No credit card required.
+          </p>
 
           <a
-            href={`${APP_ORIGIN}/auth/signup`}
+            href={SIGNUP_URL}
             className={styles.submitBtn}
             style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}
           >

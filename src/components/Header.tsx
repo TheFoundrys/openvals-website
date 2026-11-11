@@ -12,6 +12,7 @@ import {
   Check,
 } from "lucide-react";
 import Logo from "./Logo";
+import { LOGIN_URL, SIGNUP_URL } from "@/lib/app-links";
 import styles from "./ui.module.css";
 
 function GithubIcon({ size = 18, className = "" }: { size?: number; className?: string }) {
@@ -416,7 +417,7 @@ export default function Header() {
 
           {/* Log In */}
           <Link
-            href="https://prod.openvalidations.com/auth/login"
+            href={LOGIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.headerLoginTextBtn}
@@ -426,7 +427,7 @@ export default function Header() {
 
           {/* Sign Up */}
           <Link
-            href="https://prod.openvalidations.com/auth/signup"
+            href={SIGNUP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.headerSignUpPillBtn}
@@ -478,7 +479,7 @@ export default function Header() {
           {/* Mobile CTA Buttons */}
           <div className={styles.mobileCtaWrapper}>
             <Link
-              href="https://prod.openvalidations.com/auth/signup"
+              href={SIGNUP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.mobileCtaButton}
@@ -487,7 +488,7 @@ export default function Header() {
               Sign Up
             </Link>
             <Link
-              href="https://prod.openvalidations.com/auth/login"
+              href={LOGIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.mobileLoginBtn}

@@ -16,6 +16,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AmbientGrid from "@/components/AmbientGrid";
+import { SIGNUP_URL } from "@/lib/app-links";
 import styles from "./openvals.module.css";
 
 const FADE_UP = {
@@ -249,7 +250,7 @@ export default function OpenValsSolutionPage() {
               </p>
               <div className={styles.ctaActions}>
                 <Link
-                  href="https://prod.openvalidations.com/auth/signup"
+                  href={SIGNUP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.primaryBtn}

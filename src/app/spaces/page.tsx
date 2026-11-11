@@ -17,6 +17,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AmbientGrid from "@/components/AmbientGrid";
 import allSpacesJson from "@/data/allSpacesData.json";
+import { SIGNUP_URL } from "@/lib/app-links";
 import styles from "./spaces.module.css";
 
 interface SpaceItem {
@@ -167,7 +168,7 @@ export default function SpacesPage() {
 
             <div className={styles.headerRight}>
               <Link
-                href="https://prod.openvalidations.com/auth/signup"
+                href={SIGNUP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.newSpaceBtn}
@@ -411,7 +412,7 @@ export default function SpacesPage() {
                 Full benchmarks, trade-off lenses, and audit trails are available in the workspace.
               </p>
               <Link
-                href="https://prod.openvalidations.com/auth/signup"
+                href={SIGNUP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.promoLink}
@@ -485,7 +486,7 @@ export default function SpacesPage() {
 
               <div className={styles.modalFooter}>
                 <Link
-                  href="https://prod.openvalidations.com/auth/signup"
+                  href={SIGNUP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.modalCtaBtn}

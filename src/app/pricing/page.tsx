@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { APP_ORIGIN, SIGNUP_URL, TRIAL_DAYS } from "@/lib/app-links";
 import styles from "./pricing.module.css";
 
 const FADE_UP: Variants = {
@@ -30,8 +31,8 @@ const TIERS = [
       "Evidence summaries for individual runs",
       "1 workspace seat · self-serve signup",
     ],
-    footnote: "Self-serve at dev.openvalidations.com. Commercial production use by approval.",
-    cta: { label: "Start free", href: "https://prod.openvalidations.com/auth/signup", external: true },
+    footnote: `Self-serve at ${APP_ORIGIN.replace(/^https?:\/\//, "")}. New workspaces start with a ${TRIAL_DAYS}-day trial; commercial production use by approval.`,
+    cta: { label: "Start free trial", href: SIGNUP_URL, external: true },
     secondary: false,
   },
   {
@@ -164,23 +165,25 @@ export default function PricingPage() {
                   <span className={styles.heroTitleSecondary}>Not a meter that runs with every gate.</span>
                 </motion.h1>
                 <motion.p variants={FADE_UP} className={styles.heroLead}>
-                  Start on Community at no cost. Move to Scale or Enterprise when you need
-                  governance, evidence, and deployment control—priced for the environment, not
-                  every validation run.
+                  Every new workspace starts with a {TRIAL_DAYS}-day free trial—no credit card
+                  required. After the trial, stay on Community at no cost or move to Scale or
+                  Enterprise when you need governance, evidence, and deployment control—priced
+                  for the environment, not every validation run.
                 </motion.p>
                 <motion.ul variants={FADE_UP} className={styles.heroPrinciples}>
+                  <li>{TRIAL_DAYS}-day free trial, no credit card required</li>
                   <li>No per-run markup on included gates</li>
                   <li>Licence terms you can put in procurement</li>
                   <li>Same platform; each tier adds a layer</li>
                 </motion.ul>
                 <motion.div variants={FADE_UP} className={styles.heroActions}>
                   <Link
-                    href="https://prod.openvalidations.com/auth/signup"
+                    href={SIGNUP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.heroCtaPrimary}
                   >
-                    Start free
+                    Start 15-day trial
                   </Link>
                   <a href="#editions" className={styles.heroCtaGhost}>
                     See editions
@@ -256,7 +259,9 @@ export default function PricingPage() {
             </div>
 
             <p className={styles.editionsNote}>
-              Exact terms are confirmed in a conversation. No surprise per-request line items.
+              Every new workspace starts with a {TRIAL_DAYS}-day trial of the full validation
+              toolkit. Exact terms are confirmed in a conversation. No surprise per-request line
+              items.
             </p>
           </section>
 
