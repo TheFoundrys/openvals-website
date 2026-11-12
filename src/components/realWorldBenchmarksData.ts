@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "NOV 11, 2026";
+export const LATEST_BENCHMARK_DATE = "NOV 12, 2026";
 
 export const MODELS: ModelData[] = [
   {
@@ -71,6 +71,41 @@ export const MODELS: ModelData[] = [
     "reliabilityLabel": "88.3%",
     "drs": 57.7,
     "drsLabel": "57.7%"
+  },
+  {
+    "id": "gemma3-4b-3-9b",
+    "name": "GEMMA 3N",
+    "version": "E2B",
+    "lab": "Google",
+    "score": 100,
+    "displayScore": "100.0%",
+    "cost": 0.28,
+    "costLabel": "$0.28",
+    "latency": 10954,
+    "latencyLabel": "10954 ms",
+    "tokenUsage": 4200,
+    "tokenLabel": "4.2k",
+    "color": "#46b17c",
+    "textColor": "#ffffff",
+    "hasPattern": false,
+    "breakdown": {
+      "finance": "100.0%",
+      "software": "55.7%",
+      "cybersecurity": "61.0%",
+      "mentalHealth": "61.8%"
+    },
+    "semantic": 44.6,
+    "semanticLabel": "44.6%",
+    "factuality": 55.7,
+    "factualityLabel": "55.7%",
+    "hallucination": 61,
+    "hallucinationLabel": "61.0%",
+    "safety": 100,
+    "safetyLabel": "100.0%",
+    "reliability": 93.5,
+    "reliabilityLabel": "93.5%",
+    "drs": 61.8,
+    "drsLabel": "61.8%"
   },
   {
     "id": "hunyuan-instruct-1-8b",
@@ -353,39 +388,39 @@ export const MODELS: ModelData[] = [
     "drsLabel": "56.6%"
   },
   {
-    "id": "gemma3n-e2b",
-    "name": "GEMMA 3N",
-    "version": "E2B",
-    "lab": "Google",
-    "score": 82.5,
-    "displayScore": "82.5%",
-    "cost": 0.28,
-    "costLabel": "$0.28",
-    "latency": 21745,
-    "latencyLabel": "21745 ms",
-    "tokenUsage": 4200,
-    "tokenLabel": "4.2k",
-    "color": "#46b17c",
+    "id": "phi4-mini-reasoning-3-8b-3-8b",
+    "name": "PHI-3",
+    "version": "3.8B",
+    "lab": "Microsoft",
+    "score": 81.8,
+    "displayScore": "81.8%",
+    "cost": 0.45,
+    "costLabel": "$0.45",
+    "latency": 35185,
+    "latencyLabel": "35185 ms",
+    "tokenUsage": 4600,
+    "tokenLabel": "4.6k",
+    "color": "#00a4ef",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
-      "finance": "82.3%",
-      "software": "70.9%",
-      "cybersecurity": "54.7%",
-      "mentalHealth": "60.3%"
+      "finance": "87.2%",
+      "software": "57.6%",
+      "cybersecurity": "61.6%",
+      "mentalHealth": "55.8%"
     },
-    "semantic": 63.6,
-    "semanticLabel": "63.6%",
-    "factuality": 70.9,
-    "factualityLabel": "70.9%",
-    "hallucination": 54.7,
-    "hallucinationLabel": "54.7%",
-    "safety": 82.3,
-    "safetyLabel": "82.3%",
-    "reliability": 89.5,
-    "reliabilityLabel": "89.5%",
-    "drs": 60.3,
-    "drsLabel": "60.3%"
+    "semantic": 47,
+    "semanticLabel": "47.0%",
+    "factuality": 57.6,
+    "factualityLabel": "57.6%",
+    "hallucination": 61.6,
+    "hallucinationLabel": "61.6%",
+    "safety": 87.2,
+    "safetyLabel": "87.2%",
+    "reliability": 87.1,
+    "reliabilityLabel": "87.1%",
+    "drs": 55.8,
+    "drsLabel": "55.8%"
   },
   {
     "id": "llama2-0-1-0b",
@@ -421,41 +456,6 @@ export const MODELS: ModelData[] = [
     "reliabilityLabel": "90.7%",
     "drs": 59.4,
     "drsLabel": "59.4%"
-  },
-  {
-    "id": "phi3-latest-3-8b",
-    "name": "PHI-3",
-    "version": "3.8B",
-    "lab": "Microsoft",
-    "score": 78.9,
-    "displayScore": "78.9%",
-    "cost": 0.45,
-    "costLabel": "$0.45",
-    "latency": 44801,
-    "latencyLabel": "44801 ms",
-    "tokenUsage": 4600,
-    "tokenLabel": "4.6k",
-    "color": "#00a4ef",
-    "textColor": "#ffffff",
-    "hasPattern": false,
-    "breakdown": {
-      "finance": "97.5%",
-      "software": "64.8%",
-      "cybersecurity": "57.3%",
-      "mentalHealth": "58.7%"
-    },
-    "semantic": 56.8,
-    "semanticLabel": "56.8%",
-    "factuality": 64.8,
-    "factualityLabel": "64.8%",
-    "hallucination": 57.3,
-    "hallucinationLabel": "57.3%",
-    "safety": 97.5,
-    "safetyLabel": "97.5%",
-    "reliability": 81.3,
-    "reliabilityLabel": "81.3%",
-    "drs": 58.7,
-    "drsLabel": "58.7%"
   },
   {
     "id": "stablelm2-1-6b-1-6b",
