@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpDown,
@@ -15,7 +15,19 @@ import styles from "./ValsIndexView.module.css";
 import ValsIndexChart from "./ValsIndexChart";
 import { LAB_LEGENDS, VALS_INDEX_MODELS, ValsIndexModel } from "./valsIndexData";
 
+function formatRealUpdatedDate(date: Date): string {
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+}
+
 export default function ValsIndexView() {
+  const [updatedLabel, setUpdatedLabel] = useState(() =>
+    formatRealUpdatedDate(new Date()),
+  );
+
+  useEffect(() => {
+    setUpdatedLabel(formatRealUpdatedDate(new Date()));
+  }, []);
+
   const [selectedLab, setSelectedLab] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<"latency" | "drs">("latency");
   const [sortOrder, setSortOrder] = useState<"accuracy" | "latency" | "drs">(
@@ -60,7 +72,7 @@ export default function ValsIndexView() {
           <h1 className={styles.title}>OpenVals Index</h1>
 
           <div className={styles.metaLine}>
-            <span>UPDATED 10/8/2026</span>
+            <span>UPDATED {updatedLabel}</span>
             <span>|</span>
             <div className={styles.versionDropdown}>
               <span>VERSION 0.5.5</span>

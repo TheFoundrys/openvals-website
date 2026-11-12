@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AmbientGrid from "@/components/AmbientGrid";
 import allDatasetsJson from "@/data/allDatasetsData.json";
 import styles from "./datasets.module.css";
 
@@ -45,24 +44,6 @@ interface Facets {
   formats: FacetItem[];
   dtypes: FacetItem[];
 }
-
-const DOT_COLORS = [
-  "#2563eb",
-  "#f59e0b",
-  "#8b5cf6",
-  "#10b981",
-  "#06b6d4",
-  "#f43f5e",
-  "#ea580c",
-  "#65a30d",
-  "#ec4899",
-  "#3b82f6",
-  "#14b8a6",
-  "#e11d48",
-  "#f97316",
-  "#0ea5e9",
-  "#84cc16",
-];
 
 const TABS = [
   { key: "all", label: "All" },
@@ -233,8 +214,6 @@ export default function DatasetsPage() {
     <>
       <Header />
       <main className={styles.pageWrapper}>
-        <AmbientGrid />
-
         <div className={styles.container}>
           {/* TOP NAVIGATION TABS */}
           <div className={styles.tabBar}>
@@ -261,7 +240,7 @@ export default function DatasetsPage() {
                 <div className={styles.filterGroup}>
                   <h3 className={styles.filterGroupTitle}>Modalities</h3>
                   <div className={styles.filterPillsGrid}>
-                    {facets.modalities.map((item, idx) => {
+                    {facets.modalities.map((item) => {
                       const isSelected = selectedModality === item.value;
                       return (
                         <button
@@ -273,11 +252,7 @@ export default function DatasetsPage() {
                           className={`${styles.filterPill} ${isSelected ? styles.filterPillActive : ""}`}
                           title={`${item.value} (${item.count})`}
                         >
-                          <span
-                            className={styles.filterDot}
-                            style={{ backgroundColor: DOT_COLORS[idx % DOT_COLORS.length] }}
-                            aria-hidden="true"
-                          />
+                          <span className={styles.filterDot} aria-hidden="true" />
                           <span className={styles.filterPillText}>{item.value}</span>
                           <span className={styles.filterCount}>{item.count}</span>
                         </button>
@@ -292,7 +267,7 @@ export default function DatasetsPage() {
                 <div className={styles.filterGroup}>
                   <h3 className={styles.filterGroupTitle}>Format</h3>
                   <div className={styles.filterPillsGrid}>
-                    {facets.formats.map((item, idx) => {
+                    {facets.formats.map((item) => {
                       const isSelected = selectedFormat === item.value;
                       return (
                         <button
@@ -304,11 +279,7 @@ export default function DatasetsPage() {
                           className={`${styles.filterPill} ${isSelected ? styles.filterPillActive : ""}`}
                           title={`${item.value} (${item.count})`}
                         >
-                          <span
-                            className={styles.filterDot}
-                            style={{ backgroundColor: DOT_COLORS[(idx + 3) % DOT_COLORS.length] }}
-                            aria-hidden="true"
-                          />
+                          <span className={styles.filterDot} aria-hidden="true" />
                           <span className={styles.filterPillText}>{item.value}</span>
                           <span className={styles.filterCount}>{item.count}</span>
                         </button>
@@ -323,7 +294,7 @@ export default function DatasetsPage() {
                 <div className={styles.filterGroup}>
                   <h3 className={styles.filterGroupTitle}>Type</h3>
                   <div className={styles.filterPillsGrid}>
-                    {facets.dtypes.map((item, idx) => {
+                    {facets.dtypes.map((item) => {
                       const isSelected = selectedType === item.value;
                       return (
                         <button
@@ -335,11 +306,7 @@ export default function DatasetsPage() {
                           className={`${styles.filterPill} ${isSelected ? styles.filterPillActive : ""}`}
                           title={`${item.value} (${item.count})`}
                         >
-                          <span
-                            className={styles.filterDot}
-                            style={{ backgroundColor: DOT_COLORS[(idx + 6) % DOT_COLORS.length] }}
-                            aria-hidden="true"
-                          />
+                          <span className={styles.filterDot} aria-hidden="true" />
                           <span className={styles.filterPillText}>{item.value}</span>
                           <span className={styles.filterCount}>{item.count}</span>
                         </button>

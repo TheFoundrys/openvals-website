@@ -1,0 +1,113 @@
+﻿OPENVALS
+Platform Architecture Flow
+Application boundaries · Backend services · Data · External integrations
+1. Architecture Objective
+This document describes the logical architecture and the interactions between the OpenVals public website, Customer Application, Admin Console, FastAPI backend, PostgreSQL, background processing, and external providers. It is a logical view; deployment topology, network boundaries, and exact service ownership should be confirmed against the deployed environment.
+2. High-Level Architecture
+
+Figure 1. OpenVals platform flow overview
+Layer
+Component
+Primary responsibilities
+Presentation
+Website — Next.js :3000
+Public pages, pricing, acquisition, signup CTA
+Presentation
+Customer App — Next.js :3003
+Tenant workspace, team, roles, billing, customer journeys
+Presentation
+Admin Console — Next.js :3004
+Platform operations, organizations, subscriptions, invoices, governance
+API / business
+FastAPI /api/v1
+Authentication, authorization, tenant boundaries, business rules, billing and admin APIs
+Persistence
+PostgreSQL
+Organizations, users, roles, permissions, plans, subscriptions, invoices, payment orders, audit and event records
+Async processing
+Scheduler + worker
+Trial reminders, billing sweep, invoice reminders, suspension, email delivery, webhook processing
+External
+Razorpay / Stripe / Email
+Payment checkout, provider callbacks, email invitations and notifications
+
+3. Main Request Flows
+3.1 Public Acquisition and Signup
+Visitor requests public website pages.
+Website CTA redirects to Customer App signup with source context.
+Customer App submits signup request to FastAPI.
+Backend validates and transactionally creates tenant, owner, role, and trial subscription.
+Backend issues session credentials; Customer App opens the command center.
+3.2 Authenticated Customer Requests
+Customer App sends API requests with the authenticated session.
+Backend authenticates the user and resolves organization membership.
+Authorization checks role and permission.
+Entitlement service checks subscription state, plan limits, and seat capacity where relevant.
+Business service reads or writes tenant-scoped PostgreSQL records.
+Response returns to Customer App; UI reflects authorized state.
+3.3 Admin Console Requests
+Staff authenticates through the Admin Console login.
+Backend verifies credentials and requires at least one `platform.*` permission.
+Admin session is established using protected cookies.
+Admin Console loads profile and permission-filtered navigation.
+Each administrative API independently verifies platform permission.
+Successful writes persist business changes and an audit event.
+3.4 Payment and Webhook Flow
+Customer starts checkout or public invoice payment.
+Backend creates or retrieves a payment order and returns the provider checkout context.
+Payment provider processes the transaction.
+Browser result and provider webhook reach backend verification paths.
+Backend verifies signature, event identity, amount, currency, and payment state as applicable.
+Idempotent reconciliation updates payment, invoice, subscription, and entitlement records.
+Audit and notification events are recorded.
+3.5 Background Billing Flow
+Scheduler triggers the billing sweep.
+Worker claims eligible work and evaluates trial, subscription, and invoice dates.
+Worker applies state transitions and creates notification work.
+Deduplication key is checked before sending.
+Email provider receives the message.
+Delivery result and provider webhook are recorded.
+4. Logical Backend Service Boundaries
+Logical service area
+Responsibilities
+Authentication
+Signup, login, current user, refresh, logout, password reset, invitation token validation
+Tenant and membership
+Organization lifecycle, membership, invitations, seat checks, tenant isolation
+RBAC
+Role assignment, permission resolution, platform permission gate, organization permission checks
+Plans and subscriptions
+Plan catalog, subscription lifecycle, contract data, entitlement calculation
+Billing and payments
+Checkout, payment order, provider verification, webhook reconciliation, cancellation, resume, seat changes
+Invoices
+Drafting, issuing, public invoice access, payment reconciliation, PDF/link delivery
+Administration
+Overview, organization/user management, plan/role management, subscription operations
+Audit and delivery
+Audit trail, webhook event history, notification and email delivery records
+Background processing
+Scheduled billing sweep, reminder generation, suspension, retry and deduplication
+
+5. Data and Trust Boundaries
+Browser clients are untrusted: validate all inputs and authorization on the backend.
+Customer tenant data must be scoped by the authenticated organization context.
+Admin APIs require platform permissions; hiding a navigation item is not authorization.
+Payment provider callbacks are untrusted until signature and event validation succeed.
+Public invoice pages expose only the minimum invoice data authorized by the public token or link policy.
+Secrets, provider credentials, and reset/invitation tokens must not be exposed in client-side storage or logs.
+Background jobs must be safe to retry and must not create duplicate financial or notification effects.
+6. Resilience and Observability
+Use correlation IDs across frontend requests, backend logs, worker tasks, and provider callbacks.
+Record webhook event IDs and processing outcomes to support idempotency and replay investigation.
+Use bounded retries with backoff for transient provider/email failures; avoid retrying permanent validation errors.
+Track worker queue depth, job age, failure count, email delivery status, payment reconciliation failures, and billing transition counts.
+Ensure critical multi-entity updates use database transactions.
+Alert on repeated payment verification failures, stuck billing jobs, and failed notification delivery.
+7. Architecture Decisions to Validate
+Confirm whether the three Next.js applications share a domain, use separate domains, or sit behind a reverse proxy.
+Confirm cookie domain, SameSite, CSRF, and CORS settings for cross-application authentication.
+Confirm whether webhook handlers run in the API process or a dedicated worker.
+Confirm scheduler technology, worker concurrency, locking strategy, and retry policy.
+Confirm PostgreSQL transaction boundaries and uniqueness constraints for payment and webhook idempotency.
+Confirm storage location and retention policy for invoice PDFs and audit records.

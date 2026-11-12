@@ -13,7 +13,8 @@
    * Typography — three consistent tiers site-wide.
    * Adjust sizes here only (pixel examples in briefs are not literal).
    */
-  --font-size-heading: clamp(1.75rem, 3.2vw, 2.375rem);
+  /* H1 / hero: 28px mobile & tablet, 38px desktop (matches homepage Trust Layer) */
+  --font-size-heading: 1.75rem;
   --font-size-subheading: clamp(1.0625rem, 1.45vw, 1.25rem);
   --font-size-body: 1rem;
   --line-height-heading: 1.2;
@@ -113,6 +114,12 @@
   --hero-part-color-pale: #38bdf8;
   --hero-part-color-mid: #0ea5e9;
   --hero-part-glow-mid: 0 0 8px rgba(14, 165, 233, 0.35);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --font-size-heading: 2.375rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

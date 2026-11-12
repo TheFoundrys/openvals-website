@@ -1,0 +1,247 @@
+OPENVALS
+API & Functional Specification
+Endpoint catalogue · Validation · Authorization · Error handling
+
+1. Purpose
+This document defines the functional expectations and API contract checklist for the OpenVals platform. It maps the principal user flows to API groups, expected validations, authorization requirements, and failure behavior. Endpoint paths are based on the supplied flow and must be reconciled with the actual FastAPI router definitions before implementation or client integration.
+2. API Design Principles
+Use a consistent `/api/v1` base path unless routing configuration specifies otherwise.
+Authenticate protected routes and authorize every operation server-side.
+Use tenant context derived from the authenticated session, not an untrusted organization ID alone.
+Validate request bodies, query parameters, identifiers, amounts, and state transitions.
+Return consistent machine-readable error codes and user-safe messages.
+Use idempotency keys for payment creation, payment reconciliation, webhook processing, and other retryable writes.
+Document pagination, sorting, filtering, and response schemas for list endpoints.
+3. Authentication and Account APIs
+Operation
+Endpoint
+Auth
+Key validations / behavior
+Signup
+POST /auth/signup
+Public
+Validate name, email, password, organization; reject duplicate email; create tenant/owner/trial transactionally
+Login
+POST /auth/login
+Public
+Validate credentials; apply account status and authentication policy; issue session
+Current user
+GET /auth/me
+Authenticated
+Return user, organization context, roles, permissions, and relevant session details
+Forgot password
+POST /auth/forgot-password (confirm exact route)
+Public
+Generic response; rate limit; create 30-minute single-use token
+Reset password
+POST /auth/reset-password (confirm exact route)
+Reset token
+Validate token expiry and use; validate password; revoke all sessions
+Refresh
+Confirm implemented route
+Refresh session
+Validate refresh token, rotate if supported, revoke on reuse where implemented
+Logout
+Confirm implemented route
+Authenticated
+Revoke current session/refresh credential and clear cookies
+
+4. Organization, Invitation, and Membership APIs
+Operation
+Endpoint / route family
+Auth
+Key validations / behavior
+Invite member
+Confirm implemented `/organization/.../invitations` route
+Owner / permitted admin
+Validate email, role assignment permission, org status, seat availability
+Accept invitation
+GET/POST `/accept-invite` flow; confirm API route
+Invitation token
+Validate token, expiry, status, organization, seat capacity; prevent duplicate membership
+Manage team
+Confirm implemented organization user routes
+Permitted org role
+Tenant scope every record; validate role changes and member status
+Seat change
+POST/PATCH `/organization/billing/seats` (confirm method)
+Billing permission
+Validate plan limits, quantity, proration/payment rules, and seat usage
+
+5. Plans, Subscriptions, and Billing APIs
+Operation
+Endpoint
+Auth
+Key validations / behavior
+Plan catalog
+Confirm implemented plan route
+Public or authenticated per policy
+Return only purchasable/visible plans and applicable prices
+Checkout
+POST /organization/billing/checkout
+Org billing permission
+Validate plan, billing interval, organization eligibility, and idempotency
+Razorpay verification
+POST /organization/billing/razorpay/verify
+Authenticated / provider context
+Verify signature, order/payment IDs, amount, currency, and transaction status
+Cancel
+POST /organization/billing/cancel (confirm method)
+Org billing permission
+Validate current state and cancellation timing
+Resume
+POST /organization/billing/resume (confirm method)
+Org billing permission
+Validate provider and subscription state
+Provider webhook
+POST /webhooks/{provider}
+Provider signature
+Verify signature, deduplicate event, persist event, reconcile safely
+
+6. Invoice and Payment APIs
+Operation
+Endpoint
+Auth
+Key validations / behavior
+Create invoice
+Admin invoice route; confirm method
+Platform invoice permission
+Validate organization, line items, currency, totals, due days, notes
+Issue invoice
+Admin invoice route; confirm method
+Platform invoice permission
+Only issue valid draft; assign invoice number; generate hosted link/PDF workflow
+Public invoice view
+Confirm public invoice GET route
+Public token/link policy
+Expose minimum fields; validate token/link and invoice status
+Pay invoice
+`/public/invoices/{id}/pay`
+Public invoice/payment context
+Validate invoice payable state, balance, currency, and idempotency
+Mark offline paid
+Admin invoice route; confirm method
+Platform payment permission
+Require payment method/reference, validate amount and invoice balance, audit action
+Payment reconciliation
+Internal `mark_invoice_paid` operation
+Internal service
+Idempotent; update payment/invoice; activate eligible subscription; recalculate entitlements
+
+7. Admin Console APIs
+Area
+Endpoint / route family
+Required authorization
+Overview
+GET /admin/overview
+Platform overview permission
+Organizations
+/admin/organizations
+Platform organization permissions
+Users
+Confirm `/admin/users` routes
+Platform user permissions
+Subscriptions
+/admin/subscriptions
+Platform subscription permissions
+Invoices
+/admin/invoices
+Platform invoice permissions
+Audit
+GET /admin/audit
+Platform audit permission
+Plans
+Confirm `/admin/plans` routes
+Platform plan permissions
+Roles and permissions
+Confirm `/admin/roles` and permission routes
+Platform access-management permissions
+Deliveries
+Confirm `/admin/deliveries` route
+Platform delivery/notification permission
+
+8. Validation and Authorization Matrix
+Validation
+Expected behavior
+Missing authentication
+401 Unauthorized
+Expired or invalid session
+401 Unauthorized
+Authenticated but insufficient permission
+403 Forbidden
+Organization-only account entering Admin Console
+403 Forbidden
+Seat capacity exceeded
+402 with code SEAT_LIMIT_EXCEEDED, as specified by product flow
+Invalid request body or field
+400 or 422 according to API convention
+Duplicate resource / conflict
+409 Conflict where appropriate
+Invalid or expired invitation/reset token
+Reject without changing state
+Invalid payment signature
+Reject payment verification; do not activate subscription
+Duplicate webhook / retry
+Return safe idempotent result without duplicate effects
+Unpaid subscription restricted write
+Block according to entitlement policy
+
+9. Recommended Response Shape
+Use one consistent envelope across endpoints. The following is an illustrative contract only; align field names and status conventions with the existing API implementation.
+{  "success": true,  "data": {},  "message": "Operation completed",  "request_id": "correlation-id"}
+Illustrative error response:
+{  "success": false,  "error": {    "code": "SEAT_LIMIT_EXCEEDED",    "message": "The organization has reached its seat limit."  },  "request_id": "correlation-id"}
+10. Functional Rules by Domain
+10.1 Authentication
+Do not return password hashes or secrets.
+Rate-limit login and reset initiation.
+Use generic forgot-password responses.
+Revoke all sessions after password reset.
+Keep platform and organization authorization domains separate.
+10.2 Subscription and Entitlements
+Centralize state transition rules.
+Calculate entitlement mode on the backend.
+Validate seats and plan limits on every relevant write.
+Do not activate from browser redirect alone.
+Make payment and subscription reconciliation repeat-safe.
+10.3 Invoices and Payments
+Calculate totals server-side; never trust client totals.
+Validate currency, invoice status, remaining balance, and payment reference.
+Verify provider signatures and event identity.
+Persist payment, invoice, subscription, and audit changes transactionally where possible.
+Only reactivate subscriptions eligible under business policy.
+10.4 Admin and Audit
+Require explicit platform permission for each administrative action.
+Record actor, target, action, timestamp, correlation ID, and before/after values where appropriate.
+Audit offline payment reconciliation and subscription overrides.
+Do not rely on frontend route guards as the security boundary.
+11. Non-Functional Requirements
+Area
+Requirement
+Security
+TLS, secure cookies, CSRF protection, secret management, least privilege, tenant isolation
+Reliability
+Transactional updates, idempotency, bounded retries, safe webhook replay
+Performance
+Pagination for list endpoints; indexed tenant and lookup columns; avoid unbounded responses
+Observability
+Structured logs, correlation IDs, metrics for payment, worker, email, and auth failures
+Data integrity
+Foreign keys, uniqueness constraints, consistent status transitions, auditable mutations
+API documentation
+OpenAPI schemas, auth requirements, request/response examples, error catalogue
+
+12. API Test Checklist
+☐  Signup validation, duplicate email, transactional tenant creation, and trial defaults
+☐  Login success/failure, session expiry, refresh and logout behavior
+☐  Organization role versus platform permission enforcement
+☐  Invitation token expiry, reuse, duplicate membership, and seat limit
+☐  Checkout creation, invalid signature, duplicate webhook, and failed payment
+☐  Cancel/resume/seat change edge cases
+☐  Invoice draft, issue, public access, online payment, and offline reconciliation
+☐  Subscription transition and entitlement enforcement for every state
+☐  Admin permission checks and audit event creation
+☐  Password reset expiry, single use, generic response, and session revocation
+☐  Pagination, filtering, validation errors, rate limits, and correlation IDs
+13. Contract Confirmation Required
+This specification is a functional baseline, not a claim that every listed route or HTTP method already exists. Before frontend integration, compare this catalogue with FastAPI routers and OpenAPI output. Confirm exact methods, payload schemas, response fields, status codes, permission identifiers, pagination conventions, and provider-specific webhook paths.

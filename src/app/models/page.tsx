@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AmbientGrid from "@/components/AmbientGrid";
 import { AGGREGATED_MODELS, AggregatedModel } from "@/components/modelBenchmarkData";
 import styles from "./models.module.css";
 
@@ -59,57 +58,6 @@ interface Facets {
   decisionStatuses: FacetItem[];
   architectures: FacetItem[];
 }
-
-const PROVIDER_COLORS: Record<string, { bg: string; text: string; border: string }> = {
-  Alibaba: { bg: "rgba(243, 131, 43, 0.12)", text: "#f3832b", border: "rgba(243, 131, 43, 0.3)" },
-  "Alibaba Cloud": { bg: "rgba(243, 131, 43, 0.12)", text: "#f3832b", border: "rgba(243, 131, 43, 0.3)" },
-  Deepseek: { bg: "rgba(30, 64, 175, 0.12)", text: "#3b82f6", border: "rgba(30, 64, 175, 0.3)" },
-  Google: { bg: "rgba(70, 177, 124, 0.12)", text: "#10b981", border: "rgba(70, 177, 124, 0.3)" },
-  Meta: { bg: "rgba(82, 142, 240, 0.12)", text: "#3b82f6", border: "rgba(82, 142, 240, 0.3)" },
-  Microsoft: { bg: "rgba(0, 164, 239, 0.12)", text: "#0ea5e9", border: "rgba(0, 164, 239, 0.3)" },
-  IBM: { bg: "rgba(15, 98, 254, 0.12)", text: "#2563eb", border: "rgba(15, 98, 254, 0.3)" },
-  "Liquid AI": { bg: "rgba(2, 132, 199, 0.12)", text: "#0284c7", border: "rgba(2, 132, 199, 0.3)" },
-  "Hugging Face": { bg: "rgba(245, 158, 11, 0.12)", text: "#f59e0b", border: "rgba(245, 158, 11, 0.3)" },
-  "Mistral AI": { bg: "rgba(216, 179, 53, 0.12)", text: "#d97706", border: "rgba(216, 179, 53, 0.3)" },
-  "Stability AI": { bg: "rgba(168, 85, 247, 0.12)", text: "#a855f7", border: "rgba(168, 85, 247, 0.3)" },
-  "Nous Research": { bg: "rgba(84, 109, 136, 0.12)", text: "#64748b", border: "rgba(84, 109, 136, 0.3)" },
-  "Open Source": { bg: "rgba(100, 116, 139, 0.12)", text: "#94a3b8", border: "rgba(100, 116, 139, 0.3)" },
-  TII: { bg: "rgba(14, 165, 233, 0.12)", text: "#0ea5e9", border: "rgba(14, 165, 233, 0.3)" },
-  "01.AI": { bg: "rgba(73, 143, 240, 0.12)", text: "#3b82f6", border: "rgba(73, 143, 240, 0.3)" },
-  Agentica: { bg: "rgba(223, 139, 124, 0.12)", text: "#f87171", border: "rgba(223, 139, 124, 0.3)" },
-  Tencent: { bg: "rgba(58, 58, 58, 0.12)", text: "#a3a3a3", border: "rgba(58, 58, 58, 0.3)" },
-  "Prism ML": { bg: "rgba(16, 185, 129, 0.12)", text: "#10b981", border: "rgba(16, 185, 129, 0.3)" },
-  QVAC: { bg: "rgba(124, 58, 237, 0.12)", text: "#8b5cf6", border: "rgba(124, 58, 237, 0.3)" },
-  "Big Science": { bg: "rgba(112, 128, 146, 0.12)", text: "#64748b", border: "rgba(112, 128, 146, 0.3)" },
-  NVIDIA: { bg: "rgba(118, 185, 0, 0.15)", text: "#4d7c0f", border: "rgba(118, 185, 0, 0.35)" },
-  Apple: { bg: "rgba(163, 163, 163, 0.12)", text: "#a3a3a3", border: "rgba(163, 163, 163, 0.3)" },
-  AMD: { bg: "rgba(239, 68, 68, 0.12)", text: "#ef4444", border: "rgba(239, 68, 68, 0.3)" },
-  Baidu: { bg: "rgba(37, 99, 235, 0.12)", text: "#2563eb", border: "rgba(37, 99, 235, 0.3)" },
-  Cohere: { bg: "rgba(147, 51, 234, 0.12)", text: "#9333ea", border: "rgba(147, 51, 234, 0.3)" },
-  "Doey LLM": { bg: "rgba(231, 164, 79, 0.12)", text: "#e7a44f", border: "rgba(231, 164, 79, 0.3)" },
-  Supra: { bg: "rgba(142, 200, 76, 0.12)", text: "#8ec84c", border: "rgba(142, 200, 76, 0.3)" },
-  "PROMTECH Inc": { bg: "rgba(234, 179, 8, 0.12)", text: "#eab308", border: "rgba(234, 179, 8, 0.3)" },
-  "North ML": { bg: "rgba(91, 102, 112, 0.12)", text: "#5b6670", border: "rgba(91, 102, 112, 0.3)" },
-  "Open BMB": { bg: "rgba(99, 102, 241, 0.12)", text: "#6366f1", border: "rgba(99, 102, 241, 0.3)" },
-};
-
-const DOT_COLORS = [
-  "#2563eb",
-  "#10b981",
-  "#f59e0b",
-  "#8b5cf6",
-  "#f43f5e",
-  "#06b6d4",
-  "#ea580c",
-  "#65a30d",
-  "#ec4899",
-  "#3b82f6",
-  "#14b8a6",
-  "#e11d48",
-  "#f97316",
-  "#0ea5e9",
-  "#84cc16",
-];
 
 const SORT_OPTIONS = [
   { value: "trending", label: "Sort: DRS Trust Score" },
@@ -424,8 +372,6 @@ export default function ModelsRegistryPage() {
     <>
       <Header />
       <main className={styles.pageWrapper}>
-        <AmbientGrid />
-
         <div className={styles.container}>
           {/* MAIN GRID: SIDEBAR + CONTENT */}
           <div className={styles.mainGrid}>
@@ -502,7 +448,7 @@ export default function ModelsRegistryPage() {
                 <div className={styles.filterGroup}>
                   <h3 className={styles.filterGroupTitle}>Providers / Labs</h3>
                   <div className={styles.filterPillsList}>
-                    {facets.providers.map((item, idx) => {
+                    {facets.providers.map((item) => {
                       const isSelected = selectedProvider === item.value;
                       return (
                         <button
@@ -516,11 +462,7 @@ export default function ModelsRegistryPage() {
                           title={`${item.value} (${item.count})`}
                         >
                           <div className={styles.filterPillLeft}>
-                            <span
-                              className={styles.filterDot}
-                              style={{ backgroundColor: DOT_COLORS[idx % DOT_COLORS.length] }}
-                              aria-hidden="true"
-                            />
+                            <span className={styles.filterDot} aria-hidden="true" />
                             <span className={styles.filterPillText}>{item.value}</span>
                           </div>
                           <span className={styles.filterCount}>{item.count}</span>
@@ -536,7 +478,7 @@ export default function ModelsRegistryPage() {
                 <div className={styles.filterGroup}>
                   <h3 className={styles.filterGroupTitle}>Parameters / Size</h3>
                   <div className={styles.filterPillsList}>
-                    {facets.architectures.map((item, idx) => {
+                    {facets.architectures.map((item) => {
                       const isSelected =
                         selectedArchitecture?.toLowerCase() === item.value.toLowerCase();
                       return (
@@ -551,11 +493,7 @@ export default function ModelsRegistryPage() {
                           title={`${item.value} (${item.count})`}
                         >
                           <div className={styles.filterPillLeft}>
-                            <span
-                              className={styles.filterDot}
-                              style={{ backgroundColor: DOT_COLORS[(idx + 4) % DOT_COLORS.length] }}
-                              aria-hidden="true"
-                            />
+                            <span className={styles.filterDot} aria-hidden="true" />
                             <span className={styles.filterPillText}>{item.value}</span>
                           </div>
                           <span className={styles.filterCount}>{item.count}</span>
@@ -571,7 +509,7 @@ export default function ModelsRegistryPage() {
                 <div className={styles.filterGroup}>
                   <h3 className={styles.filterGroupTitle}>Lifecycle</h3>
                   <div className={styles.filterPillsList}>
-                    {facets.lifecycles.map((item, idx) => {
+                    {facets.lifecycles.map((item) => {
                       const isSelected = selectedLifecycle === item.value;
                       return (
                         <button
@@ -585,11 +523,7 @@ export default function ModelsRegistryPage() {
                           title={`${item.value} (${item.count})`}
                         >
                           <div className={styles.filterPillLeft}>
-                            <span
-                              className={styles.filterDot}
-                              style={{ backgroundColor: DOT_COLORS[(idx + 8) % DOT_COLORS.length] }}
-                              aria-hidden="true"
-                            />
+                            <span className={styles.filterDot} aria-hidden="true" />
                             <span className={styles.filterPillText}>{item.value}</span>
                           </div>
                           <span className={styles.filterCount}>{item.count}</span>
@@ -651,13 +585,6 @@ export default function ModelsRegistryPage() {
               ) : (
                 <div className={styles.modelsList}>
                   {paginatedModels.map((model) => {
-                    const providerStyle =
-                      PROVIDER_COLORS[model.provider] || {
-                        bg: "rgba(99, 102, 241, 0.12)",
-                        text: "#4f46e5",
-                        border: "rgba(99, 102, 241, 0.3)",
-                      };
-
                     return (
                       <div
                         key={model.id}
@@ -671,15 +598,7 @@ export default function ModelsRegistryPage() {
                           }
                         }}
                       >
-                        {/* Provider Avatar */}
-                        <div
-                          className={styles.providerAvatar}
-                          style={{
-                            backgroundColor: providerStyle.bg,
-                            color: providerStyle.text,
-                            borderColor: providerStyle.border,
-                          }}
-                        >
+                        <div className={styles.providerAvatar} aria-hidden>
                           {model.provider.slice(0, 1)}
                         </div>
 
@@ -815,15 +734,7 @@ export default function ModelsRegistryPage() {
             >
               <div className={styles.modalHeader}>
                 <div className={styles.modalHeaderLeft}>
-                  <div
-                    className={styles.modalAvatar}
-                    style={{
-                      backgroundColor:
-                        PROVIDER_COLORS[selectedModel.provider]?.bg || "rgba(99, 102, 241, 0.12)",
-                      color:
-                        PROVIDER_COLORS[selectedModel.provider]?.text || "#4f46e5",
-                    }}
-                  >
+                  <div className={styles.modalAvatar}>
                     {selectedModel.provider.slice(0, 1)}
                   </div>
                   <div className={styles.modalHeaderMeta}>

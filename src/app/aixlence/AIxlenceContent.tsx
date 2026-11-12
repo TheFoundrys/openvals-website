@@ -16,24 +16,18 @@ import {
   Layers,
   TrendingUp,
   BarChart3,
-  PieChart,
   ShieldCheck,
-  Cpu,
-  Clock,
   Target,
-  AlertTriangle,
   Lightbulb,
   Workflow,
-  Search,
   Users,
   ChevronRight,
-  ExternalLink,
-  Award,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AmbientGrid from "@/components/AmbientGrid";
 import styles from "./aixlence.module.css";
+import AIxlenceWorkspaceTour, { type AIxlenceWorkspaceViewId } from "./AIxlenceWorkspaceTour";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 24 },
@@ -238,65 +232,6 @@ const WORKFLOW_STEPS = [
   },
 ];
 
-/* ── Platform Outputs Showcase ── */
-const PLATFORM_OUTPUTS = [
-  {
-    title: "Pillar Maturity Scorecard",
-    subtitle: "Weighted 0–100 Capability Index",
-    icon: PieChart,
-    desc: "Comprehensive evaluation aggregating individual capability scores into an overall enterprise AI readiness index with comparative industry benchmarks.",
-    highlights: [
-      "Radar visualization exposing lopsided architectural risk",
-      "Clear execution risk banding: Critical (<40), High, Moderate, Low (75+)",
-      "Drill-down scoring by business unit, cloud provider, and model tier",
-    ],
-  },
-  {
-    title: "Target Roadmap & Priorities",
-    subtitle: "Phased Execution Across 3 Horizons",
-    icon: Clock,
-    desc: "Actionable, sequenced remediation blueprints organized by urgency and impact to ensure engineering bandwidth tackles highest-risk gaps first.",
-    highlights: [
-      "0–30 Days (Immediate Stabilization): Close critical security & shadow API leaks",
-      "31–90 Days (Core Engineering): Deploy baseline validation & private RAG infrastructure",
-      "3–6 Months (Enterprise Scale): Automated regression gates & federated CoE delivery",
-    ],
-  },
-  {
-    title: "Value Realization & ROI Simulator",
-    subtitle: "P(Value) Probability Modeling",
-    icon: TrendingUp,
-    desc: "Empirical calculation proving that organizational maturity directly determines how much projected generative AI value is actually captured vs. lost to rework.",
-    highlights: [
-      "Calculates Probability of Value Capture: P(Value) = 20% + Score × 0.7%",
-      "Quantifies Net Realized Value after compute and licensing OpEx",
-      "Models the Incremental Value Lift generated per dollar of capability investment",
-    ],
-  },
-  {
-    title: "Intervention & Service Mapping",
-    subtitle: "Diagnosis First, Service Second",
-    icon: Workflow,
-    desc: "Adheres strictly to evidence-based enablement. Interventions are never pitched arbitrarily; solutions activate only where empirical deficits exist.",
-    highlights: [
-      "Direct integration with OpenVals for automated benchmarking & DRS scoring",
-      "Sovereign LLM isolation via OpenLxM private architectures",
-      "Continuous cyber defense and jailbreak shielding powered by RedShield",
-    ],
-  },
-  {
-    title: "Executive Dashboard",
-    subtitle: "C-Suite & Board-Ready Transparency",
-    icon: Award,
-    desc: "Synthesizes complex algorithmic, architectural, and compliance nuances into clear executive briefings, KPI scorecards, and verifiable governance certificates.",
-    highlights: [
-      "One-click PDF/Print executive summary reports for board review",
-      "Deterministic audit trail aligned with EU AI Act, NIST, and ISO 42001",
-      "Continuous capability progress tracking across quarterly evaluations",
-    ],
-  },
-];
-
 /* ── Business Value Dimensions ── */
 const BUSINESS_VALUES = [
   {
@@ -352,6 +287,11 @@ function BuildingIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export default function AIxlenceContent() {
+  const [activePillar, setActivePillar] = useState(0);
+  const [activeWorkspace, setActiveWorkspace] = useState<AIxlenceWorkspaceViewId>("assessment");
+  const pillar = SIX_PILLARS[activePillar];
+  const PillarIcon = pillar.icon;
+
   return (
     <>
       <Header />
@@ -360,12 +300,8 @@ export default function AIxlenceContent() {
 
         {/* ── 1. HERO SECTION ── */}
         <section className={styles.heroSection}>
-          <div className={styles.container}>
+          <div className={`${styles.container} ${styles.heroSplit}`}>
             <motion.div initial="hidden" animate="show" variants={STAGGER} className={styles.heroContent}>
-              <motion.div variants={FADE_UP} className={styles.badgePill}>
-                <span>AIxLence – Enterprise AI Strategy &amp; Transformation</span>
-              </motion.div>
-
               <motion.h1 variants={FADE_UP} className={styles.heroTitle}>
                 From AI Ambition to <br />
                 Enterprise Intelligence.
@@ -390,6 +326,15 @@ export default function AIxlenceContent() {
                 </Link>
               </motion.div>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.5 }}
+              className={styles.heroPreviewWrap}
+            >
+              <AIxlenceWorkspaceTour activeId={activeWorkspace} onSelect={setActiveWorkspace} />
+            </motion.div>
           </div>
         </section>
 
@@ -397,9 +342,6 @@ export default function AIxlenceContent() {
         <section className={`${styles.section} ${styles.sectionAlt}`} id="overview">
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.sectionTag}>
-                The Strategic Imperative
-              </div>
               <h2 className={styles.sectionTitle}>
                 What is AIxLence?
               </h2>
@@ -428,7 +370,7 @@ export default function AIxlenceContent() {
                 </p>
               </div>
 
-              <div className={styles.whatAudienceCard}>
+              <aside className={styles.whatAudienceAside}>
                 <div className={styles.whatAudienceTitle}>
                   <Users size={18} color="#2563eb" />
                   <span>Engineered For Enterprise Leaders</span>
@@ -447,14 +389,13 @@ export default function AIxlenceContent() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </aside>
             </div>
 
-            {/* Core Challenges Addressed */}
             <div className={styles.challengesHeader}>
               <h3 className={styles.challengesTitle}>Four Structural AI Challenges AIxLence Solves</h3>
             </div>
-            <div className={styles.challengesGrid}>
+            <ol className={styles.challengeStream}>
               {[
                 {
                   idx: "01",
@@ -477,13 +418,17 @@ export default function AIxlenceContent() {
                   desc: "Allocating substantial CapEx to AI initiatives without knowing which workflows will actually capture economic value versus burning compute on rework.",
                 },
               ].map((c) => (
-                <div key={c.idx} className={styles.challengeCard}>
-                  <div className={styles.challengeIndex}>Challenge {c.idx}</div>
-                  <h4 className={styles.challengeCardTitle}>{c.title}</h4>
-                  <p className={styles.challengeCardText}>{c.desc}</p>
-                </div>
+                <li key={c.idx} className={styles.challengeStreamItem}>
+                  <span className={styles.challengeStreamMarker} aria-hidden>
+                    {c.idx}
+                  </span>
+                  <div className={styles.challengeStreamBody}>
+                    <h4 className={styles.challengeStreamTitle}>{c.title}</h4>
+                    <p className={styles.challengeStreamText}>{c.desc}</p>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </section>
 
@@ -491,9 +436,6 @@ export default function AIxlenceContent() {
         <section className={styles.section} id="how-it-works">
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.sectionTag}>
-                The 6-Step Methodology
-              </div>
               <h2 className={styles.sectionTitle}>
                 How AIxLence Works
               </h2>
@@ -503,22 +445,31 @@ export default function AIxlenceContent() {
               </p>
             </div>
 
-            <div className={styles.workflowGrid}>
-              {WORKFLOW_STEPS.map((w) => {
+            <div className={styles.workflowPipeline} role="list">
+              {WORKFLOW_STEPS.map((w, index) => {
                 const IconComponent = w.icon;
+                const isLast = index === WORKFLOW_STEPS.length - 1;
                 return (
-                  <div key={w.step} className={styles.workflowCard}>
-                    <div className={styles.workflowCardTop}>
-                      <div className={styles.workflowStepNum}>{w.step}</div>
-                      <div className={styles.workflowIconWrap}>
-                        <IconComponent size={20} />
-                      </div>
+                  <div
+                    key={w.step}
+                    role="listitem"
+                    className={styles.workflowStation}
+                    data-last={isLast ? "" : undefined}
+                  >
+                    <div className={styles.workflowStationRail}>
+                      <span className={styles.workflowStationDot}>
+                        <IconComponent size={18} />
+                      </span>
+                      {!isLast ? <span className={styles.workflowStationConnector} aria-hidden /> : null}
                     </div>
-                    <h3 className={styles.workflowStepTitle}>{w.title}</h3>
-                    <p className={styles.workflowStepDesc}>{w.desc}</p>
-                    <div className={styles.workflowDeliverableBox}>
-                      <span className={styles.workflowDeliverableLabel}>Deliverable:</span>
-                      <span className={styles.workflowDeliverableText}>{w.deliverable}</span>
+                    <div className={styles.workflowStationContent}>
+                      <span className={styles.workflowStationPhase}>Phase {w.step}</span>
+                      <h3 className={styles.workflowStepTitle}>{w.title}</h3>
+                      <p className={styles.workflowStepDesc}>{w.desc}</p>
+                      <p className={styles.workflowDeliverableInline}>
+                        <span className={styles.workflowDeliverableLabel}>Deliverable</span>
+                        {w.deliverable}
+                      </p>
                     </div>
                   </div>
                 );
@@ -531,9 +482,6 @@ export default function AIxlenceContent() {
         <section className={`${styles.section} ${styles.sectionAlt}`} id="pillars">
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.sectionTag}>
-                Comprehensive Diagnostic Scope
-              </div>
               <h2 className={styles.sectionTitle}>
                 Six Strategic Pillars
               </h2>
@@ -543,33 +491,59 @@ export default function AIxlenceContent() {
               </p>
             </div>
 
-            <div className={styles.pillarsGrid6}>
-              {SIX_PILLARS.map((p) => {
-                const IconComponent = p.icon;
-                return (
-                  <div key={p.number} className={styles.pillarCard6}>
-                    <div className={styles.pillarTopRow}>
-                      <span className={styles.pillarNumberPill}>Pillar {p.number}</span>
-                      <div className={styles.pillarIconBox6}>
-                        <IconComponent size={22} />
-                      </div>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={FADE_UP}
+              className={styles.pillarsSplit}
+            >
+                <div className={styles.pillarNav} role="tablist" aria-label="Strategic pillars">
+                  {SIX_PILLARS.map((p, index) => {
+                    const NavIcon = p.icon;
+                    const selected = activePillar === index;
+                    return (
+                      <button
+                        key={p.number}
+                        type="button"
+                        role="tab"
+                        aria-selected={selected}
+                        className={styles.pillarNavItem}
+                        data-active={selected ? "" : undefined}
+                        onClick={() => setActivePillar(index)}
+                      >
+                        <NavIcon size={18} />
+                        <span className={styles.pillarNavLabel}>
+                          <span className={styles.pillarNavIndex}>{p.number}</span>
+                          {p.title}
+                        </span>
+                        <ChevronRight size={16} className={styles.pillarNavChevron} />
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className={styles.pillarStage} role="tabpanel">
+                  <div className={styles.pillarStageHeader}>
+                    <div className={styles.pillarIconBox6}>
+                      <PillarIcon size={24} />
                     </div>
-
-                    <h3 className={styles.pillarTitle6}>{p.title}</h3>
-                    <p className={styles.pillarExactDesc}>{p.description}</p>
-
-                    <div className={styles.pillarFocusList}>
-                      {p.focusPoints.map((item, idx) => (
-                        <div key={idx} className={styles.pillarFocusItem}>
-                          <CheckCircle2 size={14} className={styles.pillarFocusCheck} />
-                          <span>{item}</span>
-                        </div>
-                      ))}
+                    <div>
+                      <span className={styles.pillarNumberPill}>Pillar {pillar.number}</span>
+                      <h3 className={styles.pillarTitle6}>{pillar.title}</h3>
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                  <p className={styles.pillarExactDesc}>{pillar.description}</p>
+                  <ul className={styles.pillarFocusList}>
+                    {pillar.focusPoints.map((item, idx) => (
+                      <li key={idx} className={styles.pillarFocusItem}>
+                        <CheckCircle2 size={14} className={styles.pillarFocusCheck} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
           </div>
         </section>
 
@@ -577,9 +551,6 @@ export default function AIxlenceContent() {
         <section className={styles.section} id="maturity-model">
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.sectionTag}>
-                The 5-Point Maturity Scale
-              </div>
               <h2 className={styles.sectionTitle}>
                 Capability Maturity Model
               </h2>
@@ -589,95 +560,46 @@ export default function AIxlenceContent() {
               </p>
             </div>
 
-            <div className={styles.maturityLevelsGrid}>
+            <div className={styles.maturityAscent} role="list">
               {MATURITY_LEVELS.map((m) => (
-                <div
+                <article
                   key={m.level}
-                  className={styles.maturityLevelCard}
-                  style={{ borderColor: m.borderColor }}
+                  role="listitem"
+                  className={styles.maturityRung}
+                  style={
+                    {
+                      "--maturity-color": m.badgeColor,
+                      "--maturity-tint": m.bgTint,
+                      "--maturity-step": m.level,
+                    } as React.CSSProperties
+                  }
                 >
-                  <div className={styles.maturityLevelHeader}>
-                    <span
-                      className={styles.maturityLevelPill}
-                      style={{ background: m.bgTint, color: m.badgeColor }}
-                    >
-                      Level {m.level}
-                    </span>
-                    <span className={styles.maturityLevelNumber} style={{ color: m.badgeColor }}>
-                      0{m.level}
-                    </span>
+                  <div className={styles.maturityRungBar} aria-hidden />
+                  <div className={styles.maturityRungBody}>
+                    <header className={styles.maturityRungHead}>
+                      <span className={styles.maturityLevelPill} style={{ background: m.bgTint, color: m.badgeColor }}>
+                        Level {m.level}
+                      </span>
+                      <h3 className={styles.maturityLevelName}>{m.name}</h3>
+                    </header>
+                    <p className={styles.maturityLevelDef} style={{ color: m.badgeColor }}>
+                      &ldquo;{m.def}&rdquo;
+                    </p>
+                    <p className={styles.maturityLevelMeaningText}>
+                      <span className={styles.maturityLevelMeaningLabel}>Organizational reality — </span>
+                      {m.meaning}
+                    </p>
                   </div>
-
-                  <h3 className={styles.maturityLevelName}>{m.name}</h3>
-                  <div className={styles.maturityLevelDef} style={{ color: m.badgeColor }}>
-                    &ldquo;{m.def}&rdquo;
-                  </div>
-
-                  <div className={styles.maturityLevelMeaningBox}>
-                    <span className={styles.maturityLevelMeaningLabel}>Organizational Reality:</span>
-                    <p className={styles.maturityLevelMeaningText}>{m.meaning}</p>
-                  </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── 6. PLATFORM OUTPUTS ── */}
-        <section className={`${styles.section} ${styles.sectionAlt}`} id="outputs">
-          <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <div className={styles.sectionTag}>
-                Actionable Enterprise Artifacts
-              </div>
-              <h2 className={styles.sectionTitle}>
-                What AIxLence Delivers
-              </h2>
-              <p className={styles.sectionDesc}>
-                AIxLence moves beyond high-level advice to produce rigorous, audit-ready deliverables that engineering teams can build
-                and boards can trust.
-              </p>
-            </div>
-
-            <div className={styles.outputsGrid}>
-              {PLATFORM_OUTPUTS.map((out, idx) => {
-                const IconComponent = out.icon;
-                return (
-                  <div key={idx} className={styles.outputCard}>
-                    <div className={styles.outputHeader}>
-                      <div className={styles.outputIconBox}>
-                        <IconComponent size={22} />
-                      </div>
-                      <div className={styles.outputTitleWrap}>
-                        <h3 className={styles.outputTitle}>{out.title}</h3>
-                        <span className={styles.outputSubtitle}>{out.subtitle}</span>
-                      </div>
-                    </div>
-
-                    <p className={styles.outputDesc}>{out.desc}</p>
-
-                    <div className={styles.outputKeyItems}>
-                      {out.highlights.map((h, hIdx) => (
-                        <div key={hIdx} className={styles.outputKeyItem}>
-                          <CheckCircle2 size={15} color="#2563eb" style={{ flexShrink: 0, marginTop: 1 }} />
-                          <span>{h}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ── 7. BUSINESS VALUE ── */}
+        {/* ── 6. BUSINESS VALUE ── */}
         <section className={styles.section} id="business-value">
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <div className={styles.sectionTag}>
-                Enterprise ROI
-              </div>
               <h2 className={styles.sectionTitle}>
                 Measurable Business Value
               </h2>
@@ -687,20 +609,23 @@ export default function AIxlenceContent() {
               </p>
             </div>
 
-            <div className={styles.valueGrid}>
+            <ul className={styles.valueManifest}>
               {BUSINESS_VALUES.map((val, idx) => {
                 const IconComponent = val.icon;
                 return (
-                  <div key={idx} className={styles.valueCard}>
-                    <div className={styles.valueIconWrap}>
-                      <IconComponent size={22} />
+                  <li key={val.title} className={styles.valueManifestRow}>
+                    <span className={styles.valueManifestIndex}>{String(idx + 1).padStart(2, "0")}</span>
+                    <div className={styles.valueManifestIcon} aria-hidden>
+                      <IconComponent size={20} />
                     </div>
-                    <h3 className={styles.valueTitle}>{val.title}</h3>
-                    <p className={styles.valueText}>{val.desc}</p>
-                  </div>
+                    <div className={styles.valueManifestCopy}>
+                      <h3 className={styles.valueTitle}>{val.title}</h3>
+                      <p className={styles.valueText}>{val.desc}</p>
+                    </div>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           </div>
         </section>
 

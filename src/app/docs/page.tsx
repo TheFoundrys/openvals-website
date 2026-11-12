@@ -148,6 +148,32 @@ const DOC_SECTIONS: DocSection[] = [
     ],
   },
   {
+    sectionTitle: "PLATFORM · BILLING & OPERATIONS",
+    items: [
+      {
+        id: "platform-user-flow",
+        title: "End-to-End User Flow",
+        description:
+          "Acquisition, trial signup, team invites, Razorpay billing, enterprise provisioning, admin console, invoices, and password reset",
+        color: "squareYellow",
+      },
+      {
+        id: "platform-api-spec",
+        title: "API & Functional Specification",
+        description:
+          "Endpoint catalogue, validation matrix, authorization rules, error envelope, and API QA checklist",
+        color: "squareBlue",
+      },
+      {
+        id: "platform-architecture",
+        title: "Platform Architecture Flow",
+        description:
+          "Application boundaries, request flows, service areas, trust boundaries, and observability",
+        color: "squareCyan",
+      },
+    ],
+  },
+  {
     sectionTitle: "DEPLOYMENT, INTEGRATIONS & PROVIDERS",
     items: [
       {

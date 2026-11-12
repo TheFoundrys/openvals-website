@@ -1,6 +1,11 @@
 import { ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import CopyableCodeBlock from "./CopyableCodeBlock";
+import {
+  PlatformApiSpecPage,
+  PlatformArchitecturePage,
+  PlatformUserFlowPage,
+} from "./PlatformSpecificationPages";
 import DocsGlobalHeader from "@/components/DocsGlobalHeader";
 import { DocsTabItem } from "@/components/DocsTopNavTabs";
 
@@ -29,7 +34,10 @@ type DocsPageId =
   | "contributing"
   | "code-of-conduct"
   | "security-policy"
-  | "samples";
+  | "samples"
+  | "platform-user-flow"
+  | "platform-api-spec"
+  | "platform-architecture";
 
 const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: string }> }> = [
   {
@@ -57,6 +65,14 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
       { id: "integrations", label: "Integrations & User Guide" },
       { id: "use-case-advisor", label: "Use Case Advisor & Validation Runs" },
       { id: "aixlence", label: "AIxLence Suite & Readiness" },
+    ],
+  },
+  {
+    title: "Platform",
+    items: [
+      { id: "platform-user-flow", label: "End-to-End User Flow" },
+      { id: "platform-api-spec", label: "API & Functional Spec" },
+      { id: "platform-architecture", label: "Architecture Flow" },
     ],
   },
   {
@@ -161,6 +177,63 @@ const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: s
   "code-of-conduct": { group: "Reference", title: "OpenVals Code of Conduct", onThisPage: ["Purpose", "Ground Rules", "Unacceptable Behavior", "Questions"] },
   "security-policy": { group: "Reference", title: "Security Policy", onThisPage: ["Supported Versions", "Reporting a Vulnerability", "Response Timeline", "Scope", "Safe Harbor"] },
   samples: { group: "Reference", title: "OpenVals CLI Samples", onThisPage: ["Model Catalog", "Trust Advisor (Cybersecurity)", "Trust Advisor (Finance)", "System Diagnostics", "Overall Health & Doctor", "Full Doctor Diagnostics"] },
+  "platform-user-flow": {
+    group: "Platform",
+    title: "End-to-End User Flow",
+    onThisPage: [
+      "Purpose and scope",
+      "Applications and actors",
+      "Phase 1 — Acquisition",
+      "Phase 2 — Tenant creation",
+      "Phase 3 — Team and roles",
+      "Phase 4 — Self-service billing",
+      "Phase 5 — Subscription access states",
+      "Phase 6 — Enterprise provisioning",
+      "Phase 7 — Enterprise Customer App",
+      "Phase 8 — Platform login gate",
+      "Phase 9 — Console operations",
+      "Phase 10 — Invoice, payment, reactivation",
+      "Phase 11 — Nightly billing sweep",
+      "Phase 12 — Password reset",
+      "Core business rules",
+      "QA acceptance checklist",
+      "Items to confirm against implementation",
+    ],
+  },
+  "platform-api-spec": {
+    group: "Platform",
+    title: "API & Functional Specification",
+    onThisPage: [
+      "API design principles",
+      "Authentication and account APIs",
+      "Organization, invitation, and membership APIs",
+      "Plans, subscriptions, and billing APIs",
+      "Invoice and payment APIs",
+      "Admin Console APIs",
+      "Validation and authorization matrix",
+      "Recommended response shape",
+      "Functional rules by domain",
+      "Non-functional requirements",
+      "API test checklist",
+      "Contract confirmation required",
+    ],
+  },
+  "platform-architecture": {
+    group: "Platform",
+    title: "Platform Architecture Flow",
+    onThisPage: [
+      "High-level architecture",
+      "Public acquisition and signup",
+      "Authenticated customer requests",
+      "Admin Console requests",
+      "Payment and webhook flow",
+      "Background billing flow",
+      "Logical backend service boundaries",
+      "Data and trust boundaries",
+      "Resilience and observability",
+      "Architecture decisions to validate",
+    ],
+  },
 };
 
 const whyItems = [
@@ -2701,6 +2774,12 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
           <Paragraph>DrPinnacle: build trust, validate intelligence, and deploy with confidence.</Paragraph>
         </>
       );
+    case "platform-user-flow":
+      return <PlatformUserFlowPage />;
+    case "platform-api-spec":
+      return <PlatformApiSpecPage />;
+    case "platform-architecture":
+      return <PlatformArchitecturePage />;
     case "samples":
       return (
         <>
