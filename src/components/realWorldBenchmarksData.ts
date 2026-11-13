@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "NOV 12, 2026";
+export const LATEST_BENCHMARK_DATE = "NOV 13, 2026";
 
 export const MODELS: ModelData[] = [
   {
@@ -388,39 +388,39 @@ export const MODELS: ModelData[] = [
     "drsLabel": "56.6%"
   },
   {
-    "id": "phi4-mini-reasoning-3-8b-3-8b",
+    "id": "wizardlm2-7b-7-24b",
     "name": "PHI-3",
     "version": "3.8B",
     "lab": "Microsoft",
-    "score": 81.8,
-    "displayScore": "81.8%",
+    "score": 83.4,
+    "displayScore": "83.4%",
     "cost": 0.45,
     "costLabel": "$0.45",
-    "latency": 35185,
-    "latencyLabel": "35185 ms",
+    "latency": 23023,
+    "latencyLabel": "23023 ms",
     "tokenUsage": 4600,
     "tokenLabel": "4.6k",
     "color": "#00a4ef",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
-      "finance": "87.2%",
-      "software": "57.6%",
-      "cybersecurity": "61.6%",
-      "mentalHealth": "55.8%"
+      "finance": "93.7%",
+      "software": "72.3%",
+      "cybersecurity": "54.0%",
+      "mentalHealth": "63.1%"
     },
-    "semantic": 47,
-    "semanticLabel": "47.0%",
-    "factuality": 57.6,
-    "factualityLabel": "57.6%",
-    "hallucination": 61.6,
-    "hallucinationLabel": "61.6%",
-    "safety": 87.2,
-    "safetyLabel": "87.2%",
-    "reliability": 87.1,
-    "reliabilityLabel": "87.1%",
-    "drs": 55.8,
-    "drsLabel": "55.8%"
+    "semantic": 65.4,
+    "semanticLabel": "65.4%",
+    "factuality": 72.3,
+    "factualityLabel": "72.3%",
+    "hallucination": 54,
+    "hallucinationLabel": "54.0%",
+    "safety": 93.7,
+    "safetyLabel": "93.7%",
+    "reliability": 92.4,
+    "reliabilityLabel": "92.4%",
+    "drs": 63.1,
+    "drsLabel": "63.1%"
   },
   {
     "id": "llama2-0-1-0b",
