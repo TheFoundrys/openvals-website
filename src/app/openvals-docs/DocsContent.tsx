@@ -2969,12 +2969,72 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
               color-scheme: light dark;
               margin: 0 !important;
               padding: 0 !important;
-              overflow-x: hidden !important;
-              overflow-y: auto !important;
+              height: 100% !important;
+              overflow: hidden !important;
+            }
+
+            .docsShell {
+              height: 100vh;
+              height: 100dvh;
+              max-height: 100vh;
+              max-height: 100dvh;
+              overflow: hidden;
             }
 
             .docsShell * {
               box-sizing: border-box;
+            }
+
+            .docsBodyGrid {
+              flex: 1;
+              min-height: 0;
+              height: calc(100vh - 96px);
+              height: calc(100dvh - 96px);
+              overflow: hidden;
+            }
+
+            .docsSidebar {
+              height: 100% !important;
+              overflow-y: auto !important;
+              position: relative !important;
+              top: 0 !important;
+              scrollbar-width: thin;
+              scrollbar-color: var(--docs-border) transparent;
+            }
+
+            .docsSidebar::-webkit-scrollbar {
+              width: 5px;
+            }
+
+            .docsSidebar::-webkit-scrollbar-thumb {
+              background: var(--docs-border);
+              border-radius: 4px;
+            }
+
+            .docsSidebar::-webkit-scrollbar-track {
+              background: transparent;
+            }
+
+            .docsContent {
+              height: 100% !important;
+              overflow-y: auto !important;
+              scrollbar-width: thin;
+              scrollbar-color: var(--docs-border) transparent;
+              scroll-behavior: smooth;
+              -webkit-overflow-scrolling: touch;
+            }
+
+            .docsContent::-webkit-scrollbar {
+              width: 8px;
+            }
+
+            .docsContent::-webkit-scrollbar-thumb {
+              background: var(--docs-border);
+              border-radius: 4px;
+            }
+
+            .docsContent::-webkit-scrollbar-track {
+              background: transparent;
             }
 
             .docsReadMoreLink {
@@ -3008,6 +3068,8 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
             @media (max-width: 860px) {
               .docsBodyGrid {
                 grid-template-columns: minmax(0, 1fr) !important;
+                height: calc(100vh - 96px) !important;
+                height: calc(100dvh - 96px) !important;
               }
 
               .docsSidebar {
@@ -3025,7 +3087,7 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
                 overflow-x: auto;
                 padding: 10px 16px;
                 position: sticky;
-                top: 96px;
+                top: 0;
                 z-index: 20;
                 background: var(--docs-header);
                 border-bottom: 1px solid var(--docs-border-soft);
@@ -3129,13 +3191,13 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
           `,
         }}
       />
-    <div className="docsShell" style={{ minHeight: "100vh", width: "100%", background: "var(--docs-bg)", color: "var(--docs-text)", display: "flex", flexDirection: "column", colorScheme: "light dark" }}>
+    <div className="docsShell" style={{ height: "100vh", maxHeight: "100dvh", width: "100%", background: "var(--docs-bg)", color: "var(--docs-text)", display: "flex", flexDirection: "column", overflow: "hidden", colorScheme: "light dark" }}>
       {/* Unified 2-tier docs header matching Arize screenshot */}
       <DocsGlobalHeader currentSuite="openvals" tabs={openvalsTabs} />
 
       {/* Main split: Sidebar + Article */}
-      <div className="docsBodyGrid" style={{ display: "grid", gridTemplateColumns: "290px minmax(0, 1fr)", flex: 1, minHeight: 0 }}>
-        <aside className="docsSidebar" style={{ height: "calc(100vh - 96px)", position: "sticky", top: "96px", overflowY: "auto", borderRight: "1px solid var(--docs-border)", padding: "28px 24px", background: "var(--docs-panel)" }}>
+      <div className="docsBodyGrid" style={{ display: "grid", gridTemplateColumns: "290px minmax(0, 1fr)", flex: 1, minHeight: 0, height: "calc(100vh - 96px)", overflow: "hidden" }}>
+        <aside className="docsSidebar" style={{ height: "100%", overflowY: "auto", borderRight: "1px solid var(--docs-border)", padding: "28px 24px", background: "var(--docs-panel)" }}>
           <nav style={{ display: "grid", gap: "32px" }}>
             {navSections.map((section) => (
               <div key={section.title}>
@@ -3177,7 +3239,7 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
           </div>
         </aside>
 
-        <section className="docsContent" style={{ minWidth: 0, padding: "0 0 96px 0" }}>
+        <section key={pageId} className="docsContent" style={{ height: "100%", overflowY: "auto", minWidth: 0, padding: "0 0 96px 0", WebkitOverflowScrolling: "touch" }}>
           <nav className="docsMobileNav" aria-label="Docs navigation">
             {navSections.flatMap((section) =>
               section.items.map((item) => {

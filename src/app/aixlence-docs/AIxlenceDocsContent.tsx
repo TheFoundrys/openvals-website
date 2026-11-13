@@ -1146,12 +1146,72 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
               color-scheme: light dark;
               margin: 0 !important;
               padding: 0 !important;
-              overflow-x: hidden !important;
-              overflow-y: auto !important;
+              height: 100% !important;
+              overflow: hidden !important;
+            }
+
+            .docsShell {
+              height: 100vh;
+              height: 100dvh;
+              max-height: 100vh;
+              max-height: 100dvh;
+              overflow: hidden;
             }
 
             .docsShell * {
               box-sizing: border-box;
+            }
+
+            .docsBodyGrid {
+              flex: 1;
+              min-height: 0;
+              height: calc(100vh - 96px);
+              height: calc(100dvh - 96px);
+              overflow: hidden;
+            }
+
+            .docsSidebar {
+              height: 100% !important;
+              overflow-y: auto !important;
+              position: relative !important;
+              top: 0 !important;
+              scrollbar-width: thin;
+              scrollbar-color: var(--docs-border) transparent;
+            }
+
+            .docsSidebar::-webkit-scrollbar {
+              width: 5px;
+            }
+
+            .docsSidebar::-webkit-scrollbar-thumb {
+              background: var(--docs-border);
+              border-radius: 4px;
+            }
+
+            .docsSidebar::-webkit-scrollbar-track {
+              background: transparent;
+            }
+
+            .docsContent {
+              height: 100% !important;
+              overflow-y: auto !important;
+              scrollbar-width: thin;
+              scrollbar-color: var(--docs-border) transparent;
+              scroll-behavior: smooth;
+              -webkit-overflow-scrolling: touch;
+            }
+
+            .docsContent::-webkit-scrollbar {
+              width: 8px;
+            }
+
+            .docsContent::-webkit-scrollbar-thumb {
+              background: var(--docs-border);
+              border-radius: 4px;
+            }
+
+            .docsContent::-webkit-scrollbar-track {
+              background: transparent;
             }
 
             .docsMobileNav {
@@ -1161,6 +1221,8 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
             @media (max-width: 860px) {
               .docsBodyGrid {
                 grid-template-columns: minmax(0, 1fr) !important;
+                height: calc(100vh - 96px) !important;
+                height: calc(100dvh - 96px) !important;
               }
 
               .docsSidebar {
@@ -1178,7 +1240,7 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
                 overflow-x: auto;
                 padding: 10px 16px;
                 position: sticky;
-                top: 96px;
+                top: 0;
                 z-index: 20;
                 background: var(--docs-header);
                 border-bottom: 1px solid var(--docs-border-soft);
@@ -1248,12 +1310,14 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
       <div
         className="docsShell"
         style={{
-          minHeight: "100vh",
+          height: "100vh",
+          maxHeight: "100dvh",
           width: "100%",
           background: "var(--docs-bg)",
           color: "var(--docs-text)",
           display: "flex",
           flexDirection: "column",
+          overflow: "hidden",
           colorScheme: "light dark",
         }}
       >
@@ -1261,17 +1325,15 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
         <DocsGlobalHeader currentSuite="aixlence" tabs={aixlenceTabs} />
 
         {/* MAIN BODY GRID: Sidebar + Content */}
-        <div className="docsBodyGrid" style={{ display: "grid", gridTemplateColumns: "290px minmax(0, 1fr)", flex: 1, minHeight: 0 }}>
+        <div className="docsBodyGrid" style={{ display: "grid", gridTemplateColumns: "290px minmax(0, 1fr)", flex: 1, minHeight: 0, height: "calc(100vh - 96px)", overflow: "hidden" }}>
           {/* SIDEBAR */}
           <aside
             className="docsSidebar"
             style={{
-              height: "calc(100vh - 96px)",
-              position: "sticky",
-              top: "96px",
+              height: "100%",
+              overflowY: "auto",
               borderRight: "1px solid var(--docs-border)",
               padding: "28px 24px 40px",
-              overflowY: "auto",
               background: "var(--docs-panel)",
             }}
           >
@@ -1360,11 +1422,15 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
 
         {/* CONTENT AREA */}
         <section
+          key={pageId}
           className="docsContent"
           style={{
+            height: "100%",
+            overflowY: "auto",
             minWidth: 0,
             padding: "0 0 96px 0",
             background: "var(--docs-bg)",
+            WebkitOverflowScrolling: "touch",
           }}
         >
           {/* Mobile Tab Scroll Bar */}
