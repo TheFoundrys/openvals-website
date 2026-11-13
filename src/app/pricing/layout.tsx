@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Pricing - OpenVals",
-  description:
-    "Priced like trust infrastructure, not metered SaaS. Free Community tier; licensed Scale and Enterprise.",
-};
+export const metadata: Metadata = pageMetadata("/pricing");
 
-export default function PricingLayout({ children }: { children: ReactNode }) {
+export default function PageLayout({ children }: { children: ReactNode }) {
   return children;
 }

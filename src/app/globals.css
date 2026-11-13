@@ -752,26 +752,15 @@ main
     [class*="heroLead"],
     [class*="ctaLead"],
     [class*="metricPrefix"],
-    [class*="tabPill"],
-    [class*="toggleBtn"],
-    [class*="sizeBadge"],
-    [class*="runsBadge"],
     [class*="tooltipLab"],
     [class*="cardExcerpt"],
     [class*="reportExcerpt"],
     [class*="legendItem"],
-    [class*="groupHeader"],
     [class*="tierInProgress"],
-    [class*="modelTag"],
     [class*="stdDev"],
     [class*="heroKicker"],
     [class*="mobileEmptyState"]
   ) {
-  font-size: var(--font-size-body) !important;
-  line-height: var(--line-height-body);
-}
-
-main [class*="subHeaderRow"] th {
   font-size: var(--font-size-body) !important;
   line-height: var(--line-height-body);
 }

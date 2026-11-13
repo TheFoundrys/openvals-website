@@ -92,7 +92,7 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
 
 export const docsPageIds = navSections.flatMap((section) => section.items.map((item) => item.id));
 
-const pageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: string[] }> = {
+export const docsPageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: string[] }> = {
   welcome: { group: "Get started", title: "OpenVals documentation", onThisPage: ["Platform", "Trust Infrastructure", "What is OpenVals?", "Built For", "Final Thought"] },
   "why-openvals": { group: "Get started", title: "Why OpenVals", onThisPage: ["Problem", "Why OpenVals?", "Enterprise Use Cases", "What It Solves"] },
   installation: { group: "Get started", title: "Installation", onThisPage: ["Install", "Requirements"] },
@@ -2864,7 +2864,7 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
 }
 
 export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
-  const meta = pageMeta[pageId];
+  const meta = docsPageMeta[pageId];
 
   const openvalsTabs: DocsTabItem[] = [
     {

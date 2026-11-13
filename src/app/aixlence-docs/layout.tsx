@@ -1,10 +1,7 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata, Viewport } from "next";
 
-export const metadata: Metadata = {
-  title: "AIxLence Docs | OpenVals",
-  description:
-    "AIxLence enterprise AI readiness diagnostic, capability levels, 36-question assessment, value realization simulator, and transformation roadmap.",
-};
+export const metadata: Metadata = pageMetadata("/aixlence-docs");
 
 export const viewport: Viewport = {
   themeColor: [

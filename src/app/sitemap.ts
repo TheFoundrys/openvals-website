@@ -1,35 +1,52 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next";
+import { absoluteUrl, publicSitemapEntries } from "@/lib/seo";
+import { localBlogPosts } from "@/app/blog/localPosts";
+import { docsPageIds } from "@/app/openvals-docs/DocsContent";
+import { aixlencePageIds } from "@/app/aixlence-docs/AIxlenceDocsContent";
 
-export const dynamic = 'force-static'
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    ['', 1],
-    ['/book-a-demo', 0.95],
-    ['/aixlence', 0.95],
-    ['/openlxm', 0.95],
-    ['/redshield', 0.95],
-    ['/ai-risk-assessment', 0.9],
-    ['/ai-security', 0.9],
-    ['/ai-model-validation', 0.9],
-    ['/ai-compliance-readiness', 0.9],
-    ['/trust-score-engine', 0.9],
-    ['/apply', 0.85],
-    ['/pricing', 0.9],
-    ['/docs', 0.9],
-    ['/openvals-docs', 0.9],
-    ['/aixlence-docs', 0.9],
-    ['/blog', 0.8],
-    ['/contact', 0.5],
-    ['/privacy', 0.4],
-    ['/terms', 0.4],
-    ['/data-platform-terms', 0.4],
-  ] as const
+  const now = new Date();
+  const entries: MetadataRoute.Sitemap = publicSitemapEntries().map((entry) => ({
+    url: absoluteUrl(entry.path === "/" ? "" : entry.path),
+    lastModified: now,
+    changeFrequency: entry.changeFrequency,
+    priority: entry.priority,
+  }));
 
-  return routes.map(([path, priority]) => ({
-    url: `https://openvalidations.com${path}`,
-    lastModified: new Date(),
-    changeFrequency: path === '' ? 'weekly' : 'monthly',
-    priority,
-  }))
+  for (const post of localBlogPosts) {
+    entries.push({
+      url: absoluteUrl(`/blog/${post.slug.current}`),
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    });
+  }
+
+  for (const slug of docsPageIds.filter((id) => id !== "welcome")) {
+    entries.push({
+      url: absoluteUrl(`/openvals-docs/${slug}`),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    });
+    entries.push({
+      url: absoluteUrl(`/docs/${slug}`),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.65,
+    });
+  }
+
+  for (const slug of aixlencePageIds.filter((id) => id !== "overview")) {
+    entries.push({
+      url: absoluteUrl(`/aixlence-docs/${slug}`),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.65,
+    });
+  }
+
+  return entries;
 }
