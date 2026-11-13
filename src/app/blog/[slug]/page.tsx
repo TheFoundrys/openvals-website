@@ -10,7 +10,9 @@ import Footer from "@/components/Footer";
 import { urlFor } from "@/sanity/lib/image";
 import BlogAnalytics from "@/components/BlogAnalytics";
 import BlogPerformanceDashboard from "@/components/BlogPerformanceDashboard";
+import JsonLdScript from "@/components/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structuredData";
 import { getLocalBlogPost, localBlogPosts } from "../localPosts";
 
 export const revalidate = 60; // Revalidate every minute
@@ -176,18 +178,42 @@ export default async function BlogPost({
     );
   }
 
+  const articlePath = `/blog/${decodedSlug}`;
+  const articleDescription =
+    post.analytics?.topic
+      ? `${post.title} — ${post.analytics.topic}`
+      : `${post.title} — OpenVals research on AI validation and assurance.`;
+
   return (
     <>
+      <JsonLdScript
+        data={[
+          articleJsonLd({
+            title: post.title,
+            description: articleDescription,
+            path: articlePath,
+            image: post.mainImage ? urlFor(post.mainImage).url() : post.imageUrl,
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            authorName: post.author?.name,
+          }),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: articlePath },
+          ]),
+        ]}
+      />
       <Header />
 
       <main className={styles.section} style={{ paddingTop: "clamp(100px, 12vw, 160px)" }}>
         <div className={styles.blogContainer}>
           {/* BREADCRUMBS */}
-          <div style={{ marginBottom: "32px", fontSize: "14px", fontWeight: 500 }}>
+          <nav aria-label="Breadcrumb" style={{ marginBottom: "32px", fontSize: "14px", fontWeight: 500 }}>
             <Link href="/blog" style={{ color: "var(--accent)" }}>Research</Link>
             <span style={{ margin: "0 12px", opacity: 0.3 }}>/</span>
             <span style={{ color: "var(--text-muted)" }}>Article</span>
-          </div>
+          </nav>
 
           <header className={styles.blogHeader}>
             {post.analytics?.topic && (

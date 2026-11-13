@@ -1,5 +1,7 @@
-import { pageMetadata } from "@/lib/seo";
 import type { Metadata, Viewport } from "next";
+import JsonLdScript from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 export const metadata: Metadata = pageMetadata("/openvals-docs");
 
@@ -16,5 +18,15 @@ export default function DocsLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <>
+      <JsonLdScript
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "OpenVals Docs", path: "/openvals-docs" },
+        ])}
+      />
+      {children}
+    </>
+  );
 }

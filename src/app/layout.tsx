@@ -1,12 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "../components/ThemeProvider";
+import Analytics from "../components/Analytics";
+import JsonLdScript from "../components/JsonLd";
 import {
   DEFAULT_OG_IMAGE,
   DEFAULT_SQUARE_IMAGE,
   SITE_NAME,
   SITE_URL,
   createPageMetadata,
+  isProductionIndexingEnabled,
+  searchConsoleVerification,
 } from "../lib/seo";
+import { organizationJsonLd, websiteJsonLd, softwareApplicationJsonLd } from "../lib/structuredData";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -37,6 +42,7 @@ export const metadata: Metadata = {
   creator: SITE_NAME,
   publisher: SITE_NAME,
   category: "technology",
+  verification: searchConsoleVerification(),
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -64,6 +70,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  robots: isProductionIndexingEnabled()
+    ? home.robots
+    : { index: false, follow: false, googleBot: { index: false, follow: false } },
 };
 
 export default function RootLayout({
@@ -72,25 +81,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
+    organizationJsonLd(),
+    websiteJsonLd(),
+    softwareApplicationJsonLd({
       name: SITE_NAME,
-      url: SITE_URL,
-      logo: `${SITE_URL}${DEFAULT_SQUARE_IMAGE}`,
-      image: `${SITE_URL}${DEFAULT_SQUARE_IMAGE}`,
       description:
-        "OpenVals helps enterprises validate, secure, and trust AI before production.",
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: SITE_NAME,
-      url: SITE_URL,
-      description:
-        "OpenVals helps enterprises validate, secure, and trust AI before production.",
-      publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
-    },
+        "AI trust intelligence platform for evaluating, benchmarking, and validating models before production.",
+      path: "/",
+    }),
   ];
 
   return (
@@ -112,15 +110,13 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLdScript data={jsonLd} />
       </head>
       <body>
         <ThemeProvider>
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import JsonLdScript from "@/components/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/structuredData";
 import { DocsContent, docsPageIds, docsPageMeta, isDocsPageId } from "../DocsContent";
 
 type DocsSlugPageProps = {
@@ -40,5 +42,18 @@ export default async function DocsSlugPage({ params }: DocsSlugPageProps) {
     notFound();
   }
 
-  return <DocsContent pageId={slug} />;
+  const meta = docsPageMeta[slug];
+
+  return (
+    <>
+      <JsonLdScript
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "OpenVals Docs", path: "/openvals-docs" },
+          { name: meta.title, path: `/openvals-docs/${slug}` },
+        ])}
+      />
+      <DocsContent pageId={slug} />
+    </>
+  );
 }

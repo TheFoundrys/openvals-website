@@ -5,6 +5,25 @@ export const SITE_NAME = "OpenVals";
 export const DEFAULT_OG_IMAGE = "/openvals-og.png";
 export const DEFAULT_SQUARE_IMAGE = "/openvals-square.png";
 
+/** True only for production indexing. Preview/staging should stay noindex. */
+export function isProductionIndexingEnabled(): boolean {
+  if (process.env.NEXT_PUBLIC_SEO_INDEXING === "false") return false;
+  if (process.env.NEXT_PUBLIC_SEO_INDEXING === "true") return true;
+  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production") return false;
+  if (process.env.NODE_ENV !== "production") return false;
+  return true;
+}
+
+export function searchConsoleVerification(): Metadata["verification"] {
+  const google = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
+  const bing = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION?.trim();
+  if (!google && !bing) return undefined;
+  return {
+    ...(google ? { google } : {}),
+    ...(bing ? { other: { "msvalidate.01": bing } } : {}),
+  };
+}
+
 export type PageSeoInput = {
   title: string;
   description: string;
@@ -48,6 +67,8 @@ export function createPageMetadata({
     .replace(/\s*-\s*OpenVals\s*$/i, "")
     .trim();
   const fullTitle = `${shortTitle} | ${SITE_NAME}`;
+  const blockIndexing = noIndex || !isProductionIndexingEnabled();
+  const ogImage = image.startsWith("http") ? image : absoluteUrl(image);
 
   return {
     // Root layout title.template appends " | OpenVals"
@@ -64,13 +85,13 @@ export function createPageMetadata({
       type,
       images: [
         {
-          url: image,
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: `${SITE_NAME} — ${shortTitle}`,
         },
         {
-          url: DEFAULT_SQUARE_IMAGE,
+          url: absoluteUrl(DEFAULT_SQUARE_IMAGE),
           width: 1200,
           height: 1200,
           alt: SITE_NAME,
@@ -81,11 +102,25 @@ export function createPageMetadata({
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [image, DEFAULT_SQUARE_IMAGE],
+      images: [ogImage, absoluteUrl(DEFAULT_SQUARE_IMAGE)],
     },
-    robots: noIndex
-      ? { index: false, follow: false, googleBot: { index: false, follow: false } }
-      : { index: true, follow: true },
+    robots: blockIndexing
+      ? {
+          index: false,
+          follow: false,
+          googleBot: { index: false, follow: false, noimageindex: true },
+        }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1,
+          },
+        },
   };
 }
 
@@ -219,11 +254,13 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
   "/docs": {
     title: "Docs Hub",
     description: "OpenVals documentation hub for platforms, products, and AI validation guides.",
-    priority: 0.85,
+    // Permanent redirect target is /openvals-docs — keep out of sitemap/index.
+    noIndex: true,
   },
   "/openvals-docs": {
-    title: "OpenVals Docs",
-    description: "OpenVals documentation for AI evaluation, benchmarking, DRS scoring, and trust workflows.",
+    title: "Your OpenVals roadmap",
+    description:
+      "A clear OpenVals docs roadmap: install, run your first evaluation, learn trust metrics, use platform workflows, and assess enterprise readiness.",
     priority: 0.9,
   },
   "/aixlence-docs": {

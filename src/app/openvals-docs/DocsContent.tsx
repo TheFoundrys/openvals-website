@@ -41,51 +41,56 @@ type DocsPageId =
 
 const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: string }> }> = [
   {
-    title: "Get started",
+    title: "1. Start here",
     items: [
-      { id: "welcome", label: "Welcome" },
+      { id: "welcome", label: "Your roadmap" },
       { id: "why-openvals", label: "Why OpenVals" },
-      { id: "installation", label: "Installation" },
-      { id: "quick-start", label: "Quick Start" },
+      { id: "installation", label: "Install" },
+      { id: "quick-start", label: "First evaluation" },
     ],
   },
   {
-    title: "Core Capabilities",
+    title: "2. Measure trust",
     items: [
-      { id: "drs", label: "DRS" },
-      { id: "model-evaluation", label: "Model Evaluation" },
-      { id: "factuality-engine", label: "Factuality Engine" },
-      { id: "hpi", label: "Hallucination Probability Index (HPI)" },
-      { id: "dataset-intelligence", label: "Dataset Intelligence" },
-      { id: "benchmarking", label: "Benchmarking" },
-      { id: "parallel-execution", label: "Parallel Execution" },
-      { id: "semantic-intelligence", label: "Semantic Intelligence" },
-      { id: "reporting", label: "Executive Reporting" },
-      { id: "screenshots", label: "Screenshots & Previews" },
-      { id: "integrations", label: "Integrations & User Guide" },
-      { id: "use-case-advisor", label: "Use Case Advisor & Validation Runs" },
-      { id: "aixlence", label: "AIxLence Suite & Readiness" },
+      { id: "drs", label: "Decision Reliability Score" },
+      { id: "model-evaluation", label: "Model evaluation" },
+      { id: "factuality-engine", label: "Factuality" },
+      { id: "hpi", label: "Hallucination (HPI)" },
+      { id: "dataset-intelligence", label: "Dataset intelligence" },
+      { id: "benchmarking", label: "Multi-model benchmarking" },
+      { id: "metrics", label: "Metrics guide" },
+      { id: "domains", label: "Benchmark domains" },
     ],
   },
   {
-    title: "Platform",
+    title: "3. Run & report",
     items: [
-      { id: "platform-user-flow", label: "End-to-End User Flow" },
-      { id: "platform-api-spec", label: "API & Functional Spec" },
-      { id: "platform-architecture", label: "Architecture Flow" },
+      { id: "parallel-execution", label: "Parallel execution" },
+      { id: "semantic-intelligence", label: "Semantic intelligence" },
+      { id: "reporting", label: "Executive reporting" },
+      { id: "screenshots", label: "UI previews" },
+      { id: "samples", label: "CLI samples" },
     ],
   },
   {
-    title: "Reference",
+    title: "4. Use the platform",
     items: [
-      { id: "metrics", label: "Metrics" },
-      { id: "domains", label: "Domains" },
-      { id: "roadmap", label: "Roadmap" },
+      { id: "integrations", label: "Integrations" },
+      { id: "use-case-advisor", label: "Use Case Advisor & runs" },
+      { id: "aixlence", label: "AIxLence readiness" },
+      { id: "platform-user-flow", label: "End-to-end user flow" },
+      { id: "platform-api-spec", label: "API & functional spec" },
+      { id: "platform-architecture", label: "Architecture" },
+    ],
+  },
+  {
+    title: "5. Reference",
+    items: [
+      { id: "roadmap", label: "Product roadmap" },
       { id: "vision", label: "Vision" },
       { id: "contributing", label: "Contributing" },
-      { id: "code-of-conduct", label: "Code of Conduct" },
-      { id: "security-policy", label: "Security Policy" },
-      { id: "samples", label: "Samples" },
+      { id: "code-of-conduct", label: "Code of conduct" },
+      { id: "security-policy", label: "Security policy" },
     ],
   },
 ];
@@ -93,22 +98,32 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
 export const docsPageIds = navSections.flatMap((section) => section.items.map((item) => item.id));
 
 export const docsPageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: string[] }> = {
-  welcome: { group: "Get started", title: "OpenVals documentation", onThisPage: ["Platform", "Trust Infrastructure", "What is OpenVals?", "Built For", "Final Thought"] },
-  "why-openvals": { group: "Get started", title: "Why OpenVals", onThisPage: ["Problem", "Why OpenVals?", "Enterprise Use Cases", "What It Solves"] },
-  installation: { group: "Get started", title: "Installation", onThisPage: ["Install", "Requirements"] },
-  "quick-start": { group: "Get started", title: "60-Second Quick Start", onThisPage: ["1. Install the CLI", "2. Run a Benchmark", "3. Validate a Dataset", "Benchmark Multiple Models with Config", "Show Version", "Python SDK Example", "Example Trust Intelligence Report"] },
-  drs: { group: "Core Capabilities", title: "Decision Reliability Score (DRS)", onThisPage: ["Overview", "Formula", "Signals"] },
-  "model-evaluation": { group: "Core Capabilities", title: "Model Evaluation", onThisPage: ["Metrics", "Evaluation Signals"] },
-  "factuality-engine": { group: "Core Capabilities", title: "Factuality Engine", onThisPage: ["Overview", "Capabilities", "Outputs"] },
-  hpi: { group: "Core Capabilities", title: "Hallucination Probability Index (HPI)", onThisPage: ["Overview", "Risk Levels"] },
-  "dataset-intelligence": { group: "Core Capabilities", title: "Dataset Intelligence", onThisPage: ["Overview", "CLI Validation", "Examples"] },
-  benchmarking: { group: "Core Capabilities", title: "Multi-Model Benchmarking", onThisPage: ["Comparison", "Capabilities", "Ranking"] },
-  "parallel-execution": { group: "Core Capabilities", title: "Parallel Execution Engine", onThisPage: ["Overview", "CLI Usage", "Benefits"] },
-  "semantic-intelligence": { group: "Core Capabilities", title: "Semantic Intelligence Engine", onThisPage: ["Embeddings", "Roadmap"] },
-  reporting: { group: "Core Capabilities", title: "Executive Reporting", onThisPage: ["Overview", "Dashboard Report", "Sample-Level Report"] },
-  screenshots: { group: "Core Capabilities", title: "Screenshots & Previews", onThisPage: ["Trust Dashboard", "Single Model Executive Report", "Dataset Validation CLI"] },
+  welcome: {
+    group: "1. Start here",
+    title: "Your OpenVals roadmap",
+    onThisPage: [
+      "What OpenVals does",
+      "The learning path",
+      "Pick your starting lane",
+      "What you will learn to measure",
+      "Go deeper when you need it",
+    ],
+  },
+  "why-openvals": { group: "1. Start here", title: "Why OpenVals", onThisPage: ["Problem", "Why OpenVals?", "Enterprise Use Cases", "What It Solves"] },
+  installation: { group: "1. Start here", title: "Installation", onThisPage: ["Install", "Requirements"] },
+  "quick-start": { group: "1. Start here", title: "First evaluation", onThisPage: ["1. Install the CLI", "2. Run a Benchmark", "3. Validate a Dataset", "Benchmark Multiple Models with Config", "Show Version", "Python SDK Example", "Example Trust Intelligence Report"] },
+  drs: { group: "2. Measure trust", title: "Decision Reliability Score (DRS)", onThisPage: ["Overview", "Formula", "Signals"] },
+  "model-evaluation": { group: "2. Measure trust", title: "Model Evaluation", onThisPage: ["Metrics", "Evaluation Signals"] },
+  "factuality-engine": { group: "2. Measure trust", title: "Factuality Engine", onThisPage: ["Overview", "Capabilities", "Outputs"] },
+  hpi: { group: "2. Measure trust", title: "Hallucination Probability Index (HPI)", onThisPage: ["Overview", "Risk Levels"] },
+  "dataset-intelligence": { group: "2. Measure trust", title: "Dataset Intelligence", onThisPage: ["Overview", "CLI Validation", "Examples"] },
+  benchmarking: { group: "2. Measure trust", title: "Multi-Model Benchmarking", onThisPage: ["Comparison", "Capabilities", "Ranking"] },
+  "parallel-execution": { group: "3. Run & report", title: "Parallel Execution Engine", onThisPage: ["Overview", "CLI Usage", "Benefits"] },
+  "semantic-intelligence": { group: "3. Run & report", title: "Semantic Intelligence Engine", onThisPage: ["Embeddings", "Roadmap"] },
+  reporting: { group: "3. Run & report", title: "Executive Reporting", onThisPage: ["Overview", "Dashboard Report", "Sample-Level Report"] },
+  screenshots: { group: "3. Run & report", title: "Screenshots & Previews", onThisPage: ["Trust Dashboard", "Single Model Executive Report", "Dataset Validation CLI"] },
   integrations: {
-    group: "Core Capabilities",
+    group: "4. Use the platform",
     title: "OpenVals Integrations Analysis & User Documentation",
     onThisPage: [
       "1. Integration Architecture & Current Maturity",
@@ -125,7 +140,7 @@ export const docsPageMeta: Record<DocsPageId, { group: string; title: string; on
     ],
   },
   "use-case-advisor": {
-    group: "Core Capabilities",
+    group: "4. Use the platform",
     title: "Use Case Advisor & Validation Runs",
     onThisPage: [
       "1. Overview",
@@ -151,7 +166,7 @@ export const docsPageMeta: Record<DocsPageId, { group: string; title: string; on
     ],
   },
   aixlence: {
-    group: "Core Capabilities",
+    group: "4. Use the platform",
     title: "AIxLence Analysis & User Documentation",
     onThisPage: [
       "1. Module Overview & Capability Levels",
@@ -169,16 +184,16 @@ export const docsPageMeta: Record<DocsPageId, { group: string; title: string; on
       "Reference: Rules and Thresholds at a Glance",
     ],
   },
-  metrics: { group: "Reference", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
-  domains: { group: "Reference", title: "Supported Benchmark Domains", onThisPage: ["Available Datasets", "Finance", "Healthcare", "Legal", "Developer", "Sample", "Cybersecurity", "Reasoning", "Math", "Enterprise Ops"] },
-  roadmap: { group: "Reference", title: "Roadmap", onThisPage: ["v0.5.5", "v0.6.0", "Future"] },
-  vision: { group: "Reference", title: "Philosophy and Vision", onThisPage: ["Mission", "Vision"] },
-  contributing: { group: "Reference", title: "Contributing", onThisPage: ["Workflow", "License", "Developed By"] },
-  "code-of-conduct": { group: "Reference", title: "OpenVals Code of Conduct", onThisPage: ["Purpose", "Ground Rules", "Unacceptable Behavior", "Questions"] },
-  "security-policy": { group: "Reference", title: "Security Policy", onThisPage: ["Supported Versions", "Reporting a Vulnerability", "Response Timeline", "Scope", "Safe Harbor"] },
-  samples: { group: "Reference", title: "OpenVals CLI Samples", onThisPage: ["Model Catalog", "Trust Advisor (Cybersecurity)", "Trust Advisor (Finance)", "System Diagnostics", "Overall Health & Doctor", "Full Doctor Diagnostics"] },
+  metrics: { group: "2. Measure trust", title: "Metrics Explained", onThisPage: ["Metric Guide", "Interpretation"] },
+  domains: { group: "2. Measure trust", title: "Supported Benchmark Domains", onThisPage: ["Available Datasets", "Finance", "Healthcare", "Legal", "Developer", "Sample", "Cybersecurity", "Reasoning", "Math", "Enterprise Ops"] },
+  roadmap: { group: "5. Reference", title: "Product roadmap", onThisPage: ["v0.5.5", "v0.6.0", "Future"] },
+  vision: { group: "5. Reference", title: "Philosophy and Vision", onThisPage: ["Mission", "Vision"] },
+  contributing: { group: "5. Reference", title: "Contributing", onThisPage: ["Workflow", "License", "Developed By"] },
+  "code-of-conduct": { group: "5. Reference", title: "OpenVals Code of Conduct", onThisPage: ["Purpose", "Ground Rules", "Unacceptable Behavior", "Questions"] },
+  "security-policy": { group: "5. Reference", title: "Security Policy", onThisPage: ["Supported Versions", "Reporting a Vulnerability", "Response Timeline", "Scope", "Safe Harbor"] },
+  samples: { group: "3. Run & report", title: "OpenVals CLI Samples", onThisPage: ["Model Catalog", "Trust Advisor (Cybersecurity)", "Trust Advisor (Finance)", "System Diagnostics", "Overall Health & Doctor", "Full Doctor Diagnostics"] },
   "platform-user-flow": {
-    group: "Platform",
+    group: "4. Use the platform",
     title: "End-to-End User Flow",
     onThisPage: [
       "Purpose and scope",
@@ -201,7 +216,7 @@ export const docsPageMeta: Record<DocsPageId, { group: string; title: string; on
     ],
   },
   "platform-api-spec": {
-    group: "Platform",
+    group: "4. Use the platform",
     title: "API & Functional Specification",
     onThisPage: [
       "API design principles",
@@ -219,7 +234,7 @@ export const docsPageMeta: Record<DocsPageId, { group: string; title: string; on
     ],
   },
   "platform-architecture": {
-    group: "Platform",
+    group: "4. Use the platform",
     title: "Platform Architecture Flow",
     onThisPage: [
       "High-level architecture",
@@ -572,6 +587,119 @@ function PillGrid({ items }: { items: string[] }) {
         <div key={item} style={{ border: "1px solid var(--docs-border)", borderRadius: "12px", padding: "14px 16px", color: "var(--docs-text)", background: "var(--docs-card)" }}>{item}</div>
       ))}
     </div>
+  );
+}
+
+function RoadmapStep({
+  step,
+  title,
+  body,
+  href,
+  cta,
+}: {
+  step: string;
+  title: string;
+  body: string;
+  href: string;
+  cta: string;
+}) {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "56px minmax(0, 1fr)",
+        gap: "16px",
+        padding: "18px 0",
+        borderBottom: "1px solid var(--docs-border-soft)",
+      }}
+    >
+      <div
+        style={{
+          width: "40px",
+          height: "40px",
+          borderRadius: "10px",
+          border: "1px solid var(--docs-border)",
+          background: "var(--docs-code-bg)",
+          color: "var(--docs-heading)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontWeight: 600,
+          fontSize: "14px",
+        }}
+      >
+        {step}
+      </div>
+      <div>
+        <div style={{ color: "var(--docs-heading)", fontWeight: 600, fontSize: "17px", marginBottom: "6px" }}>
+          {title}
+        </div>
+        <p style={{ color: "var(--docs-muted)", fontSize: "15.5px", lineHeight: 1.6, margin: "0 0 10px" }}>
+          {body}
+        </p>
+        <Link
+          href={href}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "6px",
+            color: "var(--docs-accent)",
+            fontSize: "14px",
+            fontWeight: 500,
+            textDecoration: "none",
+          }}
+        >
+          {cta} <ArrowRight size={14} />
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function LaneCard({
+  title,
+  body,
+  href,
+  cta,
+}: {
+  title: string;
+  body: string;
+  href: string;
+  cta: string;
+}) {
+  return (
+    <Link
+      href={href}
+      style={{
+        display: "block",
+        border: "1px solid var(--docs-border)",
+        borderRadius: "12px",
+        padding: "18px 18px 16px",
+        background: "var(--docs-card)",
+        textDecoration: "none",
+        color: "inherit",
+        minHeight: "100%",
+      }}
+    >
+      <div style={{ color: "var(--docs-heading)", fontWeight: 600, fontSize: "16px", marginBottom: "8px" }}>
+        {title}
+      </div>
+      <p style={{ color: "var(--docs-muted)", fontSize: "14.5px", lineHeight: 1.55, margin: "0 0 14px" }}>
+        {body}
+      </p>
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "6px",
+          color: "var(--docs-accent)",
+          fontSize: "13.5px",
+          fontWeight: 500,
+        }}
+      >
+        {cta} <ArrowRight size={14} />
+      </span>
+    </Link>
   );
 }
 
@@ -1349,45 +1477,157 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
     case "welcome":
       return (
         <>
-          <div style={{ fontSize: "19px", color: "var(--docs-muted)", fontWeight: 500, marginTop: "-20px", marginBottom: "12px" }}>
-            AI Trust Intelligence Platform for LLMs, SLMs, Private AI, and Enterprise AI Systems
-          </div>
-          <div style={{ fontSize: "16px", color: "var(--accent, #3776ab)", fontWeight: 500, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "24px" }}>
-            Evaluate &bull; Benchmark &bull; Trust Intelligence
-          </div>
-
-          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "32px" }}>
-            <img src="https://img.shields.io/badge/pypi-v0.5.5-blue?style=flat-square" alt="PyPI Version" />
-            <img src="https://img.shields.io/badge/python-3.8+-blue?style=flat-square" alt="Python Version" />
-            <img src="https://img.shields.io/badge/license-DPCL--CE%20v1.0-blue?style=flat-square" alt="License" />
-            <img src="https://img.shields.io/badge/downloads-10k%2Fmonth-blue?style=flat-square" alt="Downloads" />
-            <img src="https://img.shields.io/badge/github-stars-blue?style=flat-square" alt="GitHub Stars" />
-          </div>
-
-          <H2>Platform</H2>
           <Paragraph>
-            OpenVals is an enterprise-grade AI evaluation and trust platform designed to help organizations measure, compare, validate, and deploy AI systems with confidence.
+            OpenVals is the trust layer for AI. Use this docs set as a map: start with why it exists,
+            run your first evaluation, learn the trust metrics, then move into platform workflows,
+            integrations, and enterprise readiness.
           </Paragraph>
-          <Paragraph>
-            Unlike traditional AI benchmarks that focus only on accuracy, OpenVals evaluates performance, trustworthiness, factuality, reliability, safety, hallucination risk, governance readiness, and deployment confidence.
-          </Paragraph>
-
-          <H2>Trust Infrastructure for AI</H2>
-          <blockquote style={{ margin: "32px 0", padding: "20px 24px", borderLeft: "4px solid var(--docs-heading)", background: "var(--docs-card)", borderRadius: "0 12px 12px 0" }}>
-            <div style={{ fontSize: "14px", color: "var(--docs-muted)", textTransform: "uppercase", letterSpacing: "1.5px", fontWeight: 500, marginBottom: "6px" }}>OpenVals answers one question:</div>
-            <div style={{ fontSize: "24px", color: "var(--docs-heading)", fontWeight: 500, fontStyle: "italic" }}>&ldquo;Can you trust your AI?&rdquo;</div>
+          <blockquote
+            style={{
+              margin: "8px 0 28px",
+              padding: "18px 20px",
+              borderLeft: "4px solid var(--docs-accent)",
+              background: "var(--docs-code-bg)",
+              borderRadius: "0 12px 12px 0",
+            }}
+          >
+            <div style={{ fontSize: "14px", color: "var(--docs-muted)", fontWeight: 500, marginBottom: "6px" }}>
+              The question OpenVals answers
+            </div>
+            <div style={{ fontSize: "22px", color: "var(--docs-heading)", fontWeight: 500 }}>
+              Can you trust this model for this use case?
+            </div>
           </blockquote>
 
-          <H2>What is OpenVals?</H2>
+          <H2>What OpenVals does</H2>
           <Paragraph>
-            OpenVals is an AI Trust Intelligence Platform that helps enterprises evaluate, validate, benchmark, and govern AI systems before production deployment.
+            Traditional benchmarks stop at accuracy. OpenVals measures the signals that matter before
+            production: correctness, factuality, hallucination risk, reliability, safety, latency,
+            dataset quality, and decision readiness.
           </Paragraph>
+          <PillGrid
+            items={[
+              "Evaluate models before deploy",
+              "Benchmark across labs and sizes",
+              "Score trust with DRS / HPI",
+              "Validate datasets, not just models",
+              "Generate executive evidence packs",
+              "Guide use-case and readiness decisions",
+            ]}
+          />
 
-          <H2>Built For</H2>
-          <PillGrid items={["AI engineering teams", "ML teams", "SaaS companies using LLMs", "Enterprises validating models", "AI governance and compliance teams"]} />
-          <H2>Final Thought</H2>
+          <H2>The learning path</H2>
           <Paragraph>
-            OpenVals is building the Trust Intelligence Layer for AI. The future of AI is not determined by which model is largest. The future belongs to AI systems that can be measured, validated, governed, and trusted.
+            Follow these steps in order the first time. Jump ahead later once you know which layer you need.
+          </Paragraph>
+          <div style={{ borderTop: "1px solid var(--docs-border)", marginTop: "8px" }}>
+            <RoadmapStep
+              step="01"
+              title="Understand the problem OpenVals solves"
+              body="See why demo accuracy fails in production, and what trust questions every team should ask."
+              href={pagePath("why-openvals")}
+              cta="Read Why OpenVals"
+            />
+            <RoadmapStep
+              step="02"
+              title="Install the CLI / SDK"
+              body="Get OpenVals on your machine so you can run evaluations locally and inspect your environment."
+              href={pagePath("installation")}
+              cta="Install OpenVals"
+            />
+            <RoadmapStep
+              step="03"
+              title="Run your first evaluation"
+              body="Benchmark a model, validate a dataset, and produce a trust report in minutes."
+              href={pagePath("quick-start")}
+              cta="Start first evaluation"
+            />
+            <RoadmapStep
+              step="04"
+              title="Learn the trust metrics"
+              body="DRS, factuality, hallucination probability, reliability, and how to interpret a good vs risky score."
+              href={pagePath("drs")}
+              cta="Open DRS guide"
+            />
+            <RoadmapStep
+              step="05"
+              title="Compare models and domains"
+              body="Run multi-model benchmarks across finance, software, cybersecurity, healthcare, and more."
+              href={pagePath("benchmarking")}
+              cta="Explore benchmarking"
+            />
+            <RoadmapStep
+              step="06"
+              title="Use the platform workflows"
+              body="Connect providers, run Use Case Advisor, launch validation runs, and read evidence packs."
+              href={pagePath("use-case-advisor")}
+              cta="Open platform guide"
+            />
+            <RoadmapStep
+              step="07"
+              title="Assess enterprise readiness"
+              body="Use AIxLence when you need capability diagnosis, roadmap sequencing, and board-ready outputs."
+              href={pagePath("aixlence")}
+              cta="Open AIxLence docs"
+            />
+          </div>
+
+          <H2>Pick your starting lane</H2>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: "14px",
+              margin: "8px 0 10px",
+            }}
+          >
+            <LaneCard
+              title="Engineer / CLI"
+              body="Install, run benchmarks, validate datasets, and inspect CLI samples."
+              href={pagePath("installation")}
+              cta="Start with install"
+            />
+            <LaneCard
+              title="Platform operator"
+              body="Integrations, Use Case Advisor, validation runs, and end-to-end user flow."
+              href={pagePath("integrations")}
+              cta="Start with integrations"
+            />
+            <LaneCard
+              title="Governance / leadership"
+              body="DRS, reporting, domains, and AIxLence readiness for decision evidence."
+              href={pagePath("reporting")}
+              cta="Start with reporting"
+            />
+          </div>
+
+          <H2>What you will learn to measure</H2>
+          <DocsTable
+            headers={["Area", "What you get", "Go to"]}
+            rows={[
+              ["Trust score", "Decision Reliability Score across key signals", <TextLink key="drs" href={pagePath("drs")}>DRS</TextLink>],
+              ["Correctness", "Model evaluation and factuality checks", <TextLink key="eval" href={pagePath("model-evaluation")}>Model evaluation</TextLink>],
+              ["Hallucination risk", "Probability bands and failure modes", <TextLink key="hpi" href={pagePath("hpi")}>HPI</TextLink>],
+              ["Data quality", "Schema, balance, and dataset health", <TextLink key="data" href={pagePath("dataset-intelligence")}>Dataset intelligence</TextLink>],
+              ["Comparison", "Multi-model ranking on real domains", <TextLink key="bench" href={pagePath("benchmarking")}>Benchmarking</TextLink>],
+              ["Evidence", "Executive reports and UI previews", <TextLink key="rep" href={pagePath("reporting")}>Reporting</TextLink>],
+            ]}
+          />
+
+          <H2>Go deeper when you need it</H2>
+          <BulletList
+            items={[
+              "API contracts and architecture → Platform API Spec and Architecture Flow",
+              "Domain datasets → Supported Benchmark Domains",
+              "Security / contribution norms → Security Policy and Contributing",
+              "Product direction → Product roadmap and Vision",
+            ]}
+          />
+          <Paragraph>
+            Prefer a guided first hour? Start with{" "}
+            <TextLink href={pagePath("why-openvals")}>Why OpenVals</TextLink>, then{" "}
+            <TextLink href={pagePath("installation")}>Install</TextLink>, then{" "}
+            <TextLink href={pagePath("quick-start")}>First evaluation</TextLink>.
           </Paragraph>
         </>
       );
@@ -2868,22 +3108,34 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
 
   const openvalsTabs: DocsTabItem[] = [
     {
-      id: "get-started",
-      label: "Get Started",
+      id: "start-here",
+      label: "Start here",
       href: "/openvals-docs",
-      active: meta.group === "Get started",
+      active: meta.group === "1. Start here",
     },
     {
-      id: "core-capabilities",
-      label: "Core Capabilities",
+      id: "measure-trust",
+      label: "Measure trust",
       href: "/openvals-docs/drs",
-      active: meta.group === "Core Capabilities",
+      active: meta.group === "2. Measure trust",
+    },
+    {
+      id: "run-report",
+      label: "Run & report",
+      href: "/openvals-docs/reporting",
+      active: meta.group === "3. Run & report",
+    },
+    {
+      id: "platform",
+      label: "Platform",
+      href: "/openvals-docs/use-case-advisor",
+      active: meta.group === "4. Use the platform",
     },
     {
       id: "reference",
       label: "Reference",
-      href: "/openvals-docs/metrics",
-      active: meta.group === "Reference",
+      href: "/openvals-docs/roadmap",
+      active: meta.group === "5. Reference",
     },
   ];
 
