@@ -19,6 +19,16 @@ const nextConfig: NextConfig = {
         destination: "/openvals-docs/:slug*",
         permanent: true,
       },
+      {
+        source: "/auth/login",
+        destination: "/sign-in",
+        permanent: false,
+      },
+      {
+        source: "/auth/signup",
+        destination: "/create-account",
+        permanent: false,
+      },
     ];
   },
 };

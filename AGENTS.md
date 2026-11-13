@@ -28,9 +28,3 @@ These defaults are optimized for AI coding agents (and humans) working on apps t
   needed. Always curl https://ai-gateway.vercel.sh/v1/models first; never trust model IDs from memory
 - For durable agent loops or untrusted code: use Workflow (pause/resume/state) + Sandbox; use Vercel MCP for secure infra access
 <!-- VERCEL BEST PRACTICES END -->
-
-## Git commits
-
-- Do not append `Co-authored-by: Cursor` (or any Cursor agent co-author trailer) to commit messages.
-- Do not add git hooks whose purpose is injecting or managing co-author trailers.
-- If a commit message already contains that trailer, rewrite the commit (e.g. `git commit-tree` + `git reset --hard`) so the message has no co-author line before push.

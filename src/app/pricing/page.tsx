@@ -31,7 +31,7 @@ const TIERS = [
       "1 workspace seat · self-serve signup",
     ],
     footnote: "Self-serve at dev.openvalidations.com. Commercial production use by approval.",
-    cta: { label: "Start free", href: "https://prod.openvalidations.com/auth/signup", external: true },
+    cta: { label: "Start free", href: "/create-account?trial=15&source=pricing", external: false },
     secondary: false,
   },
   {
@@ -175,7 +175,7 @@ export default function PricingPage() {
                 </motion.ul>
                 <motion.div variants={FADE_UP} className={styles.heroActions}>
                   <Link
-                    href="https://prod.openvalidations.com/auth/signup"
+                    href="/create-account?trial=15&source=pricing"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.heroCtaPrimary}
