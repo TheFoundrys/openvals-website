@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "sync-tracker": "node scripts/syncTracker.js",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seo:audit": "node scripts/seo-audit.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 import DocsProductSwitcher from "./DocsProductSwitcher";
 import DocsTopNavTabs, { DocsTabItem } from "./DocsTopNavTabs";
 
@@ -44,23 +44,10 @@ export default function DocsGlobalHeader({
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-          {/* Logo without glyph */}
-          <Link
-            href="/"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              color: "var(--docs-heading, #0f172a)",
-              fontSize: "19px",
-              fontWeight: 500,
-              textDecoration: "none",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            <span>OpenVals</span>
-          </Link>
+          <div style={{ color: "var(--docs-heading, #0f172a)", lineHeight: 1 }}>
+            <Logo size="sm" />
+          </div>
 
-          {/* Switcher Pill Button directly beside logo */}
           <DocsProductSwitcher currentSuite={currentSuite} />
         </div>
 
