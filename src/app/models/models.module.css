@@ -1174,7 +1174,7 @@
   font-size: 13.5px;
   font-weight: 500;
   color: var(--text-main);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

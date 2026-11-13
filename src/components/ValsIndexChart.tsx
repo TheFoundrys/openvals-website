@@ -647,7 +647,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
               letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="Georgia, serif"
+              fontFamily="var(--font-serif-main)"
             >
               EFFICIENT (FAST &amp; ACCURATE)
             </text>
@@ -659,7 +659,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
               letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="Georgia, serif"
+              fontFamily="var(--font-serif-main)"
             >
               {isMobile ? "INEFFICIENT" : "INEFFICIENT (SLOW & LOWER ACCURACY)"}
             </text>
@@ -671,7 +671,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "9" : "10"}
               fontWeight="600"
               letterSpacing="0.06em"
-              fontFamily="'Georgia', serif"
+              fontFamily="var(--font-serif-main)"
               transform={`rotate(-90 ${margin.left + (isMobile ? 12 : 14)} ${
                 margin.top + plotHeight - (isMobile ? 14 : 20)
               })`}
@@ -689,7 +689,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
               letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="Georgia, serif"
+              fontFamily="var(--font-serif-main)"
             >
               OPTIMAL (HIGH DRS &amp; ACCURACY)
             </text>
@@ -701,7 +701,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "10" : "11"}
               fontWeight="700"
               letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="Georgia, serif"
+              fontFamily="var(--font-serif-main)"
             >
               {isMobile ? "SUB-OPTIMAL" : "SUB-OPTIMAL (LOW DRS & ACCURACY)"}
             </text>
@@ -713,7 +713,7 @@ export default function ValsIndexChart({
               fontSize={isMobile ? "9" : "10"}
               fontWeight="600"
               letterSpacing="0.06em"
-              fontFamily="'Georgia', serif"
+              fontFamily="var(--font-serif-main)"
               transform={`rotate(-90 ${margin.left + (isMobile ? 12 : 14)} ${
                 margin.top + plotHeight - (isMobile ? 14 : 20)
               })`}
@@ -733,7 +733,7 @@ export default function ValsIndexChart({
             fontSize="10"
             fontWeight="600"
             letterSpacing="0.08em"
-            fontFamily="'Georgia', serif"
+            fontFamily="var(--font-serif-main)"
           >
             {viewMode === "latency" ? "BEST ACCURACY" : "HIGHEST DRS & ACCURACY"}
           </text>
@@ -767,7 +767,7 @@ export default function ValsIndexChart({
             fontSize={isMobile ? "10.5" : "12"}
             fontWeight="800"
             letterSpacing="0.06em"
-            fontFamily="'Georgia', serif"
+            fontFamily="var(--font-serif-main)"
           >
             OPENVALS
           </text>
@@ -794,7 +794,7 @@ export default function ValsIndexChart({
                 textAnchor="end"
                 fill="var(--text-muted)"
                 fontSize={isMobile ? "10" : "11"}
-                fontFamily="'Georgia', serif"
+                fontFamily="var(--font-serif-main)"
               >
                 {acc}%
               </text>
@@ -822,7 +822,7 @@ export default function ValsIndexChart({
                 textAnchor="middle"
                 fill="var(--text-muted)"
                 fontSize={isMobile ? "10" : "11"}
-                fontFamily="'Georgia', serif"
+                fontFamily="var(--font-serif-main)"
               >
                 {formatXTick(val)}
               </text>
@@ -876,7 +876,7 @@ export default function ValsIndexChart({
                 fill="var(--text-main)"
                 fontSize={isMobile ? "10" : "11"}
                 fontWeight="700"
-                fontFamily="'Georgia', serif"
+                fontFamily="var(--font-serif-main)"
                 stroke="var(--card-bg)"
                 strokeWidth={isMobile ? "2.5" : "0"}
                 paintOrder="stroke fill"

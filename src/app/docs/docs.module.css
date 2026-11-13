@@ -93,7 +93,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 13.5px;
   color: #00d4ff;
   overflow-x: auto;

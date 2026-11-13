@@ -16,7 +16,8 @@ export default function Logo({ className, size = "md", font: _font = "serif" }: 
     lg: { fontSize: "40px" },
   };
 
-  const activeFont = "Georgia, serif";
+  // Brand wordmark stays Georgia — site UI uses self-hosted Inter elsewhere.
+  const logoFont = "var(--font-logo), Georgia, serif";
 
   return (
     <Link
@@ -24,13 +25,13 @@ export default function Logo({ className, size = "md", font: _font = "serif" }: 
       className={`${styles.logoWrapper} ${className || ""}`}
       style={{
         ...sizeStyles[size],
-        fontFamily: activeFont,
+        fontFamily: logoFont,
       }}
     >
       <span
         className={styles.logoText}
         style={{
-          fontFamily: activeFont,
+          fontFamily: logoFont,
           fontWeight: 500,
           letterSpacing: "normal",
         }}

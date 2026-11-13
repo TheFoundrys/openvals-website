@@ -496,7 +496,7 @@ export default function DatasetsPage() {
                   Full benchmarks, trade-off lenses, and audit trails are available in the workspace.
                 </p>
                 <Link
-                  href="/create-account?trial=15&source=datasets"
+                  href="https://prod.openvalidations.com/auth/signup"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.promoLink}
@@ -603,7 +603,7 @@ export default function DatasetsPage() {
 
               <div className={styles.modalFooter}>
                 <Link
-                  href="/create-account?trial=15&source=datasets"
+                  href="https://prod.openvalidations.com/auth/signup"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.modalCtaBtn}

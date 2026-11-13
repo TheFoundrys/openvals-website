@@ -12,10 +12,6 @@ import {
   Check,
 } from "lucide-react";
 import Logo from "./Logo";
-import {
-  MARKETING_LOGIN_PATH,
-  MARKETING_SIGNUP_PATH,
-} from "@/lib/openvalsUrls";
 import styles from "./ui.module.css";
 
 function GithubIcon({ size = 18, className = "" }: { size?: number; className?: string }) {
@@ -419,12 +415,22 @@ export default function Header() {
           </Link>
 
           {/* Log In */}
-          <Link href={MARKETING_LOGIN_PATH} className={styles.headerLoginTextBtn}>
+          <Link
+            href="https://prod.openvalidations.com/auth/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.headerLoginTextBtn}
+          >
             Log In
           </Link>
 
           {/* Sign Up */}
-          <Link href={MARKETING_SIGNUP_PATH} className={styles.headerSignUpPillBtn}>
+          <Link
+            href="https://prod.openvalidations.com/auth/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.headerSignUpPillBtn}
+          >
             Sign Up
           </Link>
 
@@ -472,14 +478,18 @@ export default function Header() {
           {/* Mobile CTA Buttons */}
           <div className={styles.mobileCtaWrapper}>
             <Link
-              href={MARKETING_SIGNUP_PATH}
+              href="https://prod.openvalidations.com/auth/signup"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.mobileCtaButton}
               onClick={() => setIsMenuOpen(false)}
             >
               Sign Up
             </Link>
             <Link
-              href={MARKETING_LOGIN_PATH}
+              href="https://prod.openvalidations.com/auth/login"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.mobileLoginBtn}
               onClick={() => setIsMenuOpen(false)}
             >

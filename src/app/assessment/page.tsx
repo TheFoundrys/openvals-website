@@ -491,7 +491,7 @@ DIMENSION RATINGS:
 
                       <div style={{ marginTop: "32px" }}>
                         <a
-                          href="/create-account?trial=15&source=assessment"
+                          href="https://prod.openvalidations.com/auth/signup"
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`${styles.button} ${styles.primary}`}
@@ -797,7 +797,7 @@ DIMENSION RATINGS:
                                 fontSize="11px"
                                 fontWeight="800"
                                 fill="var(--text-main)"
-                                fontFamily="Georgia, serif"
+                                fontFamily="var(--font-serif-main)"
                               >
                                 {lbl.text} ({dimensionScores[idx]}%)
                               </text>

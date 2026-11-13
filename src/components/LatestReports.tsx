@@ -237,7 +237,7 @@ export default function LatestReports() {
                   className={styles.groupHeaderBenchmarks}
                   style={{ width: "25%" }}
                 >
-                  MODELS
+                  Models
                 </th>
                 <th colSpan={3} className={styles.groupHeaderPerformance} style={{ width: "26%" }}>
                   Performance
@@ -249,7 +249,7 @@ export default function LatestReports() {
                   className={styles.groupHeaderRankings}
                   style={{ width: "8%" }}
                 >
-                  RANKINGS
+                  Rankings
                 </th>
               </tr>
 

@@ -58,7 +58,7 @@
 .sectionTitle {
   font-size: var(--font-size-heading);
   font-weight: var(--font-weight-heading);
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-serif);
   line-height: var(--line-height-heading);
   letter-spacing: -0.02em;
   margin-bottom: 18px;
@@ -149,7 +149,7 @@
 .heroTitle {
   font-size: var(--font-size-heading);
   font-weight: var(--font-weight-heading);
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-serif);
   line-height: var(--line-height-heading);
   letter-spacing: -0.02em;
   margin-bottom: 22px;
@@ -972,7 +972,7 @@
 .finalCtaTitle {
   font-size: var(--font-size-heading);
   font-weight: var(--font-weight-heading);
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-serif);
   line-height: var(--line-height-heading);
   letter-spacing: -0.02em;
   color: var(--text-main);

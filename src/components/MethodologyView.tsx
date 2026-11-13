@@ -589,7 +589,7 @@ export default function MethodologyView() {
                     <th style={{ textAlign: "right", width: "135px" }}>
                       {activeTab === "ACCURACY" ? "ACCURACY" : "LATENCY"}
                     </th>
-                    <th style={{ textAlign: "right", width: "90px" }}>RANKINGS</th>
+                    <th style={{ textAlign: "right", width: "90px" }}>Rankings</th>
                   </tr>
                 </thead>
                 <tbody>

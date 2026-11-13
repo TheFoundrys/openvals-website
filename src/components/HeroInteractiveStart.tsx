@@ -5,9 +5,7 @@ import Link from "next/link";
 import { Copy, Check } from "lucide-react";
 import styles from "./ui.module.css";
 
-import { marketingSignupHref } from "@/lib/openvalsUrls";
-
-const SIGNUP_URL = marketingSignupHref("website", 15);
+const SIGNUP_URL = "https://prod.openvalidations.com/auth/signup";
 
 export default function HeroInteractiveStart() {
   const [copied, setCopied] = useState(false);
@@ -58,6 +56,8 @@ export default function HeroInteractiveStart() {
         <a
           href={SIGNUP_URL}
           className={`${styles.button} ${styles.primary} ${styles.trustActionButton} ${styles.trustActionPrimary}`}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Sign Up
         </a>

@@ -743,6 +743,7 @@
 }
 
 .logoText {
+  font-family: var(--font-logo), Georgia, serif;
   font-weight: 500;
   color: var(--logo-color);
 }
@@ -1426,7 +1427,7 @@
 }
 
 .heroEyebrowText {
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -1499,7 +1500,7 @@
 .commandPromptSymbol {
   color: var(--accent);
   opacity: 0.55;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 14px;
   font-weight: 500;
   user-select: none;
@@ -1853,7 +1854,7 @@
 
 .trustStatValue {
   color: var(--accent);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: clamp(18px, 1.4vw, 24px);
   font-weight: 500;
   line-height: 1;
@@ -1867,7 +1868,7 @@
 .trustStatLabel {
   margin-top: 6px;
   color: var(--text-muted);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: var(--font-size-body);
   font-weight: 400;
   letter-spacing: normal;
@@ -1906,7 +1907,7 @@
   gap: 10px;
   padding: 8px 36px;
   color: var(--text-muted);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: var(--font-size-body);
   font-weight: 400;
   letter-spacing: normal;
@@ -2005,7 +2006,7 @@
   max-width: 760px;
   margin: 0 0 clamp(34px, 4vw, 54px);
   color: var(--text-main);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: var(--font-size-heading);
   font-weight: 500;
   line-height: var(--line-height-heading);
@@ -2039,7 +2040,7 @@
   border-top: 0;
   color: var(--text-muted);
   cursor: pointer;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -2070,7 +2071,7 @@
 
 .docsCodePanel code {
   color: var(--text-main);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: clamp(14px, 1.3vw, 16px);
   font-weight: 500;
   line-height: 1.9;
@@ -2908,7 +2909,7 @@
   line-height: 1.1;
   margin-bottom: 32px;
   font-weight: 500;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
 }
 
 .authorRow {
@@ -2958,7 +2959,7 @@
   color: var(--text-main);
   font-weight: 500;
   line-height: 1.2;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
@@ -3098,7 +3099,7 @@
     linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(244, 248, 253, 0.96)) padding-box,
     linear-gradient(120deg, rgba(0, 40, 86, 0.24), rgba(18, 227, 194, 0.65), rgba(47, 128, 237, 0.55)) border-box;
   color: var(--accent);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0;
@@ -3948,7 +3949,7 @@
   border: 1px solid var(--border);
   background: var(--card-bg);
   color: var(--text-main);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -4031,7 +4032,7 @@
   border: 1px solid var(--border);
   background: var(--primary-bg);
   color: var(--text-muted);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   font-weight: 500;
@@ -4062,7 +4063,7 @@
   gap: 0;
   margin: clamp(-4px, -0.5vh, 0) 0 0;
   width: 100%;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: var(--font-size-body);
   font-weight: 400;
   letter-spacing: normal;
@@ -4097,7 +4098,7 @@
   align-items: center;
   gap: 8px;
   color: var(--text-muted);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   font-weight: 500;
@@ -4122,7 +4123,7 @@
   margin-bottom: 14px;
   margin-left: 0;
   margin-right: auto;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   background: rgba(239, 246, 255, 0.95);
   border: 1px solid rgba(186, 230, 253, 0.85);
   color: #0284c7;
@@ -4170,7 +4171,7 @@
 .heroMainHeadline {
   font-size: var(--font-size-heading);
   font-weight: 500;
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-serif);
   line-height: var(--line-height-heading);
   letter-spacing: -0.02em;
   margin: 0 0 clamp(10px, 1.5vh, 14px) 0;
@@ -4200,7 +4201,7 @@
 /* ── Supporting Description ── */
 .heroMainDescription {
   font-size: var(--font-size-body);
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-serif);
   line-height: var(--line-height-body);
   max-width: 660px;
   margin: 0 0 24px 0;
@@ -4475,7 +4476,7 @@
   border: 1px solid transparent;
   border-radius: 6px;
   padding: 3px 10px;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 12px;
   font-weight: 500;
   color: #94a3b8;
@@ -4495,7 +4496,7 @@
 }
 
 .terminalSubLabel {
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 12px;
   color: #94a3b8;
   margin-left: 2px;
@@ -4516,7 +4517,7 @@
   align-items: center;
   gap: 8px;
   min-width: 0;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 15px;
   font-weight: 500;
 }
@@ -5037,7 +5038,7 @@
 .referenceCardTitle {
   font-size: 13.5px;
   font-weight: 500;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   line-height: 1.2;
   color: #0f172a;
 }
@@ -5156,7 +5157,7 @@
 .heroStatValueText {
   font-size: var(--font-size-subheading);
   font-weight: 400;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   line-height: var(--line-height-subheading);
   white-space: nowrap;
   color: var(--accent);
@@ -5180,7 +5181,7 @@
 .heroStatLabelText {
   font-size: var(--font-size-body);
   font-weight: 400;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   letter-spacing: normal;
   text-transform: none;
   line-height: var(--line-height-body);
@@ -5359,12 +5360,12 @@
   .heroStatValueText {
     font-size: var(--font-size-subheading) !important;
     font-weight: 500 !important;
-    font-family: var(--font-serif-main), Georgia, serif;
+    font-family: var(--font-serif-main);
   }
   .heroStatLabelText {
     font-size: var(--font-size-body) !important;
     font-weight: 500 !important;
-    font-family: var(--font-serif-main), Georgia, serif;
+    font-family: var(--font-serif-main);
     white-space: normal !important;
     line-height: var(--line-height-body) !important;
   }
@@ -5928,12 +5929,12 @@
   .heroStatValueText {
     font-size: var(--font-size-subheading) !important;
     font-weight: 500 !important;
-    font-family: var(--font-serif-main), Georgia, serif;
+    font-family: var(--font-serif-main);
   }
 
   .heroStatLabelText {
     font-size: var(--font-size-body) !important;
     font-weight: 500 !important;
-    font-family: var(--font-serif-main), Georgia, serif;
+    font-family: var(--font-serif-main);
   }
 }

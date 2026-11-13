@@ -772,7 +772,7 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
                 whileHover={{ opacity: 0.95, scale: 1.05 }}
                 style={{
                   color: "var(--text-main)",
-                  fontFamily: "Georgia, serif",
+                  fontFamily: "var(--font-serif-main)",
                   fontWeight: 500,
                   fontSize: compact ? "clamp(18px, 3.2vw, 23px)" : "clamp(22px, 4vw, 26px)",
                   opacity: 0.9,

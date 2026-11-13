@@ -424,7 +424,7 @@ function Terminal({ children }: { children: React.ReactNode }) {
       border: "1px solid var(--docs-border)",
       overflow: "hidden",
       margin: "24px 0",
-      fontFamily: "Georgia, serif",
+      fontFamily: "var(--font-serif-main)",
       fontSize: "14px",
       lineHeight: "1.6",
       boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)"
@@ -523,12 +523,12 @@ function DatasetValidationTerminal() {
 
 function ScoreFormula({ label = "Score" }: { label?: string }) {
   return (
-    <div style={{ marginTop: "18px", display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--docs-heading)", fontFamily: "Georgia, serif", fontStyle: "italic", fontWeight: 500, fontSize: "18px" }}>
+    <div style={{ marginTop: "18px", display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--docs-heading)", fontFamily: "var(--font-serif-main)", fontStyle: "italic", fontWeight: 500, fontSize: "18px" }}>
       <span>{label} =</span>
       <span style={{ position: "relative", display: "inline-grid", placeItems: "center", width: "42px", height: "72px", fontStyle: "normal", fontSize: "40px", lineHeight: 1 }}>
-        <span style={{ position: "absolute", top: "0", fontSize: "12px", fontStyle: "italic", fontFamily: "Georgia, serif", fontWeight: 500 }}>n</span>
+        <span style={{ position: "absolute", top: "0", fontSize: "12px", fontStyle: "italic", fontFamily: "var(--font-serif-main)", fontWeight: 500 }}>n</span>
         <span style={{ transform: "scaleX(0.72)", transformOrigin: "center", fontWeight: 300, marginTop: "2px" }}>&sum;</span>
-        <span style={{ position: "absolute", bottom: "-3px", fontSize: "13px", lineHeight: 1, fontStyle: "italic", fontFamily: "Georgia, serif", fontWeight: 500, whiteSpace: "nowrap" }}>i = 1</span>
+        <span style={{ position: "absolute", bottom: "-3px", fontSize: "13px", lineHeight: 1, fontStyle: "italic", fontFamily: "var(--font-serif-main)", fontWeight: 500, whiteSpace: "nowrap" }}>i = 1</span>
       </span>
       <span>
         (w<sub>i</sub> x m<sub>i</sub>)
@@ -736,7 +736,7 @@ const ScreenshotsPage = () => {
         borderRadius: "16px",
         overflow: "hidden",
         margin: "24px 0 48px",
-        fontFamily: "Georgia, serif"
+        fontFamily: "var(--font-serif-main)"
       }}>
         <div style={{
           background: "linear-gradient(135deg, #090e1a 0%, #1e1b4b 100%)",
@@ -1221,7 +1221,7 @@ const ScreenshotsPage = () => {
         overflow: "hidden",
         margin: "24px 0 24px",
         color: "#f8fafc",
-        fontFamily: "Georgia, serif"
+        fontFamily: "var(--font-serif-main)"
       }}>
         <div style={{
           padding: "30px 40px",

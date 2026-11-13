@@ -2,7 +2,7 @@
   width: 100%;
   margin: 0 auto;
   position: relative;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
 }
 
 .headerArea {
@@ -10,7 +10,7 @@
 }
 
 .eyebrow {
-  font-family: Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: var(--font-size-body);
   color: var(--text-muted);
   margin-bottom: 12px;
@@ -20,7 +20,7 @@
 }
 
 .headline {
-  font-family: Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: var(--font-size-heading);
   font-weight: 500;
   color: var(--text-main);
@@ -30,7 +30,7 @@
 }
 
 .description {
-  font-family: Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: var(--font-size-body);
   color: var(--text-muted);
   line-height: var(--line-height-body);
@@ -72,7 +72,7 @@
   border: 1px solid var(--border);
   color: var(--text-main);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   text-transform: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
@@ -215,7 +215,7 @@
   font-weight: 500;
   letter-spacing: 0.03em;
   text-transform: none;
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
 }
 
 .metricOptionDesc {
@@ -296,7 +296,7 @@
 }
 
 .viewModeBtn {
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 11px;
   font-weight: 500;
   padding: 4px 8px;
@@ -360,7 +360,7 @@
   font-size: 10.5px;
   font-weight: 500;
   color: var(--text-muted);
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   padding: 0 4px;
   white-space: nowrap;
 }
@@ -471,7 +471,7 @@
 }
 
 .scoreTop {
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 11px;
   font-weight: 500;
   line-height: 1;
@@ -500,7 +500,7 @@
 }
 
 .modelName {
-  font-family: var(--font-serif-main), Georgia, serif;
+  font-family: var(--font-serif-main);
   font-size: 9.5px;
   font-weight: 500;
   line-height: 1.15;
@@ -655,7 +655,7 @@
   justify-content: center;
   font-size: 10px;
   font-style: italic;
-  font-family: Georgia, serif;
+  font-family: var(--font-serif-main);
   flex-shrink: 0;
 }
 
