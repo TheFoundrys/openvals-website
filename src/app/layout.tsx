@@ -1,5 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "../components/ThemeProvider";
+import {
+  DEFAULT_OG_IMAGE,
+  DEFAULT_SQUARE_IMAGE,
+  SITE_NAME,
+  SITE_URL,
+  createPageMetadata,
+} from "../lib/seo";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -11,65 +18,51 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const home = createPageMetadata({
+  title: "Enterprise AI Validation, Security & Compliance",
+  description:
+    "OpenVals helps enterprises validate, secure, and trust AI before production with independent benchmarks, DRS scoring, and assurance workflows.",
+  path: "/",
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://openvalidations.com"),
-  title: "OpenVals - Enterprise AI Validation, Security & Compliance",
-  description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
-  keywords: [
-    "AI Validation",
-    "AI Security",
-    "AI Trust",
-    "Model Validation",
-    "AI Governance",
-    "EU AI Act Compliance",
-    "Responsible AI",
-    "AI Performance Auditing",
-    "AI Engineering",
-    "Applied Data Science",
-    "MLOps",
-    "AI Quality Assurance",
-    "Predictive Modeling",
-    "Data Pipelines",
-  ],
+  ...home,
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} - Enterprise AI Validation, Security & Compliance`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "technology",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/icon.png", type: "image/png", sizes: "32x32" },
-      { url: "/openvals-square.png", type: "image/png", sizes: "192x192" },
-      { url: "/openvals-square.png", type: "image/png", sizes: "512x512" },
+      { url: DEFAULT_SQUARE_IMAGE, type: "image/png", sizes: "192x192" },
+      { url: DEFAULT_SQUARE_IMAGE, type: "image/png", sizes: "512x512" },
     ],
-    apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
-    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
     shortcut: "/favicon.ico",
   },
   openGraph: {
-    title: "OpenVals - AI Validation & Assurance Platform",
-    description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
-    url: "https://openvalidations.com",
-    siteName: "OpenVals",
-    locale: "en_US",
-    type: "website",
+    ...home.openGraph,
     images: [
       {
-        url: "/openvals-square.png",
-        width: 1200,
-        height: 1200,
-        alt: "OpenVals",
-      },
-      {
-        url: "/openvals-og.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "OpenVals",
+        alt: SITE_NAME,
+      },
+      {
+        url: DEFAULT_SQUARE_IMAGE,
+        width: 1200,
+        height: 1200,
+        alt: SITE_NAME,
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "OpenVals - The Trust Layer for AI",
-    description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
-    images: ["/openvals-square.png", "/openvals-og.png"],
   },
 };
 
@@ -78,15 +71,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "OpenVals",
-    url: "https://openvalidations.com",
-    logo: "https://openvalidations.com/openvals-square.png",
-    image: "https://openvalidations.com/openvals-square.png",
-    description: "OpenVals helps enterprises validate, secure, and trust AI before production.",
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: `${SITE_URL}${DEFAULT_SQUARE_IMAGE}`,
+      image: `${SITE_URL}${DEFAULT_SQUARE_IMAGE}`,
+      description:
+        "OpenVals helps enterprises validate, secure, and trust AI before production.",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: SITE_URL,
+      description:
+        "OpenVals helps enterprises validate, secure, and trust AI before production.",
+      publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    },
+  ];
 
   return (
     <html lang="en" suppressHydrationWarning>

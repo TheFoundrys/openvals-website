@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { postBySlugQuery, postSlugsQuery } from "@/sanity/lib/queries";
@@ -9,6 +10,7 @@ import Footer from "@/components/Footer";
 import { urlFor } from "@/sanity/lib/image";
 import BlogAnalytics from "@/components/BlogAnalytics";
 import BlogPerformanceDashboard from "@/components/BlogPerformanceDashboard";
+import { createPageMetadata } from "@/lib/seo";
 import { getLocalBlogPost, localBlogPosts } from "../localPosts";
 
 export const revalidate = 60; // Revalidate every minute
@@ -48,6 +50,53 @@ export async function generateStaticParams() {
       ...localSlugs,
     ]);
   }
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug).trim();
+  const localPost = getLocalBlogPost(decodedSlug);
+
+  if (localPost) {
+    return createPageMetadata({
+      title: localPost.title,
+      description:
+        localPost.summary ||
+        `${localPost.title} — OpenVals research and commentary on AI validation and assurance.`,
+      path: `/blog/${decodedSlug}`,
+      image: localPost.imageUrl || undefined,
+      type: "article",
+      keywords: ["OpenVals Blog", "AI Validation", localPost.topic || "AI Assurance"],
+    });
+  }
+
+  try {
+    const post = await client.fetch(postBySlugQuery, { slug: decodedSlug });
+    if (post?.title) {
+      return createPageMetadata({
+        title: post.title,
+        description:
+          post.excerpt ||
+          post.description ||
+          `${post.title} — OpenVals blog on AI validation and trust.`,
+        path: `/blog/${decodedSlug}`,
+        type: "article",
+      });
+    }
+  } catch {
+    // Fall through to default
+  }
+
+  return createPageMetadata({
+    title: "Blog Post",
+    description: "OpenVals blog on AI validation, assurance, and trustworthy AI systems.",
+    path: `/blog/${decodedSlug}`,
+    type: "article",
+  });
 }
 
 export default async function BlogPost({

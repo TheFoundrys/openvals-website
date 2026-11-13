@@ -1,11 +1,6 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import LegalDocumentPage, { type LegalSection } from "@/components/LegalDocumentPage";
 
-export const metadata: Metadata = {
-  title: "Terms of Use - OpenVals",
-  description: "Terms governing your access to and use of the OpenVals website and related services.",
-};
 
 const sections: LegalSection[] = [
   {

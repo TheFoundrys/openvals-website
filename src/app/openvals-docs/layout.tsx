@@ -1,9 +1,7 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata, Viewport } from "next";
 
-export const metadata: Metadata = {
-  title: "OpenVals Docs",
-  description: "OpenVals documentation for AI evaluation, benchmarking, and trust scoring.",
-};
+export const metadata: Metadata = pageMetadata("/openvals-docs");
 
 export const viewport: Viewport = {
   themeColor: [

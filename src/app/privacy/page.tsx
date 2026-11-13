@@ -1,12 +1,6 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import LegalDocumentPage, { type LegalSection } from "@/components/LegalDocumentPage";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy - OpenVals",
-  description:
-    "How OpenVals collects, uses, and protects personal information when you use our website and services.",
-};
 
 const sections: LegalSection[] = [
   {
