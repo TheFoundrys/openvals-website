@@ -258,9 +258,9 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
     noIndex: true,
   },
   "/openvals-docs": {
-    title: "Your OpenVals roadmap",
+    title: "Quickstart",
     description:
-      "A clear OpenVals docs roadmap: install, run your first evaluation, learn trust metrics, use platform workflows, and assess enterprise readiness.",
+      "Install OpenVals and run the CLI quickstart: doctor → providers → models → datasets → recommend-model → trust-advisor for TRI, DRS, and a trust verdict.",
     priority: 0.9,
   },
   "/aixlence-docs": {

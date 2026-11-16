@@ -35,14 +35,14 @@ const DOC_SECTIONS: DocSection[] = [
     items: [
       {
         id: "welcome",
-        title: "OpenVals Platform",
-        description: "Trust infrastructure, evaluation engines, and hallucination defense for production AI",
+        title: "Quickstart",
+        description: "Install OpenVals and run doctor → providers → models → datasets → recommend-model → trust-advisor",
         color: "squareYellow",
       },
       {
         id: "quick-start",
-        title: "Python SDK & Quick Start",
-        description: "Python client to interact with OpenVals, evaluate models, and run automated benchmarks",
+        title: "CLI Quickstart",
+        description: "Same recommended journey: readiness through TRI + DRS trust verdict",
         color: "squareBlue",
       },
       {

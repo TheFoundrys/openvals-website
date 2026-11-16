@@ -4,8 +4,8 @@
   background: var(--primary-bg);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
-  font-family: var(--font-serif-main);
-  font-size: var(--font-size-body);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
   font-weight: 400;
   line-height: 1.45;
   width: 100%;
@@ -36,8 +36,12 @@
 .brandSide {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
+}
+
+.footerLogo {
+  font-size: 20px !important;
 }
 
 .footerMetaRow {
@@ -51,18 +55,18 @@
 
 .copyright {
   color: var(--text-muted);
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: 1.4;
   margin: 0;
   white-space: nowrap;
 }
 
 .metaLink {
   color: var(--text-muted);
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: 1.4;
   text-decoration: none;
   white-space: nowrap;
   transition: color 0.15s ease;
@@ -140,9 +144,9 @@
 
 .aboutNavLink {
   color: var(--text-muted);
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: 1.4;
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
