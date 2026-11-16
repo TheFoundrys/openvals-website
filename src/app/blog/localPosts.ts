@@ -14,8 +14,35 @@ export type LocalBlogPost = {
 
 type BlogPostLike = {
   slug?: { current?: string };
+  title?: string;
   publishedAt?: string;
 };
+
+/** Kebab-case slug for URLs — strips spaces, punctuation, and trailing junk from CMS titles. */
+export function toBlogSlug(input: unknown): string {
+  const raw =
+    typeof input === "string"
+      ? input
+      : input && typeof input === "object" && "current" in (input as object)
+        ? String((input as { current?: unknown }).current ?? "")
+        : "";
+
+  return raw
+    .trim()
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[''`]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export function blogPostPath(post: { externalUrl?: string; slug?: { current?: string } | string; title?: string }): string {
+  if (post.externalUrl) return post.externalUrl;
+  const rawSlug =
+    typeof post.slug === "string" ? post.slug : post.slug?.current || post.title || "";
+  return `/blog/${toBlogSlug(rawSlug)}`;
+}
 
 export const localBlogPosts: LocalBlogPost[] = [
   {
@@ -218,14 +245,22 @@ export const localBlogPosts: LocalBlogPost[] = [
 ];
 
 export function getLocalBlogPost(slug: string) {
-  const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
-  return localBlogPosts.find(
-    (post) =>
-      post.slug.current === slug ||
-      slug.startsWith(post.slug.current) ||
-      post.slug.current.replace(/-a-/g, "-") === slug.replace(/-a-/g, "-") ||
-      normalize(post.slug.current) === normalize(slug)
-  );
+  const decoded = decodeURIComponent(slug).trim();
+  const normalized = toBlogSlug(decoded);
+  const compact = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  return localBlogPosts.find((post) => {
+    const current = post.slug.current;
+    return (
+      current === decoded ||
+      current === normalized ||
+      toBlogSlug(current) === normalized ||
+      toBlogSlug(post.title) === normalized ||
+      decoded.startsWith(current) ||
+      current.replace(/-a-/g, "-") === decoded.replace(/-a-/g, "-") ||
+      compact(current) === compact(decoded)
+    );
+  });
 }
 
 export function mergeLocalBlogPosts<T extends BlogPostLike>(posts: T[]): Array<T | LocalBlogPost> {

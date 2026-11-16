@@ -42,7 +42,7 @@ export function BulletList({ items }: { items: string[] }) {
 export function DocsTable({ headers, rows }: { headers: string[]; rows: ReactNode[][] }) {
   return (
     <div className="docsTableWrap" style={{ overflowX: "auto", border: "1px solid var(--docs-border)", borderRadius: "14px", margin: "20px 0 22px" }}>
-      <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "560px" }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "min(100%, 480px)" }}>
         <thead>
           <tr style={{ background: "var(--docs-code-bg)", color: "var(--docs-heading)", textAlign: "left" }}>
             {headers.map((head) => (

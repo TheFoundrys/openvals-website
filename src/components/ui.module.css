@@ -982,10 +982,10 @@
   padding: 0 12px;
   height: 36px;
   box-sizing: border-box;
-  background: rgba(241, 245, 249, 0.85);
-  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: rgba(241, 245, 249, 0.95);
+  border: 1px solid rgba(203, 213, 225, 0.95);
   border-radius: 8px;
-  color: #334155 !important;
+  color: #0f172a !important;
   font-size: 13.5px;
   font-weight: 500;
   line-height: 1;
@@ -996,9 +996,16 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
+.headerGithubBtn svg {
+  display: block;
+  flex-shrink: 0;
+  fill: currentColor;
+  color: inherit;
+}
+
 .headerGithubBtn:hover {
-  background: rgba(226, 232, 240, 0.95);
-  border-color: rgba(186, 230, 253, 0.95);
+  background: #ffffff;
+  border-color: #94a3b8;
   color: #0284c7 !important;
   transform: translateY(-1px);
   box-shadow: 0 3px 10px rgba(2, 132, 199, 0.12);
@@ -1008,11 +1015,43 @@
   transform: translateY(0);
 }
 
+:global(html.light) .headerGithubBtn,
+:global(html:not(.dark)) .headerGithubBtn {
+  background: rgba(241, 245, 249, 0.95);
+  border-color: rgba(203, 213, 225, 0.95);
+  color: #0f172a !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+:global(html.light) .headerGithubBtn svg,
+:global(html:not(.dark)) .headerGithubBtn svg {
+  color: #0f172a !important;
+  fill: #0f172a !important;
+}
+
+:global(html.light) .headerGithubBtn:hover,
+:global(html:not(.dark)) .headerGithubBtn:hover {
+  background: #ffffff;
+  border-color: #94a3b8;
+  color: #0284c7 !important;
+}
+
+:global(html.light) .headerGithubBtn:hover svg,
+:global(html:not(.dark)) .headerGithubBtn:hover svg {
+  color: #0284c7 !important;
+  fill: #0284c7 !important;
+}
+
 :global(html.dark) .headerGithubBtn {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.14);
   color: #f1f5f9 !important;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+:global(html.dark) .headerGithubBtn svg {
+  color: #f1f5f9 !important;
+  fill: #f1f5f9 !important;
 }
 
 :global(html.dark) .headerGithubBtn:hover {
@@ -1022,18 +1061,31 @@
   box-shadow: 0 3px 10px rgba(56, 189, 248, 0.15);
 }
 
+:global(html.dark) .headerGithubBtn:hover svg {
+  color: #38bdf8 !important;
+  fill: #38bdf8 !important;
+}
+
 @media (prefers-color-scheme: dark) {
-  .headerGithubBtn {
+  :global(html:not(.light)) .headerGithubBtn {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.14);
     color: #f1f5f9 !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
-  .headerGithubBtn:hover {
+  :global(html:not(.light)) .headerGithubBtn svg {
+    color: #f1f5f9 !important;
+    fill: #f1f5f9 !important;
+  }
+  :global(html:not(.light)) .headerGithubBtn:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(56, 189, 248, 0.35);
     color: #38bdf8 !important;
     box-shadow: 0 3px 10px rgba(56, 189, 248, 0.15);
+  }
+  :global(html:not(.light)) .headerGithubBtn:hover svg {
+    color: #38bdf8 !important;
+    fill: #38bdf8 !important;
   }
 }
 
@@ -1117,7 +1169,7 @@
   border-radius: 8px;
   background: var(--secondary-bg);
   border: 1px solid var(--border);
-  color: var(--text-main) !important;
+  color: #0f172a !important;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
@@ -1128,9 +1180,41 @@
   transition: all 0.2s ease;
 }
 
+.mobileGithubBtn svg {
+  display: block;
+  flex-shrink: 0;
+  fill: currentColor;
+  color: inherit;
+}
+
 .mobileGithubBtn:hover {
   background: var(--card-bg);
   color: var(--accent) !important;
+}
+
+:global(html.light) .mobileGithubBtn,
+:global(html:not(.dark)) .mobileGithubBtn {
+  background: var(--secondary-bg);
+  border-color: var(--border);
+  color: #0f172a !important;
+}
+
+:global(html.light) .mobileGithubBtn svg,
+:global(html:not(.dark)) .mobileGithubBtn svg {
+  color: #0f172a !important;
+  fill: #0f172a !important;
+}
+
+:global(html.light) .mobileGithubBtn:hover,
+:global(html:not(.dark)) .mobileGithubBtn:hover {
+  background: var(--card-bg);
+  color: var(--accent) !important;
+}
+
+:global(html.light) .mobileGithubBtn:hover svg,
+:global(html:not(.dark)) .mobileGithubBtn:hover svg {
+  color: var(--accent) !important;
+  fill: var(--accent) !important;
 }
 
 :global(html.dark) .mobileGithubBtn {
@@ -1139,20 +1223,38 @@
   color: #f1f5f9 !important;
 }
 
+:global(html.dark) .mobileGithubBtn svg {
+  color: #f1f5f9 !important;
+  fill: #f1f5f9 !important;
+}
+
 :global(html.dark) .mobileGithubBtn:hover {
   background: rgba(255, 255, 255, 0.12);
   color: #38bdf8 !important;
 }
 
+:global(html.dark) .mobileGithubBtn:hover svg {
+  color: #38bdf8 !important;
+  fill: #38bdf8 !important;
+}
+
 @media (prefers-color-scheme: dark) {
-  .mobileGithubBtn {
+  :global(html:not(.light)) .mobileGithubBtn {
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 255, 255, 0.14);
     color: #f1f5f9 !important;
   }
-  .mobileGithubBtn:hover {
+  :global(html:not(.light)) .mobileGithubBtn svg {
+    color: #f1f5f9 !important;
+    fill: #f1f5f9 !important;
+  }
+  :global(html:not(.light)) .mobileGithubBtn:hover {
     background: rgba(255, 255, 255, 0.12);
     color: #38bdf8 !important;
+  }
+  :global(html:not(.light)) .mobileGithubBtn:hover svg {
+    color: #38bdf8 !important;
+    fill: #38bdf8 !important;
   }
 }
 

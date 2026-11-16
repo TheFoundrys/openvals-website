@@ -160,7 +160,7 @@ export default function Header() {
               <input
                 ref={searchInputRef}
                 type="text"
-                placeholder="Search models, datasets, users..."
+                placeholder="Search models, datasets, docs..."
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
@@ -467,7 +467,7 @@ export default function Header() {
             <Search size={16} className={styles.headerSearchIcon} />
             <input
               type="text"
-              placeholder="Search models, datasets, users..."
+              placeholder="Search models, datasets, docs..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className={styles.mobileSearchInputField}

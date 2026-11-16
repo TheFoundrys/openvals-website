@@ -819,7 +819,7 @@ export function FounderProofBand({ compact = false }: { compact?: boolean }) {
             <div className={styles.mediaLogoCell}>
               <motion.img
                 whileHover={{ opacity: 0.95, scale: 1.05 }}
-                src="/logos/pride india awards.png"
+                src="/logos/pride-india-awards.png"
                 alt="Pride India Awards"
                 className={styles.logoPride}
               />

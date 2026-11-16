@@ -254,13 +254,13 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
   "/docs": {
     title: "Docs Hub",
     description: "OpenVals documentation hub for platforms, products, and AI validation guides.",
-    // Permanent redirect target is /openvals-docs — keep out of sitemap/index.
+    // Hub indexes product docs; canonical product docs live under /openvals-docs.
     noIndex: true,
   },
   "/openvals-docs": {
-    title: "Your OpenVals roadmap",
+    title: "Quickstart",
     description:
-      "A clear OpenVals docs roadmap: install, run your first evaluation, learn trust metrics, use platform workflows, and assess enterprise readiness.",
+      "Install OpenVals and run the CLI quickstart: doctor → providers → models → datasets → recommend-model → trust-advisor for TRI, DRS, and a trust verdict.",
     priority: 0.9,
   },
   "/aixlence-docs": {

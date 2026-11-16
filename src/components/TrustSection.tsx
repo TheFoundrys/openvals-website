@@ -30,9 +30,9 @@ export function HeroPart() {
         animate="show"
         variants={STAGGER}
       >
-        <motion.h1 variants={FADE_UP} className={styles.heroMainHeadline}>
+        <h1 className={styles.heroMainHeadline}>
           The Trust Layer for AI
-        </motion.h1>
+        </h1>
 
         <motion.p variants={FADE_UP} className={styles.heroMainDescription}>
           Validate, secure, and benchmark AI systems before they reach production. Turn model behavior into measurable confidence.

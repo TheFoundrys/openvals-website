@@ -32,14 +32,12 @@ const LAB_FILTER_TABS: string[] = [
   "Stability AI",
   "01.AI",
   "Agentica",
-  "Big Science",
   "BigScience",
   "Doey LLM",
   "North ML",
   "Nous Research",
   "Open BMB",
   "Open Source",
-  "Open-Source",
   "Prism ML",
   "PROMTECH Inc",
   "QVAC",
@@ -85,7 +83,7 @@ export default function LatestReports() {
         selectedLab === "All Models" ||
         model.lab.toLowerCase() === selectedLab.toLowerCase() ||
         (selectedLab === "Open Source" && model.lab.toLowerCase().includes("open")) ||
-        (selectedLab === "Big Science" && model.lab.toLowerCase().includes("big"));
+        (selectedLab === "BigScience" && model.lab.toLowerCase().includes("big"));
 
       const query = searchQuery.trim().toLowerCase();
       const matchesSearch =
@@ -105,7 +103,7 @@ export default function LatestReports() {
         selectedLab === "All Models" ||
         run.lab.toLowerCase() === selectedLab.toLowerCase() ||
         (selectedLab === "Open Source" && run.lab.toLowerCase().includes("open")) ||
-        (selectedLab === "Big Science" && run.lab.toLowerCase().includes("big"));
+        (selectedLab === "BigScience" && run.lab.toLowerCase().includes("big"));
 
       const query = searchQuery.trim().toLowerCase();
       const matchesSearch =
