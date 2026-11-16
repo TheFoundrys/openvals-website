@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "NOV 13, 2026";
+export const LATEST_BENCHMARK_DATE = "NOV 16, 2026";
 
 export const MODELS: ModelData[] = [
   {
@@ -178,16 +178,16 @@ export const MODELS: ModelData[] = [
     "drsLabel": "61.4%"
   },
   {
-    "id": "qwen2-math-1-5b-1-5b",
+    "id": "qwen2-math-7b-7-6b",
     "name": "QWEN 3",
     "version": "0.6B",
     "lab": "Alibaba",
-    "score": 95,
-    "displayScore": "95.0%",
+    "score": 96.7,
+    "displayScore": "96.7%",
     "cost": 0.1,
     "costLabel": "$0.10",
-    "latency": 15537,
-    "latencyLabel": "15537 ms",
+    "latency": 13495,
+    "latencyLabel": "13495 ms",
     "tokenUsage": 4900,
     "tokenLabel": "4.9k",
     "color": "#f3832b",
@@ -195,22 +195,22 @@ export const MODELS: ModelData[] = [
     "hasPattern": false,
     "breakdown": {
       "finance": "100.0%",
-      "software": "48.9%",
-      "cybersecurity": "68.2%",
-      "mentalHealth": "58.2%"
+      "software": "52.3%",
+      "cybersecurity": "62.5%",
+      "mentalHealth": "60.3%"
     },
-    "semantic": 36.2,
-    "semanticLabel": "36.2%",
-    "factuality": 48.9,
-    "factualityLabel": "48.9%",
-    "hallucination": 68.2,
-    "hallucinationLabel": "68.2%",
+    "semantic": 40.4,
+    "semanticLabel": "40.4%",
+    "factuality": 52.3,
+    "factualityLabel": "52.3%",
+    "hallucination": 62.5,
+    "hallucinationLabel": "62.5%",
     "safety": 100,
     "safetyLabel": "100.0%",
-    "reliability": 92.4,
-    "reliabilityLabel": "92.4%",
-    "drs": 58.2,
-    "drsLabel": "58.2%"
+    "reliability": 96.2,
+    "reliabilityLabel": "96.2%",
+    "drs": 60.3,
+    "drsLabel": "60.3%"
   },
   {
     "id": "ternary-bonsai-1-7b",
@@ -598,39 +598,39 @@ export const MODELS: ModelData[] = [
     "drsLabel": "59.6%"
   },
   {
-    "id": "yi-coder-1-5b",
+    "id": "yi-coder-9b-8-8b",
     "name": "YI-CODER",
     "version": "1.5B",
     "lab": "01.AI",
-    "score": 69.8,
-    "displayScore": "69.8%",
+    "score": 73.2,
+    "displayScore": "73.2%",
     "cost": 0.2,
     "costLabel": "$0.20",
-    "latency": 2167,
-    "latencyLabel": "2167 ms",
+    "latency": 10923,
+    "latencyLabel": "10923 ms",
     "tokenUsage": 5300,
     "tokenLabel": "5.3k",
     "color": "#498ff0",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
-      "finance": "96.3%",
-      "software": "69.3%",
-      "cybersecurity": "55.3%",
-      "mentalHealth": "58.9%"
+      "finance": "92.5%",
+      "software": "72.5%",
+      "cybersecurity": "53.7%",
+      "mentalHealth": "60.1%"
     },
-    "semantic": 61.5,
-    "semanticLabel": "61.5%",
-    "factuality": 69.3,
-    "factualityLabel": "69.3%",
-    "hallucination": 55.3,
-    "hallucinationLabel": "55.3%",
-    "safety": 96.3,
-    "safetyLabel": "96.3%",
-    "reliability": 81.7,
-    "reliabilityLabel": "81.7%",
-    "drs": 58.9,
-    "drsLabel": "58.9%"
+    "semantic": 65.6,
+    "semanticLabel": "65.6%",
+    "factuality": 72.5,
+    "factualityLabel": "72.5%",
+    "hallucination": 53.7,
+    "hallucinationLabel": "53.7%",
+    "safety": 92.5,
+    "safetyLabel": "92.5%",
+    "reliability": 86.3,
+    "reliabilityLabel": "86.3%",
+    "drs": 60.1,
+    "drsLabel": "60.1%"
   },
   {
     "id": "deepseek-r1-distill-qwen-1-5b",
