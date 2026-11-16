@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import DocsGlobalHeader from "@/components/DocsGlobalHeader";
@@ -1041,6 +1043,7 @@ function PageBody({ pageId }: { pageId: AIxlenceDocsPageId }) {
 }
 
 export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlenceDocsPageId }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const meta = aixlencePageMeta[pageId] || aixlencePageMeta.overview;
 
   const currentSection = meta.group;
@@ -1218,6 +1221,14 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
               display: none;
             }
 
+            .docsMobileMenuBtn {
+              display: none !important;
+            }
+
+            .docsMobileBackdrop {
+              display: none;
+            }
+
             @media (max-width: 860px) {
               .docsBodyGrid {
                 grid-template-columns: minmax(0, 1fr) !important;
@@ -1225,8 +1236,28 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
                 height: calc(100dvh - 96px) !important;
               }
 
+              .docsMobileMenuBtn {
+                display: inline-flex !important;
+              }
+
+              .docsMobileBackdrop {
+                display: block;
+              }
+
               .docsSidebar {
                 display: none !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                bottom: 0 !important;
+                width: min(86vw, 320px) !important;
+                z-index: 45 !important;
+                background: var(--docs-panel) !important;
+                box-shadow: 12px 0 40px rgba(15, 23, 42, 0.2);
+              }
+
+              .docsSidebar.isOpen {
+                display: block !important;
               }
 
               .docsGlobalHeaderRow1,
@@ -1322,13 +1353,34 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
         }}
       >
         {/* Unified 2-tier docs header matching Arize screenshot */}
-        <DocsGlobalHeader currentSuite="aixlence" tabs={aixlenceTabs} />
+        <DocsGlobalHeader
+          currentSuite="aixlence"
+          tabs={aixlenceTabs}
+          isMobileMenuOpen={mobileMenuOpen}
+          onToggleMobileMenu={() => setMobileMenuOpen((open) => !open)}
+        />
 
         {/* MAIN BODY GRID: Sidebar + Content */}
         <div className="docsBodyGrid" style={{ display: "grid", gridTemplateColumns: "290px minmax(0, 1fr)", flex: 1, minHeight: 0, height: "calc(100vh - 96px)", overflow: "hidden" }}>
+          {mobileMenuOpen && (
+            <button
+              type="button"
+              aria-label="Close docs menu"
+              className="docsMobileBackdrop"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{
+                position: "fixed",
+                inset: 0,
+                zIndex: 40,
+                border: "none",
+                background: "rgba(15, 23, 42, 0.45)",
+                cursor: "pointer",
+              }}
+            />
+          )}
           {/* SIDEBAR */}
           <aside
-            className="docsSidebar"
+            className={`docsSidebar${mobileMenuOpen ? " isOpen" : ""}`}
             style={{
               height: "100%",
               overflowY: "auto",
@@ -1361,6 +1413,7 @@ export function AIxlenceDocsContent({ pageId = "overview" }: { pageId?: AIxlence
                       <Link
                         key={item.id}
                         href={pagePath(item.id)}
+                        onClick={() => setMobileMenuOpen(false)}
                         style={{
                           color: active ? "var(--docs-heading)" : "var(--docs-muted)",
                           textDecoration: "none",

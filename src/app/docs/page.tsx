@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import styles from "./docs.module.css";
@@ -255,6 +256,7 @@ const DOC_SECTIONS: DocSection[] = [
 ];
 
 export default function DocsPage() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredSections = useMemo(() => {
@@ -272,6 +274,15 @@ export default function DocsPage() {
     })).filter((section) => section.items.length > 0);
   }, [searchQuery]);
 
+  const goToFirstResult = () => {
+    const first = filteredSections[0]?.items[0];
+    if (!first) return;
+    const href =
+      first.href ||
+      `/openvals-docs${first.id === "welcome" ? "" : `/${first.id}`}`;
+    router.push(href);
+  };
+
   return (
     <>
       <Header />
@@ -280,9 +291,6 @@ export default function DocsPage() {
           {/* Header Area */}
           <div className={styles.headerArea}>
             <div className={styles.titleRow}>
-              <span className={styles.titleIcon} role="img" aria-label="Documentation">
-                📖
-              </span>
               <h1 className={styles.pageTitle}>Documentation</h1>
             </div>
             <p className={styles.subtitle}>
@@ -292,7 +300,10 @@ export default function DocsPage() {
             {/* Search Bar matching "Ask HuggingChat" style */}
             <form
               className={styles.searchBarForm}
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                goToFirstResult();
+              }}
             >
               <div className={styles.searchBarInner}>
                 <div className={styles.searchIconLeft}>

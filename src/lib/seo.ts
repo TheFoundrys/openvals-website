@@ -254,7 +254,7 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
   "/docs": {
     title: "Docs Hub",
     description: "OpenVals documentation hub for platforms, products, and AI validation guides.",
-    // Permanent redirect target is /openvals-docs — keep out of sitemap/index.
+    // Hub indexes product docs; canonical product docs live under /openvals-docs.
     noIndex: true,
   },
   "/openvals-docs": {

@@ -137,7 +137,7 @@ const RECOGNITION: RecognitionItem[] = [
     link: "https://ehealth.eletsonline.com/2024/06/13th-elets-healthcare-innovation-awards-ceremony-honoured-exemplary-contributions-towards-advancing-healthcare-innovation/"
   },
   {
-    logo: "/logos/pride india awards.png",
+    logo: "/logos/pride-india-awards.png",
     title: "Pride India Awards",
     desc: "Excellence in AI & Deep Tech Innovation",
     link: "https://www.instagram.com/p/DKiuoYBMeWA/"

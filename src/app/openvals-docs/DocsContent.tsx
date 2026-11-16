@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import CopyableCodeBlock from "./CopyableCodeBlock";
@@ -822,8 +825,11 @@ function PillGrid({ items }: { items: string[] }) {
 
 function DocsTable({ headers, rows }: { headers: string[]; rows: React.ReactNode[][] }) {
   return (
-    <div className="docsTableWrap" style={{ overflowX: "auto", border: "1px solid var(--docs-border)", borderRadius: "14px", margin: "20px 0 22px" }}>
-      <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "560px" }}>
+    <div className="docsTableWrap" style={{ overflowX: "auto", WebkitOverflowScrolling: "touch", border: "1px solid var(--docs-border)", borderRadius: "14px", margin: "20px 0 22px" }}>
+      <div style={{ fontSize: "12px", color: "var(--docs-muted)", margin: "0 0 8px", padding: "0 2px" }} className="docsTableScrollHint">
+        Scroll horizontally to see all columns
+      </div>
+      <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "min(100%, 480px)" }}>
         <thead>
           <tr style={{ background: "var(--docs-code-bg)", color: "var(--docs-heading)", textAlign: "left" }}>
             {headers.map((head) => (
@@ -984,7 +990,7 @@ const ScreenshotsPage = () => {
         fontFamily: "var(--font-sans)"
       }}>
         <div style={{
-          background: "linear-gradient(135deg, #090e1a 0%, #1e1b4b 100%)",
+          background: "#0b1220",
           padding: "24px 30px",
           color: "#ffffff",
           display: "flex",
@@ -1000,7 +1006,7 @@ const ScreenshotsPage = () => {
                 width: "28px",
                 height: "28px",
                 borderRadius: "50%",
-                background: "linear-gradient(to right, #8b5cf6, #3b82f6)",
+                background: "#3b82f6",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -1014,12 +1020,12 @@ const ScreenshotsPage = () => {
                 fontSize: "12px",
                 padding: "2px 8px",
                 borderRadius: "4px",
-                color: "#a5b4fc",
+                color: "#93c5fd",
                 fontWeight: 500,
                 marginLeft: "8px"
               }}>AI Trust Intelligence Report</span>
             </div>
-            <div style={{ fontSize: "13px", color: "#a5b4fc", opacity: 0.9 }}>
+            <div style={{ fontSize: "13px", color: "#93c5fd", opacity: 0.9 }}>
               Comprehensive evaluation of AI models across trust, performance, and operational dimensions
             </div>
             
@@ -1061,12 +1067,12 @@ const ScreenshotsPage = () => {
               <div style={{ fontSize: "10px", fontWeight: 500, color: "#10b981", letterSpacing: "1px", textTransform: "uppercase" }}>Recommended Model</div>
               <div style={{ fontSize: "20px", fontWeight: 500, color: "#ffffff", margin: "4px 0 6px" }}>Llama3</div>
               <div style={{ display: "inline-block", background: "#10b981", color: "#064e3b", fontSize: "11px", fontWeight: 500, padding: "2px 8px", borderRadius: "4px" }}>Enterprise Ready</div>
-              <div style={{ fontSize: "11px", color: "#a5b4fc", marginTop: "6px", display: "flex", alignItems: "center", gap: "4px" }}>
+              <div style={{ fontSize: "11px", color: "#93c5fd", marginTop: "6px", display: "flex", alignItems: "center", gap: "4px" }}>
                 <span style={{ color: "#10b981" }}>✓</span> High Trust
               </div>
             </div>
             <div style={{ textAlign: "right", borderLeft: "1px solid rgba(255,255,255,0.1)", paddingLeft: "16px" }}>
-              <div style={{ fontSize: "10px", color: "#a5b4fc", textTransform: "uppercase" }}>DRS Score</div>
+              <div style={{ fontSize: "10px", color: "#93c5fd", textTransform: "uppercase" }}>DRS Score</div>
               <div style={{ fontSize: "36px", fontWeight: 500, color: "#10b981" }}>0.89</div>
             </div>
           </div>
@@ -1083,7 +1089,7 @@ const ScreenshotsPage = () => {
           {[
             { label: "Performance", score: "0.87", rating: "High", color: "#3b82f6", points: "5,20 15,22 25,12 35,16 45,6 55,2" },
             { label: "Trust Intelligence", score: "0.91", rating: "Very High", color: "#10b981", points: "5,18 15,16 25,20 35,8 45,10 55,4" },
-            { label: "Infrastructure", score: "0.82", rating: "High", color: "#8b5cf6", points: "5,12 15,18 25,14 35,20 45,8 55,6" },
+            { label: "Infrastructure", score: "0.82", rating: "High", color: "#3b82f6", points: "5,12 15,18 25,14 35,20 45,8 55,6" },
             { label: "Governance", score: "0.75", rating: "Medium", color: "#f59e0b", points: "5,22 15,14 25,18 35,12 45,6 55,10" }
           ].map((cat, i) => (
             <div key={i} style={{
@@ -1174,7 +1180,7 @@ const ScreenshotsPage = () => {
                 <div style={{ width: "8px", height: "8px", background: "#10b981", borderRadius: "2px" }} /> <span style={{ color: "var(--docs-muted)" }}>Mistral</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                <div style={{ width: "8px", height: "8px", background: "#8b5cf6", borderRadius: "2px" }} /> <span style={{ color: "var(--docs-muted)" }}>Llama2</span>
+                <div style={{ width: "8px", height: "8px", background: "#3b82f6", borderRadius: "2px" }} /> <span style={{ color: "var(--docs-muted)" }}>Llama2</span>
               </div>
             </div>
 
@@ -1185,7 +1191,7 @@ const ScreenshotsPage = () => {
                 data={[
                   { label: "L3", val: 0.89, color: "#3b82f6" },
                   { label: "Mis", val: 0.83, color: "#10b981" },
-                  { label: "L2", val: 0.71, color: "#8b5cf6" }
+                  { label: "L2", val: 0.71, color: "#3b82f6" }
                 ]}
               />
               <GroupedBarChart
@@ -1194,7 +1200,7 @@ const ScreenshotsPage = () => {
                 data={[
                   { label: "L3", val: 412, color: "#3b82f6" },
                   { label: "Mis", val: 645, color: "#10b981" },
-                  { label: "L2", val: 1023, color: "#8b5cf6" }
+                  { label: "L2", val: 1023, color: "#3b82f6" }
                 ]}
               />
               <GroupedBarChart
@@ -1203,7 +1209,7 @@ const ScreenshotsPage = () => {
                 data={[
                   { label: "L3", val: 0.11, color: "#3b82f6" },
                   { label: "Mis", val: 0.21, color: "#10b981" },
-                  { label: "L2", val: 0.48, color: "#8b5cf6" }
+                  { label: "L2", val: 0.48, color: "#3b82f6" }
                 ]}
               />
               <GroupedBarChart
@@ -1213,7 +1219,7 @@ const ScreenshotsPage = () => {
                 data={[
                   { label: "L3", val: 91.2, color: "#3b82f6" },
                   { label: "Mis", val: 87.3, color: "#10b981" },
-                  { label: "L2", val: 78.6, color: "#8b5cf6" }
+                  { label: "L2", val: 78.6, color: "#3b82f6" }
                 ]}
               />
             </div>
@@ -1470,11 +1476,11 @@ const ScreenshotsPage = () => {
       }}>
         <div style={{
           padding: "30px 40px",
-          background: "linear-gradient(135deg, #090e1a 0%, #171638 100%)",
+          background: "#0b1220",
           borderBottom: "1px solid #1e293b"
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-            <span style={{ fontSize: "12px", background: "rgba(255,255,255,0.08)", padding: "2px 8px", borderRadius: "4px", color: "#a5b4fc", textTransform: "uppercase", fontWeight: 500, letterSpacing: "0.5px" }}>OpenVals</span>
+            <span style={{ fontSize: "12px", background: "rgba(255,255,255,0.08)", padding: "2px 8px", borderRadius: "4px", color: "#93c5fd", textTransform: "uppercase", fontWeight: 500, letterSpacing: "0.5px" }}>OpenVals</span>
           </div>
           <h3 style={{ fontSize: "24px", fontWeight: 500, margin: "0 0 8px", color: "#ffffff" }}>AI Trust Intelligence Report</h3>
           <div style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px" }}>
@@ -2989,6 +2995,7 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
 
 export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
   const meta = docsPageMeta[pageId];
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const openvalsTabs: DocsTabItem[] = [
     {
@@ -3201,6 +3208,28 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
               display: none;
             }
 
+            .docsMobileMenuBtn {
+              display: none !important;
+            }
+
+            .docsMobileBackdrop {
+              display: none;
+            }
+
+            .docsTableScrollHint {
+              display: none;
+            }
+
+            @media (max-width: 1100px) {
+              .docsPageWrap {
+                grid-template-columns: minmax(0, 1fr) !important;
+              }
+
+              .docsToc {
+                display: none !important;
+              }
+            }
+
             @media (max-width: 860px) {
               .docsBodyGrid {
                 grid-template-columns: minmax(0, 1fr) !important;
@@ -3208,8 +3237,32 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
                 height: calc(100dvh - 96px) !important;
               }
 
+              .docsMobileMenuBtn {
+                display: inline-flex !important;
+              }
+
+              .docsMobileBackdrop {
+                display: block;
+              }
+
+              .docsTableScrollHint {
+                display: block;
+              }
+
               .docsSidebar {
                 display: none !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                bottom: 0 !important;
+                width: min(86vw, 320px) !important;
+                z-index: 45 !important;
+                background: var(--docs-panel) !important;
+                box-shadow: 12px 0 40px rgba(15, 23, 42, 0.2);
+              }
+
+              .docsSidebar.isOpen {
+                display: block !important;
               }
 
               .docsGlobalHeaderRow1,
@@ -3333,11 +3386,35 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
       />
     <div className="docsShell" style={{ height: "100vh", maxHeight: "100dvh", width: "100%", background: "var(--docs-bg)", color: "var(--docs-text)", fontFamily: "var(--font-sans)", display: "flex", flexDirection: "column", overflow: "hidden", colorScheme: "light dark" }}>
       {/* Unified 2-tier docs header matching Arize screenshot */}
-      <DocsGlobalHeader currentSuite="openvals" tabs={openvalsTabs} />
+      <DocsGlobalHeader
+        currentSuite="openvals"
+        tabs={openvalsTabs}
+        isMobileMenuOpen={mobileMenuOpen}
+        onToggleMobileMenu={() => setMobileMenuOpen((open) => !open)}
+      />
 
       {/* Main split: Sidebar + Article */}
       <div className="docsBodyGrid" style={{ display: "grid", gridTemplateColumns: "290px minmax(0, 1fr)", flex: 1, minHeight: 0, height: "calc(100vh - 96px)", overflow: "hidden" }}>
-        <aside className="docsSidebar" style={{ height: "100%", overflowY: "auto", borderRight: "1px solid var(--docs-border)", padding: "28px 24px", background: "var(--docs-panel)" }}>
+        {mobileMenuOpen && (
+          <button
+            type="button"
+            aria-label="Close docs menu"
+            className="docsMobileBackdrop"
+            onClick={() => setMobileMenuOpen(false)}
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 40,
+              border: "none",
+              background: "rgba(15, 23, 42, 0.45)",
+              cursor: "pointer",
+            }}
+          />
+        )}
+        <aside
+          className={`docsSidebar${mobileMenuOpen ? " isOpen" : ""}`}
+          style={{ height: "100%", overflowY: "auto", borderRight: "1px solid var(--docs-border)", padding: "28px 24px", background: "var(--docs-panel)" }}
+        >
           <nav style={{ display: "grid", gap: "32px" }}>
             {navSections.map((section) => (
               <div key={section.title}>
@@ -3349,6 +3426,7 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
                       <Link
                         key={item.id}
                         href={pagePath(item.id)}
+                        onClick={() => setMobileMenuOpen(false)}
                         style={{
                           color: active ? "var(--docs-heading)" : "var(--docs-muted)",
                           textDecoration: "none",
@@ -3374,8 +3452,8 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
             <a href="https://github.com/vishwanathakuthota/openvals" target="_blank" rel="noopener noreferrer" style={{ color: "var(--docs-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13.5px" }}>
               GitHub <ExternalLink size={14} />
             </a>
-            <Link href="/apply" style={{ color: "var(--docs-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13.5px" }}>
-              Enterprise Support <ExternalLink size={14} />
+            <Link href="/apply" onClick={() => setMobileMenuOpen(false)} style={{ color: "var(--docs-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13.5px" }}>
+              Enterprise Support <ArrowRight size={14} />
             </Link>
           </div>
         </aside>
@@ -3399,7 +3477,7 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
             )}
           </nav>
 
-          <div className="docsPageWrap" style={{ maxWidth: "980px", margin: "0 auto", padding: "48px 48px 96px" }}>
+          <div className="docsPageWrap" style={{ maxWidth: "1120px", margin: "0 auto", padding: "48px 48px 96px", display: "grid", gridTemplateColumns: "minmax(0, 1fr) 200px", gap: "40px", alignItems: "start" }}>
             <article className="docsArticle" style={{ minWidth: 0 }}>
               <div className="docsEyebrow" style={{ color: "var(--docs-muted)", marginBottom: "14px", fontFamily: "var(--font-sans)", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>{meta.group}</div>
               <h1 className="docsTitle" style={{ fontFamily: "var(--font-sans)", fontSize: "40px", lineHeight: 1.15, letterSpacing: "-0.02em", margin: "0 0 32px", color: "var(--docs-heading)", fontWeight: 500 }}>
@@ -3407,6 +3485,28 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
               </h1>
               <PageBody pageId={pageId} />
             </article>
+            <aside className="docsToc" aria-label="On this page" style={{ position: "sticky", top: "24px", paddingTop: "8px" }}>
+              <div style={{ fontFamily: "var(--font-sans)", fontSize: "12px", fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase", color: "var(--docs-heading)", marginBottom: "12px" }}>
+                On this page
+              </div>
+              <nav style={{ display: "grid", gap: "8px", borderLeft: "1px solid var(--docs-border)", paddingLeft: "12px" }}>
+                {meta.onThisPage.map((item) => (
+                  <a
+                    key={item}
+                    href={`#${anchor(item)}`}
+                    style={{
+                      fontFamily: "var(--font-sans)",
+                      fontSize: "13px",
+                      lineHeight: 1.4,
+                      color: "var(--docs-muted)",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {item}
+                  </a>
+                ))}
+              </nav>
+            </aside>
           </div>
         </section>
       </div>

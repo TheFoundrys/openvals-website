@@ -39,13 +39,14 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/docs",
-        destination: "/openvals-docs",
+        // Keep the docs hub at /docs; only slug pages redirect into openvals-docs.
+        source: "/docs/:slug+",
+        destination: "/openvals-docs/:slug+",
         permanent: true,
       },
       {
-        source: "/docs/:slug*",
-        destination: "/openvals-docs/:slug*",
+        source: "/openvals-docs/quick-start",
+        destination: "/openvals-docs",
         permanent: true,
       },
     ];

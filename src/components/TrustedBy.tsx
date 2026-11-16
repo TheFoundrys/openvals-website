@@ -14,7 +14,7 @@ const LOGOS = [
   { name: "DasHerz Surgicals", src: "/logos/dasherz.png", url: "https://dasherz.in/" },
   { name: "Techoptima", src: "/logos/Techoptima.avif", url: "https://techoptima.ai" },
   { name: "Universal Surgicals", src: "/logos/universal-surgicals.png", url: "https://universalsurgicals.com/" },
-  { name: "The Foundrys", src: "/logos/the foundrys.avif", url: "https://thefoundrys.com" },
+  { name: "The Foundrys", src: "/logos/the-foundrys.avif", url: "https://thefoundrys.com" },
   { name: "Transforma", src: "/logos/transforma.avif", url: "https://www.transforma.in/" },
   { name: "Plugscale", src: "/logos/plugscale.png", url: "https://www.plugscale.com/" },
 ];

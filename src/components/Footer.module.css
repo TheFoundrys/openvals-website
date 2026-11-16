@@ -59,7 +59,7 @@
   font-weight: 400;
   line-height: 1.4;
   margin: 0;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .metaLink {
@@ -154,15 +154,11 @@
 }
 
 .aboutNavLink:not(:last-child)::after,
-.footerLegalRow .metaLink::after {
+.footerLegalRow .metaLink:not(:last-of-type)::after {
   content: "·";
   margin: 0 clamp(10px, 1.5vw, 16px);
   color: var(--border);
   pointer-events: none;
-}
-
-.footerLegalRow .metaLink:last-of-type::after {
-  content: "·";
 }
 
 .aboutNavLink:hover {
