@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import JsonLdScript from "@/components/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
 import { breadcrumbJsonLd } from "@/lib/structuredData";
-import { DocsContent, docsPageIds, docsPageMeta, isDocsPageId } from "../DocsContent";
+import { DocsContent } from "../DocsContent";
+import { docsPageIds, docsPageMeta, isDocsPageId } from "../docsData";
 
 type DocsSlugPageProps = {
   params: Promise<{ slug: string }>;

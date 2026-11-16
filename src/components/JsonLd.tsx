@@ -8,7 +8,8 @@ function normalizeJsonLd(data: JsonLd): Record<string, unknown> | null {
     const graph = data
       .filter((item): item is Record<string, unknown> => Boolean(item) && typeof item === "object")
       .map((item) => {
-        const { "@context": _context, ...rest } = item;
+        const rest = { ...item };
+        delete rest["@context"];
         return rest;
       });
 
