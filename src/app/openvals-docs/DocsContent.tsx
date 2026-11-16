@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import CopyableCodeBlock from "./CopyableCodeBlock";
@@ -43,10 +46,9 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
   {
     title: "1. Start here",
     items: [
-      { id: "welcome", label: "Your roadmap" },
+      { id: "welcome", label: "Quickstart" },
       { id: "why-openvals", label: "Why OpenVals" },
       { id: "installation", label: "Install" },
-      { id: "quick-start", label: "First evaluation" },
     ],
   },
   {
@@ -95,23 +97,37 @@ const navSections: Array<{ title: string; items: Array<{ id: DocsPageId; label: 
   },
 ];
 
-export const docsPageIds = navSections.flatMap((section) => section.items.map((item) => item.id));
-
 export const docsPageMeta: Record<DocsPageId, { group: string; title: string; onThisPage: string[] }> = {
   welcome: {
     group: "1. Start here",
-    title: "Your OpenVals roadmap",
+    title: "Quickstart",
     onThisPage: [
-      "What OpenVals does",
-      "The learning path",
-      "Pick your starting lane",
-      "What you will learn to measure",
-      "Go deeper when you need it",
+      "1. Environment readiness",
+      "2. Provider discovery",
+      "3. Model discovery",
+      "4. Dataset discovery",
+      "5. Recommend a model",
+      "6. Benchmark and get a trust verdict",
+      "The whole flow, end to end",
+      "Next steps",
     ],
   },
   "why-openvals": { group: "1. Start here", title: "Why OpenVals", onThisPage: ["Problem", "Why OpenVals?", "Enterprise Use Cases", "What It Solves"] },
   installation: { group: "1. Start here", title: "Installation", onThisPage: ["Install", "Requirements"] },
-  "quick-start": { group: "1. Start here", title: "First evaluation", onThisPage: ["1. Install the CLI", "2. Run a Benchmark", "3. Validate a Dataset", "Benchmark Multiple Models with Config", "Show Version", "Python SDK Example", "Example Trust Intelligence Report"] },
+  "quick-start": {
+    group: "1. Start here",
+    title: "Quickstart",
+    onThisPage: [
+      "1. Environment readiness",
+      "2. Provider discovery",
+      "3. Model discovery",
+      "4. Dataset discovery",
+      "5. Recommend a model",
+      "6. Benchmark and get a trust verdict",
+      "The whole flow, end to end",
+      "Next steps",
+    ],
+  },
   drs: { group: "2. Measure trust", title: "Decision Reliability Score (DRS)", onThisPage: ["Overview", "Formula", "Signals"] },
   "model-evaluation": { group: "2. Measure trust", title: "Model Evaluation", onThisPage: ["Metrics", "Evaluation Signals"] },
   "factuality-engine": { group: "2. Measure trust", title: "Factuality Engine", onThisPage: ["Overview", "Capabilities", "Outputs"] },
@@ -250,6 +266,8 @@ export const docsPageMeta: Record<DocsPageId, { group: string; title: string; on
     ],
   },
 };
+
+export const docsPageIds = Object.keys(docsPageMeta) as DocsPageId[];
 
 const whyItems = [
   "Aligns evaluation with business objectives",
@@ -431,6 +449,177 @@ function CodeBlock({ children }: { children: string }) {
   return <CopyableCodeBlock>{children}</CopyableCodeBlock>;
 }
 
+function DocsCallout({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <aside
+      style={{
+        margin: "18px 0 22px",
+        padding: "16px 18px",
+        border: "1px solid var(--docs-border)",
+        borderLeft: "4px solid var(--docs-accent)",
+        borderRadius: "0 12px 12px 0",
+        background: "var(--docs-code-bg)",
+      }}
+    >
+      <div style={{ fontWeight: 600, color: "var(--docs-heading)", fontSize: "15px", marginBottom: "8px" }}>
+        {title}
+      </div>
+      <div style={{ color: "var(--docs-muted)", fontSize: "15px", lineHeight: 1.65 }}>{children}</div>
+    </aside>
+  );
+}
+
+function QuickstartPage() {
+  const flow = [
+    { stage: "Environment readiness", cmd: "openvals doctor" },
+    { stage: "Provider discovery", cmd: "openvals providers" },
+    { stage: "Model discovery", cmd: "openvals models" },
+    { stage: "Dataset discovery", cmd: "openvals datasets" },
+    { stage: "Use-case analysis", cmd: "openvals recommend-model --problem ..." },
+    { stage: "Model recommendation", cmd: "recommend-model output" },
+    { stage: "Benchmarking", cmd: "openvals trust-advisor --benchmark" },
+    { stage: "TRI + DRS", cmd: "openvals trust-advisor --explain" },
+    { stage: "Trust verdict", cmd: "trust-advisor output" },
+  ];
+
+  return (
+    <>
+      <Paragraph>
+        Install OpenVals, then run the recommended CLI journey: check readiness, discover providers and
+        models, analyze the use case, recommend a model, and finish with a TRI + DRS trust verdict.
+      </Paragraph>
+
+      <div
+        style={{
+          margin: "8px 0 8px",
+          color: "var(--docs-heading)",
+          fontWeight: 600,
+          fontSize: "16px",
+        }}
+      >
+        Up and running
+      </div>
+      <CodeBlock>{`pip install openvals`}</CodeBlock>
+      <Paragraph>
+        When the install finishes, run the steps below in order. Use the same problem description for
+        recommendation and trust-advisor.
+      </Paragraph>
+
+      <H2>1. Environment readiness</H2>
+      <CodeBlock>{`openvals doctor`}</CodeBlock>
+      <Paragraph>
+        Confirms Python, providers, local models, and system limits before you evaluate anything.
+      </Paragraph>
+      <DocsCallout title="Fix blockers first">
+        If doctor reports missing providers or local runtime issues, resolve them before discovery.
+        See <TextLink href={pagePath("samples")}>CLI samples</TextLink> for example doctor output.
+      </DocsCallout>
+
+      <H2>2. Provider discovery</H2>
+      <CodeBlock>{`openvals providers`}</CodeBlock>
+      <Paragraph>
+        Lists connected and available inference providers so OpenVals knows where models can run.
+      </Paragraph>
+
+      <H2>3. Model discovery</H2>
+      <CodeBlock>{`openvals models`}</CodeBlock>
+      <Paragraph>Inspects models available through connected or local providers.</Paragraph>
+
+      <H2>4. Dataset discovery</H2>
+      <CodeBlock>{`openvals datasets`}</CodeBlock>
+      <Paragraph>Reviews evaluation datasets and domains you can benchmark against.</Paragraph>
+
+      <H2>5. Recommend a model</H2>
+      <CodeBlock>{`openvals recommend-model \\
+  --problem "Describe the AI use case here"`}</CodeBlock>
+      <Paragraph>
+        Describe the AI problem. OpenVals analyzes the use case and recommends suitable models.
+      </Paragraph>
+      <DocsCallout title="Keep the problem string">
+        Reuse the same <code>--problem</code> text in the next step so recommendation and benchmarking
+        stay aligned to one use case.
+      </DocsCallout>
+
+      <H2>6. Benchmark and get a trust verdict</H2>
+      <CodeBlock>{`openvals trust-advisor \\
+  --problem "Describe the AI use case here" \\
+  --benchmark \\
+  --mode quick \\
+  --explain`}</CodeBlock>
+      <Paragraph>
+        Runs a quick benchmark with explanation to produce Trust Readiness Index (TRI), Decision
+        Reliability Score (DRS), and a deployability verdict.
+      </Paragraph>
+      <DocsCallout title="What TRI and DRS answer">
+        TRI summarizes readiness for the use case. DRS answers whether the model can be trusted in
+        production. Together they form the OpenVals trust verdict.
+      </DocsCallout>
+
+      <H2>The whole flow, end to end</H2>
+      <Paragraph>Each command maps to a stage in the OpenVals platform workflow:</Paragraph>
+      <div
+        style={{
+          border: "1px solid var(--docs-border)",
+          borderRadius: "14px",
+          overflow: "hidden",
+          margin: "18px 0 28px",
+          background: "var(--docs-card)",
+        }}
+      >
+        {flow.map((row, idx) => (
+          <div
+            key={row.stage}
+            style={{
+              display: "grid",
+              gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1.2fr)",
+              gap: "12px",
+              alignItems: "center",
+              padding: "14px 18px",
+              borderBottom: idx === flow.length - 1 ? "none" : "1px solid var(--docs-border-soft)",
+            }}
+          >
+            <div style={{ color: "var(--docs-heading)", fontWeight: 600, fontSize: "15px" }}>
+              {row.stage}
+            </div>
+            <code
+              style={{
+                fontSize: "13px",
+                color: "var(--docs-muted)",
+                background: "var(--docs-code-bg)",
+                border: "1px solid var(--docs-border-soft)",
+                borderRadius: "8px",
+                padding: "8px 10px",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {row.cmd}
+            </code>
+          </div>
+        ))}
+      </div>
+
+      <H2>Next steps</H2>
+      <BulletList
+        items={[
+          "Read Why OpenVals for the product rationale behind the journey.",
+          "Open DRS and the metrics guide to interpret TRI, DRS, and related scores.",
+          "Use CLI samples for concrete doctor and trust-advisor outputs.",
+          "Move to Use Case Advisor when you want the same flow in the platform UI.",
+        ]}
+      />
+      <Paragraph>
+        Continue with{" "}
+        <TextLink href={pagePath("why-openvals")}>Why OpenVals</TextLink>,{" "}
+        <TextLink href={pagePath("drs")}>DRS</TextLink>,{" "}
+        <TextLink href={pagePath("metrics")}>metrics</TextLink>, or{" "}
+        <TextLink href={pagePath("use-case-advisor")}>Use Case Advisor</TextLink>.
+      </Paragraph>
+    </>
+  );
+}
+
 function Terminal({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
@@ -439,7 +628,7 @@ function Terminal({ children }: { children: React.ReactNode }) {
       border: "1px solid var(--docs-border)",
       overflow: "hidden",
       margin: "24px 0",
-      fontFamily: "var(--font-serif-main)",
+      fontFamily: "var(--font-mono)",
       fontSize: "14px",
       lineHeight: "1.6",
       boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)"
@@ -538,12 +727,12 @@ function DatasetValidationTerminal() {
 
 function ScoreFormula({ label = "Score" }: { label?: string }) {
   return (
-    <div style={{ marginTop: "18px", display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--docs-heading)", fontFamily: "var(--font-serif-main)", fontStyle: "italic", fontWeight: 500, fontSize: "18px" }}>
+    <div style={{ marginTop: "18px", display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--docs-heading)", fontFamily: "var(--font-sans)", fontStyle: "italic", fontWeight: 500, fontSize: "18px" }}>
       <span>{label} =</span>
       <span style={{ position: "relative", display: "inline-grid", placeItems: "center", width: "42px", height: "72px", fontStyle: "normal", fontSize: "40px", lineHeight: 1 }}>
-        <span style={{ position: "absolute", top: "0", fontSize: "12px", fontStyle: "italic", fontFamily: "var(--font-serif-main)", fontWeight: 500 }}>n</span>
+        <span style={{ position: "absolute", top: "0", fontSize: "12px", fontStyle: "italic", fontFamily: "var(--font-sans)", fontWeight: 500 }}>n</span>
         <span style={{ transform: "scaleX(0.72)", transformOrigin: "center", fontWeight: 300, marginTop: "2px" }}>&sum;</span>
-        <span style={{ position: "absolute", bottom: "-3px", fontSize: "13px", lineHeight: 1, fontStyle: "italic", fontFamily: "var(--font-serif-main)", fontWeight: 500, whiteSpace: "nowrap" }}>i = 1</span>
+        <span style={{ position: "absolute", bottom: "-3px", fontSize: "13px", lineHeight: 1, fontStyle: "italic", fontFamily: "var(--font-sans)", fontWeight: 500, whiteSpace: "nowrap" }}>i = 1</span>
       </span>
       <span>
         (w<sub>i</sub> x m<sub>i</sub>)
@@ -553,11 +742,42 @@ function ScoreFormula({ label = "Score" }: { label?: string }) {
 }
 
 function H2({ children }: { children: string }) {
-  return <h2 className="docsH2" id={anchor(children)} style={{ fontSize: "28px", lineHeight: 1.2, margin: "48px 0 18px", color: "var(--docs-heading)", scrollMarginTop: "90px" }}>{children}</h2>;
+  return (
+    <h2
+      className="docsH2"
+      id={anchor(children)}
+      style={{
+        fontFamily: "var(--font-sans)",
+        fontSize: "28px",
+        fontWeight: 500,
+        lineHeight: 1.2,
+        letterSpacing: "-0.02em",
+        margin: "48px 0 18px",
+        color: "var(--docs-heading)",
+        scrollMarginTop: "90px",
+      }}
+    >
+      {children}
+    </h2>
+  );
 }
 
 function Paragraph({ children }: { children: React.ReactNode }) {
-  return <p className="docsParagraph" style={{ color: "var(--docs-muted)", fontSize: "17px", lineHeight: 1.75, margin: "0 0 18px" }}>{children}</p>;
+  return (
+    <p
+      className="docsParagraph"
+      style={{
+        fontFamily: "var(--font-sans)",
+        color: "var(--docs-muted)",
+        fontSize: "17px",
+        fontWeight: 400,
+        lineHeight: 1.75,
+        margin: "0 0 18px",
+      }}
+    >
+      {children}
+    </p>
+  );
 }
 
 function TextLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -572,9 +792,22 @@ function TextLink({ href, children }: { href: string; children: React.ReactNode 
 
 function BulletList({ items }: { items: string[] }) {
   return (
-    <ul className="docsList" style={{ color: "var(--docs-muted)", fontSize: "17px", lineHeight: 1.75, margin: "0 0 22px", paddingLeft: "22px" }}>
+    <ul
+      className="docsList"
+      style={{
+        fontFamily: "var(--font-sans)",
+        color: "var(--docs-muted)",
+        fontSize: "17px",
+        fontWeight: 400,
+        lineHeight: 1.75,
+        margin: "0 0 22px",
+        paddingLeft: "22px",
+      }}
+    >
       {items.map((item) => (
-        <li key={item} style={{ marginBottom: "8px" }}>{item}</li>
+        <li key={item} style={{ marginBottom: "8px" }}>
+          {item}
+        </li>
       ))}
     </ul>
   );
@@ -590,123 +823,13 @@ function PillGrid({ items }: { items: string[] }) {
   );
 }
 
-function RoadmapStep({
-  step,
-  title,
-  body,
-  href,
-  cta,
-}: {
-  step: string;
-  title: string;
-  body: string;
-  href: string;
-  cta: string;
-}) {
-  return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "56px minmax(0, 1fr)",
-        gap: "16px",
-        padding: "18px 0",
-        borderBottom: "1px solid var(--docs-border-soft)",
-      }}
-    >
-      <div
-        style={{
-          width: "40px",
-          height: "40px",
-          borderRadius: "10px",
-          border: "1px solid var(--docs-border)",
-          background: "var(--docs-code-bg)",
-          color: "var(--docs-heading)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontWeight: 600,
-          fontSize: "14px",
-        }}
-      >
-        {step}
-      </div>
-      <div>
-        <div style={{ color: "var(--docs-heading)", fontWeight: 600, fontSize: "17px", marginBottom: "6px" }}>
-          {title}
-        </div>
-        <p style={{ color: "var(--docs-muted)", fontSize: "15.5px", lineHeight: 1.6, margin: "0 0 10px" }}>
-          {body}
-        </p>
-        <Link
-          href={href}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "6px",
-            color: "var(--docs-accent)",
-            fontSize: "14px",
-            fontWeight: 500,
-            textDecoration: "none",
-          }}
-        >
-          {cta} <ArrowRight size={14} />
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-function LaneCard({
-  title,
-  body,
-  href,
-  cta,
-}: {
-  title: string;
-  body: string;
-  href: string;
-  cta: string;
-}) {
-  return (
-    <Link
-      href={href}
-      style={{
-        display: "block",
-        border: "1px solid var(--docs-border)",
-        borderRadius: "12px",
-        padding: "18px 18px 16px",
-        background: "var(--docs-card)",
-        textDecoration: "none",
-        color: "inherit",
-        minHeight: "100%",
-      }}
-    >
-      <div style={{ color: "var(--docs-heading)", fontWeight: 600, fontSize: "16px", marginBottom: "8px" }}>
-        {title}
-      </div>
-      <p style={{ color: "var(--docs-muted)", fontSize: "14.5px", lineHeight: 1.55, margin: "0 0 14px" }}>
-        {body}
-      </p>
-      <span
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "6px",
-          color: "var(--docs-accent)",
-          fontSize: "13.5px",
-          fontWeight: 500,
-        }}
-      >
-        {cta} <ArrowRight size={14} />
-      </span>
-    </Link>
-  );
-}
-
 function DocsTable({ headers, rows }: { headers: string[]; rows: React.ReactNode[][] }) {
   return (
-    <div className="docsTableWrap" style={{ overflowX: "auto", border: "1px solid var(--docs-border)", borderRadius: "14px", margin: "20px 0 22px" }}>
-      <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "560px" }}>
+    <div className="docsTableWrap" style={{ overflowX: "auto", WebkitOverflowScrolling: "touch", border: "1px solid var(--docs-border)", borderRadius: "14px", margin: "20px 0 22px" }}>
+      <div style={{ fontSize: "12px", color: "var(--docs-muted)", margin: "0 0 8px", padding: "0 2px" }} className="docsTableScrollHint">
+        Scroll horizontally to see all columns
+      </div>
+      <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "min(100%, 480px)" }}>
         <thead>
           <tr style={{ background: "var(--docs-code-bg)", color: "var(--docs-heading)", textAlign: "left" }}>
             {headers.map((head) => (
@@ -864,10 +987,10 @@ const ScreenshotsPage = () => {
         borderRadius: "16px",
         overflow: "hidden",
         margin: "24px 0 48px",
-        fontFamily: "var(--font-serif-main)"
+        fontFamily: "var(--font-sans)"
       }}>
         <div style={{
-          background: "linear-gradient(135deg, #090e1a 0%, #1e1b4b 100%)",
+          background: "#0b1220",
           padding: "24px 30px",
           color: "#ffffff",
           display: "flex",
@@ -883,7 +1006,7 @@ const ScreenshotsPage = () => {
                 width: "28px",
                 height: "28px",
                 borderRadius: "50%",
-                background: "linear-gradient(to right, #8b5cf6, #3b82f6)",
+                background: "#3b82f6",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -897,12 +1020,12 @@ const ScreenshotsPage = () => {
                 fontSize: "12px",
                 padding: "2px 8px",
                 borderRadius: "4px",
-                color: "#a5b4fc",
+                color: "#93c5fd",
                 fontWeight: 500,
                 marginLeft: "8px"
               }}>AI Trust Intelligence Report</span>
             </div>
-            <div style={{ fontSize: "13px", color: "#a5b4fc", opacity: 0.9 }}>
+            <div style={{ fontSize: "13px", color: "#93c5fd", opacity: 0.9 }}>
               Comprehensive evaluation of AI models across trust, performance, and operational dimensions
             </div>
             
@@ -944,12 +1067,12 @@ const ScreenshotsPage = () => {
               <div style={{ fontSize: "10px", fontWeight: 500, color: "#10b981", letterSpacing: "1px", textTransform: "uppercase" }}>Recommended Model</div>
               <div style={{ fontSize: "20px", fontWeight: 500, color: "#ffffff", margin: "4px 0 6px" }}>Llama3</div>
               <div style={{ display: "inline-block", background: "#10b981", color: "#064e3b", fontSize: "11px", fontWeight: 500, padding: "2px 8px", borderRadius: "4px" }}>Enterprise Ready</div>
-              <div style={{ fontSize: "11px", color: "#a5b4fc", marginTop: "6px", display: "flex", alignItems: "center", gap: "4px" }}>
+              <div style={{ fontSize: "11px", color: "#93c5fd", marginTop: "6px", display: "flex", alignItems: "center", gap: "4px" }}>
                 <span style={{ color: "#10b981" }}>✓</span> High Trust
               </div>
             </div>
             <div style={{ textAlign: "right", borderLeft: "1px solid rgba(255,255,255,0.1)", paddingLeft: "16px" }}>
-              <div style={{ fontSize: "10px", color: "#a5b4fc", textTransform: "uppercase" }}>DRS Score</div>
+              <div style={{ fontSize: "10px", color: "#93c5fd", textTransform: "uppercase" }}>DRS Score</div>
               <div style={{ fontSize: "36px", fontWeight: 500, color: "#10b981" }}>0.89</div>
             </div>
           </div>
@@ -966,7 +1089,7 @@ const ScreenshotsPage = () => {
           {[
             { label: "Performance", score: "0.87", rating: "High", color: "#3b82f6", points: "5,20 15,22 25,12 35,16 45,6 55,2" },
             { label: "Trust Intelligence", score: "0.91", rating: "Very High", color: "#10b981", points: "5,18 15,16 25,20 35,8 45,10 55,4" },
-            { label: "Infrastructure", score: "0.82", rating: "High", color: "#8b5cf6", points: "5,12 15,18 25,14 35,20 45,8 55,6" },
+            { label: "Infrastructure", score: "0.82", rating: "High", color: "#3b82f6", points: "5,12 15,18 25,14 35,20 45,8 55,6" },
             { label: "Governance", score: "0.75", rating: "Medium", color: "#f59e0b", points: "5,22 15,14 25,18 35,12 45,6 55,10" }
           ].map((cat, i) => (
             <div key={i} style={{
@@ -1057,7 +1180,7 @@ const ScreenshotsPage = () => {
                 <div style={{ width: "8px", height: "8px", background: "#10b981", borderRadius: "2px" }} /> <span style={{ color: "var(--docs-muted)" }}>Mistral</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                <div style={{ width: "8px", height: "8px", background: "#8b5cf6", borderRadius: "2px" }} /> <span style={{ color: "var(--docs-muted)" }}>Llama2</span>
+                <div style={{ width: "8px", height: "8px", background: "#3b82f6", borderRadius: "2px" }} /> <span style={{ color: "var(--docs-muted)" }}>Llama2</span>
               </div>
             </div>
 
@@ -1068,7 +1191,7 @@ const ScreenshotsPage = () => {
                 data={[
                   { label: "L3", val: 0.89, color: "#3b82f6" },
                   { label: "Mis", val: 0.83, color: "#10b981" },
-                  { label: "L2", val: 0.71, color: "#8b5cf6" }
+                  { label: "L2", val: 0.71, color: "#3b82f6" }
                 ]}
               />
               <GroupedBarChart
@@ -1077,7 +1200,7 @@ const ScreenshotsPage = () => {
                 data={[
                   { label: "L3", val: 412, color: "#3b82f6" },
                   { label: "Mis", val: 645, color: "#10b981" },
-                  { label: "L2", val: 1023, color: "#8b5cf6" }
+                  { label: "L2", val: 1023, color: "#3b82f6" }
                 ]}
               />
               <GroupedBarChart
@@ -1086,7 +1209,7 @@ const ScreenshotsPage = () => {
                 data={[
                   { label: "L3", val: 0.11, color: "#3b82f6" },
                   { label: "Mis", val: 0.21, color: "#10b981" },
-                  { label: "L2", val: 0.48, color: "#8b5cf6" }
+                  { label: "L2", val: 0.48, color: "#3b82f6" }
                 ]}
               />
               <GroupedBarChart
@@ -1096,7 +1219,7 @@ const ScreenshotsPage = () => {
                 data={[
                   { label: "L3", val: 91.2, color: "#3b82f6" },
                   { label: "Mis", val: 87.3, color: "#10b981" },
-                  { label: "L2", val: 78.6, color: "#8b5cf6" }
+                  { label: "L2", val: 78.6, color: "#3b82f6" }
                 ]}
               />
             </div>
@@ -1349,15 +1472,15 @@ const ScreenshotsPage = () => {
         overflow: "hidden",
         margin: "24px 0 24px",
         color: "#f8fafc",
-        fontFamily: "var(--font-serif-main)"
+        fontFamily: "var(--font-sans)"
       }}>
         <div style={{
           padding: "30px 40px",
-          background: "linear-gradient(135deg, #090e1a 0%, #171638 100%)",
+          background: "#0b1220",
           borderBottom: "1px solid #1e293b"
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-            <span style={{ fontSize: "12px", background: "rgba(255,255,255,0.08)", padding: "2px 8px", borderRadius: "4px", color: "#a5b4fc", textTransform: "uppercase", fontWeight: 500, letterSpacing: "0.5px" }}>OpenVals</span>
+            <span style={{ fontSize: "12px", background: "rgba(255,255,255,0.08)", padding: "2px 8px", borderRadius: "4px", color: "#93c5fd", textTransform: "uppercase", fontWeight: 500, letterSpacing: "0.5px" }}>OpenVals</span>
           </div>
           <h3 style={{ fontSize: "24px", fontWeight: 500, margin: "0 0 8px", color: "#ffffff" }}>AI Trust Intelligence Report</h3>
           <div style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px" }}>
@@ -1475,162 +1598,8 @@ const ScreenshotsPage = () => {
 function PageBody({ pageId }: { pageId: DocsPageId }) {
   switch (pageId) {
     case "welcome":
-      return (
-        <>
-          <Paragraph>
-            OpenVals is the trust layer for AI. Use this docs set as a map: start with why it exists,
-            run your first evaluation, learn the trust metrics, then move into platform workflows,
-            integrations, and enterprise readiness.
-          </Paragraph>
-          <blockquote
-            style={{
-              margin: "8px 0 28px",
-              padding: "18px 20px",
-              borderLeft: "4px solid var(--docs-accent)",
-              background: "var(--docs-code-bg)",
-              borderRadius: "0 12px 12px 0",
-            }}
-          >
-            <div style={{ fontSize: "14px", color: "var(--docs-muted)", fontWeight: 500, marginBottom: "6px" }}>
-              The question OpenVals answers
-            </div>
-            <div style={{ fontSize: "22px", color: "var(--docs-heading)", fontWeight: 500 }}>
-              Can you trust this model for this use case?
-            </div>
-          </blockquote>
-
-          <H2>What OpenVals does</H2>
-          <Paragraph>
-            Traditional benchmarks stop at accuracy. OpenVals measures the signals that matter before
-            production: correctness, factuality, hallucination risk, reliability, safety, latency,
-            dataset quality, and decision readiness.
-          </Paragraph>
-          <PillGrid
-            items={[
-              "Evaluate models before deploy",
-              "Benchmark across labs and sizes",
-              "Score trust with DRS / HPI",
-              "Validate datasets, not just models",
-              "Generate executive evidence packs",
-              "Guide use-case and readiness decisions",
-            ]}
-          />
-
-          <H2>The learning path</H2>
-          <Paragraph>
-            Follow these steps in order the first time. Jump ahead later once you know which layer you need.
-          </Paragraph>
-          <div style={{ borderTop: "1px solid var(--docs-border)", marginTop: "8px" }}>
-            <RoadmapStep
-              step="01"
-              title="Understand the problem OpenVals solves"
-              body="See why demo accuracy fails in production, and what trust questions every team should ask."
-              href={pagePath("why-openvals")}
-              cta="Read Why OpenVals"
-            />
-            <RoadmapStep
-              step="02"
-              title="Install the CLI / SDK"
-              body="Get OpenVals on your machine so you can run evaluations locally and inspect your environment."
-              href={pagePath("installation")}
-              cta="Install OpenVals"
-            />
-            <RoadmapStep
-              step="03"
-              title="Run your first evaluation"
-              body="Benchmark a model, validate a dataset, and produce a trust report in minutes."
-              href={pagePath("quick-start")}
-              cta="Start first evaluation"
-            />
-            <RoadmapStep
-              step="04"
-              title="Learn the trust metrics"
-              body="DRS, factuality, hallucination probability, reliability, and how to interpret a good vs risky score."
-              href={pagePath("drs")}
-              cta="Open DRS guide"
-            />
-            <RoadmapStep
-              step="05"
-              title="Compare models and domains"
-              body="Run multi-model benchmarks across finance, software, cybersecurity, healthcare, and more."
-              href={pagePath("benchmarking")}
-              cta="Explore benchmarking"
-            />
-            <RoadmapStep
-              step="06"
-              title="Use the platform workflows"
-              body="Connect providers, run Use Case Advisor, launch validation runs, and read evidence packs."
-              href={pagePath("use-case-advisor")}
-              cta="Open platform guide"
-            />
-            <RoadmapStep
-              step="07"
-              title="Assess enterprise readiness"
-              body="Use AIxLence when you need capability diagnosis, roadmap sequencing, and board-ready outputs."
-              href={pagePath("aixlence")}
-              cta="Open AIxLence docs"
-            />
-          </div>
-
-          <H2>Pick your starting lane</H2>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "14px",
-              margin: "8px 0 10px",
-            }}
-          >
-            <LaneCard
-              title="Engineer / CLI"
-              body="Install, run benchmarks, validate datasets, and inspect CLI samples."
-              href={pagePath("installation")}
-              cta="Start with install"
-            />
-            <LaneCard
-              title="Platform operator"
-              body="Integrations, Use Case Advisor, validation runs, and end-to-end user flow."
-              href={pagePath("integrations")}
-              cta="Start with integrations"
-            />
-            <LaneCard
-              title="Governance / leadership"
-              body="DRS, reporting, domains, and AIxLence readiness for decision evidence."
-              href={pagePath("reporting")}
-              cta="Start with reporting"
-            />
-          </div>
-
-          <H2>What you will learn to measure</H2>
-          <DocsTable
-            headers={["Area", "What you get", "Go to"]}
-            rows={[
-              ["Trust score", "Decision Reliability Score across key signals", <TextLink key="drs" href={pagePath("drs")}>DRS</TextLink>],
-              ["Correctness", "Model evaluation and factuality checks", <TextLink key="eval" href={pagePath("model-evaluation")}>Model evaluation</TextLink>],
-              ["Hallucination risk", "Probability bands and failure modes", <TextLink key="hpi" href={pagePath("hpi")}>HPI</TextLink>],
-              ["Data quality", "Schema, balance, and dataset health", <TextLink key="data" href={pagePath("dataset-intelligence")}>Dataset intelligence</TextLink>],
-              ["Comparison", "Multi-model ranking on real domains", <TextLink key="bench" href={pagePath("benchmarking")}>Benchmarking</TextLink>],
-              ["Evidence", "Executive reports and UI previews", <TextLink key="rep" href={pagePath("reporting")}>Reporting</TextLink>],
-            ]}
-          />
-
-          <H2>Go deeper when you need it</H2>
-          <BulletList
-            items={[
-              "API contracts and architecture → Platform API Spec and Architecture Flow",
-              "Domain datasets → Supported Benchmark Domains",
-              "Security / contribution norms → Security Policy and Contributing",
-              "Product direction → Product roadmap and Vision",
-            ]}
-          />
-          <Paragraph>
-            Prefer a guided first hour? Start with{" "}
-            <TextLink href={pagePath("why-openvals")}>Why OpenVals</TextLink>, then{" "}
-            <TextLink href={pagePath("installation")}>Install</TextLink>, then{" "}
-            <TextLink href={pagePath("quick-start")}>First evaluation</TextLink>.
-          </Paragraph>
-        </>
-      );
+    case "quick-start":
+      return <QuickstartPage />;
     case "why-openvals":
       return (
         <>
@@ -1695,85 +1664,6 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
           <CodeBlock>{`pip install openvals`}</CodeBlock>
           <H2>Requirements</H2>
           <Paragraph>Use OpenVals from a Python environment where your evaluation datasets, model adapters, and provider credentials are available.</Paragraph>
-        </>
-      );
-    case "quick-start":
-      return (
-        <>
-          <Paragraph>Get up and running with OpenVals in under 60 seconds.</Paragraph>
-          
-          <H2>1. Install the CLI</H2>
-          <CodeBlock>{`pip install openvals`}</CodeBlock>
-          
-          <H2>2. Run a Benchmark</H2>
-          <Paragraph>Evaluate and compare models on a specific dataset:</Paragraph>
-          <CodeBlock>{`openvals benchmark \\
-  --dataset finance \\
-  --models mistral,llama3`}</CodeBlock>
-          
-          <h3 style={{ fontSize: "16px", color: "var(--docs-heading)", marginTop: "18px", marginBottom: "8px", fontWeight: 500 }}>Expected CLI Output:</h3>
-          <CodeBlock>{`Model      Accuracy    DRS
---------------------------------
-llama3     91.4        89.2
-mistral    87.8        82.4
-QWEN       70.7        69.7`}</CodeBlock>
-
-          <H2>3. Validate a Dataset</H2>
-          <Paragraph>Verify schema and quality before running model evaluations:</Paragraph>
-          <CodeBlock>{`openvals validate-dataset finance
-openvals validate-dataset ./customer_dataset.json
-openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
-
-          <H2>Benchmark Multiple Models with Config</H2>
-          <CodeBlock>{`openvals benchmark \\
-  --dataset finance \\
-  --models mistral,llama3 \\
-  --config finance`}</CodeBlock>
-
-          <H2>Show Version</H2>
-          <CodeBlock>{`openvals version`}</CodeBlock>
-
-          <H2>Python SDK Example</H2>
-          <CodeBlock>{`from openvals.benchmarking.runner import BenchmarkRunner
-from openvals.models.ollama_model import OllamaModel
-from openvals.datasets.loader import load_dataset
-
-dataset = load_dataset("examples/sample_eval.json")
-
-models = {
-    "llama2": OllamaModel("llama2"),
-    "llama3": OllamaModel("llama3"),
-    "mistral": OllamaModel("mistral")
-}
-
-runner = BenchmarkRunner(models, dataset)
-results = runner.run()
-
-print(results)`}</CodeBlock>
-
-          <H2>Example Trust Intelligence Report</H2>
-          <Paragraph>Below is an example of the detailed Trust Intelligence Report generated by the CLI:</Paragraph>
-          <CodeBlock>{`===================================================
-OpenVals Trust Intelligence Report
-===================================================
-
-Model: llama3
-
-Accuracy Score      : 91.4
-Semantic Score      : 89.1
-Factuality Score    : 92.3
-Safety Score        : 95.2
-Latency Score       : 83.0
-
-Hallucination Risk  : LOW
-
-Decision Reliability Score (DRS)
-
-89.2 / 100
-
-Deployment Status:
-
-READY FOR PRODUCTION`}</CodeBlock>
         </>
       );
     case "drs":
@@ -3105,6 +2995,7 @@ openvals validate-dataset ./customer_dataset.csv`}</CodeBlock>
 
 export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
   const meta = docsPageMeta[pageId];
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const openvalsTabs: DocsTabItem[] = [
     {
@@ -3317,6 +3208,28 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
               display: none;
             }
 
+            .docsMobileMenuBtn {
+              display: none !important;
+            }
+
+            .docsMobileBackdrop {
+              display: none;
+            }
+
+            .docsTableScrollHint {
+              display: none;
+            }
+
+            @media (max-width: 1100px) {
+              .docsPageWrap {
+                grid-template-columns: minmax(0, 1fr) !important;
+              }
+
+              .docsToc {
+                display: none !important;
+              }
+            }
+
             @media (max-width: 860px) {
               .docsBodyGrid {
                 grid-template-columns: minmax(0, 1fr) !important;
@@ -3324,8 +3237,32 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
                 height: calc(100dvh - 96px) !important;
               }
 
+              .docsMobileMenuBtn {
+                display: inline-flex !important;
+              }
+
+              .docsMobileBackdrop {
+                display: block;
+              }
+
+              .docsTableScrollHint {
+                display: block;
+              }
+
               .docsSidebar {
                 display: none !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                bottom: 0 !important;
+                width: min(86vw, 320px) !important;
+                z-index: 45 !important;
+                background: var(--docs-panel) !important;
+                box-shadow: 12px 0 40px rgba(15, 23, 42, 0.2);
+              }
+
+              .docsSidebar.isOpen {
+                display: block !important;
               }
 
               .docsGlobalHeaderRow1,
@@ -3403,14 +3340,18 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
               }
 
               .docsH2 {
+                font-family: var(--font-sans) !important;
                 font-size: 24px !important;
+                font-weight: 500 !important;
                 margin: 38px 0 16px !important;
                 scroll-margin-top: 122px !important;
               }
 
               .docsParagraph,
               .docsList {
+                font-family: var(--font-sans) !important;
                 font-size: 16px !important;
+                font-weight: 400 !important;
                 line-height: 1.7 !important;
               }
 
@@ -3443,17 +3384,41 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
           `,
         }}
       />
-    <div className="docsShell" style={{ height: "100vh", maxHeight: "100dvh", width: "100%", background: "var(--docs-bg)", color: "var(--docs-text)", display: "flex", flexDirection: "column", overflow: "hidden", colorScheme: "light dark" }}>
+    <div className="docsShell" style={{ height: "100vh", maxHeight: "100dvh", width: "100%", background: "var(--docs-bg)", color: "var(--docs-text)", fontFamily: "var(--font-sans)", display: "flex", flexDirection: "column", overflow: "hidden", colorScheme: "light dark" }}>
       {/* Unified 2-tier docs header matching Arize screenshot */}
-      <DocsGlobalHeader currentSuite="openvals" tabs={openvalsTabs} />
+      <DocsGlobalHeader
+        currentSuite="openvals"
+        tabs={openvalsTabs}
+        isMobileMenuOpen={mobileMenuOpen}
+        onToggleMobileMenu={() => setMobileMenuOpen((open) => !open)}
+      />
 
       {/* Main split: Sidebar + Article */}
       <div className="docsBodyGrid" style={{ display: "grid", gridTemplateColumns: "290px minmax(0, 1fr)", flex: 1, minHeight: 0, height: "calc(100vh - 96px)", overflow: "hidden" }}>
-        <aside className="docsSidebar" style={{ height: "100%", overflowY: "auto", borderRight: "1px solid var(--docs-border)", padding: "28px 24px", background: "var(--docs-panel)" }}>
+        {mobileMenuOpen && (
+          <button
+            type="button"
+            aria-label="Close docs menu"
+            className="docsMobileBackdrop"
+            onClick={() => setMobileMenuOpen(false)}
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 40,
+              border: "none",
+              background: "rgba(15, 23, 42, 0.45)",
+              cursor: "pointer",
+            }}
+          />
+        )}
+        <aside
+          className={`docsSidebar${mobileMenuOpen ? " isOpen" : ""}`}
+          style={{ height: "100%", overflowY: "auto", borderRight: "1px solid var(--docs-border)", padding: "28px 24px", background: "var(--docs-panel)" }}
+        >
           <nav style={{ display: "grid", gap: "32px" }}>
             {navSections.map((section) => (
               <div key={section.title}>
-                <div style={{ color: "var(--docs-heading)", fontSize: "13px", fontWeight: 500, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{section.title}</div>
+                <div style={{ color: "var(--docs-heading)", fontFamily: "var(--font-sans)", fontSize: "13px", fontWeight: 500, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{section.title}</div>
                 <div style={{ borderLeft: "1px solid var(--docs-border)", display: "grid", gap: "12px" }}>
                   {section.items.map((item) => {
                     const active = item.id === pageId;
@@ -3461,14 +3426,16 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
                       <Link
                         key={item.id}
                         href={pagePath(item.id)}
+                        onClick={() => setMobileMenuOpen(false)}
                         style={{
                           color: active ? "var(--docs-heading)" : "var(--docs-muted)",
                           textDecoration: "none",
+                          fontFamily: "var(--font-sans)",
                           fontSize: "14.5px",
                           paddingLeft: "16px",
                           borderLeft: active ? "2px solid #3b82f6" : "2px solid transparent",
                           marginLeft: "-1px",
-                          fontWeight: active ? 600 : 400,
+                          fontWeight: active ? 500 : 400,
                           transition: "color 0.15s ease",
                         }}
                       >
@@ -3485,8 +3452,8 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
             <a href="https://github.com/vishwanathakuthota/openvals" target="_blank" rel="noopener noreferrer" style={{ color: "var(--docs-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13.5px" }}>
               GitHub <ExternalLink size={14} />
             </a>
-            <Link href="/apply" style={{ color: "var(--docs-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13.5px" }}>
-              Enterprise Support <ExternalLink size={14} />
+            <Link href="/apply" onClick={() => setMobileMenuOpen(false)} style={{ color: "var(--docs-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13.5px" }}>
+              Enterprise Support <ArrowRight size={14} />
             </Link>
           </div>
         </aside>
@@ -3510,14 +3477,36 @@ export function DocsContent({ pageId = "welcome" }: { pageId?: DocsPageId }) {
             )}
           </nav>
 
-          <div className="docsPageWrap" style={{ maxWidth: "980px", margin: "0 auto", padding: "48px 48px 96px" }}>
+          <div className="docsPageWrap" style={{ maxWidth: "1120px", margin: "0 auto", padding: "48px 48px 96px", display: "grid", gridTemplateColumns: "minmax(0, 1fr) 200px", gap: "40px", alignItems: "start" }}>
             <article className="docsArticle" style={{ minWidth: 0 }}>
-              <div className="docsEyebrow" style={{ color: "var(--docs-muted)", marginBottom: "14px", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>{meta.group}</div>
-              <h1 className="docsTitle" style={{ fontSize: "40px", lineHeight: 1.15, letterSpacing: "-0.02em", margin: "0 0 32px", color: "var(--docs-heading)", fontWeight: 500 }}>
+              <div className="docsEyebrow" style={{ color: "var(--docs-muted)", marginBottom: "14px", fontFamily: "var(--font-sans)", fontSize: "14px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>{meta.group}</div>
+              <h1 className="docsTitle" style={{ fontFamily: "var(--font-sans)", fontSize: "40px", lineHeight: 1.15, letterSpacing: "-0.02em", margin: "0 0 32px", color: "var(--docs-heading)", fontWeight: 500 }}>
                 {meta.title}
               </h1>
               <PageBody pageId={pageId} />
             </article>
+            <aside className="docsToc" aria-label="On this page" style={{ position: "sticky", top: "24px", paddingTop: "8px" }}>
+              <div style={{ fontFamily: "var(--font-sans)", fontSize: "12px", fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase", color: "var(--docs-heading)", marginBottom: "12px" }}>
+                On this page
+              </div>
+              <nav style={{ display: "grid", gap: "8px", borderLeft: "1px solid var(--docs-border)", paddingLeft: "12px" }}>
+                {meta.onThisPage.map((item) => (
+                  <a
+                    key={item}
+                    href={`#${anchor(item)}`}
+                    style={{
+                      fontFamily: "var(--font-sans)",
+                      fontSize: "13px",
+                      lineHeight: 1.4,
+                      color: "var(--docs-muted)",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {item}
+                  </a>
+                ))}
+              </nav>
+            </aside>
           </div>
         </section>
       </div>

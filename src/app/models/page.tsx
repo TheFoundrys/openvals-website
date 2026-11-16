@@ -373,6 +373,12 @@ export default function ModelsRegistryPage() {
       <Header />
       <main className={styles.pageWrapper}>
         <div className={styles.container}>
+          <header className={styles.pageHeader}>
+            <h1 className={styles.pageTitle}>Validated Model Registry</h1>
+            <p className={styles.pageSubtitle}>
+              Browse trust-scored models across providers, sizes, and lifecycle stages.
+            </p>
+          </header>
           {/* MAIN GRID: SIDEBAR + CONTENT */}
           <div className={styles.mainGrid}>
             <div className={styles.modelsToolbar}>

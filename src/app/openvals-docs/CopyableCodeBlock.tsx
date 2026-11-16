@@ -14,8 +14,22 @@ export default function CopyableCodeBlock({ children }: { children: string }) {
 
   return (
     <div style={{ position: "relative", margin: "18px 0 0" }}>
-      <pre style={{ margin: 0, padding: "22px 58px 22px 22px", overflowX: "auto", color: "var(--docs-text)", fontSize: "14px", lineHeight: 1.75, background: "var(--docs-code-bg)", border: "1px solid var(--docs-border)", borderRadius: "14px" }}>
-        <code>{children}</code>
+      <pre
+        style={{
+          margin: 0,
+          padding: "22px 58px 22px 22px",
+          overflowX: "auto",
+          color: "var(--docs-text)",
+          fontFamily: "var(--font-mono)",
+          fontSize: "14px",
+          fontWeight: 400,
+          lineHeight: 1.75,
+          background: "var(--docs-code-bg)",
+          border: "1px solid var(--docs-border)",
+          borderRadius: "14px",
+        }}
+      >
+        <code style={{ fontFamily: "inherit", fontSize: "inherit", fontWeight: "inherit" }}>{children}</code>
       </pre>
       <button
         type="button"

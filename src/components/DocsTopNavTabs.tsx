@@ -39,8 +39,9 @@ export default function DocsTopNavTabs({
             display: "inline-flex",
             alignItems: "center",
             height: "100%",
+            fontFamily: "var(--font-sans)",
             fontSize: "14.5px",
-            fontWeight: tab.active ? 700 : 500,
+            fontWeight: tab.active ? 600 : 500,
             color: tab.active
               ? "var(--docs-heading, #ffffff)"
               : "var(--docs-muted, #9ca3af)",
