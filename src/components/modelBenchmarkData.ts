@@ -87,7 +87,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.936"
       }
     ],
-    "rank": "1/368"
+    "rank": "1/396"
   },
   {
     "id": "blueishai-anant-base-q4-1-8b",
@@ -120,7 +120,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.672"
       }
     ],
-    "rank": "2/368"
+    "rank": "2/396"
   },
   {
     "id": "qwen-2-5-0-5b-",
@@ -153,7 +153,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.650"
       }
     ],
-    "rank": "3/368"
+    "rank": "3/396"
   },
   {
     "id": "liquidai-2b",
@@ -186,7 +186,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.648"
       }
     ],
-    "rank": "4/368"
+    "rank": "4/396"
   },
   {
     "id": "granite3-1-dense-2b-2-5b",
@@ -219,7 +219,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.648"
       }
     ],
-    "rank": "5/368"
+    "rank": "5/396"
   },
   {
     "id": "moondream-1-8b",
@@ -252,7 +252,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.646"
       }
     ],
-    "rank": "6/368"
+    "rank": "6/396"
   },
   {
     "id": "granite3-dense-2-0b",
@@ -285,7 +285,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.644"
       }
     ],
-    "rank": "7/368"
+    "rank": "7/396"
   },
   {
     "id": "-lfm2-5-350m-350m",
@@ -318,7 +318,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.642"
       }
     ],
-    "rank": "8/368"
+    "rank": "8/396"
   },
   {
     "id": "codegeex4-9b-9-4b",
@@ -351,7 +351,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.642"
       }
     ],
-    "rank": "9/368"
+    "rank": "9/396"
   },
   {
     "id": "openchat-latest-7b",
@@ -396,7 +396,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.643"
       }
     ],
-    "rank": "10/368"
+    "rank": "10/396"
   },
   {
     "id": "granite3-moe-3b-3-4b",
@@ -429,7 +429,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.636"
       }
     ],
-    "rank": "11/368"
+    "rank": "11/396"
   },
   {
     "id": "granite3-3-8b-8-17b",
@@ -462,7 +462,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.636"
       }
     ],
-    "rank": "12/368"
+    "rank": "12/396"
   },
   {
     "id": "qwen2-5-coder-7b-7-62b",
@@ -495,7 +495,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.636"
       }
     ],
-    "rank": "13/368"
+    "rank": "13/396"
   },
   {
     "id": "gemma-2-0b",
@@ -528,7 +528,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.632"
       }
     ],
-    "rank": "14/368"
+    "rank": "14/396"
   },
   {
     "id": "qwen2-5-1-5b",
@@ -561,7 +561,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.631"
       }
     ],
-    "rank": "15/368"
+    "rank": "15/396"
   },
   {
     "id": "wizardlm2-7b-7-24b",
@@ -594,7 +594,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.631"
       }
     ],
-    "rank": "16/368"
+    "rank": "16/396"
+  },
+  {
+    "id": "granite4-1-3b-3-4b",
+    "name": "granite4.1:3b",
+    "params": "3.4b",
+    "size": "2.1 GB",
+    "lab": "IBM",
+    "runsCount": 1,
+    "accuracy": "79.4%",
+    "accuracyNum": 0.794,
+    "semantic": "0.671",
+    "latency": "9630 ms",
+    "factuality": "0.737",
+    "hallucination": "53.4%",
+    "safety": "0.950",
+    "reliability": "0.914",
+    "drs": "0.630",
+    "drsNum": 0.63,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "79.4%",
+        "accuracyNum": 0.794,
+        "semantic": "0.671",
+        "latency": "9630.19 ms",
+        "factuality": "0.737",
+        "hallucination": "53.4%",
+        "safety": "0.950",
+        "reliability": "0.914",
+        "drs": "0.630"
+      }
+    ],
+    "rank": "17/396"
   },
   {
     "id": "codegemma-7b-9b",
@@ -627,7 +660,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.629"
       }
     ],
-    "rank": "17/368"
+    "rank": "18/396"
   },
   {
     "id": "opencoder-8b-7-8b",
@@ -660,7 +693,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.629"
       }
     ],
-    "rank": "18/368"
+    "rank": "19/396"
   },
   {
     "id": "minicpm4-0-5b-0-5b",
@@ -693,7 +726,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.628"
       }
     ],
-    "rank": "19/368"
+    "rank": "20/396"
   },
   {
     "id": "granite3-1-dense-8b-8-17b",
@@ -726,7 +759,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.628"
       }
     ],
-    "rank": "20/368"
+    "rank": "21/396"
   },
   {
     "id": "openthinker-7b-7-6b",
@@ -759,7 +792,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.628"
       }
     ],
-    "rank": "21/368"
+    "rank": "22/396"
   },
   {
     "id": "hermes3-8b-8b",
@@ -792,7 +825,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.626"
       }
     ],
-    "rank": "22/368"
+    "rank": "23/396"
   },
   {
     "id": "internlm2-1-8b-1-89b",
@@ -825,7 +858,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.626"
       }
     ],
-    "rank": "23/368"
+    "rank": "24/396"
   },
   {
     "id": "granite3-2-8b-8-2b",
@@ -858,7 +891,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.626"
       }
     ],
-    "rank": "24/368"
+    "rank": "25/396"
   },
   {
     "id": "openhermes-latest-7b",
@@ -903,7 +936,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.632"
       }
     ],
-    "rank": "25/368"
+    "rank": "26/396"
   },
   {
     "id": "qwen2-5-coder-1-5b-1-54b",
@@ -936,7 +969,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.625"
       }
     ],
-    "rank": "26/368"
+    "rank": "27/396"
   },
   {
     "id": "llama3-1-8b-8b",
@@ -969,7 +1002,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.625"
       }
     ],
-    "rank": "27/368"
+    "rank": "28/396"
   },
   {
     "id": "qwen2-5-7b-7-62b",
@@ -1002,7 +1035,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.624"
       }
     ],
-    "rank": "28/368"
+    "rank": "29/396"
   },
   {
     "id": "granite3-2-2b",
@@ -1035,40 +1068,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.623"
       }
     ],
-    "rank": "29/368"
-  },
-  {
-    "id": "qwen3-4b-4b",
-    "name": "qwen3:4b",
-    "params": "4b",
-    "size": "2.5 GB",
-    "lab": "Alibaba Cloud",
-    "runsCount": 1,
-    "accuracy": "79.3%",
-    "accuracyNum": 0.793,
-    "semantic": "0.644",
-    "latency": "33152 ms",
-    "factuality": "0.715",
-    "hallucination": "56.4%",
-    "safety": "1.000",
-    "reliability": "0.883",
-    "drs": "0.622",
-    "drsNum": 0.622,
-    "rawRuns": [
-      {
-        "runIndex": 1,
-        "accuracy": "79.3%",
-        "accuracyNum": 0.793,
-        "semantic": "0.644",
-        "latency": "33152.14 ms",
-        "factuality": "0.715",
-        "hallucination": "56.4%",
-        "safety": "1.000",
-        "reliability": "0.883",
-        "drs": "0.622"
-      }
-    ],
-    "rank": "30/368"
+    "rank": "30/396"
   },
   {
     "id": "gemma2-2b-2-2b",
@@ -1101,7 +1101,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.621"
       }
     ],
-    "rank": "31/368"
+    "rank": "31/396"
   },
   {
     "id": "granite3-1-dense-2b",
@@ -1134,7 +1134,100 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.619"
       }
     ],
-    "rank": "32/368"
+    "rank": "32/396"
+  },
+  {
+    "id": "llama3-2-3b-3b",
+    "name": "llama3.2:3b",
+    "params": "3b",
+    "size": "2.0 GB",
+    "lab": "Meta AI",
+    "runsCount": 6,
+    "accuracy": "83.3%",
+    "accuracyNum": 0.833,
+    "semantic": "0.585",
+    "latency": "5278 ms",
+    "factuality": "0.667",
+    "hallucination": "55.8%",
+    "safety": "0.950",
+    "reliability": "0.914",
+    "drs": "0.619",
+    "drsNum": 0.619,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "80.7%",
+        "accuracyNum": 0.807,
+        "semantic": "0.667",
+        "latency": "6103.55 ms",
+        "factuality": "0.733",
+        "hallucination": "53.3%",
+        "safety": "0.963",
+        "reliability": "0.903",
+        "drs": "0.633"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "75.0%",
+        "accuracyNum": 0.75,
+        "semantic": "0.652",
+        "latency": "6708.48 ms",
+        "factuality": "0.721",
+        "hallucination": "53.9%",
+        "safety": "1.000",
+        "reliability": "0.919",
+        "drs": "0.625"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "92.9%",
+        "accuracyNum": 0.929,
+        "semantic": "0.474",
+        "latency": "6394.61 ms",
+        "factuality": "0.579",
+        "hallucination": "60.4%",
+        "safety": "0.905",
+        "reliability": "0.916",
+        "drs": "0.596"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "78.3%",
+        "accuracyNum": 0.783,
+        "semantic": "0.631",
+        "latency": "6565.84 ms",
+        "factuality": "0.705",
+        "hallucination": "55.2%",
+        "safety": "0.872",
+        "reliability": "0.908",
+        "drs": "0.605"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "96.7%",
+        "accuracyNum": 0.967,
+        "semantic": "0.439",
+        "latency": "1608.06 ms",
+        "factuality": "0.551",
+        "hallucination": "57.7%",
+        "safety": "1.000",
+        "reliability": "0.950",
+        "drs": "0.637"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "76.0%",
+        "accuracyNum": 0.76,
+        "semantic": "0.645",
+        "latency": "4287.52 ms",
+        "factuality": "0.716",
+        "hallucination": "54.2%",
+        "safety": "0.962",
+        "reliability": "0.890",
+        "drs": "0.617"
+      }
+    ],
+    "rank": "33/396"
   },
   {
     "id": "falcon3-1b",
@@ -1167,7 +1260,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.618"
       }
     ],
-    "rank": "33/368"
+    "rank": "34/396"
   },
   {
     "id": "gemma3-4b-3-9b",
@@ -1200,7 +1293,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.618"
       }
     ],
-    "rank": "34/368"
+    "rank": "35/396"
   },
   {
     "id": "mistral-nemo-12b-12-2b",
@@ -1233,7 +1326,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.618"
       }
     ],
-    "rank": "35/368"
+    "rank": "36/396"
   },
   {
     "id": "aya-expanse-8b-8-03b",
@@ -1266,7 +1359,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.618"
       }
     ],
-    "rank": "36/368"
+    "rank": "37/396"
+  },
+  {
+    "id": "exaone-deep-7-8b-7-8b",
+    "name": "exaone-deep:7.8b",
+    "params": "7.8b",
+    "size": "4.8 GB",
+    "lab": "LG AI Research",
+    "runsCount": 1,
+    "accuracy": "81.4%",
+    "accuracyNum": 0.814,
+    "semantic": "0.635",
+    "latency": "68567 ms",
+    "factuality": "0.708",
+    "hallucination": "55.8%",
+    "safety": "1.000",
+    "reliability": "0.842",
+    "drs": "0.618",
+    "drsNum": 0.618,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "81.4%",
+        "accuracyNum": 0.814,
+        "semantic": "0.635",
+        "latency": "68566.55 ms",
+        "factuality": "0.708",
+        "hallucination": "55.8%",
+        "safety": "1.000",
+        "reliability": "0.842",
+        "drs": "0.618"
+      }
+    ],
+    "rank": "38/396"
   },
   {
     "id": "lfm2-5-thinking-1-2b",
@@ -1371,7 +1497,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.636"
       }
     ],
-    "rank": "37/368"
+    "rank": "39/396"
   },
   {
     "id": "qwen2-1-5b-2",
@@ -1404,7 +1530,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.616"
       }
     ],
-    "rank": "38/368"
+    "rank": "40/396"
   },
   {
     "id": "qwen2-5-1-5b-2",
@@ -1437,7 +1563,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.616"
       }
     ],
-    "rank": "39/368"
+    "rank": "41/396"
+  },
+  {
+    "id": "codeqwen-7b-7-3b",
+    "name": "codeqwen:7b",
+    "params": "7.3b",
+    "size": "4.2 GB",
+    "lab": "Alibaba Cloud (Qwen team)",
+    "runsCount": 1,
+    "accuracy": "78.3%",
+    "accuracyNum": 0.783,
+    "semantic": "0.638",
+    "latency": "17411 ms",
+    "factuality": "0.711",
+    "hallucination": "54.3%",
+    "safety": "0.963",
+    "reliability": "0.893",
+    "drs": "0.616",
+    "drsNum": 0.616,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "78.3%",
+        "accuracyNum": 0.783,
+        "semantic": "0.638",
+        "latency": "17411.22 ms",
+        "factuality": "0.711",
+        "hallucination": "54.3%",
+        "safety": "0.963",
+        "reliability": "0.893",
+        "drs": "0.616"
+      }
+    ],
+    "rank": "42/396"
   },
   {
     "id": "gemma2-9b-9-24b",
@@ -1470,7 +1629,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.615"
       }
     ],
-    "rank": "40/368"
+    "rank": "43/396"
   },
   {
     "id": "granite3-3-2-0b",
@@ -1503,7 +1662,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.614"
       }
     ],
-    "rank": "41/368"
+    "rank": "44/396"
   },
   {
     "id": "olmo-2-0425-1b-instruct-1b",
@@ -1536,7 +1695,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.614"
       }
     ],
-    "rank": "42/368"
+    "rank": "45/396"
   },
   {
     "id": "phi4-mini-latest-3-8b",
@@ -1569,7 +1728,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.614"
       }
     ],
-    "rank": "43/368"
+    "rank": "46/396"
   },
   {
     "id": "neural-chat-7b",
@@ -1602,7 +1761,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.613"
       }
     ],
-    "rank": "44/368"
+    "rank": "47/396"
   },
   {
     "id": "hf-co-mradermacher-yi-coder-1-5b-chat-gguf-q4-k-m-1-5b",
@@ -1635,7 +1794,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.612"
       }
     ],
-    "rank": "45/368"
+    "rank": "48/396"
   },
   {
     "id": "bharat-tiny-llm-0-5b",
@@ -1668,7 +1827,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.612"
       }
     ],
-    "rank": "46/368"
+    "rank": "49/396"
   },
   {
     "id": "llama3-chatqa-8b-8b",
@@ -1701,7 +1860,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.612"
       }
     ],
-    "rank": "47/368"
+    "rank": "50/396"
   },
   {
     "id": "command-r7b-latest-7b",
@@ -1746,7 +1905,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.633"
       }
     ],
-    "rank": "48/368"
+    "rank": "51/396"
   },
   {
     "id": "granite4-350m-350m",
@@ -1779,7 +1938,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.611"
       }
     ],
-    "rank": "49/368"
+    "rank": "52/396"
   },
   {
     "id": "granite4-1-8b-8-8b",
@@ -1812,7 +1971,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.610"
       }
     ],
-    "rank": "50/368"
+    "rank": "53/396"
   },
   {
     "id": "mistral-7b-7-24b",
@@ -1845,7 +2004,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.610"
       }
     ],
-    "rank": "51/368"
+    "rank": "54/396"
   },
   {
     "id": "olmo-3-7b-7-3b",
@@ -1878,7 +2037,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.610"
       }
     ],
-    "rank": "52/368"
+    "rank": "55/396"
   },
   {
     "id": "granite3-3-2b-2b",
@@ -1911,7 +2070,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.609"
       }
     ],
-    "rank": "53/368"
+    "rank": "56/396"
   },
   {
     "id": "cogito-3b",
@@ -1944,7 +2103,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.608"
       }
     ],
-    "rank": "54/368"
+    "rank": "57/396"
   },
   {
     "id": "neural-chat-7b-7-24b",
@@ -1977,7 +2136,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.608"
       }
     ],
-    "rank": "55/368"
+    "rank": "58/396"
   },
   {
     "id": "qwen2-5-1-5b-1-54b",
@@ -2010,7 +2169,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.608"
       }
     ],
-    "rank": "56/368"
+    "rank": "59/396"
   },
   {
     "id": "gemma3n-e4b-6-9b",
@@ -2043,7 +2202,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.607"
       }
     ],
-    "rank": "57/368"
+    "rank": "60/396"
   },
   {
     "id": "codellama-7b-7b",
@@ -2076,7 +2235,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.607"
       }
     ],
-    "rank": "58/368"
+    "rank": "61/396"
   },
   {
     "id": "phi-2-7b",
@@ -2109,7 +2268,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.606"
       }
     ],
-    "rank": "59/368"
+    "rank": "62/396"
   },
   {
     "id": "granite3-1-dense-2b-2b",
@@ -2202,7 +2361,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.624"
       }
     ],
-    "rank": "60/368"
+    "rank": "63/396"
   },
   {
     "id": "lfm2-5-1-2b-instruct-1-2b",
@@ -2235,7 +2394,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.606"
       }
     ],
-    "rank": "61/368"
+    "rank": "64/396"
   },
   {
     "id": "alloma-1b-instruct-1b",
@@ -2268,7 +2427,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.606"
       }
     ],
-    "rank": "62/368"
+    "rank": "65/396"
   },
   {
     "id": "aya-8b-8-0b",
@@ -2301,7 +2460,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.606"
       }
     ],
-    "rank": "63/368"
+    "rank": "66/396"
   },
   {
     "id": "magicoder-7b-7b",
@@ -2334,7 +2493,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.606"
       }
     ],
-    "rank": "64/368"
+    "rank": "67/396"
   },
   {
     "id": "stablelm2-1-6b-1-64b",
@@ -2367,7 +2526,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.606"
       }
     ],
-    "rank": "65/368"
+    "rank": "68/396"
+  },
+  {
+    "id": "dolphincoder-7b-7b",
+    "name": "dolphincoder:7b",
+    "params": "7b",
+    "size": "4.2 GB",
+    "lab": "Eric Hartford / Cognitive Computations",
+    "runsCount": 1,
+    "accuracy": "79.7%",
+    "accuracyNum": 0.797,
+    "semantic": "0.631",
+    "latency": "691876 ms",
+    "factuality": "0.705",
+    "hallucination": "54.6%",
+    "safety": "0.963",
+    "reliability": "0.833",
+    "drs": "0.606",
+    "drsNum": 0.606,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "79.7%",
+        "accuracyNum": 0.797,
+        "semantic": "0.631",
+        "latency": "691875.86 ms",
+        "factuality": "0.705",
+        "hallucination": "54.6%",
+        "safety": "0.963",
+        "reliability": "0.833",
+        "drs": "0.606"
+      }
+    ],
+    "rank": "69/396"
   },
   {
     "id": "granite3-moe-1-0b",
@@ -2460,7 +2652,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.600"
       }
     ],
-    "rank": "66/368"
+    "rank": "70/396"
   },
   {
     "id": "dolphin-mistral-latest-7b",
@@ -2493,7 +2685,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.605"
       }
     ],
-    "rank": "67/368"
+    "rank": "71/396"
   },
   {
     "id": "stablelm-zephyr-1-6b-1-6b",
@@ -2526,7 +2718,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.605"
       }
     ],
-    "rank": "68/368"
+    "rank": "72/396"
   },
   {
     "id": "qwen2-5-3b-3-09b",
@@ -2559,7 +2751,100 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.605"
       }
     ],
-    "rank": "69/368"
+    "rank": "73/396"
+  },
+  {
+    "id": "phi4-mini-3-8b",
+    "name": "phi4-mini",
+    "params": "3.8b",
+    "size": "2.5 GB",
+    "lab": "Microsoft",
+    "runsCount": 6,
+    "accuracy": "76.8%",
+    "accuracyNum": 0.768,
+    "semantic": "0.585",
+    "latency": "5834 ms",
+    "factuality": "0.668",
+    "hallucination": "56.7%",
+    "safety": "0.985",
+    "reliability": "0.895",
+    "drs": "0.605",
+    "drsNum": 0.605,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "69.0%",
+        "accuracyNum": 0.69,
+        "semantic": "0.569",
+        "latency": "10054.44 ms",
+        "factuality": "0.656",
+        "hallucination": "57.6%",
+        "safety": "0.970",
+        "reliability": "0.907",
+        "drs": "0.582"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "78.1%",
+        "accuracyNum": 0.781,
+        "semantic": "0.674",
+        "latency": "9157.47 ms",
+        "factuality": "0.740",
+        "hallucination": "53.1%",
+        "safety": "1.000",
+        "reliability": "0.893",
+        "drs": "0.633"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "65.4%",
+        "accuracyNum": 0.654,
+        "semantic": "0.520",
+        "latency": "3120.80 ms",
+        "factuality": "0.616",
+        "hallucination": "59.2%",
+        "safety": "1.000",
+        "reliability": "0.887",
+        "drs": "0.567"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "74.2%",
+        "accuracyNum": 0.742,
+        "semantic": "0.627",
+        "latency": "5604.80 ms",
+        "factuality": "0.702",
+        "hallucination": "55.0%",
+        "safety": "0.940",
+        "reliability": "0.887",
+        "drs": "0.603"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "96.7%",
+        "accuracyNum": 0.967,
+        "semantic": "0.459",
+        "latency": "2394.91 ms",
+        "factuality": "0.567",
+        "hallucination": "60.6%",
+        "safety": "1.000",
+        "reliability": "0.917",
+        "drs": "0.619"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "77.1%",
+        "accuracyNum": 0.771,
+        "semantic": "0.659",
+        "latency": "4672.47 ms",
+        "factuality": "0.727",
+        "hallucination": "54.7%",
+        "safety": "1.000",
+        "reliability": "0.877",
+        "drs": "0.626"
+      }
+    ],
+    "rank": "74/396"
   },
   {
     "id": "stablelm-zephyr-1-6b",
@@ -2592,7 +2877,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.604"
       }
     ],
-    "rank": "70/368"
+    "rank": "75/396"
   },
   {
     "id": "hf-co-liquidai-lfm2-700m-gguf-q4-k-m-700m",
@@ -2625,7 +2910,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.604"
       }
     ],
-    "rank": "71/368"
+    "rank": "76/396"
   },
   {
     "id": "gemma3n-e2b",
@@ -2658,52 +2943,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.603"
       }
     ],
-    "rank": "72/368"
-  },
-  {
-    "id": "phi3-mini-3-8b",
-    "name": "phi3:mini",
-    "params": "3.8b",
-    "size": "2.2 GB",
-    "lab": "MICROSOFT",
-    "runsCount": 2,
-    "accuracy": "74.6%",
-    "accuracyNum": 0.746,
-    "semantic": "0.675",
-    "latency": "4542 ms",
-    "factuality": "0.740",
-    "hallucination": "53.3%",
-    "safety": "0.869",
-    "reliability": "0.858",
-    "drs": "0.603",
-    "drsNum": 0.603,
-    "rawRuns": [
-      {
-        "runIndex": 1,
-        "accuracy": "77.2%",
-        "accuracyNum": 0.772,
-        "semantic": "0.662",
-        "latency": "4697.72 ms",
-        "factuality": "0.729",
-        "hallucination": "54.0%",
-        "safety": "0.962",
-        "reliability": "0.817",
-        "drs": "0.612"
-      },
-      {
-        "runIndex": 2,
-        "accuracy": "71.9%",
-        "accuracyNum": 0.719,
-        "semantic": "0.689",
-        "latency": "4387.17 ms",
-        "factuality": "0.751",
-        "hallucination": "52.6%",
-        "safety": "0.775",
-        "reliability": "0.899",
-        "drs": "0.594"
-      }
-    ],
-    "rank": "73/368"
+    "rank": "77/396"
   },
   {
     "id": "qwen2-math-7b-7-6b",
@@ -2736,7 +2976,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.603"
       }
     ],
-    "rank": "74/368"
+    "rank": "78/396"
   },
   {
     "id": "llama3-2-1-0b",
@@ -2853,7 +3093,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.578"
       }
     ],
-    "rank": "75/368"
+    "rank": "79/396"
   },
   {
     "id": "qwen3-1-7b",
@@ -2886,7 +3126,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.602"
       }
     ],
-    "rank": "76/368"
+    "rank": "80/396"
   },
   {
     "id": "smollm3-3b-gguf-3b",
@@ -2919,7 +3159,124 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.602"
       }
     ],
-    "rank": "77/368"
+    "rank": "81/396"
+  },
+  {
+    "id": "phi3-mini-3-8b",
+    "name": "phi3:mini",
+    "params": "3.8b",
+    "size": "2.2 GB",
+    "lab": "MICROSOFT",
+    "runsCount": 8,
+    "accuracy": "74.0%",
+    "accuracyNum": 0.74,
+    "semantic": "0.618",
+    "latency": "7478 ms",
+    "factuality": "0.692",
+    "hallucination": "55.1%",
+    "safety": "0.954",
+    "reliability": "0.884",
+    "drs": "0.602",
+    "drsNum": 0.602,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "77.2%",
+        "accuracyNum": 0.772,
+        "semantic": "0.662",
+        "latency": "4697.72 ms",
+        "factuality": "0.729",
+        "hallucination": "54.0%",
+        "safety": "0.962",
+        "reliability": "0.817",
+        "drs": "0.612"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "71.9%",
+        "accuracyNum": 0.719,
+        "semantic": "0.689",
+        "latency": "4387.17 ms",
+        "factuality": "0.751",
+        "hallucination": "52.6%",
+        "safety": "0.775",
+        "reliability": "0.899",
+        "drs": "0.594"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "59.8%",
+        "accuracyNum": 0.598,
+        "semantic": "0.569",
+        "latency": "4880.94 ms",
+        "factuality": "0.635",
+        "hallucination": "57.4%",
+        "safety": "1.000",
+        "reliability": "0.866",
+        "drs": "0.561"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "75.8%",
+        "accuracyNum": 0.758,
+        "semantic": "0.685",
+        "latency": "19311.13 ms",
+        "factuality": "0.748",
+        "hallucination": "52.9%",
+        "safety": "0.925",
+        "reliability": "0.897",
+        "drs": "0.619"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "72.6%",
+        "accuracyNum": 0.726,
+        "semantic": "0.669",
+        "latency": "12905.76 ms",
+        "factuality": "0.735",
+        "hallucination": "53.3%",
+        "safety": "1.000",
+        "reliability": "0.905",
+        "drs": "0.621"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "70.4%",
+        "accuracyNum": 0.704,
+        "semantic": "0.565",
+        "latency": "5051.95 ms",
+        "factuality": "0.652",
+        "hallucination": "57.3%",
+        "safety": "1.000",
+        "reliability": "0.877",
+        "drs": "0.586"
+      },
+      {
+        "runIndex": 7,
+        "accuracy": "77.3%",
+        "accuracyNum": 0.773,
+        "semantic": "0.647",
+        "latency": "6071.38 ms",
+        "factuality": "0.718",
+        "hallucination": "54.5%",
+        "safety": "0.970",
+        "reliability": "0.876",
+        "drs": "0.618"
+      },
+      {
+        "runIndex": 8,
+        "accuracy": "86.7%",
+        "accuracyNum": 0.867,
+        "semantic": "0.455",
+        "latency": "2514.42 ms",
+        "factuality": "0.564",
+        "hallucination": "59.1%",
+        "safety": "1.000",
+        "reliability": "0.935",
+        "drs": "0.607"
+      }
+    ],
+    "rank": "82/396"
   },
   {
     "id": "granite-3-3-2b-instruct-gguf-q4-k-m-2b",
@@ -2952,7 +3309,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.602"
       }
     ],
-    "rank": "78/368"
+    "rank": "83/396"
   },
   {
     "id": "smollm2-1-7b-instruct-1-7b",
@@ -2985,7 +3342,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.602"
       }
     ],
-    "rank": "79/368"
+    "rank": "84/396"
   },
   {
     "id": "deepseek-coder-6-7b-7b",
@@ -3018,40 +3375,100 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.602"
       }
     ],
-    "rank": "80/368"
+    "rank": "85/396"
   },
   {
-    "id": "starling-lm-7b",
-    "name": "starling-lm",
-    "params": "7b",
-    "size": "4.1 GB",
-    "lab": "nexusflow",
-    "runsCount": 1,
-    "accuracy": "70.5%",
-    "accuracyNum": 0.705,
-    "semantic": "0.609",
-    "latency": "3069 ms",
-    "factuality": "0.687",
-    "hallucination": "55.5%",
-    "safety": "1.000",
-    "reliability": "0.880",
-    "drs": "0.601",
-    "drsNum": 0.601,
+    "id": "gemma-3-270m-270m",
+    "name": "Gemma 3 270M",
+    "params": "270m",
+    "size": "292 MB",
+    "lab": "Google",
+    "runsCount": 6,
+    "accuracy": "65.9%",
+    "accuracyNum": 0.659,
+    "semantic": "0.601",
+    "latency": "1144 ms",
+    "factuality": "0.675",
+    "hallucination": "53.8%",
+    "safety": "0.964",
+    "reliability": "0.889",
+    "drs": "0.602",
+    "drsNum": 0.602,
     "rawRuns": [
       {
         "runIndex": 1,
-        "accuracy": "70.5%",
-        "accuracyNum": 0.705,
-        "semantic": "0.609",
-        "latency": "3069.47 ms",
-        "factuality": "0.687",
+        "accuracy": "73.1%",
+        "accuracyNum": 0.731,
+        "semantic": "0.635",
+        "latency": "2919.73 ms",
+        "factuality": "0.708",
+        "hallucination": "54.4%",
+        "safety": "0.887",
+        "reliability": "0.873",
+        "drs": "0.596"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "71.8%",
+        "accuracyNum": 0.718,
+        "semantic": "0.505",
+        "latency": "1004.07 ms",
+        "factuality": "0.604",
+        "hallucination": "59.4%",
+        "safety": "1.000",
+        "reliability": "0.763",
+        "drs": "0.565"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "43.8%",
+        "accuracyNum": 0.438,
+        "semantic": "0.651",
+        "latency": "478.77 ms",
+        "factuality": "0.721",
+        "hallucination": "50.3%",
+        "safety": "0.970",
+        "reliability": "0.939",
+        "drs": "0.593"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "84.7%",
+        "accuracyNum": 0.847,
+        "semantic": "0.497",
+        "latency": "439.92 ms",
+        "factuality": "0.567",
         "hallucination": "55.5%",
         "safety": "1.000",
-        "reliability": "0.880",
-        "drs": "0.601"
+        "reliability": "0.931",
+        "drs": "0.631"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "41.3%",
+        "accuracyNum": 0.413,
+        "semantic": "0.690",
+        "latency": "354.13 ms",
+        "factuality": "0.752",
+        "hallucination": "48.8%",
+        "safety": "1.000",
+        "reliability": "0.937",
+        "drs": "0.605"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "80.7%",
+        "accuracyNum": 0.807,
+        "semantic": "0.625",
+        "latency": "1664.80 ms",
+        "factuality": "0.700",
+        "hallucination": "54.3%",
+        "safety": "0.925",
+        "reliability": "0.893",
+        "drs": "0.623"
       }
     ],
-    "rank": "81/368"
+    "rank": "86/396"
   },
   {
     "id": "command-r7b-latest-8b",
@@ -3084,7 +3501,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.601"
       }
     ],
-    "rank": "82/368"
+    "rank": "87/396"
   },
   {
     "id": "yi-coder-9b-8-8b",
@@ -3117,7 +3534,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.601"
       }
     ],
-    "rank": "83/368"
+    "rank": "88/396"
   },
   {
     "id": "internlm2-1-8b",
@@ -3150,7 +3567,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.599"
       }
     ],
-    "rank": "84/368"
+    "rank": "89/396"
   },
   {
     "id": "minicpm5-2b-gguf-latest-2b",
@@ -3183,7 +3600,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.599"
       }
     ],
-    "rank": "85/368"
+    "rank": "90/396"
   },
   {
     "id": "yi-coder-1-5b-1-48b",
@@ -3216,7 +3633,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.599"
       }
     ],
-    "rank": "86/368"
+    "rank": "91/396"
   },
   {
     "id": "wizard-math-7b-7b",
@@ -3249,7 +3666,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.599"
       }
     ],
-    "rank": "87/368"
+    "rank": "92/396"
+  },
+  {
+    "id": "nemotron-3-nano-4b-4-0b",
+    "name": "nemotron-3-nano:4b",
+    "params": "4.0b",
+    "size": "2.8 GB",
+    "lab": "NVIDIA",
+    "runsCount": 1,
+    "accuracy": "70.0%",
+    "accuracyNum": 0.7,
+    "semantic": "0.657",
+    "latency": "29585 ms",
+    "factuality": "0.725",
+    "hallucination": "53.7%",
+    "safety": "1.000",
+    "reliability": "0.826",
+    "drs": "0.599",
+    "drsNum": 0.599,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "70.0%",
+        "accuracyNum": 0.7,
+        "semantic": "0.657",
+        "latency": "29585.08 ms",
+        "factuality": "0.725",
+        "hallucination": "53.7%",
+        "safety": "1.000",
+        "reliability": "0.826",
+        "drs": "0.599"
+      }
+    ],
+    "rank": "93/396"
   },
   {
     "id": "exaone-deep-2-4b",
@@ -3282,7 +3732,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.598"
       }
     ],
-    "rank": "88/368"
+    "rank": "94/396"
   },
   {
     "id": "gemma-7b-9b",
@@ -3315,7 +3765,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.598"
       }
     ],
-    "rank": "89/368"
+    "rank": "95/396"
   },
   {
     "id": "wizardlm2-2b",
@@ -3348,7 +3798,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.597"
       }
     ],
-    "rank": "90/368"
+    "rank": "96/396"
   },
   {
     "id": "granite3-1-moe-1b",
@@ -3381,7 +3831,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.597"
       }
     ],
-    "rank": "91/368"
+    "rank": "97/396"
   },
   {
     "id": "qwen2-math-1-5b-instruct-q5-1-1-5b",
@@ -3414,7 +3864,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.597"
       }
     ],
-    "rank": "92/368"
+    "rank": "98/396"
   },
   {
     "id": "stablelm2-1-6b-1-6b",
@@ -3447,7 +3897,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.597"
       }
     ],
-    "rank": "93/368"
+    "rank": "99/396"
   },
   {
     "id": "falcon-h1-0-5b",
@@ -3492,7 +3942,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.555"
       }
     ],
-    "rank": "94/368"
+    "rank": "100/396"
   },
   {
     "id": "llama-3-2-1b-instruct-q4-k-m-1b",
@@ -3525,7 +3975,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.596"
       }
     ],
-    "rank": "95/368"
+    "rank": "101/396"
   },
   {
     "id": "gemma3-0-27b",
@@ -3558,7 +4008,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.595"
       }
     ],
-    "rank": "96/368"
+    "rank": "102/396"
   },
   {
     "id": "sam860-olmo2-1b-1b",
@@ -3591,7 +4041,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.595"
       }
     ],
-    "rank": "97/368"
+    "rank": "103/396"
   },
   {
     "id": "qwen2-5-0-5b-instruct-0-49b",
@@ -3624,7 +4074,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.595"
       }
     ],
-    "rank": "98/368"
+    "rank": "104/396"
   },
   {
     "id": "qwen2-5-coder-3b-3-09b",
@@ -3657,7 +4107,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.595"
       }
     ],
-    "rank": "99/368"
+    "rank": "105/396"
+  },
+  {
+    "id": "falcon2-11b-11b",
+    "name": "falcon2:11b",
+    "params": "11b",
+    "size": "6.4 GB",
+    "lab": "Technology Innovation Institute (TII)",
+    "runsCount": 1,
+    "accuracy": "31.9%",
+    "accuracyNum": 0.319,
+    "semantic": "0.567",
+    "latency": "10414 ms",
+    "factuality": "0.634",
+    "hallucination": "40.4%",
+    "safety": "1.000",
+    "reliability": "1.000",
+    "drs": "0.595",
+    "drsNum": 0.595,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "31.9%",
+        "accuracyNum": 0.319,
+        "semantic": "0.567",
+        "latency": "10414.16 ms",
+        "factuality": "0.634",
+        "hallucination": "40.4%",
+        "safety": "1.000",
+        "reliability": "1.000",
+        "drs": "0.595"
+      }
+    ],
+    "rank": "106/396"
   },
   {
     "id": "llama2-0-1-0b",
@@ -3690,7 +4173,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.594"
       }
     ],
-    "rank": "100/368"
+    "rank": "107/396"
   },
   {
     "id": "aya-expanse-8b",
@@ -3723,52 +4206,112 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.594"
       }
     ],
-    "rank": "101/368"
+    "rank": "108/396"
   },
   {
-    "id": "qwen2-5-0-5b-instruct-0-5b",
-    "name": "qwen2.5:0.5b-instruct",
-    "params": "0.5b",
-    "size": "486 MB",
-    "lab": "Alibaba Cloud",
-    "runsCount": 2,
-    "accuracy": "68.3%",
-    "accuracyNum": 0.684,
-    "semantic": "0.639",
-    "latency": "14324 ms",
-    "factuality": "0.712",
-    "hallucination": "54.4%",
-    "safety": "0.982",
-    "reliability": "0.843",
+    "id": "starling-lm-7b",
+    "name": "starling-lm",
+    "params": "7b",
+    "size": "4.1 GB",
+    "lab": "nexusflow",
+    "runsCount": 7,
+    "accuracy": "76.8%",
+    "accuracyNum": 0.768,
+    "semantic": "0.555",
+    "latency": "10816 ms",
+    "factuality": "0.641",
+    "hallucination": "57.6%",
+    "safety": "0.979",
+    "reliability": "0.894",
     "drs": "0.593",
     "drsNum": 0.593,
     "rawRuns": [
       {
         "runIndex": 1,
-        "accuracy": "62.0%",
-        "accuracyNum": 0.62,
-        "semantic": "0.622",
-        "latency": "7,614.12 ms",
-        "factuality": "0.698",
-        "hallucination": "54.9%",
+        "accuracy": "70.5%",
+        "accuracyNum": 0.705,
+        "semantic": "0.609",
+        "latency": "3069.47 ms",
+        "factuality": "0.687",
+        "hallucination": "55.5%",
         "safety": "1.000",
-        "reliability": "0.825",
-        "drs": "0.576"
+        "reliability": "0.880",
+        "drs": "0.601"
       },
       {
         "runIndex": 2,
-        "accuracy": "74.7%",
-        "accuracyNum": 0.747,
-        "semantic": "0.656",
-        "latency": "21034.58 ms",
-        "factuality": "0.725",
-        "hallucination": "53.9%",
-        "safety": "0.963",
-        "reliability": "0.861",
+        "accuracy": "73.2%",
+        "accuracyNum": 0.732,
+        "semantic": "0.603",
+        "latency": "13794.00 ms",
+        "factuality": "0.682",
+        "hallucination": "55.9%",
+        "safety": "0.850",
+        "reliability": "0.903",
+        "drs": "0.581"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "59.0%",
+        "accuracyNum": 0.59,
+        "semantic": "0.503",
+        "latency": "13139.32 ms",
+        "factuality": "0.582",
+        "hallucination": "60.0%",
+        "safety": "1.000",
+        "reliability": "0.895",
+        "drs": "0.542"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "80.8%",
+        "accuracyNum": 0.808,
+        "semantic": "0.665",
+        "latency": "17001.66 ms",
+        "factuality": "0.732",
+        "hallucination": "53.6%",
+        "safety": "1.000",
+        "reliability": "0.874",
+        "drs": "0.631"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "79.5%",
+        "accuracyNum": 0.795,
+        "semantic": "0.461",
+        "latency": "11058.03 ms",
+        "factuality": "0.569",
+        "hallucination": "61.3%",
+        "safety": "1.000",
+        "reliability": "0.894",
+        "drs": "0.575"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "95.0%",
+        "accuracyNum": 0.95,
+        "semantic": "0.436",
+        "latency": "6107.07 ms",
+        "factuality": "0.548",
+        "hallucination": "61.4%",
+        "safety": "1.000",
+        "reliability": "0.947",
         "drs": "0.609"
+      },
+      {
+        "runIndex": 7,
+        "accuracy": "79.3%",
+        "accuracyNum": 0.793,
+        "semantic": "0.605",
+        "latency": "11540.60 ms",
+        "factuality": "0.684",
+        "hallucination": "55.7%",
+        "safety": "1.000",
+        "reliability": "0.862",
+        "drs": "0.610"
       }
     ],
-    "rank": "102/368"
+    "rank": "109/396"
   },
   {
     "id": "qwen2-5-3b-3b",
@@ -3801,7 +4344,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.593"
       }
     ],
-    "rank": "103/368"
+    "rank": "110/396"
   },
   {
     "id": "tinyllama-1-1b",
@@ -3834,7 +4377,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.592"
       }
     ],
-    "rank": "104/368"
+    "rank": "111/396"
   },
   {
     "id": "xwinlm-7b",
@@ -3867,7 +4410,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.592"
       }
     ],
-    "rank": "105/368"
+    "rank": "112/396"
   },
   {
     "id": "qwen-4b-4b",
@@ -3900,7 +4443,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.592"
       }
     ],
-    "rank": "106/368"
+    "rank": "113/396"
   },
   {
     "id": "qwen2-1-5b",
@@ -3933,7 +4476,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.591"
       }
     ],
-    "rank": "107/368"
+    "rank": "114/396"
   },
   {
     "id": "olmo2-7b-7-3b",
@@ -3966,7 +4509,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.591"
       }
     ],
-    "rank": "108/368"
+    "rank": "115/396"
   },
   {
     "id": "qwen3-8b-8-19b",
@@ -3999,7 +4542,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.591"
       }
     ],
-    "rank": "109/368"
+    "rank": "116/396"
+  },
+  {
+    "id": "granite3-1-moe-3b-3-3b",
+    "name": "granite3.1-moe:3b",
+    "params": "3.3b",
+    "size": "2.0 GB",
+    "lab": "IBM",
+    "runsCount": 1,
+    "accuracy": "57.9%",
+    "accuracyNum": 0.579,
+    "semantic": "0.661",
+    "latency": "6409 ms",
+    "factuality": "0.729",
+    "hallucination": "53.5%",
+    "safety": "1.000",
+    "reliability": "0.901",
+    "drs": "0.591",
+    "drsNum": 0.591,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "57.9%",
+        "accuracyNum": 0.579,
+        "semantic": "0.661",
+        "latency": "6408.96 ms",
+        "factuality": "0.729",
+        "hallucination": "53.5%",
+        "safety": "1.000",
+        "reliability": "0.901",
+        "drs": "0.591"
+      }
+    ],
+    "rank": "117/396"
   },
   {
     "id": "granite-4-0-h-1b-1b",
@@ -4032,7 +4608,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.590"
       }
     ],
-    "rank": "110/368"
+    "rank": "118/396"
   },
   {
     "id": "ask-0-5b-gguf-0-5b",
@@ -4065,7 +4641,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.590"
       }
     ],
-    "rank": "111/368"
+    "rank": "119/396"
   },
   {
     "id": "tinydolphin-1-1b-1-1b",
@@ -4098,7 +4674,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.590"
       }
     ],
-    "rank": "112/368"
+    "rank": "120/396"
   },
   {
     "id": "qwen2-5-1-5b-instruct-5b",
@@ -4131,7 +4707,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.590"
       }
     ],
-    "rank": "113/368"
+    "rank": "121/396"
   },
   {
     "id": "lfm2-350m-350m",
@@ -4164,7 +4740,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.590"
       }
     ],
-    "rank": "114/368"
+    "rank": "122/396"
   },
   {
     "id": "yi-coder-1-5b",
@@ -4197,7 +4773,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.589"
       }
     ],
-    "rank": "115/368"
+    "rank": "123/396"
   },
   {
     "id": "llama-3-2-1b-1b",
@@ -4230,7 +4806,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.589"
       }
     ],
-    "rank": "116/368"
+    "rank": "124/396"
   },
   {
     "id": "llama-3-2-1b-instruct-1b",
@@ -4263,7 +4839,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.589"
       }
     ],
-    "rank": "117/368"
+    "rank": "125/396"
   },
   {
     "id": "stablelm-2-zephyr-1-6-billion",
@@ -4296,7 +4872,100 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.589"
       }
     ],
-    "rank": "118/368"
+    "rank": "126/396"
+  },
+  {
+    "id": "qwen3-4b-4b",
+    "name": "qwen3:4b",
+    "params": "4b",
+    "size": "2.5 GB",
+    "lab": "Alibaba Cloud",
+    "runsCount": 6,
+    "accuracy": "81.7%",
+    "accuracyNum": 0.817,
+    "semantic": "0.577",
+    "latency": "40736 ms",
+    "factuality": "0.662",
+    "hallucination": "57.8%",
+    "safety": "0.864",
+    "reliability": "0.888",
+    "drs": "0.589",
+    "drsNum": 0.589,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "79.3%",
+        "accuracyNum": 0.793,
+        "semantic": "0.644",
+        "latency": "33152.14 ms",
+        "factuality": "0.715",
+        "hallucination": "56.4%",
+        "safety": "1.000",
+        "reliability": "0.883",
+        "drs": "0.622"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "80.8%",
+        "accuracyNum": 0.808,
+        "semantic": "0.643",
+        "latency": "38626.23 ms",
+        "factuality": "0.714",
+        "hallucination": "55.1%",
+        "safety": "0.888",
+        "reliability": "0.903",
+        "drs": "0.611"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "76.8%",
+        "accuracyNum": 0.768,
+        "semantic": "0.632",
+        "latency": "50770.32 ms",
+        "factuality": "0.705",
+        "hallucination": "54.8%",
+        "safety": "0.787",
+        "reliability": "0.884",
+        "drs": "0.582"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "78.9%",
+        "accuracyNum": 0.789,
+        "semantic": "0.521",
+        "latency": "51593.63 ms",
+        "factuality": "0.617",
+        "hallucination": "60.7%",
+        "safety": "0.735",
+        "reliability": "0.908",
+        "drs": "0.551"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "78.0%",
+        "accuracyNum": 0.78,
+        "semantic": "0.622",
+        "latency": "49410.50 ms",
+        "factuality": "0.698",
+        "hallucination": "56.7%",
+        "safety": "0.774",
+        "reliability": "0.881",
+        "drs": "0.579"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "96.7%",
+        "accuracyNum": 0.967,
+        "semantic": "0.401",
+        "latency": "20862.33 ms",
+        "factuality": "0.521",
+        "hallucination": "62.8%",
+        "safety": "1.000",
+        "reliability": "0.872",
+        "drs": "0.588"
+      }
+    ],
+    "rank": "127/396"
   },
   {
     "id": "internlm2-1-8b-1-8b",
@@ -4377,7 +5046,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.593"
       }
     ],
-    "rank": "119/368"
+    "rank": "128/396"
   },
   {
     "id": "gemma2-2-0b",
@@ -4410,7 +5079,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.587"
       }
     ],
-    "rank": "120/368"
+    "rank": "129/396"
   },
   {
     "id": "ternary-bonsai-1-7b",
@@ -4443,7 +5112,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.587"
       }
     ],
-    "rank": "121/368"
+    "rank": "130/396"
   },
   {
     "id": "phi3-latest-3-8b",
@@ -4500,7 +5169,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.596"
       }
     ],
-    "rank": "122/368"
+    "rank": "131/396"
   },
   {
     "id": "exaone3-5-7-8b-7-8b",
@@ -4533,7 +5202,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.587"
       }
     ],
-    "rank": "123/368"
+    "rank": "132/396"
   },
   {
     "id": "cogito-8b-8-0b",
@@ -4566,7 +5235,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.587"
       }
     ],
-    "rank": "124/368"
+    "rank": "133/396"
   },
   {
     "id": "vertalily1-2-1-0b",
@@ -4599,7 +5268,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.586"
       }
     ],
-    "rank": "125/368"
+    "rank": "134/396"
   },
   {
     "id": "d1-3b-3b",
@@ -4632,7 +5301,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.586"
       }
     ],
-    "rank": "126/368"
+    "rank": "135/396"
   },
   {
     "id": "smollm-1-7b",
@@ -4665,7 +5334,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.585"
       }
     ],
-    "rank": "127/368"
+    "rank": "136/396"
   },
   {
     "id": "tulu3-8b",
@@ -4698,7 +5367,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.585"
       }
     ],
-    "rank": "128/368"
+    "rank": "137/396"
   },
   {
     "id": "bielik-1-5b-v3-0-instruct-gguf-q8-0-1-5b",
@@ -4731,7 +5400,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.585"
       }
     ],
-    "rank": "129/368"
+    "rank": "138/396"
   },
   {
     "id": "olmo-1b-instruct-1b",
@@ -4764,7 +5433,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.585"
       }
     ],
-    "rank": "130/368"
+    "rank": "139/396"
   },
   {
     "id": "stablelm2-1-6b-1-6b-2",
@@ -4797,7 +5466,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.585"
       }
     ],
-    "rank": "131/368"
+    "rank": "140/396"
   },
   {
     "id": "bonsai-1-7b",
@@ -4830,7 +5499,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.584"
       }
     ],
-    "rank": "132/368"
+    "rank": "141/396"
   },
   {
     "id": "qwen3-0-6b",
@@ -4959,7 +5628,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.580"
       }
     ],
-    "rank": "133/368"
+    "rank": "142/396"
   },
   {
     "id": "gemma3-it-1-0b",
@@ -4992,7 +5661,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.583"
       }
     ],
-    "rank": "134/368"
+    "rank": "143/396"
   },
   {
     "id": "qwen2-5-1-5b-instruct-q5-1-5b",
@@ -5025,7 +5694,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.583"
       }
     ],
-    "rank": "135/368"
+    "rank": "144/396"
   },
   {
     "id": "granite3-1-moe-1-0b",
@@ -5058,7 +5727,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.582"
       }
     ],
-    "rank": "136/368"
+    "rank": "145/396"
   },
   {
     "id": "qwen2-math-1-5b-1-5b",
@@ -5091,7 +5760,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.582"
       }
     ],
-    "rank": "137/368"
+    "rank": "146/396"
   },
   {
     "id": "deepseek-r1-8b-8-2b",
@@ -5124,7 +5793,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.582"
       }
     ],
-    "rank": "138/368"
+    "rank": "147/396"
   },
   {
     "id": "qwen2-5-0-5b",
@@ -5253,7 +5922,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.574"
       }
     ],
-    "rank": "139/368"
+    "rank": "148/396"
   },
   {
     "id": "medpsy-1-7b",
@@ -5286,7 +5955,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.580"
       }
     ],
-    "rank": "140/368"
+    "rank": "149/396"
   },
   {
     "id": "atem-wisdom-1-5b",
@@ -5319,7 +5988,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.579"
       }
     ],
-    "rank": "141/368"
+    "rank": "150/396"
   },
   {
     "id": "meetsolanki-meetaismall-0-3b",
@@ -5352,7 +6021,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.579"
       }
     ],
-    "rank": "142/368"
+    "rank": "151/396"
+  },
+  {
+    "id": "granite3-1-dense-1b-1b",
+    "name": "Granite3.1-dense:1b",
+    "params": "1b",
+    "size": "",
+    "lab": "IBM",
+    "runsCount": 1,
+    "accuracy": "75.0%",
+    "accuracyNum": 0.75,
+    "semantic": "0.595",
+    "latency": "46500 ms",
+    "factuality": "0.676",
+    "hallucination": "56.7%",
+    "safety": "0.962",
+    "reliability": "0.782",
+    "drs": "0.579",
+    "drsNum": 0.579,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "75.0%",
+        "accuracyNum": 0.75,
+        "semantic": "0.595",
+        "latency": "46499.68 ms",
+        "factuality": "0.676",
+        "hallucination": "56.7%",
+        "safety": "0.962",
+        "reliability": "0.782",
+        "drs": "0.579"
+      }
+    ],
+    "rank": "152/396"
   },
   {
     "id": "gemma3-1b-1b",
@@ -5385,7 +6087,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.578"
       }
     ],
-    "rank": "143/368"
+    "rank": "153/396"
   },
   {
     "id": "llama3-2-1b-instruct-q5-k-m-1-24b",
@@ -5418,7 +6120,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.578"
       }
     ],
-    "rank": "144/368"
+    "rank": "154/396"
   },
   {
     "id": "eurollm-1-7b-instruct-q4-k-m-1-7b",
@@ -5451,40 +6153,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.578"
       }
     ],
-    "rank": "145/368"
-  },
-  {
-    "id": "medgemma-4b-4-3b",
-    "name": "medgemma:4b",
-    "params": "4.3b",
-    "size": "3.3 GB",
-    "lab": "Google",
-    "runsCount": 1,
-    "accuracy": "75.9%",
-    "accuracyNum": 0.759,
-    "semantic": "0.486",
-    "latency": "14480 ms",
-    "factuality": "0.589",
-    "hallucination": "60.8%",
-    "safety": "1.000",
-    "reliability": "0.917",
-    "drs": "0.578",
-    "drsNum": 0.578,
-    "rawRuns": [
-      {
-        "runIndex": 1,
-        "accuracy": "75.9%",
-        "accuracyNum": 0.759,
-        "semantic": "0.486",
-        "latency": "14479.91 ms",
-        "factuality": "0.589",
-        "hallucination": "60.8%",
-        "safety": "1.000",
-        "reliability": "0.917",
-        "drs": "0.578"
-      }
-    ],
-    "rank": "146/368"
+    "rank": "155/396"
   },
   {
     "id": "deepscaler-1-5b",
@@ -5517,7 +6186,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.577"
       }
     ],
-    "rank": "147/368"
+    "rank": "156/396"
   },
   {
     "id": "falcon3-1-0b",
@@ -5562,7 +6231,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.587"
       }
     ],
-    "rank": "148/368"
+    "rank": "157/396"
   },
   {
     "id": "lfm2-0-35b",
@@ -5607,7 +6276,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.608"
       }
     ],
-    "rank": "149/368"
+    "rank": "158/396"
   },
   {
     "id": "exaone-4-0-1-2b",
@@ -5640,7 +6309,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.577"
       }
     ],
-    "rank": "150/368"
+    "rank": "159/396"
   },
   {
     "id": "llama-smoltalk-3-2-1b-instruct-q4-k-m-1b",
@@ -5673,7 +6342,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.577"
       }
     ],
-    "rank": "151/368"
+    "rank": "160/396"
   },
   {
     "id": "dolphin-3-0-llama-3-2-1b-1b",
@@ -5706,7 +6375,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.577"
       }
     ],
-    "rank": "152/368"
+    "rank": "161/396"
   },
   {
     "id": "orca-mini-3b-3-43b",
@@ -5739,7 +6408,52 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.577"
       }
     ],
-    "rank": "153/368"
+    "rank": "162/396"
+  },
+  {
+    "id": "medgemma-4b-4-3b",
+    "name": "medgemma:4b",
+    "params": "4.3b",
+    "size": "3.3 GB",
+    "lab": "Google",
+    "runsCount": 2,
+    "accuracy": "75.9%",
+    "accuracyNum": 0.759,
+    "semantic": "0.484",
+    "latency": "13315 ms",
+    "factuality": "0.587",
+    "hallucination": "60.3%",
+    "safety": "1.000",
+    "reliability": "0.909",
+    "drs": "0.577",
+    "drsNum": 0.577,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "75.9%",
+        "accuracyNum": 0.759,
+        "semantic": "0.486",
+        "latency": "14479.91 ms",
+        "factuality": "0.589",
+        "hallucination": "60.8%",
+        "safety": "1.000",
+        "reliability": "0.917",
+        "drs": "0.578"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "75.9%",
+        "accuracyNum": 0.759,
+        "semantic": "0.482",
+        "latency": "12150.40 ms",
+        "factuality": "0.586",
+        "hallucination": "59.8%",
+        "safety": "1.000",
+        "reliability": "0.900",
+        "drs": "0.575"
+      }
+    ],
+    "rank": "163/396"
   },
   {
     "id": "phi-4-mini-instruct-3-8b",
@@ -5772,7 +6486,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.576"
       }
     ],
-    "rank": "154/368"
+    "rank": "164/396"
   },
   {
     "id": "medllama-1b-instruct-v3-gguf-q4-k-m-1-b",
@@ -5805,7 +6519,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.576"
       }
     ],
-    "rank": "155/368"
+    "rank": "165/396"
   },
   {
     "id": "minicpm5-1b-1-08b",
@@ -5838,7 +6552,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.576"
       }
     ],
-    "rank": "156/368"
+    "rank": "166/396"
   },
   {
     "id": "h2oai-500m",
@@ -5871,7 +6585,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.575"
       }
     ],
-    "rank": "157/368"
+    "rank": "167/396"
   },
   {
     "id": "smollm2-360m-360-million",
@@ -5904,7 +6618,100 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.575"
       }
     ],
-    "rank": "158/368"
+    "rank": "168/396"
+  },
+  {
+    "id": "qwen2-5-coder-3b-3b-2",
+    "name": "qwen2.5-coder:3b",
+    "params": "3b",
+    "size": "1.9 GB",
+    "lab": "Alibaba Cloud",
+    "runsCount": 6,
+    "accuracy": "66.8%",
+    "accuracyNum": 0.668,
+    "semantic": "0.564",
+    "latency": "2611 ms",
+    "factuality": "0.648",
+    "hallucination": "57.1%",
+    "safety": "0.985",
+    "reliability": "0.840",
+    "drs": "0.575",
+    "drsNum": 0.575,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "54.9%",
+        "accuracyNum": 0.549,
+        "semantic": "0.489",
+        "latency": "2981.44 ms",
+        "factuality": "0.571",
+        "hallucination": "60.0%",
+        "safety": "1.000",
+        "reliability": "0.843",
+        "drs": "0.528"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "63.2%",
+        "accuracyNum": 0.632,
+        "semantic": "0.673",
+        "latency": "3444.48 ms",
+        "factuality": "0.738",
+        "hallucination": "53.1%",
+        "safety": "1.000",
+        "reliability": "0.883",
+        "drs": "0.605"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "54.6%",
+        "accuracyNum": 0.546,
+        "semantic": "0.524",
+        "latency": "1024.66 ms",
+        "factuality": "0.619",
+        "hallucination": "58.7%",
+        "safety": "1.000",
+        "reliability": "0.807",
+        "drs": "0.542"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "60.2%",
+        "accuracyNum": 0.602,
+        "semantic": "0.625",
+        "latency": "2235.94 ms",
+        "factuality": "0.700",
+        "hallucination": "55.1%",
+        "safety": "0.910",
+        "reliability": "0.792",
+        "drs": "0.561"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "96.7%",
+        "accuracyNum": 0.967,
+        "semantic": "0.421",
+        "latency": "2478.13 ms",
+        "factuality": "0.536",
+        "hallucination": "61.5%",
+        "safety": "1.000",
+        "reliability": "0.877",
+        "drs": "0.604"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "71.4%",
+        "accuracyNum": 0.714,
+        "semantic": "0.652",
+        "latency": "3500.63 ms",
+        "factuality": "0.721",
+        "hallucination": "54.3%",
+        "safety": "1.000",
+        "reliability": "0.839",
+        "drs": "0.608"
+      }
+    ],
+    "rank": "169/396"
   },
   {
     "id": "tinyllama-1-1b-chat-v1-0-1b",
@@ -5937,7 +6744,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.574"
       }
     ],
-    "rank": "159/368"
+    "rank": "170/396"
   },
   {
     "id": "lfm2-5-8b-8-5b",
@@ -5970,7 +6777,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.574"
       }
     ],
-    "rank": "160/368"
+    "rank": "171/396"
   },
   {
     "id": "llama3-8b-8b",
@@ -6003,7 +6810,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.574"
       }
     ],
-    "rank": "161/368"
+    "rank": "172/396"
   },
   {
     "id": "smollm2-1-7b",
@@ -6036,7 +6843,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.573"
       }
     ],
-    "rank": "162/368"
+    "rank": "173/396"
   },
   {
     "id": "stablelm-zephyr-3-0b",
@@ -6081,7 +6888,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.566"
       }
     ],
-    "rank": "163/368"
+    "rank": "174/396"
   },
   {
     "id": "nemotron-mini-4b-instruct-q4-k-m-4b",
@@ -6114,7 +6921,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.573"
       }
     ],
-    "rank": "164/368"
+    "rank": "175/396"
   },
   {
     "id": "wizardlm-2-7b-2-7b",
@@ -6147,52 +6954,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.573"
       }
     ],
-    "rank": "165/368"
-  },
-  {
-    "id": "deepseek-coder-1-3b-1-3b",
-    "name": "deepseek-coder:1.3b",
-    "params": "1.3b",
-    "size": "776 MB",
-    "lab": "DeepSeek",
-    "runsCount": 2,
-    "accuracy": "68.8%",
-    "accuracyNum": 0.688,
-    "semantic": "0.638",
-    "latency": "19207 ms",
-    "factuality": "0.710",
-    "hallucination": "42.4%",
-    "safety": "0.891",
-    "reliability": "0.581",
-    "drs": "0.573",
-    "drsNum": 0.573,
-    "rawRuns": [
-      {
-        "runIndex": 1,
-        "accuracy": "72.2%",
-        "accuracyNum": 0.722,
-        "semantic": "0.615",
-        "latency": "5264.24 ms",
-        "factuality": "0.692",
-        "hallucination": "30.8%",
-        "safety": "0.963",
-        "reliability": "0.333",
-        "drs": "0.582"
-      },
-      {
-        "runIndex": 2,
-        "accuracy": "65.3%",
-        "accuracyNum": 0.653,
-        "semantic": "0.661",
-        "latency": "33149.84 ms",
-        "factuality": "0.729",
-        "hallucination": "54.0%",
-        "safety": "0.820",
-        "reliability": "0.828",
-        "drs": "0.564"
-      }
-    ],
-    "rank": "166/368"
+    "rank": "176/396"
   },
   {
     "id": "borealis-1b-instruct-1b",
@@ -6225,7 +6987,76 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.572"
       }
     ],
-    "rank": "167/368"
+    "rank": "177/396"
+  },
+  {
+    "id": "gemma3-4b-4b",
+    "name": "gemma3:4b",
+    "params": "4b",
+    "size": "3.4gb",
+    "lab": "TinyLlama",
+    "runsCount": 4,
+    "accuracy": "76.9%",
+    "accuracyNum": 0.769,
+    "semantic": "0.530",
+    "latency": "20524 ms",
+    "factuality": "0.619",
+    "hallucination": "58.8%",
+    "safety": "0.891",
+    "reliability": "0.898",
+    "drs": "0.572",
+    "drsNum": 0.572,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "74.9%",
+        "accuracyNum": 0.749,
+        "semantic": "0.620",
+        "latency": "23760.55 ms",
+        "factuality": "0.696",
+        "hallucination": "55.9%",
+        "safety": "0.782",
+        "reliability": "0.918",
+        "drs": "0.580"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "60.3%",
+        "accuracyNum": 0.603,
+        "semantic": "0.469",
+        "latency": "19400.04 ms",
+        "factuality": "0.555",
+        "hallucination": "61.6%",
+        "safety": "0.940",
+        "reliability": "0.877",
+        "drs": "0.523"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "76.0%",
+        "accuracyNum": 0.76,
+        "semantic": "0.606",
+        "latency": "19941.21 ms",
+        "factuality": "0.685",
+        "hallucination": "55.7%",
+        "safety": "0.937",
+        "reliability": "0.895",
+        "drs": "0.599"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "96.4%",
+        "accuracyNum": 0.964,
+        "semantic": "0.424",
+        "latency": "18992.83 ms",
+        "factuality": "0.539",
+        "hallucination": "61.8%",
+        "safety": "0.905",
+        "reliability": "0.901",
+        "drs": "0.585"
+      }
+    ],
+    "rank": "178/396"
   },
   {
     "id": "llama3-2-3b-3-21b",
@@ -6258,7 +7089,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.571"
       }
     ],
-    "rank": "168/368"
+    "rank": "179/396"
   },
   {
     "id": "deepseek-r1-8b-8-19b",
@@ -6291,7 +7122,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.571"
       }
     ],
-    "rank": "169/368"
+    "rank": "180/396"
   },
   {
     "id": "dolphin-phi-2-7b",
@@ -6324,7 +7155,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.570"
       }
     ],
-    "rank": "170/368"
+    "rank": "181/396"
   },
   {
     "id": "granite4-0-35b",
@@ -6417,7 +7248,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.590"
       }
     ],
-    "rank": "171/368"
+    "rank": "182/396"
   },
   {
     "id": "smollm-1-7b-1-7b",
@@ -6450,7 +7281,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.569"
       }
     ],
-    "rank": "172/368"
+    "rank": "183/396"
   },
   {
     "id": "falcon3-1b-2",
@@ -6483,7 +7314,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.568"
       }
     ],
-    "rank": "173/368"
+    "rank": "184/396"
   },
   {
     "id": "h2o-danube3-0-5b-500m",
@@ -6516,7 +7347,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.568"
       }
     ],
-    "rank": "174/368"
+    "rank": "185/396"
   },
   {
     "id": "ministral-3-3-0b",
@@ -6549,7 +7380,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.567"
       }
     ],
-    "rank": "175/368"
+    "rank": "186/396"
   },
   {
     "id": "hunyuan-instruct-1-8b",
@@ -6582,7 +7413,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.566"
       }
     ],
-    "rank": "176/368"
+    "rank": "187/396"
   },
   {
     "id": "mistral-nemo-12b",
@@ -6615,7 +7446,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.566"
       }
     ],
-    "rank": "177/368"
+    "rank": "188/396"
   },
   {
     "id": "tinyllama-1-1b-1-1-billion",
@@ -6660,7 +7491,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.492"
       }
     ],
-    "rank": "178/368"
+    "rank": "189/396"
   },
   {
     "id": "qwen2-5-7b-7-6b",
@@ -6693,7 +7524,100 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.566"
       }
     ],
-    "rank": "179/368"
+    "rank": "190/396"
+  },
+  {
+    "id": "qwen2-5-coder-1-5b-1-5b",
+    "name": "qwen2.5-coder:1.5b",
+    "params": "1.5b",
+    "size": "986 MB",
+    "lab": "Alibaba",
+    "runsCount": 6,
+    "accuracy": "63.6%",
+    "accuracyNum": 0.636,
+    "semantic": "0.552",
+    "latency": "3755 ms",
+    "factuality": "0.641",
+    "hallucination": "57.5%",
+    "safety": "0.975",
+    "reliability": "0.837",
+    "drs": "0.565",
+    "drsNum": 0.565,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "44.6%",
+        "accuracyNum": 0.446,
+        "semantic": "0.463",
+        "latency": "13381.19 ms",
+        "factuality": "0.570",
+        "hallucination": "60.8%",
+        "safety": "1.000",
+        "reliability": "0.835",
+        "drs": "0.496"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "70.3%",
+        "accuracyNum": 0.703,
+        "semantic": "0.664",
+        "latency": "4764.01 ms",
+        "factuality": "0.731",
+        "hallucination": "53.7%",
+        "safety": "0.937",
+        "reliability": "0.858",
+        "drs": "0.601"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "44.8%",
+        "accuracyNum": 0.448,
+        "semantic": "0.475",
+        "latency": "530.17 ms",
+        "factuality": "0.580",
+        "hallucination": "60.1%",
+        "safety": "1.000",
+        "reliability": "0.708",
+        "drs": "0.499"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "57.6%",
+        "accuracyNum": 0.576,
+        "semantic": "0.642",
+        "latency": "1171.46 ms",
+        "factuality": "0.713",
+        "hallucination": "54.2%",
+        "safety": "0.910",
+        "reliability": "0.880",
+        "drs": "0.578"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "96.7%",
+        "accuracyNum": 0.967,
+        "semantic": "0.402",
+        "latency": "1705.64 ms",
+        "factuality": "0.521",
+        "hallucination": "62.6%",
+        "safety": "1.000",
+        "reliability": "0.888",
+        "drs": "0.601"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "67.8%",
+        "accuracyNum": 0.678,
+        "semantic": "0.666",
+        "latency": "978.16 ms",
+        "factuality": "0.733",
+        "hallucination": "53.5%",
+        "safety": "1.000",
+        "reliability": "0.852",
+        "drs": "0.616"
+      }
+    ],
+    "rank": "191/396"
   },
   {
     "id": "graft-1b-1b",
@@ -6726,7 +7650,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.564"
       }
     ],
-    "rank": "180/368"
+    "rank": "192/396"
   },
   {
     "id": "orca-mini-3b",
@@ -6759,7 +7683,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.563"
       }
     ],
-    "rank": "181/368"
+    "rank": "193/396"
   },
   {
     "id": "deepseek-r1-distill-qwen-1-5b-1-5b",
@@ -6792,7 +7716,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.563"
       }
     ],
-    "rank": "182/368"
+    "rank": "194/396"
   },
   {
     "id": "granite-4-3b-h-3b",
@@ -6825,7 +7749,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.563"
       }
     ],
-    "rank": "183/368"
+    "rank": "195/396"
   },
   {
     "id": "mistral-openorca-7b-7b",
@@ -6858,7 +7782,76 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.563"
       }
     ],
-    "rank": "184/368"
+    "rank": "196/396"
+  },
+  {
+    "id": "llama-3-2-1b-instruct-fine-tuned-1-24b",
+    "name": "llama-3.2-1b-instruct-fine-tuned",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "runsCount": 4,
+    "accuracy": "65.4%",
+    "accuracyNum": 0.654,
+    "semantic": "0.536",
+    "latency": "2733 ms",
+    "factuality": "0.624",
+    "hallucination": "58.4%",
+    "safety": "0.985",
+    "reliability": "0.844",
+    "drs": "0.563",
+    "drsNum": 0.563,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "52.5%",
+        "accuracyNum": 0.525,
+        "semantic": "0.444",
+        "latency": "2482.50 ms",
+        "factuality": "0.535",
+        "hallucination": "61.7%",
+        "safety": "1.000",
+        "reliability": "0.845",
+        "drs": "0.512"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "68.2%",
+        "accuracyNum": 0.682,
+        "semantic": "0.636",
+        "latency": "2965.38 ms",
+        "factuality": "0.708",
+        "hallucination": "54.4%",
+        "safety": "1.000",
+        "reliability": "0.908",
+        "drs": "0.609"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "78.0%",
+        "accuracyNum": 0.78,
+        "semantic": "0.470",
+        "latency": "2954.55 ms",
+        "factuality": "0.576",
+        "hallucination": "61.4%",
+        "safety": "1.000",
+        "reliability": "0.792",
+        "drs": "0.564"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "62.9%",
+        "accuracyNum": 0.629,
+        "semantic": "0.596",
+        "latency": "2531.19 ms",
+        "factuality": "0.677",
+        "hallucination": "56.0%",
+        "safety": "0.940",
+        "reliability": "0.832",
+        "drs": "0.568"
+      }
+    ],
+    "rank": "197/396"
   },
   {
     "id": "deepseek-coder-1-3b",
@@ -6891,7 +7884,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.562"
       }
     ],
-    "rank": "185/368"
+    "rank": "198/396"
   },
   {
     "id": "granite3-2-2-0b",
@@ -6924,7 +7917,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.562"
       }
     ],
-    "rank": "186/368"
+    "rank": "199/396"
   },
   {
     "id": "gemma3-270m",
@@ -7077,7 +8070,124 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.500"
       }
     ],
-    "rank": "187/368"
+    "rank": "200/396"
+  },
+  {
+    "id": "qwen2-5-0-5b-instruct-0-5b",
+    "name": "qwen2.5:0.5b-instruct",
+    "params": "0.5b",
+    "size": "486 MB",
+    "lab": "Alibaba Cloud",
+    "runsCount": 8,
+    "accuracy": "66.1%",
+    "accuracyNum": 0.661,
+    "semantic": "0.531",
+    "latency": "4615 ms",
+    "factuality": "0.625",
+    "hallucination": "58.4%",
+    "safety": "0.974",
+    "reliability": "0.824",
+    "drs": "0.562",
+    "drsNum": 0.562,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "62.0%",
+        "accuracyNum": 0.62,
+        "semantic": "0.622",
+        "latency": "7,614.12 ms",
+        "factuality": "0.698",
+        "hallucination": "54.9%",
+        "safety": "1.000",
+        "reliability": "0.825",
+        "drs": "0.576"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "74.7%",
+        "accuracyNum": 0.747,
+        "semantic": "0.656",
+        "latency": "21034.58 ms",
+        "factuality": "0.725",
+        "hallucination": "53.9%",
+        "safety": "0.963",
+        "reliability": "0.861",
+        "drs": "0.609"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "52.7%",
+        "accuracyNum": 0.527,
+        "semantic": "0.432",
+        "latency": "2871.17 ms",
+        "factuality": "0.545",
+        "hallucination": "62.6%",
+        "safety": "0.970",
+        "reliability": "0.788",
+        "drs": "0.498"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "74.9%",
+        "accuracyNum": 0.749,
+        "semantic": "0.638",
+        "latency": "1670.23 ms",
+        "factuality": "0.711",
+        "hallucination": "54.3%",
+        "safety": "0.887",
+        "reliability": "0.868",
+        "drs": "0.604"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "46.3%",
+        "accuracyNum": 0.463,
+        "semantic": "0.281",
+        "latency": "899.36 ms",
+        "factuality": "0.425",
+        "hallucination": "67.2%",
+        "safety": "1.000",
+        "reliability": "0.772",
+        "drs": "0.453"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "60.8%",
+        "accuracyNum": 0.608,
+        "semantic": "0.601",
+        "latency": "832.89 ms",
+        "factuality": "0.681",
+        "hallucination": "56.1%",
+        "safety": "0.970",
+        "reliability": "0.772",
+        "drs": "0.568"
+      },
+      {
+        "runIndex": 7,
+        "accuracy": "96.7%",
+        "accuracyNum": 0.967,
+        "semantic": "0.397",
+        "latency": "976.97 ms",
+        "factuality": "0.517",
+        "hallucination": "62.8%",
+        "safety": "1.000",
+        "reliability": "0.916",
+        "drs": "0.608"
+      },
+      {
+        "runIndex": 8,
+        "accuracy": "60.7%",
+        "accuracyNum": 0.607,
+        "semantic": "0.620",
+        "latency": "1018.60 ms",
+        "factuality": "0.696",
+        "hallucination": "55.3%",
+        "safety": "1.000",
+        "reliability": "0.790",
+        "drs": "0.579"
+      }
+    ],
+    "rank": "201/396"
   },
   {
     "id": "meetsolanki-meetaismall-0-7b",
@@ -7110,7 +8220,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.562"
       }
     ],
-    "rank": "188/368"
+    "rank": "202/396"
   },
   {
     "id": "gemma-2-2b-2-2b",
@@ -7143,7 +8253,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.562"
       }
     ],
-    "rank": "189/368"
+    "rank": "203/396"
   },
   {
     "id": "stablelm2-1-1-6-billion",
@@ -7176,7 +8286,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.561"
       }
     ],
-    "rank": "190/368"
+    "rank": "204/396"
   },
   {
     "id": "qwen-0-5b-0-5b",
@@ -7209,7 +8319,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.561"
       }
     ],
-    "rank": "191/368"
+    "rank": "205/396"
   },
   {
     "id": "stable-beluga-latest-1b",
@@ -7242,7 +8352,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.559"
       }
     ],
-    "rank": "192/368"
+    "rank": "206/396"
   },
   {
     "id": "borealis-270m-instruct-preview-270m",
@@ -7275,7 +8385,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.559"
       }
     ],
-    "rank": "193/368"
+    "rank": "207/396"
   },
   {
     "id": "sailor2-1b",
@@ -7308,7 +8418,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.558"
       }
     ],
-    "rank": "194/368"
+    "rank": "208/396"
   },
   {
     "id": "mistral-7b-7-2b",
@@ -7341,7 +8451,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.558"
       }
     ],
-    "rank": "195/368"
+    "rank": "209/396"
   },
   {
     "id": "phi4-mini-reasoning-3-8b-3-8b",
@@ -7374,7 +8484,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.558"
       }
     ],
-    "rank": "196/368"
+    "rank": "210/396"
   },
   {
     "id": "yi-9b-9b",
@@ -7407,7 +8517,88 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.558"
       }
     ],
-    "rank": "197/368"
+    "rank": "211/396"
+  },
+  {
+    "id": "llama-3-2-1b-no-robots-1-24b",
+    "name": "Llama-3.2-1B-no-robots",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "runsCount": 5,
+    "accuracy": "67.1%",
+    "accuracyNum": 0.671,
+    "semantic": "0.530",
+    "latency": "1106 ms",
+    "factuality": "0.620",
+    "hallucination": "58.5%",
+    "safety": "0.941",
+    "reliability": "0.796",
+    "drs": "0.558",
+    "drsNum": 0.558,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "47.0%",
+        "accuracyNum": 0.47,
+        "semantic": "0.435",
+        "latency": "1396.24 ms",
+        "factuality": "0.528",
+        "hallucination": "62.5%",
+        "safety": "0.932",
+        "reliability": "0.739",
+        "drs": "0.476"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "67.3%",
+        "accuracyNum": 0.673,
+        "semantic": "0.641",
+        "latency": "1775.78 ms",
+        "factuality": "0.713",
+        "hallucination": "54.5%",
+        "safety": "1.000",
+        "reliability": "0.834",
+        "drs": "0.601"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "63.9%",
+        "accuracyNum": 0.639,
+        "semantic": "0.482",
+        "latency": "744.37 ms",
+        "factuality": "0.586",
+        "hallucination": "60.2%",
+        "safety": "0.925",
+        "reliability": "0.804",
+        "drs": "0.540"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "62.5%",
+        "accuracyNum": 0.625,
+        "semantic": "0.622",
+        "latency": "948.21 ms",
+        "factuality": "0.698",
+        "hallucination": "54.9%",
+        "safety": "0.850",
+        "reliability": "0.800",
+        "drs": "0.563"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "94.7%",
+        "accuracyNum": 0.947,
+        "semantic": "0.468",
+        "latency": "667.68 ms",
+        "factuality": "0.574",
+        "hallucination": "60.3%",
+        "safety": "1.000",
+        "reliability": "0.801",
+        "drs": "0.609"
+      }
+    ],
+    "rank": "212/396"
   },
   {
     "id": "hermes3-3-0b",
@@ -7440,7 +8631,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.556"
       }
     ],
-    "rank": "198/368"
+    "rank": "213/396"
   },
   {
     "id": "granite4-2-3b-3-7b",
@@ -7473,7 +8664,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.556"
       }
     ],
-    "rank": "199/368"
+    "rank": "214/396"
   },
   {
     "id": "lfm2-1-2b-1-2b",
@@ -7506,7 +8697,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.555"
       }
     ],
-    "rank": "200/368"
+    "rank": "215/396"
   },
   {
     "id": "granite4-3b",
@@ -7539,7 +8730,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.555"
       }
     ],
-    "rank": "201/368"
+    "rank": "216/396"
   },
   {
     "id": "granite3-3-8b-8-2b",
@@ -7572,7 +8763,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.555"
       }
     ],
-    "rank": "202/368"
+    "rank": "217/396"
   },
   {
     "id": "qwen3-5-9b-9-0b",
@@ -7605,7 +8796,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.555"
       }
     ],
-    "rank": "203/368"
+    "rank": "218/396"
   },
   {
     "id": "granite3-dense-8b-8-2b",
@@ -7638,7 +8829,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.555"
       }
     ],
-    "rank": "204/368"
+    "rank": "219/396"
   },
   {
     "id": "llama3-2-1b-1b",
@@ -7671,7 +8862,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.554"
       }
     ],
-    "rank": "205/368"
+    "rank": "220/396"
+  },
+  {
+    "id": "minicpm-v4-6-1b-752-16m",
+    "name": "minicpm-v4.6:1b",
+    "params": "752.16m",
+    "size": "1.6 GB",
+    "lab": "OpenBMB (ModelBest)",
+    "runsCount": 1,
+    "accuracy": "70.0%",
+    "accuracyNum": 0.7,
+    "semantic": "0.442",
+    "latency": "10317 ms",
+    "factuality": "0.554",
+    "hallucination": "62.4%",
+    "safety": "1.000",
+    "reliability": "0.913",
+    "drs": "0.554",
+    "drsNum": 0.554,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "70.0%",
+        "accuracyNum": 0.7,
+        "semantic": "0.442",
+        "latency": "10316.76 ms",
+        "factuality": "0.554",
+        "hallucination": "62.4%",
+        "safety": "1.000",
+        "reliability": "0.913",
+        "drs": "0.554"
+      }
+    ],
+    "rank": "221/396"
   },
   {
     "id": "smollm2-360m-instruct-360-m",
@@ -7704,7 +8928,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.553"
       }
     ],
-    "rank": "206/368"
+    "rank": "222/396"
   },
   {
     "id": "stable-code-instruct-3b-q4-k-m-3b",
@@ -7737,7 +8961,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.552"
       }
     ],
-    "rank": "207/368"
+    "rank": "223/396"
   },
   {
     "id": "smollm-1-7b-instruct-v0-2-q4-k-m-1-7b",
@@ -7770,7 +8994,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.552"
       }
     ],
-    "rank": "208/368"
+    "rank": "224/396"
   },
   {
     "id": "qwen2-5-coder-3b",
@@ -7803,7 +9027,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.552"
       }
     ],
-    "rank": "209/368"
+    "rank": "225/396"
   },
   {
     "id": "medllama2-7b-7b",
@@ -7836,7 +9060,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.552"
       }
     ],
-    "rank": "210/368"
+    "rank": "226/396"
   },
   {
     "id": "qwen2-5-coder-instruct-3-0b",
@@ -7869,7 +9093,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.551"
       }
     ],
-    "rank": "211/368"
+    "rank": "227/396"
   },
   {
     "id": "lfm3-1-7b-1-7b",
@@ -7902,7 +9126,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.551"
       }
     ],
-    "rank": "212/368"
+    "rank": "228/396"
   },
   {
     "id": "qwen2-5-coder-7b-7-6b",
@@ -7935,7 +9159,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.550"
       }
     ],
-    "rank": "213/368"
+    "rank": "229/396"
   },
   {
     "id": "qwen2-0-5b-instruct-0-494b",
@@ -7968,7 +9192,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.549"
       }
     ],
-    "rank": "214/368"
+    "rank": "230/396"
   },
   {
     "id": "qwen2-5-0-5b-instruct-0-5b-2",
@@ -8001,7 +9225,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.549"
       }
     ],
-    "rank": "215/368"
+    "rank": "231/396"
   },
   {
     "id": "phi3-5-3-8b-3-8b",
@@ -8034,7 +9258,52 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.549"
       }
     ],
-    "rank": "216/368"
+    "rank": "232/396"
+  },
+  {
+    "id": "medgemma1-5-4b-4-3b",
+    "name": "medgemma1.5:4b",
+    "params": "4.3b",
+    "size": "3.3 GB",
+    "lab": "Google",
+    "runsCount": 2,
+    "accuracy": "96.4%",
+    "accuracyNum": 0.964,
+    "semantic": "0.395",
+    "latency": "42574 ms",
+    "factuality": "0.516",
+    "hallucination": "63.7%",
+    "safety": "0.762",
+    "reliability": "0.865",
+    "drs": "0.548",
+    "drsNum": 0.549,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "96.4%",
+        "accuracyNum": 0.964,
+        "semantic": "0.396",
+        "latency": "52070.92 ms",
+        "factuality": "0.517",
+        "hallucination": "63.9%",
+        "safety": "0.715",
+        "reliability": "0.860",
+        "drs": "0.541"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "96.4%",
+        "accuracyNum": 0.964,
+        "semantic": "0.394",
+        "latency": "33077.67 ms",
+        "factuality": "0.515",
+        "hallucination": "63.6%",
+        "safety": "0.810",
+        "reliability": "0.869",
+        "drs": "0.556"
+      }
+    ],
+    "rank": "233/396"
   },
   {
     "id": "granite4-3b-3-4b",
@@ -8067,7 +9336,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.548"
       }
     ],
-    "rank": "217/368"
+    "rank": "234/396"
   },
   {
     "id": "lfm2-5-1-2b-thinking-2b",
@@ -8100,7 +9369,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.547"
       }
     ],
-    "rank": "218/368"
+    "rank": "235/396"
   },
   {
     "id": "smollm2-360m-instruct-360m",
@@ -8133,7 +9402,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.547"
       }
     ],
-    "rank": "219/368"
+    "rank": "236/396"
   },
   {
     "id": "borealis-1b-instruct-preview-1-b",
@@ -8166,7 +9435,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.547"
       }
     ],
-    "rank": "220/368"
+    "rank": "237/396"
+  },
+  {
+    "id": "lfm3-vl-2b-1-7b",
+    "name": "lfm3-vl:2b",
+    "params": "1.7b",
+    "size": "1.5 GB",
+    "lab": "Liquid AI",
+    "runsCount": 1,
+    "accuracy": "63.1%",
+    "accuracyNum": 0.631,
+    "semantic": "0.519",
+    "latency": "15500 ms",
+    "factuality": "0.615",
+    "hallucination": "59.6%",
+    "safety": "1.000",
+    "reliability": "0.823",
+    "drs": "0.547",
+    "drsNum": 0.547,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "63.1%",
+        "accuracyNum": 0.631,
+        "semantic": "0.519",
+        "latency": "15500.31 ms",
+        "factuality": "0.615",
+        "hallucination": "59.6%",
+        "safety": "1.000",
+        "reliability": "0.823",
+        "drs": "0.547"
+      }
+    ],
+    "rank": "238/396"
   },
   {
     "id": "opencoder-1-5b-instruct-q4-k-m-1-5b",
@@ -8199,7 +9501,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.546"
       }
     ],
-    "rank": "221/368"
+    "rank": "239/396"
   },
   {
     "id": "gguf-q4-k-m-1-5b",
@@ -8232,7 +9534,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.545"
       }
     ],
-    "rank": "222/368"
+    "rank": "240/396"
   },
   {
     "id": "hunyuan-0-5b-instruct-0-5b",
@@ -8265,7 +9567,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.543"
       }
     ],
-    "rank": "223/368"
+    "rank": "241/396"
   },
   {
     "id": "dolphin3-8b-8-0b",
@@ -8298,7 +9600,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.543"
       }
     ],
-    "rank": "224/368"
+    "rank": "242/396"
   },
   {
     "id": "llama3-8b-8-0b",
@@ -8331,7 +9633,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.543"
       }
     ],
-    "rank": "225/368"
+    "rank": "243/396"
   },
   {
     "id": "deepseek-r1-1-5b",
@@ -8448,7 +9750,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.581"
       }
     ],
-    "rank": "226/368"
+    "rank": "244/396"
   },
   {
     "id": "babar-jamali-gemma3-abliterated-1b",
@@ -8481,40 +9783,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.541"
       }
     ],
-    "rank": "227/368"
-  },
-  {
-    "id": "medgemma1-5-4b-4-3b",
-    "name": "medgemma1.5:4b",
-    "params": "4.3b",
-    "size": "3.3 GB",
-    "lab": "Google",
-    "runsCount": 1,
-    "accuracy": "96.4%",
-    "accuracyNum": 0.964,
-    "semantic": "0.396",
-    "latency": "52071 ms",
-    "factuality": "0.517",
-    "hallucination": "63.9%",
-    "safety": "0.715",
-    "reliability": "0.860",
-    "drs": "0.541",
-    "drsNum": 0.541,
-    "rawRuns": [
-      {
-        "runIndex": 1,
-        "accuracy": "96.4%",
-        "accuracyNum": 0.964,
-        "semantic": "0.396",
-        "latency": "52070.92 ms",
-        "factuality": "0.517",
-        "hallucination": "63.9%",
-        "safety": "0.715",
-        "reliability": "0.860",
-        "drs": "0.541"
-      }
-    ],
-    "rank": "228/368"
+    "rank": "245/396"
   },
   {
     "id": "onellm-doey-v1-1-0b",
@@ -8547,7 +9816,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.540"
       }
     ],
-    "rank": "229/368"
+    "rank": "246/396"
   },
   {
     "id": "ling-3-0-tiny-gguf-q4-k-m-7-9b-total-1-3b-active-",
@@ -8580,7 +9849,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.540"
       }
     ],
-    "rank": "230/368"
+    "rank": "247/396"
   },
   {
     "id": "gemma4-e4b-8b-4-5b-effective-",
@@ -8613,7 +9882,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.540"
       }
     ],
-    "rank": "231/368"
+    "rank": "248/396"
   },
   {
     "id": "qwen2-7b-7-6b",
@@ -8646,7 +9915,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.540"
       }
     ],
-    "rank": "232/368"
+    "rank": "249/396"
   },
   {
     "id": "granite4-350m",
@@ -8679,7 +9948,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.539"
       }
     ],
-    "rank": "233/368"
+    "rank": "250/396"
   },
   {
     "id": "yi-coder-1-5b-chat-1-5b",
@@ -8712,7 +9981,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.538"
       }
     ],
-    "rank": "234/368"
+    "rank": "251/396"
   },
   {
     "id": "llama3-1-8b-8-0b",
@@ -8745,7 +10014,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.538"
       }
     ],
-    "rank": "235/368"
+    "rank": "252/396"
   },
   {
     "id": "falcon3-3b-3-23b",
@@ -8778,7 +10047,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.538"
       }
     ],
-    "rank": "236/368"
+    "rank": "253/396"
   },
   {
     "id": "jewelzufo-vertalily-1-2-1b",
@@ -8823,7 +10092,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.477"
       }
     ],
-    "rank": "237/368"
+    "rank": "254/396"
   },
   {
     "id": "gemma2-2b",
@@ -8856,7 +10125,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.537"
       }
     ],
-    "rank": "238/368"
+    "rank": "255/396"
   },
   {
     "id": "qwen3-4b-4-0b",
@@ -8889,7 +10158,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.537"
       }
     ],
-    "rank": "239/368"
+    "rank": "256/396"
   },
   {
     "id": "granite4-1b-1-63b",
@@ -8922,52 +10191,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.537"
       }
     ],
-    "rank": "240/368"
-  },
-  {
-    "id": "qwen3-0-6b-0-6b-2",
-    "name": "qwen3:0.6b",
-    "params": "0.6b",
-    "size": "523 MB",
-    "lab": "Alibaba Cloud",
-    "runsCount": 2,
-    "accuracy": "53.9%",
-    "accuracyNum": 0.54,
-    "semantic": "0.539",
-    "latency": "12611 ms",
-    "factuality": "0.621",
-    "hallucination": "58.1%",
-    "safety": "0.982",
-    "reliability": "0.851",
-    "drs": "0.536",
-    "drsNum": 0.536,
-    "rawRuns": [
-      {
-        "runIndex": 1,
-        "accuracy": "70.8%",
-        "accuracyNum": 0.708,
-        "semantic": "0.642",
-        "latency": "5491.73 ms",
-        "factuality": "0.713",
-        "hallucination": "54.2%",
-        "safety": "0.963",
-        "reliability": "0.858",
-        "drs": "0.600"
-      },
-      {
-        "runIndex": 2,
-        "accuracy": "37.1%",
-        "accuracyNum": 0.371,
-        "semantic": "0.437",
-        "latency": "19729.63ms",
-        "factuality": "0.529",
-        "hallucination": "62.1%",
-        "safety": "1.000",
-        "reliability": "0.845",
-        "drs": "0.472"
-      }
-    ],
-    "rank": "241/368"
+    "rank": "257/396"
   },
   {
     "id": "interlm2-5-1-8b",
@@ -9000,7 +10224,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.534"
       }
     ],
-    "rank": "242/368"
+    "rank": "258/396"
   },
   {
     "id": "gemma4-e-2b",
@@ -9033,7 +10257,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.534"
       }
     ],
-    "rank": "243/368"
+    "rank": "259/396"
   },
   {
     "id": "qwen2-5-coder-0-5b-0-5b",
@@ -9066,7 +10290,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.534"
       }
     ],
-    "rank": "244/368"
+    "rank": "260/396"
   },
   {
     "id": "qwen-7b-8b",
@@ -9099,7 +10323,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.534"
       }
     ],
-    "rank": "245/368"
+    "rank": "261/396"
+  },
+  {
+    "id": "bonsai-2-2b-1-9b",
+    "name": "bonsai-2:2b",
+    "params": "1.9b",
+    "size": "911 MB",
+    "lab": "PrismML",
+    "runsCount": 1,
+    "accuracy": "59.2%",
+    "accuracyNum": 0.592,
+    "semantic": "0.520",
+    "latency": "30257 ms",
+    "factuality": "0.596",
+    "hallucination": "59.8%",
+    "safety": "0.940",
+    "reliability": "0.872",
+    "drs": "0.534",
+    "drsNum": 0.534,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "59.2%",
+        "accuracyNum": 0.592,
+        "semantic": "0.520",
+        "latency": "30257.04 ms",
+        "factuality": "0.596",
+        "hallucination": "59.8%",
+        "safety": "0.940",
+        "reliability": "0.872",
+        "drs": "0.534"
+      }
+    ],
+    "rank": "262/396"
   },
   {
     "id": "novel-1-5b-coding-fine-tune-1-5b",
@@ -9132,7 +10389,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.533"
       }
     ],
-    "rank": "246/368"
+    "rank": "263/396"
   },
   {
     "id": "deepseek-r1-7b-7-62b",
@@ -9165,7 +10422,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.533"
       }
     ],
-    "rank": "247/368"
+    "rank": "264/396"
   },
   {
     "id": "lfm2-700m-700m",
@@ -9198,7 +10455,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.532"
       }
     ],
-    "rank": "248/368"
+    "rank": "265/396"
   },
   {
     "id": "zephyr-7b-7b",
@@ -9231,7 +10488,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.531"
       }
     ],
-    "rank": "249/368"
+    "rank": "266/396"
+  },
+  {
+    "id": "qwen3-vl-2b-2-1b",
+    "name": "qwen3-vl:2b",
+    "params": "2.1b",
+    "size": "1.9 GB",
+    "lab": "Alibaba (Qwen team)",
+    "runsCount": 1,
+    "accuracy": "59.6%",
+    "accuracyNum": 0.596,
+    "semantic": "0.478",
+    "latency": "32515 ms",
+    "factuality": "0.582",
+    "hallucination": "63.0%",
+    "safety": "0.962",
+    "reliability": "0.873",
+    "drs": "0.529",
+    "drsNum": 0.529,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "59.6%",
+        "accuracyNum": 0.596,
+        "semantic": "0.478",
+        "latency": "32515.10 ms",
+        "factuality": "0.582",
+        "hallucination": "63.0%",
+        "safety": "0.962",
+        "reliability": "0.873",
+        "drs": "0.529"
+      }
+    ],
+    "rank": "267/396"
   },
   {
     "id": "deepseek-llm-7b-7b",
@@ -9264,7 +10554,112 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.528"
       }
     ],
-    "rank": "250/368"
+    "rank": "268/396"
+  },
+  {
+    "id": "yi-coder-1-5b-1-5b",
+    "name": "yi-coder:1.5b",
+    "params": "1.5b",
+    "size": "866 MB",
+    "lab": "01.AI (Yi Team)",
+    "runsCount": 7,
+    "accuracy": "52.5%",
+    "accuracyNum": 0.525,
+    "semantic": "0.507",
+    "latency": "1231 ms",
+    "factuality": "0.590",
+    "hallucination": "59.2%",
+    "safety": "0.991",
+    "reliability": "0.797",
+    "drs": "0.528",
+    "drsNum": 0.528,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "36.7%",
+        "accuracyNum": 0.367,
+        "semantic": "0.444",
+        "latency": "1466.41 ms",
+        "factuality": "0.536",
+        "hallucination": "61.7%",
+        "safety": "1.000",
+        "reliability": "0.782",
+        "drs": "0.475"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "54.2%",
+        "accuracyNum": 0.542,
+        "semantic": "0.597",
+        "latency": "1830.30 ms",
+        "factuality": "0.678",
+        "hallucination": "55.8%",
+        "safety": "0.937",
+        "reliability": "0.858",
+        "drs": "0.556"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "54.6%",
+        "accuracyNum": 0.546,
+        "semantic": "0.482",
+        "latency": "607.84 ms",
+        "factuality": "0.586",
+        "hallucination": "60.2%",
+        "safety": "1.000",
+        "reliability": "0.752",
+        "drs": "0.526"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "53.7%",
+        "accuracyNum": 0.537,
+        "semantic": "0.571",
+        "latency": "854.64 ms",
+        "factuality": "0.657",
+        "hallucination": "56.8%",
+        "safety": "1.000",
+        "reliability": "0.787",
+        "drs": "0.552"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "75.0%",
+        "accuracyNum": 0.75,
+        "semantic": "0.377",
+        "latency": "700.01 ms",
+        "factuality": "0.431",
+        "hallucination": "63.5%",
+        "safety": "1.000",
+        "reliability": "0.832",
+        "drs": "0.538"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "62.2%",
+        "accuracyNum": 0.622,
+        "semantic": "0.645",
+        "latency": "955.22 ms",
+        "factuality": "0.716",
+        "hallucination": "54.3%",
+        "safety": "1.000",
+        "reliability": "0.814",
+        "drs": "0.593"
+      },
+      {
+        "runIndex": 7,
+        "accuracy": "30.9%",
+        "accuracyNum": 0.309,
+        "semantic": "0.434",
+        "latency": "2201.08 ms",
+        "factuality": "0.527",
+        "hallucination": "62.4%",
+        "safety": "1.000",
+        "reliability": "0.752",
+        "drs": "0.453"
+      }
+    ],
+    "rank": "269/396"
   },
   {
     "id": "kittylm-minicpm5-1b-1b",
@@ -9297,7 +10692,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.527"
       }
     ],
-    "rank": "251/368"
+    "rank": "270/396"
   },
   {
     "id": "exaone3-5-2-4b-2-7b",
@@ -9330,7 +10725,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.527"
       }
     ],
-    "rank": "252/368"
+    "rank": "271/396"
   },
   {
     "id": "gemma-2b-2b",
@@ -9387,7 +10782,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.522"
       }
     ],
-    "rank": "253/368"
+    "rank": "272/396"
   },
   {
     "id": "qwen2-5-coder-0-5b-instruct-0-5b",
@@ -9420,7 +10815,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.526"
       }
     ],
-    "rank": "254/368"
+    "rank": "273/396"
   },
   {
     "id": "qwen3-5-4b-4-2b",
@@ -9453,7 +10848,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.526"
       }
     ],
-    "rank": "255/368"
+    "rank": "274/396"
   },
   {
     "id": "ministral-3-8b-8-9b",
@@ -9486,7 +10881,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.526"
       }
     ],
-    "rank": "256/368"
+    "rank": "275/396"
   },
   {
     "id": "smollm2-360m",
@@ -9639,7 +11034,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.448"
       }
     ],
-    "rank": "257/368"
+    "rank": "276/396"
   },
   {
     "id": "llama2-7b-7b",
@@ -9672,7 +11067,85 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.524"
       }
     ],
-    "rank": "258/368"
+    "rank": "277/396"
+  },
+  {
+    "id": "qwen3-0-6b-600m",
+    "name": "Qwen3 0.6B",
+    "params": "600m",
+    "size": "523MB",
+    "lab": "Alibaba Group",
+    "runsCount": 2,
+    "accuracy": "56.3%",
+    "accuracyNum": 0.563,
+    "semantic": "0.480",
+    "latency": "14890 ms",
+    "factuality": "0.574",
+    "hallucination": "60.4%",
+    "safety": "1.000",
+    "reliability": "0.841",
+    "drs": "0.524",
+    "drsNum": 0.524,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "37.1%",
+        "accuracyNum": 0.371,
+        "semantic": "0.437",
+        "latency": "19729.63ms",
+        "factuality": "0.529",
+        "hallucination": "62.1%",
+        "safety": "1.000",
+        "reliability": "0.845",
+        "drs": "0.472"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "75.4%",
+        "accuracyNum": 0.754,
+        "semantic": "0.523",
+        "latency": "10050.51 ms",
+        "factuality": "0.618",
+        "hallucination": "58.7%",
+        "safety": "1.000",
+        "reliability": "0.837",
+        "drs": "0.576"
+      }
+    ],
+    "rank": "278/396"
+  },
+  {
+    "id": "phi3-14b-14-0b",
+    "name": "phi3:14b",
+    "params": "14.0b",
+    "size": "7.9 GB",
+    "lab": "Microsoft",
+    "runsCount": 1,
+    "accuracy": "58.0%",
+    "accuracyNum": 0.58,
+    "semantic": "0.473",
+    "latency": "24232 ms",
+    "factuality": "0.558",
+    "hallucination": "60.7%",
+    "safety": "0.970",
+    "reliability": "0.877",
+    "drs": "0.524",
+    "drsNum": 0.524,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "58.0%",
+        "accuracyNum": 0.58,
+        "semantic": "0.473",
+        "latency": "24232.27 ms",
+        "factuality": "0.558",
+        "hallucination": "60.7%",
+        "safety": "0.970",
+        "reliability": "0.877",
+        "drs": "0.524"
+      }
+    ],
+    "rank": "279/396"
   },
   {
     "id": "smollm2-135m",
@@ -9777,7 +11250,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.468"
       }
     ],
-    "rank": "259/368"
+    "rank": "280/396"
+  },
+  {
+    "id": "nous-hermes2-10-7b-11b",
+    "name": "nous-hermes2:10.7b",
+    "params": "11b",
+    "size": "6.1 GB",
+    "lab": "Nous Research",
+    "runsCount": 1,
+    "accuracy": "53.6%",
+    "accuracyNum": 0.536,
+    "semantic": "0.501",
+    "latency": "14500 ms",
+    "factuality": "0.581",
+    "hallucination": "60.0%",
+    "safety": "1.000",
+    "reliability": "0.832",
+    "drs": "0.522",
+    "drsNum": 0.522,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "53.6%",
+        "accuracyNum": 0.536,
+        "semantic": "0.501",
+        "latency": "14499.88 ms",
+        "factuality": "0.581",
+        "hallucination": "60.0%",
+        "safety": "1.000",
+        "reliability": "0.832",
+        "drs": "0.522"
+      }
+    ],
+    "rank": "281/396"
   },
   {
     "id": "microsoft-phi-1-5-1-5b",
@@ -9810,7 +11316,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.521"
       }
     ],
-    "rank": "260/368"
+    "rank": "282/396"
   },
   {
     "id": "smallthinker-3b-3-4b",
@@ -9843,7 +11349,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.521"
       }
     ],
-    "rank": "261/368"
+    "rank": "283/396"
   },
   {
     "id": "falcon-h1-1-5b-1-5b",
@@ -9876,7 +11382,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.520"
       }
     ],
-    "rank": "262/368"
+    "rank": "284/396"
   },
   {
     "id": "qwen2-5-coder-3b-3b",
@@ -9909,7 +11415,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.519"
       }
     ],
-    "rank": "263/368"
+    "rank": "285/396"
   },
   {
     "id": "gemma-3-1b-800m",
@@ -9942,7 +11448,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.517"
       }
     ],
-    "rank": "264/368"
+    "rank": "286/396"
   },
   {
     "id": "orca2-7b-7b",
@@ -9975,7 +11481,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.517"
       }
     ],
-    "rank": "265/368"
+    "rank": "287/396"
+  },
+  {
+    "id": "solar-10-7b-11b",
+    "name": "solar:10.7b",
+    "params": "11b",
+    "size": "6.1 GB",
+    "lab": "Upstage",
+    "runsCount": 1,
+    "accuracy": "47.8%",
+    "accuracyNum": 0.478,
+    "semantic": "0.500",
+    "latency": "18318 ms",
+    "factuality": "0.580",
+    "hallucination": "60.1%",
+    "safety": "1.000",
+    "reliability": "0.875",
+    "drs": "0.516",
+    "drsNum": 0.516,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "47.8%",
+        "accuracyNum": 0.478,
+        "semantic": "0.500",
+        "latency": "18318.12 ms",
+        "factuality": "0.580",
+        "hallucination": "60.1%",
+        "safety": "1.000",
+        "reliability": "0.875",
+        "drs": "0.516"
+      }
+    ],
+    "rank": "288/396"
   },
   {
     "id": "smollm-360m",
@@ -10020,7 +11559,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.469"
       }
     ],
-    "rank": "266/368"
+    "rank": "289/396"
   },
   {
     "id": "deepseek-r1-1-5b-1-5b",
@@ -10053,7 +11592,64 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.515"
       }
     ],
-    "rank": "267/368"
+    "rank": "290/396"
+  },
+  {
+    "id": "qwen3-0-6b-0-6b-2",
+    "name": "qwen3:0.6b",
+    "params": "0.6b",
+    "size": "523 MB",
+    "lab": "Alibaba Cloud",
+    "runsCount": 3,
+    "accuracy": "48.3%",
+    "accuracyNum": 0.483,
+    "semantic": "0.505",
+    "latency": "14984 ms",
+    "factuality": "0.590",
+    "hallucination": "59.5%",
+    "safety": "0.988",
+    "reliability": "0.849",
+    "drs": "0.515",
+    "drsNum": 0.515,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "70.8%",
+        "accuracyNum": 0.708,
+        "semantic": "0.642",
+        "latency": "5491.73 ms",
+        "factuality": "0.713",
+        "hallucination": "54.2%",
+        "safety": "0.963",
+        "reliability": "0.858",
+        "drs": "0.600"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "37.1%",
+        "accuracyNum": 0.371,
+        "semantic": "0.437",
+        "latency": "19729.63ms",
+        "factuality": "0.529",
+        "hallucination": "62.1%",
+        "safety": "1.000",
+        "reliability": "0.845",
+        "drs": "0.472"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "37.1%",
+        "accuracyNum": 0.371,
+        "semantic": "0.437",
+        "latency": "19729.63ms",
+        "factuality": "0.529",
+        "hallucination": "62.1%",
+        "safety": "1.000",
+        "reliability": "0.845",
+        "drs": "0.472"
+      }
+    ],
+    "rank": "291/396"
   },
   {
     "id": "tinyllama-1-1b-1-1b",
@@ -10086,7 +11682,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.514"
       }
     ],
-    "rank": "268/368"
+    "rank": "292/396"
   },
   {
     "id": "internlm2-7b-7-7b",
@@ -10119,7 +11715,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.514"
       }
     ],
-    "rank": "269/368"
+    "rank": "293/396"
   },
   {
     "id": "stablelm2-1-6b",
@@ -10152,7 +11748,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.513"
       }
     ],
-    "rank": "270/368"
+    "rank": "294/396"
   },
   {
     "id": "qwen2-0-5b",
@@ -10305,7 +11901,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.441"
       }
     ],
-    "rank": "271/368"
+    "rank": "295/396"
   },
   {
     "id": "qwen3-5-2b-1-9b",
@@ -10338,7 +11934,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.512"
       }
     ],
-    "rank": "272/368"
+    "rank": "296/396"
   },
   {
     "id": "qwen2-5-instruct-1-54b",
@@ -10371,7 +11967,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.509"
       }
     ],
-    "rank": "273/368"
+    "rank": "297/396"
   },
   {
     "id": "yi-6b-6b",
@@ -10404,7 +12000,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.508"
       }
     ],
-    "rank": "274/368"
+    "rank": "298/396"
   },
   {
     "id": "smollm2-360m-360m",
@@ -10449,7 +12045,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.469"
       }
     ],
-    "rank": "275/368"
+    "rank": "299/396"
   },
   {
     "id": "sailor-0-5b-chat-0-5b",
@@ -10482,7 +12078,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.505"
       }
     ],
-    "rank": "276/368"
+    "rank": "300/396"
   },
   {
     "id": "lite-oute-1-300m-instruct-300m",
@@ -10515,7 +12111,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.505"
       }
     ],
-    "rank": "277/368"
+    "rank": "301/396"
+  },
+  {
+    "id": "stablelm2-12b-12b",
+    "name": "stablelm2:12b",
+    "params": "12b",
+    "size": "7.0 GB",
+    "lab": "Stability AI",
+    "runsCount": 1,
+    "accuracy": "46.9%",
+    "accuracyNum": 0.469,
+    "semantic": "0.490",
+    "latency": "7832 ms",
+    "factuality": "0.572",
+    "hallucination": "59.8%",
+    "safety": "1.000",
+    "reliability": "0.817",
+    "drs": "0.505",
+    "drsNum": 0.505,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "46.9%",
+        "accuracyNum": 0.469,
+        "semantic": "0.490",
+        "latency": "7831.52 ms",
+        "factuality": "0.572",
+        "hallucination": "59.8%",
+        "safety": "1.000",
+        "reliability": "0.817",
+        "drs": "0.505"
+      }
+    ],
+    "rank": "302/396"
   },
   {
     "id": "qwen3-5-0-8b-752-39m",
@@ -10548,7 +12177,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.504"
       }
     ],
-    "rank": "278/368"
+    "rank": "303/396"
   },
   {
     "id": "hf-co-second-state-bielik-1-5b-v3-0-instruct-gguf-q4-k-m-1-6b",
@@ -10581,7 +12210,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.503"
       }
     ],
-    "rank": "279/368"
+    "rank": "304/396"
   },
   {
     "id": "gemma-3-270m-",
@@ -10614,7 +12243,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.503"
       }
     ],
-    "rank": "280/368"
+    "rank": "305/396"
   },
   {
     "id": "tinyllama-1-1b-chat-1-1b",
@@ -10647,7 +12276,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.502"
       }
     ],
-    "rank": "281/368"
+    "rank": "306/396"
   },
   {
     "id": "llama3-2-instruct-1-0b",
@@ -10680,7 +12309,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.501"
       }
     ],
-    "rank": "282/368"
+    "rank": "307/396"
   },
   {
     "id": "smollm-1-7b-1-7b-2",
@@ -10713,7 +12342,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.501"
       }
     ],
-    "rank": "283/368"
+    "rank": "308/396"
   },
   {
     "id": "mathstral-7b-7-2b",
@@ -10746,7 +12375,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.501"
       }
     ],
-    "rank": "284/368"
+    "rank": "309/396"
   },
   {
     "id": "llama-3-2-1b-1-23b",
@@ -10779,7 +12408,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.500"
       }
     ],
-    "rank": "285/368"
+    "rank": "310/396"
   },
   {
     "id": "h2o-danube3-0-5b",
@@ -10812,7 +12441,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.499"
       }
     ],
-    "rank": "286/368"
+    "rank": "311/396"
   },
   {
     "id": "finsenti-smollm-1-7b-1-7b",
@@ -10845,7 +12474,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.499"
       }
     ],
-    "rank": "287/368"
+    "rank": "312/396"
   },
   {
     "id": "deepseek-r1-distill-qwen-1-5b",
@@ -10878,7 +12507,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.498"
       }
     ],
-    "rank": "288/368"
+    "rank": "313/396"
   },
   {
     "id": "qwen3-5-0-8b-800m",
@@ -10911,7 +12540,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.498"
       }
     ],
-    "rank": "289/368"
+    "rank": "314/396"
   },
   {
     "id": "tinydolphin-1-1b",
@@ -10956,40 +12585,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.456"
       }
     ],
-    "rank": "290/368"
-  },
-  {
-    "id": "qwen2-5-coder-1-5b-1-5b",
-    "name": "qwen2.5-coder:1.5b",
-    "params": "1.5b",
-    "size": "986 MB",
-    "lab": "Alibaba",
-    "runsCount": 1,
-    "accuracy": "44.6%",
-    "accuracyNum": 0.446,
-    "semantic": "0.463",
-    "latency": "13381 ms",
-    "factuality": "0.570",
-    "hallucination": "60.8%",
-    "safety": "1.000",
-    "reliability": "0.835",
-    "drs": "0.496",
-    "drsNum": 0.496,
-    "rawRuns": [
-      {
-        "runIndex": 1,
-        "accuracy": "44.6%",
-        "accuracyNum": 0.446,
-        "semantic": "0.463",
-        "latency": "13381.19 ms",
-        "factuality": "0.570",
-        "hallucination": "60.8%",
-        "safety": "1.000",
-        "reliability": "0.835",
-        "drs": "0.496"
-      }
-    ],
-    "rank": "291/368"
+    "rank": "315/396"
   },
   {
     "id": "security-slm-1-5b-1-5b",
@@ -11022,7 +12618,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.495"
       }
     ],
-    "rank": "292/368"
+    "rank": "316/396"
   },
   {
     "id": "instructlm-1-3b-1-3b",
@@ -11055,7 +12651,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.495"
       }
     ],
-    "rank": "293/368"
+    "rank": "317/396"
   },
   {
     "id": "tinyllama-latest-1-1b",
@@ -11112,7 +12708,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.491"
       }
     ],
-    "rank": "294/368"
+    "rank": "318/396"
   },
   {
     "id": "smollm-135m",
@@ -11157,7 +12753,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.451"
       }
     ],
-    "rank": "295/368"
+    "rank": "319/396"
   },
   {
     "id": "granite-code-3b-3-5b",
@@ -11190,7 +12786,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.490"
       }
     ],
-    "rank": "296/368"
+    "rank": "320/396"
   },
   {
     "id": "olmo-1b",
@@ -11223,7 +12819,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.487"
       }
     ],
-    "rank": "297/368"
+    "rank": "321/396"
   },
   {
     "id": "graft-1b-q6-k-1b",
@@ -11256,7 +12852,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.485"
       }
     ],
-    "rank": "298/368"
+    "rank": "322/396"
   },
   {
     "id": "qwen2-5-coder-0-5b",
@@ -11361,7 +12957,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.452"
       }
     ],
-    "rank": "299/368"
+    "rank": "323/396"
   },
   {
     "id": "sailor2-8b-8-5b",
@@ -11394,7 +12990,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.482"
       }
     ],
-    "rank": "300/368"
+    "rank": "324/396"
   },
   {
     "id": "phi-4-mini-instruct-4-0b",
@@ -11427,7 +13023,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.481"
       }
     ],
-    "rank": "301/368"
+    "rank": "325/396"
   },
   {
     "id": "tau-instruct-0-5b-0-5b",
@@ -11460,7 +13056,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.481"
       }
     ],
-    "rank": "302/368"
+    "rank": "326/396"
   },
   {
     "id": "stable-lm-2-1-6b-chat-1-6b",
@@ -11493,7 +13089,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.481"
       }
     ],
-    "rank": "303/368"
+    "rank": "327/396"
   },
   {
     "id": "atlas-coder-0-5b",
@@ -11526,7 +13122,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.480"
       }
     ],
-    "rank": "304/368"
+    "rank": "328/396"
   },
   {
     "id": "smollm2-360m-82million",
@@ -11559,7 +13155,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.480"
       }
     ],
-    "rank": "305/368"
+    "rank": "329/396"
   },
   {
     "id": "starcoder2-latest-3b",
@@ -11592,7 +13188,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.479"
       }
     ],
-    "rank": "306/368"
+    "rank": "330/396"
   },
   {
     "id": "qwen3-0-6b-0-6-b",
@@ -11625,7 +13221,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.479"
       }
     ],
-    "rank": "307/368"
+    "rank": "331/396"
   },
   {
     "id": "llama3-2-1b-1-24b",
@@ -11658,7 +13254,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.475"
       }
     ],
-    "rank": "308/368"
+    "rank": "332/396"
   },
   {
     "id": "qwen1-5-0-5b",
@@ -11691,7 +13287,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.474"
       }
     ],
-    "rank": "309/368"
+    "rank": "333/396"
   },
   {
     "id": "qwen3-0-6b-0-6b",
@@ -11724,40 +13320,124 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.474"
       }
     ],
-    "rank": "310/368"
+    "rank": "334/396"
   },
   {
-    "id": "qwen3-0-6b-600m",
-    "name": "Qwen3 0.6B",
-    "params": "600m",
-    "size": "523MB",
-    "lab": "Alibaba Group",
-    "runsCount": 1,
-    "accuracy": "37.1%",
-    "accuracyNum": 0.371,
-    "semantic": "0.437",
-    "latency": "19730 ms",
-    "factuality": "0.529",
-    "hallucination": "62.1%",
-    "safety": "1.000",
-    "reliability": "0.845",
-    "drs": "0.472",
-    "drsNum": 0.472,
+    "id": "deepseek-coder-1-3b-1-3b",
+    "name": "deepseek-coder:1.3b",
+    "params": "1.3b",
+    "size": "776 MB",
+    "lab": "DeepSeek",
+    "runsCount": 8,
+    "accuracy": "36.8%",
+    "accuracyNum": 0.368,
+    "semantic": "0.445",
+    "latency": "5498 ms",
+    "factuality": "0.533",
+    "hallucination": "58.3%",
+    "safety": "0.973",
+    "reliability": "0.711",
+    "drs": "0.469",
+    "drsNum": 0.469,
     "rawRuns": [
       {
         "runIndex": 1,
-        "accuracy": "37.1%",
-        "accuracyNum": 0.371,
-        "semantic": "0.437",
-        "latency": "19729.63ms",
-        "factuality": "0.529",
-        "hallucination": "62.1%",
+        "accuracy": "72.2%",
+        "accuracyNum": 0.722,
+        "semantic": "0.615",
+        "latency": "5264.24 ms",
+        "factuality": "0.692",
+        "hallucination": "30.8%",
+        "safety": "0.963",
+        "reliability": "0.333",
+        "drs": "0.582"
+      },
+      {
+        "runIndex": 2,
+        "accuracy": "65.3%",
+        "accuracyNum": 0.653,
+        "semantic": "0.661",
+        "latency": "33149.84 ms",
+        "factuality": "0.729",
+        "hallucination": "54.0%",
+        "safety": "0.820",
+        "reliability": "0.828",
+        "drs": "0.564"
+      },
+      {
+        "runIndex": 3,
+        "accuracy": "12.6%",
+        "accuracyNum": 0.126,
+        "semantic": "0.279",
+        "latency": "1891.24 ms",
+        "factuality": "0.403",
+        "hallucination": "67.3%",
         "safety": "1.000",
-        "reliability": "0.845",
-        "drs": "0.472"
+        "reliability": "0.699",
+        "drs": "0.366"
+      },
+      {
+        "runIndex": 4,
+        "accuracy": "31.3%",
+        "accuracyNum": 0.313,
+        "semantic": "0.528",
+        "latency": "829.69 ms",
+        "factuality": "0.622",
+        "hallucination": "58.4%",
+        "safety": "1.000",
+        "reliability": "0.781",
+        "drs": "0.494"
+      },
+      {
+        "runIndex": 5,
+        "accuracy": "12.5%",
+        "accuracyNum": 0.125,
+        "semantic": "0.206",
+        "latency": "333.37 ms",
+        "factuality": "0.365",
+        "hallucination": "69.5%",
+        "safety": "1.000",
+        "reliability": "0.720",
+        "drs": "0.364"
+      },
+      {
+        "runIndex": 6,
+        "accuracy": "29.2%",
+        "accuracyNum": 0.292,
+        "semantic": "0.424",
+        "latency": "611.06 ms",
+        "factuality": "0.539",
+        "hallucination": "62.0%",
+        "safety": "1.000",
+        "reliability": "0.754",
+        "drs": "0.459"
+      },
+      {
+        "runIndex": 7,
+        "accuracy": "27.3%",
+        "accuracyNum": 0.273,
+        "semantic": "0.315",
+        "latency": "866.79 ms",
+        "factuality": "0.292",
+        "hallucination": "65.7%",
+        "safety": "1.000",
+        "reliability": "0.858",
+        "drs": "0.414"
+      },
+      {
+        "runIndex": 8,
+        "accuracy": "43.7%",
+        "accuracyNum": 0.437,
+        "semantic": "0.531",
+        "latency": "1035.60 ms",
+        "factuality": "0.625",
+        "hallucination": "58.7%",
+        "safety": "1.000",
+        "reliability": "0.711",
+        "drs": "0.508"
       }
     ],
-    "rank": "311/368"
+    "rank": "335/396"
   },
   {
     "id": "cerebras-gpt-1-3b-alpaca-sp-1-3b",
@@ -11790,7 +13470,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.468"
       }
     ],
-    "rank": "312/368"
+    "rank": "336/396"
+  },
+  {
+    "id": "smollm2-360m-instruct-q8-0-361-82m",
+    "name": "smollm2:360m-instruct-q8_0",
+    "params": "361.82m",
+    "size": "386 MB",
+    "lab": "Hugging Face",
+    "runsCount": 1,
+    "accuracy": "37.2%",
+    "accuracyNum": 0.372,
+    "semantic": "0.488",
+    "latency": "2786 ms",
+    "factuality": "0.570",
+    "hallucination": "60.2%",
+    "safety": "1.000",
+    "reliability": "0.678",
+    "drs": "0.468",
+    "drsNum": 0.468,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "37.2%",
+        "accuracyNum": 0.372,
+        "semantic": "0.488",
+        "latency": "2786.45 ms",
+        "factuality": "0.570",
+        "hallucination": "60.2%",
+        "safety": "1.000",
+        "reliability": "0.678",
+        "drs": "0.468"
+      }
+    ],
+    "rank": "337/396"
   },
   {
     "id": "entity12208-editorai-v2-1-5b",
@@ -11823,7 +13536,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.467"
       }
     ],
-    "rank": "313/368"
+    "rank": "338/396"
   },
   {
     "id": "falcon3-1b-instruct-1b",
@@ -11856,7 +13569,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.467"
       }
     ],
-    "rank": "314/368"
+    "rank": "339/396"
   },
   {
     "id": "smollm2-360m-360m-2",
@@ -11889,7 +13602,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.466"
       }
     ],
-    "rank": "315/368"
+    "rank": "340/396"
   },
   {
     "id": "smollm2-135m-1-6-billion",
@@ -11922,7 +13635,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.461"
       }
     ],
-    "rank": "316/368"
+    "rank": "341/396"
   },
   {
     "id": "falcon-7b-instruct-7b",
@@ -11955,7 +13668,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.460"
       }
     ],
-    "rank": "317/368"
+    "rank": "342/396"
   },
   {
     "id": "qwen-1-8b-1-8b",
@@ -11988,7 +13701,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.459"
       }
     ],
-    "rank": "318/368"
+    "rank": "343/396"
   },
   {
     "id": "supra2-100m-instruct-100m",
@@ -12021,7 +13734,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.458"
       }
     ],
-    "rank": "319/368"
+    "rank": "344/396"
   },
   {
     "id": "qwen2-5-coder-0-5b-0-49b",
@@ -12054,7 +13767,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.457"
       }
     ],
-    "rank": "320/368"
+    "rank": "345/396"
   },
   {
     "id": "sailor2-1b-1b",
@@ -12087,7 +13800,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.453"
       }
     ],
-    "rank": "321/368"
+    "rank": "346/396"
   },
   {
     "id": "qwen2-5-0-5b-0-5b",
@@ -12120,7 +13833,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.450"
       }
     ],
-    "rank": "322/368"
+    "rank": "347/396"
   },
   {
     "id": "tau-instruct-0-5b-5b",
@@ -12153,7 +13866,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.445"
       }
     ],
-    "rank": "323/368"
+    "rank": "348/396"
   },
   {
     "id": "functiongemma-270m-0-27b-",
@@ -12186,7 +13899,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.440"
       }
     ],
-    "rank": "324/368"
+    "rank": "349/396"
   },
   {
     "id": "sqlcoder-7b-7b",
@@ -12219,7 +13932,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.438"
       }
     ],
-    "rank": "325/368"
+    "rank": "350/396"
   },
   {
     "id": "mnn-pocket-0-3b-instruct-300-million",
@@ -12252,7 +13965,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.436"
       }
     ],
-    "rank": "326/368"
+    "rank": "351/396"
+  },
+  {
+    "id": "coral-1-7-micro-1-48b",
+    "name": "Coral 1.7 Micro",
+    "params": "1.48b",
+    "size": "1.6 GB",
+    "lab": "Akropora",
+    "runsCount": 1,
+    "accuracy": "29.6%",
+    "accuracyNum": 0.296,
+    "semantic": "0.425",
+    "latency": "5502 ms",
+    "factuality": "0.520",
+    "hallucination": "59.6%",
+    "safety": "1.000",
+    "reliability": "0.636",
+    "drs": "0.436",
+    "drsNum": 0.436,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "29.6%",
+        "accuracyNum": 0.296,
+        "semantic": "0.425",
+        "latency": "5502.18\tms",
+        "factuality": "0.520",
+        "hallucination": "59.6%",
+        "safety": "1.000",
+        "reliability": "0.636",
+        "drs": "0.436"
+      }
+    ],
+    "rank": "352/396"
   },
   {
     "id": "qwen3-1-7b-1-7b",
@@ -12297,7 +14043,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.286"
       }
     ],
-    "rank": "327/368"
+    "rank": "353/396"
   },
   {
     "id": "thoxair-0-5b-0-5b",
@@ -12330,7 +14076,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.433"
       }
     ],
-    "rank": "328/368"
+    "rank": "354/396"
   },
   {
     "id": "llamargy-1b-instruct-1b",
@@ -12363,7 +14109,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.433"
       }
     ],
-    "rank": "329/368"
+    "rank": "355/396"
   },
   {
     "id": "smollm2135m-135m",
@@ -12396,7 +14142,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.430"
       }
     ],
-    "rank": "330/368"
+    "rank": "356/396"
   },
   {
     "id": "openelm-1-1b-1b",
@@ -12429,7 +14175,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.418"
       }
     ],
-    "rank": "331/368"
+    "rank": "357/396"
   },
   {
     "id": "hf-co-dengcao-ernie-4-5-0-3b-pt-gguf-q4-k-m-0-3b",
@@ -12462,7 +14208,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.417"
       }
     ],
-    "rank": "332/368"
+    "rank": "358/396"
   },
   {
     "id": "starcoder-1b-1b",
@@ -12495,7 +14241,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.415"
       }
     ],
-    "rank": "333/368"
+    "rank": "359/396"
+  },
+  {
+    "id": "falcon3-10b-10-3b",
+    "name": "falcon3:10b",
+    "params": "10.3b",
+    "size": "6.3 GB",
+    "lab": "Technology Innovation Institute",
+    "runsCount": 1,
+    "accuracy": "35.1%",
+    "accuracyNum": 0.351,
+    "semantic": "0.337",
+    "latency": "14469 ms",
+    "factuality": "0.410",
+    "hallucination": "62.3%",
+    "safety": "1.000",
+    "reliability": "0.619",
+    "drs": "0.415",
+    "drsNum": 0.415,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "35.1%",
+        "accuracyNum": 0.351,
+        "semantic": "0.337",
+        "latency": "14468.87 ms",
+        "factuality": "0.410",
+        "hallucination": "62.3%",
+        "safety": "1.000",
+        "reliability": "0.619",
+        "drs": "0.415"
+      }
+    ],
+    "rank": "360/396"
   },
   {
     "id": "shieldgemma-2b-2b",
@@ -12528,7 +14307,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.410"
       }
     ],
-    "rank": "334/368"
+    "rank": "361/396"
   },
   {
     "id": "meditron-7b-7b",
@@ -12561,7 +14340,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.408"
       }
     ],
-    "rank": "335/368"
+    "rank": "362/396"
   },
   {
     "id": "gpt2-dolly-91-2-mb",
@@ -12594,7 +14373,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.405"
       }
     ],
-    "rank": "336/368"
+    "rank": "363/396"
   },
   {
     "id": "kittylm-minicpm5-1b",
@@ -12627,7 +14406,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.400"
       }
     ],
-    "rank": "337/368"
+    "rank": "364/396"
   },
   {
     "id": "deepcoder-1-5b",
@@ -12660,7 +14439,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.396"
       }
     ],
-    "rank": "338/368"
+    "rank": "365/396"
   },
   {
     "id": "smollm2-135m-135m",
@@ -12705,7 +14484,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.274"
       }
     ],
-    "rank": "339/368"
+    "rank": "366/396"
   },
   {
     "id": "amd-olmo-1b-sft-1b",
@@ -12738,7 +14517,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.382"
       }
     ],
-    "rank": "340/368"
+    "rank": "367/396"
   },
   {
     "id": "codegemma-2b-2b",
@@ -12771,7 +14550,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.382"
       }
     ],
-    "rank": "341/368"
+    "rank": "368/396"
   },
   {
     "id": "bloom-560m-560m-2",
@@ -12804,7 +14583,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.380"
       }
     ],
-    "rank": "342/368"
+    "rank": "369/396"
   },
   {
     "id": "titulm-mpt-1b-v2-0-1b",
@@ -12837,7 +14616,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.373"
       }
     ],
-    "rank": "343/368"
+    "rank": "370/396"
   },
   {
     "id": "navya-1-1b-sft-337m",
@@ -12870,7 +14649,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.370"
       }
     ],
-    "rank": "344/368"
+    "rank": "371/396"
   },
   {
     "id": "openelm-0-45b",
@@ -12903,7 +14682,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.369"
       }
     ],
-    "rank": "345/368"
+    "rank": "372/396"
   },
   {
     "id": "pythia-410m-410m",
@@ -12936,7 +14715,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.368"
       }
     ],
-    "rank": "346/368"
+    "rank": "373/396"
   },
   {
     "id": "supra-50m-instruct-0-0518b",
@@ -12969,7 +14748,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.358"
       }
     ],
-    "rank": "347/368"
+    "rank": "374/396"
   },
   {
     "id": "distilgpt2-82-million",
@@ -13002,7 +14781,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.341"
       }
     ],
-    "rank": "348/368"
+    "rank": "375/396"
   },
   {
     "id": "aira-2-774m-774m",
@@ -13035,7 +14814,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.336"
       }
     ],
-    "rank": "349/368"
+    "rank": "376/396"
   },
   {
     "id": "phi-3-3-8b",
@@ -13068,7 +14847,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.333"
       }
     ],
-    "rank": "350/368"
+    "rank": "377/396"
   },
   {
     "id": "ernie-4-5-0-3b",
@@ -13101,7 +14880,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.327"
       }
     ],
-    "rank": "351/368"
+    "rank": "378/396"
   },
   {
     "id": "bloom-560m",
@@ -13218,7 +14997,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.292"
       }
     ],
-    "rank": "352/368"
+    "rank": "379/396"
   },
   {
     "id": "256m-alpaca-256m",
@@ -13251,7 +15030,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.313"
       }
     ],
-    "rank": "353/368"
+    "rank": "380/396"
   },
   {
     "id": "bloom-560m-0-8b",
@@ -13284,7 +15063,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.305"
       }
     ],
-    "rank": "354/368"
+    "rank": "381/396"
   },
   {
     "id": "bloom-560m-560m",
@@ -13317,7 +15096,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.305"
       }
     ],
-    "rank": "355/368"
+    "rank": "382/396"
   },
   {
     "id": "pythia-0-41b",
@@ -13350,7 +15129,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.302"
       }
     ],
-    "rank": "356/368"
+    "rank": "383/396"
   },
   {
     "id": "asena-esp32-0-121b",
@@ -13383,7 +15162,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.283"
       }
     ],
-    "rank": "357/368"
+    "rank": "384/396"
   },
   {
     "id": "willow-alpha-0-3b",
@@ -13416,7 +15195,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.282"
       }
     ],
-    "rank": "358/368"
+    "rank": "385/396"
   },
   {
     "id": "falcon3-3b-instruct-3b",
@@ -13449,7 +15228,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.255"
       }
     ],
-    "rank": "359/368"
+    "rank": "386/396"
   },
   {
     "id": "minicpm5-1-0b",
@@ -13494,7 +15273,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.258"
       }
     ],
-    "rank": "360/368"
+    "rank": "387/396"
   },
   {
     "id": "distilgpt2-87m",
@@ -13527,7 +15306,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.251"
       }
     ],
-    "rank": "361/368"
+    "rank": "388/396"
   },
   {
     "id": "tinybrainbot-53m-a9m-hybrid-instruct-53-43m",
@@ -13560,7 +15339,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.225"
       }
     ],
-    "rank": "362/368"
+    "rank": "389/396"
   },
   {
     "id": "codeinverter-cim-1-3b-1-3b",
@@ -13593,14 +15372,14 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.215"
       }
     ],
-    "rank": "363/368"
+    "rank": "390/396"
   },
   {
     "id": "seallms-v3-1-5b",
     "name": "SeaLLMs-v3",
     "params": "1.5b",
-    "size": "",
-    "lab": "Open Source",
+    "size": "986 MB",
+    "lab": "SeaLLMs research team",
     "runsCount": 1,
     "accuracy": "6.5%",
     "accuracyNum": 0.065,
@@ -13626,7 +15405,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.215"
       }
     ],
-    "rank": "364/368"
+    "rank": "391/396"
   },
   {
     "id": "reader-lm-1-5b-1-5b",
@@ -13659,7 +15438,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.176"
       }
     ],
-    "rank": "365/368"
+    "rank": "392/396"
   },
   {
     "id": "qwen2-5-0-5b-500m",
@@ -13692,7 +15471,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.000"
       }
     ],
-    "rank": "366/368"
+    "rank": "393/396"
   },
   {
     "id": "openelm-450m-450m",
@@ -13725,7 +15504,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.000"
       }
     ],
-    "rank": "367/368"
+    "rank": "394/396"
   },
   {
     "id": "lfm2-5-thinking-1-17b",
@@ -13758,7 +15537,40 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "drs": "0.000"
       }
     ],
-    "rank": "368/368"
+    "rank": "395/396"
+  },
+  {
+    "id": "deepseek-r1-1-5b-qwen-distill-q8-0-1-8b",
+    "name": "deepseek-r1:1.5b-qwen-distill-q8_0",
+    "params": "1.8b",
+    "size": "1.9 GB",
+    "lab": "DeepSeek",
+    "runsCount": 1,
+    "accuracy": "0.0%",
+    "accuracyNum": 0,
+    "semantic": "0.000",
+    "latency": "0 ms",
+    "factuality": "0.000",
+    "hallucination": "0.0%",
+    "safety": "0.000",
+    "reliability": "0.000",
+    "drs": "0.000",
+    "drsNum": 0,
+    "rawRuns": [
+      {
+        "runIndex": 1,
+        "accuracy": "0.0%",
+        "accuracyNum": 0,
+        "semantic": "0.000",
+        "latency": "",
+        "factuality": "0.000",
+        "hallucination": "0.0%",
+        "safety": "0.000",
+        "reliability": "0.000",
+        "drs": "0.000"
+      }
+    ],
+    "rank": "396/396"
   }
 ];
 
@@ -13780,7 +15592,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.936",
     "drsNum": 0.936,
     "runNumber": 193,
-    "rank": "1/498"
+    "rank": "1/600"
   },
   {
     "id": "run-239",
@@ -13799,7 +15611,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.672",
     "drsNum": 0.672,
     "runNumber": 239,
-    "rank": "2/498"
+    "rank": "2/600"
   },
   {
     "id": "run-326",
@@ -13818,7 +15630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.650",
     "drsNum": 0.65,
     "runNumber": 326,
-    "rank": "3/498"
+    "rank": "3/600"
   },
   {
     "id": "run-269",
@@ -13837,7 +15649,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.648",
     "drsNum": 0.648,
     "runNumber": 269,
-    "rank": "4/498"
+    "rank": "4/600"
   },
   {
     "id": "run-390",
@@ -13856,7 +15668,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.648",
     "drsNum": 0.648,
     "runNumber": 390,
-    "rank": "5/498"
+    "rank": "5/600"
   },
   {
     "id": "run-402",
@@ -13875,7 +15687,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.646",
     "drsNum": 0.646,
     "runNumber": 402,
-    "rank": "6/498"
+    "rank": "6/600"
   },
   {
     "id": "run-34",
@@ -13894,7 +15706,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.644",
     "drsNum": 0.644,
     "runNumber": 34,
-    "rank": "7/498"
+    "rank": "7/600"
   },
   {
     "id": "run-418",
@@ -13913,7 +15725,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.643",
     "drsNum": 0.643,
     "runNumber": 418,
-    "rank": "8/498"
+    "rank": "8/600"
   },
   {
     "id": "run-293",
@@ -13932,7 +15744,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.642",
     "drsNum": 0.642,
     "runNumber": 293,
-    "rank": "9/498"
+    "rank": "9/600"
   },
   {
     "id": "run-466",
@@ -13951,7 +15763,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.642",
     "drsNum": 0.642,
     "runNumber": 466,
-    "rank": "10/498"
+    "rank": "10/600"
   },
   {
     "id": "run-325",
@@ -13970,7 +15782,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.640",
     "drsNum": 0.64,
     "runNumber": 325,
-    "rank": "11/498"
+    "rank": "11/600"
   },
   {
     "id": "run-94",
@@ -13989,7 +15801,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.638",
     "drsNum": 0.638,
     "runNumber": 94,
-    "rank": "12/498"
+    "rank": "12/600"
   },
   {
     "id": "run-95",
@@ -14008,7 +15820,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.638",
     "drsNum": 0.638,
     "runNumber": 95,
-    "rank": "13/498"
+    "rank": "13/600"
+  },
+  {
+    "id": "run-565",
+    "name": "llama3.2:3b",
+    "params": "3b",
+    "size": "2.0 GB",
+    "lab": "Meta AI",
+    "accuracy": "96.7%",
+    "accuracyNum": 0.967,
+    "semantic": "0.439",
+    "latency": "1608.06 ms",
+    "factuality": "0.551",
+    "hallucination": "57.7%",
+    "safety": "1.000",
+    "reliability": "0.950",
+    "drs": "0.637",
+    "drsNum": 0.637,
+    "runNumber": 565,
+    "rank": "14/600"
   },
   {
     "id": "run-149",
@@ -14027,7 +15858,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 149,
-    "rank": "14/498"
+    "rank": "15/600"
   },
   {
     "id": "run-178",
@@ -14046,7 +15877,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 178,
-    "rank": "15/498"
+    "rank": "16/600"
   },
   {
     "id": "run-359",
@@ -14065,7 +15896,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 359,
-    "rank": "16/498"
+    "rank": "17/600"
   },
   {
     "id": "run-393",
@@ -14084,7 +15915,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 393,
-    "rank": "17/498"
+    "rank": "18/600"
   },
   {
     "id": "run-436",
@@ -14103,7 +15934,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 436,
-    "rank": "18/498"
+    "rank": "19/600"
   },
   {
     "id": "run-96",
@@ -14122,7 +15953,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.634",
     "drsNum": 0.634,
     "runNumber": 96,
-    "rank": "19/498"
+    "rank": "20/600"
   },
   {
     "id": "run-227",
@@ -14141,7 +15972,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.633",
     "drsNum": 0.633,
     "runNumber": 227,
-    "rank": "20/498"
+    "rank": "21/600"
+  },
+  {
+    "id": "run-536",
+    "name": "phi4-mini",
+    "params": "3.8b",
+    "size": "2.5 GB",
+    "lab": "Microsoft",
+    "accuracy": "78.1%",
+    "accuracyNum": 0.781,
+    "semantic": "0.674",
+    "latency": "9157.47 ms",
+    "factuality": "0.740",
+    "hallucination": "53.1%",
+    "safety": "1.000",
+    "reliability": "0.893",
+    "drs": "0.633",
+    "drsNum": 0.633,
+    "runNumber": 536,
+    "rank": "22/600"
+  },
+  {
+    "id": "run-561",
+    "name": "llama3.2:3b",
+    "params": "3b",
+    "size": "2.0 GB",
+    "lab": "Meta AI",
+    "accuracy": "80.7%",
+    "accuracyNum": 0.807,
+    "semantic": "0.667",
+    "latency": "6103.55 ms",
+    "factuality": "0.733",
+    "hallucination": "53.3%",
+    "safety": "0.963",
+    "reliability": "0.903",
+    "drs": "0.633",
+    "drsNum": 0.633,
+    "runNumber": 561,
+    "rank": "23/600"
   },
   {
     "id": "run-33",
@@ -14160,7 +16029,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.632",
     "drsNum": 0.632,
     "runNumber": 33,
-    "rank": "21/498"
+    "rank": "24/600"
   },
   {
     "id": "run-419",
@@ -14179,7 +16048,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.632",
     "drsNum": 0.632,
     "runNumber": 419,
-    "rank": "22/498"
+    "rank": "25/600"
   },
   {
     "id": "run-84",
@@ -14198,7 +16067,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 84,
-    "rank": "23/498"
+    "rank": "26/600"
   },
   {
     "id": "run-231",
@@ -14217,7 +16086,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 231,
-    "rank": "24/498"
+    "rank": "27/600"
   },
   {
     "id": "run-405",
@@ -14236,7 +16105,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 405,
-    "rank": "25/498"
+    "rank": "28/600"
+  },
+  {
+    "id": "run-582",
+    "name": "Gemma 3 270M",
+    "params": "270m",
+    "size": "292 MB",
+    "lab": "Google",
+    "accuracy": "84.7%",
+    "accuracyNum": 0.847,
+    "semantic": "0.497",
+    "latency": "439.92 ms",
+    "factuality": "0.567",
+    "hallucination": "55.5%",
+    "safety": "1.000",
+    "reliability": "0.931",
+    "drs": "0.631",
+    "drsNum": 0.631,
+    "runNumber": 582,
+    "rank": "29/600"
+  },
+  {
+    "id": "run-592",
+    "name": "starling-lm",
+    "params": "7b",
+    "size": "4.1 GB",
+    "lab": "Defog.ai",
+    "accuracy": "80.8%",
+    "accuracyNum": 0.808,
+    "semantic": "0.665",
+    "latency": "17001.66 ms",
+    "factuality": "0.732",
+    "hallucination": "53.6%",
+    "safety": "1.000",
+    "reliability": "0.874",
+    "drs": "0.631",
+    "drsNum": 0.631,
+    "runNumber": 592,
+    "rank": "30/600"
   },
   {
     "id": "run-61",
@@ -14255,7 +16162,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.630",
     "drsNum": 0.63,
     "runNumber": 61,
-    "rank": "26/498"
+    "rank": "31/600"
+  },
+  {
+    "id": "run-527",
+    "name": "granite4.1:3b",
+    "params": "3.4b",
+    "size": "2.1 GB",
+    "lab": "IBM",
+    "accuracy": "79.4%",
+    "accuracyNum": 0.794,
+    "semantic": "0.671",
+    "latency": "9630.19 ms",
+    "factuality": "0.737",
+    "hallucination": "53.4%",
+    "safety": "0.950",
+    "reliability": "0.914",
+    "drs": "0.630",
+    "drsNum": 0.63,
+    "runNumber": 527,
+    "rank": "32/600"
   },
   {
     "id": "run-68",
@@ -14274,7 +16200,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 68,
-    "rank": "27/498"
+    "rank": "33/600"
   },
   {
     "id": "run-74",
@@ -14293,7 +16219,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 74,
-    "rank": "28/498"
+    "rank": "34/600"
   },
   {
     "id": "run-457",
@@ -14312,7 +16238,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 457,
-    "rank": "29/498"
+    "rank": "35/600"
   },
   {
     "id": "run-459",
@@ -14331,7 +16257,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 459,
-    "rank": "30/498"
+    "rank": "36/600"
   },
   {
     "id": "run-57",
@@ -14350,7 +16276,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 57,
-    "rank": "31/498"
+    "rank": "37/600"
   },
   {
     "id": "run-284",
@@ -14369,7 +16295,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 284,
-    "rank": "32/498"
+    "rank": "38/600"
   },
   {
     "id": "run-452",
@@ -14388,7 +16314,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 452,
-    "rank": "33/498"
+    "rank": "39/600"
   },
   {
     "id": "run-485",
@@ -14407,7 +16333,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 485,
-    "rank": "34/498"
+    "rank": "40/600"
   },
   {
     "id": "run-8",
@@ -14426,7 +16352,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.627",
     "drsNum": 0.627,
     "runNumber": 8,
-    "rank": "35/498"
+    "rank": "41/600"
   },
   {
     "id": "run-15",
@@ -14445,7 +16371,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.627",
     "drsNum": 0.627,
     "runNumber": 15,
-    "rank": "36/498"
+    "rank": "42/600"
   },
   {
     "id": "run-397",
@@ -14464,7 +16390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.626",
     "drsNum": 0.626,
     "runNumber": 397,
-    "rank": "37/498"
+    "rank": "43/600"
   },
   {
     "id": "run-400",
@@ -14483,7 +16409,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.626",
     "drsNum": 0.626,
     "runNumber": 400,
-    "rank": "38/498"
+    "rank": "44/600"
   },
   {
     "id": "run-474",
@@ -14502,7 +16428,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.626",
     "drsNum": 0.626,
     "runNumber": 474,
-    "rank": "39/498"
+    "rank": "45/600"
+  },
+  {
+    "id": "run-540",
+    "name": "phi4-mini",
+    "params": "3.8b",
+    "size": "2.5 GB",
+    "lab": "Microsoft",
+    "accuracy": "77.1%",
+    "accuracyNum": 0.771,
+    "semantic": "0.659",
+    "latency": "4672.47 ms",
+    "factuality": "0.727",
+    "hallucination": "54.7%",
+    "safety": "1.000",
+    "reliability": "0.877",
+    "drs": "0.626",
+    "drsNum": 0.626,
+    "runNumber": 540,
+    "rank": "46/600"
   },
   {
     "id": "run-437",
@@ -14521,7 +16466,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.625",
     "drsNum": 0.625,
     "runNumber": 437,
-    "rank": "40/498"
+    "rank": "47/600"
   },
   {
     "id": "run-442",
@@ -14540,7 +16485,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.625",
     "drsNum": 0.625,
     "runNumber": 442,
-    "rank": "41/498"
+    "rank": "48/600"
   },
   {
     "id": "run-490",
@@ -14559,7 +16504,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.625",
     "drsNum": 0.625,
     "runNumber": 490,
-    "rank": "42/498"
+    "rank": "49/600"
+  },
+  {
+    "id": "run-562",
+    "name": "llama3.2:3b",
+    "params": "3b",
+    "size": "2.0 GB",
+    "lab": "Meta AI",
+    "accuracy": "75.0%",
+    "accuracyNum": 0.75,
+    "semantic": "0.652",
+    "latency": "6708.48 ms",
+    "factuality": "0.721",
+    "hallucination": "53.9%",
+    "safety": "1.000",
+    "reliability": "0.919",
+    "drs": "0.625",
+    "drsNum": 0.625,
+    "runNumber": 562,
+    "rank": "50/600"
   },
   {
     "id": "run-63",
@@ -14578,7 +16542,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.624",
     "drsNum": 0.624,
     "runNumber": 63,
-    "rank": "43/498"
+    "rank": "51/600"
   },
   {
     "id": "run-432",
@@ -14597,7 +16561,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.624",
     "drsNum": 0.624,
     "runNumber": 432,
-    "rank": "44/498"
+    "rank": "52/600"
   },
   {
     "id": "run-493",
@@ -14616,7 +16580,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.624",
     "drsNum": 0.624,
     "runNumber": 493,
-    "rank": "45/498"
+    "rank": "53/600"
   },
   {
     "id": "run-92",
@@ -14635,7 +16599,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.623",
     "drsNum": 0.623,
     "runNumber": 92,
-    "rank": "46/498"
+    "rank": "54/600"
   },
   {
     "id": "run-195",
@@ -14654,7 +16618,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.623",
     "drsNum": 0.623,
     "runNumber": 195,
-    "rank": "47/498"
+    "rank": "55/600"
+  },
+  {
+    "id": "run-584",
+    "name": "Gemma 3 270M",
+    "params": "270m",
+    "size": "292 MB",
+    "lab": "Google",
+    "accuracy": "80.7%",
+    "accuracyNum": 0.807,
+    "semantic": "0.625",
+    "latency": "1664.80 ms",
+    "factuality": "0.700",
+    "hallucination": "54.3%",
+    "safety": "0.925",
+    "reliability": "0.893",
+    "drs": "0.623",
+    "drsNum": 0.623,
+    "runNumber": 584,
+    "rank": "56/600"
   },
   {
     "id": "run-367",
@@ -14673,7 +16656,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.622",
     "drsNum": 0.622,
     "runNumber": 367,
-    "rank": "48/498"
+    "rank": "57/600"
   },
   {
     "id": "run-234",
@@ -14692,7 +16675,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 234,
-    "rank": "49/498"
+    "rank": "58/600"
+  },
+  {
+    "id": "run-575",
+    "name": "phi3:mini",
+    "params": "3.8b",
+    "size": "2.2 GB",
+    "lab": "Microsoft",
+    "accuracy": "72.6%",
+    "accuracyNum": 0.726,
+    "semantic": "0.669",
+    "latency": "12905.76 ms",
+    "factuality": "0.735",
+    "hallucination": "53.3%",
+    "safety": "1.000",
+    "reliability": "0.905",
+    "drs": "0.621",
+    "drsNum": 0.621,
+    "runNumber": 575,
+    "rank": "59/600"
   },
   {
     "id": "run-64",
@@ -14711,7 +16713,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 64,
-    "rank": "50/498"
+    "rank": "60/600"
   },
   {
     "id": "run-66",
@@ -14730,7 +16732,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 66,
-    "rank": "51/498"
+    "rank": "61/600"
   },
   {
     "id": "run-72",
@@ -14749,7 +16751,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 72,
-    "rank": "52/498"
+    "rank": "62/600"
   },
   {
     "id": "run-225",
@@ -14768,7 +16770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 225,
-    "rank": "53/498"
+    "rank": "63/600"
   },
   {
     "id": "run-245",
@@ -14787,7 +16789,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 245,
-    "rank": "54/498"
+    "rank": "64/600"
+  },
+  {
+    "id": "run-539",
+    "name": "phi4-mini",
+    "params": "3.8b",
+    "size": "2.5 GB",
+    "lab": "Microsoft",
+    "accuracy": "96.7%",
+    "accuracyNum": 0.967,
+    "semantic": "0.459",
+    "latency": "2394.91 ms",
+    "factuality": "0.567",
+    "hallucination": "60.6%",
+    "safety": "1.000",
+    "reliability": "0.917",
+    "drs": "0.619",
+    "drsNum": 0.619,
+    "runNumber": 539,
+    "rank": "65/600"
+  },
+  {
+    "id": "run-574",
+    "name": "phi3:mini",
+    "params": "3.8b",
+    "size": "2.2 GB",
+    "lab": "Microsoft",
+    "accuracy": "75.8%",
+    "accuracyNum": 0.758,
+    "semantic": "0.685",
+    "latency": "19311.13 ms",
+    "factuality": "0.748",
+    "hallucination": "52.9%",
+    "safety": "0.925",
+    "reliability": "0.897",
+    "drs": "0.619",
+    "drsNum": 0.619,
+    "runNumber": 574,
+    "rank": "66/600"
   },
   {
     "id": "run-98",
@@ -14806,7 +16846,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 98,
-    "rank": "55/498"
+    "rank": "67/600"
   },
   {
     "id": "run-120",
@@ -14825,7 +16865,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 120,
-    "rank": "56/498"
+    "rank": "68/600"
   },
   {
     "id": "run-214",
@@ -14844,7 +16884,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 214,
-    "rank": "57/498"
+    "rank": "69/600"
   },
   {
     "id": "run-365",
@@ -14863,7 +16903,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 365,
-    "rank": "58/498"
+    "rank": "70/600"
   },
   {
     "id": "run-453",
@@ -14882,7 +16922,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 453,
-    "rank": "59/498"
+    "rank": "71/600"
   },
   {
     "id": "run-458",
@@ -14901,7 +16941,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 458,
-    "rank": "60/498"
+    "rank": "72/600"
+  },
+  {
+    "id": "run-529",
+    "name": "exaone-deep:7.8b",
+    "params": "7.8b",
+    "size": "4.8 GB",
+    "lab": "LG AI Research",
+    "accuracy": "81.4%",
+    "accuracyNum": 0.814,
+    "semantic": "0.635",
+    "latency": "68566.55 ms",
+    "factuality": "0.708",
+    "hallucination": "55.8%",
+    "safety": "1.000",
+    "reliability": "0.842",
+    "drs": "0.618",
+    "drsNum": 0.618,
+    "runNumber": 529,
+    "rank": "73/600"
+  },
+  {
+    "id": "run-577",
+    "name": "phi3:mini",
+    "params": "3.8b",
+    "size": "2.2 GB",
+    "lab": "Microsoft",
+    "accuracy": "77.3%",
+    "accuracyNum": 0.773,
+    "semantic": "0.647",
+    "latency": "6071.38 ms",
+    "factuality": "0.718",
+    "hallucination": "54.5%",
+    "safety": "0.970",
+    "reliability": "0.876",
+    "drs": "0.618",
+    "drsNum": 0.618,
+    "runNumber": 577,
+    "rank": "74/600"
   },
   {
     "id": "run-226",
@@ -14920,7 +16998,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.617",
     "drsNum": 0.617,
     "runNumber": 226,
-    "rank": "61/498"
+    "rank": "75/600"
+  },
+  {
+    "id": "run-566",
+    "name": "llama3.2:3b",
+    "params": "3b",
+    "size": "2.0 GB",
+    "lab": "Meta AI",
+    "accuracy": "76.0%",
+    "accuracyNum": 0.76,
+    "semantic": "0.645",
+    "latency": "4287.52 ms",
+    "factuality": "0.716",
+    "hallucination": "54.2%",
+    "safety": "0.962",
+    "reliability": "0.890",
+    "drs": "0.617",
+    "drsNum": 0.617,
+    "runNumber": 566,
+    "rank": "76/600"
   },
   {
     "id": "run-218",
@@ -14939,7 +17036,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.616",
     "drsNum": 0.616,
     "runNumber": 218,
-    "rank": "62/498"
+    "rank": "77/600"
   },
   {
     "id": "run-313",
@@ -14958,7 +17055,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.616",
     "drsNum": 0.616,
     "runNumber": 313,
-    "rank": "63/498"
+    "rank": "78/600"
+  },
+  {
+    "id": "run-525",
+    "name": "codeqwen:7b",
+    "params": "7.3b",
+    "size": "4.2 GB",
+    "lab": "Alibaba Cloud (Qwen team)",
+    "accuracy": "78.3%",
+    "accuracyNum": 0.783,
+    "semantic": "0.638",
+    "latency": "17411.22 ms",
+    "factuality": "0.711",
+    "hallucination": "54.3%",
+    "safety": "0.963",
+    "reliability": "0.893",
+    "drs": "0.616",
+    "drsNum": 0.616,
+    "runNumber": 525,
+    "rank": "79/600"
+  },
+  {
+    "id": "run-554",
+    "name": "qwen2.5-coder:1.5b",
+    "params": "1.5b",
+    "size": "986 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "67.8%",
+    "accuracyNum": 0.678,
+    "semantic": "0.666",
+    "latency": "978.16 ms",
+    "factuality": "0.733",
+    "hallucination": "53.5%",
+    "safety": "1.000",
+    "reliability": "0.852",
+    "drs": "0.616",
+    "drsNum": 0.616,
+    "runNumber": 554,
+    "rank": "80/600"
   },
   {
     "id": "run-398",
@@ -14977,7 +17112,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.615",
     "drsNum": 0.615,
     "runNumber": 398,
-    "rank": "64/498"
+    "rank": "81/600"
   },
   {
     "id": "run-21",
@@ -14996,7 +17131,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 21,
-    "rank": "65/498"
+    "rank": "82/600"
   },
   {
     "id": "run-78",
@@ -15015,7 +17150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 78,
-    "rank": "66/498"
+    "rank": "83/600"
   },
   {
     "id": "run-294",
@@ -15034,7 +17169,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 294,
-    "rank": "67/498"
+    "rank": "84/600"
   },
   {
     "id": "run-399",
@@ -15053,7 +17188,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 399,
-    "rank": "68/498"
+    "rank": "85/600"
   },
   {
     "id": "run-497",
@@ -15072,7 +17207,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 497,
-    "rank": "69/498"
+    "rank": "86/600"
   },
   {
     "id": "run-222",
@@ -15091,7 +17226,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.613",
     "drsNum": 0.613,
     "runNumber": 222,
-    "rank": "70/498"
+    "rank": "87/600"
   },
   {
     "id": "run-69",
@@ -15110,7 +17245,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 69,
-    "rank": "71/498"
+    "rank": "88/600"
   },
   {
     "id": "run-75",
@@ -15129,7 +17264,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 75,
-    "rank": "72/498"
+    "rank": "89/600"
   },
   {
     "id": "run-248",
@@ -15148,7 +17283,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 248,
-    "rank": "73/498"
+    "rank": "90/600"
   },
   {
     "id": "run-273",
@@ -15167,7 +17302,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 273,
-    "rank": "74/498"
+    "rank": "91/600"
   },
   {
     "id": "run-303",
@@ -15186,7 +17321,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 303,
-    "rank": "75/498"
+    "rank": "92/600"
   },
   {
     "id": "run-471",
@@ -15205,7 +17340,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 471,
-    "rank": "76/498"
+    "rank": "93/600"
   },
   {
     "id": "run-244",
@@ -15224,7 +17359,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.611",
     "drsNum": 0.611,
     "runNumber": 244,
-    "rank": "77/498"
+    "rank": "94/600"
+  },
+  {
+    "id": "run-547",
+    "name": "qwen3:4b",
+    "params": "4b",
+    "size": "2.5 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "80.8%",
+    "accuracyNum": 0.808,
+    "semantic": "0.643",
+    "latency": "38626.23 ms",
+    "factuality": "0.714",
+    "hallucination": "55.1%",
+    "safety": "0.888",
+    "reliability": "0.903",
+    "drs": "0.611",
+    "drsNum": 0.611,
+    "runNumber": 547,
+    "rank": "95/600"
   },
   {
     "id": "run-56",
@@ -15243,7 +17397,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 56,
-    "rank": "78/498"
+    "rank": "96/600"
   },
   {
     "id": "run-427",
@@ -15262,7 +17416,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 427,
-    "rank": "79/498"
+    "rank": "97/600"
   },
   {
     "id": "run-448",
@@ -15281,7 +17435,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 448,
-    "rank": "80/498"
+    "rank": "98/600"
   },
   {
     "id": "run-486",
@@ -15300,7 +17454,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 486,
-    "rank": "81/498"
+    "rank": "99/600"
+  },
+  {
+    "id": "run-600",
+    "name": "starling-lm",
+    "params": "7b",
+    "size": "4.1 GB",
+    "lab": "Defog.ai",
+    "accuracy": "79.3%",
+    "accuracyNum": 0.793,
+    "semantic": "0.605",
+    "latency": "11540.60 ms",
+    "factuality": "0.684",
+    "hallucination": "55.7%",
+    "safety": "1.000",
+    "reliability": "0.862",
+    "drs": "0.610",
+    "drsNum": 0.61,
+    "runNumber": 600,
+    "rank": "100/600"
   },
   {
     "id": "run-121",
@@ -15319,7 +17492,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 121,
-    "rank": "82/498"
+    "rank": "101/600"
   },
   {
     "id": "run-249",
@@ -15338,7 +17511,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 249,
-    "rank": "83/498"
+    "rank": "102/600"
   },
   {
     "id": "run-362",
@@ -15357,7 +17530,64 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 362,
-    "rank": "84/498"
+    "rank": "103/600"
+  },
+  {
+    "id": "run-572",
+    "name": "Llama-3.2-1B-no-robots",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "accuracy": "94.7%",
+    "accuracyNum": 0.947,
+    "semantic": "0.468",
+    "latency": "667.68 ms",
+    "factuality": "0.574",
+    "hallucination": "60.3%",
+    "safety": "1.000",
+    "reliability": "0.801",
+    "drs": "0.609",
+    "drsNum": 0.609,
+    "runNumber": 572,
+    "rank": "104/600"
+  },
+  {
+    "id": "run-589",
+    "name": "llama-3.2-1b-instruct-fine-tuned",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "accuracy": "68.2%",
+    "accuracyNum": 0.682,
+    "semantic": "0.636",
+    "latency": "2965.38 ms",
+    "factuality": "0.708",
+    "hallucination": "54.4%",
+    "safety": "1.000",
+    "reliability": "0.908",
+    "drs": "0.609",
+    "drsNum": 0.609,
+    "runNumber": 589,
+    "rank": "105/600"
+  },
+  {
+    "id": "run-594",
+    "name": "starling-lm",
+    "params": "7b",
+    "size": "4.1 GB",
+    "lab": "Defog.ai",
+    "accuracy": "95.0%",
+    "accuracyNum": 0.95,
+    "semantic": "0.436",
+    "latency": "6107.07 ms",
+    "factuality": "0.548",
+    "hallucination": "61.4%",
+    "safety": "1.000",
+    "reliability": "0.947",
+    "drs": "0.609",
+    "drsNum": 0.609,
+    "runNumber": 594,
+    "rank": "106/600"
   },
   {
     "id": "run-104",
@@ -15376,7 +17606,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 104,
-    "rank": "85/498"
+    "rank": "107/600"
   },
   {
     "id": "run-265",
@@ -15395,7 +17625,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 265,
-    "rank": "86/498"
+    "rank": "108/600"
   },
   {
     "id": "run-406",
@@ -15414,7 +17644,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 406,
-    "rank": "87/498"
+    "rank": "109/600"
   },
   {
     "id": "run-433",
@@ -15433,7 +17663,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 433,
-    "rank": "88/498"
+    "rank": "110/600"
+  },
+  {
+    "id": "run-545",
+    "name": "qwen2.5:0.5b-instruct",
+    "params": "0.5b",
+    "size": "398 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "96.7%",
+    "accuracyNum": 0.967,
+    "semantic": "0.397",
+    "latency": "976.97 ms",
+    "factuality": "0.517",
+    "hallucination": "62.8%",
+    "safety": "1.000",
+    "reliability": "0.916",
+    "drs": "0.608",
+    "drsNum": 0.608,
+    "runNumber": 545,
+    "rank": "111/600"
+  },
+  {
+    "id": "run-560",
+    "name": "qwen2.5-coder:3b",
+    "params": "3b",
+    "size": "1.9 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "71.4%",
+    "accuracyNum": 0.714,
+    "semantic": "0.652",
+    "latency": "3500.63 ms",
+    "factuality": "0.721",
+    "hallucination": "54.3%",
+    "safety": "1.000",
+    "reliability": "0.839",
+    "drs": "0.608",
+    "drsNum": 0.608,
+    "runNumber": 560,
+    "rank": "112/600"
   },
   {
     "id": "run-414",
@@ -15452,7 +17720,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.607",
     "drsNum": 0.607,
     "runNumber": 414,
-    "rank": "89/498"
+    "rank": "113/600"
   },
   {
     "id": "run-462",
@@ -15471,7 +17739,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.607",
     "drsNum": 0.607,
     "runNumber": 462,
-    "rank": "90/498"
+    "rank": "114/600"
+  },
+  {
+    "id": "run-578",
+    "name": "phi3:mini",
+    "params": "3.8b",
+    "size": "2.2 GB",
+    "lab": "Microsoft",
+    "accuracy": "86.7%",
+    "accuracyNum": 0.867,
+    "semantic": "0.455",
+    "latency": "2514.42 ms",
+    "factuality": "0.564",
+    "hallucination": "59.1%",
+    "safety": "1.000",
+    "reliability": "0.935",
+    "drs": "0.607",
+    "drsNum": 0.607,
+    "runNumber": 578,
+    "rank": "115/600"
   },
   {
     "id": "run-24",
@@ -15490,7 +17777,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 24,
-    "rank": "91/498"
+    "rank": "116/600"
   },
   {
     "id": "run-304",
@@ -15509,7 +17796,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 304,
-    "rank": "92/498"
+    "rank": "117/600"
   },
   {
     "id": "run-315",
@@ -15528,7 +17815,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 315,
-    "rank": "93/498"
+    "rank": "118/600"
   },
   {
     "id": "run-428",
@@ -15547,7 +17834,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 428,
-    "rank": "94/498"
+    "rank": "119/600"
   },
   {
     "id": "run-455",
@@ -15566,7 +17853,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 455,
-    "rank": "95/498"
+    "rank": "120/600"
   },
   {
     "id": "run-461",
@@ -15585,7 +17872,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 461,
-    "rank": "96/498"
+    "rank": "121/600"
+  },
+  {
+    "id": "run-526",
+    "name": "dolphincoder:7b",
+    "params": "7b",
+    "size": "4.2 GB",
+    "lab": "Eric Hartford / Cognitive Computations",
+    "accuracy": "79.7%",
+    "accuracyNum": 0.797,
+    "semantic": "0.631",
+    "latency": "691875.86 ms",
+    "factuality": "0.705",
+    "hallucination": "54.6%",
+    "safety": "0.963",
+    "reliability": "0.833",
+    "drs": "0.606",
+    "drsNum": 0.606,
+    "runNumber": 526,
+    "rank": "122/600"
   },
   {
     "id": "run-67",
@@ -15604,7 +17910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 67,
-    "rank": "97/498"
+    "rank": "123/600"
   },
   {
     "id": "run-73",
@@ -15623,7 +17929,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 73,
-    "rank": "98/498"
+    "rank": "124/600"
   },
   {
     "id": "run-123",
@@ -15642,7 +17948,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 123,
-    "rank": "99/498"
+    "rank": "125/600"
   },
   {
     "id": "run-224",
@@ -15661,7 +17967,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 224,
-    "rank": "100/498"
+    "rank": "126/600"
   },
   {
     "id": "run-317",
@@ -15680,7 +17986,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 317,
-    "rank": "101/498"
+    "rank": "127/600"
   },
   {
     "id": "run-434",
@@ -15699,7 +18005,64 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 434,
-    "rank": "102/498"
+    "rank": "128/600"
+  },
+  {
+    "id": "run-556",
+    "name": "qwen2.5-coder:3b",
+    "params": "3b",
+    "size": "1.9 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "63.2%",
+    "accuracyNum": 0.632,
+    "semantic": "0.673",
+    "latency": "3444.48 ms",
+    "factuality": "0.738",
+    "hallucination": "53.1%",
+    "safety": "1.000",
+    "reliability": "0.883",
+    "drs": "0.605",
+    "drsNum": 0.605,
+    "runNumber": 556,
+    "rank": "129/600"
+  },
+  {
+    "id": "run-564",
+    "name": "llama3.2:3b",
+    "params": "3b",
+    "size": "2.0 GB",
+    "lab": "Meta AI",
+    "accuracy": "78.3%",
+    "accuracyNum": 0.783,
+    "semantic": "0.631",
+    "latency": "6565.84 ms",
+    "factuality": "0.705",
+    "hallucination": "55.2%",
+    "safety": "0.872",
+    "reliability": "0.908",
+    "drs": "0.605",
+    "drsNum": 0.605,
+    "runNumber": 564,
+    "rank": "130/600"
+  },
+  {
+    "id": "run-583",
+    "name": "Gemma 3 270M",
+    "params": "270m",
+    "size": "292 MB",
+    "lab": "Google",
+    "accuracy": "41.3%",
+    "accuracyNum": 0.413,
+    "semantic": "0.690",
+    "latency": "354.13 ms",
+    "factuality": "0.752",
+    "hallucination": "48.8%",
+    "safety": "1.000",
+    "reliability": "0.937",
+    "drs": "0.605",
+    "drsNum": 0.605,
+    "runNumber": 583,
+    "rank": "131/600"
   },
   {
     "id": "run-5",
@@ -15718,7 +18081,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 5,
-    "rank": "103/498"
+    "rank": "132/600"
   },
   {
     "id": "run-91",
@@ -15737,7 +18100,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 91,
-    "rank": "104/498"
+    "rank": "133/600"
   },
   {
     "id": "run-215",
@@ -15756,7 +18119,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 215,
-    "rank": "105/498"
+    "rank": "134/600"
   },
   {
     "id": "run-241",
@@ -15775,7 +18138,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 241,
-    "rank": "106/498"
+    "rank": "135/600"
+  },
+  {
+    "id": "run-542",
+    "name": "qwen2.5:0.5b-instruct",
+    "params": "0.5b",
+    "size": "398 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "74.9%",
+    "accuracyNum": 0.749,
+    "semantic": "0.638",
+    "latency": "1670.23 ms",
+    "factuality": "0.711",
+    "hallucination": "54.3%",
+    "safety": "0.887",
+    "reliability": "0.868",
+    "drs": "0.604",
+    "drsNum": 0.604,
+    "runNumber": 542,
+    "rank": "136/600"
+  },
+  {
+    "id": "run-559",
+    "name": "qwen2.5-coder:3b",
+    "params": "3b",
+    "size": "1.9 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "96.7%",
+    "accuracyNum": 0.967,
+    "semantic": "0.421",
+    "latency": "2478.13 ms",
+    "factuality": "0.536",
+    "hallucination": "61.5%",
+    "safety": "1.000",
+    "reliability": "0.877",
+    "drs": "0.604",
+    "drsNum": 0.604,
+    "runNumber": 559,
+    "rank": "137/600"
   },
   {
     "id": "run-13",
@@ -15794,7 +18195,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.603",
     "drsNum": 0.603,
     "runNumber": 13,
-    "rank": "107/498"
+    "rank": "138/600"
   },
   {
     "id": "run-469",
@@ -15813,7 +18214,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.603",
     "drsNum": 0.603,
     "runNumber": 469,
-    "rank": "108/498"
+    "rank": "139/600"
   },
   {
     "id": "run-491",
@@ -15832,7 +18233,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.603",
     "drsNum": 0.603,
     "runNumber": 491,
-    "rank": "109/498"
+    "rank": "140/600"
+  },
+  {
+    "id": "run-538",
+    "name": "phi4-mini",
+    "params": "3.8b",
+    "size": "2.5 GB",
+    "lab": "Microsoft",
+    "accuracy": "74.2%",
+    "accuracyNum": 0.742,
+    "semantic": "0.627",
+    "latency": "5604.80 ms",
+    "factuality": "0.702",
+    "hallucination": "55.0%",
+    "safety": "0.940",
+    "reliability": "0.887",
+    "drs": "0.603",
+    "drsNum": 0.603,
+    "runNumber": 538,
+    "rank": "141/600"
   },
   {
     "id": "run-100",
@@ -15851,7 +18271,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 100,
-    "rank": "110/498"
+    "rank": "142/600"
   },
   {
     "id": "run-233",
@@ -15870,7 +18290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 233,
-    "rank": "111/498"
+    "rank": "143/600"
   },
   {
     "id": "run-242",
@@ -15889,7 +18309,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 242,
-    "rank": "112/498"
+    "rank": "144/600"
   },
   {
     "id": "run-274",
@@ -15908,7 +18328,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 274,
-    "rank": "113/498"
+    "rank": "145/600"
   },
   {
     "id": "run-319",
@@ -15927,7 +18347,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 319,
-    "rank": "114/498"
+    "rank": "146/600"
   },
   {
     "id": "run-456",
@@ -15946,7 +18366,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 456,
-    "rank": "115/498"
+    "rank": "147/600"
   },
   {
     "id": "run-495",
@@ -15965,7 +18385,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 495,
-    "rank": "116/498"
+    "rank": "148/600"
   },
   {
     "id": "run-14",
@@ -15984,7 +18404,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 14,
-    "rank": "117/498"
+    "rank": "149/600"
   },
   {
     "id": "run-229",
@@ -16003,7 +18423,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 229,
-    "rank": "118/498"
+    "rank": "150/600"
   },
   {
     "id": "run-460",
@@ -16022,7 +18442,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 460,
-    "rank": "119/498"
+    "rank": "151/600"
   },
   {
     "id": "run-467",
@@ -16041,7 +18461,64 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 467,
-    "rank": "120/498"
+    "rank": "152/600"
+  },
+  {
+    "id": "run-550",
+    "name": "qwen2.5-coder:1.5b",
+    "params": "1.5b",
+    "size": "986 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "70.3%",
+    "accuracyNum": 0.703,
+    "semantic": "0.664",
+    "latency": "4764.01 ms",
+    "factuality": "0.731",
+    "hallucination": "53.7%",
+    "safety": "0.937",
+    "reliability": "0.858",
+    "drs": "0.601",
+    "drsNum": 0.601,
+    "runNumber": 550,
+    "rank": "153/600"
+  },
+  {
+    "id": "run-553",
+    "name": "qwen2.5-coder:1.5b",
+    "params": "1.5b",
+    "size": "986 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "96.7%",
+    "accuracyNum": 0.967,
+    "semantic": "0.402",
+    "latency": "1705.64 ms",
+    "factuality": "0.521",
+    "hallucination": "62.6%",
+    "safety": "1.000",
+    "reliability": "0.888",
+    "drs": "0.601",
+    "drsNum": 0.601,
+    "runNumber": 553,
+    "rank": "154/600"
+  },
+  {
+    "id": "run-569",
+    "name": "Llama-3.2-1B-no-robots",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "accuracy": "67.3%",
+    "accuracyNum": 0.673,
+    "semantic": "0.641",
+    "latency": "1775.78 ms",
+    "factuality": "0.713",
+    "hallucination": "54.5%",
+    "safety": "1.000",
+    "reliability": "0.834",
+    "drs": "0.601",
+    "drsNum": 0.601,
+    "runNumber": 569,
+    "rank": "155/600"
   },
   {
     "id": "run-101",
@@ -16060,7 +18537,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.600",
     "drsNum": 0.6,
     "runNumber": 101,
-    "rank": "121/498"
+    "rank": "156/600"
   },
   {
     "id": "run-122",
@@ -16079,7 +18556,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.600",
     "drsNum": 0.6,
     "runNumber": 122,
-    "rank": "122/498"
+    "rank": "157/600"
   },
   {
     "id": "run-352",
@@ -16098,7 +18575,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.600",
     "drsNum": 0.6,
     "runNumber": 352,
-    "rank": "123/498"
+    "rank": "158/600"
   },
   {
     "id": "run-17",
@@ -16117,7 +18594,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 17,
-    "rank": "124/498"
+    "rank": "159/600"
   },
   {
     "id": "run-243",
@@ -16136,7 +18613,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 243,
-    "rank": "125/498"
+    "rank": "160/600"
   },
   {
     "id": "run-401",
@@ -16155,7 +18632,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 401,
-    "rank": "126/498"
+    "rank": "161/600"
   },
   {
     "id": "run-465",
@@ -16174,7 +18651,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 465,
-    "rank": "127/498"
+    "rank": "162/600"
   },
   {
     "id": "run-496",
@@ -16193,7 +18670,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 496,
-    "rank": "128/498"
+    "rank": "163/600"
+  },
+  {
+    "id": "run-523",
+    "name": "nemotron-3-nano:4b",
+    "params": "4.0b",
+    "size": "2.8 GB",
+    "lab": "NVIDIA",
+    "accuracy": "70.0%",
+    "accuracyNum": 0.7,
+    "semantic": "0.657",
+    "latency": "29585.08 ms",
+    "factuality": "0.725",
+    "hallucination": "53.7%",
+    "safety": "1.000",
+    "reliability": "0.826",
+    "drs": "0.599",
+    "drsNum": 0.599,
+    "runNumber": 523,
+    "rank": "164/600"
+  },
+  {
+    "id": "run-596",
+    "name": "gemma3:4b",
+    "params": "4b",
+    "size": "3.4 GB",
+    "lab": "TinyLlama",
+    "accuracy": "76.0%",
+    "accuracyNum": 0.76,
+    "semantic": "0.606",
+    "latency": "19941.21 ms",
+    "factuality": "0.685",
+    "hallucination": "55.7%",
+    "safety": "0.937",
+    "reliability": "0.895",
+    "drs": "0.599",
+    "drsNum": 0.599,
+    "runNumber": 596,
+    "rank": "165/600"
   },
   {
     "id": "run-201",
@@ -16212,7 +18727,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.598",
     "drsNum": 0.598,
     "runNumber": 201,
-    "rank": "129/498"
+    "rank": "166/600"
   },
   {
     "id": "run-411",
@@ -16231,7 +18746,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.598",
     "drsNum": 0.598,
     "runNumber": 411,
-    "rank": "130/498"
+    "rank": "167/600"
   },
   {
     "id": "run-492",
@@ -16250,7 +18765,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.598",
     "drsNum": 0.598,
     "runNumber": 492,
-    "rank": "131/498"
+    "rank": "168/600"
   },
   {
     "id": "run-194",
@@ -16269,7 +18784,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 194,
-    "rank": "132/498"
+    "rank": "169/600"
   },
   {
     "id": "run-253",
@@ -16288,7 +18803,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 253,
-    "rank": "133/498"
+    "rank": "170/600"
   },
   {
     "id": "run-258",
@@ -16307,7 +18822,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 258,
-    "rank": "134/498"
+    "rank": "171/600"
   },
   {
     "id": "run-268",
@@ -16326,7 +18841,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 268,
-    "rank": "135/498"
+    "rank": "172/600"
   },
   {
     "id": "run-279",
@@ -16345,7 +18860,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 279,
-    "rank": "136/498"
+    "rank": "173/600"
   },
   {
     "id": "run-147",
@@ -16364,7 +18879,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.596",
     "drsNum": 0.596,
     "runNumber": 147,
-    "rank": "137/498"
+    "rank": "174/600"
   },
   {
     "id": "run-221",
@@ -16383,7 +18898,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.596",
     "drsNum": 0.596,
     "runNumber": 221,
-    "rank": "138/498"
+    "rank": "175/600"
+  },
+  {
+    "id": "run-563",
+    "name": "llama3.2:3b",
+    "params": "3b",
+    "size": "2.0 GB",
+    "lab": "Meta AI",
+    "accuracy": "92.9%",
+    "accuracyNum": 0.929,
+    "semantic": "0.474",
+    "latency": "6394.61 ms",
+    "factuality": "0.579",
+    "hallucination": "60.4%",
+    "safety": "0.905",
+    "reliability": "0.916",
+    "drs": "0.596",
+    "drsNum": 0.596,
+    "runNumber": 563,
+    "rank": "176/600"
+  },
+  {
+    "id": "run-579",
+    "name": "Gemma 3 270M",
+    "params": "270m",
+    "size": "292 MB",
+    "lab": "Google",
+    "accuracy": "73.1%",
+    "accuracyNum": 0.731,
+    "semantic": "0.635",
+    "latency": "2919.73 ms",
+    "factuality": "0.708",
+    "hallucination": "54.4%",
+    "safety": "0.887",
+    "reliability": "0.873",
+    "drs": "0.596",
+    "drsNum": 0.596,
+    "runNumber": 579,
+    "rank": "177/600"
   },
   {
     "id": "run-28",
@@ -16402,7 +18955,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 28,
-    "rank": "139/498"
+    "rank": "178/600"
   },
   {
     "id": "run-136",
@@ -16421,7 +18974,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 136,
-    "rank": "140/498"
+    "rank": "179/600"
   },
   {
     "id": "run-235",
@@ -16440,7 +18993,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 235,
-    "rank": "141/498"
+    "rank": "180/600"
   },
   {
     "id": "run-314",
@@ -16459,7 +19012,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 314,
-    "rank": "142/498"
+    "rank": "181/600"
   },
   {
     "id": "run-438",
@@ -16478,7 +19031,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 438,
-    "rank": "143/498"
+    "rank": "182/600"
+  },
+  {
+    "id": "run-501",
+    "name": "falcon2:11b",
+    "params": "11b",
+    "size": "6.4 GB",
+    "lab": "Technology Innovation Institute (TII)",
+    "accuracy": "31.9%",
+    "accuracyNum": 0.319,
+    "semantic": "0.567",
+    "latency": "10414.16 ms",
+    "factuality": "0.634",
+    "hallucination": "40.4%",
+    "safety": "1.000",
+    "reliability": "1.000",
+    "drs": "0.595",
+    "drsNum": 0.595,
+    "runNumber": 501,
+    "rank": "183/600"
   },
   {
     "id": "run-6",
@@ -16497,7 +19069,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.594",
     "drsNum": 0.594,
     "runNumber": 6,
-    "rank": "144/498"
+    "rank": "184/600"
   },
   {
     "id": "run-197",
@@ -16516,7 +19088,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.594",
     "drsNum": 0.594,
     "runNumber": 197,
-    "rank": "145/498"
+    "rank": "185/600"
   },
   {
     "id": "run-371",
@@ -16535,7 +19107,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.594",
     "drsNum": 0.594,
     "runNumber": 371,
-    "rank": "146/498"
+    "rank": "186/600"
   },
   {
     "id": "run-93",
@@ -16554,7 +19126,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 93,
-    "rank": "147/498"
+    "rank": "187/600"
   },
   {
     "id": "run-232",
@@ -16573,7 +19145,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 232,
-    "rank": "148/498"
+    "rank": "188/600"
   },
   {
     "id": "run-498",
@@ -16592,7 +19164,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 498,
-    "rank": "149/498"
+    "rank": "189/600"
+  },
+  {
+    "id": "run-513",
+    "name": "yi-coder:1.5b",
+    "params": "1.5b",
+    "size": "866 MB",
+    "lab": "01.AI (Yi Team)",
+    "accuracy": "62.2%",
+    "accuracyNum": 0.622,
+    "semantic": "0.645",
+    "latency": "955.22 ms",
+    "factuality": "0.716",
+    "hallucination": "54.3%",
+    "safety": "1.000",
+    "reliability": "0.814",
+    "drs": "0.593",
+    "drsNum": 0.593,
+    "runNumber": 513,
+    "rank": "190/600"
+  },
+  {
+    "id": "run-581",
+    "name": "Gemma 3 270M",
+    "params": "270m",
+    "size": "292 MB",
+    "lab": "Google",
+    "accuracy": "43.8%",
+    "accuracyNum": 0.438,
+    "semantic": "0.651",
+    "latency": "478.77 ms",
+    "factuality": "0.721",
+    "hallucination": "50.3%",
+    "safety": "0.970",
+    "reliability": "0.939",
+    "drs": "0.593",
+    "drsNum": 0.593,
+    "runNumber": 581,
+    "rank": "191/600"
   },
   {
     "id": "run-10",
@@ -16611,7 +19221,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.592",
     "drsNum": 0.592,
     "runNumber": 10,
-    "rank": "150/498"
+    "rank": "192/600"
   },
   {
     "id": "run-228",
@@ -16630,7 +19240,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.592",
     "drsNum": 0.592,
     "runNumber": 228,
-    "rank": "151/498"
+    "rank": "193/600"
   },
   {
     "id": "run-363",
@@ -16649,7 +19259,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.592",
     "drsNum": 0.592,
     "runNumber": 363,
-    "rank": "152/498"
+    "rank": "194/600"
   },
   {
     "id": "run-153",
@@ -16668,7 +19278,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 153,
-    "rank": "153/498"
+    "rank": "195/600"
   },
   {
     "id": "run-208",
@@ -16687,7 +19297,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 208,
-    "rank": "154/498"
+    "rank": "196/600"
   },
   {
     "id": "run-392",
@@ -16706,7 +19316,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 392,
-    "rank": "155/498"
+    "rank": "197/600"
   },
   {
     "id": "run-444",
@@ -16725,7 +19335,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 444,
-    "rank": "156/498"
+    "rank": "198/600"
+  },
+  {
+    "id": "run-528",
+    "name": "granite3.1-moe:3b",
+    "params": "3.3b",
+    "size": "2.0 GB",
+    "lab": "IBM",
+    "accuracy": "57.9%",
+    "accuracyNum": 0.579,
+    "semantic": "0.661",
+    "latency": "6408.96 ms",
+    "factuality": "0.729",
+    "hallucination": "53.5%",
+    "safety": "1.000",
+    "reliability": "0.901",
+    "drs": "0.591",
+    "drsNum": 0.591,
+    "runNumber": 528,
+    "rank": "199/600"
   },
   {
     "id": "run-102",
@@ -16744,7 +19373,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 102,
-    "rank": "157/498"
+    "rank": "200/600"
   },
   {
     "id": "run-198",
@@ -16763,7 +19392,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 198,
-    "rank": "158/498"
+    "rank": "201/600"
   },
   {
     "id": "run-277",
@@ -16782,7 +19411,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 277,
-    "rank": "159/498"
+    "rank": "202/600"
   },
   {
     "id": "run-292",
@@ -16801,7 +19430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 292,
-    "rank": "160/498"
+    "rank": "203/600"
   },
   {
     "id": "run-312",
@@ -16820,7 +19449,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 312,
-    "rank": "161/498"
+    "rank": "204/600"
   },
   {
     "id": "run-324",
@@ -16839,7 +19468,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 324,
-    "rank": "162/498"
+    "rank": "205/600"
   },
   {
     "id": "run-417",
@@ -16858,7 +19487,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 417,
-    "rank": "163/498"
+    "rank": "206/600"
   },
   {
     "id": "run-19",
@@ -16877,7 +19506,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 19,
-    "rank": "164/498"
+    "rank": "207/600"
   },
   {
     "id": "run-58",
@@ -16896,7 +19525,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 58,
-    "rank": "165/498"
+    "rank": "208/600"
   },
   {
     "id": "run-246",
@@ -16915,7 +19544,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 246,
-    "rank": "166/498"
+    "rank": "209/600"
   },
   {
     "id": "run-323",
@@ -16934,7 +19563,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 323,
-    "rank": "167/498"
+    "rank": "210/600"
   },
   {
     "id": "run-327",
@@ -16953,7 +19582,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 327,
-    "rank": "168/498"
+    "rank": "211/600"
   },
   {
     "id": "run-62",
@@ -16972,7 +19601,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.588",
     "drsNum": 0.588,
     "runNumber": 62,
-    "rank": "169/498"
+    "rank": "212/600"
+  },
+  {
+    "id": "run-598",
+    "name": "qwen3:4b",
+    "params": "4b",
+    "size": "2.5 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "96.7%",
+    "accuracyNum": 0.967,
+    "semantic": "0.401",
+    "latency": "20862.33 ms",
+    "factuality": "0.521",
+    "hallucination": "62.8%",
+    "safety": "1.000",
+    "reliability": "0.872",
+    "drs": "0.588",
+    "drsNum": 0.588,
+    "runNumber": 598,
+    "rank": "213/600"
   },
   {
     "id": "run-30",
@@ -16991,7 +19639,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 30,
-    "rank": "170/498"
+    "rank": "214/600"
   },
   {
     "id": "run-41",
@@ -17010,7 +19658,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 41,
-    "rank": "171/498"
+    "rank": "215/600"
   },
   {
     "id": "run-148",
@@ -17029,7 +19677,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 148,
-    "rank": "172/498"
+    "rank": "216/600"
   },
   {
     "id": "run-424",
@@ -17048,7 +19696,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 424,
-    "rank": "173/498"
+    "rank": "217/600"
   },
   {
     "id": "run-445",
@@ -17067,7 +19715,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 445,
-    "rank": "174/498"
+    "rank": "218/600"
   },
   {
     "id": "run-46",
@@ -17086,7 +19734,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.586",
     "drsNum": 0.586,
     "runNumber": 46,
-    "rank": "175/498"
+    "rank": "219/600"
   },
   {
     "id": "run-286",
@@ -17105,7 +19753,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.586",
     "drsNum": 0.586,
     "runNumber": 286,
-    "rank": "176/498"
+    "rank": "220/600"
+  },
+  {
+    "id": "run-576",
+    "name": "phi3:mini",
+    "params": "3.8b",
+    "size": "2.2 GB",
+    "lab": "Microsoft",
+    "accuracy": "70.4%",
+    "accuracyNum": 0.704,
+    "semantic": "0.565",
+    "latency": "5051.95 ms",
+    "factuality": "0.652",
+    "hallucination": "57.3%",
+    "safety": "1.000",
+    "reliability": "0.877",
+    "drs": "0.586",
+    "drsNum": 0.586,
+    "runNumber": 576,
+    "rank": "221/600"
   },
   {
     "id": "run-12",
@@ -17124,7 +19791,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 12,
-    "rank": "177/498"
+    "rank": "222/600"
   },
   {
     "id": "run-272",
@@ -17143,7 +19810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 272,
-    "rank": "178/498"
+    "rank": "223/600"
   },
   {
     "id": "run-287",
@@ -17162,7 +19829,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 287,
-    "rank": "179/498"
+    "rank": "224/600"
   },
   {
     "id": "run-291",
@@ -17181,7 +19848,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 291,
-    "rank": "180/498"
+    "rank": "225/600"
   },
   {
     "id": "run-340",
@@ -17200,7 +19867,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 340,
-    "rank": "181/498"
+    "rank": "226/600"
+  },
+  {
+    "id": "run-599",
+    "name": "gemma3:4b",
+    "params": "4b",
+    "size": "3.4 GB",
+    "lab": "TinyLlama",
+    "accuracy": "96.4%",
+    "accuracyNum": 0.964,
+    "semantic": "0.424",
+    "latency": "18992.83 ms",
+    "factuality": "0.539",
+    "hallucination": "61.8%",
+    "safety": "0.905",
+    "reliability": "0.901",
+    "drs": "0.585",
+    "drsNum": 0.585,
+    "runNumber": 599,
+    "rank": "227/600"
   },
   {
     "id": "run-50",
@@ -17219,7 +19905,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.584",
     "drsNum": 0.584,
     "runNumber": 50,
-    "rank": "182/498"
+    "rank": "228/600"
   },
   {
     "id": "run-48",
@@ -17238,7 +19924,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.583",
     "drsNum": 0.583,
     "runNumber": 48,
-    "rank": "183/498"
+    "rank": "229/600"
   },
   {
     "id": "run-270",
@@ -17257,7 +19943,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.583",
     "drsNum": 0.583,
     "runNumber": 270,
-    "rank": "184/498"
+    "rank": "230/600"
   },
   {
     "id": "run-31",
@@ -17276,7 +19962,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 31,
-    "rank": "185/498"
+    "rank": "231/600"
   },
   {
     "id": "run-177",
@@ -17295,7 +19981,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 177,
-    "rank": "186/498"
+    "rank": "232/600"
   },
   {
     "id": "run-309",
@@ -17314,7 +20000,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 309,
-    "rank": "187/498"
+    "rank": "233/600"
   },
   {
     "id": "run-357",
@@ -17333,7 +20019,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 357,
-    "rank": "188/498"
+    "rank": "234/600"
   },
   {
     "id": "run-440",
@@ -17352,7 +20038,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 440,
-    "rank": "189/498"
+    "rank": "235/600"
+  },
+  {
+    "id": "run-535",
+    "name": "phi4-mini",
+    "params": "3.8b",
+    "size": "2.5 GB",
+    "lab": "Microsoft",
+    "accuracy": "69.0%",
+    "accuracyNum": 0.69,
+    "semantic": "0.569",
+    "latency": "10054.44 ms",
+    "factuality": "0.656",
+    "hallucination": "57.6%",
+    "safety": "0.970",
+    "reliability": "0.907",
+    "drs": "0.582",
+    "drsNum": 0.582,
+    "runNumber": 535,
+    "rank": "236/600"
+  },
+  {
+    "id": "run-548",
+    "name": "qwen3:4b",
+    "params": "4b",
+    "size": "2.5 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "76.8%",
+    "accuracyNum": 0.768,
+    "semantic": "0.632",
+    "latency": "50770.32 ms",
+    "factuality": "0.705",
+    "hallucination": "54.8%",
+    "safety": "0.787",
+    "reliability": "0.884",
+    "drs": "0.582",
+    "drsNum": 0.582,
+    "runNumber": 548,
+    "rank": "237/600"
   },
   {
     "id": "run-97",
@@ -17371,7 +20095,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.581",
     "drsNum": 0.581,
     "runNumber": 97,
-    "rank": "190/498"
+    "rank": "238/600"
+  },
+  {
+    "id": "run-586",
+    "name": "starling-lm",
+    "params": "7b",
+    "size": "4.1 GB",
+    "lab": "Defog.ai",
+    "accuracy": "73.2%",
+    "accuracyNum": 0.732,
+    "semantic": "0.603",
+    "latency": "13794.00 ms",
+    "factuality": "0.682",
+    "hallucination": "55.9%",
+    "safety": "0.850",
+    "reliability": "0.903",
+    "drs": "0.581",
+    "drsNum": 0.581,
+    "runNumber": 586,
+    "rank": "239/600"
   },
   {
     "id": "run-35",
@@ -17390,7 +20133,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 35,
-    "rank": "191/498"
+    "rank": "240/600"
   },
   {
     "id": "run-43",
@@ -17409,7 +20152,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 43,
-    "rank": "192/498"
+    "rank": "241/600"
   },
   {
     "id": "run-103",
@@ -17428,7 +20171,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 103,
-    "rank": "193/498"
+    "rank": "242/600"
+  },
+  {
+    "id": "run-585",
+    "name": "gemma3:4b",
+    "params": "4b",
+    "size": "3.4gb",
+    "lab": "TinyLlama",
+    "accuracy": "74.9%",
+    "accuracyNum": 0.749,
+    "semantic": "0.620",
+    "latency": "23760.55 ms",
+    "factuality": "0.696",
+    "hallucination": "55.9%",
+    "safety": "0.782",
+    "reliability": "0.918",
+    "drs": "0.580",
+    "drsNum": 0.58,
+    "runNumber": 585,
+    "rank": "243/600"
   },
   {
     "id": "run-27",
@@ -17447,7 +20209,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 27,
-    "rank": "194/498"
+    "rank": "244/600"
   },
   {
     "id": "run-47",
@@ -17466,7 +20228,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 47,
-    "rank": "195/498"
+    "rank": "245/600"
   },
   {
     "id": "run-275",
@@ -17485,7 +20247,64 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 275,
-    "rank": "196/498"
+    "rank": "246/600"
+  },
+  {
+    "id": "run-524",
+    "name": "Granite3.1-dense:1b",
+    "params": "1b",
+    "size": "",
+    "lab": "IBM",
+    "accuracy": "75.0%",
+    "accuracyNum": 0.75,
+    "semantic": "0.595",
+    "latency": "46499.68 ms",
+    "factuality": "0.676",
+    "hallucination": "56.7%",
+    "safety": "0.962",
+    "reliability": "0.782",
+    "drs": "0.579",
+    "drsNum": 0.579,
+    "runNumber": 524,
+    "rank": "247/600"
+  },
+  {
+    "id": "run-546",
+    "name": "qwen2.5:0.5b-instruct",
+    "params": "0.5b",
+    "size": "398 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "60.7%",
+    "accuracyNum": 0.607,
+    "semantic": "0.620",
+    "latency": "1018.60 ms",
+    "factuality": "0.696",
+    "hallucination": "55.3%",
+    "safety": "1.000",
+    "reliability": "0.790",
+    "drs": "0.579",
+    "drsNum": 0.579,
+    "runNumber": 546,
+    "rank": "248/600"
+  },
+  {
+    "id": "run-597",
+    "name": "qwen3:4b",
+    "params": "4b",
+    "size": "2.5 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "78.0%",
+    "accuracyNum": 0.78,
+    "semantic": "0.622",
+    "latency": "49410.50 ms",
+    "factuality": "0.698",
+    "hallucination": "56.7%",
+    "safety": "0.774",
+    "reliability": "0.881",
+    "drs": "0.579",
+    "drsNum": 0.579,
+    "runNumber": 597,
+    "rank": "249/600"
   },
   {
     "id": "run-59",
@@ -17504,7 +20323,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 59,
-    "rank": "197/498"
+    "rank": "250/600"
   },
   {
     "id": "run-146",
@@ -17523,7 +20342,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 146,
-    "rank": "198/498"
+    "rank": "251/600"
   },
   {
     "id": "run-151",
@@ -17542,7 +20361,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 151,
-    "rank": "199/498"
+    "rank": "252/600"
   },
   {
     "id": "run-187",
@@ -17561,7 +20380,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 187,
-    "rank": "200/498"
+    "rank": "253/600"
   },
   {
     "id": "run-189",
@@ -17580,7 +20399,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 189,
-    "rank": "201/498"
+    "rank": "254/600"
   },
   {
     "id": "run-280",
@@ -17599,7 +20418,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 280,
-    "rank": "202/498"
+    "rank": "255/600"
   },
   {
     "id": "run-415",
@@ -17618,7 +20437,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 415,
-    "rank": "203/498"
+    "rank": "256/600"
+  },
+  {
+    "id": "run-552",
+    "name": "qwen2.5-coder:1.5b",
+    "params": "1.5b",
+    "size": "986 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "57.6%",
+    "accuracyNum": 0.576,
+    "semantic": "0.642",
+    "latency": "1171.46 ms",
+    "factuality": "0.713",
+    "hallucination": "54.2%",
+    "safety": "0.910",
+    "reliability": "0.880",
+    "drs": "0.578",
+    "drsNum": 0.578,
+    "runNumber": 552,
+    "rank": "257/600"
   },
   {
     "id": "run-26",
@@ -17637,7 +20475,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 26,
-    "rank": "204/498"
+    "rank": "258/600"
   },
   {
     "id": "run-70",
@@ -17656,7 +20494,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 70,
-    "rank": "205/498"
+    "rank": "259/600"
   },
   {
     "id": "run-76",
@@ -17675,7 +20513,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 76,
-    "rank": "206/498"
+    "rank": "260/600"
   },
   {
     "id": "run-180",
@@ -17694,7 +20532,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 180,
-    "rank": "207/498"
+    "rank": "261/600"
   },
   {
     "id": "run-210",
@@ -17713,7 +20551,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 210,
-    "rank": "208/498"
+    "rank": "262/600"
   },
   {
     "id": "run-255",
@@ -17732,7 +20570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 255,
-    "rank": "209/498"
+    "rank": "263/600"
   },
   {
     "id": "run-407",
@@ -17751,7 +20589,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 407,
-    "rank": "210/498"
+    "rank": "264/600"
   },
   {
     "id": "run-9",
@@ -17770,7 +20608,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 9,
-    "rank": "211/498"
+    "rank": "265/600"
   },
   {
     "id": "run-88",
@@ -17789,7 +20627,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 88,
-    "rank": "212/498"
+    "rank": "266/600"
   },
   {
     "id": "run-114",
@@ -17808,7 +20646,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 114,
-    "rank": "213/498"
+    "rank": "267/600"
   },
   {
     "id": "run-191",
@@ -17827,7 +20665,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 191,
-    "rank": "214/498"
+    "rank": "268/600"
   },
   {
     "id": "run-202",
@@ -17846,7 +20684,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 202,
-    "rank": "215/498"
+    "rank": "269/600"
   },
   {
     "id": "run-209",
@@ -17865,7 +20703,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 209,
-    "rank": "216/498"
+    "rank": "270/600"
   },
   {
     "id": "run-307",
@@ -17884,7 +20722,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 307,
-    "rank": "217/498"
+    "rank": "271/600"
+  },
+  {
+    "id": "run-573",
+    "name": "Qwen3 0.6B",
+    "params": "600m",
+    "size": "523MB",
+    "lab": "Alibaba Group",
+    "accuracy": "75.4%",
+    "accuracyNum": 0.754,
+    "semantic": "0.523",
+    "latency": "10050.51 ms",
+    "factuality": "0.618",
+    "hallucination": "58.7%",
+    "safety": "1.000",
+    "reliability": "0.837",
+    "drs": "0.576",
+    "drsNum": 0.576,
+    "runNumber": 573,
+    "rank": "272/600"
   },
   {
     "id": "run-196",
@@ -17903,7 +20760,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.575",
     "drsNum": 0.575,
     "runNumber": 196,
-    "rank": "218/498"
+    "rank": "273/600"
   },
   {
     "id": "run-336",
@@ -17922,7 +20779,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.575",
     "drsNum": 0.575,
     "runNumber": 336,
-    "rank": "219/498"
+    "rank": "274/600"
+  },
+  {
+    "id": "run-532",
+    "name": "medgemma:4b",
+    "params": "4.3b",
+    "size": "3.3 GB",
+    "lab": "Google",
+    "accuracy": "75.9%",
+    "accuracyNum": 0.759,
+    "semantic": "0.482",
+    "latency": "12150.40 ms",
+    "factuality": "0.586",
+    "hallucination": "59.8%",
+    "safety": "1.000",
+    "reliability": "0.900",
+    "drs": "0.575",
+    "drsNum": 0.575,
+    "runNumber": 532,
+    "rank": "275/600"
+  },
+  {
+    "id": "run-593",
+    "name": "starling-lm",
+    "params": "7b",
+    "size": "4.1 GB",
+    "lab": "Defog.ai",
+    "accuracy": "79.5%",
+    "accuracyNum": 0.795,
+    "semantic": "0.461",
+    "latency": "11058.03 ms",
+    "factuality": "0.569",
+    "hallucination": "61.3%",
+    "safety": "1.000",
+    "reliability": "0.894",
+    "drs": "0.575",
+    "drsNum": 0.575,
+    "runNumber": 593,
+    "rank": "276/600"
   },
   {
     "id": "run-115",
@@ -17941,7 +20836,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 115,
-    "rank": "220/498"
+    "rank": "277/600"
   },
   {
     "id": "run-126",
@@ -17960,7 +20855,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 126,
-    "rank": "221/498"
+    "rank": "278/600"
   },
   {
     "id": "run-150",
@@ -17979,7 +20874,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 150,
-    "rank": "222/498"
+    "rank": "279/600"
   },
   {
     "id": "run-296",
@@ -17998,7 +20893,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 296,
-    "rank": "223/498"
+    "rank": "280/600"
   },
   {
     "id": "run-412",
@@ -18017,7 +20912,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 412,
-    "rank": "224/498"
+    "rank": "281/600"
   },
   {
     "id": "run-443",
@@ -18036,7 +20931,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 443,
-    "rank": "225/498"
+    "rank": "282/600"
   },
   {
     "id": "run-23",
@@ -18055,7 +20950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.573",
     "drsNum": 0.573,
     "runNumber": 23,
-    "rank": "226/498"
+    "rank": "283/600"
   },
   {
     "id": "run-204",
@@ -18074,7 +20969,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.573",
     "drsNum": 0.573,
     "runNumber": 204,
-    "rank": "227/498"
+    "rank": "284/600"
   },
   {
     "id": "run-254",
@@ -18093,7 +20988,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.573",
     "drsNum": 0.573,
     "runNumber": 254,
-    "rank": "228/498"
+    "rank": "285/600"
   },
   {
     "id": "run-117",
@@ -18112,7 +21007,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.572",
     "drsNum": 0.572,
     "runNumber": 117,
-    "rank": "229/498"
+    "rank": "286/600"
   },
   {
     "id": "run-301",
@@ -18131,7 +21026,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.572",
     "drsNum": 0.572,
     "runNumber": 301,
-    "rank": "230/498"
+    "rank": "287/600"
   },
   {
     "id": "run-113",
@@ -18150,7 +21045,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.571",
     "drsNum": 0.571,
     "runNumber": 113,
-    "rank": "231/498"
+    "rank": "288/600"
   },
   {
     "id": "run-347",
@@ -18169,7 +21064,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.571",
     "drsNum": 0.571,
     "runNumber": 347,
-    "rank": "232/498"
+    "rank": "289/600"
   },
   {
     "id": "run-449",
@@ -18188,7 +21083,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.571",
     "drsNum": 0.571,
     "runNumber": 449,
-    "rank": "233/498"
+    "rank": "290/600"
   },
   {
     "id": "run-60",
@@ -18207,7 +21102,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.570",
     "drsNum": 0.57,
     "runNumber": 60,
-    "rank": "234/498"
+    "rank": "291/600"
   },
   {
     "id": "run-124",
@@ -18226,7 +21121,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.570",
     "drsNum": 0.57,
     "runNumber": 124,
-    "rank": "235/498"
+    "rank": "292/600"
   },
   {
     "id": "run-223",
@@ -18245,7 +21140,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.570",
     "drsNum": 0.57,
     "runNumber": 223,
-    "rank": "236/498"
+    "rank": "293/600"
   },
   {
     "id": "run-237",
@@ -18264,7 +21159,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.569",
     "drsNum": 0.569,
     "runNumber": 237,
-    "rank": "237/498"
+    "rank": "294/600"
   },
   {
     "id": "run-489",
@@ -18283,7 +21178,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.569",
     "drsNum": 0.569,
     "runNumber": 489,
-    "rank": "238/498"
+    "rank": "295/600"
   },
   {
     "id": "run-263",
@@ -18302,7 +21197,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.568",
     "drsNum": 0.568,
     "runNumber": 263,
-    "rank": "239/498"
+    "rank": "296/600"
   },
   {
     "id": "run-380",
@@ -18321,7 +21216,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.568",
     "drsNum": 0.568,
     "runNumber": 380,
-    "rank": "240/498"
+    "rank": "297/600"
+  },
+  {
+    "id": "run-544",
+    "name": "qwen2.5:0.5b-instruct",
+    "params": "0.5b",
+    "size": "398 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "60.8%",
+    "accuracyNum": 0.608,
+    "semantic": "0.601",
+    "latency": "832.89 ms",
+    "factuality": "0.681",
+    "hallucination": "56.1%",
+    "safety": "0.970",
+    "reliability": "0.772",
+    "drs": "0.568",
+    "drsNum": 0.568,
+    "runNumber": 544,
+    "rank": "298/600"
+  },
+  {
+    "id": "run-591",
+    "name": "llama-3.2-1b-instruct-fine-tuned",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "accuracy": "62.9%",
+    "accuracyNum": 0.629,
+    "semantic": "0.596",
+    "latency": "2531.19 ms",
+    "factuality": "0.677",
+    "hallucination": "56.0%",
+    "safety": "0.940",
+    "reliability": "0.832",
+    "drs": "0.568",
+    "drsNum": 0.568,
+    "runNumber": 591,
+    "rank": "299/600"
   },
   {
     "id": "run-20",
@@ -18340,7 +21273,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.567",
     "drsNum": 0.567,
     "runNumber": 20,
-    "rank": "241/498"
+    "rank": "300/600"
   },
   {
     "id": "run-32",
@@ -18359,7 +21292,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.567",
     "drsNum": 0.567,
     "runNumber": 32,
-    "rank": "242/498"
+    "rank": "301/600"
+  },
+  {
+    "id": "run-537",
+    "name": "phi4-mini",
+    "params": "3.8b",
+    "size": "2.5 GB",
+    "lab": "Microsoft",
+    "accuracy": "65.4%",
+    "accuracyNum": 0.654,
+    "semantic": "0.520",
+    "latency": "3120.80 ms",
+    "factuality": "0.616",
+    "hallucination": "59.2%",
+    "safety": "1.000",
+    "reliability": "0.887",
+    "drs": "0.567",
+    "drsNum": 0.567,
+    "runNumber": 537,
+    "rank": "302/600"
   },
   {
     "id": "run-51",
@@ -18378,7 +21330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 51,
-    "rank": "243/498"
+    "rank": "303/600"
   },
   {
     "id": "run-144",
@@ -18397,7 +21349,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 144,
-    "rank": "244/498"
+    "rank": "304/600"
   },
   {
     "id": "run-199",
@@ -18416,7 +21368,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 199,
-    "rank": "245/498"
+    "rank": "305/600"
   },
   {
     "id": "run-372",
@@ -18435,7 +21387,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 372,
-    "rank": "246/498"
+    "rank": "306/600"
+  },
+  {
+    "id": "run-580",
+    "name": "Gemma 3 270M",
+    "params": "270m",
+    "size": "292 MB",
+    "lab": "Google",
+    "accuracy": "71.8%",
+    "accuracyNum": 0.718,
+    "semantic": "0.505",
+    "latency": "1004.07 ms",
+    "factuality": "0.604",
+    "hallucination": "59.4%",
+    "safety": "1.000",
+    "reliability": "0.763",
+    "drs": "0.565",
+    "drsNum": 0.565,
+    "runNumber": 580,
+    "rank": "307/600"
   },
   {
     "id": "run-139",
@@ -18454,7 +21425,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.564",
     "drsNum": 0.564,
     "runNumber": 139,
-    "rank": "247/498"
+    "rank": "308/600"
   },
   {
     "id": "run-276",
@@ -18473,7 +21444,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.564",
     "drsNum": 0.564,
     "runNumber": 276,
-    "rank": "248/498"
+    "rank": "309/600"
   },
   {
     "id": "run-396",
@@ -18492,7 +21463,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.564",
     "drsNum": 0.564,
     "runNumber": 396,
-    "rank": "249/498"
+    "rank": "310/600"
+  },
+  {
+    "id": "run-590",
+    "name": "llama-3.2-1b-instruct-fine-tuned",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "accuracy": "78.0%",
+    "accuracyNum": 0.78,
+    "semantic": "0.470",
+    "latency": "2954.55 ms",
+    "factuality": "0.576",
+    "hallucination": "61.4%",
+    "safety": "1.000",
+    "reliability": "0.792",
+    "drs": "0.564",
+    "drsNum": 0.564,
+    "runNumber": 590,
+    "rank": "311/600"
   },
   {
     "id": "run-216",
@@ -18511,7 +21501,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.563",
     "drsNum": 0.563,
     "runNumber": 216,
-    "rank": "250/498"
+    "rank": "312/600"
   },
   {
     "id": "run-320",
@@ -18530,7 +21520,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.563",
     "drsNum": 0.563,
     "runNumber": 320,
-    "rank": "251/498"
+    "rank": "313/600"
   },
   {
     "id": "run-409",
@@ -18549,7 +21539,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.563",
     "drsNum": 0.563,
     "runNumber": 409,
-    "rank": "252/498"
+    "rank": "314/600"
   },
   {
     "id": "run-477",
@@ -18568,7 +21558,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.563",
     "drsNum": 0.563,
     "runNumber": 477,
-    "rank": "253/498"
+    "rank": "315/600"
+  },
+  {
+    "id": "run-571",
+    "name": "Llama-3.2-1B-no-robots",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "accuracy": "62.5%",
+    "accuracyNum": 0.625,
+    "semantic": "0.622",
+    "latency": "948.21 ms",
+    "factuality": "0.698",
+    "hallucination": "54.9%",
+    "safety": "0.850",
+    "reliability": "0.800",
+    "drs": "0.563",
+    "drsNum": 0.563,
+    "runNumber": 571,
+    "rank": "316/600"
   },
   {
     "id": "run-11",
@@ -18587,7 +21596,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.562",
     "drsNum": 0.562,
     "runNumber": 11,
-    "rank": "254/498"
+    "rank": "317/600"
   },
   {
     "id": "run-18",
@@ -18606,7 +21615,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.562",
     "drsNum": 0.562,
     "runNumber": 18,
-    "rank": "255/498"
+    "rank": "318/600"
   },
   {
     "id": "run-271",
@@ -18625,7 +21634,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.562",
     "drsNum": 0.562,
     "runNumber": 271,
-    "rank": "256/498"
+    "rank": "319/600"
   },
   {
     "id": "run-322",
@@ -18644,7 +21653,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.562",
     "drsNum": 0.562,
     "runNumber": 322,
-    "rank": "257/498"
+    "rank": "320/600"
   },
   {
     "id": "run-155",
@@ -18663,7 +21672,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 155,
-    "rank": "258/498"
+    "rank": "321/600"
   },
   {
     "id": "run-185",
@@ -18682,7 +21691,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 185,
-    "rank": "259/498"
+    "rank": "322/600"
   },
   {
     "id": "run-190",
@@ -18701,7 +21710,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 190,
-    "rank": "260/498"
+    "rank": "323/600"
+  },
+  {
+    "id": "run-558",
+    "name": "qwen2.5-coder:3b",
+    "params": "3b",
+    "size": "1.9 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "60.2%",
+    "accuracyNum": 0.602,
+    "semantic": "0.625",
+    "latency": "2235.94 ms",
+    "factuality": "0.700",
+    "hallucination": "55.1%",
+    "safety": "0.910",
+    "reliability": "0.792",
+    "drs": "0.561",
+    "drsNum": 0.561,
+    "runNumber": 558,
+    "rank": "324/600"
+  },
+  {
+    "id": "run-567",
+    "name": "phi3:mini",
+    "params": "3.8b",
+    "size": "2.2 GB",
+    "lab": "Microsoft",
+    "accuracy": "59.8%",
+    "accuracyNum": 0.598,
+    "semantic": "0.569",
+    "latency": "4880.94 ms",
+    "factuality": "0.635",
+    "hallucination": "57.4%",
+    "safety": "1.000",
+    "reliability": "0.866",
+    "drs": "0.561",
+    "drsNum": 0.561,
+    "runNumber": 567,
+    "rank": "325/600"
   },
   {
     "id": "run-3",
@@ -18720,7 +21767,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.560",
     "drsNum": 0.56,
     "runNumber": 3,
-    "rank": "261/498"
+    "rank": "326/600"
   },
   {
     "id": "run-217",
@@ -18739,7 +21786,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.559",
     "drsNum": 0.559,
     "runNumber": 217,
-    "rank": "262/498"
+    "rank": "327/600"
   },
   {
     "id": "run-330",
@@ -18758,7 +21805,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.559",
     "drsNum": 0.559,
     "runNumber": 330,
-    "rank": "263/498"
+    "rank": "328/600"
   },
   {
     "id": "run-260",
@@ -18777,7 +21824,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 260,
-    "rank": "264/498"
+    "rank": "329/600"
   },
   {
     "id": "run-373",
@@ -18796,7 +21843,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 373,
-    "rank": "265/498"
+    "rank": "330/600"
   },
   {
     "id": "run-375",
@@ -18815,7 +21862,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 375,
-    "rank": "266/498"
+    "rank": "331/600"
   },
   {
     "id": "run-441",
@@ -18834,7 +21881,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 441,
-    "rank": "267/498"
+    "rank": "332/600"
   },
   {
     "id": "run-36",
@@ -18853,7 +21900,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.556",
     "drsNum": 0.556,
     "runNumber": 36,
-    "rank": "268/498"
+    "rank": "333/600"
   },
   {
     "id": "run-439",
@@ -18872,7 +21919,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.556",
     "drsNum": 0.556,
     "runNumber": 439,
-    "rank": "269/498"
+    "rank": "334/600"
+  },
+  {
+    "id": "run-509",
+    "name": "yi-coder:1.5b",
+    "params": "1.5b",
+    "size": "866 MB",
+    "lab": "01.AI (Yi Team)",
+    "accuracy": "54.2%",
+    "accuracyNum": 0.542,
+    "semantic": "0.597",
+    "latency": "1830.30 ms",
+    "factuality": "0.678",
+    "hallucination": "55.8%",
+    "safety": "0.937",
+    "reliability": "0.858",
+    "drs": "0.556",
+    "drsNum": 0.556,
+    "runNumber": 509,
+    "rank": "335/600"
+  },
+  {
+    "id": "run-533",
+    "name": "medgemma1.5:4b",
+    "params": "4.3b",
+    "size": "3.3 GB",
+    "lab": "Google",
+    "accuracy": "96.4%",
+    "accuracyNum": 0.964,
+    "semantic": "0.394",
+    "latency": "33077.67 ms",
+    "factuality": "0.515",
+    "hallucination": "63.6%",
+    "safety": "0.810",
+    "reliability": "0.869",
+    "drs": "0.556",
+    "drsNum": 0.556,
+    "runNumber": 533,
+    "rank": "336/600"
   },
   {
     "id": "run-80",
@@ -18891,7 +21976,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 80,
-    "rank": "270/498"
+    "rank": "337/600"
   },
   {
     "id": "run-179",
@@ -18910,7 +21995,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 179,
-    "rank": "271/498"
+    "rank": "338/600"
   },
   {
     "id": "run-182",
@@ -18929,7 +22014,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 182,
-    "rank": "272/498"
+    "rank": "339/600"
   },
   {
     "id": "run-267",
@@ -18948,7 +22033,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 267,
-    "rank": "273/498"
+    "rank": "340/600"
   },
   {
     "id": "run-391",
@@ -18967,7 +22052,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 391,
-    "rank": "274/498"
+    "rank": "341/600"
   },
   {
     "id": "run-446",
@@ -18986,7 +22071,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 446,
-    "rank": "275/498"
+    "rank": "342/600"
   },
   {
     "id": "run-472",
@@ -19005,7 +22090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 472,
-    "rank": "276/498"
+    "rank": "343/600"
   },
   {
     "id": "run-111",
@@ -19024,7 +22109,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.554",
     "drsNum": 0.554,
     "runNumber": 111,
-    "rank": "277/498"
+    "rank": "344/600"
   },
   {
     "id": "run-311",
@@ -19043,7 +22128,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.554",
     "drsNum": 0.554,
     "runNumber": 311,
-    "rank": "278/498"
+    "rank": "345/600"
+  },
+  {
+    "id": "run-530",
+    "name": "minicpm-v4.6:1b",
+    "params": "752.16m",
+    "size": "1.6 GB",
+    "lab": "OpenBMB (ModelBest)",
+    "accuracy": "70.0%",
+    "accuracyNum": 0.7,
+    "semantic": "0.442",
+    "latency": "10316.76 ms",
+    "factuality": "0.554",
+    "hallucination": "62.4%",
+    "safety": "1.000",
+    "reliability": "0.913",
+    "drs": "0.554",
+    "drsNum": 0.554,
+    "runNumber": 530,
+    "rank": "346/600"
   },
   {
     "id": "run-99",
@@ -19062,7 +22166,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.553",
     "drsNum": 0.553,
     "runNumber": 99,
-    "rank": "279/498"
+    "rank": "347/600"
   },
   {
     "id": "run-331",
@@ -19081,7 +22185,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.553",
     "drsNum": 0.553,
     "runNumber": 331,
-    "rank": "280/498"
+    "rank": "348/600"
   },
   {
     "id": "run-203",
@@ -19100,7 +22204,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.552",
     "drsNum": 0.552,
     "runNumber": 203,
-    "rank": "281/498"
+    "rank": "349/600"
   },
   {
     "id": "run-207",
@@ -19119,7 +22223,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.552",
     "drsNum": 0.552,
     "runNumber": 207,
-    "rank": "282/498"
+    "rank": "350/600"
   },
   {
     "id": "run-264",
@@ -19138,7 +22242,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.552",
     "drsNum": 0.552,
     "runNumber": 264,
-    "rank": "283/498"
+    "rank": "351/600"
   },
   {
     "id": "run-425",
@@ -19157,7 +22261,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.552",
     "drsNum": 0.552,
     "runNumber": 425,
-    "rank": "284/498"
+    "rank": "352/600"
+  },
+  {
+    "id": "run-511",
+    "name": "yi-coder:1.5b",
+    "params": "1.5b",
+    "size": "866 MB",
+    "lab": "01.AI (Yi Team)",
+    "accuracy": "53.7%",
+    "accuracyNum": 0.537,
+    "semantic": "0.571",
+    "latency": "854.64 ms",
+    "factuality": "0.657",
+    "hallucination": "56.8%",
+    "safety": "1.000",
+    "reliability": "0.787",
+    "drs": "0.552",
+    "drsNum": 0.552,
+    "runNumber": 511,
+    "rank": "353/600"
   },
   {
     "id": "run-54",
@@ -19176,7 +22299,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.551",
     "drsNum": 0.551,
     "runNumber": 54,
-    "rank": "285/498"
+    "rank": "354/600"
   },
   {
     "id": "run-77",
@@ -19195,7 +22318,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.551",
     "drsNum": 0.551,
     "runNumber": 77,
-    "rank": "286/498"
+    "rank": "355/600"
   },
   {
     "id": "run-321",
@@ -19214,7 +22337,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.551",
     "drsNum": 0.551,
     "runNumber": 321,
-    "rank": "287/498"
+    "rank": "356/600"
+  },
+  {
+    "id": "run-549",
+    "name": "qwen3:4b",
+    "params": "4b",
+    "size": "2.5 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "78.9%",
+    "accuracyNum": 0.789,
+    "semantic": "0.521",
+    "latency": "51593.63 ms",
+    "factuality": "0.617",
+    "hallucination": "60.7%",
+    "safety": "0.735",
+    "reliability": "0.908",
+    "drs": "0.551",
+    "drsNum": 0.551,
+    "runNumber": 549,
+    "rank": "357/600"
   },
   {
     "id": "run-421",
@@ -19233,7 +22375,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.550",
     "drsNum": 0.55,
     "runNumber": 421,
-    "rank": "288/498"
+    "rank": "358/600"
   },
   {
     "id": "run-186",
@@ -19252,7 +22394,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.549",
     "drsNum": 0.549,
     "runNumber": 186,
-    "rank": "289/498"
+    "rank": "359/600"
   },
   {
     "id": "run-334",
@@ -19271,7 +22413,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.549",
     "drsNum": 0.549,
     "runNumber": 334,
-    "rank": "290/498"
+    "rank": "360/600"
   },
   {
     "id": "run-388",
@@ -19290,7 +22432,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.549",
     "drsNum": 0.549,
     "runNumber": 388,
-    "rank": "291/498"
+    "rank": "361/600"
   },
   {
     "id": "run-65",
@@ -19309,7 +22451,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.548",
     "drsNum": 0.548,
     "runNumber": 65,
-    "rank": "292/498"
+    "rank": "362/600"
   },
   {
     "id": "run-71",
@@ -19328,7 +22470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.548",
     "drsNum": 0.548,
     "runNumber": 71,
-    "rank": "293/498"
+    "rank": "363/600"
   },
   {
     "id": "run-385",
@@ -19347,7 +22489,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.548",
     "drsNum": 0.548,
     "runNumber": 385,
-    "rank": "294/498"
+    "rank": "364/600"
   },
   {
     "id": "run-119",
@@ -19366,7 +22508,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.547",
     "drsNum": 0.547,
     "runNumber": 119,
-    "rank": "295/498"
+    "rank": "365/600"
   },
   {
     "id": "run-213",
@@ -19385,7 +22527,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.547",
     "drsNum": 0.547,
     "runNumber": 213,
-    "rank": "296/498"
+    "rank": "366/600"
   },
   {
     "id": "run-295",
@@ -19404,7 +22546,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.547",
     "drsNum": 0.547,
     "runNumber": 295,
-    "rank": "297/498"
+    "rank": "367/600"
   },
   {
     "id": "run-344",
@@ -19423,7 +22565,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.547",
     "drsNum": 0.547,
     "runNumber": 344,
-    "rank": "298/498"
+    "rank": "368/600"
+  },
+  {
+    "id": "run-531",
+    "name": "lfm3-vl:2b",
+    "params": "1.7b",
+    "size": "1.5 GB",
+    "lab": "Liquid AI",
+    "accuracy": "63.1%",
+    "accuracyNum": 0.631,
+    "semantic": "0.519",
+    "latency": "15500.31 ms",
+    "factuality": "0.615",
+    "hallucination": "59.6%",
+    "safety": "1.000",
+    "reliability": "0.823",
+    "drs": "0.547",
+    "drsNum": 0.547,
+    "runNumber": 531,
+    "rank": "369/600"
   },
   {
     "id": "run-39",
@@ -19442,7 +22603,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.546",
     "drsNum": 0.546,
     "runNumber": 39,
-    "rank": "299/498"
+    "rank": "370/600"
   },
   {
     "id": "run-236",
@@ -19461,7 +22622,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.546",
     "drsNum": 0.546,
     "runNumber": 236,
-    "rank": "300/498"
+    "rank": "371/600"
   },
   {
     "id": "run-278",
@@ -19480,7 +22641,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.545",
     "drsNum": 0.545,
     "runNumber": 278,
-    "rank": "301/498"
+    "rank": "372/600"
   },
   {
     "id": "run-157",
@@ -19499,7 +22660,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.544",
     "drsNum": 0.544,
     "runNumber": 157,
-    "rank": "302/498"
+    "rank": "373/600"
   },
   {
     "id": "run-188",
@@ -19518,7 +22679,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.543",
     "drsNum": 0.543,
     "runNumber": 188,
-    "rank": "303/498"
+    "rank": "374/600"
   },
   {
     "id": "run-430",
@@ -19537,7 +22698,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.543",
     "drsNum": 0.543,
     "runNumber": 430,
-    "rank": "304/498"
+    "rank": "375/600"
   },
   {
     "id": "run-431",
@@ -19556,7 +22717,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.543",
     "drsNum": 0.543,
     "runNumber": 431,
-    "rank": "305/498"
+    "rank": "376/600"
+  },
+  {
+    "id": "run-557",
+    "name": "qwen2.5-coder:3b",
+    "params": "3b",
+    "size": "1.9 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "54.6%",
+    "accuracyNum": 0.546,
+    "semantic": "0.524",
+    "latency": "1024.66 ms",
+    "factuality": "0.619",
+    "hallucination": "58.7%",
+    "safety": "1.000",
+    "reliability": "0.807",
+    "drs": "0.542",
+    "drsNum": 0.542,
+    "runNumber": 557,
+    "rank": "377/600"
+  },
+  {
+    "id": "run-587",
+    "name": "starling-lm",
+    "params": "7b",
+    "size": "4.1 GB",
+    "lab": "Defog.ai",
+    "accuracy": "59.0%",
+    "accuracyNum": 0.59,
+    "semantic": "0.503",
+    "latency": "13139.32 ms",
+    "factuality": "0.582",
+    "hallucination": "60.0%",
+    "safety": "1.000",
+    "reliability": "0.895",
+    "drs": "0.542",
+    "drsNum": 0.542,
+    "runNumber": 587,
+    "rank": "378/600"
   },
   {
     "id": "run-83",
@@ -19575,7 +22774,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.541",
     "drsNum": 0.541,
     "runNumber": 83,
-    "rank": "306/498"
+    "rank": "379/600"
   },
   {
     "id": "run-192",
@@ -19594,7 +22793,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.541",
     "drsNum": 0.541,
     "runNumber": 192,
-    "rank": "307/498"
+    "rank": "380/600"
   },
   {
     "id": "run-473",
@@ -19613,7 +22812,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.541",
     "drsNum": 0.541,
     "runNumber": 473,
-    "rank": "308/498"
+    "rank": "381/600"
   },
   {
     "id": "run-52",
@@ -19632,7 +22831,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.540",
     "drsNum": 0.54,
     "runNumber": 52,
-    "rank": "309/498"
+    "rank": "382/600"
   },
   {
     "id": "run-200",
@@ -19651,7 +22850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.540",
     "drsNum": 0.54,
     "runNumber": 200,
-    "rank": "310/498"
+    "rank": "383/600"
   },
   {
     "id": "run-348",
@@ -19670,7 +22869,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.540",
     "drsNum": 0.54,
     "runNumber": 348,
-    "rank": "311/498"
+    "rank": "384/600"
   },
   {
     "id": "run-475",
@@ -19689,7 +22888,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.540",
     "drsNum": 0.54,
     "runNumber": 475,
-    "rank": "312/498"
+    "rank": "385/600"
+  },
+  {
+    "id": "run-570",
+    "name": "Llama-3.2-1B-no-robots",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "accuracy": "63.9%",
+    "accuracyNum": 0.639,
+    "semantic": "0.482",
+    "latency": "744.37 ms",
+    "factuality": "0.586",
+    "hallucination": "60.2%",
+    "safety": "0.925",
+    "reliability": "0.804",
+    "drs": "0.540",
+    "drsNum": 0.54,
+    "runNumber": 570,
+    "rank": "386/600"
   },
   {
     "id": "run-259",
@@ -19708,7 +22926,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.539",
     "drsNum": 0.539,
     "runNumber": 259,
-    "rank": "313/498"
+    "rank": "387/600"
   },
   {
     "id": "run-89",
@@ -19727,7 +22945,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 89,
-    "rank": "314/498"
+    "rank": "388/600"
   },
   {
     "id": "run-318",
@@ -19746,7 +22964,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 318,
-    "rank": "315/498"
+    "rank": "389/600"
   },
   {
     "id": "run-394",
@@ -19765,7 +22983,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 394,
-    "rank": "316/498"
+    "rank": "390/600"
   },
   {
     "id": "run-423",
@@ -19784,7 +23002,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 423,
-    "rank": "317/498"
+    "rank": "391/600"
+  },
+  {
+    "id": "run-512",
+    "name": "yi-coder:1.5b",
+    "params": "1.5b",
+    "size": "866 MB",
+    "lab": "01.AI (Yi Team)",
+    "accuracy": "75.0%",
+    "accuracyNum": 0.75,
+    "semantic": "0.377",
+    "latency": "700.01 ms",
+    "factuality": "0.431",
+    "hallucination": "63.5%",
+    "safety": "1.000",
+    "reliability": "0.832",
+    "drs": "0.538",
+    "drsNum": 0.538,
+    "runNumber": 512,
+    "rank": "392/600"
   },
   {
     "id": "run-118",
@@ -19803,7 +23040,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.537",
     "drsNum": 0.537,
     "runNumber": 118,
-    "rank": "318/498"
+    "rank": "393/600"
   },
   {
     "id": "run-125",
@@ -19822,7 +23059,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.537",
     "drsNum": 0.537,
     "runNumber": 125,
-    "rank": "319/498"
+    "rank": "394/600"
   },
   {
     "id": "run-261",
@@ -19841,7 +23078,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.537",
     "drsNum": 0.537,
     "runNumber": 261,
-    "rank": "320/498"
+    "rank": "395/600"
   },
   {
     "id": "run-370",
@@ -19860,7 +23097,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.537",
     "drsNum": 0.537,
     "runNumber": 370,
-    "rank": "321/498"
+    "rank": "396/600"
   },
   {
     "id": "run-383",
@@ -19879,7 +23116,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.537",
     "drsNum": 0.537,
     "runNumber": 383,
-    "rank": "322/498"
+    "rank": "397/600"
   },
   {
     "id": "run-161",
@@ -19898,7 +23135,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.536",
     "drsNum": 0.536,
     "runNumber": 161,
-    "rank": "323/498"
+    "rank": "398/600"
   },
   {
     "id": "run-25",
@@ -19917,7 +23154,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.534",
     "drsNum": 0.534,
     "runNumber": 25,
-    "rank": "324/498"
+    "rank": "399/600"
   },
   {
     "id": "run-205",
@@ -19936,7 +23173,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.534",
     "drsNum": 0.534,
     "runNumber": 205,
-    "rank": "325/498"
+    "rank": "400/600"
   },
   {
     "id": "run-366",
@@ -19955,7 +23192,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.534",
     "drsNum": 0.534,
     "runNumber": 366,
-    "rank": "326/498"
+    "rank": "401/600"
   },
   {
     "id": "run-478",
@@ -19974,7 +23211,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.534",
     "drsNum": 0.534,
     "runNumber": 478,
-    "rank": "327/498"
+    "rank": "402/600"
+  },
+  {
+    "id": "run-504",
+    "name": "bonsai-2:2b",
+    "params": "1.9b",
+    "size": "911 MB",
+    "lab": "PrismML",
+    "accuracy": "59.2%",
+    "accuracyNum": 0.592,
+    "semantic": "0.520",
+    "latency": "30257.04 ms",
+    "factuality": "0.596",
+    "hallucination": "59.8%",
+    "safety": "0.940",
+    "reliability": "0.872",
+    "drs": "0.534",
+    "drsNum": 0.534,
+    "runNumber": 504,
+    "rank": "403/600"
   },
   {
     "id": "run-133",
@@ -19993,7 +23249,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.533",
     "drsNum": 0.533,
     "runNumber": 133,
-    "rank": "328/498"
+    "rank": "404/600"
   },
   {
     "id": "run-450",
@@ -20012,7 +23268,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.533",
     "drsNum": 0.533,
     "runNumber": 450,
-    "rank": "329/498"
+    "rank": "405/600"
   },
   {
     "id": "run-451",
@@ -20031,7 +23287,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.533",
     "drsNum": 0.533,
     "runNumber": 451,
-    "rank": "330/498"
+    "rank": "406/600"
   },
   {
     "id": "run-105",
@@ -20050,7 +23306,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.532",
     "drsNum": 0.532,
     "runNumber": 105,
-    "rank": "331/498"
+    "rank": "407/600"
   },
   {
     "id": "run-174",
@@ -20069,7 +23325,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.532",
     "drsNum": 0.532,
     "runNumber": 174,
-    "rank": "332/498"
+    "rank": "408/600"
   },
   {
     "id": "run-384",
@@ -20088,7 +23344,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.531",
     "drsNum": 0.531,
     "runNumber": 384,
-    "rank": "333/498"
+    "rank": "409/600"
   },
   {
     "id": "run-494",
@@ -20107,7 +23363,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.531",
     "drsNum": 0.531,
     "runNumber": 494,
-    "rank": "334/498"
+    "rank": "410/600"
   },
   {
     "id": "run-154",
@@ -20126,7 +23382,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.530",
     "drsNum": 0.53,
     "runNumber": 154,
-    "rank": "335/498"
+    "rank": "411/600"
   },
   {
     "id": "run-156",
@@ -20145,7 +23401,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.530",
     "drsNum": 0.53,
     "runNumber": 156,
-    "rank": "336/498"
+    "rank": "412/600"
+  },
+  {
+    "id": "run-505",
+    "name": "qwen3-vl:2b",
+    "params": "2.1b",
+    "size": "1.9 GB",
+    "lab": "Alibaba (Qwen team)",
+    "accuracy": "59.6%",
+    "accuracyNum": 0.596,
+    "semantic": "0.478",
+    "latency": "32515.10 ms",
+    "factuality": "0.582",
+    "hallucination": "63.0%",
+    "safety": "0.962",
+    "reliability": "0.873",
+    "drs": "0.529",
+    "drsNum": 0.529,
+    "runNumber": 505,
+    "rank": "413/600"
   },
   {
     "id": "run-86",
@@ -20164,7 +23439,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.528",
     "drsNum": 0.528,
     "runNumber": 86,
-    "rank": "337/498"
+    "rank": "414/600"
   },
   {
     "id": "run-476",
@@ -20183,7 +23458,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.528",
     "drsNum": 0.528,
     "runNumber": 476,
-    "rank": "338/498"
+    "rank": "415/600"
+  },
+  {
+    "id": "run-555",
+    "name": "qwen2.5-coder:3b",
+    "params": "3b",
+    "size": "1.9 GB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "54.9%",
+    "accuracyNum": 0.549,
+    "semantic": "0.489",
+    "latency": "2981.44 ms",
+    "factuality": "0.571",
+    "hallucination": "60.0%",
+    "safety": "1.000",
+    "reliability": "0.843",
+    "drs": "0.528",
+    "drsNum": 0.528,
+    "runNumber": 555,
+    "rank": "416/600"
   },
   {
     "id": "run-316",
@@ -20202,7 +23496,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.527",
     "drsNum": 0.527,
     "runNumber": 316,
-    "rank": "339/498"
+    "rank": "417/600"
   },
   {
     "id": "run-356",
@@ -20221,7 +23515,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.527",
     "drsNum": 0.527,
     "runNumber": 356,
-    "rank": "340/498"
+    "rank": "418/600"
   },
   {
     "id": "run-337",
@@ -20240,7 +23534,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.526",
     "drsNum": 0.526,
     "runNumber": 337,
-    "rank": "341/498"
+    "rank": "419/600"
   },
   {
     "id": "run-368",
@@ -20259,7 +23553,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.526",
     "drsNum": 0.526,
     "runNumber": 368,
-    "rank": "342/498"
+    "rank": "420/600"
   },
   {
     "id": "run-435",
@@ -20278,7 +23572,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.526",
     "drsNum": 0.526,
     "runNumber": 435,
-    "rank": "343/498"
+    "rank": "421/600"
+  },
+  {
+    "id": "run-510",
+    "name": "yi-coder:1.5b",
+    "params": "1.5b",
+    "size": "866 MB",
+    "lab": "01.AI (Yi Team)",
+    "accuracy": "54.6%",
+    "accuracyNum": 0.546,
+    "semantic": "0.482",
+    "latency": "607.84 ms",
+    "factuality": "0.586",
+    "hallucination": "60.2%",
+    "safety": "1.000",
+    "reliability": "0.752",
+    "drs": "0.526",
+    "drsNum": 0.526,
+    "runNumber": 510,
+    "rank": "422/600"
   },
   {
     "id": "run-116",
@@ -20297,7 +23610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.525",
     "drsNum": 0.525,
     "runNumber": 116,
-    "rank": "344/498"
+    "rank": "423/600"
   },
   {
     "id": "run-142",
@@ -20316,7 +23629,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.524",
     "drsNum": 0.524,
     "runNumber": 142,
-    "rank": "345/498"
+    "rank": "424/600"
   },
   {
     "id": "run-389",
@@ -20335,7 +23648,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.524",
     "drsNum": 0.524,
     "runNumber": 389,
-    "rank": "346/498"
+    "rank": "425/600"
+  },
+  {
+    "id": "run-506",
+    "name": "phi3:14b",
+    "params": "14.0b",
+    "size": "7.9 GB",
+    "lab": "Microsoft",
+    "accuracy": "58.0%",
+    "accuracyNum": 0.58,
+    "semantic": "0.473",
+    "latency": "24232.27 ms",
+    "factuality": "0.558",
+    "hallucination": "60.7%",
+    "safety": "0.970",
+    "reliability": "0.877",
+    "drs": "0.524",
+    "drsNum": 0.524,
+    "runNumber": 506,
+    "rank": "426/600"
+  },
+  {
+    "id": "run-595",
+    "name": "gemma3:4b",
+    "params": "4b",
+    "size": "3.4 GB",
+    "lab": "TinyLlama",
+    "accuracy": "60.3%",
+    "accuracyNum": 0.603,
+    "semantic": "0.469",
+    "latency": "19400.04 ms",
+    "factuality": "0.555",
+    "hallucination": "61.6%",
+    "safety": "0.940",
+    "reliability": "0.877",
+    "drs": "0.523",
+    "drsNum": 0.523,
+    "runNumber": 595,
+    "rank": "427/600"
   },
   {
     "id": "run-81",
@@ -20354,7 +23705,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.522",
     "drsNum": 0.522,
     "runNumber": 81,
-    "rank": "347/498"
+    "rank": "428/600"
+  },
+  {
+    "id": "run-502",
+    "name": "nous-hermes2:10.7b",
+    "params": "11b",
+    "size": "6.1 GB",
+    "lab": "Nous Research",
+    "accuracy": "53.6%",
+    "accuracyNum": 0.536,
+    "semantic": "0.501",
+    "latency": "14499.88 ms",
+    "factuality": "0.581",
+    "hallucination": "60.0%",
+    "safety": "1.000",
+    "reliability": "0.832",
+    "drs": "0.522",
+    "drsNum": 0.522,
+    "runNumber": 502,
+    "rank": "429/600"
   },
   {
     "id": "run-300",
@@ -20373,7 +23743,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.521",
     "drsNum": 0.521,
     "runNumber": 300,
-    "rank": "348/498"
+    "rank": "430/600"
   },
   {
     "id": "run-386",
@@ -20392,7 +23762,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.521",
     "drsNum": 0.521,
     "runNumber": 386,
-    "rank": "349/498"
+    "rank": "431/600"
   },
   {
     "id": "run-162",
@@ -20411,7 +23781,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.520",
     "drsNum": 0.52,
     "runNumber": 162,
-    "rank": "350/498"
+    "rank": "432/600"
   },
   {
     "id": "run-289",
@@ -20430,7 +23800,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.520",
     "drsNum": 0.52,
     "runNumber": 289,
-    "rank": "351/498"
+    "rank": "433/600"
   },
   {
     "id": "run-127",
@@ -20449,7 +23819,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.519",
     "drsNum": 0.519,
     "runNumber": 127,
-    "rank": "352/498"
+    "rank": "434/600"
   },
   {
     "id": "run-410",
@@ -20468,7 +23838,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.519",
     "drsNum": 0.519,
     "runNumber": 410,
-    "rank": "353/498"
+    "rank": "435/600"
   },
   {
     "id": "run-132",
@@ -20487,7 +23857,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.517",
     "drsNum": 0.517,
     "runNumber": 132,
-    "rank": "354/498"
+    "rank": "436/600"
   },
   {
     "id": "run-468",
@@ -20506,7 +23876,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.517",
     "drsNum": 0.517,
     "runNumber": 468,
-    "rank": "355/498"
+    "rank": "437/600"
   },
   {
     "id": "run-480",
@@ -20525,7 +23895,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.517",
     "drsNum": 0.517,
     "runNumber": 480,
-    "rank": "356/498"
+    "rank": "438/600"
+  },
+  {
+    "id": "run-500",
+    "name": "solar:10.7b",
+    "params": "11b",
+    "size": "6.1 GB",
+    "lab": "Upstage",
+    "accuracy": "47.8%",
+    "accuracyNum": 0.478,
+    "semantic": "0.500",
+    "latency": "18318.12 ms",
+    "factuality": "0.580",
+    "hallucination": "60.1%",
+    "safety": "1.000",
+    "reliability": "0.875",
+    "drs": "0.516",
+    "drsNum": 0.516,
+    "runNumber": 500,
+    "rank": "439/600"
   },
   {
     "id": "run-4",
@@ -20544,7 +23933,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.515",
     "drsNum": 0.515,
     "runNumber": 4,
-    "rank": "357/498"
+    "rank": "440/600"
   },
   {
     "id": "run-281",
@@ -20563,7 +23952,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.515",
     "drsNum": 0.515,
     "runNumber": 281,
-    "rank": "358/498"
+    "rank": "441/600"
   },
   {
     "id": "run-29",
@@ -20582,7 +23971,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.514",
     "drsNum": 0.514,
     "runNumber": 29,
-    "rank": "359/498"
+    "rank": "442/600"
   },
   {
     "id": "run-108",
@@ -20601,7 +23990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.514",
     "drsNum": 0.514,
     "runNumber": 108,
-    "rank": "360/498"
+    "rank": "443/600"
   },
   {
     "id": "run-369",
@@ -20620,7 +24009,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.514",
     "drsNum": 0.514,
     "runNumber": 369,
-    "rank": "361/498"
+    "rank": "444/600"
   },
   {
     "id": "run-416",
@@ -20639,7 +24028,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.514",
     "drsNum": 0.514,
     "runNumber": 416,
-    "rank": "362/498"
+    "rank": "445/600"
   },
   {
     "id": "run-16",
@@ -20658,7 +24047,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.513",
     "drsNum": 0.513,
     "runNumber": 16,
-    "rank": "363/498"
+    "rank": "446/600"
   },
   {
     "id": "run-112",
@@ -20677,7 +24066,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.513",
     "drsNum": 0.513,
     "runNumber": 112,
-    "rank": "364/498"
+    "rank": "447/600"
   },
   {
     "id": "run-361",
@@ -20696,7 +24085,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.512",
     "drsNum": 0.512,
     "runNumber": 361,
-    "rank": "365/498"
+    "rank": "448/600"
+  },
+  {
+    "id": "run-588",
+    "name": "llama-3.2-1b-instruct-fine-tuned",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "accuracy": "52.5%",
+    "accuracyNum": 0.525,
+    "semantic": "0.444",
+    "latency": "2482.50 ms",
+    "factuality": "0.535",
+    "hallucination": "61.7%",
+    "safety": "1.000",
+    "reliability": "0.845",
+    "drs": "0.512",
+    "drsNum": 0.512,
+    "runNumber": 588,
+    "rank": "449/600"
   },
   {
     "id": "run-45",
@@ -20715,7 +24123,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.509",
     "drsNum": 0.509,
     "runNumber": 45,
-    "rank": "366/498"
+    "rank": "450/600"
   },
   {
     "id": "run-420",
@@ -20734,7 +24142,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.508",
     "drsNum": 0.508,
     "runNumber": 420,
-    "rank": "367/498"
+    "rank": "451/600"
+  },
+  {
+    "id": "run-519",
+    "name": "deepseek-coder:1.3b",
+    "params": "1.3b",
+    "size": "776 MB",
+    "lab": "DeepSeek",
+    "accuracy": "43.7%",
+    "accuracyNum": 0.437,
+    "semantic": "0.531",
+    "latency": "1035.60 ms",
+    "factuality": "0.625",
+    "hallucination": "58.7%",
+    "safety": "1.000",
+    "reliability": "0.711",
+    "drs": "0.508",
+    "drsNum": 0.508,
+    "runNumber": 519,
+    "rank": "452/600"
   },
   {
     "id": "run-299",
@@ -20753,7 +24180,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.505",
     "drsNum": 0.505,
     "runNumber": 299,
-    "rank": "368/498"
+    "rank": "453/600"
   },
   {
     "id": "run-376",
@@ -20772,7 +24199,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.505",
     "drsNum": 0.505,
     "runNumber": 376,
-    "rank": "369/498"
+    "rank": "454/600"
+  },
+  {
+    "id": "run-507",
+    "name": "stablelm2:12b",
+    "params": "12b",
+    "size": "7.0 GB",
+    "lab": "Stability AI",
+    "accuracy": "46.9%",
+    "accuracyNum": 0.469,
+    "semantic": "0.490",
+    "latency": "7831.52 ms",
+    "factuality": "0.572",
+    "hallucination": "59.8%",
+    "safety": "1.000",
+    "reliability": "0.817",
+    "drs": "0.505",
+    "drsNum": 0.505,
+    "runNumber": 507,
+    "rank": "455/600"
   },
   {
     "id": "run-355",
@@ -20791,7 +24237,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.504",
     "drsNum": 0.504,
     "runNumber": 355,
-    "rank": "370/498"
+    "rank": "456/600"
   },
   {
     "id": "run-240",
@@ -20810,7 +24256,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.503",
     "drsNum": 0.503,
     "runNumber": 240,
-    "rank": "371/498"
+    "rank": "457/600"
   },
   {
     "id": "run-387",
@@ -20829,7 +24275,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.503",
     "drsNum": 0.503,
     "runNumber": 387,
-    "rank": "372/498"
+    "rank": "458/600"
   },
   {
     "id": "run-1",
@@ -20848,7 +24294,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.502",
     "drsNum": 0.502,
     "runNumber": 1,
-    "rank": "373/498"
+    "rank": "459/600"
   },
   {
     "id": "run-128",
@@ -20867,7 +24313,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.502",
     "drsNum": 0.502,
     "runNumber": 128,
-    "rank": "374/498"
+    "rank": "460/600"
   },
   {
     "id": "run-310",
@@ -20886,7 +24332,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.502",
     "drsNum": 0.502,
     "runNumber": 310,
-    "rank": "375/498"
+    "rank": "461/600"
   },
   {
     "id": "run-53",
@@ -20905,7 +24351,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.501",
     "drsNum": 0.501,
     "runNumber": 53,
-    "rank": "376/498"
+    "rank": "462/600"
   },
   {
     "id": "run-395",
@@ -20924,7 +24370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.501",
     "drsNum": 0.501,
     "runNumber": 395,
-    "rank": "377/498"
+    "rank": "463/600"
   },
   {
     "id": "run-422",
@@ -20943,7 +24389,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.501",
     "drsNum": 0.501,
     "runNumber": 422,
-    "rank": "378/498"
+    "rank": "464/600"
   },
   {
     "id": "run-79",
@@ -20962,7 +24408,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.500",
     "drsNum": 0.5,
     "runNumber": 79,
-    "rank": "379/498"
+    "rank": "465/600"
   },
   {
     "id": "run-167",
@@ -20981,7 +24427,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.500",
     "drsNum": 0.5,
     "runNumber": 167,
-    "rank": "380/498"
+    "rank": "466/600"
   },
   {
     "id": "run-351",
@@ -21000,7 +24446,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.500",
     "drsNum": 0.5,
     "runNumber": 351,
-    "rank": "381/498"
+    "rank": "467/600"
   },
   {
     "id": "run-175",
@@ -21019,7 +24465,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.499",
     "drsNum": 0.499,
     "runNumber": 175,
-    "rank": "382/498"
+    "rank": "468/600"
   },
   {
     "id": "run-302",
@@ -21038,7 +24484,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.499",
     "drsNum": 0.499,
     "runNumber": 302,
-    "rank": "383/498"
+    "rank": "469/600"
+  },
+  {
+    "id": "run-551",
+    "name": "qwen2.5-coder:1.5b",
+    "params": "1.5b",
+    "size": "986 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "44.8%",
+    "accuracyNum": 0.448,
+    "semantic": "0.475",
+    "latency": "530.17 ms",
+    "factuality": "0.580",
+    "hallucination": "60.1%",
+    "safety": "1.000",
+    "reliability": "0.708",
+    "drs": "0.499",
+    "drsNum": 0.499,
+    "runNumber": 551,
+    "rank": "470/600"
   },
   {
     "id": "run-49",
@@ -21057,7 +24522,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.498",
     "drsNum": 0.498,
     "runNumber": 49,
-    "rank": "384/498"
+    "rank": "471/600"
   },
   {
     "id": "run-482",
@@ -21076,7 +24541,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.498",
     "drsNum": 0.498,
     "runNumber": 482,
-    "rank": "385/498"
+    "rank": "472/600"
+  },
+  {
+    "id": "run-541",
+    "name": "qwen2.5:0.5b-instruct",
+    "params": "0.5b",
+    "size": "398 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "52.7%",
+    "accuracyNum": 0.527,
+    "semantic": "0.432",
+    "latency": "2871.17 ms",
+    "factuality": "0.545",
+    "hallucination": "62.6%",
+    "safety": "0.970",
+    "reliability": "0.788",
+    "drs": "0.498",
+    "drsNum": 0.498,
+    "runNumber": 541,
+    "rank": "473/600"
   },
   {
     "id": "run-158",
@@ -21095,7 +24579,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.496",
     "drsNum": 0.496,
     "runNumber": 158,
-    "rank": "386/498"
+    "rank": "474/600"
   },
   {
     "id": "run-360",
@@ -21114,7 +24598,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.496",
     "drsNum": 0.496,
     "runNumber": 360,
-    "rank": "387/498"
+    "rank": "475/600"
   },
   {
     "id": "run-283",
@@ -21133,7 +24617,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.495",
     "drsNum": 0.495,
     "runNumber": 283,
-    "rank": "388/498"
+    "rank": "476/600"
   },
   {
     "id": "run-341",
@@ -21152,7 +24636,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.495",
     "drsNum": 0.495,
     "runNumber": 341,
-    "rank": "389/498"
+    "rank": "477/600"
   },
   {
     "id": "run-163",
@@ -21171,7 +24655,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.494",
     "drsNum": 0.494,
     "runNumber": 163,
-    "rank": "390/498"
+    "rank": "478/600"
   },
   {
     "id": "run-257",
@@ -21190,7 +24674,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.494",
     "drsNum": 0.494,
     "runNumber": 257,
-    "rank": "391/498"
+    "rank": "479/600"
+  },
+  {
+    "id": "run-515",
+    "name": "deepseek-coder:1.3b",
+    "params": "1.3b",
+    "size": "776 MB",
+    "lab": "DeepSeek",
+    "accuracy": "31.3%",
+    "accuracyNum": 0.313,
+    "semantic": "0.528",
+    "latency": "829.69 ms",
+    "factuality": "0.622",
+    "hallucination": "58.4%",
+    "safety": "1.000",
+    "reliability": "0.781",
+    "drs": "0.494",
+    "drsNum": 0.494,
+    "runNumber": 515,
+    "rank": "480/600"
   },
   {
     "id": "run-135",
@@ -21209,7 +24712,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.493",
     "drsNum": 0.493,
     "runNumber": 135,
-    "rank": "392/498"
+    "rank": "481/600"
   },
   {
     "id": "run-364",
@@ -21228,7 +24731,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.492",
     "drsNum": 0.492,
     "runNumber": 364,
-    "rank": "393/498"
+    "rank": "482/600"
   },
   {
     "id": "run-172",
@@ -21247,7 +24750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.491",
     "drsNum": 0.491,
     "runNumber": 172,
-    "rank": "394/498"
+    "rank": "483/600"
   },
   {
     "id": "run-106",
@@ -21266,7 +24769,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.490",
     "drsNum": 0.49,
     "runNumber": 106,
-    "rank": "395/498"
+    "rank": "484/600"
   },
   {
     "id": "run-141",
@@ -21285,7 +24788,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.490",
     "drsNum": 0.49,
     "runNumber": 141,
-    "rank": "396/498"
+    "rank": "485/600"
   },
   {
     "id": "run-374",
@@ -21304,7 +24807,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.490",
     "drsNum": 0.49,
     "runNumber": 374,
-    "rank": "397/498"
+    "rank": "486/600"
   },
   {
     "id": "run-176",
@@ -21323,7 +24826,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.487",
     "drsNum": 0.487,
     "runNumber": 176,
-    "rank": "398/498"
+    "rank": "487/600"
   },
   {
     "id": "run-2",
@@ -21342,7 +24845,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.486",
     "drsNum": 0.486,
     "runNumber": 2,
-    "rank": "399/498"
+    "rank": "488/600"
   },
   {
     "id": "run-288",
@@ -21361,7 +24864,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.485",
     "drsNum": 0.485,
     "runNumber": 288,
-    "rank": "400/498"
+    "rank": "489/600"
   },
   {
     "id": "run-481",
@@ -21380,7 +24883,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.482",
     "drsNum": 0.482,
     "runNumber": 481,
-    "rank": "401/498"
+    "rank": "490/600"
   },
   {
     "id": "run-55",
@@ -21399,7 +24902,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.481",
     "drsNum": 0.481,
     "runNumber": 55,
-    "rank": "402/498"
+    "rank": "491/600"
   },
   {
     "id": "run-87",
@@ -21418,7 +24921,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.481",
     "drsNum": 0.481,
     "runNumber": 87,
-    "rank": "403/498"
+    "rank": "492/600"
   },
   {
     "id": "run-297",
@@ -21437,7 +24940,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.481",
     "drsNum": 0.481,
     "runNumber": 297,
-    "rank": "404/498"
+    "rank": "493/600"
   },
   {
     "id": "run-308",
@@ -21456,7 +24959,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.481",
     "drsNum": 0.481,
     "runNumber": 308,
-    "rank": "405/498"
+    "rank": "494/600"
   },
   {
     "id": "run-138",
@@ -21475,7 +24978,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.480",
     "drsNum": 0.48,
     "runNumber": 138,
-    "rank": "406/498"
+    "rank": "495/600"
   },
   {
     "id": "run-212",
@@ -21494,7 +24997,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.480",
     "drsNum": 0.48,
     "runNumber": 212,
-    "rank": "407/498"
+    "rank": "496/600"
   },
   {
     "id": "run-339",
@@ -21513,7 +25016,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.480",
     "drsNum": 0.48,
     "runNumber": 339,
-    "rank": "408/498"
+    "rank": "497/600"
   },
   {
     "id": "run-159",
@@ -21532,7 +25035,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.479",
     "drsNum": 0.479,
     "runNumber": 159,
-    "rank": "409/498"
+    "rank": "498/600"
   },
   {
     "id": "run-377",
@@ -21551,7 +25054,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.479",
     "drsNum": 0.479,
     "runNumber": 377,
-    "rank": "410/498"
+    "rank": "499/600"
   },
   {
     "id": "run-403",
@@ -21570,7 +25073,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.479",
     "drsNum": 0.479,
     "runNumber": 403,
-    "rank": "411/498"
+    "rank": "500/600"
   },
   {
     "id": "run-129",
@@ -21589,7 +25092,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.478",
     "drsNum": 0.478,
     "runNumber": 129,
-    "rank": "412/498"
+    "rank": "501/600"
   },
   {
     "id": "run-262",
@@ -21608,7 +25111,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.477",
     "drsNum": 0.477,
     "runNumber": 262,
-    "rank": "413/498"
+    "rank": "502/600"
+  },
+  {
+    "id": "run-568",
+    "name": "Llama-3.2-1B-no-robots",
+    "params": "1.24b",
+    "size": "808 MB",
+    "lab": "Meta",
+    "accuracy": "47.0%",
+    "accuracyNum": 0.47,
+    "semantic": "0.435",
+    "latency": "1396.24 ms",
+    "factuality": "0.528",
+    "hallucination": "62.5%",
+    "safety": "0.932",
+    "reliability": "0.739",
+    "drs": "0.476",
+    "drsNum": 0.476,
+    "runNumber": 568,
+    "rank": "503/600"
   },
   {
     "id": "run-346",
@@ -21627,7 +25149,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.475",
     "drsNum": 0.475,
     "runNumber": 346,
-    "rank": "414/498"
+    "rank": "504/600"
+  },
+  {
+    "id": "run-508",
+    "name": "yi-coder:1.5b",
+    "params": "1.5b",
+    "size": "866 MB",
+    "lab": "01.AI (Yi Team)",
+    "accuracy": "36.7%",
+    "accuracyNum": 0.367,
+    "semantic": "0.444",
+    "latency": "1466.41 ms",
+    "factuality": "0.536",
+    "hallucination": "61.7%",
+    "safety": "1.000",
+    "reliability": "0.782",
+    "drs": "0.475",
+    "drsNum": 0.475,
+    "runNumber": 508,
+    "rank": "505/600"
   },
   {
     "id": "run-22",
@@ -21646,7 +25187,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.474",
     "drsNum": 0.474,
     "runNumber": 22,
-    "rank": "415/498"
+    "rank": "506/600"
   },
   {
     "id": "run-350",
@@ -21665,7 +25206,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.474",
     "drsNum": 0.474,
     "runNumber": 350,
-    "rank": "416/498"
+    "rank": "507/600"
   },
   {
     "id": "run-464",
@@ -21684,7 +25225,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.472",
     "drsNum": 0.472,
     "runNumber": 464,
-    "rank": "417/498"
+    "rank": "508/600"
   },
   {
     "id": "run-479",
@@ -21703,7 +25244,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.472",
     "drsNum": 0.472,
     "runNumber": 479,
-    "rank": "418/498"
+    "rank": "509/600"
+  },
+  {
+    "id": "run-521",
+    "name": "qwen3:0.6b",
+    "params": "0.6b",
+    "size": "103MB",
+    "lab": "Alibaba Group",
+    "accuracy": "37.1%",
+    "accuracyNum": 0.371,
+    "semantic": "0.437",
+    "latency": "19729.63ms",
+    "factuality": "0.529",
+    "hallucination": "62.1%",
+    "safety": "1.000",
+    "reliability": "0.845",
+    "drs": "0.472",
+    "drsNum": 0.472,
+    "runNumber": 521,
+    "rank": "510/600"
   },
   {
     "id": "run-107",
@@ -21722,7 +25282,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.470",
     "drsNum": 0.47,
     "runNumber": 107,
-    "rank": "419/498"
+    "rank": "511/600"
   },
   {
     "id": "run-165",
@@ -21741,7 +25301,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.469",
     "drsNum": 0.469,
     "runNumber": 165,
-    "rank": "420/498"
+    "rank": "512/600"
   },
   {
     "id": "run-454",
@@ -21760,7 +25320,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.469",
     "drsNum": 0.469,
     "runNumber": 454,
-    "rank": "421/498"
+    "rank": "513/600"
   },
   {
     "id": "run-166",
@@ -21779,7 +25339,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.468",
     "drsNum": 0.468,
     "runNumber": 166,
-    "rank": "422/498"
+    "rank": "514/600"
   },
   {
     "id": "run-305",
@@ -21798,7 +25358,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.468",
     "drsNum": 0.468,
     "runNumber": 305,
-    "rank": "423/498"
+    "rank": "515/600"
+  },
+  {
+    "id": "run-534",
+    "name": "smollm2:360m-instruct-q8_0",
+    "params": "361.82m",
+    "size": "386 MB",
+    "lab": "Hugging Face",
+    "accuracy": "37.2%",
+    "accuracyNum": 0.372,
+    "semantic": "0.488",
+    "latency": "2786.45 ms",
+    "factuality": "0.570",
+    "hallucination": "60.2%",
+    "safety": "1.000",
+    "reliability": "0.678",
+    "drs": "0.468",
+    "drsNum": 0.468,
+    "runNumber": 534,
+    "rank": "516/600"
   },
   {
     "id": "run-266",
@@ -21817,7 +25396,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.467",
     "drsNum": 0.467,
     "runNumber": 266,
-    "rank": "424/498"
+    "rank": "517/600"
   },
   {
     "id": "run-306",
@@ -21836,7 +25415,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.467",
     "drsNum": 0.467,
     "runNumber": 306,
-    "rank": "425/498"
+    "rank": "518/600"
   },
   {
     "id": "run-382",
@@ -21855,7 +25434,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.466",
     "drsNum": 0.466,
     "runNumber": 382,
-    "rank": "426/498"
+    "rank": "519/600"
   },
   {
     "id": "run-82",
@@ -21874,7 +25453,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.464",
     "drsNum": 0.464,
     "runNumber": 82,
-    "rank": "427/498"
+    "rank": "520/600"
   },
   {
     "id": "run-343",
@@ -21893,7 +25472,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.461",
     "drsNum": 0.461,
     "runNumber": 343,
-    "rank": "428/498"
+    "rank": "521/600"
   },
   {
     "id": "run-230",
@@ -21912,7 +25491,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.460",
     "drsNum": 0.46,
     "runNumber": 230,
-    "rank": "429/498"
+    "rank": "522/600"
   },
   {
     "id": "run-353",
@@ -21931,7 +25510,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.459",
     "drsNum": 0.459,
     "runNumber": 353,
-    "rank": "430/498"
+    "rank": "523/600"
+  },
+  {
+    "id": "run-517",
+    "name": "deepseek-coder:1.3b",
+    "params": "1.3b",
+    "size": "776 MB",
+    "lab": "DeepSeek",
+    "accuracy": "29.2%",
+    "accuracyNum": 0.292,
+    "semantic": "0.424",
+    "latency": "611.06 ms",
+    "factuality": "0.539",
+    "hallucination": "62.0%",
+    "safety": "1.000",
+    "reliability": "0.754",
+    "drs": "0.459",
+    "drsNum": 0.459,
+    "runNumber": 517,
+    "rank": "524/600"
   },
   {
     "id": "run-379",
@@ -21950,7 +25548,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.458",
     "drsNum": 0.458,
     "runNumber": 379,
-    "rank": "431/498"
+    "rank": "525/600"
   },
   {
     "id": "run-349",
@@ -21969,7 +25567,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.457",
     "drsNum": 0.457,
     "runNumber": 349,
-    "rank": "432/498"
+    "rank": "526/600"
   },
   {
     "id": "run-171",
@@ -21988,7 +25586,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.456",
     "drsNum": 0.456,
     "runNumber": 171,
-    "rank": "433/498"
+    "rank": "527/600"
   },
   {
     "id": "run-85",
@@ -22007,7 +25605,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.455",
     "drsNum": 0.455,
     "runNumber": 85,
-    "rank": "434/498"
+    "rank": "528/600"
   },
   {
     "id": "run-90",
@@ -22026,7 +25624,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.455",
     "drsNum": 0.455,
     "runNumber": 90,
-    "rank": "435/498"
+    "rank": "529/600"
   },
   {
     "id": "run-251",
@@ -22045,7 +25643,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.453",
     "drsNum": 0.453,
     "runNumber": 251,
-    "rank": "436/498"
+    "rank": "530/600"
+  },
+  {
+    "id": "run-520",
+    "name": "yi-coder:1.5b",
+    "params": "1.5b",
+    "size": "866 MB",
+    "lab": "01.AI (Yi Team)",
+    "accuracy": "30.9%",
+    "accuracyNum": 0.309,
+    "semantic": "0.434",
+    "latency": "2201.08 ms",
+    "factuality": "0.527",
+    "hallucination": "62.4%",
+    "safety": "1.000",
+    "reliability": "0.752",
+    "drs": "0.453",
+    "drsNum": 0.453,
+    "runNumber": 520,
+    "rank": "531/600"
+  },
+  {
+    "id": "run-543",
+    "name": "qwen2.5:0.5b-instruct",
+    "params": "0.5b",
+    "size": "398 MB",
+    "lab": "Alibaba Cloud",
+    "accuracy": "46.3%",
+    "accuracyNum": 0.463,
+    "semantic": "0.281",
+    "latency": "899.36 ms",
+    "factuality": "0.425",
+    "hallucination": "67.2%",
+    "safety": "1.000",
+    "reliability": "0.772",
+    "drs": "0.453",
+    "drsNum": 0.453,
+    "runNumber": 543,
+    "rank": "532/600"
   },
   {
     "id": "run-169",
@@ -22064,7 +25700,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.452",
     "drsNum": 0.452,
     "runNumber": 169,
-    "rank": "437/498"
+    "rank": "533/600"
   },
   {
     "id": "run-164",
@@ -22083,7 +25719,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.451",
     "drsNum": 0.451,
     "runNumber": 164,
-    "rank": "438/498"
+    "rank": "534/600"
   },
   {
     "id": "run-404",
@@ -22102,7 +25738,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.450",
     "drsNum": 0.45,
     "runNumber": 404,
-    "rank": "439/498"
+    "rank": "535/600"
   },
   {
     "id": "run-173",
@@ -22121,7 +25757,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.448",
     "drsNum": 0.448,
     "runNumber": 173,
-    "rank": "440/498"
+    "rank": "536/600"
   },
   {
     "id": "run-328",
@@ -22140,7 +25776,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.445",
     "drsNum": 0.445,
     "runNumber": 328,
-    "rank": "441/498"
+    "rank": "537/600"
   },
   {
     "id": "run-109",
@@ -22159,7 +25795,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.444",
     "drsNum": 0.444,
     "runNumber": 109,
-    "rank": "442/498"
+    "rank": "538/600"
   },
   {
     "id": "run-160",
@@ -22178,7 +25814,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.441",
     "drsNum": 0.441,
     "runNumber": 160,
-    "rank": "443/498"
+    "rank": "539/600"
   },
   {
     "id": "run-168",
@@ -22197,7 +25833,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.441",
     "drsNum": 0.441,
     "runNumber": 168,
-    "rank": "444/498"
+    "rank": "540/600"
   },
   {
     "id": "run-110",
@@ -22216,7 +25852,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.440",
     "drsNum": 0.44,
     "runNumber": 110,
-    "rank": "445/498"
+    "rank": "541/600"
   },
   {
     "id": "run-184",
@@ -22235,7 +25871,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.440",
     "drsNum": 0.44,
     "runNumber": 184,
-    "rank": "446/498"
+    "rank": "542/600"
   },
   {
     "id": "run-130",
@@ -22254,7 +25890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.439",
     "drsNum": 0.439,
     "runNumber": 130,
-    "rank": "447/498"
+    "rank": "543/600"
   },
   {
     "id": "run-484",
@@ -22273,7 +25909,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.438",
     "drsNum": 0.438,
     "runNumber": 484,
-    "rank": "448/498"
+    "rank": "544/600"
   },
   {
     "id": "run-358",
@@ -22292,7 +25928,26 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.436",
     "drsNum": 0.436,
     "runNumber": 358,
-    "rank": "449/498"
+    "rank": "545/600"
+  },
+  {
+    "id": "run-499",
+    "name": "Coral 1.7 Micro",
+    "params": "1.48b",
+    "size": "1.6 GB",
+    "lab": "Akropora",
+    "accuracy": "29.6%",
+    "accuracyNum": 0.296,
+    "semantic": "0.425",
+    "latency": "5502.18\tms",
+    "factuality": "0.520",
+    "hallucination": "59.6%",
+    "safety": "1.000",
+    "reliability": "0.636",
+    "drs": "0.436",
+    "drsNum": 0.436,
+    "runNumber": 499,
+    "rank": "546/600"
   },
   {
     "id": "run-333",
@@ -22311,7 +25966,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.433",
     "drsNum": 0.433,
     "runNumber": 333,
-    "rank": "450/498"
+    "rank": "547/600"
   },
   {
     "id": "run-378",
@@ -22330,7 +25985,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.433",
     "drsNum": 0.433,
     "runNumber": 378,
-    "rank": "451/498"
+    "rank": "548/600"
   },
   {
     "id": "run-408",
@@ -22349,7 +26004,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.430",
     "drsNum": 0.43,
     "runNumber": 408,
-    "rank": "452/498"
+    "rank": "549/600"
   },
   {
     "id": "run-285",
@@ -22368,7 +26023,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.418",
     "drsNum": 0.418,
     "runNumber": 285,
-    "rank": "453/498"
+    "rank": "550/600"
   },
   {
     "id": "run-238",
@@ -22387,7 +26042,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.417",
     "drsNum": 0.417,
     "runNumber": 238,
-    "rank": "454/498"
+    "rank": "551/600"
   },
   {
     "id": "run-282",
@@ -22406,7 +26061,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.415",
     "drsNum": 0.415,
     "runNumber": 282,
-    "rank": "455/498"
+    "rank": "552/600"
+  },
+  {
+    "id": "run-503",
+    "name": "falcon3:10b",
+    "params": "10.3b",
+    "size": "6.3 GB",
+    "lab": "Technology Innovation Institute",
+    "accuracy": "35.1%",
+    "accuracyNum": 0.351,
+    "semantic": "0.337",
+    "latency": "14468.87 ms",
+    "factuality": "0.410",
+    "hallucination": "62.3%",
+    "safety": "1.000",
+    "reliability": "0.619",
+    "drs": "0.415",
+    "drsNum": 0.415,
+    "runNumber": 503,
+    "rank": "553/600"
+  },
+  {
+    "id": "run-518",
+    "name": "deepseek-coder:1.3b",
+    "params": "1.3b",
+    "size": "776 MB",
+    "lab": "DeepSeek",
+    "accuracy": "27.3%",
+    "accuracyNum": 0.273,
+    "semantic": "0.315",
+    "latency": "866.79 ms",
+    "factuality": "0.292",
+    "hallucination": "65.7%",
+    "safety": "1.000",
+    "reliability": "0.858",
+    "drs": "0.414",
+    "drsNum": 0.414,
+    "runNumber": 518,
+    "rank": "554/600"
   },
   {
     "id": "run-256",
@@ -22425,7 +26118,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.410",
     "drsNum": 0.41,
     "runNumber": 256,
-    "rank": "456/498"
+    "rank": "555/600"
   },
   {
     "id": "run-470",
@@ -22444,7 +26137,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.408",
     "drsNum": 0.408,
     "runNumber": 470,
-    "rank": "457/498"
+    "rank": "556/600"
   },
   {
     "id": "run-381",
@@ -22463,7 +26156,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.405",
     "drsNum": 0.405,
     "runNumber": 381,
-    "rank": "458/498"
+    "rank": "557/600"
   },
   {
     "id": "run-211",
@@ -22482,7 +26175,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.400",
     "drsNum": 0.4,
     "runNumber": 211,
-    "rank": "459/498"
+    "rank": "558/600"
   },
   {
     "id": "run-206",
@@ -22501,7 +26194,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.396",
     "drsNum": 0.396,
     "runNumber": 206,
-    "rank": "460/498"
+    "rank": "559/600"
   },
   {
     "id": "run-140",
@@ -22520,7 +26213,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.386",
     "drsNum": 0.386,
     "runNumber": 140,
-    "rank": "461/498"
+    "rank": "560/600"
   },
   {
     "id": "run-183",
@@ -22539,7 +26232,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.382",
     "drsNum": 0.382,
     "runNumber": 183,
-    "rank": "462/498"
+    "rank": "561/600"
   },
   {
     "id": "run-250",
@@ -22558,7 +26251,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.382",
     "drsNum": 0.382,
     "runNumber": 250,
-    "rank": "463/498"
+    "rank": "562/600"
   },
   {
     "id": "run-298",
@@ -22577,7 +26270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.380",
     "drsNum": 0.38,
     "runNumber": 298,
-    "rank": "464/498"
+    "rank": "563/600"
   },
   {
     "id": "run-426",
@@ -22596,7 +26289,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.373",
     "drsNum": 0.373,
     "runNumber": 426,
-    "rank": "465/498"
+    "rank": "564/600"
   },
   {
     "id": "run-483",
@@ -22615,7 +26308,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.370",
     "drsNum": 0.37,
     "runNumber": 483,
-    "rank": "466/498"
+    "rank": "565/600"
   },
   {
     "id": "run-219",
@@ -22634,7 +26327,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.369",
     "drsNum": 0.369,
     "runNumber": 219,
-    "rank": "467/498"
+    "rank": "566/600"
   },
   {
     "id": "run-329",
@@ -22653,7 +26346,45 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.368",
     "drsNum": 0.368,
     "runNumber": 329,
-    "rank": "468/498"
+    "rank": "567/600"
+  },
+  {
+    "id": "run-514",
+    "name": "deepseek-coder:1.3b",
+    "params": "1.3b",
+    "size": "776 MB",
+    "lab": "DeepSeek",
+    "accuracy": "12.6%",
+    "accuracyNum": 0.126,
+    "semantic": "0.279",
+    "latency": "1891.24 ms",
+    "factuality": "0.403",
+    "hallucination": "67.3%",
+    "safety": "1.000",
+    "reliability": "0.699",
+    "drs": "0.366",
+    "drsNum": 0.366,
+    "runNumber": 514,
+    "rank": "568/600"
+  },
+  {
+    "id": "run-516",
+    "name": "deepseek-coder:1.3b",
+    "params": "1.3b",
+    "size": "776 MB",
+    "lab": "DeepSeek",
+    "accuracy": "12.5%",
+    "accuracyNum": 0.125,
+    "semantic": "0.206",
+    "latency": "333.37 ms",
+    "factuality": "0.365",
+    "hallucination": "69.5%",
+    "safety": "1.000",
+    "reliability": "0.720",
+    "drs": "0.364",
+    "drsNum": 0.364,
+    "runNumber": 516,
+    "rank": "569/600"
   },
   {
     "id": "run-37",
@@ -22672,7 +26403,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.358",
     "drsNum": 0.358,
     "runNumber": 37,
-    "rank": "469/498"
+    "rank": "570/600"
   },
   {
     "id": "run-338",
@@ -22691,7 +26422,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.341",
     "drsNum": 0.341,
     "runNumber": 338,
-    "rank": "470/498"
+    "rank": "571/600"
   },
   {
     "id": "run-342",
@@ -22710,7 +26441,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.336",
     "drsNum": 0.336,
     "runNumber": 342,
-    "rank": "471/498"
+    "rank": "572/600"
   },
   {
     "id": "run-7",
@@ -22729,7 +26460,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.333",
     "drsNum": 0.333,
     "runNumber": 7,
-    "rank": "472/498"
+    "rank": "573/600"
   },
   {
     "id": "run-181",
@@ -22748,7 +26479,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.327",
     "drsNum": 0.327,
     "runNumber": 181,
-    "rank": "473/498"
+    "rank": "574/600"
   },
   {
     "id": "run-137",
@@ -22767,7 +26498,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.324",
     "drsNum": 0.324,
     "runNumber": 137,
-    "rank": "474/498"
+    "rank": "575/600"
   },
   {
     "id": "run-332",
@@ -22786,7 +26517,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.313",
     "drsNum": 0.313,
     "runNumber": 332,
-    "rank": "475/498"
+    "rank": "576/600"
   },
   {
     "id": "run-131",
@@ -22805,7 +26536,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.310",
     "drsNum": 0.31,
     "runNumber": 131,
-    "rank": "476/498"
+    "rank": "577/600"
   },
   {
     "id": "run-40",
@@ -22824,7 +26555,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.305",
     "drsNum": 0.305,
     "runNumber": 40,
-    "rank": "477/498"
+    "rank": "578/600"
   },
   {
     "id": "run-290",
@@ -22843,7 +26574,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.305",
     "drsNum": 0.305,
     "runNumber": 290,
-    "rank": "478/498"
+    "rank": "579/600"
   },
   {
     "id": "run-134",
@@ -22862,7 +26593,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.303",
     "drsNum": 0.303,
     "runNumber": 134,
-    "rank": "479/498"
+    "rank": "580/600"
   },
   {
     "id": "run-220",
@@ -22881,7 +26612,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.302",
     "drsNum": 0.302,
     "runNumber": 220,
-    "rank": "480/498"
+    "rank": "581/600"
   },
   {
     "id": "run-152",
@@ -22900,7 +26631,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.301",
     "drsNum": 0.301,
     "runNumber": 152,
-    "rank": "481/498"
+    "rank": "582/600"
   },
   {
     "id": "run-170",
@@ -22919,7 +26650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.292",
     "drsNum": 0.292,
     "runNumber": 170,
-    "rank": "482/498"
+    "rank": "583/600"
   },
   {
     "id": "run-487",
@@ -22938,7 +26669,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.286",
     "drsNum": 0.286,
     "runNumber": 487,
-    "rank": "483/498"
+    "rank": "584/600"
   },
   {
     "id": "run-44",
@@ -22957,7 +26688,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.283",
     "drsNum": 0.283,
     "runNumber": 44,
-    "rank": "484/498"
+    "rank": "585/600"
   },
   {
     "id": "run-38",
@@ -22976,7 +26707,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.282",
     "drsNum": 0.282,
     "runNumber": 38,
-    "rank": "485/498"
+    "rank": "586/600"
   },
   {
     "id": "run-335",
@@ -22995,7 +26726,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.274",
     "drsNum": 0.274,
     "runNumber": 335,
-    "rank": "486/498"
+    "rank": "587/600"
   },
   {
     "id": "run-145",
@@ -23014,7 +26745,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.258",
     "drsNum": 0.258,
     "runNumber": 145,
-    "rank": "487/498"
+    "rank": "588/600"
   },
   {
     "id": "run-247",
@@ -23033,7 +26764,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.255",
     "drsNum": 0.255,
     "runNumber": 247,
-    "rank": "488/498"
+    "rank": "589/600"
   },
   {
     "id": "run-354",
@@ -23052,7 +26783,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.251",
     "drsNum": 0.251,
     "runNumber": 354,
-    "rank": "489/498"
+    "rank": "590/600"
   },
   {
     "id": "run-42",
@@ -23071,7 +26802,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.246",
     "drsNum": 0.246,
     "runNumber": 42,
-    "rank": "490/498"
+    "rank": "591/600"
   },
   {
     "id": "run-143",
@@ -23090,7 +26821,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.235",
     "drsNum": 0.235,
     "runNumber": 143,
-    "rank": "491/498"
+    "rank": "592/600"
   },
   {
     "id": "run-413",
@@ -23109,7 +26840,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.225",
     "drsNum": 0.225,
     "runNumber": 413,
-    "rank": "492/498"
+    "rank": "593/600"
   },
   {
     "id": "run-345",
@@ -23128,14 +26859,14 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.215",
     "drsNum": 0.215,
     "runNumber": 345,
-    "rank": "493/498"
+    "rank": "594/600"
   },
   {
     "id": "run-429",
     "name": "SeaLLMs-v3",
     "params": "1.5b",
-    "size": "",
-    "lab": "Open Source",
+    "size": "986 MB",
+    "lab": "SeaLLMs research team",
     "accuracy": "6.5%",
     "accuracyNum": 0.065,
     "semantic": "0.100",
@@ -23147,7 +26878,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.215",
     "drsNum": 0.215,
     "runNumber": 429,
-    "rank": "494/498"
+    "rank": "595/600"
   },
   {
     "id": "run-252",
@@ -23166,7 +26897,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.176",
     "drsNum": 0.176,
     "runNumber": 252,
-    "rank": "495/498"
+    "rank": "596/600"
   },
   {
     "id": "run-447",
@@ -23185,7 +26916,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.000",
     "drsNum": 0,
     "runNumber": 447,
-    "rank": "496/498"
+    "rank": "597/600"
   },
   {
     "id": "run-463",
@@ -23204,7 +26935,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.000",
     "drsNum": 0,
     "runNumber": 463,
-    "rank": "497/498"
+    "rank": "598/600"
   },
   {
     "id": "run-488",
@@ -23223,6 +26954,25 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.000",
     "drsNum": 0,
     "runNumber": 488,
-    "rank": "498/498"
+    "rank": "599/600"
+  },
+  {
+    "id": "run-522",
+    "name": "deepseek-r1:1.5b-qwen-distill-q8_0",
+    "params": "1.8b",
+    "size": "1.9 GB",
+    "lab": "DeepSeek",
+    "accuracy": "0.0%",
+    "accuracyNum": 0,
+    "semantic": "0.000",
+    "latency": "",
+    "factuality": "0.000",
+    "hallucination": "0.0%",
+    "safety": "0.000",
+    "reliability": "0.000",
+    "drs": "0.000",
+    "drsNum": 0,
+    "runNumber": 522,
+    "rank": "600/600"
   }
 ];
