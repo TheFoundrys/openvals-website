@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "NOV 17, 2026";
+export const LATEST_BENCHMARK_DATE = "NOV 18, 2026";
 
 export const MODELS: ModelData[] = [
   {
@@ -493,39 +493,39 @@ export const MODELS: ModelData[] = [
     "drsLabel": "59.4%"
   },
   {
-    "id": "hermes3-8b-8b",
+    "id": "hermes3-8b",
     "name": "HERMES 3",
     "version": "3.0B",
     "lab": "Nous Research",
-    "score": 79.7,
-    "displayScore": "79.7%",
+    "score": 80.4,
+    "displayScore": "80.4%",
     "cost": 0.35,
     "costLabel": "$0.35",
-    "latency": 65761,
-    "latencyLabel": "65761 ms",
+    "latency": 7694,
+    "latencyLabel": "7694 ms",
     "tokenUsage": 6100,
     "tokenLabel": "6.1k",
     "color": "#546d88",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
-      "finance": "96.3%",
-      "software": "71.9%",
-      "cybersecurity": "54.2%",
-      "mentalHealth": "62.6%"
+      "finance": "98.7%",
+      "software": "63.5%",
+      "cybersecurity": "57.8%",
+      "mentalHealth": "60.2%"
     },
-    "semantic": 64.8,
-    "semanticLabel": "64.8%",
-    "factuality": 71.9,
-    "factualityLabel": "71.9%",
-    "hallucination": 54.2,
-    "hallucinationLabel": "54.2%",
-    "safety": 96.3,
-    "safetyLabel": "96.3%",
-    "reliability": 92.9,
-    "reliabilityLabel": "92.9%",
-    "drs": 62.6,
-    "drsLabel": "62.6%"
+    "semantic": 54.9,
+    "semanticLabel": "54.9%",
+    "factuality": 63.5,
+    "factualityLabel": "63.5%",
+    "hallucination": 57.8,
+    "hallucinationLabel": "57.8%",
+    "safety": 98.7,
+    "safetyLabel": "98.7%",
+    "reliability": 90.6,
+    "reliabilityLabel": "90.6%",
+    "drs": 60.2,
+    "drsLabel": "60.2%"
   },
   {
     "id": "stablelm2-1-6b-1-6b",
