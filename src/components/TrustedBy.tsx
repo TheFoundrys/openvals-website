@@ -40,12 +40,18 @@ function LogoImage({ logo }: { logo: (typeof LOGOS)[number] }) {
   );
 }
 
-export default function TrustedBy() {
+export default function TrustedBy({
+  className,
+  style,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+} = {}) {
   // Double the logos for seamless infinite scroll
   const scrollingLogos = [...LOGOS, ...LOGOS];
 
   return (
-    <section className={styles.trustedSection}>
+    <section className={`${styles.trustedSection} ${className || ""}`} style={style}>
       <div className={styles.trustedLabel}>Trusted by industry leaders</div>
       <div className={styles.logoContainer}>
         <div className={styles.logoScroll}>

@@ -249,7 +249,8 @@ function QuickstartPage() {
       >
         Up and running
       </div>
-      <CodeBlock>{`pip install openvals`}</CodeBlock>
+      <CodeBlock>{`pip install openvals
+uv pip install openvals`}</CodeBlock>
       <Paragraph>
         When the install finishes, run the steps below in order. Use the same problem description for
         recommendation and trust-advisor.
@@ -1411,7 +1412,8 @@ function PageBody({ pageId }: { pageId: DocsPageId }) {
       return (
         <>
           <H2>Install</H2>
-          <CodeBlock>{`pip install openvals`}</CodeBlock>
+          <CodeBlock>{`pip install openvals
+uv pip install openvals`}</CodeBlock>
           <H2>Requirements</H2>
           <Paragraph>Use OpenVals from a Python environment where your evaluation datasets, model adapters, and provider credentials are available.</Paragraph>
         </>

@@ -5,6 +5,7 @@ import { motion, Variants } from "framer-motion";
 import styles from "./ui.module.css";
 import HeroDashboardPreview from "./HeroDashboardPreview";
 import HeroInteractiveStart from "./HeroInteractiveStart";
+import TrustedBy from "./TrustedBy";
 
 const FADE_UP: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -132,6 +133,7 @@ export default function TrustSection() {
     <div className={styles.wFull}>
       <HeroPart />
       <ActionButtonsPart />
+      <TrustedBy />
     </div>
   );
 }

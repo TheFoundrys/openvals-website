@@ -34,11 +34,11 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "NOV 18, 2026";
+export const LATEST_BENCHMARK_DATE = "NOV 20, 2026";
 
 export const MODELS: ModelData[] = [
   {
-    "id": "deepscaler-1-5b",
+    "id": "deepscaler-1-5b-1-5b",
     "name": "DEEPSCALER",
     "version": "1.5B",
     "lab": "Agentica",
@@ -46,8 +46,8 @@ export const MODELS: ModelData[] = [
     "displayScore": "100.0%",
     "cost": 0.2,
     "costLabel": "$0.20",
-    "latency": 19449,
-    "latencyLabel": "19449 ms",
+    "latency": 31452,
+    "latencyLabel": "31452 ms",
     "tokenUsage": 3400,
     "tokenLabel": "3.4k",
     "color": "#df8b7c",
@@ -55,22 +55,22 @@ export const MODELS: ModelData[] = [
     "hasPattern": false,
     "breakdown": {
       "finance": "100.0%",
-      "software": "46.4%",
-      "cybersecurity": "65.1%",
-      "mentalHealth": "57.7%"
+      "software": "47.4%",
+      "cybersecurity": "64.8%",
+      "mentalHealth": "58.4%"
     },
-    "semantic": 33.1,
-    "semanticLabel": "33.1%",
-    "factuality": 46.4,
-    "factualityLabel": "46.4%",
-    "hallucination": 65.1,
-    "hallucinationLabel": "65.1%",
+    "semantic": 34.2,
+    "semanticLabel": "34.2%",
+    "factuality": 47.4,
+    "factualityLabel": "47.4%",
+    "hallucination": 64.8,
+    "hallucinationLabel": "64.8%",
     "safety": 100,
     "safetyLabel": "100.0%",
-    "reliability": 88.3,
-    "reliabilityLabel": "88.3%",
-    "drs": 57.7,
-    "drsLabel": "57.7%"
+    "reliability": 91.3,
+    "reliabilityLabel": "91.3%",
+    "drs": 58.4,
+    "drsLabel": "58.4%"
   },
   {
     "id": "gemma3-4b-3-9b",
@@ -213,7 +213,7 @@ export const MODELS: ModelData[] = [
     "drsLabel": "61.4%"
   },
   {
-    "id": "qwen2-math-7b-7-6b",
+    "id": "qwen3-4b-instruct-2507-q8-0-4b",
     "name": "QWEN 3",
     "version": "0.6B",
     "lab": "Alibaba",
@@ -221,8 +221,8 @@ export const MODELS: ModelData[] = [
     "displayScore": "96.7%",
     "cost": 0.1,
     "costLabel": "$0.10",
-    "latency": 13495,
-    "latencyLabel": "13495 ms",
+    "latency": 3710,
+    "latencyLabel": "3710 ms",
     "tokenUsage": 4900,
     "tokenLabel": "4.9k",
     "color": "#f3832b",
@@ -230,22 +230,22 @@ export const MODELS: ModelData[] = [
     "hasPattern": false,
     "breakdown": {
       "finance": "100.0%",
-      "software": "52.3%",
-      "cybersecurity": "62.5%",
-      "mentalHealth": "60.3%"
+      "software": "51.9%",
+      "cybersecurity": "58.3%",
+      "mentalHealth": "62.7%"
     },
-    "semantic": 40.4,
-    "semanticLabel": "40.4%",
-    "factuality": 52.3,
-    "factualityLabel": "52.3%",
-    "hallucination": 62.5,
-    "hallucinationLabel": "62.5%",
+    "semantic": 39.9,
+    "semanticLabel": "39.9%",
+    "factuality": 51.9,
+    "factualityLabel": "51.9%",
+    "hallucination": 58.3,
+    "hallucinationLabel": "58.3%",
     "safety": 100,
     "safetyLabel": "100.0%",
-    "reliability": 96.2,
-    "reliabilityLabel": "96.2%",
-    "drs": 60.3,
-    "drsLabel": "60.3%"
+    "reliability": 97.2,
+    "reliabilityLabel": "97.2%",
+    "drs": 62.7,
+    "drsLabel": "62.7%"
   },
   {
     "id": "deepseek-r1-8b-8-19b",
@@ -281,6 +281,41 @@ export const MODELS: ModelData[] = [
     "reliabilityLabel": "68.2%",
     "drs": 57.1,
     "drsLabel": "57.1%"
+  },
+  {
+    "id": "mistral-7-2b",
+    "name": "MINISTRAL",
+    "version": "3.0B",
+    "lab": "Mistral AI",
+    "score": 92.9,
+    "displayScore": "92.9%",
+    "cost": 0.35,
+    "costLabel": "$0.35",
+    "latency": 14117,
+    "latencyLabel": "14117 ms",
+    "tokenUsage": 5600,
+    "tokenLabel": "5.6k",
+    "color": "#d8b335",
+    "textColor": "#1e293b",
+    "hasPattern": false,
+    "breakdown": {
+      "finance": "100.0%",
+      "software": "62.7%",
+      "cybersecurity": "58.4%",
+      "mentalHealth": "62.1%"
+    },
+    "semantic": 53.4,
+    "semanticLabel": "53.4%",
+    "factuality": 62.7,
+    "factualityLabel": "62.7%",
+    "hallucination": 58.4,
+    "hallucinationLabel": "58.4%",
+    "safety": 100,
+    "safetyLabel": "100.0%",
+    "reliability": 88.8,
+    "reliabilityLabel": "88.8%",
+    "drs": 62.1,
+    "drsLabel": "62.1%"
   },
   {
     "id": "ternary-bonsai-1-7b",
@@ -491,41 +526,6 @@ export const MODELS: ModelData[] = [
     "reliabilityLabel": "82.1%",
     "drs": 53.8,
     "drsLabel": "53.8%"
-  },
-  {
-    "id": "mistral-7b-7-24b",
-    "name": "MINISTRAL",
-    "version": "3.0B",
-    "lab": "Mistral AI",
-    "score": 86.6,
-    "displayScore": "86.6%",
-    "cost": 0.35,
-    "costLabel": "$0.35",
-    "latency": 9572,
-    "latencyLabel": "9572 ms",
-    "tokenUsage": 5600,
-    "tokenLabel": "5.6k",
-    "color": "#d8b335",
-    "textColor": "#1e293b",
-    "hasPattern": false,
-    "breakdown": {
-      "finance": "100.0%",
-      "software": "61.6%",
-      "cybersecurity": "58.5%",
-      "mentalHealth": "61.0%"
-    },
-    "semantic": 52,
-    "semanticLabel": "52.0%",
-    "factuality": 61.6,
-    "factualityLabel": "61.6%",
-    "hallucination": 58.5,
-    "hallucinationLabel": "58.5%",
-    "safety": 100,
-    "safetyLabel": "100.0%",
-    "reliability": 91.9,
-    "reliabilityLabel": "91.9%",
-    "drs": 61,
-    "drsLabel": "61.0%"
   },
   {
     "id": "llama3-2-3b-3b",

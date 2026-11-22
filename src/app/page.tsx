@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import RealWorldBenchmarks from "../components/RealWorldBenchmarks";
 import LatestReports from "../components/LatestReports";
 import { HeroPart, ActionButtonsPart } from "../components/TrustSection";
+import TrustedBy from "../components/TrustedBy";
 import { HomepageConversionStack } from "../components/ConversionPage";
 
 const FADE_UP: Variants = {
@@ -34,7 +35,7 @@ export default function Home() {
         {/* SECTION 1: TRUST LAYER + AI FAILS QUIETLY */}
         <section
           className={`${styles.snapSection} ${styles.snapSectionAuto} ${styles.snapSectionHero}`}
-          style={{ padding: "clamp(18px, 2.2vh, 28px) 0 clamp(12px, 2vh, 20px)", background: "var(--primary-bg)" }}
+          style={{ padding: "clamp(18px, 2.2vh, 28px) 0 0", background: "var(--primary-bg)" }}
         >
           <div
             className={`${styles.layoutShell} ${styles.containerFull} ${styles.snapInner} ${styles.heroSectionInner}`}
@@ -42,6 +43,7 @@ export default function Home() {
             <HeroPart />
             <ActionButtonsPart />
           </div>
+          <TrustedBy />
         </section>
 
         {/* SECTION 2: REAL-WORLD AI BENCHMARKS LEADERBOARD & LATEST REPORTS */}
