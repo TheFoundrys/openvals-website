@@ -1,13 +1,13 @@
 .footer {
   margin-top: clamp(40px, 6vw, 72px);
-  padding: clamp(20px, 3vw, 28px) 0 clamp(18px, 2.5vw, 24px);
+  padding: clamp(24px, 3.5vw, 36px) 0 clamp(20px, 3vw, 28px);
   background: var(--primary-bg);
   border-top: 1px solid var(--border);
   color: var(--text-muted);
-  font-family: var(--font-serif-main);
-  font-size: var(--font-size-body);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.5;
   width: 100%;
   box-sizing: border-box;
 }
@@ -21,7 +21,7 @@
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
+  gap: 20px;
   align-items: start;
 }
 
@@ -40,6 +40,10 @@
   min-width: 0;
 }
 
+.footerLogo {
+  font-size: 20px !important;
+}
+
 .footerMetaRow {
   display: flex;
   flex-wrap: wrap;
@@ -51,18 +55,18 @@
 
 .copyright {
   color: var(--text-muted);
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.5;
   margin: 0;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .metaLink {
   color: var(--text-muted);
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.5;
   text-decoration: none;
   white-space: nowrap;
   transition: color 0.15s ease;
@@ -140,9 +144,9 @@
 
 .aboutNavLink {
   color: var(--text-muted);
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.5;
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
@@ -150,15 +154,11 @@
 }
 
 .aboutNavLink:not(:last-child)::after,
-.footerLegalRow .metaLink::after {
+.footerLegalRow .metaLink:not(:last-of-type)::after {
   content: "·";
   margin: 0 clamp(10px, 1.5vw, 16px);
   color: var(--border);
   pointer-events: none;
-}
-
-.footerLegalRow .metaLink:last-of-type::after {
-  content: "·";
 }
 
 .aboutNavLink:hover {

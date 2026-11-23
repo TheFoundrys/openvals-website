@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.brandSide}>
-          <Logo size="sm" font="serif" />
+          <Logo size="sm" font="serif" className={styles.footerLogo} />
           <div className={styles.footerMetaRow}>
             <span className={styles.copyright}>&copy; 2026 OpenVals. All rights reserved.</span>
           </div>

@@ -4,13 +4,23 @@ on:
   schedule:
     # Runs twice daily: 09:00 AM IST (03:30 UTC) and 07:00 PM IST (13:30 UTC)
     - cron: '30 3,13 * * *'
-  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab or Power Automate
+  repository_dispatch: # Allows Power Automate webhooks to trigger via GitHub API
+    types: [tracker-sync, excel-updated]
+  push:
+    paths:
+      - 'scratch/tracker.xlsx'
+    branches:
+      - main
+      - Dev-testing
 
 permissions:
   contents: write
 
 jobs:
   sync:
+    # Prevent infinite loop when action commits changes
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -27,10 +37,12 @@ jobs:
 
       - name: Sync tracker from SharePoint
         run: npm run sync-tracker
+        env:
+          TRACKER_EXCEL_URL: ${{ secrets.TRACKER_EXCEL_URL }}
 
       - name: Commit and push changes
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
+          if [ -n "$(git status --porcelain src/components/modelBenchmarkData.ts src/components/realWorldBenchmarksData.ts scratch/tracker.xlsx)" ]; then
             git config --local user.name "github-actions[bot]"
             git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add src/components/modelBenchmarkData.ts src/components/realWorldBenchmarksData.ts scratch/tracker.xlsx

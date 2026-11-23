@@ -74,8 +74,41 @@ const LAB_CONFIGS = {
   'North ML': { displayName: 'WILLOW', version: 'ALPHA 0.3B', color: '#5b6670', textColor: '#ffffff', cost: 0.05, costLabel: '$0.05', tokenUsage: 8600, tokenLabel: '8.6k', hasPattern: true }
 };
 
+function cleanWhitespace(val) {
+  if (val === undefined || val === null) return '';
+  return String(val).replace(/\u00A0/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function normalizeModelName(rawName) {
+  let name = cleanWhitespace(rawName);
+  // Strip stray leading colons/dots/spaces and stray trailing periods/colons/hyphens
+  name = name.replace(/^[:.\s]+/, '').replace(/[:.\-\s]+$/, '').trim();
+  return name;
+}
+
+function normalizeParams(rawParams) {
+  let p = cleanWhitespace(rawParams).toLowerCase();
+  if (!p) return '';
+  p = p.replace(/\s*billion\b/g, 'b').replace(/\s*million\b/g, 'm');
+  p = p.replace(/(\d)\s+([bm])\b/g, '$1$2');
+  return p;
+}
+
+function normalizeSize(rawSize) {
+  let s = cleanWhitespace(rawSize);
+  if (!s) return '';
+  // Normalize spacing & casing for MB / GB / KB / TB, and bare M like "490M" -> "490 MB"
+  const m = s.match(/^(\d+(?:\.\d+)?)\s*(tb|gb|mb|kb|m)$/i);
+  if (m) {
+    const unit = m[2].toUpperCase() === 'M' ? 'MB' : m[2].toUpperCase();
+    return `${m[1]} ${unit}`;
+  }
+  return s;
+}
+
 function normalizeLab(rawLab, modelName) {
-  if (!rawLab || rawLab.trim() === '') {
+  let l = cleanWhitespace(rawLab).replace(/^[:.\-·\s]+/, '').replace(/[:.\-·\s]+$/, '').trim();
+  if (!l) {
     const norm = (modelName || '').toLowerCase();
     if (norm.includes('qwen')) return 'Alibaba';
     if (norm.includes('deepseek')) return 'Deepseek';
@@ -83,45 +116,137 @@ function normalizeLab(rawLab, modelName) {
     if (norm.includes('gemma')) return 'Google';
     if (norm.includes('granite')) return 'IBM';
     if (norm.includes('phi')) return 'Microsoft';
+    if (norm.includes('lfm')) return 'Liquid AI';
     if (norm.includes('smollm') || norm.includes('h2o') || norm.includes('olmo')) return 'Hugging Face';
     return 'Open Source';
   }
-  const l = rawLab.trim();
-  if (l === 'Open-Source' || l === 'Open Source') return 'Open Source';
-  if (l === 'BigScience' || l === 'Big Science') return 'Big Science';
+
+  const lower = l.toLowerCase();
+  if (lower.includes('alibaba') || lower.includes('qwen team')) return 'Alibaba';
+  if (lower === 'deepseek') return 'Deepseek';
+  if (lower.startsWith('google')) return 'Google';
+  if (lower === 'meta' || lower === 'meta ai') return 'Meta';
+  if (lower.startsWith('microsoft')) return 'Microsoft';
+  if (lower === 'liquid a' || lower === 'liquid ai') return 'Liquid AI';
+  if (lower === 'hugging face') return 'Hugging Face';
+  if (lower === 'stability a' || lower === 'stability ai') return 'Stability AI';
+  if (lower.startsWith('01.ai')) return '01.AI';
+  if (lower === 'bigscience' || lower === 'big science') return 'Big Science';
+  if (lower === 'openbmb' || lower === 'open bmb') return 'Open BMB';
+  if (lower === 'open-source' || lower === 'open source') return 'Open Source';
+  if (lower === 'supra' || lower === 'supralabs') return 'Supra';
+  if (lower === 'tii' || lower.includes('technology innovation institute')) return 'TII';
+  if (lower.startsWith('allen institute') || lower.startsWith('allem institute')) return 'Allen Institute for AI';
+  if (lower.startsWith('cohere')) return 'Cohere';
+  if (lower.startsWith('tinyllama')) return 'TinyLlama';
+  if (lower === 'speakleash') return 'SpeakLeash';
+
   return l;
 }
 
-function parseRow(row, rowIndex) {
-  // Row structure:
-  // [Date, Author, Model Name, Parameters, Size, Provider, Finance, Cyber Security, Developer, Enterprise_ops, Healthcare, Legal, Math, Reasoning, Accuracy, Semantic, Latency, Factuality, Hallucination, Safety, Reliability, DRS]
-  const rawModel = row[2];
-  if (!rawModel || String(rawModel).trim() === '') return null;
+function parseScoreMetric(rawVal, fieldName) {
+  if (rawVal === undefined || rawVal === null || cleanWhitespace(rawVal) === '') {
+    return { missing: true, value: null };
+  }
+  if (typeof rawVal === 'string' && /(?:ms|sec|second)/i.test(rawVal)) {
+    return { invalid: true, reason: `${fieldName} contains latency string "${rawVal}"` };
+  }
+  const str = cleanWhitespace(rawVal).replace(/,/g, '');
+  let num = parseFloat(str);
+  if (isNaN(num)) {
+    return { invalid: true, reason: `${fieldName} is not a number ("${rawVal}")` };
+  }
+  if (str.endsWith('%')) {
+    num = num / 100;
+  }
+  // Clamp tiny negative floating-point/cosine artifacts (e.g., -0.003) to 0
+  if (num < 0 && num >= -0.05) {
+    num = 0;
+  }
+  if (num < 0 || num > 1.0001) {
+    return { invalid: true, reason: `${fieldName} out of valid [0, 1] range (${rawVal})` };
+  }
+  return { missing: false, invalid: false, value: Math.min(1, Math.max(0, num)) };
+}
 
-  const modelName = String(rawModel).trim();
-  const params = String(row[3] || '').trim().toLowerCase();
-  const size = String(row[4] || '').trim();
-  const lab = normalizeLab(row[5], modelName);
-
-  const accNum = parseFloat(row[14]) || 0;
-  const semNum = parseFloat(row[15]) || 0;
-  
-  let latNum = 0;
-  let latStr = '';
-  if (typeof row[16] === 'number') {
-    latNum = row[16];
-    latStr = `${latNum.toFixed(2)} ms`;
-  } else if (typeof row[16] === 'string') {
-    latStr = row[16].trim();
-    if (!latStr.toLowerCase().endsWith('ms')) latStr += ' ms';
-    latNum = parseFloat(latStr.replace(/[^0-9.]/g, '')) || 0;
+function parseLatency(rawVal) {
+  if (rawVal === undefined || rawVal === null || cleanWhitespace(rawVal) === '') {
+    return { invalid: true, reason: 'latency is missing' };
+  }
+  let latNum = NaN;
+  if (typeof rawVal === 'number') {
+    latNum = rawVal;
+  } else {
+    const str = cleanWhitespace(rawVal).replace(/,/g, '');
+    const match = str.match(/^(-?\d+(?:\.\d+)?)\s*(ms|milliseconds?|s|sec|secs|seconds?)?$/i);
+    if (match) {
+      const val = parseFloat(match[1]);
+      const unit = (match[2] || 'ms').toLowerCase();
+      latNum = unit === 'ms' || unit.startsWith('millisecond') ? val : val * 1000;
+    } else {
+      const fallback = parseFloat(str.replace(/[^0-9.]/g, ''));
+      if (!isNaN(fallback)) {
+        const isSeconds = /\b(s|sec|secs|seconds?)\b/i.test(str) && !/ms/i.test(str);
+        latNum = isSeconds ? fallback * 1000 : fallback;
+      }
+    }
   }
 
-  const factNum = parseFloat(row[17]) || 0;
-  const hallNum = parseFloat(row[18]) || 0;
-  const safeNum = parseFloat(row[19]) || 0;
-  const relNum = parseFloat(row[20]) || 0;
-  const drsNum = parseFloat(row[21]) || 0;
+  // Real LLM inference latency in ms is never < 5ms; values like 0.71 / 0.724 indicate a shifted score column
+  if (isNaN(latNum) || latNum < 5) {
+    return { invalid: true, reason: `latency appears shifted or invalid ("${rawVal}" -> ${latNum} ms)` };
+  }
+  return {
+    invalid: false,
+    latNum,
+    latStr: `${latNum.toFixed(2)} ms`,
+  };
+}
+
+function parseRow(row, rowIndex, skippedRows) {
+  // Row structure:
+  // [Date, Author, Model Name, Parameters, Size, Provider, Finance, Cyber Security, Developer, Enterprise_ops, Healthcare, Legal, Math, Reasoning, Accuracy, Semantic, Latency, Factuality, Hallucination, Safety, Reliability, DRS]
+  if (!row) return null;
+  const modelName = normalizeModelName(row[2]);
+  if (!modelName) return null;
+
+  const excelRowNum = rowIndex + 1;
+
+  // Skip rows that have no evaluation metrics populated at all
+  const metricCells = row.slice(14, 22);
+  const allMetricsEmpty = metricCells.every((c) => c === undefined || c === null || cleanWhitespace(c) === '');
+  if (allMetricsEmpty) {
+    skippedRows.push({ row: excelRowNum, model: modelName, reason: 'no evaluation metrics populated' });
+    return null;
+  }
+
+  const acc = parseScoreMetric(row[14], 'accuracy');
+  const sem = parseScoreMetric(row[15], 'semantic');
+  const lat = parseLatency(row[16]);
+  const fact = parseScoreMetric(row[17], 'factuality');
+  const hall = parseScoreMetric(row[18], 'hallucination');
+  const safe = parseScoreMetric(row[19], 'safety');
+  const rel = parseScoreMetric(row[20], 'reliability');
+  const drs = parseScoreMetric(row[21], 'drs');
+
+  const errors = [];
+  if (acc.invalid || acc.missing) errors.push(acc.reason || 'accuracy missing');
+  if (sem.invalid || sem.missing) errors.push(sem.reason || 'semantic missing');
+  if (lat.invalid) errors.push(lat.reason);
+  if (fact.invalid || fact.missing) errors.push(fact.reason || 'factuality missing');
+  if (hall.invalid) errors.push(hall.reason); // hallucination may occasionally be blank; allow missing -> '-'
+  if (safe.invalid || safe.missing) errors.push(safe.reason || 'safety missing');
+  if (rel.invalid || rel.missing) errors.push(rel.reason || 'reliability missing');
+  if (drs.invalid || drs.missing) errors.push(drs.reason || 'drs missing');
+
+  if (errors.length > 0) {
+    skippedRows.push({ row: excelRowNum, model: modelName, reason: errors.join('; ') });
+    return null;
+  }
+
+  const params = normalizeParams(row[3]);
+  const size = normalizeSize(row[4]);
+  const lab = normalizeLab(row[5], modelName);
 
   return {
     rowIndex,
@@ -129,29 +254,50 @@ function parseRow(row, rowIndex) {
     params,
     size,
     lab,
-    accuracyNum: accNum,
-    accuracy: (accNum * 100).toFixed(1) + '%',
-    semanticNum: semNum,
-    semantic: semNum.toFixed(3),
-    latencyNum: latNum,
-    latency: latStr,
-    factualityNum: factNum,
-    factuality: factNum.toFixed(3),
-    hallucinationNum: hallNum,
-    hallucination: (hallNum * 100).toFixed(1) + '%',
-    safetyNum: safeNum,
-    safety: safeNum.toFixed(3),
-    reliabilityNum: relNum,
-    reliability: relNum.toFixed(3),
-    drsNum: drsNum,
-    drs: drsNum.toFixed(3),
+    accuracyNum: acc.value,
+    accuracy: (acc.value * 100).toFixed(1) + '%',
+    semanticNum: sem.value,
+    semantic: sem.value.toFixed(3),
+    latencyNum: lat.latNum,
+    latency: lat.latStr,
+    factualityNum: fact.value,
+    factuality: fact.value.toFixed(3),
+    hallucinationNum: hall.missing ? null : hall.value,
+    hallucination: hall.missing ? '-' : (hall.value * 100).toFixed(1) + '%',
+    safetyNum: safe.value,
+    safety: safe.value.toFixed(3),
+    reliabilityNum: rel.value,
+    reliability: rel.value.toFixed(3),
+    drsNum: drs.value,
+    drs: drs.value.toFixed(3),
     finance: row[6] !== undefined && row[6] !== null ? row[6] : null,
     cybersecurity: row[7] !== undefined && row[7] !== null ? row[7] : null,
   };
 }
 
-async function sync() {
-  const buf = await fetchExcelBuffer(TRACKER_URL);
+async function sync(customBufferOrPath) {
+  let buf;
+  if (Buffer.isBuffer(customBufferOrPath)) {
+    buf = customBufferOrPath;
+    fs.mkdirSync(path.dirname(LOCAL_BACKUP_PATH), { recursive: true });
+    fs.writeFileSync(LOCAL_BACKUP_PATH, buf);
+  } else if (typeof customBufferOrPath === 'string' && fs.existsSync(customBufferOrPath)) {
+    buf = fs.readFileSync(customBufferOrPath);
+    fs.mkdirSync(path.dirname(LOCAL_BACKUP_PATH), { recursive: true });
+    fs.writeFileSync(LOCAL_BACKUP_PATH, buf);
+  } else if (process.argv[2] && fs.existsSync(process.argv[2])) {
+    console.log(`[Sync] Reading Excel file from CLI argument: ${process.argv[2]}`);
+    buf = fs.readFileSync(process.argv[2]);
+    fs.mkdirSync(path.dirname(LOCAL_BACKUP_PATH), { recursive: true });
+    fs.writeFileSync(LOCAL_BACKUP_PATH, buf);
+  } else if (process.env.TRACKER_FILE_BASE64) {
+    console.log(`[Sync] Reading Excel file from TRACKER_FILE_BASE64 environment variable...`);
+    buf = Buffer.from(process.env.TRACKER_FILE_BASE64, 'base64');
+    fs.mkdirSync(path.dirname(LOCAL_BACKUP_PATH), { recursive: true });
+    fs.writeFileSync(LOCAL_BACKUP_PATH, buf);
+  } else {
+    buf = await fetchExcelBuffer(TRACKER_URL);
+  }
   const wb = xlsx.read(buf, { type: 'buffer' });
   const sheetName = wb.SheetNames[0];
   const sheet = wb.Sheets[sheetName];
@@ -160,13 +306,20 @@ async function sync() {
   console.log(`[Sync] Parsing sheet "${sheetName}" with ${rows.length} total rows...`);
 
   const parsedRuns = [];
+  const skippedRows = [];
   // Row 0-3 are titles and headers; data starts at index 4
   for (let i = 4; i < rows.length; i++) {
-    const parsed = parseRow(rows[i], i);
+    const parsed = parseRow(rows[i], i, skippedRows);
     if (parsed) parsedRuns.push(parsed);
   }
 
   console.log(`[Sync] Extracted ${parsedRuns.length} valid evaluation runs.`);
+  if (skippedRows.length > 0) {
+    console.warn(`[Sync] Skipped ${skippedRows.length} invalid/incomplete row(s):`);
+    for (const s of skippedRows) {
+      console.warn(`  - Row ${s.row} (${s.model}): ${s.reason}`);
+    }
+  }
 
   // 1. Group for AGGREGATED_MODELS
   const grouped = {};
@@ -192,12 +345,13 @@ async function sync() {
     const semAvg = avg(g.runs.map((r) => r.semanticNum));
     const latAvg = avg(g.runs.map((r) => r.latencyNum));
     const factAvg = avg(g.runs.map((r) => r.factualityNum));
-    const hallAvg = avg(g.runs.map((r) => r.hallucinationNum));
+    const validHalls = g.runs.map((r) => r.hallucinationNum).filter((v) => v !== null);
+    const hallAvg = validHalls.length ? avg(validHalls) : null;
     const safeAvg = avg(g.runs.map((r) => r.safetyNum));
     const relAvg = avg(g.runs.map((r) => r.reliabilityNum));
     const drsAvg = avg(g.runs.map((r) => r.drsNum));
 
-    const baseId = `${g.name}-${g.params}`.replace(/[^a-zA-Z0-9-]/g, '-').replace(/-+/g, '-').toLowerCase();
+    const baseId = `${g.name}-${g.params}`.replace(/[^a-zA-Z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').toLowerCase();
     let uniqueId = baseId;
     let counter = 1;
     while (seenIds.has(uniqueId)) {
@@ -218,7 +372,7 @@ async function sync() {
       semantic: semAvg.toFixed(3),
       latency: Math.round(latAvg) + ' ms',
       factuality: factAvg.toFixed(3),
-      hallucination: (hallAvg * 100).toFixed(1) + '%',
+      hallucination: hallAvg === null ? '-' : (hallAvg * 100).toFixed(1) + '%',
       safety: safeAvg.toFixed(3),
       reliability: relAvg.toFixed(3),
       drs: drsAvg.toFixed(3),
@@ -230,7 +384,7 @@ async function sync() {
         semantic: r.semanticNum.toFixed(3),
         latency: r.latency,
         factuality: r.factualityNum.toFixed(3),
-        hallucination: (r.hallucinationNum * 100).toFixed(1) + '%',
+        hallucination: r.hallucination,
         safety: r.safetyNum.toFixed(3),
         reliability: r.reliabilityNum.toFixed(3),
         drs: r.drsNum.toFixed(3)
@@ -255,7 +409,7 @@ async function sync() {
     semantic: r.semanticNum.toFixed(3),
     latency: r.latency,
     factuality: r.factualityNum.toFixed(3),
-    hallucination: (r.hallucinationNum * 100).toFixed(1) + '%',
+    hallucination: r.hallucination,
     safety: r.safetyNum.toFixed(3),
     reliability: r.reliabilityNum.toFixed(3),
     drs: r.drsNum.toFixed(3),
@@ -353,7 +507,8 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = ${JSON.stringify(allRunsFla
       const accNum = m.accuracyNum * 100;
       const semNum = parseFloat(m.semantic) * 100;
       const factNum = parseFloat(m.factuality) * 100;
-      const hallNum = parseFloat(m.hallucination.replace('%', ''));
+      const hallParsed = parseFloat(m.hallucination.replace('%', ''));
+      const hallNum = isNaN(hallParsed) ? 0 : hallParsed;
       const safeNum = parseFloat(m.safety) * 100;
       const relNum = parseFloat(m.reliability) * 100;
       const drsNum = parseFloat(m.drs) * 100;
@@ -454,6 +609,12 @@ export const MODELS: ModelData[] = ${JSON.stringify(rwbModels, null, 2)};
   console.log(`[Sync] Updated src/components/realWorldBenchmarksData.ts (${rwbModels.length} models, latest date: ${latestDateFormatted})`);
 
   console.log(`[Sync] All benchmark and model registry data updated successfully!`);
+  return {
+    parsedRunsCount: parsedRuns.length,
+    aggregatedCount: Object.keys(grouped).length,
+    rwbCount: rwbModels.length,
+    latestDate: latestDateFormatted
+  };
 }
 
 if (require.main === module) {

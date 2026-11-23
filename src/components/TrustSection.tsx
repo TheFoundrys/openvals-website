@@ -5,6 +5,7 @@ import { motion, Variants } from "framer-motion";
 import styles from "./ui.module.css";
 import HeroDashboardPreview from "./HeroDashboardPreview";
 import HeroInteractiveStart from "./HeroInteractiveStart";
+import TrustedBy from "./TrustedBy";
 
 const FADE_UP: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -30,9 +31,9 @@ export function HeroPart() {
         animate="show"
         variants={STAGGER}
       >
-        <motion.h1 variants={FADE_UP} className={styles.heroMainHeadline}>
+        <h1 className={styles.heroMainHeadline}>
           The Trust Layer for AI
-        </motion.h1>
+        </h1>
 
         <motion.p variants={FADE_UP} className={styles.heroMainDescription}>
           Validate, secure, and benchmark AI systems before they reach production. Turn model behavior into measurable confidence.
@@ -79,6 +80,7 @@ export function ActionButtonsPart() {
     },
   ];
 
+  /*
   const capabilities = [
     "Safety Detection",
     "Multi-Model Benchmarking",
@@ -96,6 +98,7 @@ export function ActionButtonsPart() {
     ...uniqueCapabilities,
     ...uniqueCapabilities,
   ];
+  */
 
   return (
     <div className={styles.wFull}>
@@ -112,7 +115,8 @@ export function ActionButtonsPart() {
         </div>
       </div>
 
-      {/* ── MOVING CAPABILITIES TICKER / MARQUEE ── */}
+      {/* ── MOVING CAPABILITIES TICKER / MARQUEE (COMMENTED OUT) ── */}
+      {/*
       <div className={styles.trustMarquee} aria-label="OpenVals capabilities">
         <div className={styles.trustMarqueeTrack} aria-hidden="true">
           {marqueeCapabilities.map((capability, index) => (
@@ -123,6 +127,10 @@ export function ActionButtonsPart() {
           ))}
         </div>
       </div>
+      */}
+
+      {/* ── REDUCED LOGO SCROLL FITTED IN FIRST SECTION ── */}
+      <TrustedBy compact />
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl, isProductionIndexingEnabled, publicSitemapEntries } from "@/lib/seo";
 import { localBlogPosts } from "@/app/blog/localPosts";
-import { docsPageIds } from "@/app/openvals-docs/DocsContent";
-import { aixlencePageIds } from "@/app/aixlence-docs/AIxlenceDocsContent";
+import { docsPageIds } from "@/app/openvals-docs/docsData";
+import { aixlencePageIds } from "@/app/aixlence-docs/aixlenceDocsData";
 
 export const dynamic = "force-static";
 

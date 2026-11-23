@@ -9,15 +9,18 @@ interface LogoProps {
   font?: "sans" | "serif";
 }
 
-export default function Logo({ className, size = "md", font: _font = "serif" }: LogoProps) {
+export default function Logo({ className, size = "md", font = "serif" }: LogoProps) {
   const sizeStyles = {
     sm: { fontSize: "24px" },
     md: { fontSize: "32px" },
     lg: { fontSize: "40px" },
   };
 
-  // Brand wordmark stays Georgia — site UI uses self-hosted Inter elsewhere.
-  const logoFont = "var(--font-logo), Georgia, serif";
+  // Brand wordmark defaults to Georgia; pass font="sans" for Inter in dense UI chrome.
+  const logoFont =
+    font === "sans"
+      ? "var(--font-sans)"
+      : "var(--font-logo), Georgia, serif";
 
   return (
     <Link

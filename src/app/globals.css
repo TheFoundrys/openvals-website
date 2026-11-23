@@ -38,7 +38,7 @@
   --font-sans: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont,
     system-ui, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
   --font-display: var(--font-sans);
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
 
   /* OpenVals wordmark stays Georgia */
   --font-logo: Georgia, "Times New Roman", serif;

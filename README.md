@@ -186,6 +186,7 @@ The Dataset Validation CLI includes:
 ### Install
 ```bash
 pip install openvals
+uv pip install openvals
 ```
 
 ### Benchmark

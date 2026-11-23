@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createPageMetadata } from "@/lib/seo";
+import { DocsContent } from "../../openvals-docs/DocsContent";
 import {
-  DocsContent,
   docsPageIds,
   docsPageMeta,
   isDocsPageId,
-} from "../../openvals-docs/DocsContent";
+} from "../../openvals-docs/docsData";
 
 type DocsSlugPageProps = {
   params: Promise<{ slug: string }>;

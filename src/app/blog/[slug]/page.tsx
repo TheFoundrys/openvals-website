@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
-import { postBySlugQuery, postSlugsQuery } from "@/sanity/lib/queries";
+import { postBySlugQuery, postSlugsQuery, postsQuery } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import styles from "@/components/ui.module.css";
 import Header from "@/components/Header";
@@ -13,7 +13,7 @@ import BlogPerformanceDashboard from "@/components/BlogPerformanceDashboard";
 import JsonLdScript from "@/components/JsonLd";
 import { createPageMetadata } from "@/lib/seo";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structuredData";
-import { getLocalBlogPost, localBlogPosts } from "../localPosts";
+import { getLocalBlogPost, localBlogPosts, toBlogSlug } from "../localPosts";
 
 export const revalidate = 60; // Revalidate every minute
 
@@ -36,8 +36,40 @@ const components = {
 };
 
 const toStaticParams = (slugs: string[]) => (
-  Array.from(new Set(slugs)).map((slug) => ({ slug }))
+  Array.from(new Set(slugs.map((slug) => toBlogSlug(slug)).filter(Boolean))).map((slug) => ({ slug }))
 );
+
+async function resolveSanityPost(decodedSlug: string) {
+  const normalized = toBlogSlug(decodedSlug);
+  const candidates = Array.from(
+    new Set([decodedSlug, decodedSlug.trim(), `${decodedSlug.trim()} `, normalized].filter(Boolean)),
+  );
+
+  for (const candidate of candidates) {
+    try {
+      const post = await client.fetch(postBySlugQuery, { slug: candidate });
+      if (post) return post;
+    } catch {
+      // continue
+    }
+  }
+
+  try {
+    const posts = await client.fetch(postsQuery);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const match = (posts as any[])?.find((post) => {
+      const current = post?.slug?.current || "";
+      return toBlogSlug(current) === normalized || toBlogSlug(post?.title) === normalized;
+    });
+    if (match?.slug?.current) {
+      return client.fetch(postBySlugQuery, { slug: match.slug.current });
+    }
+  } catch {
+    // fall through
+  }
+
+  return null;
+}
 
 export async function generateStaticParams() {
   const localSlugs = localBlogPosts.map((p) => p.slug.current);
@@ -61,6 +93,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug).trim();
+  const canonicalSlug = toBlogSlug(decodedSlug);
   const localPost = getLocalBlogPost(decodedSlug);
 
   if (localPost) {
@@ -69,7 +102,7 @@ export async function generateMetadata({
       description:
         localPost.summary ||
         `${localPost.title} — OpenVals research and commentary on AI validation and assurance.`,
-      path: `/blog/${decodedSlug}`,
+      path: `/blog/${toBlogSlug(localPost.slug.current)}`,
       image: localPost.imageUrl || undefined,
       type: "article",
       keywords: ["OpenVals Blog", "AI Validation", localPost.topic || "AI Assurance"],
@@ -77,7 +110,7 @@ export async function generateMetadata({
   }
 
   try {
-    const post = await client.fetch(postBySlugQuery, { slug: decodedSlug });
+    const post = await resolveSanityPost(decodedSlug);
     if (post?.title) {
       return createPageMetadata({
         title: post.title,
@@ -85,7 +118,7 @@ export async function generateMetadata({
           post.excerpt ||
           post.description ||
           `${post.title} — OpenVals blog on AI validation and trust.`,
-        path: `/blog/${decodedSlug}`,
+        path: `/blog/${toBlogSlug(post.slug?.current || canonicalSlug)}`,
         type: "article",
       });
     }
@@ -96,7 +129,7 @@ export async function generateMetadata({
   return createPageMetadata({
     title: "Blog Post",
     description: "OpenVals blog on AI validation, assurance, and trustworthy AI systems.",
-    path: `/blog/${decodedSlug}`,
+    path: `/blog/${canonicalSlug}`,
     type: "article",
   });
 }
@@ -108,6 +141,7 @@ export default async function BlogPost({
 }) {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug).trim();
+  const canonicalSlug = toBlogSlug(decodedSlug);
   const localPost = getLocalBlogPost(decodedSlug);
 
   if (localPost?.externalUrl) {
@@ -132,16 +166,16 @@ export default async function BlogPost({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let post: any;
   try {
-    post = await client.fetch(postBySlugQuery, { slug: decodedSlug });
+    post = await resolveSanityPost(decodedSlug);
   } catch (error) {
     console.error("Failed to fetch post from Sanity", error);
   }
 
   // Fallback data for specific demo slugs or when fetch fails entirely
-  if (!post && (decodedSlug === "future-of-ai-validation" || decodedSlug === "understanding-adversarial-attacks")) {
+  if (!post && (canonicalSlug === "future-of-ai-validation" || canonicalSlug === "understanding-adversarial-attacks")) {
     post = {
-      title: decodedSlug === "future-of-ai-validation" ? "The Future of AI Validation" : "Understanding Adversarial Attacks",
-      slug: { current: decodedSlug },
+      title: canonicalSlug === "future-of-ai-validation" ? "The Future of AI Validation" : "Understanding Adversarial Attacks",
+      slug: { current: canonicalSlug },
       publishedAt: new Date().toISOString(),
       author: { name: "Vishwanath Akuthota" },
       imageUrl: decodedSlug === "future-of-ai-validation"
@@ -178,7 +212,7 @@ export default async function BlogPost({
     );
   }
 
-  const articlePath = `/blog/${decodedSlug}`;
+  const articlePath = `/blog/${toBlogSlug(post?.slug?.current || canonicalSlug)}`;
   const articleDescription =
     post.analytics?.topic
       ? `${post.title} — ${post.analytics.topic}`

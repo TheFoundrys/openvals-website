@@ -25,7 +25,7 @@ export default function HeroDashboardPreview() {
             <span className={styles.terminalDotYellow} />
             <span className={styles.terminalDotGreen} />
           </div>
-          <div className={styles.heroBrowserUrl}>http://prod.openvalidations.com</div>
+          <div className={styles.heroBrowserUrl}>http://openvalidations.com</div>
         </div>
         <div className={styles.heroBrowserViewport}>
           <Image

@@ -59,7 +59,6 @@ export default function DocsGlobalHeader({
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             className="docsMobileMenuBtn"
             style={{
-              display: "none",
               alignItems: "center",
               justifyContent: "center",
               width: "34px",
@@ -76,7 +75,7 @@ export default function DocsGlobalHeader({
         )}
       </div>
 
-      {/* ROW 2: Horizontal Tabs with Pink Underline */}
+      {/* ROW 2: Horizontal section tabs */}
       <div
         className="docsGlobalHeaderRow2"
         style={{

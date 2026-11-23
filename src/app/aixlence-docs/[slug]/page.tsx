@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createPageMetadata } from "@/lib/seo";
+import { AIxlenceDocsContent } from "../AIxlenceDocsContent";
 import {
-  AIxlenceDocsContent,
   aixlencePageIds,
   aixlencePageMeta,
   isAIxlenceDocsPageId,
-} from "../AIxlenceDocsContent";
+} from "../aixlenceDocsData";
 
 type AIxlenceDocsSlugPageProps = {
   params: Promise<{ slug: string }>;

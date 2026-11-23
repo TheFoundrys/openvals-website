@@ -5,7 +5,7 @@ import { postsQuery } from "../../sanity/lib/queries";
 import styles from "../../components/ui.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { mergeLocalBlogPosts } from "./localPosts";
+import { blogPostPath, mergeLocalBlogPosts } from "./localPosts";
 
 export const revalidate = 60; // Revalidate every minute
 
@@ -60,7 +60,7 @@ export default async function BlogIndex() {
             {posts.map((post: any) => (
               <Link
                 key={post._id}
-                href={post.externalUrl || `/blog/${post.slug?.current || post.slug}`}
+                href={blogPostPath(post)}
                 target={post.externalUrl ? "_blank" : undefined}
                 rel={post.externalUrl ? "noopener noreferrer" : undefined}
                 className={styles.card}

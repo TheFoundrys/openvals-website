@@ -13,8 +13,9 @@ const docsTabs: { label: string; lines: DocsLine[] }[] = [
   {
     label: "Install",
     lines: [
-      { muted: "# Install via pip" },
+      { muted: "# Install via pip or uv" },
       { prompt: "$", code: "pip install openvals" },
+      { prompt: "$", code: "uv pip install openvals" },
       { space: true },
       { muted: "# Or install from source" },
       { prompt: "$", code: "git clone https://github.com/vishwanathakuthota/openvals" },

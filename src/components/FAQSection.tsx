@@ -170,14 +170,14 @@ export default function FAQSection({ wide = false }: { wide?: boolean }) {
         style={wide ? { width: "auto" } : { maxWidth: "800px" }}
       >
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+          <motion.h1
+            initial={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            style={{ fontSize: "clamp(32px, 5vw, 48px)", marginBottom: "16px" }}
+            style={{ fontSize: "clamp(32px, 5vw, 48px)", marginBottom: "16px", fontWeight: 500 }}
           >
             Frequently Asked Questions
-          </motion.h2>
+          </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

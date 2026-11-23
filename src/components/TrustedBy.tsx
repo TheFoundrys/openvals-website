@@ -14,7 +14,7 @@ const LOGOS = [
   { name: "DasHerz Surgicals", src: "/logos/dasherz.png", url: "https://dasherz.in/" },
   { name: "Techoptima", src: "/logos/Techoptima.avif", url: "https://techoptima.ai" },
   { name: "Universal Surgicals", src: "/logos/universal-surgicals.png", url: "https://universalsurgicals.com/" },
-  { name: "The Foundrys", src: "/logos/the foundrys.avif", url: "https://thefoundrys.com" },
+  { name: "The Foundrys", src: "/logos/the-foundrys.avif", url: "https://thefoundrys.com" },
   { name: "Transforma", src: "/logos/transforma.avif", url: "https://www.transforma.in/" },
   { name: "Plugscale", src: "/logos/plugscale.png", url: "https://www.plugscale.com/" },
 ];
@@ -26,10 +26,10 @@ function LogoImage({ logo }: { logo: (typeof LOGOS)[number] }) {
   const className = isTransforma
     ? styles.largeLogo
     : isWide
-    ? styles.wideLogo
-    : isPlugscale
-    ? styles.plugscaleLogo
-    : "";
+      ? styles.wideLogo
+      : isPlugscale
+        ? styles.plugscaleLogo
+        : "";
 
   return (
     <img
@@ -40,13 +40,26 @@ function LogoImage({ logo }: { logo: (typeof LOGOS)[number] }) {
   );
 }
 
-export default function TrustedBy() {
+export default function TrustedBy({
+  className,
+  style,
+  compact = false,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+  compact?: boolean;
+} = {}) {
   // Double the logos for seamless infinite scroll
   const scrollingLogos = [...LOGOS, ...LOGOS];
 
   return (
-    <section className={styles.trustedSection}>
-      <div className={styles.trustedLabel}>Trusted by industry leaders</div>
+    <section
+      className={`${styles.trustedSection} ${compact ? styles.trustedSectionCompact : ""} ${className || ""}`}
+      style={style}
+    >
+      <div className={`${styles.trustedLabel} ${compact ? styles.trustedLabelCompact : ""}`}>
+        Trusted by industry leaders
+      </div>
       <div className={styles.logoContainer}>
         <div className={styles.logoScroll}>
           {scrollingLogos.map((logo, index) => (
@@ -56,12 +69,12 @@ export default function TrustedBy() {
                 href={logo.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.logoItem}
+                className={`${styles.logoItem} ${compact ? styles.logoItemCompact : ""}`}
               >
                 <LogoImage logo={logo} />
               </a>
             ) : (
-              <div key={index} className={styles.logoItem}>
+              <div key={index} className={`${styles.logoItem} ${compact ? styles.logoItemCompact : ""}`}>
                 <LogoImage logo={logo} />
               </div>
             )

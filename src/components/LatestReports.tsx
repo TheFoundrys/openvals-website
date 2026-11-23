@@ -32,14 +32,12 @@ const LAB_FILTER_TABS: string[] = [
   "Stability AI",
   "01.AI",
   "Agentica",
-  "Big Science",
   "BigScience",
   "Doey LLM",
   "North ML",
   "Nous Research",
   "Open BMB",
   "Open Source",
-  "Open-Source",
   "Prism ML",
   "PROMTECH Inc",
   "QVAC",
@@ -55,12 +53,13 @@ const FADE_UP: Variants = {
 };
 
 function formatPercent(val: string | number | undefined | null): string {
-  if (val === undefined || val === null || val === "") return "-";
+  if (val === undefined || val === null || val === "" || val === "-") return "-";
   const str = String(val).trim();
   if (str.endsWith("%")) return str;
   const num = parseFloat(str);
   if (isNaN(num)) return str;
-  return `${(num * 100).toFixed(1)}%`;
+  const clamped = Math.min(1, Math.max(0, num));
+  return `${(clamped * 100).toFixed(1)}%`;
 }
 
 export default function LatestReports() {
@@ -85,7 +84,7 @@ export default function LatestReports() {
         selectedLab === "All Models" ||
         model.lab.toLowerCase() === selectedLab.toLowerCase() ||
         (selectedLab === "Open Source" && model.lab.toLowerCase().includes("open")) ||
-        (selectedLab === "Big Science" && model.lab.toLowerCase().includes("big"));
+        (selectedLab === "BigScience" && model.lab.toLowerCase().includes("big"));
 
       const query = searchQuery.trim().toLowerCase();
       const matchesSearch =
@@ -105,7 +104,7 @@ export default function LatestReports() {
         selectedLab === "All Models" ||
         run.lab.toLowerCase() === selectedLab.toLowerCase() ||
         (selectedLab === "Open Source" && run.lab.toLowerCase().includes("open")) ||
-        (selectedLab === "Big Science" && run.lab.toLowerCase().includes("big"));
+        (selectedLab === "BigScience" && run.lab.toLowerCase().includes("big"));
 
       const query = searchQuery.trim().toLowerCase();
       const matchesSearch =
@@ -322,8 +321,8 @@ export default function LatestReports() {
                             <span className={styles.modelNameText} title={row.name}>
                               {row.name}
                             </span>
-                            <span className={styles.paramBadge}>{row.params}</span>
-                            <span className={styles.sizeBadge}>{row.size}</span>
+                            {row.params && <span className={styles.paramBadge}>{row.params}</span>}
+                            {row.size && <span className={styles.sizeBadge}>{row.size}</span>}
                           </div>
                         </td>
 
@@ -393,8 +392,8 @@ export default function LatestReports() {
                             <span className={styles.modelNameText} title={row.name}>
                               {row.name}
                             </span>
-                            <span className={styles.paramBadge}>{row.params}</span>
-                            <span className={styles.sizeBadge}>{row.size}</span>
+                            {row.params && <span className={styles.paramBadge}>{row.params}</span>}
+                            {row.size && <span className={styles.sizeBadge}>{row.size}</span>}
                             <span className={styles.modelTag}>{row.lab}</span>
                           </div>
                         </td>
@@ -471,8 +470,8 @@ export default function LatestReports() {
                           )}
                         </span>
                         <span className={styles.mobileModelName}>{row.name}</span>
-                        <span className={styles.paramBadge}>{row.params}</span>
-                        <span className={styles.sizeBadge}>{row.size}</span>
+                        {row.params && <span className={styles.paramBadge}>{row.params}</span>}
+                        {row.size && <span className={styles.sizeBadge}>{row.size}</span>}
                       </div>
                       <span className={styles.mobileRankBadge}>Rank #{row.rank}</span>
                     </div>
@@ -549,8 +548,8 @@ export default function LatestReports() {
                           <Layers size={13} />
                         </span>
                         <span className={styles.mobileModelName}>{row.name}</span>
-                        <span className={styles.paramBadge}>{row.params}</span>
-                        <span className={styles.sizeBadge}>{row.size}</span>
+                        {row.params && <span className={styles.paramBadge}>{row.params}</span>}
+                        {row.size && <span className={styles.sizeBadge}>{row.size}</span>}
                         <span className={styles.modelTag}>{row.lab}</span>
                       </div>
                       <span className={styles.mobileRankBadge}>Rank #{row.rank}</span>

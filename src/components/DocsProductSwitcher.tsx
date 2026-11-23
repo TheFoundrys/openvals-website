@@ -79,6 +79,7 @@ export default function DocsProductSwitcher({
             : "1px solid var(--docs-pill-border, #cbd5e1)",
           background: "var(--docs-pill-bg, #f1f5f9)",
           color: "var(--docs-heading, #0f172a)",
+          fontFamily: "var(--font-sans)",
           fontSize: "13.5px",
           fontWeight: 500,
           cursor: "pointer",
