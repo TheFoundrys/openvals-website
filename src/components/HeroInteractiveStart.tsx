@@ -32,50 +32,48 @@ export default function HeroInteractiveStart() {
             </div>
           </div>
           <div className={styles.terminalBody}>
-            <div className={styles.terminalCommandsList}>
-              <div className={styles.terminalRow}>
-                <code className={styles.terminalCodeLine}>
-                  <span className={styles.terminalPromptSign}>&gt;</span>
-                  <span className={styles.terminalCodeText}>
-                    pip install <span className={styles.terminalPkgHighlight}>openvals</span>
-                  </span>
-                </code>
-                <button
-                  type="button"
-                  onClick={() => handleCopy("pip install openvals", "pip")}
-                  className={styles.terminalCopyBtn}
-                  title="Copy to clipboard"
-                  aria-label={copiedCmd === "pip" ? "Copied" : "Copy pip install command"}
-                >
-                  {copiedCmd === "pip" ? (
-                    <Check size={15} className={styles.terminalCheckIcon} />
-                  ) : (
-                    <Copy size={15} />
-                  )}
-                </button>
-              </div>
+            <div className={styles.terminalRow}>
+              <code className={styles.terminalCodeLine}>
+                <span className={styles.terminalPromptSign}>&gt;</span>
+                <span className={styles.terminalCodeText}>
+                  pip install <span className={styles.terminalPkgHighlight}>openvals</span>
+                </span>
+              </code>
+              <button
+                type="button"
+                onClick={() => handleCopy("pip install openvals", "pip")}
+                className={styles.terminalCopyBtn}
+                title="Copy to clipboard"
+                aria-label={copiedCmd === "pip" ? "Copied" : "Copy pip install command"}
+              >
+                {copiedCmd === "pip" ? (
+                  <Check size={15} className={styles.terminalCheckIcon} />
+                ) : (
+                  <Copy size={15} />
+                )}
+              </button>
+            </div>
 
-              <div className={styles.terminalRow}>
-                <code className={styles.terminalCodeLine}>
-                  <span className={styles.terminalPromptSign}>&gt;</span>
-                  <span className={styles.terminalCodeText}>
-                    uv pip install <span className={styles.terminalPkgHighlight}>openvals</span>
-                  </span>
-                </code>
-                <button
-                  type="button"
-                  onClick={() => handleCopy("uv pip install openvals", "uv")}
-                  className={styles.terminalCopyBtn}
-                  title="Copy to clipboard"
-                  aria-label={copiedCmd === "uv" ? "Copied" : "Copy uv pip install command"}
-                >
-                  {copiedCmd === "uv" ? (
-                    <Check size={15} className={styles.terminalCheckIcon} />
-                  ) : (
-                    <Copy size={15} />
-                  )}
-                </button>
-              </div>
+            <div className={styles.terminalRow}>
+              <code className={styles.terminalCodeLine}>
+                <span className={styles.terminalPromptSign}>&gt;</span>
+                <span className={styles.terminalCodeText}>
+                  uv pip install <span className={styles.terminalPkgHighlight}>openvals</span>
+                </span>
+              </code>
+              <button
+                type="button"
+                onClick={() => handleCopy("uv pip install openvals", "uv")}
+                className={styles.terminalCopyBtn}
+                title="Copy to clipboard"
+                aria-label={copiedCmd === "uv" ? "Copied" : "Copy uv pip install command"}
+              >
+                {copiedCmd === "uv" ? (
+                  <Check size={15} className={styles.terminalCheckIcon} />
+                ) : (
+                  <Copy size={15} />
+                )}
+              </button>
             </div>
           </div>
         </div>

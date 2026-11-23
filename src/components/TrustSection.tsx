@@ -80,6 +80,7 @@ export function ActionButtonsPart() {
     },
   ];
 
+  /*
   const capabilities = [
     "Safety Detection",
     "Multi-Model Benchmarking",
@@ -97,6 +98,7 @@ export function ActionButtonsPart() {
     ...uniqueCapabilities,
     ...uniqueCapabilities,
   ];
+  */
 
   return (
     <div className={styles.wFull}>
@@ -113,7 +115,8 @@ export function ActionButtonsPart() {
         </div>
       </div>
 
-      {/* ── MOVING CAPABILITIES TICKER / MARQUEE ── */}
+      {/* ── MOVING CAPABILITIES TICKER / MARQUEE (COMMENTED OUT) ── */}
+      {/*
       <div className={styles.trustMarquee} aria-label="OpenVals capabilities">
         <div className={styles.trustMarqueeTrack} aria-hidden="true">
           {marqueeCapabilities.map((capability, index) => (
@@ -124,6 +127,10 @@ export function ActionButtonsPart() {
           ))}
         </div>
       </div>
+      */}
+
+      {/* ── REDUCED LOGO SCROLL FITTED IN FIRST SECTION ── */}
+      <TrustedBy compact />
     </div>
   );
 }
@@ -133,7 +140,6 @@ export default function TrustSection() {
     <div className={styles.wFull}>
       <HeroPart />
       <ActionButtonsPart />
-      <TrustedBy />
     </div>
   );
 }

@@ -26,10 +26,10 @@ function LogoImage({ logo }: { logo: (typeof LOGOS)[number] }) {
   const className = isTransforma
     ? styles.largeLogo
     : isWide
-    ? styles.wideLogo
-    : isPlugscale
-    ? styles.plugscaleLogo
-    : "";
+      ? styles.wideLogo
+      : isPlugscale
+        ? styles.plugscaleLogo
+        : "";
 
   return (
     <img
@@ -43,16 +43,23 @@ function LogoImage({ logo }: { logo: (typeof LOGOS)[number] }) {
 export default function TrustedBy({
   className,
   style,
+  compact = false,
 }: {
   className?: string;
   style?: React.CSSProperties;
+  compact?: boolean;
 } = {}) {
   // Double the logos for seamless infinite scroll
   const scrollingLogos = [...LOGOS, ...LOGOS];
 
   return (
-    <section className={`${styles.trustedSection} ${className || ""}`} style={style}>
-      <div className={styles.trustedLabel}>Trusted by industry leaders</div>
+    <section
+      className={`${styles.trustedSection} ${compact ? styles.trustedSectionCompact : ""} ${className || ""}`}
+      style={style}
+    >
+      <div className={`${styles.trustedLabel} ${compact ? styles.trustedLabelCompact : ""}`}>
+        Trusted by industry leaders
+      </div>
       <div className={styles.logoContainer}>
         <div className={styles.logoScroll}>
           {scrollingLogos.map((logo, index) => (
@@ -62,12 +69,12 @@ export default function TrustedBy({
                 href={logo.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.logoItem}
+                className={`${styles.logoItem} ${compact ? styles.logoItemCompact : ""}`}
               >
                 <LogoImage logo={logo} />
               </a>
             ) : (
-              <div key={index} className={styles.logoItem}>
+              <div key={index} className={`${styles.logoItem} ${compact ? styles.logoItemCompact : ""}`}>
                 <LogoImage logo={logo} />
               </div>
             )
