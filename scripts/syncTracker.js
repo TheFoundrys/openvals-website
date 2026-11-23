@@ -275,8 +275,29 @@ function parseRow(row, rowIndex, skippedRows) {
   };
 }
 
-async function sync() {
-  const buf = await fetchExcelBuffer(TRACKER_URL);
+async function sync(customBufferOrPath) {
+  let buf;
+  if (Buffer.isBuffer(customBufferOrPath)) {
+    buf = customBufferOrPath;
+    fs.mkdirSync(path.dirname(LOCAL_BACKUP_PATH), { recursive: true });
+    fs.writeFileSync(LOCAL_BACKUP_PATH, buf);
+  } else if (typeof customBufferOrPath === 'string' && fs.existsSync(customBufferOrPath)) {
+    buf = fs.readFileSync(customBufferOrPath);
+    fs.mkdirSync(path.dirname(LOCAL_BACKUP_PATH), { recursive: true });
+    fs.writeFileSync(LOCAL_BACKUP_PATH, buf);
+  } else if (process.argv[2] && fs.existsSync(process.argv[2])) {
+    console.log(`[Sync] Reading Excel file from CLI argument: ${process.argv[2]}`);
+    buf = fs.readFileSync(process.argv[2]);
+    fs.mkdirSync(path.dirname(LOCAL_BACKUP_PATH), { recursive: true });
+    fs.writeFileSync(LOCAL_BACKUP_PATH, buf);
+  } else if (process.env.TRACKER_FILE_BASE64) {
+    console.log(`[Sync] Reading Excel file from TRACKER_FILE_BASE64 environment variable...`);
+    buf = Buffer.from(process.env.TRACKER_FILE_BASE64, 'base64');
+    fs.mkdirSync(path.dirname(LOCAL_BACKUP_PATH), { recursive: true });
+    fs.writeFileSync(LOCAL_BACKUP_PATH, buf);
+  } else {
+    buf = await fetchExcelBuffer(TRACKER_URL);
+  }
   const wb = xlsx.read(buf, { type: 'buffer' });
   const sheetName = wb.SheetNames[0];
   const sheet = wb.Sheets[sheetName];
@@ -588,6 +609,12 @@ export const MODELS: ModelData[] = ${JSON.stringify(rwbModels, null, 2)};
   console.log(`[Sync] Updated src/components/realWorldBenchmarksData.ts (${rwbModels.length} models, latest date: ${latestDateFormatted})`);
 
   console.log(`[Sync] All benchmark and model registry data updated successfully!`);
+  return {
+    parsedRunsCount: parsedRuns.length,
+    aggregatedCount: Object.keys(grouped).length,
+    rwbCount: rwbModels.length,
+    latestDate: latestDateFormatted
+  };
 }
 
 if (require.main === module) {
