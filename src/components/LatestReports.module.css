@@ -11,7 +11,7 @@
 
 .title {
   font-family: var(--font-serif-main);
-  font-size: var(--font-size-heading);
+  font-size: clamp(26px, 2.2vw + 6px, 36px);
   font-weight: 500;
   color: var(--text-main);
   line-height: var(--line-height-heading);
@@ -720,6 +720,10 @@
 }
 
 @media (max-width: 768px) {
+  .title {
+    font-size: clamp(21px, 3.8vw, 26px);
+  }
+
   .reportsContainer {
     margin-top: 36px;
   }
@@ -963,6 +967,10 @@
 }
 
 @media (max-width: 480px) {
+  .title {
+    font-size: 20px;
+  }
+
   .toggleBtn {
     font-size: 10.5px;
     padding: 6px 4px;
@@ -971,5 +979,235 @@
   .mobileMetricsGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 8px 6px;
+  }
+}
+
+/* =========================================================================
+   PAGINATION CONTROLS
+   ========================================================================= */
+
+.paginationBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 14px;
+  box-sizing: border-box;
+}
+
+.paginationInfo {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.paginationRange {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.paginationNav {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.pageBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--secondary-bg);
+  color: var(--text-main);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.pageBtn:hover:not(:disabled) {
+  border-color: #10b981;
+  background: var(--card-bg);
+}
+
+.pageBtnActive {
+  background: #10b981 !important;
+  border-color: #10b981 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.pageBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pageEllipsis {
+  padding: 0 4px;
+  color: var(--text-muted);
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pageSizeSelector {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.pageSizeSelect {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--secondary-bg);
+  color: var(--text-main);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Tablet & Mobile Pagination */
+@media (max-width: 768px) {
+  .paginationBar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 12px;
+    width: 100%;
+  }
+
+  .paginationInfo {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .paginationNav {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 2px 0;
+  }
+
+  .paginationNav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pageBtn {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 4px;
+    font-size: 11.5px;
+    flex-shrink: 0;
+  }
+
+  .pageEllipsis {
+    padding: 0 2px;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  .pageSizeSelector {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .pageSizeSelect {
+    font-size: 12px;
+    padding: 4px 8px;
+    height: 30px;
+  }
+}
+
+/* Standard Mobile (<= 480px, e.g. 425px) */
+@media (max-width: 480px) {
+  .paginationBar {
+    gap: 10px;
+    padding: 12px 8px;
+  }
+
+  .paginationInfo {
+    font-size: 11.5px;
+  }
+
+  .paginationNav {
+    gap: 3px;
+  }
+
+  .pageBtn {
+    min-width: 28px;
+    width: 28px;
+    height: 30px;
+    padding: 0 2px;
+    font-size: 11px;
+    border-radius: 5px;
+  }
+
+  .pageEllipsis {
+    padding: 0 1px;
+    font-size: 10.5px;
+  }
+
+  .pageSizeSelector {
+    font-size: 11.5px;
+    gap: 6px;
+  }
+
+  .pageSizeSelect {
+    font-size: 11.5px;
+    padding: 3px 6px;
+    height: 28px;
+  }
+}
+
+/* Compact Mobile (<= 380px, e.g. 320px, 360px, 375px) */
+@media (max-width: 380px) {
+  /* Hide the outer first («) and last (») jump buttons on small mobile so the 9 controls fit seamlessly without overflow */
+  .paginationNav > .pageBtn:first-child,
+  .paginationNav > .pageBtn:last-child {
+    display: none;
+  }
+
+  .paginationNav {
+    gap: 2.5px;
+  }
+
+  .pageBtn {
+    min-width: 26px;
+    width: 26px;
+    height: 28px;
+    font-size: 10.5px;
+    border-radius: 4px;
   }
 }

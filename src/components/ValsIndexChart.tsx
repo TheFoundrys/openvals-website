@@ -30,10 +30,10 @@ export default function ValsIndexChart({
 
   // SVG dimensions & coordinate bounds (adaptive for mobile & desktop)
   const width = isMobile ? 540 : 1140;
-  const height = isMobile ? 480 : 540;
+  const height = isMobile ? 500 : 560;
   const margin = isMobile
-    ? { top: 36, right: 20, bottom: 42, left: 46 }
-    : { top: 45, right: 45, bottom: 50, left: 65 };
+    ? { top: 40, right: 24, bottom: 46, left: 50 }
+    : { top: 48, right: 48, bottom: 56, left: 72 };
 
   const plotWidth = width - margin.left - margin.right;
   const plotHeight = height - margin.top - margin.bottom;
@@ -188,12 +188,11 @@ export default function ValsIndexChart({
       "willow-alpha-0-3b": { text: "Willow Alpha", dx: 24, dy: 8 },
     };
 
-  // Mobile Callouts: Optimized for 540x480 space
   const mobileLatencyCallouts: Record<
     string,
     { text: string; dx: number; dy: number }
   > = {
-    "deepscaler-1-5b": { text: "DeepScaler 1.5B (100%)", dx: -18, dy: -14 },
+    "deepscaler-1-5b": { text: "DeepScaler (100%)", dx: -18, dy: -14 },
     "hunyuan-instruct-1-8b": { text: "Hunyuan 1.8B", dx: -70, dy: 14 },
     "granite3-3-2-0b": { text: "Granite 3.3", dx: 16, dy: -8 },
     "yi-coder-1-5b": { text: "Yi-Coder", dx: 16, dy: 10 },
@@ -207,7 +206,7 @@ export default function ValsIndexChart({
     string,
     { text: string; dx: number; dy: number }
   > = {
-    "deepscaler-1-5b": { text: "DeepScaler 1.5B (100%)", dx: -18, dy: -14 },
+    "deepscaler-1-5b": { text: "DeepScaler (100%)", dx: -18, dy: -14 },
     "granite3-3-2-0b": { text: "Granite 3.3", dx: -68, dy: -10 },
     "lfm2-5-thinking-1-2b": { text: "LFM 2.5", dx: 16, dy: -10 },
     "openchat-latest-7b": { text: "OpenChat 7B", dx: 16, dy: 8 },
@@ -486,7 +485,6 @@ export default function ValsIndexChart({
         );
       }
 
-      // Default icon
       return <circle cx="12" cy="12" r="6" />;
     };
 
@@ -514,10 +512,10 @@ export default function ValsIndexChart({
         width: "100%",
         maxWidth: `${isMobile ? 720 : 1140}px`,
         margin: "0 auto",
-        overflow: "hidden", // Completely eliminates horizontal side scrollbar
+        overflow: "hidden",
         background: "var(--card-bg)",
-        borderRadius: "12px",
-        boxShadow: "var(--shadow)",
+        borderRadius: "16px",
+        boxShadow: "0 20px 48px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px var(--border)",
         border: "1px solid var(--border)",
         boxSizing: "border-box",
       }}
@@ -544,11 +542,18 @@ export default function ValsIndexChart({
             <circle
               cx="2"
               cy="2"
-              r={isMobile ? "0.8" : "0.9"}
+              r={isMobile ? "0.75" : "0.85"}
               fill="var(--text-muted)"
-              opacity="0.3"
+              opacity="0.22"
             />
           </pattern>
+
+          {/* Smooth frontier gradient */}
+          <linearGradient id="frontierGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#10b981" />
+            <stop offset="50%" stopColor="#06b6d4" />
+            <stop offset="100%" stopColor="#3b82f6" />
+          </linearGradient>
 
           {/* Glow filter for frontier line */}
           <filter
@@ -558,11 +563,35 @@ export default function ValsIndexChart({
             width="140%"
             height="140%"
           >
-            <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feGaussianBlur stdDeviation="3" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
+          </filter>
+
+          {/* Quadrant gradient fills */}
+          <radialGradient id="efficientQuadrantGlow" cx="0%" cy="0%" r="100%">
+            <stop offset="0%" stopColor="#10b981" stopOpacity="0.12" />
+            <stop offset="70%" stopColor="#10b981" stopOpacity="0.03" />
+            <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
+          </radialGradient>
+
+          <radialGradient id="inefficientQuadrantGlow" cx="100%" cy="100%" r="100%">
+            <stop offset="0%" stopColor="#f43f5e" stopOpacity="0.08" />
+            <stop offset="70%" stopColor="#f43f5e" stopOpacity="0.02" />
+            <stop offset="100%" stopColor="#f43f5e" stopOpacity="0" />
+          </radialGradient>
+
+          <radialGradient id="optimalDrsGlow" cx="100%" cy="0%" r="100%">
+            <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.12" />
+            <stop offset="70%" stopColor="#06b6d4" stopOpacity="0.03" />
+            <stop offset="100%" stopColor="#06b6d4" stopOpacity="0" />
+          </radialGradient>
+
+          {/* Drop shadow for points */}
+          <filter id="pointDropShadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.25" />
           </filter>
         </defs>
 
@@ -575,7 +604,7 @@ export default function ValsIndexChart({
               y={margin.top}
               width={midX - margin.left}
               height={midY - margin.top}
-              fill="rgba(16, 185, 129, 0.08)"
+              fill="url(#efficientQuadrantGlow)"
             />
             {/* Bottom-Right Quadrant: INEFFICIENT (Slow & Low Accuracy) */}
             <rect
@@ -583,7 +612,7 @@ export default function ValsIndexChart({
               y={midY}
               width={margin.left + plotWidth - midX}
               height={margin.top + plotHeight - midY}
-              fill="rgba(239, 68, 68, 0.06)"
+              fill="url(#inefficientQuadrantGlow)"
             />
           </>
         ) : (
@@ -594,7 +623,7 @@ export default function ValsIndexChart({
               y={margin.top}
               width={margin.left + plotWidth - midX}
               height={midY - margin.top}
-              fill="rgba(16, 185, 129, 0.08)"
+              fill="url(#optimalDrsGlow)"
             />
             {/* Bottom-Left Quadrant: SUB-OPTIMAL (Low DRS & Low Accuracy) */}
             <rect
@@ -602,7 +631,7 @@ export default function ValsIndexChart({
               y={midY}
               width={midX - margin.left}
               height={margin.top + plotHeight - midY}
-              fill="rgba(239, 68, 68, 0.06)"
+              fill="url(#inefficientQuadrantGlow)"
             />
           </>
         )}
@@ -625,6 +654,7 @@ export default function ValsIndexChart({
           stroke="var(--border)"
           strokeWidth="1.2"
           strokeDasharray="4 4"
+          opacity="0.7"
         />
         <line
           x1={margin.left}
@@ -634,40 +664,63 @@ export default function ValsIndexChart({
           stroke="var(--border)"
           strokeWidth="1.2"
           strokeDasharray="4 4"
+          opacity="0.7"
         />
 
-        {/* 2. QUADRANT ANNOTATIONS */}
+        {/* 2. QUADRANT ANNOTATIONS WITH MODERN PILLS */}
         {viewMode === "latency" ? (
           <>
-            <text
-              x={(margin.left + midX) / 2}
-              y={margin.top + (isMobile ? 18 : 24)}
-              textAnchor="middle"
-              fill="#16a34a"
-              fontSize={isMobile ? "10" : "11"}
-              fontWeight="700"
-              letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="var(--font-serif-main)"
-            >
-              EFFICIENT (FAST &amp; ACCURATE)
-            </text>
-            <text
-              x={(midX + margin.left + plotWidth) / 2}
-              y={margin.top + plotHeight - (isMobile ? 10 : 14)}
-              textAnchor="middle"
-              fill="#dc2626"
-              fontSize={isMobile ? "10" : "11"}
-              fontWeight="700"
-              letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="var(--font-serif-main)"
-            >
-              {isMobile ? "INEFFICIENT" : "INEFFICIENT (SLOW & LOWER ACCURACY)"}
-            </text>
+            <g transform={`translate(${(margin.left + midX) / 2}, ${margin.top + (isMobile ? 18 : 22)})`}>
+              <rect
+                x="-86"
+                y="-11"
+                width="172"
+                height="22"
+                rx="6"
+                fill="rgba(16, 185, 129, 0.12)"
+                stroke="rgba(16, 185, 129, 0.3)"
+                strokeWidth="1"
+              />
+              <text
+                textAnchor="middle"
+                y="3.5"
+                fill="#10b981"
+                fontSize={isMobile ? "9.5" : "10.5"}
+                fontWeight="700"
+                letterSpacing="0.08em"
+                fontFamily="var(--font-serif-main)"
+              >
+                ⚡ EFFICIENT (FAST &amp; ACCURATE)
+              </text>
+            </g>
+            <g transform={`translate(${(midX + margin.left + plotWidth) / 2}, ${margin.top + plotHeight - (isMobile ? 14 : 18)})`}>
+              <rect
+                x="-90"
+                y="-11"
+                width="180"
+                height="22"
+                rx="6"
+                fill="rgba(244, 63, 94, 0.08)"
+                stroke="rgba(244, 63, 94, 0.25)"
+                strokeWidth="1"
+              />
+              <text
+                textAnchor="middle"
+                y="3.5"
+                fill="#f43f5e"
+                fontSize={isMobile ? "9" : "10"}
+                fontWeight="700"
+                letterSpacing="0.08em"
+                fontFamily="var(--font-serif-main)"
+              >
+                {isMobile ? "INEFFICIENT" : "SLOW &amp; LOWER ACCURACY"}
+              </text>
+            </g>
             <text
               x={margin.left + (isMobile ? 12 : 14)}
               y={margin.top + plotHeight - (isMobile ? 14 : 20)}
               textAnchor="start"
-              fill="#64748b"
+              fill="var(--text-muted)"
               fontSize={isMobile ? "9" : "10"}
               fontWeight="600"
               letterSpacing="0.06em"
@@ -681,35 +734,57 @@ export default function ValsIndexChart({
           </>
         ) : (
           <>
-            <text
-              x={(midX + margin.left + plotWidth) / 2}
-              y={margin.top + (isMobile ? 18 : 24)}
-              textAnchor="middle"
-              fill="#16a34a"
-              fontSize={isMobile ? "10" : "11"}
-              fontWeight="700"
-              letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="var(--font-serif-main)"
-            >
-              OPTIMAL (HIGH DRS &amp; ACCURACY)
-            </text>
-            <text
-              x={(margin.left + midX) / 2}
-              y={margin.top + plotHeight - (isMobile ? 10 : 14)}
-              textAnchor="middle"
-              fill="#dc2626"
-              fontSize={isMobile ? "10" : "11"}
-              fontWeight="700"
-              letterSpacing={isMobile ? "0.08em" : "0.12em"}
-              fontFamily="var(--font-serif-main)"
-            >
-              {isMobile ? "SUB-OPTIMAL" : "SUB-OPTIMAL (LOW DRS & ACCURACY)"}
-            </text>
+            <g transform={`translate(${(midX + margin.left + plotWidth) / 2}, ${margin.top + (isMobile ? 18 : 22)})`}>
+              <rect
+                x="-96"
+                y="-11"
+                width="192"
+                height="22"
+                rx="6"
+                fill="rgba(6, 182, 212, 0.12)"
+                stroke="rgba(6, 182, 212, 0.3)"
+                strokeWidth="1"
+              />
+              <text
+                textAnchor="middle"
+                y="3.5"
+                fill="#06b6d4"
+                fontSize={isMobile ? "9.5" : "10.5"}
+                fontWeight="700"
+                letterSpacing="0.08em"
+                fontFamily="var(--font-serif-main)"
+              >
+                🛡️ OPTIMAL (HIGH DRS &amp; ACCURACY)
+              </text>
+            </g>
+            <g transform={`translate(${(margin.left + midX) / 2}, ${margin.top + plotHeight - (isMobile ? 14 : 18)})`}>
+              <rect
+                x="-80"
+                y="-11"
+                width="160"
+                height="22"
+                rx="6"
+                fill="rgba(244, 63, 94, 0.08)"
+                stroke="rgba(244, 63, 94, 0.25)"
+                strokeWidth="1"
+              />
+              <text
+                textAnchor="middle"
+                y="3.5"
+                fill="#f43f5e"
+                fontSize={isMobile ? "9" : "10"}
+                fontWeight="700"
+                letterSpacing="0.08em"
+                fontFamily="var(--font-serif-main)"
+              >
+                {isMobile ? "SUB-OPTIMAL" : "LOW DRS &amp; ACCURACY"}
+              </text>
+            </g>
             <text
               x={margin.left + (isMobile ? 12 : 14)}
               y={margin.top + plotHeight - (isMobile ? 14 : 20)}
               textAnchor="start"
-              fill="#64748b"
+              fill="var(--text-muted)"
               fontSize={isMobile ? "9" : "10"}
               fontWeight="600"
               letterSpacing="0.06em"
@@ -723,49 +798,43 @@ export default function ValsIndexChart({
           </>
         )}
 
-        {/* BEST PERFORMANCE corner label */}
-        {!isMobile && (
-          <text
-            x={margin.left + plotWidth - 10}
-            y={margin.top + 50}
-            textAnchor="end"
-            fill="#64748b"
-            fontSize="10"
-            fontWeight="600"
-            letterSpacing="0.08em"
-            fontFamily="var(--font-serif-main)"
-          >
-            {viewMode === "latency" ? "BEST ACCURACY" : "HIGHEST DRS & ACCURACY"}
-          </text>
-        )}
-
-        {/* Top-Right OPENVALS Logo Emblem */}
+        {/* Top-Right OPENVALS Logo Emblem & Benchmark Badge */}
         <g
           transform={`translate(${
-            margin.left + plotWidth - (isMobile ? 74 : 85)
-          }, ${margin.top + (isMobile ? 8 : 10)})`}
+            margin.left + plotWidth - (isMobile ? 86 : 106)
+          }, ${margin.top + (isMobile ? 10 : 12)})`}
         >
+          <rect
+            x="0"
+            y="0"
+            width={isMobile ? "86" : "106"}
+            height={isMobile ? "24" : "28"}
+            rx="6"
+            fill="var(--secondary-bg)"
+            stroke="var(--border)"
+            strokeWidth="1"
+          />
           <circle
-            cx="8"
-            cy="8"
-            r={isMobile ? "7.5" : "8.5"}
+            cx={isMobile ? "12" : "14"}
+            cy={isMobile ? "12" : "14"}
+            r={isMobile ? "6" : "7"}
             stroke="#10b981"
-            strokeWidth="1.5"
+            strokeWidth="1.4"
             fill="none"
           />
           <path
-            d={isMobile ? "M5 6L8 11.5L11 6" : "M6.5 7L10 14L13.5 7"}
+            d={isMobile ? "M9.5 10L12 14.5L14.5 10" : "M11 11.5L14 17L17 11.5"}
             stroke="#10b981"
-            strokeWidth="1.6"
+            strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <text
-            x={isMobile ? "20" : "24"}
-            y={isMobile ? "11.5" : "14"}
+            x={isMobile ? "24" : "28"}
+            y={isMobile ? "15.5" : "18"}
             fill="var(--text-main)"
-            fontSize={isMobile ? "10.5" : "12"}
-            fontWeight="800"
+            fontSize={isMobile ? "9.5" : "11"}
+            fontWeight="700"
             letterSpacing="0.06em"
             fontFamily="var(--font-serif-main)"
           >
@@ -774,7 +843,6 @@ export default function ValsIndexChart({
         </g>
 
         {/* 3. GRID LINES & AXIS TICKS */}
-        {/* Horizontal grid lines and Y-axis tick labels */}
         {yTicks.map((acc) => {
           const y = scaleY(acc);
           return (
@@ -787,9 +855,10 @@ export default function ValsIndexChart({
                 stroke="var(--border)"
                 strokeWidth="0.8"
                 strokeDasharray="2 3"
+                opacity="0.6"
               />
               <text
-                x={margin.left - (isMobile ? 6 : 8)}
+                x={margin.left - (isMobile ? 8 : 10)}
                 y={y + 4}
                 textAnchor="end"
                 fill="var(--text-muted)"
@@ -802,7 +871,6 @@ export default function ValsIndexChart({
           );
         })}
 
-        {/* Vertical grid lines and X-axis tick labels */}
         {xTicks.map((val) => {
           const x = scaleX(val);
           return (
@@ -815,10 +883,11 @@ export default function ValsIndexChart({
                 stroke="var(--border)"
                 strokeWidth="0.8"
                 strokeDasharray="2 3"
+                opacity="0.6"
               />
               <text
                 x={x}
-                y={margin.top + plotHeight + (isMobile ? 16 : 20)}
+                y={margin.top + plotHeight + (isMobile ? 18 : 22)}
                 textAnchor="middle"
                 fill="var(--text-muted)"
                 fontSize={isMobile ? "10" : "11"}
@@ -830,14 +899,42 @@ export default function ValsIndexChart({
           );
         })}
 
+        {/* Axis Titles */}
+        <text
+          x={margin.left + plotWidth / 2}
+          y={margin.top + plotHeight + (isMobile ? 36 : 44)}
+          textAnchor="middle"
+          fill="var(--text-muted)"
+          fontSize={isMobile ? "10" : "11"}
+          fontWeight="600"
+          letterSpacing="0.05em"
+          fontFamily="var(--font-serif-main)"
+        >
+          {viewMode === "latency" ? "Average Response Latency (Milliseconds)" : "Decision Reliability Score — DRS (%)"}
+        </text>
+
+        <text
+          x={14}
+          y={margin.top + plotHeight / 2}
+          textAnchor="middle"
+          fill="var(--text-muted)"
+          fontSize={isMobile ? "10" : "11"}
+          fontWeight="600"
+          letterSpacing="0.05em"
+          fontFamily="var(--font-serif-main)"
+          transform={`rotate(-90 14 ${margin.top + plotHeight / 2})`}
+        >
+          Benchmark Accuracy (%)
+        </text>
+
         {/* 4. PARETO FRONTIER CURVE */}
         <path
           d={frontierPathD}
           fill="none"
-          stroke="#4ade80"
-          strokeWidth={isMobile ? "2.6" : "2.4"}
+          stroke="url(#frontierGradient)"
+          strokeWidth={isMobile ? "2.8" : "2.6"}
           filter="url(#frontierGlow)"
-          opacity="0.9"
+          opacity="0.95"
         />
 
         {/* 5. MODEL CALLOUT LINES & LABELS */}
@@ -857,7 +954,7 @@ export default function ValsIndexChart({
           return (
             <g
               key={`callout-${model.id}`}
-              opacity={isFaded ? 0.2 : 1}
+              opacity={isFaded ? 0.18 : 1}
               style={{ transition: "opacity 0.2s" }}
             >
               <line
@@ -878,7 +975,7 @@ export default function ValsIndexChart({
                 fontWeight="700"
                 fontFamily="var(--font-serif-main)"
                 stroke="var(--card-bg)"
-                strokeWidth={isMobile ? "2.5" : "0"}
+                strokeWidth={isMobile ? "2.5" : "2"}
                 paintOrder="stroke fill"
               >
                 {callout.text}
@@ -900,7 +997,7 @@ export default function ValsIndexChart({
             selectedLab !== "All Models" &&
             model.labKey !== selectedLab;
           const isOnActiveFrontier = frontierSet.has(model.id);
-          const badgeRadius = isMobile ? 12 : 12;
+          const badgeRadius = isMobile ? 12 : 12.5;
 
           return (
             <g
@@ -937,7 +1034,7 @@ export default function ValsIndexChart({
               <circle
                 cx="0"
                 cy="0"
-                r={isMobile ? "22" : "15"}
+                r={isMobile ? "22" : "16"}
                 fill="transparent"
               />
 
@@ -959,11 +1056,12 @@ export default function ValsIndexChart({
                 <circle
                   cx="0"
                   cy="0"
-                  r={isMobile ? "15" : "15"}
+                  r={isMobile ? "15" : "15.5"}
                   fill="none"
-                  stroke="#4ade80"
+                  stroke="#10b981"
                   strokeWidth="2"
-                  opacity="0.75"
+                  strokeDasharray="4 2"
+                  opacity="0.85"
                 />
               )}
 
@@ -975,11 +1073,7 @@ export default function ValsIndexChart({
                 fill={model.badgeColor}
                 stroke="#ffffff"
                 strokeWidth="2"
-                style={{
-                  filter: isActive
-                    ? "drop-shadow(0 4px 10px rgba(0,0,0,0.35))"
-                    : "drop-shadow(0 2px 5px rgba(0,0,0,0.15))",
-                }}
+                filter="url(#pointDropShadow)"
               />
 
               {/* Lab Badge Icon */}
@@ -993,12 +1087,12 @@ export default function ValsIndexChart({
       {isMobile && activeModel && (
         <div
           style={{
-            padding: "12px 14px",
-            background: "var(--secondary-bg)",
+            padding: "14px 16px",
+            background: "var(--card-bg)",
             borderTop: "1px solid var(--border)",
             display: "flex",
             flexDirection: "column",
-            gap: "8px",
+            gap: "10px",
           }}
         >
           <div
@@ -1019,8 +1113,8 @@ export default function ValsIndexChart({
             >
               <span
                 style={{
-                  fontWeight: 500,
-                  fontSize: "13px",
+                  fontWeight: 600,
+                  fontSize: "14px",
                   color: "var(--text-main)",
                 }}
               >
@@ -1029,8 +1123,8 @@ export default function ValsIndexChart({
               <span
                 style={{
                   fontSize: "10px",
-                  fontWeight: 500,
-                  padding: "2px 6px",
+                  fontWeight: 600,
+                  padding: "2px 7px",
                   borderRadius: "4px",
                   background: activeModel.badgeColor,
                   color: activeModel.badgeTextColor,
@@ -1043,11 +1137,11 @@ export default function ValsIndexChart({
                 <span
                   style={{
                     fontSize: "9.5px",
-                    fontWeight: 500,
-                    padding: "2px 5px",
+                    fontWeight: 600,
+                    padding: "2px 6px",
                     borderRadius: "4px",
                     background: "rgba(16, 185, 129, 0.15)",
-                    color: "#16a34a",
+                    color: "#10b981",
                     border: "1px solid rgba(16, 185, 129, 0.3)",
                   }}
                 >
@@ -1063,16 +1157,15 @@ export default function ValsIndexChart({
                 onSelectModel?.(null);
               }}
               style={{
-                background: "var(--card-bg)",
+                background: "var(--secondary-bg)",
                 border: "1px solid var(--border)",
                 borderRadius: "6px",
-                width: "24px",
-                height: "24px",
+                width: "26px",
+                height: "26px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 fontSize: "16px",
-                lineHeight: 1,
                 color: "var(--text-muted)",
                 cursor: "pointer",
                 flexShrink: 0,
@@ -1088,8 +1181,8 @@ export default function ValsIndexChart({
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
               gap: "8px",
-              background: "var(--card-bg)",
-              padding: "8px 10px",
+              background: "var(--secondary-bg)",
+              padding: "10px 12px",
               borderRadius: "8px",
               border: "1px solid var(--border)",
             }}
@@ -1100,16 +1193,16 @@ export default function ValsIndexChart({
                   fontSize: "10px",
                   color: "var(--text-muted)",
                   textTransform: "uppercase",
-                  fontWeight: 500,
+                  fontWeight: 600,
                 }}
               >
                 Accuracy
               </div>
               <div
                 style={{
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  color: "#16a34a",
+                  fontSize: "15px",
+                  fontWeight: 600,
+                  color: "#10b981",
                 }}
               >
                 {activeModel.accuracy.toFixed(1)}%
@@ -1121,17 +1214,17 @@ export default function ValsIndexChart({
                   fontSize: "10px",
                   color: "var(--text-muted)",
                   textTransform: "uppercase",
-                  fontWeight: 500,
+                  fontWeight: 600,
                 }}
               >
                 Avg Latency
               </div>
               <div
                 style={{
-                  fontSize: "13px",
-                  fontWeight: 500,
+                  fontSize: "14px",
+                  fontWeight: 600,
                   color:
-                    viewMode === "latency" ? "#16a34a" : "var(--text-main)",
+                    viewMode === "latency" ? "#10b981" : "var(--text-main)",
                 }}
               >
                 {activeModel.latencyLabel}
@@ -1143,16 +1236,16 @@ export default function ValsIndexChart({
                   fontSize: "10px",
                   color: "var(--text-muted)",
                   textTransform: "uppercase",
-                  fontWeight: 500,
+                  fontWeight: 600,
                 }}
               >
                 DRS Score
               </div>
               <div
                 style={{
-                  fontSize: "13px",
-                  fontWeight: 500,
-                  color: "#38bdf8",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  color: "#06b6d4",
                 }}
               >
                 {activeModel.drsLabel}
@@ -1166,7 +1259,7 @@ export default function ValsIndexChart({
       {isMobile && !activeModel && (
         <div
           style={{
-            padding: "8px 12px",
+            padding: "9px 12px",
             background: "var(--secondary-bg)",
             borderTop: "1px solid var(--border)",
             fontSize: "11px",
@@ -1178,7 +1271,7 @@ export default function ValsIndexChart({
             textAlign: "center",
           }}
         >
-          <span>Tap any model badge to inspect accuracy, latency &amp; DRS</span>
+          <span>Tap any model badge to inspect task accuracy, latency &amp; DRS score</span>
         </div>
       )}
 
@@ -1188,129 +1281,142 @@ export default function ValsIndexChart({
           style={{
             position: "absolute",
             top:
-              scaleY(hoveredModel.accuracy) < 180
-                ? `${scaleY(hoveredModel.accuracy) + 20}px`
-                : `${scaleY(hoveredModel.accuracy) - 10}px`,
+              scaleY(hoveredModel.accuracy) < 200
+                ? `${scaleY(hoveredModel.accuracy) + 24}px`
+                : `${scaleY(hoveredModel.accuracy) - 12}px`,
             left: `${Math.min(
-              Math.max(20, getModelX(hoveredModel) + 20),
-              width - 250
+              Math.max(24, getModelX(hoveredModel) + 24),
+              width - 290
             )}px`,
             transform:
-              scaleY(hoveredModel.accuracy) < 180
+              scaleY(hoveredModel.accuracy) < 200
                 ? "none"
                 : "translateY(-100%)",
-            background: "#0f172a",
+            background: "rgba(15, 23, 42, 0.95)",
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
             color: "#ffffff",
-            padding: "12px 16px",
-            borderRadius: "10px",
-            boxShadow: "0 12px 28px rgba(0,0,0,0.35)",
-            zIndex: 30,
+            padding: "14px 16px",
+            borderRadius: "12px",
+            boxShadow: "0 18px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.12)",
+            zIndex: 40,
             pointerEvents: "none",
             fontSize: "12px",
             lineHeight: 1.5,
-            minWidth: "220px",
-            border: "1px solid rgba(255,255,255,0.12)",
+            minWidth: "260px",
+            borderTop: `3px solid ${hoveredModel.badgeColor}`,
           }}
         >
+          {/* Header */}
           <div
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
               gap: "8px",
-              borderBottom: "1px solid rgba(255,255,255,0.15)",
-              paddingBottom: "6px",
-              marginBottom: "6px",
+              borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
+              paddingBottom: "8px",
+              marginBottom: "8px",
             }}
           >
-            <span style={{ fontWeight: 500, fontSize: "13px" }}>
-              {hoveredModel.name}
-            </span>
-            <span
-              style={{
-                fontSize: "10px",
-                padding: "2px 6px",
-                borderRadius: "4px",
-                background: hoveredModel.badgeColor,
-                color: hoveredModel.badgeTextColor,
-                fontWeight: 500,
-                textTransform: "uppercase",
-              }}
-            >
-              {hoveredModel.lab}
-            </span>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: "14px", color: "#f8fafc" }}>
+                {hoveredModel.name}
+              </div>
+              <div style={{ fontSize: "10.5px", color: "#94a3b8" }}>
+                {hoveredModel.lab} • {hoveredModel.costLabel} per task
+              </div>
+            </div>
+            {frontierSet.has(hoveredModel.id) && (
+              <span
+                style={{
+                  fontSize: "9px",
+                  fontWeight: 600,
+                  padding: "2px 6px",
+                  borderRadius: "4px",
+                  background: "rgba(16, 185, 129, 0.2)",
+                  color: "#34d399",
+                  border: "1px solid rgba(16, 185, 129, 0.4)",
+                  textTransform: "uppercase",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Frontier
+              </span>
+            )}
           </div>
 
+          {/* Core Metrics Grid */}
           <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "2px 4px",
-              borderRadius: "4px",
-              marginBottom: "2px",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "6px",
+              marginBottom: "8px",
             }}
           >
-            <span style={{ color: "#94a3b8" }}>Accuracy:</span>
-            <span style={{ fontWeight: 500, color: "#4ade80" }}>
-              {hoveredModel.accuracy.toFixed(1)}%
-            </span>
+            <div
+              style={{
+                background: "rgba(255, 255, 255, 0.05)",
+                padding: "6px 8px",
+                borderRadius: "6px",
+              }}
+            >
+              <div style={{ fontSize: "10px", color: "#94a3b8" }}>Accuracy</div>
+              <div style={{ fontSize: "15px", fontWeight: 700, color: "#34d399" }}>
+                {hoveredModel.accuracy.toFixed(1)}%
+              </div>
+            </div>
+
+            <div
+              style={{
+                background:
+                  viewMode === "latency"
+                    ? "rgba(16, 185, 129, 0.15)"
+                    : "rgba(6, 182, 212, 0.15)",
+                padding: "6px 8px",
+                borderRadius: "6px",
+                border:
+                  viewMode === "latency"
+                    ? "1px solid rgba(16, 185, 129, 0.25)"
+                    : "1px solid rgba(6, 182, 212, 0.25)",
+              }}
+            >
+              <div style={{ fontSize: "10px", color: viewMode === "latency" ? "#6ee7b7" : "#67e8f9" }}>
+                {viewMode === "latency" ? "Average Latency" : "DRS Reliability"}
+              </div>
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: 700,
+                  color: viewMode === "latency" ? "#34d399" : "#38bdf8",
+                }}
+              >
+                {viewMode === "latency" ? hoveredModel.latencyLabel : hoveredModel.drsLabel}
+              </div>
+            </div>
           </div>
 
-          {viewMode === "latency" ? (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                background: "rgba(16, 185, 129, 0.15)",
-                padding: "2px 4px",
-                borderRadius: "4px",
-              }}
-            >
-              <span
-                style={{
-                  color: "#34d399",
-                  fontWeight: 500,
-                }}
-              >
-                Average Latency:
-              </span>
-              <span
-                style={{
-                  fontWeight: 500,
-                  color: "#34d399",
-                }}
-              >
-                {hoveredModel.latencyLabel}
-              </span>
+          {/* Sector Breakdown Bars */}
+          <div
+            style={{
+              borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+              paddingTop: "6px",
+              fontSize: "10px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px",
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", color: "#94a3b8" }}>
+              <span>Sectoral GDP Weights</span>
+              <span style={{ color: "#cbd5e1" }}>Finance: {hoveredModel.breakdown.finance}% • Coding: {hoveredModel.breakdown.coding}%</span>
             </div>
-          ) : (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                background: "rgba(56, 189, 248, 0.15)",
-                padding: "2px 4px",
-                borderRadius: "4px",
-              }}
-            >
-              <span
-                style={{
-                  color: "#38bdf8",
-                  fontWeight: 500,
-                }}
-              >
-                Decision Reliability (DRS):
-              </span>
-              <span
-                style={{
-                  fontWeight: 500,
-                  color: "#38bdf8",
-                }}
-              >
-                {hoveredModel.drsLabel}
-              </span>
+            <div style={{ display: "flex", justifyContent: "space-between", color: "#94a3b8" }}>
+              <span>Legal Tasks:</span>
+              <span style={{ color: "#cbd5e1" }}>{hoveredModel.breakdown.legal}% • Tokens: {hoveredModel.tokenLabel}</span>
             </div>
-          )}
+          </div>
         </div>
       )}
     </div>

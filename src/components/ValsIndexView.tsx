@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import {
   ArrowUpDown,
   ChevronsUpDown,
@@ -16,12 +15,16 @@ import ValsIndexChart from "./ValsIndexChart";
 import { LAB_LEGENDS, VALS_INDEX_MODELS, ValsIndexModel } from "./valsIndexData";
 
 function formatRealUpdatedDate(date: Date): string {
-  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+  const months = [
+    "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC",
+  ];
+  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }
 
 export default function ValsIndexView() {
   const [updatedLabel, setUpdatedLabel] = useState(() =>
-    formatRealUpdatedDate(new Date()),
+    formatRealUpdatedDate(new Date())
   );
 
   useEffect(() => {
@@ -67,102 +70,116 @@ export default function ValsIndexView() {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.container}>
-        {/* 2. TITLE & EDITORIAL HEADER */}
+        {/* 1. TITLE & EDITORIAL HEADER */}
         <div className={styles.headerSection}>
           <h1 className={styles.title}>OpenVals Index</h1>
 
           <div className={styles.metaLine}>
-            <span>UPDATED {updatedLabel}</span>
-            <span>|</span>
-            <div className={styles.versionDropdown}>
+            <span className={styles.metaPill}>UPDATED {updatedLabel}</span>
+            <span className={styles.versionDropdown}>
               <span>VERSION 0.5.5</span>
               <ChevronsUpDown size={11} />
-            </div>
+            </span>
+            <span className={styles.metaPill}>GDP-WEIGHTED AGENT BENCHMARK</span>
           </div>
 
           <p className={styles.description}>
-            A single measure of AI&apos;s potential economic impact — agentic
-            model performance across finance, coding, and legal tasks, weighted
-            by each sector&apos;s share of U.S. GDP.
+            A rigorous composite measure of AI&apos;s potential economic impact — evaluating
+            leading frontier and open-weight models across finance, coding, and legal tasks,
+            empirically weighted by each sector&apos;s share of U.S. GDP.
           </p>
         </div>
 
-        {/* 3. BENCHMARK SUB-BAR & CONTROLS */}
+        {/* 2. BENCHMARK SUB-BAR & SEGMENTED CONTROLS */}
         <div className={styles.controlBar}>
           <div className={styles.controlBarLeft}>
-            <span className={styles.controlTitle}>OpenVals Index</span>
+            <span className={styles.controlTitle}>Frontier Space</span>
             <span className={styles.controlSubtitle}>
-              GDP-weighted benchmark
+              {viewMode === "latency" ? "Accuracy vs Latency Trade-Off" : "Accuracy vs Decision Reliability"}
             </span>
           </div>
 
           <div
             style={{
               display: "flex",
-              gap: "8px",
+              gap: "10px",
               alignItems: "center",
               flexWrap: "wrap",
             }}
           >
-            {/* ACCURACY ↔ LATENCY MODE TOGGLE */}
-            <button
-              type="button"
-              className={`${styles.axisToggle} ${
-                viewMode === "latency" ? styles.axisToggleActive : ""
-              }`}
-              onClick={() => {
-                if (viewMode === "latency") {
-                  setSortOrder((prev) =>
-                    prev === "accuracy" ? "latency" : "accuracy"
-                  );
-                } else {
+            {/* SEGMENTED VIEW MODE TOGGLE */}
+            <div className={styles.segmentedControl} role="tablist" aria-label="Index View Mode">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={viewMode === "latency"}
+                className={`${styles.segmentBtn} ${
+                  viewMode === "latency" ? styles.segmentBtnActive : ""
+                }`}
+                onClick={() => {
                   setViewMode("latency");
                   setSortOrder("accuracy");
-                }
-              }}
-              title="View and sort by Accuracy vs Latency"
-            >
-              <ArrowUpDown size={12} />
-              <span>
-                {viewMode === "latency" && sortOrder === "latency"
-                  ? "↔ LATENCY  ↕ ACCURACY ↕"
-                  : "↕ ACCURACY  ↔ LATENCY ↕"}
-              </span>
-            </button>
+                }}
+                title="View Speed Frontier: Accuracy vs Latency"
+              >
+                <Zap size={13} color="#10b981" />
+                <span>Accuracy vs Latency</span>
+                <span className={styles.segmentTag}>Speed Frontier</span>
+              </button>
 
-            {/* ACCURACY ↔ DRS MODE TOGGLE */}
+              <button
+                type="button"
+                role="tab"
+                aria-selected={viewMode === "drs"}
+                className={`${styles.segmentBtn} ${
+                  viewMode === "drs" ? styles.segmentBtnActive : ""
+                }`}
+                onClick={() => {
+                  setViewMode("drs");
+                  setSortOrder("accuracy");
+                }}
+                title="View Trust Frontier: Accuracy vs Decision Reliability Score (DRS)"
+              >
+                <ShieldCheck size={13} color="#06b6d4" />
+                <span>Accuracy vs DRS</span>
+                <span className={styles.segmentTag} style={{ background: "rgba(6, 182, 212, 0.12)", color: "#06b6d4" }}>
+                  Trust Frontier
+                </span>
+              </button>
+            </div>
+
+            {/* SORT ORDER TOGGLE */}
             <button
               type="button"
-              className={`${styles.axisToggle} ${
-                viewMode === "drs" ? styles.axisToggleActive : ""
-              }`}
+              className={styles.sortToggleBtn}
               onClick={() => {
-                if (viewMode === "drs") {
-                  setSortOrder((prev) =>
-                    prev === "accuracy" ? "drs" : "accuracy"
-                  );
+                if (sortOrder === "accuracy") {
+                  setSortOrder(viewMode === "latency" ? "latency" : "drs");
                 } else {
-                  setViewMode("drs");
                   setSortOrder("accuracy");
                 }
               }}
-              title="View and sort by Accuracy vs Decision Reliability Score (DRS)"
+              title="Toggle sorting order between Accuracy and current axis"
             >
-              <ArrowUpDown size={12} />
+              <ArrowUpDown size={13} />
               <span>
-                {viewMode === "drs" && sortOrder === "drs"
-                  ? "↔ DRS  ↕ ACCURACY ↕"
-                  : "↕ ACCURACY  ↔ DRS ↕"}
+                Sort:{" "}
+                {sortOrder === "accuracy"
+                  ? "Highest Accuracy"
+                  : sortOrder === "latency"
+                  ? "Fastest Latency"
+                  : "Highest DRS"}
               </span>
             </button>
           </div>
         </div>
 
-        {/* 4. LAB FILTER & LEGEND ROW */}
+        {/* 3. LAB FILTER & LEGEND ROW */}
         <div className={styles.legendRow}>
           <div className={styles.labChipsList}>
             {LAB_LEGENDS.map((item) => {
               const isActive = selectedLab === item.key;
+              const modelCount = VALS_INDEX_MODELS.filter((m) => m.labKey === item.key).length;
               return (
                 <button
                   key={item.key}
@@ -171,10 +188,10 @@ export default function ValsIndexView() {
                   className={`${styles.labChip} ${
                     isActive ? styles.labChipActive : ""
                   }`}
-                  title={`Filter by ${item.label}`}
+                  title={`Filter by ${item.label} (${modelCount} models)`}
                 >
                   <span
-                    className={styles.colorSquare}
+                    className={styles.colorDot}
                     style={{ backgroundColor: item.color }}
                   />
                   <span>{item.label}</span>
@@ -185,27 +202,20 @@ export default function ValsIndexView() {
               <button
                 type="button"
                 onClick={() => setSelectedLab(null)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  fontSize: "11px",
-                  color: "#ef4444",
-                  cursor: "pointer",
-                  fontWeight: 500,
-                  padding: "4px 8px",
-                }}
+                className={styles.clearFilterBtn}
+                title="Clear active filter"
               >
-                Clear Filter &times;
+                <span>Clear Filter ({selectedLab}) &times;</span>
               </button>
             )}
           </div>
 
           <div className={styles.showingCount}>
-            SHOWING LATEST, TOP &amp; FRONTIER MODELS ({filteredModels.length})
+            Showing {filteredModels.length} of {VALS_INDEX_MODELS.length} Models
           </div>
         </div>
 
-        {/* MOBILE VIEW SWITCHER (CHART vs LIST) */}
+        {/* 4. MOBILE VIEW SWITCHER (CHART vs LIST) */}
         <div className={styles.mobileViewSwitcher}>
           <button
             type="button"
@@ -215,7 +225,7 @@ export default function ValsIndexView() {
             onClick={() => setMobileTab("chart")}
           >
             <TrendingUp size={14} />
-            <span>Frontier Chart</span>
+            <span>Interactive Chart</span>
           </button>
           <button
             type="button"
@@ -245,7 +255,11 @@ export default function ValsIndexView() {
                 className={styles.modelCardItem}
                 style={{
                   borderColor:
-                    selectedModel?.id === m.id ? "#0284c7" : "var(--border)",
+                    selectedModel?.id === m.id ? "#10b981" : "var(--border)",
+                  boxShadow:
+                    selectedModel?.id === m.id
+                      ? "0 0 0 1px #10b981, 0 4px 14px rgba(16, 185, 129, 0.15)"
+                      : undefined,
                 }}
               >
                 <div className={styles.modelCardHeader}>
@@ -254,7 +268,7 @@ export default function ValsIndexView() {
                       style={{
                         color: "var(--text-muted)",
                         fontSize: "11px",
-                        fontWeight: 500,
+                        fontWeight: 600,
                       }}
                     >
                       #{idx + 1}
@@ -266,11 +280,12 @@ export default function ValsIndexView() {
                       <span
                         style={{
                           fontSize: "9px",
-                          fontWeight: 500,
-                          padding: "2px 5px",
+                          fontWeight: 600,
+                          padding: "2px 6px",
                           borderRadius: "4px",
                           background: "rgba(16, 185, 129, 0.15)",
-                          color: "#16a34a",
+                          color: "#10b981",
+                          border: "1px solid rgba(16, 185, 129, 0.3)",
                         }}
                       >
                         FRONTIER
@@ -279,8 +294,8 @@ export default function ValsIndexView() {
                     <span
                       style={{
                         fontSize: "10px",
-                        fontWeight: 500,
-                        padding: "2px 6px",
+                        fontWeight: 600,
+                        padding: "2px 7px",
                         borderRadius: "4px",
                         background: m.badgeColor,
                         color: m.badgeTextColor,
@@ -297,7 +312,7 @@ export default function ValsIndexView() {
                     <span className={styles.modelCardMetricLabel}>Accuracy</span>
                     <span
                       className={styles.modelCardMetricVal}
-                      style={{ color: "#16a34a" }}
+                      style={{ color: "#10b981" }}
                     >
                       {m.accuracy.toFixed(1)}%
                     </span>
@@ -309,7 +324,7 @@ export default function ValsIndexView() {
                       style={{
                         color:
                           viewMode === "latency"
-                            ? "#16a34a"
+                            ? "#10b981"
                             : "var(--text-main)",
                       }}
                     >
@@ -320,7 +335,7 @@ export default function ValsIndexView() {
                     <span className={styles.modelCardMetricLabel}>DRS Score</span>
                     <span
                       className={styles.modelCardMetricVal}
-                      style={{ color: "#38bdf8" }}
+                      style={{ color: "#06b6d4" }}
                     >
                       {m.drsLabel}
                     </span>
@@ -333,12 +348,21 @@ export default function ValsIndexView() {
 
         {/* 6. KEY TAKEAWAYS SECTION */}
         <div className={styles.takeawaysSection}>
-          <h2 className={styles.takeawaysHeading}>Key Takeaways</h2>
+          <h2 className={styles.takeawaysHeading}>Key Empirical Takeaways</h2>
 
           <div className={styles.takeawaysGrid}>
             <div className={styles.takeawayCard}>
+              <div
+                className={styles.takeawayCardTopBar}
+                style={{ background: "#10b981" }}
+              />
               <div className={styles.takeawayCardTitle}>
-                <TrendingUp size={18} color="#16a34a" />
+                <div
+                  className={styles.takeawayIconWrap}
+                  style={{ background: "rgba(16, 185, 129, 0.12)", color: "#10b981" }}
+                >
+                  <TrendingUp size={18} />
+                </div>
                 <span>The Latency Frontier Curve</span>
               </div>
               <p className={styles.takeawayCardDesc}>
@@ -351,8 +375,17 @@ export default function ValsIndexView() {
             </div>
 
             <div className={styles.takeawayCard}>
+              <div
+                className={styles.takeawayCardTopBar}
+                style={{ background: "#06b6d4" }}
+              />
               <div className={styles.takeawayCardTitle}>
-                <Zap size={18} color="#0284c7" />
+                <div
+                  className={styles.takeawayIconWrap}
+                  style={{ background: "rgba(6, 182, 212, 0.12)", color: "#06b6d4" }}
+                >
+                  <Zap size={18} />
+                </div>
                 <span>Decision Reliability (DRS) Leaders</span>
               </div>
               <p className={styles.takeawayCardDesc}>
@@ -364,21 +397,39 @@ export default function ValsIndexView() {
             </div>
 
             <div className={styles.takeawayCard}>
+              <div
+                className={styles.takeawayCardTopBar}
+                style={{ background: "#f43f5e" }}
+              />
               <div className={styles.takeawayCardTitle}>
-                <ShieldCheck size={18} color="#9333ea" />
+                <div
+                  className={styles.takeawayIconWrap}
+                  style={{ background: "rgba(244, 63, 94, 0.12)", color: "#f43f5e" }}
+                >
+                  <ShieldCheck size={18} />
+                </div>
                 <span>Frontier Ceiling: DeepScaler 1.5B</span>
               </div>
               <p className={styles.takeawayCardDesc}>
                 Agentica&apos;s DeepScaler 1.5B commands the non-dominated
-                performance ceiling with 100.0% benchmark score across all
+                performance ceiling with a 100.0% benchmark score across all
                 evaluated workflows, combining perfect task execution with
                 fast sub-20s response times and strong 57.7% DRS score.
               </p>
             </div>
 
             <div className={styles.takeawayCard}>
+              <div
+                className={styles.takeawayCardTopBar}
+                style={{ background: "#eab308" }}
+              />
               <div className={styles.takeawayCardTitle}>
-                <Cpu size={18} color="#f97316" />
+                <div
+                  className={styles.takeawayIconWrap}
+                  style={{ background: "rgba(234, 179, 8, 0.12)", color: "#eab308" }}
+                >
+                  <Cpu size={18} />
+                </div>
                 <span>Ultra-Fast Sub-Second Inference</span>
               </div>
               <p className={styles.takeawayCardDesc}>
@@ -390,29 +441,30 @@ export default function ValsIndexView() {
           </div>
 
           {/* TABLE EXPANDER */}
-          <div style={{ marginTop: "24px", textAlign: "center" }}>
+          <div style={{ marginTop: "28px", textAlign: "center" }}>
             <button
               type="button"
               onClick={() => setShowTable(!showTable)}
               style={{
-                background: "var(--secondary-bg)",
+                background: "var(--card-bg)",
                 border: "1px solid var(--border)",
-                borderRadius: "8px",
-                padding: "10px 20px",
-                fontSize: "12px",
-                fontWeight: 500,
+                borderRadius: "10px",
+                padding: "11px 22px",
+                fontSize: "12.5px",
+                fontWeight: 600,
                 color: "var(--text-main)",
                 cursor: "pointer",
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.04)",
                 transition: "all 0.15s ease",
               }}
             >
               <SlidersHorizontal size={14} />
               <span>
                 {showTable
-                  ? "Hide Model Data Table"
+                  ? "Hide Benchmark Data Table"
                   : `View Full Model Data Table (${filteredModels.length} Models)`}
               </span>
             </button>
@@ -442,11 +494,13 @@ export default function ValsIndexView() {
                         letterSpacing: "0.05em",
                       }}
                     >
-                      <th style={{ padding: "12px 16px" }}>Model</th>
-                      <th style={{ padding: "12px 16px" }}>Lab</th>
-                      <th style={{ padding: "12px 16px" }}>Accuracy %</th>
-                      <th style={{ padding: "12px 16px" }}>Latency</th>
-                      <th style={{ padding: "12px 16px" }}>DRS Score</th>
+                      <th style={{ padding: "14px 18px" }}>Model</th>
+                      <th style={{ padding: "14px 18px" }}>Lab</th>
+                      <th style={{ padding: "14px 18px" }}>Cost/Task</th>
+                      <th style={{ padding: "14px 18px" }}>Accuracy %</th>
+                      <th style={{ padding: "14px 18px" }}>Latency</th>
+                      <th style={{ padding: "14px 18px" }}>DRS Score</th>
+                      <th style={{ padding: "14px 18px" }}>Frontier Status</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -457,24 +511,37 @@ export default function ValsIndexView() {
                           borderBottom: "1px solid var(--border)",
                           background:
                             selectedModel?.id === m.id
-                              ? "rgba(59, 130, 246, 0.15)"
+                              ? "rgba(16, 185, 129, 0.12)"
                               : idx % 2 === 0
                               ? "transparent"
                               : "var(--secondary-bg)",
+                          cursor: "pointer",
                         }}
+                        onClick={() => setSelectedModel(selectedModel?.id === m.id ? null : m)}
                       >
                         <td
                           style={{
-                            padding: "10px 16px",
-                            fontWeight: 500,
+                            padding: "12px 18px",
+                            fontWeight: 600,
                             color: "var(--text-main)",
                           }}
                         >
-                          {m.name}
+                          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                            <span
+                              style={{
+                                width: "8px",
+                                height: "8px",
+                                borderRadius: "50%",
+                                backgroundColor: m.badgeColor,
+                                display: "inline-block",
+                              }}
+                            />
+                            <span>{m.name}</span>
+                          </div>
                         </td>
                         <td
                           style={{
-                            padding: "10px 16px",
+                            padding: "12px 18px",
                             color: "var(--text-muted)",
                           }}
                         >
@@ -482,36 +549,69 @@ export default function ValsIndexView() {
                         </td>
                         <td
                           style={{
-                            padding: "10px 16px",
-                            fontWeight: 500,
-                            color: "#16a34a",
+                            padding: "12px 18px",
+                            color: "var(--text-muted)",
+                            fontVariantNumeric: "tabular-nums",
+                          }}
+                        >
+                          {m.costLabel}
+                        </td>
+                        <td
+                          style={{
+                            padding: "12px 18px",
+                            fontWeight: 600,
+                            color: "#10b981",
+                            fontVariantNumeric: "tabular-nums",
                           }}
                         >
                           {m.accuracy.toFixed(1)}%
                         </td>
                         <td
                           style={{
-                            padding: "10px 16px",
-                            fontWeight: 500,
+                            padding: "12px 18px",
+                            fontWeight: 600,
                             color:
                               viewMode === "latency"
-                                ? "#16a34a"
+                                ? "#10b981"
                                 : "var(--text-muted)",
+                            fontVariantNumeric: "tabular-nums",
                           }}
                         >
                           {m.latencyLabel}
                         </td>
                         <td
                           style={{
-                            padding: "10px 16px",
-                            fontWeight: 500,
+                            padding: "12px 18px",
+                            fontWeight: 600,
                             color:
                               viewMode === "drs"
-                                ? "#38bdf8"
+                                ? "#06b6d4"
                                 : "var(--text-muted)",
+                            fontVariantNumeric: "tabular-nums",
                           }}
                         >
                           {m.drsLabel}
+                        </td>
+                        <td style={{ padding: "12px 18px" }}>
+                          {m.onFrontier ? (
+                            <span
+                              style={{
+                                fontSize: "10px",
+                                fontWeight: 600,
+                                padding: "2px 7px",
+                                borderRadius: "4px",
+                                background: "rgba(16, 185, 129, 0.15)",
+                                color: "#10b981",
+                                border: "1px solid rgba(16, 185, 129, 0.3)",
+                              }}
+                            >
+                              CHAMPION
+                            </span>
+                          ) : (
+                            <span style={{ color: "var(--text-muted)", fontSize: "11px" }}>
+                              Evaluated
+                            </span>
+                          )}
                         </td>
                       </tr>
                     ))}
@@ -519,7 +619,7 @@ export default function ValsIndexView() {
                 </table>
               </div>
 
-              {/* Mobile Table Cards (Zero side scrolling!) */}
+              {/* Mobile Table Cards */}
               <div className={styles.tableMobileCardsWrapper}>
                 {sortedModels.map((m, idx) => (
                   <div
@@ -528,7 +628,7 @@ export default function ValsIndexView() {
                     style={{
                       borderColor:
                         selectedModel?.id === m.id
-                          ? "#0284c7"
+                          ? "#10b981"
                           : "var(--border)",
                     }}
                   >
@@ -538,7 +638,7 @@ export default function ValsIndexView() {
                           style={{
                             color: "var(--text-muted)",
                             fontSize: "11px",
-                            fontWeight: 500,
+                            fontWeight: 600,
                           }}
                         >
                           #{idx + 1}
@@ -548,8 +648,8 @@ export default function ValsIndexView() {
                       <span
                         style={{
                           fontSize: "10px",
-                          fontWeight: 500,
-                          padding: "2px 6px",
+                          fontWeight: 600,
+                          padding: "2px 7px",
                           borderRadius: "4px",
                           background: m.badgeColor,
                           color: m.badgeTextColor,
@@ -567,7 +667,7 @@ export default function ValsIndexView() {
                         </span>
                         <span
                           className={styles.modelCardMetricVal}
-                          style={{ color: "#16a34a" }}
+                          style={{ color: "#10b981" }}
                         >
                           {m.accuracy.toFixed(1)}%
                         </span>
@@ -581,7 +681,7 @@ export default function ValsIndexView() {
                           style={{
                             color:
                               viewMode === "latency"
-                                ? "#16a34a"
+                                ? "#10b981"
                                 : "var(--text-main)",
                           }}
                         >
@@ -594,7 +694,7 @@ export default function ValsIndexView() {
                         </span>
                         <span
                           className={styles.modelCardMetricVal}
-                          style={{ color: "#38bdf8" }}
+                          style={{ color: "#06b6d4" }}
                         >
                           {m.drsLabel}
                         </span>

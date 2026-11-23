@@ -11,11 +11,9 @@ import {
   AlertTriangle,
   Activity,
   Zap,
-  ChevronLeft,
-  ChevronRight,
   ChevronDown,
   Check,
-  X,
+  ChevronUp,
 } from "lucide-react";
 import styles from "./RealWorldBenchmarks.module.css";
 
@@ -125,7 +123,7 @@ function LabIcon({ lab, id }: { lab?: string; id?: string }) {
   if (normLab.includes("tencent") || normId.includes("hunyuan")) {
     return (
       <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-        <path d="M11 3h2v6h5v2h-5v10h-2V11H6V9h5V3z" />
+        <path d="M11 3h2v6h5v2h-5v10h-2V11H6V9h5V3z" />;
       </svg>
     );
   }
@@ -316,29 +314,14 @@ export default function RealWorldBenchmarks() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const [todayDate, setTodayDate] = useState<string>(LATEST_BENCHMARK_DATE || "OCT 9, 2026");
-  const [hoveredModel, setHoveredModel] = useState<ModelData | null>(null);
-  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null);
-  const chartAreaRef = useRef<HTMLDivElement>(null);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [selectedCount, setSelectedCount] = useState<"top8" | "top12" | "all" | null>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
-  const [canScrollRight, setCanScrollRight] = useState<boolean>(false);
-  const [visibleRangeText, setVisibleRangeText] = useState<string>("1–8");
+  const [todayDate, setTodayDate] = useState<string>(LATEST_BENCHMARK_DATE || "NOV 23, 2026");
+  const [expandedModelId, setExpandedModelId] = useState<string | null>(null);
+  const [selectedCount, setSelectedCount] = useState<"top8" | "top12" | "all">("top8");
 
   useEffect(() => {
     const now = new Date();
     const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     setTodayDate(`${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`);
-
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   // Close dropdown on click outside
@@ -382,7 +365,7 @@ export default function RealWorldBenchmarks() {
         case "accuracy":
           return b.score - a.score;
         case "latency":
-          return a.latency - b.latency; // Faster response first (tallest bar to lowest)
+          return a.latency - b.latency; // Faster response first
         case "semantic":
           return b.semantic - a.semantic;
         case "factuality":
@@ -401,125 +384,36 @@ export default function RealWorldBenchmarks() {
     });
   }, [activeMetric]);
 
-  const activeCount: "top8" | "top12" | "all" = selectedCount ?? (isMobile ? "top8" : "all");
-
   const displayedModels = useMemo(() => {
-    if (activeCount === "top8") return sortedModels.slice(0, 8);
-    if (activeCount === "top12") return sortedModels.slice(0, 12);
+    if (selectedCount === "top8") return sortedModels.slice(0, 8);
+    if (selectedCount === "top12") return sortedModels.slice(0, 12);
     return sortedModels;
-  }, [sortedModels, activeCount]);
+  }, [sortedModels, selectedCount]);
 
-  const updateScrollState = () => {
-    if (!scrollContainerRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-    setCanScrollLeft(scrollLeft > 6);
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 6);
-
-    if (activeCount === "all" && displayedModels.length > 0) {
-      const barWidth = scrollWidth / displayedModels.length;
-      const first = Math.max(1, Math.min(displayedModels.length, Math.floor(scrollLeft / barWidth) + 1));
-      const count = Math.max(1, Math.round(clientWidth / barWidth));
-      const last = Math.min(displayedModels.length, first + count - 1);
-      setVisibleRangeText(`${first}–${last}`);
-    }
-  };
-
-  useEffect(() => {
-    updateScrollState();
-  }, [displayedModels, activeCount]);
-
-  const handleScroll = () => {
-    if (hoveredModel) {
-      setHoveredModel(null);
-      setTooltipPos(null);
-    }
-    updateScrollState();
-  };
-
-  const scrollByDirection = (dir: "left" | "right") => {
-    if (!scrollContainerRef.current) return;
-    const amount = Math.max(200, scrollContainerRef.current.clientWidth * 0.75);
-    scrollContainerRef.current.scrollBy({
-      left: dir === "right" ? amount : -amount,
-      behavior: "smooth",
-    });
-  };
-
-  useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent | TouchEvent) => {
-      if (chartAreaRef.current && !chartAreaRef.current.contains(e.target as Node)) {
-        setHoveredModel(null);
-        setTooltipPos(null);
-      }
-    };
-    document.addEventListener("mousedown", handleOutsideClick);
-    document.addEventListener("touchstart", handleOutsideClick, { passive: true });
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-      document.removeEventListener("touchstart", handleOutsideClick);
-    };
-  }, []);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!chartAreaRef.current) return;
-    const rect = chartAreaRef.current.getBoundingClientRect();
-    const rawX = e.clientX - rect.left;
-    const rawY = e.clientY - rect.top;
-
-    const tooltipWidth = 220;
-    const chartWidth = rect.width;
-    const clampedX = Math.min(Math.max(12, rawX - tooltipWidth / 2), chartWidth - tooltipWidth - 12);
-
-    const tooltipHeight = 220;
-    const clampedY = rawY < 240 ? rawY + 18 : Math.max(12, rawY - tooltipHeight - 12);
-
-    setTooltipPos({ x: clampedX, y: clampedY });
-  };
-
-  const handleBarSelect = (model: ModelData, clientX: number, clientY: number) => {
-    if (hoveredModel?.id === model.id) {
-      setHoveredModel(null);
-      setTooltipPos(null);
-      return;
-    }
-    setHoveredModel(model);
-    if (!chartAreaRef.current) return;
-    const rect = chartAreaRef.current.getBoundingClientRect();
-    const rawX = clientX - rect.left;
-    const rawY = clientY - rect.top;
-
-    const tooltipWidth = 220;
-    const chartWidth = rect.width;
-    const clampedX = Math.min(Math.max(12, rawX - tooltipWidth / 2), chartWidth - tooltipWidth - 12);
-    const tooltipHeight = 220;
-    const clampedY = rawY < 240 ? rawY + 18 : Math.max(12, rawY - tooltipHeight - 12);
-    setTooltipPos({ x: clampedX, y: clampedY });
-  };
-
-  // Calculate height percentage based on active metric
-  const calculateHeight = (model: ModelData) => {
+  // Calculate width percentage based on active metric (SINGLE COLOR BARS)
+  const calculateWidth = (model: ModelData) => {
     switch (activeMetric) {
       case "accuracy":
-        return `${Math.max(16, (model.score / 100) * 88)}%`;
+        return `${Math.max(4, Math.min(100, model.score))}%`;
       case "latency": {
         const logMin = Math.log10(250);
         const logMax = Math.log10(45000);
         const logVal = Math.log10(Math.max(250, model.latency));
         const normalizedLat = 1 - Math.min(1, Math.max(0, (logVal - logMin) / (logMax - logMin)));
-        return `${Math.max(20, normalizedLat * 88)}%`;
+        return `${Math.max(6, Math.min(100, normalizedLat * 100))}%`;
       }
       case "semantic":
-        return `${Math.max(16, (model.semantic / 100) * 88)}%`;
+        return `${Math.max(4, Math.min(100, model.semantic))}%`;
       case "factuality":
-        return `${Math.max(16, (model.factuality / 100) * 88)}%`;
+        return `${Math.max(4, Math.min(100, model.factuality))}%`;
       case "hallucination":
-        return `${Math.max(16, (model.hallucination / 100) * 88)}%`;
+        return `${Math.max(4, Math.min(100, model.hallucination))}%`;
       case "safety":
-        return `${Math.max(16, (model.safety / 100) * 88)}%`;
+        return `${Math.max(4, Math.min(100, model.safety))}%`;
       case "reliability":
-        return `${Math.max(16, (model.reliability / 100) * 88)}%`;
+        return `${Math.max(4, Math.min(100, model.reliability))}%`;
       case "drs":
-        return `${Math.max(16, (model.drs / 100) * 88)}%`;
+        return `${Math.max(4, Math.min(100, model.drs))}%`;
     }
   };
 
@@ -542,6 +436,10 @@ export default function RealWorldBenchmarks() {
       case "drs":
         return model.drsLabel;
     }
+  };
+
+  const toggleRowExpansion = (modelId: string) => {
+    setExpandedModelId((prev) => (prev === modelId ? null : modelId));
   };
 
   return (
@@ -645,18 +543,18 @@ export default function RealWorldBenchmarks() {
               title="Explore full OpenVals Index benchmark"
             >
               <div className={styles.valsLogoIcon}>
-                <svg viewBox="0 0 20 20" width="18" height="18" fill="none">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none">
                   <circle cx="10" cy="10" r="8.5" stroke="#10b981" strokeWidth="1.6" />
                   <path
                     d="M6.5 7L10 14L13.5 7"
-                    stroke="currentColor"
+                    stroke="#10b981"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <span>OPENVALS INDEX</span>
+              <span>OPENVALS INDEX ↗</span>
             </Link>
 
             <span className={styles.metaDot}>•</span>
@@ -668,15 +566,19 @@ export default function RealWorldBenchmarks() {
               <button
                 type="button"
                 onClick={() => setSelectedCount("top8")}
-                className={`${styles.viewModeBtn} ${activeCount === "top8" ? styles.viewModeBtnActive : ""}`}
-                title="Fit Top 8 models to screen width"
+                className={`${styles.viewModeBtn} ${
+                  selectedCount === "top8" ? styles.viewModeBtnActive : ""
+                }`}
+                title="View Top 8 models"
               >
                 Top 8
               </button>
               <button
                 type="button"
                 onClick={() => setSelectedCount("top12")}
-                className={`${styles.viewModeBtn} ${activeCount === "top12" ? styles.viewModeBtnActive : ""}`}
+                className={`${styles.viewModeBtn} ${
+                  selectedCount === "top12" ? styles.viewModeBtnActive : ""
+                }`}
                 title="View Top 12 models"
               >
                 Top 12
@@ -684,202 +586,173 @@ export default function RealWorldBenchmarks() {
               <button
                 type="button"
                 onClick={() => setSelectedCount("all")}
-                className={`${styles.viewModeBtn} ${activeCount === "all" ? styles.viewModeBtnActive : ""}`}
-                title="View all 23 evaluated models"
+                className={`${styles.viewModeBtn} ${
+                  selectedCount === "all" ? styles.viewModeBtnActive : ""
+                }`}
+                title="View all 23 models"
               >
                 All 23
               </button>
             </div>
-
-            {activeCount === "all" && (
-              <div className={styles.scrollNavGroup}>
-                <button
-                  type="button"
-                  onClick={() => scrollByDirection("left")}
-                  disabled={!canScrollLeft}
-                  className={styles.scrollNavBtn}
-                  aria-label="Scroll left to view previous models"
-                  title="Previous models"
-                >
-                  <ChevronLeft size={13} />
-                </button>
-                <span className={styles.scrollNavCounter}>
-                  {visibleRangeText} of {sortedModels.length}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => scrollByDirection("right")}
-                  disabled={!canScrollRight}
-                  className={styles.scrollNavBtn}
-                  aria-label="Scroll right to view more models"
-                  title="Next models"
-                >
-                  <ChevronRight size={13} />
-                </button>
-              </div>
-            )}
           </div>
         </div>
       </div>
 
-      {/* CHART AREA */}
+      {/* HORIZONTAL BAR GRAPH CONTAINER */}
       <div className={styles.chartOuterWrapper}>
-        <div
-          className={styles.chartScrollContainer}
-          ref={scrollContainerRef}
-          onScroll={handleScroll}
-        >
-          <div
-            className={`${styles.chartArea} ${
-              activeCount !== "all" ? styles.chartAreaFit : ""
-            }`}
-            ref={chartAreaRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={() => {
-              setHoveredModel(null);
-              setTooltipPos(null);
-            }}
-          >
-            {/* Unified In-Bounds Floating Tooltip */}
-            {hoveredModel && tooltipPos && (
-              <div
-                className={styles.tooltipCard}
-                style={{
-                  left: tooltipPos.x,
-                  top: tooltipPos.y,
-                  borderTop: `3px solid ${hoveredModel.color}`,
-                }}
-              >
-                <div className={styles.tooltipHeader}>
-                  <div>
-                    <div className={styles.tooltipTitle}>
-                      {hoveredModel.name}
-                      {hoveredModel.version && (
-                        <span style={{ marginLeft: 6, fontSize: "9.5px", opacity: 0.85 }}>
-                          {hoveredModel.version}
-                        </span>
-                      )}
-                    </div>
-                    <div className={styles.tooltipLab}>Lab: {hoveredModel.lab}</div>
-                  </div>
-                  <button
-                    type="button"
-                    className={styles.tooltipCloseBtn}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setHoveredModel(null);
-                      setTooltipPos(null);
-                    }}
-                    aria-label="Close tooltip"
-                  >
-                    <X size={12} />
-                  </button>
-                </div>
-
-                <div className={styles.tooltipRow}>
-                  <span>Accuracy %:</span>
-                  <span className={styles.tooltipVal}>{hoveredModel.displayScore}</span>
-                </div>
-                <div className={styles.tooltipRow}>
-                  <span>Latency:</span>
-                  <span className={styles.tooltipVal}>{hoveredModel.latencyLabel}</span>
-                </div>
-                <div className={styles.tooltipMetricsList}>
-                  <div className={styles.tooltipMetricRow}>
-                    <span>Semantic:</span> <b className={styles.tooltipMetricVal}>{hoveredModel.semanticLabel}</b>
-                  </div>
-                  <div className={styles.tooltipMetricRow}>
-                    <span>Factuality:</span> <b className={styles.tooltipMetricVal}>{hoveredModel.factualityLabel}</b>
-                  </div>
-                  <div className={styles.tooltipMetricRow}>
-                    <span>Hallucination:</span> <b className={styles.tooltipMetricVal}>{hoveredModel.hallucinationLabel}</b>
-                  </div>
-                  <div className={styles.tooltipMetricRow}>
-                    <span>Safety:</span> <b className={styles.tooltipMetricVal}>{hoveredModel.safetyLabel}</b>
-                  </div>
-                  <div className={styles.tooltipMetricRow}>
-                    <span>Reliability:</span> <b className={styles.tooltipMetricVal}>{hoveredModel.reliabilityLabel}</b>
-                  </div>
-                  <div className={styles.tooltipMetricRow}>
-                    <span>Reasoning (DRS):</span> <b className={styles.tooltipMetricVal}>{hoveredModel.drsLabel}</b>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Subtle Horizon Benchmark Guide Lines */}
-            <div className={styles.gridLinesContainer} aria-hidden="true">
-              <div className={styles.gridLine} style={{ bottom: "88%" }}>
-                <span className={styles.gridLineLabel}>100%</span>
-              </div>
-              <div className={styles.gridLine} style={{ bottom: "66%" }}>
-                <span className={styles.gridLineLabel}>75%</span>
-              </div>
-              <div className={styles.gridLine} style={{ bottom: "44%" }}>
-                <span className={styles.gridLineLabel}>50%</span>
-              </div>
-              <div className={styles.gridLine} style={{ bottom: "22%" }}>
-                <span className={styles.gridLineLabel}>25%</span>
-              </div>
-            </div>
-
-            <div className={styles.barsContainer}>
-              {displayedModels.map((model) => {
-                const heightVal = calculateHeight(model);
-                const metricLabel = getMetricTopLabel(model);
-
-                return (
-                  <div
-                    key={model.id}
-                    className={`${styles.barCol} ${
-                      hoveredModel?.id === model.id ? styles.barColActive : ""
-                    }`}
-                    onClick={(e) => handleBarSelect(model, e.clientX, e.clientY)}
-                    onTouchStart={(e) => {
-                      if (e.touches && e.touches.length > 0) {
-                        handleBarSelect(model, e.touches[0].clientX, e.touches[0].clientY);
-                      }
-                    }}
-                    onMouseEnter={(e) => {
-                      if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
-                        setHoveredModel(model);
-                        handleMouseMove(e);
-                      }
-                    }}
-                  >
-                    {/* The Bar Fill with modern ambient glow & sheen */}
-                    <div
-                      className={styles.barFill}
-                      style={
-                        {
-                          height: heightVal,
-                          backgroundColor: model.color,
-                          color: model.textColor,
-                          "--bar-color": model.color,
-                        } as React.CSSProperties
-                      }
-                    >
-                      {/* Top Metric score */}
-                      <span className={styles.scoreTop}>{metricLabel}</span>
-
-                      {/* Bottom Icon and Label */}
-                      <div className={styles.barBottom}>
-                        <div className={styles.modelIconWrap}>
-                          <LabIcon lab={model.lab} id={model.id} />
-                        </div>
-                        <div className={styles.modelName}>
-                          {model.name}
-                          {model.version && (
-                            <span className={styles.modelVersion}>{model.version}</span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+        {/* Table Column Header */}
+        <div className={styles.chartTableHeader}>
+          <div className={styles.headerColLeft}>
+            <span># Rank &amp; Model</span>
           </div>
+          <div className={styles.headerColMid}>
+            <span className={styles.headerTick}>0%</span>
+            <span className={styles.headerTick}>25%</span>
+            <span className={styles.headerTick}>50%</span>
+            <span className={styles.headerTick}>75%</span>
+            <span className={styles.headerTick}>100%</span>
+          </div>
+          <div className={styles.headerColRight}>
+            <span>Score</span>
+          </div>
+        </div>
+
+        {/* Horizontal Model Rows */}
+        <div className={styles.horizontalRowsList}>
+          {displayedModels.map((model, idx) => {
+            const widthVal = calculateWidth(model);
+            const metricLabel = getMetricTopLabel(model);
+            const isExpanded = expandedModelId === model.id;
+
+            return (
+              <div
+                key={model.id}
+                className={`${styles.horizontalRow} ${
+                  isExpanded ? styles.horizontalRowActive : ""
+                }`}
+              >
+                {/* Main Row Content */}
+                <div
+                  className={styles.rowMainContent}
+                  onClick={() => toggleRowExpansion(model.id)}
+                  title="Click to view detailed metrics breakdown"
+                >
+                  {/* Left: Rank, Brand Icon, Name */}
+                  <div className={styles.rowModelInfo}>
+                    <span
+                      className={`${styles.rankBadge} ${
+                        idx < 3 ? styles.rankTop3 : ""
+                      }`}
+                    >
+                      #{idx + 1}
+                    </span>
+                    <div className={styles.modelIconWrap}>
+                      <LabIcon lab={model.lab} id={model.id} />
+                    </div>
+                    <div className={styles.modelNameBlock}>
+                      <div className={styles.modelTitleRow}>
+                        <span className={styles.modelName}>{model.name}</span>
+                        {model.version && (
+                          <span className={styles.modelVersionTag}>
+                            {model.version}
+                          </span>
+                        )}
+                      </div>
+                      <span className={styles.modelLabName}>{model.lab}</span>
+                    </div>
+                  </div>
+
+                  {/* Center: Horizontal Bar with Single Emerald Fill */}
+                  <div className={styles.barTrackCol}>
+                    <div className={styles.barTrackBg}>
+                      {/* Vertical Reference Grid Lines */}
+                      <div className={styles.trackGridGuide} style={{ left: "25%" }} />
+                      <div className={styles.trackGridGuide} style={{ left: "50%" }} />
+                      <div className={styles.trackGridGuide} style={{ left: "75%" }} />
+
+                      {/* Single Unified Color Bar Fill */}
+                      <div
+                        className={styles.barFill}
+                        style={{ width: widthVal }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Right: Score Value */}
+                  <div className={styles.rowScoreCol}>
+                    <span className={styles.scoreValue}>{metricLabel}</span>
+                    <span
+                      className={`${styles.expandIndicator} ${
+                        isExpanded ? styles.expandIndicatorOpen : ""
+                      }`}
+                    >
+                      {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Expanded Micro-Grid Details Drawer */}
+                {isExpanded && (
+                  <div className={styles.expandedDetailsDrawer}>
+                    <div className={styles.drawerMetricItem}>
+                      <span className={styles.drawerMetricLabel}>Accuracy</span>
+                      <span
+                        className={styles.drawerMetricVal}
+                        style={{ color: "#10b981" }}
+                      >
+                        {model.displayScore}
+                      </span>
+                    </div>
+                    <div className={styles.drawerMetricItem}>
+                      <span className={styles.drawerMetricLabel}>Avg Latency</span>
+                      <span className={styles.drawerMetricVal}>
+                        {model.latencyLabel}
+                      </span>
+                    </div>
+                    <div className={styles.drawerMetricItem}>
+                      <span className={styles.drawerMetricLabel}>DRS Reliability</span>
+                      <span
+                        className={styles.drawerMetricVal}
+                        style={{ color: "#06b6d4" }}
+                      >
+                        {model.drsLabel}
+                      </span>
+                    </div>
+                    <div className={styles.drawerMetricItem}>
+                      <span className={styles.drawerMetricLabel}>Factuality</span>
+                      <span className={styles.drawerMetricVal}>
+                        {model.factualityLabel}
+                      </span>
+                    </div>
+                    <div className={styles.drawerMetricItem}>
+                      <span className={styles.drawerMetricLabel}>Hallucination</span>
+                      <span className={styles.drawerMetricVal}>
+                        {model.hallucinationLabel}
+                      </span>
+                    </div>
+                    <div className={styles.drawerMetricItem}>
+                      <span className={styles.drawerMetricLabel}>Safety</span>
+                      <span className={styles.drawerMetricVal}>
+                        {model.safetyLabel}
+                      </span>
+                    </div>
+                    <div className={styles.drawerMetricItem}>
+                      <span className={styles.drawerMetricLabel}>Cost / Task</span>
+                      <span className={styles.drawerMetricVal}>
+                        {model.costLabel || "$0.20"}
+                      </span>
+                    </div>
+                    <div className={styles.drawerMetricItem}>
+                      <span className={styles.drawerMetricLabel}>Token Usage</span>
+                      <span className={styles.drawerMetricVal}>
+                        {model.tokenLabel || "3.4k"}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {/* BOTTOM METADATA BAR */}
@@ -887,26 +760,17 @@ export default function RealWorldBenchmarks() {
           <div className={styles.bottomInfo}>
             <span className={styles.infoIcon}>i</span>
             <span>
-              {activeCount === "top8"
-                ? "Showing Top 8 evaluation models (fit to screen)"
-                : activeCount === "top12"
-                ? "Showing Top 12 evaluation models in descending order"
-                : `Showing all ${sortedModels.length} models (${visibleRangeText} in view)`}
+              Showing {displayedModels.length} of {sortedModels.length} evaluated models sorted by {currentMetricObj.label}. Click any model row to inspect full validation metrics.
             </span>
           </div>
 
           <div className={styles.bottomActions}>
-            {activeCount === "all" && (
-              <span className={styles.swipeHint}>
-                Swipe or use arrows to view all {sortedModels.length} models →
-              </span>
-            )}
             <Link
               href="/openvals-index"
               className={styles.viewFullLink}
               title="Explore full Vals Index benchmarks and methodology"
             >
-              <span>View Full Results</span>
+              <span>Explore OpenVals Index</span>
               <ExternalLink size={14} />
             </Link>
           </div>

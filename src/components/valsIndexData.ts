@@ -40,17 +40,17 @@ export const LAB_LEGENDS: LabLegendItem[] = [
   {
     "key": "Agentica",
     "label": "Agentica",
-    "color": "#df8b7c"
+    "color": "#f43f5e"
   },
   {
     "key": "Tencent",
     "label": "Tencent",
-    "color": "#3a3a3a"
+    "color": "#475569"
   },
   {
     "key": "IBM",
     "label": "IBM",
-    "color": "#0f62fe"
+    "color": "#0284c7"
   },
   {
     "key": "Prism ML",
@@ -60,12 +60,12 @@ export const LAB_LEGENDS: LabLegendItem[] = [
   {
     "key": "Liquid AI",
     "label": "Liquid AI",
-    "color": "#0284c7"
+    "color": "#06b6d4"
   },
   {
     "key": "QVAC",
     "label": "QVAC",
-    "color": "#7c3aed"
+    "color": "#8b5cf6"
   },
   {
     "key": "Hugging Face",
@@ -75,17 +75,17 @@ export const LAB_LEGENDS: LabLegendItem[] = [
   {
     "key": "Google",
     "label": "Google",
-    "color": "#46b17c"
+    "color": "#059669"
   },
   {
     "key": "Meta",
     "label": "Meta",
-    "color": "#528ef0"
+    "color": "#2563eb"
   },
   {
     "key": "Microsoft",
     "label": "Microsoft",
-    "color": "#00a4ef"
+    "color": "#0284c7"
   },
   {
     "key": "Open Source",
@@ -95,7 +95,7 @@ export const LAB_LEGENDS: LabLegendItem[] = [
   {
     "key": "Alibaba",
     "label": "Alibaba",
-    "color": "#f3832b"
+    "color": "#ea580c"
   },
   {
     "key": "TII",
@@ -105,17 +105,17 @@ export const LAB_LEGENDS: LabLegendItem[] = [
   {
     "key": "01.AI",
     "label": "01.AI",
-    "color": "#498ff0"
+    "color": "#3b82f6"
   },
   {
     "key": "Deepseek",
     "label": "Deepseek",
-    "color": "#1e40af"
+    "color": "#4f46e5"
   },
   {
     "key": "Mistral AI",
     "label": "Mistral AI",
-    "color": "#d8b335"
+    "color": "#eab308"
   },
   {
     "key": "Stability AI",
@@ -125,22 +125,22 @@ export const LAB_LEGENDS: LabLegendItem[] = [
   {
     "key": "Nous Research",
     "label": "Nous Research",
-    "color": "#546d88"
+    "color": "#6366f1"
   },
   {
     "key": "Doey LLM",
     "label": "Doey LLM",
-    "color": "#e7a44f"
+    "color": "#d97706"
   },
   {
     "key": "Big Science",
     "label": "Big Science",
-    "color": "#708092"
+    "color": "#64748b"
   },
   {
     "key": "Supra",
     "label": "Supra",
-    "color": "#8ec84c"
+    "color": "#10b981"
   },
   {
     "key": "PROMTECH Inc",
@@ -150,7 +150,7 @@ export const LAB_LEGENDS: LabLegendItem[] = [
   {
     "key": "North ML",
     "label": "North ML",
-    "color": "#5b6670"
+    "color": "#8b5cf6"
   }
 ];
 
@@ -177,7 +177,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 46.4,
       "legal": 65.1
     },
-    "badgeColor": "#df8b7c",
+    "badgeColor": "#f43f5e",
     "badgeTextColor": "#ffffff",
     "hasPattern": false,
     "callout": {
@@ -208,7 +208,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 46.7,
       "legal": 65.3
     },
-    "badgeColor": "#3a3a3a",
+    "badgeColor": "#475569",
     "badgeTextColor": "#ffffff",
     "hasPattern": false,
     "callout": {
@@ -239,7 +239,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 55.4,
       "legal": 61.2
     },
-    "badgeColor": "#0f62fe",
+    "badgeColor": "#0284c7",
     "badgeTextColor": "#ffffff",
     "hasPattern": false,
     "callout": {
@@ -296,7 +296,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 61.8,
       "legal": 59
     },
-    "badgeColor": "#0284c7",
+    "badgeColor": "#06b6d4",
     "badgeTextColor": "#ffffff",
     "hasPattern": false,
     "callout": {
@@ -327,7 +327,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 59.4,
       "legal": 60.9
     },
-    "badgeColor": "#7c3aed",
+    "badgeColor": "#8b5cf6",
     "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
@@ -354,7 +354,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "legal": 61.4
     },
     "badgeColor": "#f59e0b",
-    "badgeTextColor": "#1e293b",
+    "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
   {
@@ -379,7 +379,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 70.9,
       "legal": 54.7
     },
-    "badgeColor": "#46b17c",
+    "badgeColor": "#059669",
     "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
@@ -405,7 +405,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 72.3,
       "legal": 54.1
     },
-    "badgeColor": "#528ef0",
+    "badgeColor": "#2563eb",
     "badgeTextColor": "#ffffff",
     "hasPattern": false,
     "callout": {
@@ -436,7 +436,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 64.8,
       "legal": 57.3
     },
-    "badgeColor": "#00a4ef",
+    "badgeColor": "#0284c7",
     "badgeTextColor": "#ffffff",
     "hasPattern": false,
     "callout": {
@@ -498,7 +498,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 64.2,
       "legal": 57.4
     },
-    "badgeColor": "#f3832b",
+    "badgeColor": "#ea580c",
     "badgeTextColor": "#ffffff",
     "hasPattern": false,
     "callout": {
@@ -555,7 +555,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 69.3,
       "legal": 55.3
     },
-    "badgeColor": "#498ff0",
+    "badgeColor": "#3b82f6",
     "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
@@ -581,7 +581,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 51.4,
       "legal": 63.7
     },
-    "badgeColor": "#1e40af",
+    "badgeColor": "#4f46e5",
     "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
@@ -607,8 +607,8 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 67.5,
       "legal": 56.2
     },
-    "badgeColor": "#d8b335",
-    "badgeTextColor": "#1e293b",
+    "badgeColor": "#eab308",
+    "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
   {
@@ -659,7 +659,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 68.7,
       "legal": 55.7
     },
-    "badgeColor": "#546d88",
+    "badgeColor": "#6366f1",
     "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
@@ -686,7 +686,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "legal": 61.6
     },
     "badgeColor": "#f59e0b",
-    "badgeTextColor": "#1e293b",
+    "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
   {
@@ -711,8 +711,8 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 74.3,
       "legal": 53
     },
-    "badgeColor": "#e7a44f",
-    "badgeTextColor": "#1e293b",
+    "badgeColor": "#d97706",
+    "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
   {
@@ -738,7 +738,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "legal": 62.5
     },
     "badgeColor": "#f59e0b",
-    "badgeTextColor": "#1e293b",
+    "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
   {
@@ -763,7 +763,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 23.1,
       "legal": 66.9
     },
-    "badgeColor": "#708092",
+    "badgeColor": "#64748b",
     "badgeTextColor": "#ffffff",
     "hasPattern": false,
     "callout": {
@@ -794,8 +794,8 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 25.1,
       "legal": 68.2
     },
-    "badgeColor": "#8ec84c",
-    "badgeTextColor": "#1e293b",
+    "badgeColor": "#10b981",
+    "badgeTextColor": "#ffffff",
     "hasPattern": false,
     "callout": {
       "text": "Supra 50M",
@@ -826,7 +826,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "legal": 74.5
     },
     "badgeColor": "#eab308",
-    "badgeTextColor": "#1e293b",
+    "badgeTextColor": "#ffffff",
     "hasPattern": false
   },
   {
@@ -851,7 +851,7 @@ export const VALS_INDEX_MODELS: ValsIndexModel[] = [
       "coding": 29.6,
       "legal": 71.7
     },
-    "badgeColor": "#5b6670",
+    "badgeColor": "#8b5cf6",
     "badgeTextColor": "#ffffff",
     "hasPattern": true
   }

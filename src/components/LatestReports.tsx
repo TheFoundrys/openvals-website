@@ -52,17 +52,32 @@ const FADE_UP: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
+function getPaginationWindow(current: number, total: number): (number | "...")[] {
+  if (total <= 7) {
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+  if (current <= 4) {
+    return [1, 2, 3, 4, 5, "...", total];
+  }
+  if (current >= total - 3) {
+    return [1, "...", total - 4, total - 3, total - 2, total - 1, total];
+  }
+  return [1, "...", current - 1, current, current + 1, "...", total];
+}
+
 export default function LatestReports() {
   const [selectedLab, setSelectedLab] = useState<string>("All Models");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [viewMode, setViewMode] = useState<"aggregated" | "all">("aggregated");
-  const [displayLimit, setDisplayLimit] = useState<number>(50);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(50);
   const tabListRef = useRef<HTMLDivElement>(null);
+  const tableContainerRef = useRef<HTMLDivElement>(null);
 
-  // Reset pagination limit on filter, search, or view change
+  // Reset current page when filters or page size change
   React.useEffect(() => {
-    setDisplayLimit(50);
-  }, [selectedLab, searchQuery, viewMode]);
+    setCurrentPage(1);
+  }, [selectedLab, searchQuery, viewMode, pageSize]);
 
   const scrollTabs = (direction: "left" | "right") => {
     if (tabListRef.current) {
@@ -113,14 +128,34 @@ export default function LatestReports() {
     });
   }, [selectedLab, searchQuery]);
 
+  // Pagination calculation
+  const totalItems = viewMode === "aggregated" ? filteredAggregated.length : filteredRuns.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+  const validCurrentPage = Math.min(currentPage, totalPages);
+
+  const startIndex = (validCurrentPage - 1) * pageSize;
+  const endIndex = Math.min(startIndex + pageSize, totalItems);
+
   // Paginated display sets to keep DOM lightweight and avoid reconciliation drops
   const displayedAggregated = useMemo(() => {
-    return filteredAggregated.slice(0, displayLimit);
-  }, [filteredAggregated, displayLimit]);
+    return filteredAggregated.slice(startIndex, endIndex);
+  }, [filteredAggregated, startIndex, endIndex]);
 
   const displayedRuns = useMemo(() => {
-    return filteredRuns.slice(0, displayLimit);
-  }, [filteredRuns, displayLimit]);
+    return filteredRuns.slice(startIndex, endIndex);
+  }, [filteredRuns, startIndex, endIndex]);
+
+  const handlePageChange = (newPage: number) => {
+    if (newPage < 1 || newPage > totalPages || newPage === validCurrentPage) return;
+    setCurrentPage(newPage);
+    if (tableContainerRef.current) {
+      tableContainerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const paginationPages = useMemo(() => {
+    return getPaginationWindow(validCurrentPage, totalPages);
+  }, [validCurrentPage, totalPages]);
 
   return (
     <div className={styles.reportsContainer} style={{ width: "100%" }}>
@@ -217,7 +252,7 @@ export default function LatestReports() {
       </div>
 
       {/* REPORT CARD */}
-      <div className={styles.reportCard}>
+      <div className={styles.reportCard} ref={tableContainerRef}>
         {/* DESKTOP TABLE VIEW */}
         <div className={styles.tableResponsiveWrapper}>
           <table
@@ -612,16 +647,101 @@ export default function LatestReports() {
           )}
         </div>
 
-        {/* LOAD MORE BUTTON FOR PROGRESSIVE RENDERING */}
-        {((viewMode === "aggregated" ? filteredAggregated.length : filteredRuns.length) > displayLimit) && (
-          <div style={{ display: "flex", justifyContent: "center", padding: "18px 0" }}>
-            <button
-              onClick={() => setDisplayLimit((prev) => prev + 50)}
-              className={styles.toggleBtn}
-              style={{ padding: "9px 28px", fontSize: "13px", cursor: "pointer", background: "var(--card-bg, #1e293b)", borderColor: "var(--border-color, #334155)" }}
-            >
-              Load More ({displayLimit} of {viewMode === "aggregated" ? filteredAggregated.length : filteredRuns.length})
-            </button>
+        {/* PAGINATION CONTROLS BAR */}
+        {totalItems > 0 && (
+          <div className={styles.paginationBar}>
+            {/* Range info */}
+            <div className={styles.paginationInfo}>
+              <span>Showing</span>
+              <span className={styles.paginationRange}>
+                {startIndex + 1}–{endIndex}
+              </span>
+              <span>of</span>
+              <span className={styles.paginationRange}>{totalItems}</span>
+              <span>models</span>
+            </div>
+
+            {/* Navigation buttons */}
+            <div className={styles.paginationNav} role="navigation" aria-label="Table pagination">
+              <button
+                type="button"
+                onClick={() => handlePageChange(1)}
+                disabled={validCurrentPage === 1}
+                className={styles.pageBtn}
+                title="First Page"
+                aria-label="Go to first page"
+              >
+                «
+              </button>
+              <button
+                type="button"
+                onClick={() => handlePageChange(validCurrentPage - 1)}
+                disabled={validCurrentPage === 1}
+                className={styles.pageBtn}
+                title="Previous Page"
+                aria-label="Go to previous page"
+              >
+                <ChevronLeft size={14} />
+              </button>
+
+              {paginationPages.map((page, idx) => {
+                if (page === "...") {
+                  return (
+                    <span key={`ellipsis-${idx}`} className={styles.pageEllipsis}>
+                      ...
+                    </span>
+                  );
+                }
+                const isCurrent = page === validCurrentPage;
+                return (
+                  <button
+                    key={`page-${page}`}
+                    type="button"
+                    onClick={() => handlePageChange(page as number)}
+                    className={`${styles.pageBtn} ${isCurrent ? styles.pageBtnActive : ""}`}
+                    aria-current={isCurrent ? "page" : undefined}
+                  >
+                    {page}
+                  </button>
+                );
+              })}
+
+              <button
+                type="button"
+                onClick={() => handlePageChange(validCurrentPage + 1)}
+                disabled={validCurrentPage === totalPages}
+                className={styles.pageBtn}
+                title="Next Page"
+                aria-label="Go to next page"
+              >
+                <ChevronRight size={14} />
+              </button>
+              <button
+                type="button"
+                onClick={() => handlePageChange(totalPages)}
+                disabled={validCurrentPage === totalPages}
+                className={styles.pageBtn}
+                title="Last Page"
+                aria-label="Go to last page"
+              >
+                »
+              </button>
+            </div>
+
+            {/* Page Size Selector */}
+            <div className={styles.pageSizeSelector}>
+              <span>Rows per page:</span>
+              <select
+                className={styles.pageSizeSelect}
+                value={pageSize}
+                onChange={(e) => setPageSize(Number(e.target.value))}
+                aria-label="Select rows per page"
+              >
+                <option value={25}>25</option>
+                <option value={50}>50</option>
+                <option value={100}>100</option>
+              </select>
+            </div>
           </div>
         )}
 
