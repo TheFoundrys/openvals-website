@@ -94,10 +94,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Synchronous inline script to prevent flash of incorrect theme */}
+        {/* Synchronous inline script to prevent flash of incorrect theme & protect DOM against removeChild reconciliation errors */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem('openvals-theme');var d=s==='dark'||s==='light'?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;var r=document.documentElement;r.classList.remove('light','dark');r.classList.add(d?'dark':'light');r.style.colorScheme=d?'dark':'light';}catch(e){}})();`,
+            __html: `(function(){try{var s=localStorage.getItem('openvals-theme');var d=s==='dark'||s==='light'?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;var r=document.documentElement;r.classList.remove('light','dark');r.classList.add(d?'dark':'light');r.style.colorScheme=d?'dark':'light';}catch(e){}})( );(function(){if(typeof Node==='function'&&Node.prototype){var _rc=Node.prototype.removeChild;Node.prototype.removeChild=function(c){if(c&&c.parentNode!==this){if(window.console)console.warn('removeChild safeguard caught detached node');return c;}return _rc.apply(this,arguments);};var _ib=Node.prototype.insertBefore;Node.prototype.insertBefore=function(n,r){if(r&&r.parentNode!==this){if(window.console)console.warn('insertBefore safeguard caught detached node');return n;}return _ib.apply(this,arguments);};}})();`,
           }}
         />
         <link

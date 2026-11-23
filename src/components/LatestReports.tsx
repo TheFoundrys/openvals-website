@@ -66,7 +66,13 @@ export default function LatestReports() {
   const [selectedLab, setSelectedLab] = useState<string>("All Models");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [viewMode, setViewMode] = useState<"aggregated" | "all">("aggregated");
+  const [displayLimit, setDisplayLimit] = useState<number>(50);
   const tabListRef = useRef<HTMLDivElement>(null);
+
+  // Reset pagination limit on filter, search, or view change
+  React.useEffect(() => {
+    setDisplayLimit(50);
+  }, [selectedLab, searchQuery, viewMode]);
 
   const scrollTabs = (direction: "left" | "right") => {
     if (tabListRef.current) {
@@ -116,6 +122,15 @@ export default function LatestReports() {
       return matchesLab && matchesSearch;
     });
   }, [selectedLab, searchQuery]);
+
+  // Paginated display sets to keep DOM lightweight and avoid reconciliation drops
+  const displayedAggregated = useMemo(() => {
+    return filteredAggregated.slice(0, displayLimit);
+  }, [filteredAggregated, displayLimit]);
+
+  const displayedRuns = useMemo(() => {
+    return filteredRuns.slice(0, displayLimit);
+  }, [filteredRuns, displayLimit]);
 
   return (
     <div className={styles.reportsContainer} style={{ width: "100%" }}>
@@ -294,20 +309,20 @@ export default function LatestReports() {
                 />
               </tr>
             </thead>
-            <tbody>
+            <tbody key={viewMode}>
               {viewMode === "aggregated" ? (
-                filteredAggregated.length === 0 ? (
+                displayedAggregated.length === 0 ? (
                   <tr>
                     <td colSpan={10} style={{ textAlign: "center", padding: "30px", color: "var(--text-muted)" }}>
                       No models found matching your search.
                     </td>
                   </tr>
                 ) : (
-                  filteredAggregated.map((row, idx) => {
+                  displayedAggregated.map((row) => {
                     const solidWidth = Math.min(100, Math.max(2, row.accuracyNum * 100));
 
                     return (
-                      <tr key={`${row.id}-${idx}`} className={styles.tableDataRow}>
+                      <tr key={`agg-${row.id}`} className={styles.tableDataRow}>
                         {/* Model Name, Params, Size, Lab */}
                         <td>
                           <div className={styles.modelCell}>
@@ -321,8 +336,8 @@ export default function LatestReports() {
                             <span className={styles.modelNameText} title={row.name}>
                               {row.name}
                             </span>
-                            {row.params && <span className={styles.paramBadge}>{row.params}</span>}
-                            {row.size && <span className={styles.sizeBadge}>{row.size}</span>}
+                            {Boolean(row.params) && <span className={styles.paramBadge}>{row.params}</span>}
+                            {Boolean(row.size) && <span className={styles.sizeBadge}>{row.size}</span>}
                           </div>
                         </td>
 
@@ -371,18 +386,18 @@ export default function LatestReports() {
                 )
               ) : (
                 /* RAW BENCHMARK RUNS VIEW */
-                filteredRuns.length === 0 ? (
+                displayedRuns.length === 0 ? (
                   <tr>
                     <td colSpan={10} style={{ textAlign: "center", padding: "30px", color: "var(--text-muted)" }}>
                       No evaluation runs found matching your search.
                     </td>
                   </tr>
                 ) : (
-                  filteredRuns.map((row, idx) => {
+                  displayedRuns.map((row) => {
                     const solidWidth = Math.min(100, Math.max(2, row.accuracyNum * 100));
 
                     return (
-                      <tr key={`${row.id}-${idx}`} className={styles.tableDataRow}>
+                      <tr key={`run-${row.id}`} className={styles.tableDataRow}>
                         {/* Model Name, Params, Size */}
                         <td>
                           <div className={styles.modelCell}>
@@ -392,8 +407,8 @@ export default function LatestReports() {
                             <span className={styles.modelNameText} title={row.name}>
                               {row.name}
                             </span>
-                            {row.params && <span className={styles.paramBadge}>{row.params}</span>}
-                            {row.size && <span className={styles.sizeBadge}>{row.size}</span>}
+                            {Boolean(row.params) && <span className={styles.paramBadge}>{row.params}</span>}
+                            {Boolean(row.size) && <span className={styles.sizeBadge}>{row.size}</span>}
                             <span className={styles.modelTag}>{row.lab}</span>
                           </div>
                         </td>
@@ -449,16 +464,16 @@ export default function LatestReports() {
         {/* MOBILE CARDS VIEW (All metrics visible directly with zero horizontal scroll) */}
         <div className={styles.mobileCardsWrapper}>
           {viewMode === "aggregated" ? (
-            filteredAggregated.length === 0 ? (
+            displayedAggregated.length === 0 ? (
               <div className={styles.mobileEmptyState}>
                 No models found matching your search.
               </div>
             ) : (
-              filteredAggregated.map((row, idx) => {
+              displayedAggregated.map((row) => {
                 const solidWidth = Math.min(100, Math.max(2, row.accuracyNum * 100));
 
                 return (
-                  <div key={`m-agg-${row.id}-${idx}`} className={styles.mobileModelCard}>
+                  <div key={`m-agg-${row.id}`} className={styles.mobileModelCard}>
                     {/* Header */}
                     <div className={styles.mobileCardHeader}>
                       <div className={styles.mobileModelIdentity}>
@@ -470,8 +485,8 @@ export default function LatestReports() {
                           )}
                         </span>
                         <span className={styles.mobileModelName}>{row.name}</span>
-                        {row.params && <span className={styles.paramBadge}>{row.params}</span>}
-                        {row.size && <span className={styles.sizeBadge}>{row.size}</span>}
+                        {Boolean(row.params) && <span className={styles.paramBadge}>{row.params}</span>}
+                        {Boolean(row.size) && <span className={styles.sizeBadge}>{row.size}</span>}
                       </div>
                       <span className={styles.mobileRankBadge}>Rank #{row.rank}</span>
                     </div>
@@ -531,16 +546,16 @@ export default function LatestReports() {
               })
             )
           ) : (
-            filteredRuns.length === 0 ? (
+            displayedRuns.length === 0 ? (
               <div className={styles.mobileEmptyState}>
                 No evaluation runs found matching your search.
               </div>
             ) : (
-              filteredRuns.map((row, idx) => {
+              displayedRuns.map((row) => {
                 const solidWidth = Math.min(100, Math.max(2, row.accuracyNum * 100));
 
                 return (
-                  <div key={`m-run-${row.id}-${idx}`} className={styles.mobileModelCard}>
+                  <div key={`m-run-${row.id}`} className={styles.mobileModelCard}>
                     {/* Header */}
                     <div className={styles.mobileCardHeader}>
                       <div className={styles.mobileModelIdentity}>
@@ -548,8 +563,8 @@ export default function LatestReports() {
                           <Layers size={13} />
                         </span>
                         <span className={styles.mobileModelName}>{row.name}</span>
-                        {row.params && <span className={styles.paramBadge}>{row.params}</span>}
-                        {row.size && <span className={styles.sizeBadge}>{row.size}</span>}
+                        {Boolean(row.params) && <span className={styles.paramBadge}>{row.params}</span>}
+                        {Boolean(row.size) && <span className={styles.sizeBadge}>{row.size}</span>}
                         <span className={styles.modelTag}>{row.lab}</span>
                       </div>
                       <span className={styles.mobileRankBadge}>Rank #{row.rank}</span>
@@ -611,6 +626,19 @@ export default function LatestReports() {
             )
           )}
         </div>
+
+        {/* LOAD MORE BUTTON FOR PROGRESSIVE RENDERING */}
+        {((viewMode === "aggregated" ? filteredAggregated.length : filteredRuns.length) > displayLimit) && (
+          <div style={{ display: "flex", justifyContent: "center", padding: "18px 0" }}>
+            <button
+              onClick={() => setDisplayLimit((prev) => prev + 50)}
+              className={styles.toggleBtn}
+              style={{ padding: "9px 28px", fontSize: "13px", cursor: "pointer", background: "var(--card-bg, #1e293b)", borderColor: "var(--border-color, #334155)" }}
+            >
+              Load More ({displayLimit} of {viewMode === "aggregated" ? filteredAggregated.length : filteredRuns.length})
+            </button>
+          </div>
+        )}
 
         {/* FOOTER */}
         <div className={styles.cardFooter}>
