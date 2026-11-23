@@ -12,7 +12,40 @@ const LOCAL_BACKUP_PATH = path.join(process.cwd(), "scratch", "tracker.xlsx");
 // Default GitHub repository details
 const GITHUB_REPO_OWNER = process.env.GITHUB_REPO_OWNER || "TheFoundrys";
 const GITHUB_REPO_NAME = process.env.GITHUB_REPO_NAME || "openvals-website";
-const GITHUB_DEFAULT_BRANCH = process.env.GITHUB_SYNC_BRANCH || "Dev-testing";
+const GITHUB_DEFAULT_BRANCH = process.env.GITHUB_SYNC_BRANCH || "main";
+const DEFAULT_SHAREPOINT_URL =
+  "https://techoptima1-my.sharepoint.com/:x:/g/personal/krishna_avula_techoptima_ai/IQBjWJjpczJyR7-ReQj5TzqtAc2o0S7BFX68DN2pQ8qOvMU?download=1";
+
+async function fetchFromSharePoint(): Promise<Buffer | null> {
+  try {
+    const url = process.env.TRACKER_EXCEL_URL || DEFAULT_SHAREPOINT_URL;
+    let downloadUrl = url;
+    if (!downloadUrl.includes("download=1")) {
+      downloadUrl += (downloadUrl.includes("?") ? "&" : "?") + "download=1";
+    }
+    console.log(`[API Tracker Sync] Downloading directly from SharePoint: ${downloadUrl}`);
+    const r1 = await fetch(downloadUrl, { redirect: "manual" });
+    if (r1.status === 302 || r1.status === 301) {
+      const loc = r1.headers.get("location");
+      const cookies = r1.headers.getSetCookie ? r1.headers.getSetCookie().join("; ") : r1.headers.get("set-cookie");
+      const origin = new URL(downloadUrl).origin;
+      const nextUrl = new URL(loc || "", origin).toString();
+      const r2 = await fetch(nextUrl, {
+        headers: cookies ? { cookie: cookies } : {},
+      });
+      if (r2.ok) {
+        const buf = Buffer.from(await r2.arrayBuffer());
+        if (buf.length > 1000) return buf;
+      }
+    } else if (r1.ok) {
+      const buf = Buffer.from(await r1.arrayBuffer());
+      if (buf.length > 1000) return buf;
+    }
+  } catch (err) {
+    console.error("[API Tracker Sync] Error fetching directly from SharePoint:", err);
+  }
+  return null;
+}
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -27,7 +60,12 @@ export async function OPTIONS() {
   });
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const syncRequested = req.nextUrl.searchParams.get("sync") === "true" || req.nextUrl.searchParams.get("trigger") === "true";
+  if (syncRequested) {
+    return POST(req);
+  }
+
   return NextResponse.json(
     {
       status: "online",
@@ -36,8 +74,9 @@ export async function GET() {
       timestamp: new Date().toISOString(),
       supportedFormats: [
         "Raw binary body (application/octet-stream or application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)",
-        "JSON body with base64 { content: 'base64_string', branch?: 'Dev-testing' }",
+        "JSON body with base64 { content: 'base64_string', branch?: 'main' }",
         "Multipart form-data with 'file' field",
+        "Direct fetch via GET /api/tracker/sync?sync=true",
       ],
       authentication: "Header 'x-sync-secret: <secret>' or 'Authorization: Bearer <secret>' (configured via TRACKER_SYNC_SECRET env variable)",
     },
@@ -96,8 +135,13 @@ export async function POST(req: NextRequest) {
     }
 
     if (!fileBuffer || fileBuffer.length < 500) {
+      console.log("[API Tracker Sync] No file in payload or empty body, fetching directly from SharePoint...");
+      fileBuffer = await fetchFromSharePoint();
+    }
+
+    if (!fileBuffer || fileBuffer.length < 500) {
       return NextResponse.json(
-        { error: "Invalid file payload: file content is empty or smaller than valid .xlsx format" },
+        { error: "Could not retrieve Excel file: payload was empty and direct SharePoint download did not return a valid file." },
         { status: 400, headers: CORS_HEADERS }
       );
     }

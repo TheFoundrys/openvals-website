@@ -12435,8 +12435,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
     "rank": "266/507"
   },
   {
-    "id": "cohere-labs-8b",
-    "name": "Cohere Labs",
+    "id": "aya-expanse-8b-8b",
+    "name": "aya-expanse:8b",
     "params": "8b",
     "size": "5.1 GB",
     "lab": "Cohere",
@@ -32915,7 +32915,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
   },
   {
     "id": "run-967",
-    "name": "Cohere Labs",
+    "name": "aya-expanse:8b",
     "params": "8b",
     "size": "5.1 GB",
     "lab": "Cohere",

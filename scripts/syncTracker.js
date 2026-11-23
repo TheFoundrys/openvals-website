@@ -10,15 +10,20 @@ const LOCAL_BACKUP_PATH = path.join(__dirname, '..', 'scratch', 'tracker.xlsx');
 
 async function fetchExcelBuffer(url) {
   try {
-    console.log(`[Sync] Fetching Excel file from SharePoint...`);
-    const r1 = await fetch(url, { redirect: 'manual' });
+    let downloadUrl = url;
+    if (!downloadUrl.includes('download=1')) {
+      downloadUrl += (downloadUrl.includes('?') ? '&' : '?') + 'download=1';
+    }
+
+    console.log(`[Sync] Fetching Excel file from SharePoint (${downloadUrl})...`);
+    const r1 = await fetch(downloadUrl, { redirect: 'manual' });
     if (r1.status === 302 || r1.status === 301) {
       const loc = r1.headers.get('location');
-      const cookie = r1.headers.get('set-cookie');
-      const origin = new URL(url).origin;
+      const cookies = r1.headers.getSetCookie ? r1.headers.getSetCookie().join('; ') : r1.headers.get('set-cookie');
+      const origin = new URL(downloadUrl).origin;
       const nextUrl = new URL(loc, origin).toString();
       const r2 = await fetch(nextUrl, {
-        headers: cookie ? { cookie } : {},
+        headers: cookies ? { cookie: cookies } : {},
       });
       if (!r2.ok) throw new Error(`HTTP ${r2.status} ${r2.statusText}`);
       const buf = Buffer.from(await r2.arrayBuffer());
