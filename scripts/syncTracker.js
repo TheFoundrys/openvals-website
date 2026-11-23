@@ -260,7 +260,7 @@ function parseRow(row, rowIndex, skippedRows) {
     size,
     lab,
     accuracyNum: acc.value,
-    accuracy: (acc.value * 100).toFixed(1) + '%',
+    accuracy: acc.value.toFixed(3),
     semanticNum: sem.value,
     semantic: sem.value.toFixed(3),
     latencyNum: lat.latNum,
@@ -268,7 +268,7 @@ function parseRow(row, rowIndex, skippedRows) {
     factualityNum: fact.value,
     factuality: fact.value.toFixed(3),
     hallucinationNum: hall.missing ? null : hall.value,
-    hallucination: hall.missing ? '-' : (hall.value * 100).toFixed(1) + '%',
+    hallucination: hall.missing ? '-' : hall.value.toFixed(3),
     safetyNum: safe.value,
     safety: safe.value.toFixed(3),
     reliabilityNum: rel.value,
@@ -372,19 +372,19 @@ async function sync(customBufferOrPath) {
       size: g.size,
       lab: g.lab,
       runsCount: g.runs.length,
-      accuracy: (accAvg * 100).toFixed(1) + '%',
+      accuracy: accAvg.toFixed(3),
       accuracyNum: Math.round(accAvg * 1000) / 1000,
       semantic: semAvg.toFixed(3),
       latency: Math.round(latAvg) + ' ms',
       factuality: factAvg.toFixed(3),
-      hallucination: hallAvg === null ? '-' : (hallAvg * 100).toFixed(1) + '%',
+      hallucination: hallAvg === null ? '-' : hallAvg.toFixed(3),
       safety: safeAvg.toFixed(3),
       reliability: relAvg.toFixed(3),
       drs: drsAvg.toFixed(3),
       drsNum: Math.round(drsAvg * 1000) / 1000,
       rawRuns: g.runs.map((r, rIdx) => ({
         runIndex: rIdx + 1,
-        accuracy: (r.accuracyNum * 100).toFixed(1) + '%',
+        accuracy: r.accuracyNum.toFixed(3),
         accuracyNum: r.accuracyNum,
         semantic: r.semanticNum.toFixed(3),
         latency: r.latency,
@@ -409,7 +409,7 @@ async function sync(customBufferOrPath) {
     params: r.params,
     size: r.size,
     lab: r.lab,
-    accuracy: (r.accuracyNum * 100).toFixed(1) + '%',
+    accuracy: r.accuracyNum.toFixed(3),
     accuracyNum: r.accuracyNum,
     semantic: r.semanticNum.toFixed(3),
     latency: r.latency,
@@ -512,8 +512,8 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = ${JSON.stringify(allRunsFla
       const accNum = m.accuracyNum * 100;
       const semNum = parseFloat(m.semantic) * 100;
       const factNum = parseFloat(m.factuality) * 100;
-      const hallParsed = parseFloat(m.hallucination.replace('%', ''));
-      const hallNum = isNaN(hallParsed) ? 0 : hallParsed;
+      const hallVal = parseFloat(String(m.hallucination).replace('%', ''));
+      const hallNum = isNaN(hallVal) ? 0 : (hallVal <= 1 ? hallVal * 100 : hallVal);
       const safeNum = parseFloat(m.safety) * 100;
       const relNum = parseFloat(m.reliability) * 100;
       const drsNum = parseFloat(m.drs) * 100;
@@ -537,7 +537,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = ${JSON.stringify(allRunsFla
         breakdown: {
           finance: safeNum.toFixed(1) + '%',
           software: factNum.toFixed(1) + '%',
-          cybersecurity: m.hallucination,
+          cybersecurity: hallNum.toFixed(1) + '%',
           mentalHealth: drsNum.toFixed(1) + '%'
         },
         semantic: Math.round(semNum * 10) / 10,

@@ -343,25 +343,25 @@ export default function LatestReports() {
                         </td>
 
                         {/* PERFORMANCE: Semantic */}
-                        <td className={styles.numCell}>{formatPercent(row.semantic)}</td>
+                        <td className={styles.numCell}>{row.semantic}</td>
 
                         {/* PERFORMANCE: Latency */}
                         <td className={styles.numCell}>{row.latency}</td>
 
                         {/* TRUST: Factuality */}
-                        <td className={styles.numCell}>{formatPercent(row.factuality)}</td>
+                        <td className={styles.numCell}>{row.factuality}</td>
 
                         {/* TRUST: Hallucination */}
-                        <td className={styles.numCell}>{formatPercent(row.hallucination)}</td>
+                        <td className={styles.numCell}>{row.hallucination}</td>
 
                         {/* TRUST: Safety */}
-                        <td className={styles.numCell}>{formatPercent(row.safety)}</td>
+                        <td className={styles.numCell}>{row.safety}</td>
 
                         {/* TRUST: Reliability */}
-                        <td className={styles.numCell}>{formatPercent(row.reliability)}</td>
+                        <td className={styles.numCell}>{row.reliability}</td>
 
                         {/* TRUST: DRS (Decision Reliability Score) */}
-                        <td className={styles.drsCell}>{formatPercent(row.drs)}</td>
+                        <td className={styles.drsCell}>{row.drs}</td>
 
                         {/* Rankings */}
                         <td className={styles.rankingsCell}>{row.rank}</td>
@@ -415,25 +415,25 @@ export default function LatestReports() {
                         </td>
 
                         {/* PERFORMANCE: Semantic */}
-                        <td className={styles.numCell}>{formatPercent(row.semantic)}</td>
+                        <td className={styles.numCell}>{row.semantic}</td>
 
                         {/* PERFORMANCE: Latency */}
                         <td className={styles.numCell}>{row.latency}</td>
 
                         {/* TRUST: Factuality */}
-                        <td className={styles.numCell}>{formatPercent(row.factuality)}</td>
+                        <td className={styles.numCell}>{row.factuality}</td>
 
                         {/* TRUST: Hallucination */}
-                        <td className={styles.numCell}>{formatPercent(row.hallucination)}</td>
+                        <td className={styles.numCell}>{row.hallucination}</td>
 
                         {/* TRUST: Safety */}
-                        <td className={styles.numCell}>{formatPercent(row.safety)}</td>
+                        <td className={styles.numCell}>{row.safety}</td>
 
                         {/* TRUST: Reliability */}
-                        <td className={styles.numCell}>{formatPercent(row.reliability)}</td>
+                        <td className={styles.numCell}>{row.reliability}</td>
 
                         {/* TRUST: DRS */}
-                        <td className={styles.drsCell}>{formatPercent(row.drs)}</td>
+                        <td className={styles.drsCell}>{row.drs}</td>
 
                         {/* Rankings */}
                         <td className={styles.rankingsCell}>{row.rank}</td>
@@ -502,28 +502,28 @@ export default function LatestReports() {
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>DRS</span>
                         <span className={`${styles.mobileGridValue} ${styles.drsHighlight}`}>
-                          {formatPercent(row.drs)}
+                          {row.drs}
                         </span>
                       </div>
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Semantic</span>
-                        <span className={styles.mobileGridValue}>{formatPercent(row.semantic)}</span>
+                        <span className={styles.mobileGridValue}>{row.semantic}</span>
                       </div>
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Factuality</span>
-                        <span className={styles.mobileGridValue}>{formatPercent(row.factuality)}</span>
+                        <span className={styles.mobileGridValue}>{row.factuality}</span>
                       </div>
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Safety</span>
-                        <span className={styles.mobileGridValue}>{formatPercent(row.safety)}</span>
+                        <span className={styles.mobileGridValue}>{row.safety}</span>
                       </div>
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Reliability</span>
-                        <span className={styles.mobileGridValue}>{formatPercent(row.reliability)}</span>
+                        <span className={styles.mobileGridValue}>{row.reliability}</span>
                       </div>
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Hallucination</span>
-                        <span className={styles.mobileGridValue}>{formatPercent(row.hallucination)}</span>
+                        <span className={styles.mobileGridValue}>{row.hallucination}</span>
                       </div>
                     </div>
                   </div>
@@ -581,28 +581,28 @@ export default function LatestReports() {
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>DRS</span>
                         <span className={`${styles.mobileGridValue} ${styles.drsHighlight}`}>
-                          {formatPercent(row.drs)}
+                          {row.drs}
                         </span>
                       </div>
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Semantic</span>
-                        <span className={styles.mobileGridValue}>{formatPercent(row.semantic)}</span>
+                        <span className={styles.mobileGridValue}>{row.semantic}</span>
                       </div>
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Factuality</span>
-                        <span className={styles.mobileGridValue}>{formatPercent(row.factuality)}</span>
+                        <span className={styles.mobileGridValue}>{row.factuality}</span>
                       </div>
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Safety</span>
-                        <span className={styles.mobileGridValue}>{formatPercent(row.safety)}</span>
+                        <span className={styles.mobileGridValue}>{row.safety}</span>
                       </div>
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Reliability</span>
-                        <span className={styles.mobileGridValue}>{formatPercent(row.reliability)}</span>
+                        <span className={styles.mobileGridValue}>{row.reliability}</span>
                       </div>
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Hallucination</span>
-                        <span className={styles.mobileGridValue}>{formatPercent(row.hallucination)}</span>
+                        <span className={styles.mobileGridValue}>{row.hallucination}</span>
                       </div>
                     </div>
                   </div>
