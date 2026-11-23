@@ -747,6 +747,7 @@ export default function RealWorldBenchmarks() {
                 style={{
                   left: tooltipPos.x,
                   top: tooltipPos.y,
+                  borderTop: `3px solid ${hoveredModel.color}`,
                 }}
               >
                 <div className={styles.tooltipHeader}>
@@ -806,6 +807,22 @@ export default function RealWorldBenchmarks() {
               </div>
             )}
 
+            {/* Subtle Horizon Benchmark Guide Lines */}
+            <div className={styles.gridLinesContainer} aria-hidden="true">
+              <div className={styles.gridLine} style={{ bottom: "88%" }}>
+                <span className={styles.gridLineLabel}>100%</span>
+              </div>
+              <div className={styles.gridLine} style={{ bottom: "66%" }}>
+                <span className={styles.gridLineLabel}>75%</span>
+              </div>
+              <div className={styles.gridLine} style={{ bottom: "44%" }}>
+                <span className={styles.gridLineLabel}>50%</span>
+              </div>
+              <div className={styles.gridLine} style={{ bottom: "22%" }}>
+                <span className={styles.gridLineLabel}>25%</span>
+              </div>
+            </div>
+
             <div className={styles.barsContainer}>
               {displayedModels.map((model) => {
                 const heightVal = calculateHeight(model);
@@ -830,14 +847,17 @@ export default function RealWorldBenchmarks() {
                       }
                     }}
                   >
-                    {/* The Bar Fill */}
+                    {/* The Bar Fill with modern ambient glow & sheen */}
                     <div
                       className={styles.barFill}
-                      style={{
-                        height: heightVal,
-                        backgroundColor: model.color,
-                        color: model.textColor,
-                      }}
+                      style={
+                        {
+                          height: heightVal,
+                          backgroundColor: model.color,
+                          color: model.textColor,
+                          "--bar-color": model.color,
+                        } as React.CSSProperties
+                      }
                     >
                       {/* Top Metric score */}
                       <span className={styles.scoreTop}>{metricLabel}</span>

@@ -52,16 +52,6 @@ const FADE_UP: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
-function formatPercent(val: string | number | undefined | null): string {
-  if (val === undefined || val === null || val === "" || val === "-") return "-";
-  const str = String(val).trim();
-  if (str.endsWith("%")) return str;
-  const num = parseFloat(str);
-  if (isNaN(num)) return str;
-  const clamped = Math.min(1, Math.max(0, num));
-  return `${(clamped * 100).toFixed(1)}%`;
-}
-
 export default function LatestReports() {
   const [selectedLab, setSelectedLab] = useState<string>("All Models");
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -164,9 +154,8 @@ export default function LatestReports() {
             <button
               key={tab}
               onClick={() => setSelectedLab(tab)}
-              className={`${styles.tabPill} ${
-                selectedLab === tab ? styles.tabPillActive : ""
-              }`}
+              className={`${styles.tabPill} ${selectedLab === tab ? styles.tabPillActive : ""
+                }`}
             >
               {tab}
             </button>
@@ -187,12 +176,10 @@ export default function LatestReports() {
       <div className={styles.filterRow}>
         <h3 className={styles.reportHeadline}>
           {selectedLab === "All Models"
-            ? `Validated Model Registry (${
-                viewMode === "aggregated" ? filteredAggregated.length : filteredRuns.length
-              })`
-            : `${selectedLab} Evaluations (${
-                viewMode === "aggregated" ? filteredAggregated.length : filteredRuns.length
-              })`}
+            ? `Validated Model Registry (${viewMode === "aggregated" ? filteredAggregated.length : filteredRuns.length
+            })`
+            : `${selectedLab} Evaluations (${viewMode === "aggregated" ? filteredAggregated.length : filteredRuns.length
+            })`}
         </h3>
 
         <div className={styles.filterControlsRight}>
@@ -200,18 +187,16 @@ export default function LatestReports() {
           <div className={styles.toggleGroup}>
             <button
               onClick={() => setViewMode("aggregated")}
-              className={`${styles.toggleBtn} ${
-                viewMode === "aggregated" ? styles.toggleBtnActive : ""
-              }`}
+              className={`${styles.toggleBtn} ${viewMode === "aggregated" ? styles.toggleBtnActive : ""
+                }`}
               title="Show consolidated metrics per model"
             >
               Aggregated Models ({filteredAggregated.length})
             </button>
             <button
               onClick={() => setViewMode("all")}
-              className={`${styles.toggleBtn} ${
-                viewMode === "all" ? styles.toggleBtnActive : ""
-              }`}
+              className={`${styles.toggleBtn} ${viewMode === "all" ? styles.toggleBtnActive : ""
+                }`}
               title="Show all individual benchmark evaluation runs"
             >
               All Runs ({filteredRuns.length})

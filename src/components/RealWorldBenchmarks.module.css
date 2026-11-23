@@ -412,10 +412,42 @@
   height: 480px;
   position: relative;
   background-color: var(--card-bg);
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.04) 0%, transparent 70%);
   display: flex;
   align-items: flex-end;
   padding: 30px 10px 0 10px;
   border-bottom: 1px solid var(--border);
+}
+
+/* Background Horizon Gridlines */
+.gridLinesContainer {
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gridLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px dashed var(--border);
+  opacity: 0.55;
+}
+
+.gridLineLabel {
+  position: absolute;
+  left: 8px;
+  bottom: 3px;
+  font-size: 9.5px;
+  font-weight: 500;
+  font-family: var(--font-serif-main);
+  color: var(--text-muted);
+  opacity: 0.65;
+  user-select: none;
 }
 
 /* Fit to container width without horizontal scroll */
@@ -432,6 +464,8 @@
   height: 100%;
   gap: 3px;
   padding: 0 2px;
+  position: relative;
+  z-index: 2;
 }
 
 .barCol {
@@ -448,14 +482,14 @@
 
 .barCol:hover,
 .barColActive {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   z-index: 10;
 }
 
 .barCol:hover .barFill,
 .barColActive .barFill {
-  filter: brightness(1.1) saturate(1.12);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22);
+  filter: brightness(1.14) saturate(1.1);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22), 0 0 24px -2px var(--bar-color, rgba(16, 185, 129, 0.4));
 }
 
 .barFill {
@@ -465,23 +499,33 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 8px 4px 10px 4px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
   box-sizing: border-box;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(0, 0, 0, 0.05) 75%,
+    rgba(0, 0, 0, 0.22) 100%
+  );
+  border-top: 1.5px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition: height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.3s, filter 0.2s, box-shadow 0.2s;
 }
 
 .scoreTop {
   font-family: var(--font-serif-main);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   padding-left: 2px;
   user-select: none;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .barBottom {
@@ -503,19 +547,21 @@
 .modelName {
   font-family: var(--font-serif-main);
   font-size: 9.5px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
   letter-spacing: 0.02em;
   text-transform: none;
   word-break: break-word;
   overflow-wrap: break-word;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .modelVersion {
   font-size: 8.5px;
   font-weight: 500;
-  opacity: 0.88;
+  opacity: 0.92;
   display: block;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Tooltip */

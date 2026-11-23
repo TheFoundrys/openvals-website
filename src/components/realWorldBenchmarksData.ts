@@ -50,7 +50,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "31452 ms",
     "tokenUsage": 3400,
     "tokenLabel": "3.4k",
-    "color": "#df8b7c",
+    "color": "#f43f5e",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -85,7 +85,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "10954 ms",
     "tokenUsage": 4200,
     "tokenLabel": "4.2k",
-    "color": "#46b17c",
+    "color": "#059669",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -120,7 +120,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "15320 ms",
     "tokenUsage": 3600,
     "tokenLabel": "3.6k",
-    "color": "#3a3a3a",
+    "color": "#475569",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -155,7 +155,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "10210 ms",
     "tokenUsage": 4600,
     "tokenLabel": "4.6k",
-    "color": "#00a4ef",
+    "color": "#0284c7",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -190,7 +190,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "2428 ms",
     "tokenUsage": 3200,
     "tokenLabel": "3.2k",
-    "color": "#0f62fe",
+    "color": "#1d4ed8",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -225,7 +225,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "3710 ms",
     "tokenUsage": 4900,
     "tokenLabel": "4.9k",
-    "color": "#f3832b",
+    "color": "#ea580c",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -260,7 +260,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "277705 ms",
     "tokenUsage": 5400,
     "tokenLabel": "5.4k",
-    "color": "#1e40af",
+    "color": "#4f46e5",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -295,8 +295,8 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "14117 ms",
     "tokenUsage": 5600,
     "tokenLabel": "5.6k",
-    "color": "#d8b335",
-    "textColor": "#1e293b",
+    "color": "#eab308",
+    "textColor": "#0f172a",
     "hasPattern": false,
     "breakdown": {
       "finance": "100.0%",
@@ -365,8 +365,8 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "9364 ms",
     "tokenUsage": 3500,
     "tokenLabel": "3.5k",
-    "color": "#0284c7",
-    "textColor": "#ffffff",
+    "color": "#06b6d4",
+    "textColor": "#0f172a",
     "hasPattern": false,
     "breakdown": {
       "finance": "94.8%",
@@ -400,7 +400,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "28452 ms",
     "tokenUsage": 4100,
     "tokenLabel": "4.1k",
-    "color": "#7c3aed",
+    "color": "#9333ea",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -436,7 +436,7 @@ export const MODELS: ModelData[] = [
     "tokenUsage": 3900,
     "tokenLabel": "3.9k",
     "color": "#f59e0b",
-    "textColor": "#1e293b",
+    "textColor": "#0f172a",
     "hasPattern": false,
     "breakdown": {
       "finance": "100.0%",
@@ -505,8 +505,8 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "6623 ms",
     "tokenUsage": 5100,
     "tokenLabel": "5.1k",
-    "color": "#0ea5e9",
-    "textColor": "#ffffff",
+    "color": "#38bdf8",
+    "textColor": "#0f172a",
     "hasPattern": false,
     "breakdown": {
       "finance": "100.0%",
@@ -540,7 +540,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "5278 ms",
     "tokenUsage": 4300,
     "tokenLabel": "4.3k",
-    "color": "#528ef0",
+    "color": "#2563eb",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -575,7 +575,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "7694 ms",
     "tokenUsage": 6100,
     "tokenLabel": "6.1k",
-    "color": "#546d88",
+    "color": "#6366f1",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -645,7 +645,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "60424 ms",
     "tokenUsage": 5300,
     "tokenLabel": "5.3k",
-    "color": "#498ff0",
+    "color": "#3b82f6",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -680,8 +680,8 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "1016 ms",
     "tokenUsage": 7400,
     "tokenLabel": "7.4k",
-    "color": "#8ec84c",
-    "textColor": "#1e293b",
+    "color": "#84cc16",
+    "textColor": "#0f172a",
     "hasPattern": false,
     "breakdown": {
       "finance": "100.0%",
@@ -715,8 +715,8 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "972 ms",
     "tokenUsage": 6400,
     "tokenLabel": "6.4k",
-    "color": "#e7a44f",
-    "textColor": "#1e293b",
+    "color": "#d97706",
+    "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
       "finance": "96.2%",
@@ -750,7 +750,7 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "7540 ms",
     "tokenUsage": 6900,
     "tokenLabel": "6.9k",
-    "color": "#708092",
+    "color": "#71717a",
     "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
@@ -785,8 +785,8 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "1677 ms",
     "tokenUsage": 8100,
     "tokenLabel": "8.1k",
-    "color": "#eab308",
-    "textColor": "#1e293b",
+    "color": "#ca8a04",
+    "textColor": "#ffffff",
     "hasPattern": false,
     "breakdown": {
       "finance": "100.0%",
@@ -820,9 +820,9 @@ export const MODELS: ModelData[] = [
     "latencyLabel": "303 ms",
     "tokenUsage": 8600,
     "tokenLabel": "8.6k",
-    "color": "#5b6670",
+    "color": "#0d9488",
     "textColor": "#ffffff",
-    "hasPattern": true,
+    "hasPattern": false,
     "breakdown": {
       "finance": "100.0%",
       "software": "29.6%",
