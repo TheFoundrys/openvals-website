@@ -34,7 +34,7 @@ export interface ModelData {
   };
 }
 
-export const LATEST_BENCHMARK_DATE = "NOV 23, 2026";
+export const LATEST_BENCHMARK_DATE = "NOV 24, 2026";
 
 export const MODELS: ModelData[] = [
   {
