@@ -33,8 +33,8 @@ export default function Home() {
       <main>
         {/* SECTION 1: TRUST LAYER + AI FAILS QUIETLY */}
         <section
-          className={`${styles.snapSection} ${styles.snapSectionAuto} ${styles.snapSectionHero}`}
-          style={{ padding: "clamp(18px, 2.2vh, 28px) 0 clamp(12px, 2vh, 20px)", background: "var(--primary-bg)" }}
+          className={`${styles.snapSection} ${styles.snapSectionHero}`}
+          style={{ background: "var(--primary-bg)" }}
         >
           <div
             className={`${styles.layoutShell} ${styles.containerFull} ${styles.snapInner} ${styles.heroSectionInner}`}
@@ -45,7 +45,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: REAL-WORLD AI BENCHMARKS LEADERBOARD & LATEST REPORTS */}
-        <section id="benchmarks" className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(20px, 3vh, 32px) 0 clamp(24px, 4vh, 40px)", background: "var(--primary-bg)" }}>
+        <section id="benchmarks" className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(24px, 3.5vh, 40px) 0", background: "var(--primary-bg)" }}>
           <div className={`${styles.layoutShell} ${styles.containerFull} ${styles.snapInner}`}>
             <div className={styles.scaledContent}>
               <RealWorldBenchmarks />
@@ -55,7 +55,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 3: PROOF + PACKAGES + LEAD MAGNET */}
-        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(32px, 5vh, 48px) 0 0" }}>
+        <section className={`${styles.snapSection} ${styles.snapSectionAuto}`} style={{ padding: "clamp(24px, 3.5vh, 40px) 0" }}>
           <div className={`${styles.containerFull} ${styles.snapInner}`}>
             <div className={styles.layoutShell} style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", width: "100%", minWidth: 0, boxSizing: "border-box" }}>
               <motion.div

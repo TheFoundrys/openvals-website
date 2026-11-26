@@ -188,9 +188,17 @@
     padding-top: clamp(32px, 4vh, 52px) !important;
   }
 
-  /* Fill first screen below fixed header; keep content top-aligned */
-  .snapSectionHero.snapSectionAuto {
-    min-height: calc(100dvh - 70px);
+  /* Fill the first screen below the fixed header — capped at 900px so tall
+     or zoomed-out screens don't get large blank bands around the content */
+  .snapSection.snapSectionHero {
+    min-height: min(calc(100dvh - 70px), 900px);
+  }
+}
+
+/* Below 1024px the hero is as tall as its content (no full-screen height) */
+@media (max-width: 1023px) {
+  .snapSection.snapSectionHero {
+    min-height: auto;
   }
 }
 
