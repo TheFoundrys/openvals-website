@@ -417,10 +417,9 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  .headerSearchWrap {
-    background: rgba(255, 255, 255, 0.05);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .headerSearchWrap {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .headerSearchWrap:hover {
@@ -433,11 +432,10 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  .headerSearchWrap:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .headerSearchWrap:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .headerSearchWrap:focus-within {
@@ -1073,30 +1071,29 @@
   fill: #38bdf8 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :global(html:not(.light)) .headerGithubBtn {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.14);
-    color: #f1f5f9 !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .headerGithubBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #f1f5f9 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
 
-  :global(html:not(.light)) .headerGithubBtn svg {
-    color: #f1f5f9 !important;
-    fill: #f1f5f9 !important;
-  }
+:global(html.dark) .headerGithubBtn svg {
+  color: #f1f5f9 !important;
+  fill: #f1f5f9 !important;
+}
 
-  :global(html:not(.light)) .headerGithubBtn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(56, 189, 248, 0.35);
-    color: #38bdf8 !important;
-    box-shadow: 0 3px 10px rgba(56, 189, 248, 0.15);
-  }
+:global(html.dark) .headerGithubBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #38bdf8 !important;
+  box-shadow: 0 3px 10px rgba(56, 189, 248, 0.15);
+}
 
-  :global(html:not(.light)) .headerGithubBtn:hover svg {
-    color: #38bdf8 !important;
-    fill: #38bdf8 !important;
-  }
+:global(html.dark) .headerGithubBtn:hover svg {
+  color: #38bdf8 !important;
+  fill: #38bdf8 !important;
 }
 
 .headerGithubText {
@@ -1248,27 +1245,26 @@
   fill: #38bdf8 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :global(html:not(.light)) .mobileGithubBtn {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.14);
-    color: #f1f5f9 !important;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .mobileGithubBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #f1f5f9 !important;
+}
 
-  :global(html:not(.light)) .mobileGithubBtn svg {
-    color: #f1f5f9 !important;
-    fill: #f1f5f9 !important;
-  }
+:global(html.dark) .mobileGithubBtn svg {
+  color: #f1f5f9 !important;
+  fill: #f1f5f9 !important;
+}
 
-  :global(html:not(.light)) .mobileGithubBtn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    color: #38bdf8 !important;
-  }
+:global(html.dark) .mobileGithubBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #38bdf8 !important;
+}
 
-  :global(html:not(.light)) .mobileGithubBtn:hover svg {
-    color: #38bdf8 !important;
-    fill: #38bdf8 !important;
-  }
+:global(html.dark) .mobileGithubBtn:hover svg {
+  color: #38bdf8 !important;
+  fill: #38bdf8 !important;
 }
 
 .menuToggle {
@@ -1488,11 +1484,10 @@
   border-color: rgba(56, 189, 248, 0.3);
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroEyebrow {
-    background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.3);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroEyebrow {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
 }
 
 .heroEyebrowDot {
@@ -1509,10 +1504,9 @@
   background: #00f0ff;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroEyebrowDot {
-    background: #00f0ff;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroEyebrowDot {
+  background: #00f0ff;
 }
 
 .heroEyebrowPing {
@@ -1528,10 +1522,9 @@
   background: #00f0ff;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroEyebrowPing {
-    background: #00f0ff;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroEyebrowPing {
+  background: #00f0ff;
 }
 
 @keyframes eyebrowPing {
@@ -1560,10 +1553,9 @@
   color: #38bdf8;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroEyebrowText {
-    color: #38bdf8;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroEyebrowText {
+  color: #38bdf8;
 }
 
 .heroHeadingAccent {
@@ -1581,13 +1573,12 @@
   -webkit-text-fill-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroHeadingAccent {
-    background: linear-gradient(135deg, #00f0ff 0%, #38bdf8 55%, #60a5fa 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroHeadingAccent {
+  background: linear-gradient(135deg, #00f0ff 0%, #38bdf8 55%, #60a5fa 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Trust Stats Container Card */
@@ -1611,14 +1602,13 @@
   -webkit-backdrop-filter: blur(16px) !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .trustStatsCard {
-    background: rgba(15, 23, 42, 0.82);
-    border: 1px solid rgba(56, 189, 248, 0.22);
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 20px rgba(56, 189, 248, 0.08);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .trustStatsCard {
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 20px rgba(56, 189, 248, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .commandPromptSymbol {
@@ -1643,10 +1633,9 @@
   color: #4ade80;
 }
 
-@media (prefers-color-scheme: dark) {
-  .copiedFeedback {
-    color: #4ade80;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .copiedFeedback {
+  color: #4ade80;
 }
 
 @keyframes fadeIn {
@@ -1708,12 +1697,10 @@
   color: #e2e8f0 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-
-  .hero p,
-  .heroSubheading {
-    color: #e2e8f0;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .hero p,
+:global(html.dark) .heroSubheading {
+  color: #e2e8f0;
 }
 
 .heroTextGroup {
@@ -1901,17 +1888,16 @@
   box-shadow: 0 8px 28px rgba(14, 165, 233, 0.45) !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .trustActionPrimary {
-    background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%) !important;
-    border-color: rgba(56, 189, 248, 0.4) !important;
-    box-shadow: 0 4px 22px rgba(14, 165, 233, 0.35) !important;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .trustActionPrimary {
+  background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  box-shadow: 0 4px 22px rgba(14, 165, 233, 0.35) !important;
+}
 
-  .trustActionPrimary:hover {
-    background: linear-gradient(135deg, #1d4ed8 0%, #0369a1 100%) !important;
-    box-shadow: 0 8px 28px rgba(14, 165, 233, 0.45) !important;
-  }
+:global(html.dark) .trustActionPrimary:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #0369a1 100%) !important;
+  box-shadow: 0 8px 28px rgba(14, 165, 233, 0.45) !important;
 }
 
 .trustActionButton.primary:hover {
@@ -1949,19 +1935,18 @@
   color: #38bdf8 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .trustActionSecondary {
-    background: rgba(15, 23, 42, 0.82) !important;
-    border-color: rgba(56, 189, 248, 0.35) !important;
-    color: #f1f5f9 !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .trustActionSecondary {
+  background: rgba(15, 23, 42, 0.82) !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
 
-  .trustActionSecondary:hover {
-    background: rgba(30, 41, 59, 0.9) !important;
-    border-color: rgba(56, 189, 248, 0.7) !important;
-    color: #38bdf8 !important;
-  }
+:global(html.dark) .trustActionSecondary:hover {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border-color: rgba(56, 189, 248, 0.7) !important;
+  color: #38bdf8 !important;
 }
 
 .trustActionButton.secondary:hover {
@@ -2074,19 +2059,18 @@
   background: transparent !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .trustMarqueeItem {
-    color: #94a3b8 !important;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .trustMarqueeItem {
+  color: #94a3b8 !important;
+}
 
-  .trustMarqueeCheck {
-    color: #38bdf8 !important;
-  }
+:global(html.dark) .trustMarqueeCheck {
+  color: #38bdf8 !important;
+}
 
-  .trustMarquee {
-    border-color: var(--border) !important;
-    background: transparent !important;
-  }
+:global(html.dark) .trustMarquee {
+  border-color: var(--border) !important;
+  background: transparent !important;
 }
 
 :global(html.light) .trustMarqueeItem {
@@ -3356,67 +3340,66 @@
   outline-offset: 2px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .trustActionButton {
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .trustActionButton {
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+}
 
-  .trustActionButton:hover {
-    box-shadow: 0 18px 42px rgba(47, 128, 237, 0.3);
-  }
+:global(html.dark) .trustActionButton:hover {
+  box-shadow: 0 18px 42px rgba(47, 128, 237, 0.3);
+}
 
-  .trustStatValue {
-    text-shadow: 0 0 22px color-mix(in srgb, var(--accent) 40%, transparent);
-  }
+:global(html.dark) .trustStatValue {
+  text-shadow: 0 0 22px color-mix(in srgb, var(--accent) 40%, transparent);
+}
 
-  .commandBox {
-    background: transparent;
-    color: #04131a;
-    border-color: transparent;
-    box-shadow: none;
-    filter: none;
-  }
+:global(html.dark) .commandBox {
+  background: transparent;
+  color: #04131a;
+  border-color: transparent;
+  box-shadow: none;
+  filter: none;
+}
 
-  .commandBox::before {
-    content: none;
-  }
+:global(html.dark) .commandBox::before {
+  content: none;
+}
 
-  .commandText {
-    background:
-      linear-gradient(135deg, rgba(6, 18, 32, 0.94), rgba(3, 33, 42, 0.92)) padding-box,
-      linear-gradient(120deg, rgba(255, 255, 255, 0.45), rgba(18, 227, 194, 0.9), rgba(90, 162, 255, 0.75)) border-box;
-    color: #ffffff;
-    box-shadow:
-      0 10px 24px rgba(4, 19, 26, 0.28),
-      0 0 22px rgba(18, 227, 194, 0.18);
-  }
+:global(html.dark) .commandText {
+  background:
+    linear-gradient(135deg, rgba(6, 18, 32, 0.94), rgba(3, 33, 42, 0.92)) padding-box,
+    linear-gradient(120deg, rgba(255, 255, 255, 0.45), rgba(18, 227, 194, 0.9), rgba(90, 162, 255, 0.75)) border-box;
+  color: #ffffff;
+  box-shadow:
+    0 10px 24px rgba(4, 19, 26, 0.28),
+    0 0 22px rgba(18, 227, 194, 0.18);
+}
 
-  .commandTextLabel {
-    background: linear-gradient(90deg, #ffffff 0%, #ffffff 34%, #a7caff 46%, #2f80ed 58%, #ffffff 72%, #ffffff 100%);
-    background-size: 220% auto;
-    background-position: 0% center;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: #ffffff;
-    -webkit-text-fill-color: transparent;
-  }
+:global(html.dark) .commandTextLabel {
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 34%, #a7caff 46%, #2f80ed 58%, #ffffff 72%, #ffffff 100%);
+  background-size: 220% auto;
+  background-position: 0% center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: #ffffff;
+  -webkit-text-fill-color: transparent;
+}
 
-  .commandCopy {
-    border-color: rgba(90, 162, 255, 0.5);
-    background: rgba(90, 162, 255, 0.12);
-    color: #d9ecff;
-    box-shadow: 0 0 18px rgba(90, 162, 255, 0.14);
-  }
+:global(html.dark) .commandCopy {
+  border-color: rgba(90, 162, 255, 0.5);
+  background: rgba(90, 162, 255, 0.12);
+  color: #d9ecff;
+  box-shadow: 0 0 18px rgba(90, 162, 255, 0.14);
+}
 
-  .commandCopy:hover {
-    border-color: rgba(167, 202, 255, 0.85);
-    background: rgba(90, 162, 255, 0.22);
-    color: #ffffff;
-  }
+:global(html.dark) .commandCopy:hover {
+  border-color: rgba(167, 202, 255, 0.85);
+  background: rgba(90, 162, 255, 0.22);
+  color: #ffffff;
+}
 
-  .commandCopy:focus-visible {
-    outline-color: #a7caff;
-  }
+:global(html.dark) .commandCopy:focus-visible {
+  outline-color: #a7caff;
 }
 
 :global(html.dark) .trustActionButton {
@@ -3453,32 +3436,31 @@
   color: #ffffff !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .trustStatValue {
-    color: #ffffff !important;
-    text-shadow: 0 0 16px rgba(56, 189, 248, 0.4) !important;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .trustStatValue {
+  color: #ffffff !important;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.4) !important;
+}
 
-  .trustStatLabel {
-    color: #94a3b8 !important;
-    font-weight: 500 !important;
-  }
+:global(html.dark) .trustStatLabel {
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+}
 
-  .trustStat {
-    border-right-color: rgba(56, 189, 248, 0.22) !important;
-  }
+:global(html.dark) .trustStat {
+  border-right-color: rgba(56, 189, 248, 0.22) !important;
+}
 
-  .nav a {
-    color: #cbd5e1 !important;
-  }
+:global(html.dark) .nav a {
+  color: #cbd5e1 !important;
+}
 
-  .nav a:hover {
-    color: #ffffff !important;
-  }
+:global(html.dark) .nav a:hover {
+  color: #ffffff !important;
+}
 
-  .navLinkHighlighted {
-    color: #ffffff !important;
-  }
+:global(html.dark) .navLinkHighlighted {
+  color: #ffffff !important;
 }
 
 :global(html.dark) .commandText {
@@ -4305,18 +4287,17 @@
   box-shadow: 0 0 8px #00f0ff;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroEyebrowBadge {
-    background: rgba(15, 23, 42, 0.85);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    color: #38bdf8;
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroEyebrowBadge {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
 
-  .heroEyebrowDot {
-    background: #00f0ff;
-    box-shadow: 0 0 8px #00f0ff;
-  }
+:global(html.dark) .heroEyebrowDot {
+  background: #00f0ff;
+  box-shadow: 0 0 8px #00f0ff;
 }
 
 /* ── Main Headline ── */
@@ -4337,10 +4318,9 @@
   color: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroMainHeadline {
-    color: #ffffff;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroMainHeadline {
+  color: #ffffff;
 }
 
 .heroHeadlineAccent {
@@ -4365,10 +4345,9 @@
   color: #94a3b8;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroMainDescription {
-    color: #94a3b8;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroMainDescription {
+  color: #94a3b8;
 }
 
 /* ── Action Buttons ── */
@@ -4444,20 +4423,19 @@
   transform: translateY(-2px);
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroSecondaryBtn {
-    background: rgba(15, 23, 42, 0.7) !important;
-    border: 1px solid rgba(56, 189, 248, 0.28) !important;
-    color: #f8fafc !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroSecondaryBtn {
+  background: rgba(15, 23, 42, 0.7) !important;
+  border: 1px solid rgba(56, 189, 248, 0.28) !important;
+  color: #f8fafc !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
 
-  .heroSecondaryBtn:hover {
-    background: rgba(30, 41, 59, 0.9) !important;
-    border-color: rgba(56, 189, 248, 0.6) !important;
-    color: #38bdf8 !important;
-    transform: translateY(-2px);
-  }
+:global(html.dark) .heroSecondaryBtn:hover {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border-color: rgba(56, 189, 248, 0.6) !important;
+  color: #38bdf8 !important;
+  transform: translateY(-2px);
 }
 
 /* ── Interactive Start Switcher (Product CTAs vs Terminal) ── */
@@ -4489,11 +4467,10 @@
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroSegmentedToggle {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.12);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroSegmentedToggle {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .heroToggleOption {
@@ -4525,14 +4502,13 @@
   color: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroToggleOption {
-    color: #cbd5e1;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroToggleOption {
+  color: #cbd5e1;
+}
 
-  .heroToggleOption:hover {
-    color: #ffffff;
-  }
+:global(html.dark) .heroToggleOption:hover {
+  color: #ffffff;
 }
 
 .heroToggleOptionActive {
@@ -4549,13 +4525,12 @@
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroToggleOptionActive {
-    background: #ffffff !important;
-    color: #090d16 !important;
-    font-weight: 500 !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroToggleOptionActive {
+  background: #ffffff !important;
+  color: #090d16 !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
 }
 
 .heroTabContentArea {
@@ -4840,14 +4815,13 @@
   color: #38bdf8;
 }
 
-@media (prefers-color-scheme: dark) {
-  .terminalHelpLink {
-    color: #94a3b8;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .terminalHelpLink {
+  color: #94a3b8;
+}
 
-  .terminalHelpLink:hover {
-    color: #38bdf8;
-  }
+:global(html.dark) .terminalHelpLink:hover {
+  color: #38bdf8;
 }
 
 .terminalTooltip {
@@ -4880,13 +4854,12 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :global(html:not(.light)) .terminalTooltip {
-    background: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
-    color: #334155 !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .terminalTooltip {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
 }
 
 .terminalTooltipDocLink {
@@ -4899,10 +4872,9 @@
   color: #38bdf8;
 }
 
-@media (prefers-color-scheme: dark) {
-  .terminalTooltipDocLink {
-    color: #38bdf8;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .terminalTooltipDocLink {
+  color: #38bdf8;
 }
 
 .terminalEcosystemIcons {
@@ -4962,10 +4934,9 @@
   background: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.52) 0%, rgba(56, 189, 248, 0.25) 40%, transparent 70%);
 }
 
-@media (prefers-color-scheme: dark) {
-  .sphereAtmosphereGlow {
-    background: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.52) 0%, rgba(56, 189, 248, 0.25) 40%, transparent 70%);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .sphereAtmosphereGlow {
+  background: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.52) 0%, rgba(56, 189, 248, 0.25) 40%, transparent 70%);
 }
 
 .sphereOrbitSvg {
@@ -5124,18 +5095,17 @@
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55), 0 0 18px rgba(239, 68, 68, 0.14);
 }
 
-@media (prefers-color-scheme: dark) {
-  .referenceInfoCardBlue {
-    background: rgba(13, 22, 40, 0.88);
-    border: 1px solid rgba(56, 189, 248, 0.24);
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55), 0 0 18px rgba(56, 189, 248, 0.1);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .referenceInfoCardBlue {
+  background: rgba(13, 22, 40, 0.88);
+  border: 1px solid rgba(56, 189, 248, 0.24);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55), 0 0 18px rgba(56, 189, 248, 0.1);
+}
 
-  .referenceInfoCardRed {
-    background: rgba(26, 16, 26, 0.88);
-    border: 1px solid rgba(239, 68, 68, 0.35);
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55), 0 0 18px rgba(239, 68, 68, 0.14);
-  }
+:global(html.dark) .referenceInfoCardRed {
+  background: rgba(26, 16, 26, 0.88);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55), 0 0 18px rgba(239, 68, 68, 0.14);
 }
 
 .referenceIconBox {
@@ -5164,14 +5134,13 @@
   background: rgba(239, 68, 68, 0.18);
 }
 
-@media (prefers-color-scheme: dark) {
-  .referenceIconBoxBlue {
-    background: rgba(56, 189, 248, 0.12);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .referenceIconBoxBlue {
+  background: rgba(56, 189, 248, 0.12);
+}
 
-  .referenceIconBoxRed {
-    background: rgba(239, 68, 68, 0.18);
-  }
+:global(html.dark) .referenceIconBoxRed {
+  background: rgba(239, 68, 68, 0.18);
 }
 
 .referenceIconBlue {
@@ -5190,14 +5159,13 @@
   color: #f87171;
 }
 
-@media (prefers-color-scheme: dark) {
-  .referenceIconBlue {
-    color: #38bdf8;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .referenceIconBlue {
+  color: #38bdf8;
+}
 
-  .referenceIconRed {
-    color: #f87171;
-  }
+:global(html.dark) .referenceIconRed {
+  color: #f87171;
 }
 
 .referenceTextBox {
@@ -5229,14 +5197,13 @@
   color: #94a3b8;
 }
 
-@media (prefers-color-scheme: dark) {
-  .referenceCardTitle {
-    color: #ffffff;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .referenceCardTitle {
+  color: #ffffff;
+}
 
-  .referenceCardDesc {
-    color: #94a3b8;
-  }
+:global(html.dark) .referenceCardDesc {
+  color: #94a3b8;
 }
 
 /* ── Statistics Horizontal Row (Clean Text, No Box, No Lines) ── */
@@ -5278,12 +5245,11 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroStatsCardMain {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroStatsCardMain {
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .heroStatColumn {
@@ -5310,10 +5276,9 @@
   background: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroStatColumn {
-    background: transparent;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroStatColumn {
+  background: transparent;
 }
 
 .heroStatContent {
@@ -5344,10 +5309,9 @@
   color: #60a5fa;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroStatValueText {
-    color: #60a5fa;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroStatValueText {
+  color: #60a5fa;
 }
 
 .heroStatLabelText {
@@ -5365,10 +5329,9 @@
   color: #94a3b8;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroStatLabelText {
-    color: #94a3b8;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroStatLabelText {
+  color: #94a3b8;
 }
 
 /* ── Hero Ambient Waves Background ── */
@@ -5388,10 +5351,9 @@
   display: none !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroAmbientGlow {
-    display: none !important;
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .heroAmbientGlow {
+  display: none !important;
 }
 
 .heroAmbientSvg {
@@ -5433,11 +5395,10 @@
   border-color: rgba(56, 189, 248, 0.22);
 }
 
-@media (prefers-color-scheme: dark) {
-  .mobileSearchForm {
-    background: rgba(15, 23, 42, 0.65);
-    border-color: rgba(56, 189, 248, 0.22);
-  }
+/* Site dark theme (html.dark), not the OS setting — see theme script */
+:global(html.dark) .mobileSearchForm {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(56, 189, 248, 0.22);
 }
 
 .mobileSearchInputField {
