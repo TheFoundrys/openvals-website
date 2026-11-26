@@ -13,10 +13,71 @@ import {
   Search,
 } from "lucide-react";
 import styles from "./LatestReports.module.css";
+import { AGGREGATED_MODELS, ALL_BENCHMARK_RUNS, type AggregatedModel } from "./modelBenchmarkData";
 import {
-  AGGREGATED_MODELS,
-  ALL_BENCHMARK_RUNS,
-} from "./modelBenchmarkData";
+  MIN_RUNS_TO_RANK,
+  RANKED_MODELS,
+  getLeaderboardRow,
+  leaderboardKey,
+} from "@/lib/leaderboard";
+
+const MODEL_BY_KEY = new Map(AGGREGATED_MODELS.map((m) => [leaderboardKey(m), m]));
+
+/** Every model in leaderboard order: ranked models first, then preliminary ones by DRS */
+const MODELS_IN_LEADERBOARD_ORDER: AggregatedModel[] = [
+  ...RANKED_MODELS.map((r) => MODEL_BY_KEY.get(r.key)).filter((m): m is AggregatedModel => Boolean(m)),
+  ...AGGREGATED_MODELS.filter((m) => !getLeaderboardRow(m)).sort((a, b) => b.drsNum - a.drsNum),
+];
+
+/** Date of a model's most recent run (YYYY-MM-DD), or "" if no run has a date */
+function lastEvaluated(model: AggregatedModel): string {
+  return model.rawRuns.reduce((latest, r) => (r.date && r.date > latest ? r.date : latest), "");
+}
+
+const LAST_EVALUATED = new Map(AGGREGATED_MODELS.map((m) => [m.id, lastEvaluated(m)]));
+
+/** Newest evaluation first; models evaluated the same day stay in leaderboard order */
+const MODELS_NEWEST_FIRST: AggregatedModel[] = [...MODELS_IN_LEADERBOARD_ORDER].sort((a, b) =>
+  (LAST_EVALUATED.get(b.id) ?? "").localeCompare(LAST_EVALUATED.get(a.id) ?? "")
+);
+
+/** Newest run first; same-day runs by DRS */
+const RUNS_NEWEST_FIRST = [...ALL_BENCHMARK_RUNS].sort(
+  (a, b) => (b.date ?? "").localeCompare(a.date ?? "") || b.drsNum - a.drsNum
+);
+
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// Formatted by hand (not toLocaleDateString) so server and browser render the same text
+function EvaluatedDate({ iso }: { iso: string | null | undefined }) {
+  if (!iso) return <span>—</span>;
+  const [y, m, d] = iso.split("-").map(Number);
+  return (
+    <time dateTime={iso} title={`${MONTHS[m - 1]} ${d}, ${y}`}>
+      {MONTHS[m - 1]} {d}
+    </time>
+  );
+}
+
+/** Rank shown in the table — the shared DRS leaderboard rank, or "Prelim." below the run threshold */
+function leaderboardStatus(row: { name: string; params: string }) {
+  const entry = getLeaderboardRow(row);
+  if (!entry) {
+    const runs = MODEL_BY_KEY.get(leaderboardKey(row))?.runsCount ?? 1;
+    return {
+      short: "Prelim.",
+      badge: `Preliminary · ${runs} ${runs === 1 ? "run" : "runs"}`,
+      title: `Preliminary: ${runs} ${runs === 1 ? "run" : "runs"} — ${MIN_RUNS_TO_RANK} needed to be ranked`,
+      ranked: false,
+    };
+  }
+  return {
+    short: `#${entry.rank}`,
+    badge: `Rank #${entry.rank}`,
+    title: `Leaderboard rank #${entry.rank} by DRS Trust Score · ${entry.runs} runs`,
+    ranked: true,
+  };
+}
 
 const LAB_FILTER_TABS: string[] = [
   "All Models",
@@ -90,7 +151,7 @@ export default function LatestReports() {
 
   // Filter aggregated models
   const filteredAggregated = useMemo(() => {
-    return AGGREGATED_MODELS.filter((model) => {
+    return MODELS_NEWEST_FIRST.filter((model) => {
       const matchesLab =
         selectedLab === "All Models" ||
         model.lab.toLowerCase() === selectedLab.toLowerCase() ||
@@ -110,7 +171,7 @@ export default function LatestReports() {
 
   // Filter raw runs
   const filteredRuns = useMemo(() => {
-    return ALL_BENCHMARK_RUNS.filter((run) => {
+    return RUNS_NEWEST_FIRST.filter((run) => {
       const matchesLab =
         selectedLab === "All Models" ||
         run.lab.toLowerCase() === selectedLab.toLowerCase() ||
@@ -158,7 +219,7 @@ export default function LatestReports() {
   }, [validCurrentPage, totalPages]);
 
   return (
-    <div className={styles.reportsContainer} style={{ width: "100%" }}>
+    <div className={styles.reportsContainer} id="latest-reports" style={{ width: "100%", scrollMarginTop: "80px" }}>
       {/* SECTION HEADER */}
       <motion.div
         className={styles.headerSection}
@@ -169,7 +230,7 @@ export default function LatestReports() {
       >
         <h2 className={styles.title}>Latest Reports</h2>
         <p className={styles.subtitle}>
-          Recent benchmark releases and model evaluations across open-weight and enterprise AI.
+          Recent benchmark releases and model evaluations across open-weight and enterprise AI, newest first.
         </p>
       </motion.div>
 
@@ -269,21 +330,28 @@ export default function LatestReports() {
               <tr className={styles.superHeaderRow}>
                 <th
                   className={styles.groupHeaderBenchmarks}
-                  style={{ width: "25%" }}
+                  style={{ width: "22%" }}
                 >
                   Models
                 </th>
-                <th colSpan={3} className={styles.groupHeaderPerformance} style={{ width: "26%" }}>
+                <th colSpan={3} className={styles.groupHeaderPerformance} style={{ width: "24%" }}>
                   Performance
                 </th>
-                <th colSpan={5} className={styles.groupHeaderTrust} style={{ width: "41%" }}>
+                <th colSpan={5} className={styles.groupHeaderTrust} style={{ width: "38%" }}>
                   Trust
+                </th>
+                <th
+                  className={styles.groupHeaderDate}
+                  style={{ width: "8%" }}
+                  title="Date of the most recent evaluation run"
+                >
+                  Evaluated
                 </th>
                 <th
                   className={styles.groupHeaderRankings}
                   style={{ width: "8%" }}
                 >
-                  Rankings
+                  DRS Rank
                 </th>
               </tr>
 
@@ -291,38 +359,42 @@ export default function LatestReports() {
               <tr className={styles.subHeaderRow}>
                 <th
                   className={styles.groupHeaderBenchmarksSub}
-                  style={{ width: "25%" }}
+                  style={{ width: "22%" }}
                 />
                 {/* Performance columns */}
-                <th className={styles.subPerfTh} style={{ width: "10%" }}>
+                <th className={styles.subPerfTh} style={{ width: "9%" }}>
                   Accuracy
                 </th>
-                <th className={styles.subPerfTh} style={{ width: "7.5%" }}>
+                <th className={styles.subPerfTh} style={{ width: "7%" }}>
                   Semantic
                 </th>
-                <th className={styles.subPerfTh} style={{ width: "8.5%" }}>
+                <th className={styles.subPerfTh} style={{ width: "8%" }}>
                   Latency
                 </th>
 
                 {/* Trust columns */}
-                <th className={styles.subTrustTh} style={{ width: "8%" }}>
+                <th className={styles.subTrustTh} style={{ width: "7.5%" }}>
                   Factuality
                 </th>
-                <th className={styles.subTrustTh} style={{ width: "9.5%" }}>
+                <th className={styles.subTrustTh} style={{ width: "9%" }}>
                   Hallucination
                 </th>
-                <th className={styles.subTrustTh} style={{ width: "7.5%" }}>
+                <th className={styles.subTrustTh} style={{ width: "7%" }}>
                   Safety
                 </th>
-                <th className={styles.subTrustTh} style={{ width: "8%" }}>
+                <th className={styles.subTrustTh} style={{ width: "7.5%" }}>
                   Reliability
                 </th>
                 <th
                   className={`${styles.subTrustTh} ${styles.drsHeader}`}
-                  style={{ width: "8%" }}
+                  style={{ width: "7%" }}
                 >
                   DRS
                 </th>
+                <th
+                  className={styles.groupHeaderRankingsSub}
+                  style={{ width: "8%" }}
+                />
                 <th
                   className={styles.groupHeaderRankingsSub}
                   style={{ width: "8%" }}
@@ -333,7 +405,7 @@ export default function LatestReports() {
               {viewMode === "aggregated" ? (
                 displayedAggregated.length === 0 ? (
                   <tr>
-                    <td colSpan={10} style={{ textAlign: "center", padding: "30px", color: "var(--text-muted)" }}>
+                    <td colSpan={11} style={{ textAlign: "center", padding: "30px", color: "var(--text-muted)" }}>
                       No models found matching your search.
                     </td>
                   </tr>
@@ -398,8 +470,18 @@ export default function LatestReports() {
                         {/* TRUST: DRS (Decision Reliability Score) */}
                         <td className={styles.drsCell}>{row.drs}</td>
 
+                        {/* Most recent evaluation run */}
+                        <td className={styles.dateCell}>
+                          <EvaluatedDate iso={LAST_EVALUATED.get(row.id)} />
+                        </td>
+
                         {/* Rankings */}
-                        <td className={styles.rankingsCell}>{row.rank}</td>
+                        <td
+                          className={`${styles.rankingsCell} ${leaderboardStatus(row).ranked ? "" : styles.rankingsCellPrelim}`}
+                          title={leaderboardStatus(row).title}
+                        >
+                          {leaderboardStatus(row).short}
+                        </td>
                       </tr>
                     );
                   })
@@ -408,7 +490,7 @@ export default function LatestReports() {
                 /* RAW BENCHMARK RUNS VIEW */
                 displayedRuns.length === 0 ? (
                   <tr>
-                    <td colSpan={10} style={{ textAlign: "center", padding: "30px", color: "var(--text-muted)" }}>
+                    <td colSpan={11} style={{ textAlign: "center", padding: "30px", color: "var(--text-muted)" }}>
                       No evaluation runs found matching your search.
                     </td>
                   </tr>
@@ -470,8 +552,18 @@ export default function LatestReports() {
                         {/* TRUST: DRS */}
                         <td className={styles.drsCell}>{row.drs}</td>
 
+                        {/* Run date */}
+                        <td className={styles.dateCell}>
+                          <EvaluatedDate iso={row.date} />
+                        </td>
+
                         {/* Rankings */}
-                        <td className={styles.rankingsCell}>{row.rank}</td>
+                        <td
+                          className={`${styles.rankingsCell} ${leaderboardStatus(row).ranked ? "" : styles.rankingsCellPrelim}`}
+                          title={leaderboardStatus(row).title}
+                        >
+                          {leaderboardStatus(row).short}
+                        </td>
                       </tr>
                     );
                   })
@@ -508,7 +600,12 @@ export default function LatestReports() {
                         {Boolean(row.params) && <span className={styles.paramBadge}>{row.params}</span>}
                         {Boolean(row.size) && <span className={styles.sizeBadge}>{row.size}</span>}
                       </div>
-                      <span className={styles.mobileRankBadge}>Rank #{row.rank}</span>
+                      <span
+                        className={`${styles.mobileRankBadge} ${leaderboardStatus(row).ranked ? "" : styles.mobileRankBadgePrelim}`}
+                        title={leaderboardStatus(row).title}
+                      >
+                        {leaderboardStatus(row).badge}
+                      </span>
                     </div>
 
                     {/* Primary Metric: Accuracy */}
@@ -560,6 +657,12 @@ export default function LatestReports() {
                         <span className={styles.mobileGridLabel}>Hallucination</span>
                         <span className={styles.mobileGridValue}>{row.hallucination}</span>
                       </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Evaluated</span>
+                        <span className={styles.mobileGridValue}>
+                          <EvaluatedDate iso={LAST_EVALUATED.get(row.id)} />
+                        </span>
+                      </div>
                     </div>
                   </div>
                 );
@@ -587,7 +690,12 @@ export default function LatestReports() {
                         {Boolean(row.size) && <span className={styles.sizeBadge}>{row.size}</span>}
                         <span className={styles.modelTag}>{row.lab}</span>
                       </div>
-                      <span className={styles.mobileRankBadge}>Rank #{row.rank}</span>
+                      <span
+                        className={`${styles.mobileRankBadge} ${leaderboardStatus(row).ranked ? "" : styles.mobileRankBadgePrelim}`}
+                        title={leaderboardStatus(row).title}
+                      >
+                        {leaderboardStatus(row).badge}
+                      </span>
                     </div>
 
                     {/* Primary Metric: Accuracy */}
@@ -638,6 +746,12 @@ export default function LatestReports() {
                       <div className={styles.mobileMetricItem}>
                         <span className={styles.mobileGridLabel}>Hallucination</span>
                         <span className={styles.mobileGridValue}>{row.hallucination}</span>
+                      </div>
+                      <div className={styles.mobileMetricItem}>
+                        <span className={styles.mobileGridLabel}>Evaluated</span>
+                        <span className={styles.mobileGridValue}>
+                          <EvaluatedDate iso={row.date} />
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -761,7 +875,7 @@ export default function LatestReports() {
             className={styles.viewModelLink}
             title="View complete evaluation methodology & documentation"
           >
-            <span>VIEW METHODOLOGY</span>
+            <span>View methodology</span>
             <ExternalLink size={13} />
           </Link>
         </div>

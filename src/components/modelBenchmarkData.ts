@@ -12,6 +12,8 @@ export interface ModelRunRecord {
   safety: string;
   reliability: string;
   drs: string;
+  /** Evaluation date, YYYY-MM-DD (null if the sheet cell was unreadable) */
+  date: string | null;
 }
 
 export interface AggregatedModel {
@@ -53,6 +55,7 @@ export interface RawBenchmarkRun {
   drsNum: number;
   rank: string;
   runNumber: number;
+  date: string | null;
 }
 
 export const AGGREGATED_MODELS: AggregatedModel[] = [
@@ -84,7 +87,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.375",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.701"
+        "drs": "0.701",
+        "date": "2026-11-18"
       }
     ],
     "rank": "1/507"
@@ -117,7 +121,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.368",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.687"
+        "drs": "0.687",
+        "date": "2026-11-18"
       }
     ],
     "rank": "2/507"
@@ -150,7 +155,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.385",
         "safety": "0.962",
         "reliability": "1.000",
-        "drs": "0.702"
+        "drs": "0.702",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -162,7 +168,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.407",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.682"
+        "drs": "0.682",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 3,
@@ -174,7 +181,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.380",
         "safety": "0.963",
         "reliability": "1.000",
-        "drs": "0.680"
+        "drs": "0.680",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 4,
@@ -186,7 +194,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.374",
         "safety": "0.937",
         "reliability": "1.000",
-        "drs": "0.697"
+        "drs": "0.697",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 5,
@@ -198,7 +207,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.421",
         "safety": "0.810",
         "reliability": "1.000",
-        "drs": "0.631"
+        "drs": "0.631",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 6,
@@ -210,7 +220,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.385",
         "safety": "0.812",
         "reliability": "1.000",
-        "drs": "0.670"
+        "drs": "0.670",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 7,
@@ -222,7 +233,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.442",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.706"
+        "drs": "0.706",
+        "date": "2026-11-20"
       }
     ],
     "rank": "3/507"
@@ -255,7 +267,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.453",
         "safety": "0.940",
         "reliability": "0.900",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -267,7 +280,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.369",
         "safety": "0.963",
         "reliability": "1.000",
-        "drs": "0.703"
+        "drs": "0.703",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -279,7 +293,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.440",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.680"
+        "drs": "0.680",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -291,7 +306,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.416",
         "safety": "1.000",
         "reliability": "0.833",
-        "drs": "0.594"
+        "drs": "0.594",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -303,7 +319,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.378",
         "safety": "0.910",
         "reliability": "1.000",
-        "drs": "0.705"
+        "drs": "0.705",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 6,
@@ -315,7 +332,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.445",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.703"
+        "drs": "0.703",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 7,
@@ -327,7 +345,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.376",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.718"
+        "drs": "0.718",
+        "date": "2026-11-20"
       }
     ],
     "rank": "4/507"
@@ -360,7 +379,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.491",
         "safety": "1.000",
         "reliability": "0.876",
-        "drs": "0.672"
+        "drs": "0.672",
+        "date": "2026-10-28"
       }
     ],
     "rank": "5/507"
@@ -393,7 +413,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.498",
         "safety": "1.000",
         "reliability": "0.944",
-        "drs": "0.648"
+        "drs": "0.648",
+        "date": "2026-10-29"
       }
     ],
     "rank": "6/507"
@@ -426,7 +447,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.523",
         "safety": "1.000",
         "reliability": "0.903",
-        "drs": "0.648"
+        "drs": "0.648",
+        "date": "2026-11-12"
       }
     ],
     "rank": "7/507"
@@ -459,7 +481,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.418",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.646"
+        "drs": "0.646",
+        "date": "2026-11-12"
       }
     ],
     "rank": "8/507"
@@ -492,7 +515,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.525",
         "safety": "1.000",
         "reliability": "0.943",
-        "drs": "0.644"
+        "drs": "0.644",
+        "date": "2026-06-13"
       }
     ],
     "rank": "9/507"
@@ -525,7 +549,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.526",
         "safety": "1.000",
         "reliability": "0.902",
-        "drs": "0.644"
+        "drs": "0.644",
+        "date": "2026-11-18"
       }
     ],
     "rank": "10/507"
@@ -558,7 +583,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.250",
         "safety": "1.000",
         "reliability": "0.367",
-        "drs": "0.642"
+        "drs": "0.642",
+        "date": "2026-11-03"
       }
     ],
     "rank": "11/507"
@@ -591,7 +617,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.515",
         "safety": "0.925",
         "reliability": "0.899",
-        "drs": "0.642"
+        "drs": "0.642",
+        "date": "2026-11-16"
       }
     ],
     "rank": "12/507"
@@ -624,7 +651,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "1.000",
         "reliability": "0.911",
-        "drs": "0.642"
+        "drs": "0.642",
+        "date": "2026-11-18"
       }
     ],
     "rank": "13/507"
@@ -657,7 +685,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.511",
         "safety": "0.963",
         "reliability": "0.897",
-        "drs": "0.640"
+        "drs": "0.640",
+        "date": "2026-11-18"
       }
     ],
     "rank": "14/507"
@@ -667,7 +696,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
     "name": "liquidai/lfm2.5-350m",
     "params": "354.48m",
     "size": "229 MB",
-    "lab": "Meta",
+    "lab": "Liquid AI",
     "runsCount": 5,
     "accuracy": "0.745",
     "accuracyNum": 0.745,
@@ -690,7 +719,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.505",
         "safety": "0.963",
         "reliability": "0.950",
-        "drs": "0.669"
+        "drs": "0.669",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 2,
@@ -702,7 +732,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.495",
         "safety": "1.000",
         "reliability": "0.940",
-        "drs": "0.656"
+        "drs": "0.656",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 3,
@@ -714,7 +745,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.585",
         "safety": "1.000",
         "reliability": "0.929",
-        "drs": "0.617"
+        "drs": "0.617",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 4,
@@ -726,7 +758,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.940",
         "reliability": "0.973",
-        "drs": "0.604"
+        "drs": "0.604",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 5,
@@ -738,7 +771,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "1.000",
         "reliability": "0.939",
-        "drs": "0.654"
+        "drs": "0.654",
+        "date": "2026-11-20"
       }
     ],
     "rank": "15/507"
@@ -771,7 +805,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "1.000",
         "reliability": "0.893",
-        "drs": "0.634"
+        "drs": "0.634",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -783,7 +818,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.555",
         "safety": "1.000",
         "reliability": "0.882",
-        "drs": "0.643"
+        "drs": "0.643",
+        "date": "2026-11-18"
       }
     ],
     "rank": "16/507"
@@ -816,7 +852,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.536",
         "safety": "1.000",
         "reliability": "0.928",
-        "drs": "0.631"
+        "drs": "0.631",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 2,
@@ -828,7 +865,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.576",
         "safety": "1.000",
         "reliability": "0.956",
-        "drs": "0.643"
+        "drs": "0.643",
+        "date": "2026-11-13"
       }
     ],
     "rank": "17/507"
@@ -861,7 +899,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.950",
         "reliability": "0.909",
-        "drs": "0.637"
+        "drs": "0.637",
+        "date": "2026-11-18"
       }
     ],
     "rank": "18/507"
@@ -894,7 +933,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "1.000",
         "reliability": "0.930",
-        "drs": "0.636"
+        "drs": "0.636",
+        "date": "2026-11-12"
       }
     ],
     "rank": "19/507"
@@ -927,7 +967,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.528",
         "safety": "1.000",
         "reliability": "0.925",
-        "drs": "0.636"
+        "drs": "0.636",
+        "date": "2026-11-12"
       }
     ],
     "rank": "20/507"
@@ -960,7 +1001,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.525",
         "safety": "0.925",
         "reliability": "0.906",
-        "drs": "0.636"
+        "drs": "0.636",
+        "date": "2026-11-13"
       }
     ],
     "rank": "21/507"
@@ -993,7 +1035,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "1.000",
         "reliability": "0.907",
-        "drs": "0.636"
+        "drs": "0.636",
+        "date": "2026-11-18"
       }
     ],
     "rank": "22/507"
@@ -1026,7 +1069,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "1.000",
         "reliability": "0.879",
-        "drs": "0.632"
+        "drs": "0.632",
+        "date": "2026-06-13"
       }
     ],
     "rank": "23/507"
@@ -1059,7 +1103,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.552",
         "safety": "0.963",
         "reliability": "0.886",
-        "drs": "0.632"
+        "drs": "0.632",
+        "date": "2026-11-18"
       }
     ],
     "rank": "24/507"
@@ -1092,7 +1137,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.556",
         "safety": "0.963",
         "reliability": "0.901",
-        "drs": "0.632"
+        "drs": "0.632",
+        "date": "2026-11-18"
       }
     ],
     "rank": "25/507"
@@ -1125,7 +1171,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.878",
         "reliability": "0.864",
-        "drs": "0.631"
+        "drs": "0.631",
+        "date": "2026-10-27"
       }
     ],
     "rank": "26/507"
@@ -1158,7 +1205,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.937",
         "reliability": "0.924",
-        "drs": "0.631"
+        "drs": "0.631",
+        "date": "2026-11-13"
       }
     ],
     "rank": "27/507"
@@ -1191,7 +1239,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.529",
         "safety": "1.000",
         "reliability": "0.906",
-        "drs": "0.631"
+        "drs": "0.631",
+        "date": "2026-11-19"
       }
     ],
     "rank": "28/507"
@@ -1224,7 +1273,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "0.950",
         "reliability": "0.914",
-        "drs": "0.630"
+        "drs": "0.630",
+        "date": "2026-11-17"
       }
     ],
     "rank": "29/507"
@@ -1257,7 +1307,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.544",
         "safety": "0.963",
         "reliability": "0.903",
-        "drs": "0.629"
+        "drs": "0.629",
+        "date": "2026-11-16"
       }
     ],
     "rank": "30/507"
@@ -1290,7 +1341,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.524",
         "safety": "0.963",
         "reliability": "0.897",
-        "drs": "0.629"
+        "drs": "0.629",
+        "date": "2026-11-16"
       }
     ],
     "rank": "31/507"
@@ -1323,7 +1375,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.262",
         "safety": "0.963",
         "reliability": "0.333",
-        "drs": "0.628"
+        "drs": "0.628",
+        "date": "2026-11-02"
       }
     ],
     "rank": "32/507"
@@ -1356,7 +1409,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.963",
         "reliability": "0.912",
-        "drs": "0.628"
+        "drs": "0.628",
+        "date": "2026-11-13"
       }
     ],
     "rank": "33/507"
@@ -1389,7 +1443,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.564",
         "safety": "0.970",
         "reliability": "0.826",
-        "drs": "0.628"
+        "drs": "0.628",
+        "date": "2026-11-16"
       }
     ],
     "rank": "34/507"
@@ -1422,7 +1477,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.556",
         "safety": "1.000",
         "reliability": "0.884",
-        "drs": "0.627"
+        "drs": "0.627",
+        "date": "2026-11-18"
       }
     ],
     "rank": "35/507"
@@ -1455,7 +1511,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.583",
         "safety": "1.000",
         "reliability": "0.972",
-        "drs": "0.627"
+        "drs": "0.627",
+        "date": "2026-11-18"
       }
     ],
     "rank": "36/507"
@@ -1488,7 +1545,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "0.963",
         "reliability": "0.929",
-        "drs": "0.626"
+        "drs": "0.626",
+        "date": "2026-11-12"
       }
     ],
     "rank": "37/507"
@@ -1521,7 +1579,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.522",
         "safety": "1.000",
         "reliability": "0.850",
-        "drs": "0.626"
+        "drs": "0.626",
+        "date": "2026-11-12"
       }
     ],
     "rank": "38/507"
@@ -1554,7 +1613,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.531",
         "safety": "1.000",
         "reliability": "0.912",
-        "drs": "0.626"
+        "drs": "0.626",
+        "date": "2026-11-16"
       }
     ],
     "rank": "39/507"
@@ -1587,7 +1647,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.529",
         "safety": "1.000",
         "reliability": "0.894",
-        "drs": "0.625"
+        "drs": "0.625",
+        "date": "2026-11-13"
       }
     ],
     "rank": "40/507"
@@ -1620,7 +1681,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.531",
         "safety": "1.000",
         "reliability": "0.915",
-        "drs": "0.625"
+        "drs": "0.625",
+        "date": "2026-11-13"
       }
     ],
     "rank": "41/507"
@@ -1653,7 +1715,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.551",
         "safety": "1.000",
         "reliability": "0.893",
-        "drs": "0.624"
+        "drs": "0.624",
+        "date": "2026-11-13"
       }
     ],
     "rank": "42/507"
@@ -1686,7 +1749,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.531",
         "safety": "0.873",
         "reliability": "0.912",
-        "drs": "0.624"
+        "drs": "0.624",
+        "date": "2026-11-18"
       }
     ],
     "rank": "43/507"
@@ -1719,7 +1783,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.554",
         "safety": "1.000",
         "reliability": "0.873",
-        "drs": "0.623"
+        "drs": "0.623",
+        "date": "2026-10-23"
       }
     ],
     "rank": "44/507"
@@ -1752,7 +1817,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.530",
         "safety": "0.963",
         "reliability": "0.881",
-        "drs": "0.622"
+        "drs": "0.622",
+        "date": "2026-11-18"
       }
     ],
     "rank": "45/507"
@@ -1785,7 +1851,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "0.937",
         "reliability": "0.892",
-        "drs": "0.622"
+        "drs": "0.622",
+        "date": "2026-11-18"
       }
     ],
     "rank": "46/507"
@@ -1818,7 +1885,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "1.000",
         "reliability": "0.907",
-        "drs": "0.622"
+        "drs": "0.622",
+        "date": "2026-11-18"
       }
     ],
     "rank": "47/507"
@@ -1851,7 +1919,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "0.937",
         "reliability": "0.898",
-        "drs": "0.621"
+        "drs": "0.621",
+        "date": "2026-10-27"
       }
     ],
     "rank": "48/507"
@@ -1884,7 +1953,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "1.000",
         "reliability": "0.926",
-        "drs": "0.621"
+        "drs": "0.621",
+        "date": "2026-11-18"
       }
     ],
     "rank": "49/507"
@@ -1917,7 +1987,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.584",
         "safety": "1.000",
         "reliability": "0.888",
-        "drs": "0.621"
+        "drs": "0.621",
+        "date": "2026-11-19"
       }
     ],
     "rank": "50/507"
@@ -1950,7 +2021,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.575",
         "safety": "1.000",
         "reliability": "0.965",
-        "drs": "0.620"
+        "drs": "0.620",
+        "date": "2026-11-18"
       }
     ],
     "rank": "51/507"
@@ -1983,7 +2055,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.587",
         "safety": "1.000",
         "reliability": "0.889",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-10-27"
       }
     ],
     "rank": "52/507"
@@ -2016,7 +2089,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.533",
         "safety": "0.963",
         "reliability": "0.903",
-        "drs": "0.633"
+        "drs": "0.633",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 2,
@@ -2028,7 +2102,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "1.000",
         "reliability": "0.919",
-        "drs": "0.625"
+        "drs": "0.625",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -2040,7 +2115,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.905",
         "reliability": "0.916",
-        "drs": "0.596"
+        "drs": "0.596",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -2052,7 +2128,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.552",
         "safety": "0.872",
         "reliability": "0.908",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -2064,7 +2141,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.577",
         "safety": "1.000",
         "reliability": "0.950",
-        "drs": "0.637"
+        "drs": "0.637",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -2076,7 +2154,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "0.962",
         "reliability": "0.890",
-        "drs": "0.617"
+        "drs": "0.617",
+        "date": "2026-11-17"
       }
     ],
     "rank": "53/507"
@@ -2109,7 +2188,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "0.963",
         "reliability": "0.929",
-        "drs": "0.633"
+        "drs": "0.633",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -2121,7 +2201,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.533",
         "safety": "1.000",
         "reliability": "0.904",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -2133,7 +2214,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.587",
         "safety": "1.000",
         "reliability": "0.919",
-        "drs": "0.591"
+        "drs": "0.591",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -2145,7 +2227,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "0.970",
         "reliability": "0.916",
-        "drs": "0.610"
+        "drs": "0.610",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -2157,7 +2240,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.565",
         "safety": "1.000",
         "reliability": "0.938",
-        "drs": "0.644"
+        "drs": "0.644",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -2169,7 +2253,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.536",
         "safety": "1.000",
         "reliability": "0.940",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-11-18"
       }
     ],
     "rank": "54/507"
@@ -2202,7 +2287,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "1.000",
         "reliability": "0.815",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-10-26"
       }
     ],
     "rank": "55/507"
@@ -2235,7 +2321,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.610",
         "safety": "1.000",
         "reliability": "0.935",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-11-12"
       }
     ],
     "rank": "56/507"
@@ -2268,7 +2355,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.544",
         "safety": "0.963",
         "reliability": "0.889",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-11-13"
       }
     ],
     "rank": "57/507"
@@ -2301,7 +2389,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.554",
         "safety": "1.000",
         "reliability": "0.871",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-11-16"
       }
     ],
     "rank": "58/507"
@@ -2334,7 +2423,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.558",
         "safety": "1.000",
         "reliability": "0.842",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-11-17"
       }
     ],
     "rank": "59/507"
@@ -2367,7 +2457,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "0.940",
         "reliability": "0.909",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-11-18"
       }
     ],
     "rank": "60/507"
@@ -2400,7 +2491,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.528",
         "safety": "0.925",
         "reliability": "0.876",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-11-18"
       }
     ],
     "rank": "61/507"
@@ -2433,7 +2525,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.552",
         "safety": "0.962",
         "reliability": "0.879",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-11-18"
       }
     ],
     "rank": "62/507"
@@ -2466,7 +2559,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.636",
         "safety": "1.000",
         "reliability": "0.936",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-06-12"
       },
       {
         "runIndex": 2,
@@ -2478,7 +2572,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.551",
         "safety": "0.887",
         "reliability": "0.940",
-        "drs": "0.629"
+        "drs": "0.629",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 3,
@@ -2490,7 +2585,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.551",
         "safety": "0.887",
         "reliability": "0.940",
-        "drs": "0.629"
+        "drs": "0.629",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 4,
@@ -2502,7 +2598,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.635",
         "safety": "0.940",
         "reliability": "0.929",
-        "drs": "0.576"
+        "drs": "0.576",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 5,
@@ -2514,7 +2611,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "0.925",
         "reliability": "0.942",
-        "drs": "0.638"
+        "drs": "0.638",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 6,
@@ -2526,7 +2624,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.634",
         "safety": "1.000",
         "reliability": "0.949",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 7,
@@ -2538,7 +2637,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.578",
         "safety": "1.000",
         "reliability": "0.926",
-        "drs": "0.636"
+        "drs": "0.636",
+        "date": "2026-06-30"
       }
     ],
     "rank": "63/507"
@@ -2571,7 +2671,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.556",
         "safety": "1.000",
         "reliability": "0.802",
-        "drs": "0.616"
+        "drs": "0.616",
+        "date": "2026-10-26"
       }
     ],
     "rank": "64/507"
@@ -2604,7 +2705,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.269",
         "safety": "0.950",
         "reliability": "0.333",
-        "drs": "0.616"
+        "drs": "0.616",
+        "date": "2026-11-04"
       }
     ],
     "rank": "65/507"
@@ -2637,7 +2739,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "0.963",
         "reliability": "0.893",
-        "drs": "0.616"
+        "drs": "0.616",
+        "date": "2026-11-17"
       }
     ],
     "rank": "66/507"
@@ -2670,7 +2773,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.925",
         "reliability": "0.879",
-        "drs": "0.615"
+        "drs": "0.615",
+        "date": "2026-11-12"
       }
     ],
     "rank": "67/507"
@@ -2703,7 +2807,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.573",
         "safety": "1.000",
         "reliability": "0.829",
-        "drs": "0.615"
+        "drs": "0.615",
+        "date": "2026-11-18"
       }
     ],
     "rank": "68/507"
@@ -2736,7 +2841,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "1.000",
         "reliability": "0.907",
-        "drs": "0.628"
+        "drs": "0.628",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -2748,7 +2854,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.552",
         "safety": "0.970",
         "reliability": "0.904",
-        "drs": "0.591"
+        "drs": "0.591",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -2760,7 +2867,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.609",
         "safety": "1.000",
         "reliability": "0.926",
-        "drs": "0.621"
+        "drs": "0.621",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -2772,7 +2880,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "1.000",
         "reliability": "0.851",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -2784,7 +2893,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.963",
         "reliability": "0.888",
-        "drs": "0.634"
+        "drs": "0.634",
+        "date": "2026-11-19"
       }
     ],
     "rank": "69/507"
@@ -2817,7 +2927,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.612",
         "safety": "1.000",
         "reliability": "0.920",
-        "drs": "0.614"
+        "drs": "0.614",
+        "date": "2026-06-12"
       }
     ],
     "rank": "70/507"
@@ -2850,7 +2961,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.524",
         "safety": "0.820",
         "reliability": "0.942",
-        "drs": "0.617"
+        "drs": "0.617",
+        "date": "2026-10-27"
       },
       {
         "runIndex": 2,
@@ -2862,7 +2974,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.573",
         "safety": "1.000",
         "reliability": "0.923",
-        "drs": "0.632"
+        "drs": "0.632",
+        "date": "2026-11-13"
       },
       {
         "runIndex": 3,
@@ -2874,7 +2987,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.532",
         "safety": "1.000",
         "reliability": "0.914",
-        "drs": "0.626"
+        "drs": "0.626",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -2886,7 +3000,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.587",
         "safety": "1.000",
         "reliability": "0.901",
-        "drs": "0.558"
+        "drs": "0.558",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -2898,7 +3013,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.528",
         "safety": "0.963",
         "reliability": "0.907",
-        "drs": "0.648"
+        "drs": "0.648",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -2910,7 +3026,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.581",
         "safety": "1.000",
         "reliability": "0.898",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 7,
@@ -2922,7 +3039,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "1.000",
         "reliability": "0.929",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 8,
@@ -2934,7 +3052,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "1.000",
         "reliability": "0.916",
-        "drs": "0.621"
+        "drs": "0.621",
+        "date": "2026-11-18"
       }
     ],
     "rank": "71/507"
@@ -2967,7 +3086,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.280",
         "safety": "0.962",
         "reliability": "0.333",
-        "drs": "0.614"
+        "drs": "0.614",
+        "date": "2026-11-03"
       }
     ],
     "rank": "72/507"
@@ -3000,7 +3120,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "0.925",
         "reliability": "0.894",
-        "drs": "0.614"
+        "drs": "0.614",
+        "date": "2026-11-12"
       }
     ],
     "rank": "73/507"
@@ -3033,7 +3154,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.538",
         "safety": "1.000",
         "reliability": "0.905",
-        "drs": "0.636"
+        "drs": "0.636",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -3045,7 +3167,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.530",
         "safety": "1.000",
         "reliability": "0.904",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -3057,7 +3180,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.589",
         "safety": "1.000",
         "reliability": "0.883",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -3069,7 +3193,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "0.970",
         "reliability": "0.900",
-        "drs": "0.615"
+        "drs": "0.615",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -3081,7 +3206,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.588",
         "safety": "1.000",
         "reliability": "0.956",
-        "drs": "0.631"
+        "drs": "0.631",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -3093,7 +3219,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.548",
         "safety": "1.000",
         "reliability": "0.884",
-        "drs": "0.600"
+        "drs": "0.600",
+        "date": "2026-11-18"
       }
     ],
     "rank": "74/507"
@@ -3126,7 +3253,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "1.000",
         "reliability": "0.892",
-        "drs": "0.613"
+        "drs": "0.613",
+        "date": "2026-10-27"
       }
     ],
     "rank": "75/507"
@@ -3159,7 +3287,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.560",
         "safety": "0.924",
         "reliability": "0.889",
-        "drs": "0.613"
+        "drs": "0.613",
+        "date": "2026-11-18"
       }
     ],
     "rank": "76/507"
@@ -3192,7 +3321,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "0.963",
         "reliability": "0.861",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-10-30"
       }
     ],
     "rank": "77/507"
@@ -3225,7 +3355,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.293",
         "safety": "0.963",
         "reliability": "0.333",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-11-04"
       }
     ],
     "rank": "78/507"
@@ -3258,7 +3389,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.531",
         "safety": "1.000",
         "reliability": "0.904",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-11-16"
       }
     ],
     "rank": "79/507"
@@ -3291,7 +3423,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.536",
         "safety": "1.000",
         "reliability": "0.858",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-11-18"
       }
     ],
     "rank": "80/507"
@@ -3324,7 +3457,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "1.000",
         "reliability": "0.868",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-11-18"
       }
     ],
     "rank": "81/507"
@@ -3357,7 +3491,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "1.000",
         "reliability": "0.905",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-11-18"
       }
     ],
     "rank": "82/507"
@@ -3390,7 +3525,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.610",
         "safety": "1.000",
         "reliability": "0.906",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-10-23"
       },
       {
         "runIndex": 2,
@@ -3402,7 +3538,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.963",
         "reliability": "0.928",
-        "drs": "0.633"
+        "drs": "0.633",
+        "date": "2026-10-27"
       }
     ],
     "rank": "83/507"
@@ -3435,7 +3572,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "1.000",
         "reliability": "0.899",
-        "drs": "0.611"
+        "drs": "0.611",
+        "date": "2026-10-28"
       }
     ],
     "rank": "84/507"
@@ -3468,7 +3606,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.557",
         "safety": "1.000",
         "reliability": "0.876",
-        "drs": "0.611"
+        "drs": "0.611",
+        "date": "2026-11-18"
       }
     ],
     "rank": "85/507"
@@ -3501,7 +3640,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.538",
         "safety": "0.963",
         "reliability": "0.892",
-        "drs": "0.634"
+        "drs": "0.634",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -3513,7 +3653,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.871",
-        "drs": "0.536"
+        "drs": "0.536",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -3525,7 +3666,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.548",
         "safety": "0.932",
         "reliability": "0.895",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -3537,7 +3679,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.930",
-        "drs": "0.620"
+        "drs": "0.620",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -3549,7 +3692,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.532",
         "safety": "1.000",
         "reliability": "0.922",
-        "drs": "0.643"
+        "drs": "0.643",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -3561,7 +3705,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.577",
         "safety": "1.000",
         "reliability": "0.883",
-        "drs": "0.628"
+        "drs": "0.628",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 7,
@@ -3573,7 +3718,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.962",
         "reliability": "0.892",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-11-18"
       }
     ],
     "rank": "86/507"
@@ -3606,7 +3752,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.564",
         "safety": "1.000",
         "reliability": "0.875",
-        "drs": "0.611"
+        "drs": "0.611",
+        "date": "2026-11-18"
       }
     ],
     "rank": "87/507"
@@ -3639,7 +3786,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.947",
-        "drs": "0.610"
+        "drs": "0.610",
+        "date": "2026-11-13"
       }
     ],
     "rank": "88/507"
@@ -3672,7 +3820,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.585",
         "safety": "1.000",
         "reliability": "0.919",
-        "drs": "0.610"
+        "drs": "0.610",
+        "date": "2026-11-13"
       }
     ],
     "rank": "89/507"
@@ -3705,7 +3854,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.564",
         "safety": "0.970",
         "reliability": "0.878",
-        "drs": "0.610"
+        "drs": "0.610",
+        "date": "2026-11-16"
       }
     ],
     "rank": "90/507"
@@ -3738,7 +3888,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.910",
         "reliability": "0.909",
-        "drs": "0.603"
+        "drs": "0.603",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -3750,7 +3901,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.575",
         "safety": "1.000",
         "reliability": "0.938",
-        "drs": "0.566"
+        "drs": "0.566",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -3762,7 +3914,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.526",
         "safety": "1.000",
         "reliability": "0.879",
-        "drs": "0.622"
+        "drs": "0.622",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -3774,7 +3927,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.595",
         "safety": "1.000",
         "reliability": "0.875",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -3786,7 +3940,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.528",
         "safety": "1.000",
         "reliability": "0.942",
-        "drs": "0.638"
+        "drs": "0.638",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -3798,7 +3953,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.526",
         "safety": "1.000",
         "reliability": "0.953",
-        "drs": "0.642"
+        "drs": "0.642",
+        "date": "2026-11-18"
       }
     ],
     "rank": "91/507"
@@ -3831,7 +3987,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.887",
         "reliability": "0.859",
-        "drs": "0.610"
+        "drs": "0.610",
+        "date": "2026-11-18"
       }
     ],
     "rank": "92/507"
@@ -3864,7 +4021,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "1.000",
         "reliability": "0.861",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-10-28"
       }
     ],
     "rank": "93/507"
@@ -3897,7 +4055,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "1.000",
         "reliability": "0.838",
-        "drs": "0.608"
+        "drs": "0.608",
+        "date": "2026-10-29"
       }
     ],
     "rank": "94/507"
@@ -3930,7 +4089,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "0.937",
         "reliability": "0.905",
-        "drs": "0.608"
+        "drs": "0.608",
+        "date": "2026-11-13"
       }
     ],
     "rank": "95/507"
@@ -3963,7 +4123,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "1.000",
         "reliability": "0.822",
-        "drs": "0.608"
+        "drs": "0.608",
+        "date": "2026-11-13"
       }
     ],
     "rank": "96/507"
@@ -3996,7 +4157,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.582",
         "safety": "1.000",
         "reliability": "0.906",
-        "drs": "0.608"
+        "drs": "0.608",
+        "date": "2026-11-18"
       }
     ],
     "rank": "97/507"
@@ -4029,7 +4191,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.588",
         "safety": "0.905",
         "reliability": "0.923",
-        "drs": "0.607"
+        "drs": "0.607",
+        "date": "2026-11-13"
       }
     ],
     "rank": "98/507"
@@ -4062,7 +4225,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.533",
         "safety": "0.963",
         "reliability": "0.913",
-        "drs": "0.607"
+        "drs": "0.607",
+        "date": "2026-11-16"
       }
     ],
     "rank": "99/507"
@@ -4095,7 +4259,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.559",
         "safety": "0.963",
         "reliability": "0.880",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-06-13"
       }
     ],
     "rank": "100/507"
@@ -4128,7 +4293,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "1.000",
         "reliability": "0.861",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-10-28"
       },
       {
         "runIndex": 2,
@@ -4140,7 +4306,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "0.962",
         "reliability": "0.872",
-        "drs": "0.569"
+        "drs": "0.569",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 3,
@@ -4152,7 +4319,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.963",
         "reliability": "0.882",
-        "drs": "0.625"
+        "drs": "0.625",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 4,
@@ -4164,7 +4332,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.588",
         "safety": "1.000",
         "reliability": "0.868",
-        "drs": "0.603"
+        "drs": "0.603",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 5,
@@ -4176,7 +4345,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.554",
         "safety": "0.970",
         "reliability": "0.855",
-        "drs": "0.598"
+        "drs": "0.598",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 6,
@@ -4188,7 +4358,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.611",
         "safety": "1.000",
         "reliability": "0.954",
-        "drs": "0.624"
+        "drs": "0.624",
+        "date": "2026-11-16"
       }
     ],
     "rank": "101/507"
@@ -4221,7 +4392,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.290",
         "safety": "0.970",
         "reliability": "0.350",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-04"
       }
     ],
     "rank": "102/507"
@@ -4254,7 +4426,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.252",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-05"
       }
     ],
     "rank": "103/507"
@@ -4287,7 +4460,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.561",
         "safety": "1.000",
         "reliability": "0.903",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-13"
       }
     ],
     "rank": "104/507"
@@ -4320,7 +4494,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.925",
         "reliability": "0.888",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-16"
       }
     ],
     "rank": "105/507"
@@ -4353,7 +4528,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "1.000",
         "reliability": "0.855",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-16"
       }
     ],
     "rank": "106/507"
@@ -4386,7 +4562,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "0.963",
         "reliability": "0.833",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-17"
       }
     ],
     "rank": "107/507"
@@ -4419,7 +4596,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "1.000",
         "reliability": "0.876",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-18"
       }
     ],
     "rank": "108/507"
@@ -4452,7 +4630,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.526",
         "safety": "1.000",
         "reliability": "0.939",
-        "drs": "0.627"
+        "drs": "0.627",
+        "date": "2026-06-12"
       },
       {
         "runIndex": 2,
@@ -4464,7 +4643,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.515",
         "safety": "1.000",
         "reliability": "0.870",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 3,
@@ -4476,7 +4656,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.515",
         "safety": "1.000",
         "reliability": "0.870",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 4,
@@ -4488,7 +4669,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "1.000",
         "reliability": "0.808",
-        "drs": "0.538"
+        "drs": "0.538",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 5,
@@ -4500,7 +4682,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.526",
         "safety": "0.963",
         "reliability": "0.867",
-        "drs": "0.638"
+        "drs": "0.638",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 6,
@@ -4512,7 +4695,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.599",
         "safety": "1.000",
         "reliability": "0.929",
-        "drs": "0.600"
+        "drs": "0.600",
+        "date": "2026-06-16"
       }
     ],
     "rank": "109/507"
@@ -4545,7 +4729,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "1.000",
         "reliability": "0.883",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-10-27"
       }
     ],
     "rank": "110/507"
@@ -4578,7 +4763,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.299",
         "safety": "0.925",
         "reliability": "0.333",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-11-05"
       }
     ],
     "rank": "111/507"
@@ -4611,7 +4797,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "0.962",
         "reliability": "0.871",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-11-13"
       }
     ],
     "rank": "112/507"
@@ -4644,7 +4831,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.576",
         "safety": "0.970",
         "reliability": "0.907",
-        "drs": "0.582"
+        "drs": "0.582",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 2,
@@ -4656,7 +4844,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.531",
         "safety": "1.000",
         "reliability": "0.893",
-        "drs": "0.633"
+        "drs": "0.633",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -4668,7 +4857,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.592",
         "safety": "1.000",
         "reliability": "0.887",
-        "drs": "0.567"
+        "drs": "0.567",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -4680,7 +4870,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "0.940",
         "reliability": "0.887",
-        "drs": "0.603"
+        "drs": "0.603",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -4692,7 +4883,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.606",
         "safety": "1.000",
         "reliability": "0.917",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -4704,7 +4896,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.547",
         "safety": "1.000",
         "reliability": "0.877",
-        "drs": "0.626"
+        "drs": "0.626",
+        "date": "2026-11-17"
       }
     ],
     "rank": "113/507"
@@ -4737,7 +4930,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.615",
         "safety": "1.000",
         "reliability": "0.953",
-        "drs": "0.614"
+        "drs": "0.614",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -4749,7 +4943,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.551",
         "safety": "0.925",
         "reliability": "0.902",
-        "drs": "0.603"
+        "drs": "0.603",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -4761,7 +4956,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.571",
         "safety": "1.000",
         "reliability": "0.836",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-18"
       }
     ],
     "rank": "114/507"
@@ -4794,7 +4990,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "1.000",
         "reliability": "0.853",
-        "drs": "0.604"
+        "drs": "0.604",
+        "date": "2026-10-26"
       }
     ],
     "rank": "115/507"
@@ -4827,7 +5024,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.561",
         "safety": "0.962",
         "reliability": "0.865",
-        "drs": "0.604"
+        "drs": "0.604",
+        "date": "2026-10-28"
       }
     ],
     "rank": "116/507"
@@ -4860,7 +5058,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.547",
         "safety": "0.823",
         "reliability": "0.895",
-        "drs": "0.603"
+        "drs": "0.603",
+        "date": "2026-06-12"
       }
     ],
     "rank": "117/507"
@@ -4893,7 +5092,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.625",
         "safety": "1.000",
         "reliability": "0.962",
-        "drs": "0.603"
+        "drs": "0.603",
+        "date": "2026-11-16"
       }
     ],
     "rank": "118/507"
@@ -4926,7 +5126,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.760",
         "reliability": "0.915",
-        "drs": "0.604"
+        "drs": "0.604",
+        "date": "2026-06-12"
       },
       {
         "runIndex": 2,
@@ -4938,7 +5139,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.963",
         "reliability": "0.872",
-        "drs": "0.624"
+        "drs": "0.624",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 3,
@@ -4950,7 +5152,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.515",
         "safety": "0.937",
         "reliability": "0.897",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 4,
@@ -4962,7 +5165,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.515",
         "safety": "0.937",
         "reliability": "0.897",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 5,
@@ -4974,7 +5178,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.606",
         "safety": "0.962",
         "reliability": "0.839",
-        "drs": "0.528"
+        "drs": "0.528",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 6,
@@ -4986,7 +5191,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "1.000",
         "reliability": "0.874",
-        "drs": "0.623"
+        "drs": "0.623",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 7,
@@ -4998,7 +5204,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.615",
         "safety": "1.000",
         "reliability": "0.941",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 8,
@@ -5010,7 +5217,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.557",
         "safety": "0.970",
         "reliability": "0.803",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-06-30"
       }
     ],
     "rank": "119/507"
@@ -5043,7 +5251,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.571",
         "safety": "1.000",
         "reliability": "0.845",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-10-27"
       }
     ],
     "rank": "120/507"
@@ -5076,7 +5285,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.561",
         "safety": "1.000",
         "reliability": "0.844",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-10-28"
       }
     ],
     "rank": "121/507"
@@ -5109,7 +5319,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.962",
         "reliability": "0.817",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-10-28"
       },
       {
         "runIndex": 2,
@@ -5121,7 +5332,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.526",
         "safety": "0.775",
         "reliability": "0.899",
-        "drs": "0.594"
+        "drs": "0.594",
+        "date": "2026-11-12"
       },
       {
         "runIndex": 3,
@@ -5133,7 +5345,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.574",
         "safety": "1.000",
         "reliability": "0.866",
-        "drs": "0.561"
+        "drs": "0.561",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -5145,7 +5358,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.529",
         "safety": "0.925",
         "reliability": "0.897",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -5157,7 +5371,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.533",
         "safety": "1.000",
         "reliability": "0.905",
-        "drs": "0.621"
+        "drs": "0.621",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -5169,7 +5384,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.573",
         "safety": "1.000",
         "reliability": "0.877",
-        "drs": "0.586"
+        "drs": "0.586",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 7,
@@ -5181,7 +5397,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "0.970",
         "reliability": "0.876",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 8,
@@ -5193,7 +5410,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.591",
         "safety": "1.000",
         "reliability": "0.935",
-        "drs": "0.607"
+        "drs": "0.607",
+        "date": "2026-11-17"
       }
     ],
     "rank": "122/507"
@@ -5226,7 +5444,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.548",
         "safety": "0.872",
         "reliability": "0.860",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-10-30"
       }
     ],
     "rank": "123/507"
@@ -5259,7 +5478,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.278",
         "safety": "0.950",
         "reliability": "0.333",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-11-05"
       }
     ],
     "rank": "124/507"
@@ -5292,7 +5512,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "0.963",
         "reliability": "0.835",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-11-16"
       }
     ],
     "rank": "125/507"
@@ -5325,7 +5546,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.544",
         "safety": "0.887",
         "reliability": "0.873",
-        "drs": "0.596"
+        "drs": "0.596",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 2,
@@ -5337,7 +5559,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.594",
         "safety": "1.000",
         "reliability": "0.763",
-        "drs": "0.565"
+        "drs": "0.565",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -5349,7 +5572,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.503",
         "safety": "0.970",
         "reliability": "0.939",
-        "drs": "0.593"
+        "drs": "0.593",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -5361,7 +5585,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.555",
         "safety": "1.000",
         "reliability": "0.931",
-        "drs": "0.631"
+        "drs": "0.631",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -5373,7 +5598,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.488",
         "safety": "1.000",
         "reliability": "0.937",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -5385,7 +5611,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "0.925",
         "reliability": "0.893",
-        "drs": "0.623"
+        "drs": "0.623",
+        "date": "2026-11-17"
       }
     ],
     "rank": "126/507"
@@ -5418,7 +5645,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.597",
         "safety": "1.000",
         "reliability": "0.908",
-        "drs": "0.559"
+        "drs": "0.559",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -5430,7 +5658,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.937",
         "reliability": "0.908",
-        "drs": "0.616"
+        "drs": "0.616",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -5442,7 +5671,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.606",
         "safety": "1.000",
         "reliability": "0.930",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -5454,7 +5684,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "1.000",
         "reliability": "0.924",
-        "drs": "0.608"
+        "drs": "0.608",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -5466,7 +5697,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "1.000",
         "reliability": "0.862",
-        "drs": "0.623"
+        "drs": "0.623",
+        "date": "2026-11-18"
       }
     ],
     "rank": "127/507"
@@ -5499,7 +5731,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.592",
         "safety": "1.000",
         "reliability": "0.906",
-        "drs": "0.562"
+        "drs": "0.562",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -5511,7 +5744,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "0.915",
         "reliability": "0.908",
-        "drs": "0.630"
+        "drs": "0.630",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -5523,7 +5757,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.530",
         "safety": "0.937",
         "reliability": "0.906",
-        "drs": "0.635"
+        "drs": "0.635",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -5535,7 +5770,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.594",
         "safety": "1.000",
         "reliability": "0.911",
-        "drs": "0.581"
+        "drs": "0.581",
+        "date": "2026-11-18"
       }
     ],
     "rank": "128/507"
@@ -5568,7 +5804,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.556",
         "safety": "1.000",
         "reliability": "0.840",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-11-16"
       }
     ],
     "rank": "129/507"
@@ -5601,7 +5838,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.925",
         "reliability": "0.863",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-11-16"
       }
     ],
     "rank": "130/507"
@@ -5634,7 +5872,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.627",
         "safety": "1.000",
         "reliability": "0.926",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-11-18"
       }
     ],
     "rank": "131/507"
@@ -5667,7 +5906,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.528",
         "safety": "0.925",
         "reliability": "0.892",
-        "drs": "0.624"
+        "drs": "0.624",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -5679,7 +5919,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.588",
         "safety": "1.000",
         "reliability": "0.893",
-        "drs": "0.512"
+        "drs": "0.512",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -5691,7 +5932,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.527",
         "safety": "0.970",
         "reliability": "0.889",
-        "drs": "0.620"
+        "drs": "0.620",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -5703,7 +5945,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.574",
         "safety": "1.000",
         "reliability": "0.934",
-        "drs": "0.640"
+        "drs": "0.640",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -5715,7 +5958,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "1.000",
         "reliability": "0.922",
-        "drs": "0.613"
+        "drs": "0.613",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -5727,7 +5971,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.569",
         "safety": "1.000",
         "reliability": "0.878",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 7,
@@ -5739,7 +5984,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.526",
         "safety": "1.000",
         "reliability": "0.897",
-        "drs": "0.621"
+        "drs": "0.621",
+        "date": "2026-11-18"
       }
     ],
     "rank": "132/507"
@@ -5772,7 +6018,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "0.925",
         "reliability": "0.912",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-11-18"
       }
     ],
     "rank": "133/507"
@@ -5805,7 +6052,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "0.970",
         "reliability": "0.893",
-        "drs": "0.561"
+        "drs": "0.561",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 2,
@@ -5817,7 +6065,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "1.000",
         "reliability": "0.927",
-        "drs": "0.636"
+        "drs": "0.636",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 3,
@@ -5829,7 +6078,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.593",
         "safety": "0.905",
         "reliability": "0.864",
-        "drs": "0.592"
+        "drs": "0.592",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 4,
@@ -5841,7 +6091,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.559",
         "safety": "0.812",
         "reliability": "0.918",
-        "drs": "0.593"
+        "drs": "0.593",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 5,
@@ -5853,7 +6104,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.609",
         "safety": "1.000",
         "reliability": "0.952",
-        "drs": "0.617"
+        "drs": "0.617",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 6,
@@ -5865,7 +6117,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.561",
         "safety": "1.000",
         "reliability": "0.846",
-        "drs": "0.598"
+        "drs": "0.598",
+        "date": "2026-11-20"
       }
     ],
     "rank": "134/507"
@@ -5898,7 +6151,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "1.000",
         "reliability": "0.886",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-06-12"
       }
     ],
     "rank": "135/507"
@@ -5931,7 +6185,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "1.000",
         "reliability": "0.757",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-10-28"
       }
     ],
     "rank": "136/507"
@@ -5964,7 +6219,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.552",
         "safety": "1.000",
         "reliability": "0.836",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-12"
       }
     ],
     "rank": "137/507"
@@ -5997,7 +6253,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.625",
         "safety": "1.000",
         "reliability": "0.903",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-16"
       }
     ],
     "rank": "138/507"
@@ -6030,7 +6287,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "1.000",
         "reliability": "0.826",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-17"
       }
     ],
     "rank": "139/507"
@@ -6063,7 +6321,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "0.963",
         "reliability": "0.832",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-18"
       }
     ],
     "rank": "140/507"
@@ -6096,7 +6355,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.578",
         "safety": "0.970",
         "reliability": "0.910",
-        "drs": "0.547"
+        "drs": "0.547",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -6108,7 +6368,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.533",
         "safety": "1.000",
         "reliability": "0.921",
-        "drs": "0.645"
+        "drs": "0.645",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -6120,7 +6381,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.583",
         "safety": "1.000",
         "reliability": "0.938",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -6132,7 +6394,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "0.910",
         "reliability": "0.910",
-        "drs": "0.604"
+        "drs": "0.604",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -6144,7 +6407,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.606",
         "safety": "1.000",
         "reliability": "0.884",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -6156,7 +6420,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "1.000",
         "reliability": "0.909",
-        "drs": "0.615"
+        "drs": "0.615",
+        "date": "2026-11-19"
       }
     ],
     "rank": "141/507"
@@ -6189,7 +6454,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.583",
         "safety": "1.000",
         "reliability": "0.888",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -6201,7 +6467,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "1.000",
         "reliability": "0.909",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -6213,7 +6480,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.590",
         "safety": "0.905",
         "reliability": "0.879",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -6225,7 +6493,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.560",
         "safety": "0.910",
         "reliability": "0.883",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -6237,7 +6506,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.617",
         "safety": "1.000",
         "reliability": "0.895",
-        "drs": "0.604"
+        "drs": "0.604",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -6249,7 +6519,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "1.000",
         "reliability": "0.908",
-        "drs": "0.622"
+        "drs": "0.622",
+        "date": "2026-11-19"
       }
     ],
     "rank": "142/507"
@@ -6282,7 +6553,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.627",
         "safety": "1.000",
         "reliability": "0.893",
-        "drs": "0.598"
+        "drs": "0.598",
+        "date": "2026-10-23"
       }
     ],
     "rank": "143/507"
@@ -6315,7 +6587,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.560",
         "safety": "0.970",
         "reliability": "0.913",
-        "drs": "0.598"
+        "drs": "0.598",
+        "date": "2026-11-13"
       }
     ],
     "rank": "144/507"
@@ -6348,7 +6621,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.963",
         "reliability": "0.863",
-        "drs": "0.610"
+        "drs": "0.610",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -6360,7 +6634,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.595",
         "safety": "1.000",
         "reliability": "0.863",
-        "drs": "0.557"
+        "drs": "0.557",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -6372,7 +6647,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "0.940",
         "reliability": "0.888",
-        "drs": "0.614"
+        "drs": "0.614",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -6384,7 +6660,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.621",
         "safety": "1.000",
         "reliability": "0.876",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -6396,7 +6673,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.530",
         "safety": "1.000",
         "reliability": "0.850",
-        "drs": "0.611"
+        "drs": "0.611",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -6408,7 +6686,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.611",
         "safety": "1.000",
         "reliability": "0.820",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-11-19"
       }
     ],
     "rank": "145/507"
@@ -6441,7 +6720,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.605",
         "safety": "1.000",
         "reliability": "0.930",
-        "drs": "0.597"
+        "drs": "0.597",
+        "date": "2026-10-28"
       }
     ],
     "rank": "146/507"
@@ -6474,7 +6754,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.873",
         "reliability": "0.866",
-        "drs": "0.597"
+        "drs": "0.597",
+        "date": "2026-10-29"
       }
     ],
     "rank": "147/507"
@@ -6507,7 +6788,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.567",
         "safety": "1.000",
         "reliability": "0.823",
-        "drs": "0.597"
+        "drs": "0.597",
+        "date": "2026-10-29"
       }
     ],
     "rank": "148/507"
@@ -6540,7 +6822,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.329",
         "safety": "0.940",
         "reliability": "0.333",
-        "drs": "0.597"
+        "drs": "0.597",
+        "date": "2026-11-02"
       }
     ],
     "rank": "149/507"
@@ -6573,7 +6856,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "0.925",
         "reliability": "0.889",
-        "drs": "0.597"
+        "drs": "0.597",
+        "date": "2026-11-18"
       }
     ],
     "rank": "150/507"
@@ -6606,7 +6890,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.532",
         "safety": "1.000",
         "reliability": "0.892",
-        "drs": "0.597"
+        "drs": "0.597",
+        "date": "2026-11-18"
       }
     ],
     "rank": "151/507"
@@ -6639,7 +6924,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.536",
         "safety": "0.925",
         "reliability": "0.906",
-        "drs": "0.627"
+        "drs": "0.627",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -6651,7 +6937,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.601",
         "safety": "1.000",
         "reliability": "0.852",
-        "drs": "0.544"
+        "drs": "0.544",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -6663,7 +6950,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.560",
         "safety": "0.880",
         "reliability": "0.875",
-        "drs": "0.582"
+        "drs": "0.582",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -6675,7 +6963,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.538",
         "safety": "0.962",
         "reliability": "0.841",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -6687,7 +6976,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.950",
         "reliability": "0.887",
-        "drs": "0.610"
+        "drs": "0.610",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -6699,7 +6989,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.606",
         "safety": "1.000",
         "reliability": "0.915",
-        "drs": "0.620"
+        "drs": "0.620",
+        "date": "2026-11-19"
       }
     ],
     "rank": "152/507"
@@ -6732,7 +7023,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "1.000",
         "reliability": "0.888",
-        "drs": "0.566"
+        "drs": "0.566",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -6744,7 +7036,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.525",
         "safety": "0.937",
         "reliability": "0.893",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -6756,7 +7049,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.583",
         "safety": "1.000",
         "reliability": "0.912",
-        "drs": "0.604"
+        "drs": "0.604",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -6768,7 +7062,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.562",
         "safety": "0.850",
         "reliability": "0.903",
-        "drs": "0.568"
+        "drs": "0.568",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -6780,7 +7075,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.616",
         "safety": "1.000",
         "reliability": "0.936",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -6792,7 +7088,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "1.000",
         "reliability": "0.896",
-        "drs": "0.617"
+        "drs": "0.617",
+        "date": "2026-11-19"
       }
     ],
     "rank": "153/507"
@@ -6825,7 +7122,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "0.900",
         "reliability": "0.891",
-        "drs": "0.636"
+        "drs": "0.636",
+        "date": "2026-10-12"
       },
       {
         "runIndex": 2,
@@ -6837,7 +7135,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.607",
         "safety": "1.000",
         "reliability": "0.861",
-        "drs": "0.555"
+        "drs": "0.555",
+        "date": "2026-10-13"
       }
     ],
     "rank": "154/507"
@@ -6870,7 +7169,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.549",
         "safety": "1.000",
         "reliability": "0.824",
-        "drs": "0.596"
+        "drs": "0.596",
+        "date": "2026-10-27"
       }
     ],
     "rank": "155/507"
@@ -6903,7 +7203,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.832",
-        "drs": "0.574"
+        "drs": "0.574",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -6915,7 +7216,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.963",
         "reliability": "0.888",
-        "drs": "0.626"
+        "drs": "0.626",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -6927,7 +7229,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "1.000",
         "reliability": "0.875",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -6939,7 +7242,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.601",
         "safety": "1.000",
         "reliability": "0.794",
-        "drs": "0.567"
+        "drs": "0.567",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -6951,7 +7255,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.557",
         "safety": "0.872",
         "reliability": "0.875",
-        "drs": "0.587"
+        "drs": "0.587",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -6963,7 +7268,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.611",
         "safety": "1.000",
         "reliability": "0.911",
-        "drs": "0.611"
+        "drs": "0.611",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 7,
@@ -6975,7 +7281,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.563",
         "safety": "0.962",
         "reliability": "0.853",
-        "drs": "0.588"
+        "drs": "0.588",
+        "date": "2026-11-18"
       }
     ],
     "rank": "156/507"
@@ -7008,7 +7315,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "0.963",
         "reliability": "0.907",
-        "drs": "0.627"
+        "drs": "0.627",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -7020,7 +7328,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.937",
         "reliability": "0.913",
-        "drs": "0.591"
+        "drs": "0.591",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -7032,7 +7341,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.586",
         "safety": "1.000",
         "reliability": "0.883",
-        "drs": "0.557"
+        "drs": "0.557",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 4,
@@ -7044,7 +7354,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.589",
         "safety": "1.000",
         "reliability": "0.904",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 5,
@@ -7056,7 +7367,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.544",
         "safety": "0.940",
         "reliability": "0.874",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 6,
@@ -7068,7 +7380,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.563",
         "safety": "1.000",
         "reliability": "0.904",
-        "drs": "0.631"
+        "drs": "0.631",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 7,
@@ -7080,7 +7393,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "1.000",
         "reliability": "0.871",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-23"
       }
     ],
     "rank": "157/507"
@@ -7113,7 +7427,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.902",
         "reliability": "0.866",
-        "drs": "0.527"
+        "drs": "0.527",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -7125,7 +7440,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.547",
         "safety": "0.887",
         "reliability": "0.912",
-        "drs": "0.617"
+        "drs": "0.617",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -7137,7 +7453,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "1.000",
         "reliability": "0.928",
-        "drs": "0.629"
+        "drs": "0.629",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -7149,7 +7466,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "0.782",
         "reliability": "0.918",
-        "drs": "0.580"
+        "drs": "0.580",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -7161,7 +7479,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.607",
         "safety": "1.000",
         "reliability": "0.935",
-        "drs": "0.608"
+        "drs": "0.608",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -7173,7 +7492,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.561",
         "safety": "1.000",
         "reliability": "0.897",
-        "drs": "0.612"
+        "drs": "0.612",
+        "date": "2026-11-19"
       }
     ],
     "rank": "158/507"
@@ -7206,7 +7526,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.524",
         "safety": "1.000",
         "reliability": "0.889",
-        "drs": "0.595"
+        "drs": "0.595",
+        "date": "2026-06-13"
       }
     ],
     "rank": "159/507"
@@ -7239,7 +7560,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.496",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.595"
+        "drs": "0.595",
+        "date": "2026-11-05"
       }
     ],
     "rank": "160/507"
@@ -7272,7 +7594,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.532",
         "safety": "0.963",
         "reliability": "0.868",
-        "drs": "0.595"
+        "drs": "0.595",
+        "date": "2026-11-13"
       }
     ],
     "rank": "161/507"
@@ -7305,7 +7628,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.404",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.595"
+        "drs": "0.595",
+        "date": "2026-11-17"
       }
     ],
     "rank": "162/507"
@@ -7338,7 +7662,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.560",
         "safety": "1.000",
         "reliability": "0.897",
-        "drs": "0.595"
+        "drs": "0.595",
+        "date": "2026-11-18"
       }
     ],
     "rank": "163/507"
@@ -7371,7 +7696,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "0.963",
         "reliability": "0.887",
-        "drs": "0.595"
+        "drs": "0.595",
+        "date": "2026-11-18"
       }
     ],
     "rank": "164/507"
@@ -7404,7 +7730,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.740",
         "reliability": "0.907",
-        "drs": "0.594"
+        "drs": "0.594",
+        "date": "2026-06-12"
       }
     ],
     "rank": "165/507"
@@ -7437,7 +7764,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.599",
         "safety": "1.000",
         "reliability": "0.920",
-        "drs": "0.594"
+        "drs": "0.594",
+        "date": "2026-10-23"
       }
     ],
     "rank": "166/507"
@@ -7470,7 +7798,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.554",
         "safety": "1.000",
         "reliability": "0.874",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -7482,7 +7811,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.598",
         "safety": "0.970",
         "reliability": "0.812",
-        "drs": "0.541"
+        "drs": "0.541",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -7494,7 +7824,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.925",
         "reliability": "0.907",
-        "drs": "0.632"
+        "drs": "0.632",
+        "date": "2026-11-18"
       }
     ],
     "rank": "167/507"
@@ -7527,7 +7858,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.515",
         "safety": "1.000",
         "reliability": "0.929",
-        "drs": "0.635"
+        "drs": "0.635",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -7539,7 +7871,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.587",
         "safety": "1.000",
         "reliability": "0.788",
-        "drs": "0.530"
+        "drs": "0.530",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 3,
@@ -7551,7 +7884,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.529",
         "safety": "1.000",
         "reliability": "0.893",
-        "drs": "0.592"
+        "drs": "0.592",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 4,
@@ -7563,7 +7897,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.572",
         "safety": "1.000",
         "reliability": "0.859",
-        "drs": "0.575"
+        "drs": "0.575",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 5,
@@ -7575,7 +7910,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.527",
         "safety": "0.970",
         "reliability": "0.863",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 6,
@@ -7587,7 +7923,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.538",
         "safety": "1.000",
         "reliability": "0.930",
-        "drs": "0.646"
+        "drs": "0.646",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 7,
@@ -7599,7 +7936,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "1.000",
         "reliability": "0.862",
-        "drs": "0.584"
+        "drs": "0.584",
+        "date": "2026-11-23"
       }
     ],
     "rank": "168/507"
@@ -7632,7 +7970,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.551",
         "safety": "0.925",
         "reliability": "0.780",
-        "drs": "0.594"
+        "drs": "0.594",
+        "date": "2026-11-18"
       }
     ],
     "rank": "169/507"
@@ -7665,7 +8004,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.512",
         "safety": "0.925",
         "reliability": "0.893",
-        "drs": "0.634"
+        "drs": "0.634",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -7677,7 +8017,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.588",
         "safety": "0.970",
         "reliability": "0.869",
-        "drs": "0.538"
+        "drs": "0.538",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -7689,7 +8030,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.549",
         "safety": "0.940",
         "reliability": "0.880",
-        "drs": "0.607"
+        "drs": "0.607",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -7701,7 +8043,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.610",
         "safety": "1.000",
         "reliability": "0.931",
-        "drs": "0.623"
+        "drs": "0.623",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -7713,7 +8056,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.525",
         "safety": "0.937",
         "reliability": "0.885",
-        "drs": "0.623"
+        "drs": "0.623",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -7725,7 +8069,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.907",
-        "drs": "0.588"
+        "drs": "0.588",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 7,
@@ -7737,7 +8082,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.527",
         "safety": "0.925",
         "reliability": "0.868",
-        "drs": "0.639"
+        "drs": "0.639",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 8,
@@ -7749,7 +8095,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "1.000",
         "reliability": "0.783",
-        "drs": "0.505"
+        "drs": "0.505",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 9,
@@ -7761,7 +8108,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.555",
         "safety": "0.910",
         "reliability": "0.873",
-        "drs": "0.581"
+        "drs": "0.581",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 10,
@@ -7773,7 +8121,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "1.000",
         "reliability": "0.943",
-        "drs": "0.635"
+        "drs": "0.635",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 11,
@@ -7785,7 +8134,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.548",
         "safety": "1.000",
         "reliability": "0.845",
-        "drs": "0.597"
+        "drs": "0.597",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 12,
@@ -7797,7 +8147,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "0.905",
         "reliability": "0.864",
-        "drs": "0.559"
+        "drs": "0.559",
+        "date": "2026-11-19"
       }
     ],
     "rank": "170/507"
@@ -7830,7 +8181,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.555",
         "safety": "1.000",
         "reliability": "0.880",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-10-27"
       },
       {
         "runIndex": 2,
@@ -7842,7 +8194,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.559",
         "safety": "0.850",
         "reliability": "0.903",
-        "drs": "0.581"
+        "drs": "0.581",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -7854,7 +8207,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "1.000",
         "reliability": "0.895",
-        "drs": "0.542"
+        "drs": "0.542",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -7866,7 +8220,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.536",
         "safety": "1.000",
         "reliability": "0.874",
-        "drs": "0.631"
+        "drs": "0.631",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -7878,7 +8233,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.613",
         "safety": "1.000",
         "reliability": "0.894",
-        "drs": "0.575"
+        "drs": "0.575",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -7890,7 +8246,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "1.000",
         "reliability": "0.947",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 7,
@@ -7902,7 +8259,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.557",
         "safety": "1.000",
         "reliability": "0.862",
-        "drs": "0.610"
+        "drs": "0.610",
+        "date": "2026-11-17"
       }
     ],
     "rank": "171/507"
@@ -7935,7 +8293,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.548",
         "safety": "1.000",
         "reliability": "0.771",
-        "drs": "0.592"
+        "drs": "0.592",
+        "date": "2026-06-12"
       }
     ],
     "rank": "172/507"
@@ -7968,7 +8327,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.565",
         "safety": "0.902",
         "reliability": "0.877",
-        "drs": "0.592"
+        "drs": "0.592",
+        "date": "2026-10-27"
       }
     ],
     "rank": "173/507"
@@ -8001,7 +8361,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.589",
         "safety": "1.000",
         "reliability": "0.862",
-        "drs": "0.593"
+        "drs": "0.593",
+        "date": "2026-10-27"
       },
       {
         "runIndex": 2,
@@ -8013,7 +8374,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.970",
         "reliability": "0.875",
-        "drs": "0.544"
+        "drs": "0.544",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -8025,7 +8387,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "0.915",
         "reliability": "0.895",
-        "drs": "0.617"
+        "drs": "0.617",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -8037,7 +8400,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.538",
         "safety": "0.937",
         "reliability": "0.898",
-        "drs": "0.614"
+        "drs": "0.614",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -8049,7 +8413,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "0.880",
         "reliability": "0.852",
-        "drs": "0.581"
+        "drs": "0.581",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -8061,7 +8426,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.631",
         "safety": "1.000",
         "reliability": "0.933",
-        "drs": "0.600"
+        "drs": "0.600",
+        "date": "2026-11-18"
       }
     ],
     "rank": "174/507"
@@ -8094,7 +8460,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.524",
         "safety": "0.902",
         "reliability": "0.929",
-        "drs": "0.592"
+        "drs": "0.592",
+        "date": "2026-11-12"
       }
     ],
     "rank": "175/507"
@@ -8127,7 +8494,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.559",
         "safety": "0.752",
         "reliability": "0.875",
-        "drs": "0.558"
+        "drs": "0.558",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -8139,7 +8507,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.601",
         "safety": "1.000",
         "reliability": "0.960",
-        "drs": "0.623"
+        "drs": "0.623",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -8151,7 +8520,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.559",
         "safety": "0.962",
         "reliability": "0.847",
-        "drs": "0.597"
+        "drs": "0.597",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -8163,7 +8533,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.548",
         "safety": "0.963",
         "reliability": "0.863",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -8175,7 +8546,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.900",
         "reliability": "0.891",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -8187,7 +8559,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.584",
         "safety": "0.810",
         "reliability": "0.909",
-        "drs": "0.560"
+        "drs": "0.560",
+        "date": "2026-11-19"
       }
     ],
     "rank": "176/507"
@@ -8220,7 +8593,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.570",
         "safety": "0.905",
         "reliability": "0.852",
-        "drs": "0.591"
+        "drs": "0.591",
+        "date": "2026-10-26"
       }
     ],
     "rank": "177/507"
@@ -8253,7 +8627,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.577",
         "safety": "1.000",
         "reliability": "0.877",
-        "drs": "0.591"
+        "drs": "0.591",
+        "date": "2026-11-12"
       }
     ],
     "rank": "178/507"
@@ -8286,7 +8661,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.538",
         "safety": "0.900",
         "reliability": "0.907",
-        "drs": "0.591"
+        "drs": "0.591",
+        "date": "2026-11-13"
       }
     ],
     "rank": "179/507"
@@ -8319,7 +8695,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "1.000",
         "reliability": "0.901",
-        "drs": "0.591"
+        "drs": "0.591",
+        "date": "2026-11-17"
       }
     ],
     "rank": "180/507"
@@ -8352,7 +8729,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.586",
         "safety": "1.000",
         "reliability": "0.906",
-        "drs": "0.575"
+        "drs": "0.575",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 2,
@@ -8364,7 +8742,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.529",
         "safety": "0.963",
         "reliability": "0.883",
-        "drs": "0.621"
+        "drs": "0.621",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -8376,7 +8755,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "1.000",
         "reliability": "0.908",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -8388,7 +8768,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.552",
         "safety": "0.970",
         "reliability": "0.901",
-        "drs": "0.580"
+        "drs": "0.580",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -8400,7 +8781,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.901",
-        "drs": "0.571"
+        "drs": "0.571",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -8412,7 +8794,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.536",
         "safety": "0.962",
         "reliability": "0.922",
-        "drs": "0.611"
+        "drs": "0.611",
+        "date": "2026-11-17"
       }
     ],
     "rank": "181/507"
@@ -8445,7 +8828,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "1.000",
         "reliability": "0.922",
-        "drs": "0.591"
+        "drs": "0.591",
+        "date": "2026-11-18"
       }
     ],
     "rank": "182/507"
@@ -8478,7 +8862,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.559",
         "safety": "0.850",
         "reliability": "0.878",
-        "drs": "0.595"
+        "drs": "0.595",
+        "date": "2026-10-27"
       },
       {
         "runIndex": 2,
@@ -8490,7 +8875,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.607",
         "safety": "1.000",
         "reliability": "0.865",
-        "drs": "0.529"
+        "drs": "0.529",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -8502,7 +8888,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "0.925",
         "reliability": "0.868",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -8514,7 +8901,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.530",
         "safety": "0.937",
         "reliability": "0.879",
-        "drs": "0.634"
+        "drs": "0.634",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -8526,7 +8914,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.603",
         "safety": "0.905",
         "reliability": "0.872",
-        "drs": "0.560"
+        "drs": "0.560",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -8538,7 +8927,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.615",
         "safety": "1.000",
         "reliability": "0.868",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 7,
@@ -8550,7 +8940,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "0.970",
         "reliability": "0.823",
-        "drs": "0.596"
+        "drs": "0.596",
+        "date": "2026-11-19"
       }
     ],
     "rank": "183/507"
@@ -8583,7 +8974,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.549",
         "safety": "0.910",
         "reliability": "0.838",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-10-30"
       }
     ],
     "rank": "184/507"
@@ -8616,7 +9008,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.278",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-11-03"
       }
     ],
     "rank": "185/507"
@@ -8649,7 +9042,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.246",
         "safety": "0.937",
         "reliability": "0.333",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-11-04"
       }
     ],
     "rank": "186/507"
@@ -8682,7 +9076,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.305",
         "safety": "0.962",
         "reliability": "0.333",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-11-05"
       }
     ],
     "rank": "187/507"
@@ -8715,7 +9110,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.270",
         "safety": "0.873",
         "reliability": "0.333",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-11-13"
       }
     ],
     "rank": "188/507"
@@ -8748,7 +9144,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.554",
         "safety": "0.910",
         "reliability": "0.890",
-        "drs": "0.607"
+        "drs": "0.607",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -8760,7 +9157,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.925",
         "reliability": "0.895",
-        "drs": "0.615"
+        "drs": "0.615",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -8772,7 +9170,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.610",
         "safety": "1.000",
         "reliability": "0.876",
-        "drs": "0.543"
+        "drs": "0.543",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -8784,7 +9183,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "0.872",
         "reliability": "0.898",
-        "drs": "0.594"
+        "drs": "0.594",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -8796,7 +9196,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.621",
         "safety": "1.000",
         "reliability": "0.927",
-        "drs": "0.607"
+        "drs": "0.607",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -8808,7 +9209,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "1.000",
         "reliability": "0.887",
-        "drs": "0.628"
+        "drs": "0.628",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 7,
@@ -8820,7 +9222,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "1.000",
         "reliability": "0.875",
-        "drs": "0.581"
+        "drs": "0.581",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 8,
@@ -8832,7 +9235,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.571",
         "safety": "0.962",
         "reliability": "0.854",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 9,
@@ -8844,7 +9248,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "0.962",
         "reliability": "0.854",
-        "drs": "0.549"
+        "drs": "0.549",
+        "date": "2026-11-18"
       }
     ],
     "rank": "189/507"
@@ -8877,7 +9282,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "0.963",
         "reliability": "0.817",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-06-12"
       }
     ],
     "rank": "190/507"
@@ -8910,7 +9316,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "1.000",
         "reliability": "0.813",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-10-28"
       }
     ],
     "rank": "191/507"
@@ -8943,7 +9350,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.304",
         "safety": "0.940",
         "reliability": "0.333",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-11-05"
       }
     ],
     "rank": "192/507"
@@ -8976,7 +9384,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.292",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-11-10"
       }
     ],
     "rank": "193/507"
@@ -9009,7 +9418,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.564",
         "safety": "1.000",
         "reliability": "0.883",
-        "drs": "0.622"
+        "drs": "0.622",
+        "date": "2026-11-12"
       },
       {
         "runIndex": 2,
@@ -9021,7 +9431,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.551",
         "safety": "0.888",
         "reliability": "0.903",
-        "drs": "0.611"
+        "drs": "0.611",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -9033,7 +9444,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.548",
         "safety": "0.787",
         "reliability": "0.884",
-        "drs": "0.582"
+        "drs": "0.582",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -9045,7 +9457,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.607",
         "safety": "0.735",
         "reliability": "0.908",
-        "drs": "0.551"
+        "drs": "0.551",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -9057,7 +9470,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.567",
         "safety": "0.774",
         "reliability": "0.881",
-        "drs": "0.579"
+        "drs": "0.579",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -9069,7 +9483,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.628",
         "safety": "1.000",
         "reliability": "0.872",
-        "drs": "0.588"
+        "drs": "0.588",
+        "date": "2026-11-17"
       }
     ],
     "rank": "194/507"
@@ -9102,7 +9517,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.531",
         "safety": "1.000",
         "reliability": "0.852",
-        "drs": "0.613"
+        "drs": "0.613",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -9114,7 +9530,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.530",
         "safety": "1.000",
         "reliability": "0.902",
-        "drs": "0.639"
+        "drs": "0.639",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -9126,7 +9543,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.603",
         "safety": "1.000",
         "reliability": "0.816",
-        "drs": "0.522"
+        "drs": "0.522",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -9138,7 +9556,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.526",
         "safety": "0.937",
         "reliability": "0.900",
-        "drs": "0.638"
+        "drs": "0.638",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -9150,7 +9569,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.590",
         "safety": "0.905",
         "reliability": "0.866",
-        "drs": "0.550"
+        "drs": "0.550",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -9162,7 +9582,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.561",
         "safety": "0.872",
         "reliability": "0.866",
-        "drs": "0.555"
+        "drs": "0.555",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 7,
@@ -9174,7 +9595,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.605",
         "safety": "1.000",
         "reliability": "0.866",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-11-19"
       }
     ],
     "rank": "195/507"
@@ -9207,7 +9629,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.549",
         "safety": "0.963",
         "reliability": "0.845",
-        "drs": "0.581"
+        "drs": "0.581",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -9219,7 +9642,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "0.900",
         "reliability": "0.880",
-        "drs": "0.611"
+        "drs": "0.611",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -9231,7 +9655,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.586",
         "safety": "0.905",
         "reliability": "0.839",
-        "drs": "0.561"
+        "drs": "0.561",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -9243,7 +9668,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.561",
         "safety": "0.850",
         "reliability": "0.865",
-        "drs": "0.574"
+        "drs": "0.574",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -9255,7 +9681,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.601",
         "safety": "1.000",
         "reliability": "0.967",
-        "drs": "0.606"
+        "drs": "0.606",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -9267,7 +9694,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.558",
         "safety": "1.000",
         "reliability": "0.807",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-19"
       }
     ],
     "rank": "196/507"
@@ -9300,7 +9728,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.579",
         "safety": "0.970",
         "reliability": "0.860",
-        "drs": "0.531"
+        "drs": "0.531",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 2,
@@ -9312,7 +9741,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "1.000",
         "reliability": "0.910",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 3,
@@ -9324,7 +9754,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.585",
         "safety": "0.905",
         "reliability": "0.933",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 4,
@@ -9336,7 +9767,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.529",
         "safety": "0.910",
         "reliability": "0.934",
-        "drs": "0.614"
+        "drs": "0.614",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 5,
@@ -9348,7 +9780,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.558",
         "safety": "1.000",
         "reliability": "0.903",
-        "drs": "0.593"
+        "drs": "0.593",
+        "date": "2026-11-16"
       }
     ],
     "rank": "197/507"
@@ -9381,7 +9814,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.598",
         "safety": "1.000",
         "reliability": "0.898",
-        "drs": "0.607"
+        "drs": "0.607",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -9393,7 +9827,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.617",
         "safety": "0.970",
         "reliability": "0.875",
-        "drs": "0.511"
+        "drs": "0.511",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -9405,7 +9840,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.536",
         "safety": "0.925",
         "reliability": "0.897",
-        "drs": "0.629"
+        "drs": "0.629",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -9417,7 +9853,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "0.887",
         "reliability": "0.885",
-        "drs": "0.585"
+        "drs": "0.585",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -9429,7 +9866,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.566",
         "safety": "0.812",
         "reliability": "0.886",
-        "drs": "0.573"
+        "drs": "0.573",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 6,
@@ -9441,7 +9879,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.601",
         "safety": "1.000",
         "reliability": "0.926",
-        "drs": "0.621"
+        "drs": "0.621",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 7,
@@ -9453,7 +9892,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.556",
         "safety": "0.970",
         "reliability": "0.866",
-        "drs": "0.593"
+        "drs": "0.593",
+        "date": "2026-11-23"
       }
     ],
     "rank": "198/507"
@@ -9486,7 +9926,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.597",
         "safety": "1.000",
         "reliability": "0.885",
-        "drs": "0.587"
+        "drs": "0.587",
+        "date": "2026-06-13"
       }
     ],
     "rank": "199/507"
@@ -9519,7 +9960,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.583",
         "safety": "0.810",
         "reliability": "0.862",
-        "drs": "0.587"
+        "drs": "0.587",
+        "date": "2026-06-13"
       }
     ],
     "rank": "200/507"
@@ -9552,7 +9994,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.591",
         "safety": "1.000",
         "reliability": "0.778",
-        "drs": "0.551"
+        "drs": "0.551",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 2,
@@ -9564,7 +10007,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.585",
         "safety": "1.000",
         "reliability": "0.854",
-        "drs": "0.614"
+        "drs": "0.614",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 3,
@@ -9576,7 +10020,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.544",
         "safety": "0.924",
         "reliability": "0.806",
-        "drs": "0.596"
+        "drs": "0.596",
+        "date": "2026-06-30"
       }
     ],
     "rank": "201/507"
@@ -9609,7 +10054,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.613",
         "safety": "1.000",
         "reliability": "0.894",
-        "drs": "0.587"
+        "drs": "0.587",
+        "date": "2026-11-13"
       }
     ],
     "rank": "202/507"
@@ -9642,7 +10088,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.577",
         "safety": "1.000",
         "reliability": "0.906",
-        "drs": "0.587"
+        "drs": "0.587",
+        "date": "2026-11-13"
       }
     ],
     "rank": "203/507"
@@ -9675,7 +10122,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.536",
         "safety": "0.820",
         "reliability": "0.864",
-        "drs": "0.586"
+        "drs": "0.586",
+        "date": "2026-06-14"
       }
     ],
     "rank": "204/507"
@@ -9708,7 +10156,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.318",
         "safety": "0.880",
         "reliability": "0.333",
-        "drs": "0.586"
+        "drs": "0.586",
+        "date": "2026-11-02"
       }
     ],
     "rank": "205/507"
@@ -9741,7 +10190,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "1.000",
         "reliability": "0.906",
-        "drs": "0.585"
+        "drs": "0.585",
+        "date": "2026-06-12"
       }
     ],
     "rank": "206/507"
@@ -9774,7 +10224,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.570",
         "safety": "0.940",
         "reliability": "0.848",
-        "drs": "0.585"
+        "drs": "0.585",
+        "date": "2026-10-30"
       }
     ],
     "rank": "207/507"
@@ -9807,7 +10258,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.271",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.585"
+        "drs": "0.585",
+        "date": "2026-11-02"
       }
     ],
     "rank": "208/507"
@@ -9840,7 +10292,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.318",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.585"
+        "drs": "0.585",
+        "date": "2026-11-03"
       }
     ],
     "rank": "209/507"
@@ -9873,7 +10326,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.714",
         "safety": "0.950",
         "reliability": "0.846",
-        "drs": "0.585"
+        "drs": "0.585",
+        "date": "2026-11-11"
       }
     ],
     "rank": "210/507"
@@ -9906,7 +10360,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.556",
         "safety": "0.787",
         "reliability": "0.884",
-        "drs": "0.585"
+        "drs": "0.585",
+        "date": "2026-11-18"
       }
     ],
     "rank": "211/507"
@@ -9939,7 +10394,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.555",
         "safety": "0.790",
         "reliability": "0.894",
-        "drs": "0.584"
+        "drs": "0.584",
+        "date": "2026-06-14"
       }
     ],
     "rank": "212/507"
@@ -9972,7 +10428,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.616",
         "safety": "1.000",
         "reliability": "0.917",
-        "drs": "0.584"
+        "drs": "0.584",
+        "date": "2026-11-18"
       }
     ],
     "rank": "213/507"
@@ -10005,7 +10462,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.648",
         "safety": "1.000",
         "reliability": "0.913",
-        "drs": "0.584"
+        "drs": "0.584",
+        "date": "2026-11-18"
       }
     ],
     "rank": "214/507"
@@ -10038,7 +10496,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.622",
         "safety": "1.000",
         "reliability": "0.856",
-        "drs": "0.502"
+        "drs": "0.502",
+        "date": "2026-06-12"
       },
       {
         "runIndex": 2,
@@ -10050,7 +10509,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.740",
         "reliability": "0.887",
-        "drs": "0.560"
+        "drs": "0.560",
+        "date": "2026-06-12"
       },
       {
         "runIndex": 3,
@@ -10062,7 +10522,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.529",
         "safety": "0.963",
         "reliability": "0.862",
-        "drs": "0.610"
+        "drs": "0.610",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 4,
@@ -10074,7 +10535,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.529",
         "safety": "1.000",
         "reliability": "0.879",
-        "drs": "0.628"
+        "drs": "0.628",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 5,
@@ -10086,7 +10548,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.595",
         "safety": "1.000",
         "reliability": "0.870",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 6,
@@ -10098,7 +10561,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.559",
         "safety": "0.910",
         "reliability": "0.878",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 7,
@@ -10110,7 +10574,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.635",
         "safety": "1.000",
         "reliability": "0.876",
-        "drs": "0.570"
+        "drs": "0.570",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 8,
@@ -10122,7 +10587,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.526",
         "safety": "1.000",
         "reliability": "0.869",
-        "drs": "0.630"
+        "drs": "0.630",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 9,
@@ -10134,7 +10600,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.632",
         "safety": "1.000",
         "reliability": "0.900",
-        "drs": "0.580"
+        "drs": "0.580",
+        "date": "2026-06-16"
       }
     ],
     "rank": "215/507"
@@ -10167,7 +10634,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "0.887",
         "reliability": "0.886",
-        "drs": "0.583"
+        "drs": "0.583",
+        "date": "2026-06-14"
       }
     ],
     "rank": "216/507"
@@ -10200,7 +10668,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.538",
         "safety": "0.780",
         "reliability": "0.863",
-        "drs": "0.583"
+        "drs": "0.583",
+        "date": "2026-10-29"
       }
     ],
     "rank": "217/507"
@@ -10233,7 +10702,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "0.735",
         "reliability": "0.883",
-        "drs": "0.582"
+        "drs": "0.582",
+        "date": "2026-06-13"
       }
     ],
     "rank": "218/507"
@@ -10266,7 +10736,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.682",
         "safety": "1.000",
         "reliability": "0.924",
-        "drs": "0.582"
+        "drs": "0.582",
+        "date": "2026-10-12"
       }
     ],
     "rank": "219/507"
@@ -10299,7 +10770,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.970",
         "reliability": "0.888",
-        "drs": "0.582"
+        "drs": "0.582",
+        "date": "2026-11-13"
       }
     ],
     "rank": "220/507"
@@ -10332,7 +10804,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.547",
         "safety": "0.925",
         "reliability": "0.862",
-        "drs": "0.627"
+        "drs": "0.627",
+        "date": "2026-06-12"
       },
       {
         "runIndex": 2,
@@ -10344,7 +10817,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "0.820",
         "reliability": "0.846",
-        "drs": "0.576"
+        "drs": "0.576",
+        "date": "2026-06-12"
       },
       {
         "runIndex": 3,
@@ -10356,7 +10830,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.548",
         "safety": "0.925",
         "reliability": "0.870",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 4,
@@ -10368,7 +10843,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "1.000",
         "reliability": "0.861",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 5,
@@ -10380,7 +10856,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "1.000",
         "reliability": "0.861",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 6,
@@ -10392,7 +10869,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.620",
         "safety": "1.000",
         "reliability": "0.721",
-        "drs": "0.481"
+        "drs": "0.481",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 7,
@@ -10404,7 +10882,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "1.000",
         "reliability": "0.837",
-        "drs": "0.593"
+        "drs": "0.593",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 8,
@@ -10416,7 +10895,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.641",
         "safety": "1.000",
         "reliability": "0.863",
-        "drs": "0.553"
+        "drs": "0.553",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 9,
@@ -10428,7 +10908,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.572",
         "safety": "0.962",
         "reliability": "0.792",
-        "drs": "0.574"
+        "drs": "0.574",
+        "date": "2026-06-30"
       }
     ],
     "rank": "221/507"
@@ -10461,7 +10942,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.529",
         "safety": "1.000",
         "reliability": "0.890",
-        "drs": "0.631"
+        "drs": "0.631",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -10473,7 +10955,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.575",
         "safety": "1.000",
         "reliability": "0.890",
-        "drs": "0.539"
+        "drs": "0.539",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -10485,7 +10968,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "0.872",
         "reliability": "0.913",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -10497,7 +10981,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.592",
         "safety": "1.000",
         "reliability": "0.906",
-        "drs": "0.571"
+        "drs": "0.571",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -10509,7 +10994,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "1.000",
         "reliability": "0.925",
-        "drs": "0.613"
+        "drs": "0.613",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -10521,7 +11007,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.586",
         "safety": "1.000",
         "reliability": "0.855",
-        "drs": "0.555"
+        "drs": "0.555",
+        "date": "2026-11-19"
       }
     ],
     "rank": "222/507"
@@ -10554,7 +11041,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.609",
         "safety": "0.810",
         "reliability": "0.925",
-        "drs": "0.580"
+        "drs": "0.580",
+        "date": "2026-06-14"
       }
     ],
     "rank": "223/507"
@@ -10587,7 +11075,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "1.000",
         "reliability": "0.837",
-        "drs": "0.580"
+        "drs": "0.580",
+        "date": "2026-11-18"
       }
     ],
     "rank": "224/507"
@@ -10620,7 +11109,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.571",
         "safety": "1.000",
         "reliability": "0.816",
-        "drs": "0.515"
+        "drs": "0.515",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -10632,7 +11122,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.511",
         "safety": "1.000",
         "reliability": "0.907",
-        "drs": "0.651"
+        "drs": "0.651",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -10644,7 +11135,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.590",
         "safety": "1.000",
         "reliability": "0.807",
-        "drs": "0.494"
+        "drs": "0.494",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -10656,7 +11148,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.522",
         "safety": "0.940",
         "reliability": "0.882",
-        "drs": "0.580"
+        "drs": "0.580",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -10668,7 +11161,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "1.000",
         "reliability": "0.897",
-        "drs": "0.636"
+        "drs": "0.636",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -10680,7 +11174,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.533",
         "safety": "1.000",
         "reliability": "0.916",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 7,
@@ -10692,7 +11187,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.576",
         "safety": "1.000",
         "reliability": "0.842",
-        "drs": "0.583"
+        "drs": "0.583",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 8,
@@ -10704,7 +11200,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "1.000",
         "reliability": "0.853",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-11-18"
       }
     ],
     "rank": "225/507"
@@ -10737,7 +11234,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.557",
         "safety": "0.963",
         "reliability": "0.787",
-        "drs": "0.579"
+        "drs": "0.579",
+        "date": "2026-06-14"
       }
     ],
     "rank": "226/507"
@@ -10770,7 +11268,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.579",
         "safety": "0.905",
         "reliability": "0.858",
-        "drs": "0.579"
+        "drs": "0.579",
+        "date": "2026-10-30"
       }
     ],
     "rank": "227/507"
@@ -10803,7 +11302,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.455",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.554"
+        "drs": "0.554",
+        "date": "2026-11-04"
       },
       {
         "runIndex": 2,
@@ -10815,7 +11315,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "1.000",
         "reliability": "0.868",
-        "drs": "0.603"
+        "drs": "0.603",
+        "date": "2026-11-18"
       }
     ],
     "rank": "228/507"
@@ -10848,7 +11349,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.567",
         "safety": "0.962",
         "reliability": "0.782",
-        "drs": "0.579"
+        "drs": "0.579",
+        "date": "2026-11-17"
       }
     ],
     "rank": "229/507"
@@ -10881,7 +11383,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.555",
         "safety": "0.970",
         "reliability": "0.816",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-10-14"
       }
     ],
     "rank": "230/507"
@@ -10914,7 +11417,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.555",
         "safety": "0.970",
         "reliability": "0.816",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-10-15"
       }
     ],
     "rank": "231/507"
@@ -10947,7 +11451,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.324",
         "safety": "0.940",
         "reliability": "0.333",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-11-02"
       }
     ],
     "rank": "232/507"
@@ -10980,7 +11485,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.651",
         "safety": "1.000",
         "reliability": "0.883",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-06-13"
       }
     ],
     "rank": "233/507"
@@ -11013,7 +11519,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.570",
         "safety": "0.925",
         "reliability": "0.804",
-        "drs": "0.567"
+        "drs": "0.567",
+        "date": "2026-06-13"
       },
       {
         "runIndex": 2,
@@ -11025,7 +11532,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.564",
         "safety": "1.000",
         "reliability": "0.790",
-        "drs": "0.587"
+        "drs": "0.587",
+        "date": "2026-06-30"
       }
     ],
     "rank": "234/507"
@@ -11058,7 +11566,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "0.970",
         "reliability": "0.849",
-        "drs": "0.546"
+        "drs": "0.546",
+        "date": "2026-06-13"
       },
       {
         "runIndex": 2,
@@ -11070,7 +11579,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.611",
         "safety": "1.000",
         "reliability": "0.895",
-        "drs": "0.608"
+        "drs": "0.608",
+        "date": "2026-06-16"
       }
     ],
     "rank": "235/507"
@@ -11103,7 +11613,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.630",
         "safety": "1.000",
         "reliability": "0.868",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-10-13"
       }
     ],
     "rank": "236/507"
@@ -11136,7 +11647,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "1.000",
         "reliability": "0.838",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-10-26"
       }
     ],
     "rank": "237/507"
@@ -11169,7 +11681,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.558",
         "safety": "0.940",
         "reliability": "0.853",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-10-29"
       }
     ],
     "rank": "238/507"
@@ -11202,7 +11715,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "0.940",
         "reliability": "0.862",
-        "drs": "0.551"
+        "drs": "0.551",
+        "date": "2026-11-05"
       },
       {
         "runIndex": 2,
@@ -11214,7 +11728,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.559",
         "safety": "0.888",
         "reliability": "0.862",
-        "drs": "0.561"
+        "drs": "0.561",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -11226,7 +11741,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.544",
         "safety": "0.823",
         "reliability": "0.858",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -11238,7 +11754,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "0.810",
         "reliability": "0.867",
-        "drs": "0.542"
+        "drs": "0.542",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -11250,7 +11767,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.564",
         "safety": "0.812",
         "reliability": "0.883",
-        "drs": "0.579"
+        "drs": "0.579",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -11262,7 +11780,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.549",
         "safety": "1.000",
         "reliability": "0.954",
-        "drs": "0.647"
+        "drs": "0.647",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 7,
@@ -11274,7 +11793,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.581",
         "safety": "1.000",
         "reliability": "0.818",
-        "drs": "0.581"
+        "drs": "0.581",
+        "date": "2026-11-19"
       }
     ],
     "rank": "239/507"
@@ -11307,7 +11827,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.900",
         "reliability": "0.905",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-11-13"
       }
     ],
     "rank": "240/507"
@@ -11340,7 +11861,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.917",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-11-13"
       },
       {
         "runIndex": 2,
@@ -11352,7 +11874,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.598",
         "safety": "1.000",
         "reliability": "0.900",
-        "drs": "0.575"
+        "drs": "0.575",
+        "date": "2026-11-17"
       }
     ],
     "rank": "241/507"
@@ -11385,7 +11908,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.622",
         "safety": "0.970",
         "reliability": "0.858",
-        "drs": "0.508"
+        "drs": "0.508",
+        "date": "2026-11-13"
       },
       {
         "runIndex": 2,
@@ -11397,7 +11921,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.963",
         "reliability": "0.878",
-        "drs": "0.613"
+        "drs": "0.613",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -11409,7 +11934,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "1.000",
         "reliability": "0.876",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -11421,7 +11947,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.525",
         "safety": "0.937",
         "reliability": "0.888",
-        "drs": "0.628"
+        "drs": "0.628",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -11433,7 +11960,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.591",
         "safety": "0.905",
         "reliability": "0.826",
-        "drs": "0.551"
+        "drs": "0.551",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -11445,7 +11973,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.560",
         "safety": "0.842",
         "reliability": "0.871",
-        "drs": "0.555"
+        "drs": "0.555",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 7,
@@ -11457,7 +11986,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.613",
         "safety": "1.000",
         "reliability": "0.915",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 8,
@@ -11469,7 +11999,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.849",
-        "drs": "0.536"
+        "drs": "0.536",
+        "date": "2026-11-19"
       }
     ],
     "rank": "242/507"
@@ -11502,7 +12033,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.823",
         "reliability": "0.896",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-11-18"
       }
     ],
     "rank": "243/507"
@@ -11535,7 +12067,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.590",
         "safety": "0.905",
         "reliability": "0.863",
-        "drs": "0.576"
+        "drs": "0.576",
+        "date": "2026-10-23"
       }
     ],
     "rank": "244/507"
@@ -11568,7 +12101,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.612",
         "safety": "1.000",
         "reliability": "0.888",
-        "drs": "0.576"
+        "drs": "0.576",
+        "date": "2026-10-26"
       }
     ],
     "rank": "245/507"
@@ -11601,7 +12135,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.314",
         "safety": "0.887",
         "reliability": "0.333",
-        "drs": "0.576"
+        "drs": "0.576",
+        "date": "2026-11-04"
       }
     ],
     "rank": "246/507"
@@ -11634,7 +12169,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "-",
         "safety": "1.000",
         "reliability": "0.811",
-        "drs": "0.575"
+        "drs": "0.575",
+        "date": "2026-10-23"
       }
     ],
     "rank": "247/507"
@@ -11667,7 +12203,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "1.000",
         "reliability": "0.843",
-        "drs": "0.528"
+        "drs": "0.528",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 2,
@@ -11679,7 +12216,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.531",
         "safety": "1.000",
         "reliability": "0.883",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -11691,7 +12229,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.587",
         "safety": "1.000",
         "reliability": "0.807",
-        "drs": "0.542"
+        "drs": "0.542",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -11703,7 +12242,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.551",
         "safety": "0.910",
         "reliability": "0.792",
-        "drs": "0.561"
+        "drs": "0.561",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -11715,7 +12255,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.615",
         "safety": "1.000",
         "reliability": "0.877",
-        "drs": "0.604"
+        "drs": "0.604",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -11727,7 +12268,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "1.000",
         "reliability": "0.839",
-        "drs": "0.608"
+        "drs": "0.608",
+        "date": "2026-11-17"
       }
     ],
     "rank": "248/507"
@@ -11760,7 +12302,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.625",
         "safety": "1.000",
         "reliability": "0.838",
-        "drs": "0.458"
+        "drs": "0.458",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -11772,7 +12315,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "1.000",
         "reliability": "0.870",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -11784,7 +12328,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.588",
         "safety": "1.000",
         "reliability": "0.753",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -11796,7 +12341,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.551",
         "safety": "0.940",
         "reliability": "0.833",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -11808,7 +12354,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.626",
         "safety": "1.000",
         "reliability": "0.890",
-        "drs": "0.566"
+        "drs": "0.566",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -11820,7 +12367,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "0.962",
         "reliability": "0.846",
-        "drs": "0.593"
+        "drs": "0.593",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 7,
@@ -11832,7 +12380,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "0.963",
         "reliability": "0.870",
-        "drs": "0.624"
+        "drs": "0.624",
+        "date": "2026-11-18"
       }
     ],
     "rank": "249/507"
@@ -11865,7 +12414,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.297",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.574"
+        "drs": "0.574",
+        "date": "2026-11-03"
       }
     ],
     "rank": "250/507"
@@ -11898,7 +12448,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.629",
         "safety": "0.970",
         "reliability": "0.889",
-        "drs": "0.574"
+        "drs": "0.574",
+        "date": "2026-11-13"
       }
     ],
     "rank": "251/507"
@@ -11931,7 +12482,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.544",
         "safety": "0.873",
         "reliability": "0.899",
-        "drs": "0.574"
+        "drs": "0.574",
+        "date": "2026-11-13"
       }
     ],
     "rank": "252/507"
@@ -11964,7 +12516,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "0.970",
         "reliability": "0.931",
-        "drs": "0.568"
+        "drs": "0.568",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 2,
@@ -11976,7 +12529,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "0.905",
         "reliability": "0.923",
-        "drs": "0.580"
+        "drs": "0.580",
+        "date": "2026-11-23"
       }
     ],
     "rank": "253/507"
@@ -12009,7 +12563,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.780",
         "reliability": "0.878",
-        "drs": "0.573"
+        "drs": "0.573",
+        "date": "2026-06-13"
       }
     ],
     "rank": "254/507"
@@ -12042,7 +12597,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.576",
         "safety": "1.000",
         "reliability": "0.819",
-        "drs": "0.580"
+        "drs": "0.580",
+        "date": "2026-06-13"
       },
       {
         "runIndex": 2,
@@ -12054,7 +12610,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "0.962",
         "reliability": "0.790",
-        "drs": "0.566"
+        "drs": "0.566",
+        "date": "2026-06-30"
       }
     ],
     "rank": "255/507"
@@ -12087,7 +12644,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.579",
         "safety": "1.000",
         "reliability": "0.902",
-        "drs": "0.573"
+        "drs": "0.573",
+        "date": "2026-10-23"
       }
     ],
     "rank": "256/507"
@@ -12120,7 +12678,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.557",
         "safety": "0.804",
         "reliability": "0.859",
-        "drs": "0.573"
+        "drs": "0.573",
+        "date": "2026-10-28"
       }
     ],
     "rank": "257/507"
@@ -12153,7 +12712,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.296",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.572"
+        "drs": "0.572",
+        "date": "2026-11-04"
       }
     ],
     "rank": "258/507"
@@ -12186,7 +12746,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.559",
         "safety": "0.782",
         "reliability": "0.918",
-        "drs": "0.580"
+        "drs": "0.580",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 2,
@@ -12198,7 +12759,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.616",
         "safety": "0.940",
         "reliability": "0.877",
-        "drs": "0.523"
+        "drs": "0.523",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -12210,7 +12772,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.557",
         "safety": "0.937",
         "reliability": "0.895",
-        "drs": "0.599"
+        "drs": "0.599",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -12222,7 +12785,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.618",
         "safety": "0.905",
         "reliability": "0.901",
-        "drs": "0.585"
+        "drs": "0.585",
+        "date": "2026-11-17"
       }
     ],
     "rank": "259/507"
@@ -12255,7 +12819,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.586",
         "safety": "0.970",
         "reliability": "0.929",
-        "drs": "0.571"
+        "drs": "0.571",
+        "date": "2026-11-11"
       }
     ],
     "rank": "260/507"
@@ -12288,7 +12853,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.562",
         "safety": "0.810",
         "reliability": "0.682",
-        "drs": "0.571"
+        "drs": "0.571",
+        "date": "2026-11-13"
       }
     ],
     "rank": "261/507"
@@ -12321,7 +12887,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.591",
         "safety": "1.000",
         "reliability": "0.891",
-        "drs": "0.571"
+        "drs": "0.571",
+        "date": "2026-11-18"
       }
     ],
     "rank": "262/507"
@@ -12354,7 +12921,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.612",
         "safety": "0.905",
         "reliability": "0.838",
-        "drs": "0.570"
+        "drs": "0.570",
+        "date": "2026-10-27"
       }
     ],
     "rank": "263/507"
@@ -12387,7 +12955,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.579",
         "safety": "1.000",
         "reliability": "0.704",
-        "drs": "0.579"
+        "drs": "0.579",
+        "date": "2026-06-13"
       },
       {
         "runIndex": 2,
@@ -12399,7 +12968,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.937",
         "reliability": "0.833",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 3,
@@ -12411,7 +12981,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.937",
         "reliability": "0.833",
-        "drs": "0.577"
+        "drs": "0.577",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 4,
@@ -12423,7 +12994,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.605",
         "safety": "1.000",
         "reliability": "0.729",
-        "drs": "0.455"
+        "drs": "0.455",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 5,
@@ -12435,7 +13007,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.538",
         "safety": "0.963",
         "reliability": "0.855",
-        "drs": "0.634"
+        "drs": "0.634",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 6,
@@ -12447,7 +13020,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.620",
         "safety": "1.000",
         "reliability": "0.932",
-        "drs": "0.590"
+        "drs": "0.590",
+        "date": "2026-06-16"
       }
     ],
     "rank": "264/507"
@@ -12480,7 +13054,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.578",
         "safety": "1.000",
         "reliability": "0.881",
-        "drs": "0.569"
+        "drs": "0.569",
+        "date": "2026-10-27"
       }
     ],
     "rank": "265/507"
@@ -12513,7 +13088,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.740",
         "reliability": "0.813",
-        "drs": "0.568"
+        "drs": "0.568",
+        "date": "2026-10-29"
       }
     ],
     "rank": "266/507"
@@ -12546,7 +13122,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.323",
         "safety": "0.850",
         "reliability": "0.333",
-        "drs": "0.568"
+        "drs": "0.568",
+        "date": "2026-11-12"
       }
     ],
     "rank": "267/507"
@@ -12579,7 +13156,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.562",
         "safety": "0.864",
         "reliability": "0.890",
-        "drs": "0.567"
+        "drs": "0.567",
+        "date": "2026-06-12"
       }
     ],
     "rank": "268/507"
@@ -12612,7 +13190,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.586",
         "safety": "0.970",
         "reliability": "0.897",
-        "drs": "0.567"
+        "drs": "0.567",
+        "date": "2026-11-18"
       }
     ],
     "rank": "269/507"
@@ -12645,7 +13224,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.613",
         "safety": "0.880",
         "reliability": "0.900",
-        "drs": "0.509"
+        "drs": "0.509",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -12657,7 +13237,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "0.773",
         "reliability": "0.932",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -12669,7 +13250,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.588",
         "safety": "0.905",
         "reliability": "0.922",
-        "drs": "0.602"
+        "drs": "0.602",
+        "date": "2026-11-19"
       }
     ],
     "rank": "270/507"
@@ -12702,7 +13284,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.653",
         "safety": "1.000",
         "reliability": "0.821",
-        "drs": "0.566"
+        "drs": "0.566",
+        "date": "2026-06-14"
       }
     ],
     "rank": "271/507"
@@ -12735,7 +13318,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.616",
         "safety": "0.830",
         "reliability": "0.914",
-        "drs": "0.566"
+        "drs": "0.566",
+        "date": "2026-10-23"
       }
     ],
     "rank": "272/507"
@@ -12768,7 +13352,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.597",
         "safety": "1.000",
         "reliability": "0.891",
-        "drs": "0.566"
+        "drs": "0.566",
+        "date": "2026-11-12"
       }
     ],
     "rank": "273/507"
@@ -12801,7 +13386,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.835",
-        "drs": "0.496"
+        "drs": "0.496",
+        "date": "2026-11-12"
       },
       {
         "runIndex": 2,
@@ -12813,7 +13399,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.937",
         "reliability": "0.858",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -12825,7 +13412,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.601",
         "safety": "1.000",
         "reliability": "0.708",
-        "drs": "0.499"
+        "drs": "0.499",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -12837,7 +13425,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "0.910",
         "reliability": "0.880",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -12849,7 +13438,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.626",
         "safety": "1.000",
         "reliability": "0.888",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -12861,7 +13451,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "1.000",
         "reliability": "0.852",
-        "drs": "0.616"
+        "drs": "0.616",
+        "date": "2026-11-17"
       }
     ],
     "rank": "274/507"
@@ -12894,7 +13485,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "1.000",
         "reliability": "0.868",
-        "drs": "0.522"
+        "drs": "0.522",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -12906,7 +13498,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.531",
         "safety": "1.000",
         "reliability": "0.835",
-        "drs": "0.581"
+        "drs": "0.581",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -12918,7 +13511,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "1.000",
         "reliability": "0.847",
-        "drs": "0.538"
+        "drs": "0.538",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -12930,7 +13524,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.548",
         "safety": "0.940",
         "reliability": "0.888",
-        "drs": "0.596"
+        "drs": "0.596",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -12942,7 +13537,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.556",
         "safety": "1.000",
         "reliability": "0.841",
-        "drs": "0.588"
+        "drs": "0.588",
+        "date": "2026-11-19"
       }
     ],
     "rank": "275/507"
@@ -12975,7 +13571,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.740",
         "reliability": "0.888",
-        "drs": "0.564"
+        "drs": "0.564",
+        "date": "2026-10-30"
       }
     ],
     "rank": "276/507"
@@ -13008,7 +13605,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.554",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.563"
+        "drs": "0.563",
+        "date": "2026-11-05"
       }
     ],
     "rank": "277/507"
@@ -13041,7 +13639,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.568",
         "safety": "0.970",
         "reliability": "0.883",
-        "drs": "0.563"
+        "drs": "0.563",
+        "date": "2026-11-13"
       }
     ],
     "rank": "278/507"
@@ -13074,7 +13673,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.567",
         "safety": "1.000",
         "reliability": "0.909",
-        "drs": "0.563"
+        "drs": "0.563",
+        "date": "2026-11-16"
       }
     ],
     "rank": "279/507"
@@ -13107,7 +13707,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.617",
         "safety": "1.000",
         "reliability": "0.845",
-        "drs": "0.512"
+        "drs": "0.512",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 2,
@@ -13119,7 +13720,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.544",
         "safety": "1.000",
         "reliability": "0.908",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -13131,7 +13733,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "1.000",
         "reliability": "0.792",
-        "drs": "0.564"
+        "drs": "0.564",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -13143,7 +13746,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.560",
         "safety": "0.940",
         "reliability": "0.832",
-        "drs": "0.568"
+        "drs": "0.568",
+        "date": "2026-11-17"
       }
     ],
     "rank": "280/507"
@@ -13176,7 +13780,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "0.963",
         "reliability": "0.773",
-        "drs": "0.562"
+        "drs": "0.562",
+        "date": "2026-06-12"
       }
     ],
     "rank": "281/507"
@@ -13209,7 +13814,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "0.810",
         "reliability": "0.843",
-        "drs": "0.562"
+        "drs": "0.562",
+        "date": "2026-06-12"
       }
     ],
     "rank": "282/507"
@@ -13242,7 +13848,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.905",
         "reliability": "0.818",
-        "drs": "0.532"
+        "drs": "0.532",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 2,
@@ -13254,7 +13861,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.612",
         "safety": "1.000",
         "reliability": "0.862",
-        "drs": "0.514"
+        "drs": "0.514",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 3,
@@ -13266,7 +13874,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.613",
         "safety": "1.000",
         "reliability": "0.897",
-        "drs": "0.554"
+        "drs": "0.554",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 4,
@@ -13278,7 +13887,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "1.000",
         "reliability": "0.855",
-        "drs": "0.576"
+        "drs": "0.576",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 5,
@@ -13290,7 +13900,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.531",
         "safety": "0.820",
         "reliability": "0.909",
-        "drs": "0.572"
+        "drs": "0.572",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 6,
@@ -13302,7 +13913,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.963",
         "reliability": "0.886",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 7,
@@ -13314,7 +13926,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "1.000",
         "reliability": "0.878",
-        "drs": "0.605"
+        "drs": "0.605",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 8,
@@ -13326,7 +13939,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.521",
         "safety": "0.910",
         "reliability": "0.926",
-        "drs": "0.574"
+        "drs": "0.574",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 9,
@@ -13338,7 +13952,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.526",
         "safety": "1.000",
         "reliability": "0.875",
-        "drs": "0.591"
+        "drs": "0.591",
+        "date": "2026-06-30"
       },
       {
         "runIndex": 10,
@@ -13350,7 +13965,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.605",
         "safety": "1.000",
         "reliability": "0.889",
-        "drs": "0.544"
+        "drs": "0.544",
+        "date": "2026-07-01"
       },
       {
         "runIndex": 11,
@@ -13362,7 +13978,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.598",
         "safety": "1.000",
         "reliability": "0.830",
-        "drs": "0.500"
+        "drs": "0.500",
+        "date": "2026-07-01"
       }
     ],
     "rank": "283/507"
@@ -13395,7 +14012,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.549",
         "safety": "1.000",
         "reliability": "0.825",
-        "drs": "0.576"
+        "drs": "0.576",
+        "date": "2026-10-15"
       },
       {
         "runIndex": 2,
@@ -13407,7 +14025,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "0.963",
         "reliability": "0.861",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-11-12"
       },
       {
         "runIndex": 3,
@@ -13419,7 +14038,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.626",
         "safety": "0.970",
         "reliability": "0.788",
-        "drs": "0.498"
+        "drs": "0.498",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -13431,7 +14051,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "0.887",
         "reliability": "0.868",
-        "drs": "0.604"
+        "drs": "0.604",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -13443,7 +14064,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.672",
         "safety": "1.000",
         "reliability": "0.772",
-        "drs": "0.453"
+        "drs": "0.453",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -13455,7 +14077,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.561",
         "safety": "0.970",
         "reliability": "0.772",
-        "drs": "0.568"
+        "drs": "0.568",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 7,
@@ -13467,7 +14090,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.628",
         "safety": "1.000",
         "reliability": "0.916",
-        "drs": "0.608"
+        "drs": "0.608",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 8,
@@ -13479,7 +14103,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.553",
         "safety": "1.000",
         "reliability": "0.790",
-        "drs": "0.579"
+        "drs": "0.579",
+        "date": "2026-11-17"
       }
     ],
     "rank": "284/507"
@@ -13512,7 +14137,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.578",
         "safety": "1.000",
         "reliability": "0.892",
-        "drs": "0.562"
+        "drs": "0.562",
+        "date": "2026-10-30"
       }
     ],
     "rank": "285/507"
@@ -13545,7 +14171,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.414",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.562"
+        "drs": "0.562",
+        "date": "2026-11-05"
       }
     ],
     "rank": "286/507"
@@ -13578,7 +14205,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.595",
         "safety": "1.000",
         "reliability": "0.850",
-        "drs": "0.561"
+        "drs": "0.561",
+        "date": "2026-10-14"
       }
     ],
     "rank": "287/507"
@@ -13611,7 +14239,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.532",
         "safety": "1.000",
         "reliability": "0.835",
-        "drs": "0.561"
+        "drs": "0.561",
+        "date": "2026-10-15"
       }
     ],
     "rank": "288/507"
@@ -13644,7 +14273,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.581",
         "safety": "1.000",
         "reliability": "0.901",
-        "drs": "0.559"
+        "drs": "0.559",
+        "date": "2026-10-26"
       }
     ],
     "rank": "289/507"
@@ -13677,7 +14307,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.309",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.559"
+        "drs": "0.559",
+        "date": "2026-11-10"
       }
     ],
     "rank": "290/507"
@@ -13710,7 +14341,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.587",
         "safety": "1.000",
         "reliability": "0.878",
-        "drs": "0.558"
+        "drs": "0.558",
+        "date": "2026-11-12"
       }
     ],
     "rank": "291/507"
@@ -13743,7 +14375,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.616",
         "safety": "0.872",
         "reliability": "0.871",
-        "drs": "0.558"
+        "drs": "0.558",
+        "date": "2026-11-12"
       }
     ],
     "rank": "292/507"
@@ -13776,7 +14409,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.597",
         "safety": "0.970",
         "reliability": "0.904",
-        "drs": "0.558"
+        "drs": "0.558",
+        "date": "2026-11-13"
       }
     ],
     "rank": "293/507"
@@ -13809,7 +14443,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.625",
         "safety": "0.932",
         "reliability": "0.739",
-        "drs": "0.476"
+        "drs": "0.476",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 2,
@@ -13821,7 +14456,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "1.000",
         "reliability": "0.834",
-        "drs": "0.601"
+        "drs": "0.601",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -13833,7 +14469,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "0.925",
         "reliability": "0.804",
-        "drs": "0.540"
+        "drs": "0.540",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -13845,7 +14482,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.549",
         "safety": "0.850",
         "reliability": "0.800",
-        "drs": "0.563"
+        "drs": "0.563",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -13857,7 +14495,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.603",
         "safety": "1.000",
         "reliability": "0.801",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-11-17"
       }
     ],
     "rank": "294/507"
@@ -13890,7 +14529,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.585",
         "safety": "1.000",
         "reliability": "0.898",
-        "drs": "0.558"
+        "drs": "0.558",
+        "date": "2026-11-18"
       }
     ],
     "rank": "295/507"
@@ -13923,7 +14563,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "1.000",
         "reliability": "0.846",
-        "drs": "0.563"
+        "drs": "0.563",
+        "date": "2026-10-26"
       },
       {
         "runIndex": 2,
@@ -13935,7 +14576,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.532",
         "safety": "0.970",
         "reliability": "0.935",
-        "drs": "0.589"
+        "drs": "0.589",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -13947,7 +14589,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "1.000",
         "reliability": "0.861",
-        "drs": "0.518"
+        "drs": "0.518",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -13959,7 +14602,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "1.000",
         "reliability": "0.929",
-        "drs": "0.621"
+        "drs": "0.621",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -13971,7 +14615,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.607",
         "safety": "1.000",
         "reliability": "0.865",
-        "drs": "0.539"
+        "drs": "0.539",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -13983,7 +14628,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.622",
         "safety": "1.000",
         "reliability": "0.913",
-        "drs": "0.494"
+        "drs": "0.494",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 7,
@@ -13995,7 +14641,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.548",
         "safety": "1.000",
         "reliability": "0.897",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-11-18"
       }
     ],
     "rank": "296/507"
@@ -14028,7 +14675,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.557",
         "safety": "0.910",
         "reliability": "0.865",
-        "drs": "0.556"
+        "drs": "0.556",
+        "date": "2026-06-13"
       }
     ],
     "rank": "297/507"
@@ -14061,7 +14709,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.626",
         "safety": "0.902",
         "reliability": "0.902",
-        "drs": "0.556"
+        "drs": "0.556",
+        "date": "2026-11-13"
       }
     ],
     "rank": "298/507"
@@ -14094,7 +14743,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.605",
         "safety": "0.900",
         "reliability": "0.904",
-        "drs": "0.555"
+        "drs": "0.555",
+        "date": "2026-10-14"
       }
     ],
     "rank": "299/507"
@@ -14127,7 +14777,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.582",
         "safety": "1.000",
         "reliability": "0.837",
-        "drs": "0.555"
+        "drs": "0.555",
+        "date": "2026-10-29"
       }
     ],
     "rank": "300/507"
@@ -14160,7 +14811,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.585",
         "safety": "1.000",
         "reliability": "0.905",
-        "drs": "0.555"
+        "drs": "0.555",
+        "date": "2026-11-12"
       }
     ],
     "rank": "301/507"
@@ -14193,7 +14845,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.591",
         "safety": "0.970",
         "reliability": "0.872",
-        "drs": "0.555"
+        "drs": "0.555",
+        "date": "2026-11-13"
       }
     ],
     "rank": "302/507"
@@ -14226,7 +14879,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.550",
         "safety": "1.000",
         "reliability": "0.897",
-        "drs": "0.555"
+        "drs": "0.555",
+        "date": "2026-11-16"
       }
     ],
     "rank": "303/507"
@@ -14259,7 +14913,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.624",
         "safety": "1.000",
         "reliability": "0.913",
-        "drs": "0.554"
+        "drs": "0.554",
+        "date": "2026-11-17"
       }
     ],
     "rank": "304/507"
@@ -14292,7 +14947,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "1.000",
         "reliability": "0.779",
-        "drs": "0.554"
+        "drs": "0.554",
+        "date": "2026-11-18"
       }
     ],
     "rank": "305/507"
@@ -14325,7 +14981,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "1.000",
         "reliability": "0.795",
-        "drs": "0.552"
+        "drs": "0.552",
+        "date": "2026-10-23"
       }
     ],
     "rank": "306/507"
@@ -14358,7 +15015,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.617",
         "safety": "0.905",
         "reliability": "0.921",
-        "drs": "0.552"
+        "drs": "0.552",
+        "date": "2026-10-26"
       }
     ],
     "rank": "307/507"
@@ -14391,7 +15049,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.566",
         "safety": "1.000",
         "reliability": "0.858",
-        "drs": "0.552"
+        "drs": "0.552",
+        "date": "2026-10-29"
       }
     ],
     "rank": "308/507"
@@ -14424,7 +15083,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.591",
         "safety": "1.000",
         "reliability": "0.815",
-        "drs": "0.552"
+        "drs": "0.552",
+        "date": "2026-11-13"
       }
     ],
     "rank": "309/507"
@@ -14434,7 +15094,7 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
     "name": "liquidai/lfm2.5-350",
     "params": "354.48m",
     "size": "229 MB",
-    "lab": "Meta",
+    "lab": "Liquid AI",
     "runsCount": 1,
     "accuracy": "0.434",
     "accuracyNum": 0.434,
@@ -14457,7 +15117,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.578",
         "safety": "1.000",
         "reliability": "0.945",
-        "drs": "0.552"
+        "drs": "0.552",
+        "date": "2026-11-20"
       }
     ],
     "rank": "310/507"
@@ -14490,7 +15151,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.530",
         "safety": "0.963",
         "reliability": "0.771",
-        "drs": "0.551"
+        "drs": "0.551",
+        "date": "2026-06-14"
       }
     ],
     "rank": "311/507"
@@ -14523,7 +15185,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.621",
         "safety": "0.970",
         "reliability": "0.867",
-        "drs": "0.551"
+        "drs": "0.551",
+        "date": "2026-11-18"
       }
     ],
     "rank": "312/507"
@@ -14556,7 +15219,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.575",
         "safety": "1.000",
         "reliability": "0.654",
-        "drs": "0.529"
+        "drs": "0.529",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -14568,7 +15232,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.595",
         "safety": "1.000",
         "reliability": "0.655",
-        "drs": "0.476"
+        "drs": "0.476",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 3,
@@ -14580,7 +15245,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "0.963",
         "reliability": "0.781",
-        "drs": "0.579"
+        "drs": "0.579",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 4,
@@ -14592,7 +15258,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "1.000",
         "reliability": "0.816",
-        "drs": "0.580"
+        "drs": "0.580",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 5,
@@ -14604,7 +15271,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.585",
         "safety": "1.000",
         "reliability": "0.531",
-        "drs": "0.523"
+        "drs": "0.523",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 6,
@@ -14616,7 +15284,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "0.932",
         "reliability": "0.794",
-        "drs": "0.554"
+        "drs": "0.554",
+        "date": "2026-11-23"
       },
       {
         "runIndex": 7,
@@ -14628,7 +15297,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.552",
         "safety": "1.000",
         "reliability": "0.820",
-        "drs": "0.619"
+        "drs": "0.619",
+        "date": "2026-11-23"
       }
     ],
     "rank": "313/507"
@@ -14661,7 +15331,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.310",
         "safety": "0.962",
         "reliability": "0.333",
-        "drs": "0.547"
+        "drs": "0.547",
+        "date": "2026-11-03"
       },
       {
         "runIndex": 2,
@@ -14673,7 +15344,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.367",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.553"
+        "drs": "0.553",
+        "date": "2026-11-10"
       }
     ],
     "rank": "314/507"
@@ -14706,7 +15378,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.637",
         "safety": "1.000",
         "reliability": "0.899",
-        "drs": "0.582"
+        "drs": "0.582",
+        "date": "2026-11-12"
       },
       {
         "runIndex": 2,
@@ -14718,7 +15391,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.328",
         "safety": "0.500",
         "reliability": "0.469",
-        "drs": "0.286"
+        "drs": "0.286",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 3,
@@ -14730,7 +15404,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "0.878",
         "reliability": "0.826",
-        "drs": "0.588"
+        "drs": "0.588",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -14742,7 +15417,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.535",
         "safety": "1.000",
         "reliability": "0.896",
-        "drs": "0.629"
+        "drs": "0.629",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -14754,7 +15430,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "0.810",
         "reliability": "0.885",
-        "drs": "0.576"
+        "drs": "0.576",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -14766,7 +15443,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.558",
         "safety": "0.872",
         "reliability": "0.891",
-        "drs": "0.591"
+        "drs": "0.591",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 7,
@@ -14778,7 +15456,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.534",
         "safety": "1.000",
         "reliability": "0.768",
-        "drs": "0.596"
+        "drs": "0.596",
+        "date": "2026-11-17"
       }
     ],
     "rank": "315/507"
@@ -14811,7 +15490,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "1.000",
         "reliability": "0.848",
-        "drs": "0.550"
+        "drs": "0.550",
+        "date": "2026-11-13"
       }
     ],
     "rank": "316/507"
@@ -14844,7 +15524,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.555",
         "safety": "1.000",
         "reliability": "0.778",
-        "drs": "0.549"
+        "drs": "0.549",
+        "date": "2026-10-14"
       }
     ],
     "rank": "317/507"
@@ -14877,7 +15558,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.346",
         "safety": "0.804",
         "reliability": "0.333",
-        "drs": "0.549"
+        "drs": "0.549",
+        "date": "2026-11-10"
       }
     ],
     "rank": "318/507"
@@ -14910,7 +15592,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.588",
         "safety": "0.925",
         "reliability": "0.764",
-        "drs": "0.549"
+        "drs": "0.549",
+        "date": "2026-11-12"
       }
     ],
     "rank": "319/507"
@@ -14943,7 +15626,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.639",
         "safety": "0.715",
         "reliability": "0.860",
-        "drs": "0.541"
+        "drs": "0.541",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 2,
@@ -14955,7 +15639,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.636",
         "safety": "0.810",
         "reliability": "0.869",
-        "drs": "0.556"
+        "drs": "0.556",
+        "date": "2026-11-17"
       }
     ],
     "rank": "320/507"
@@ -14988,7 +15673,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.579",
         "safety": "1.000",
         "reliability": "0.887",
-        "drs": "0.548"
+        "drs": "0.548",
+        "date": "2026-11-12"
       }
     ],
     "rank": "321/507"
@@ -15021,7 +15707,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.970",
         "reliability": "0.888",
-        "drs": "0.548"
+        "drs": "0.548",
+        "date": "2026-11-18"
       }
     ],
     "rank": "322/507"
@@ -15054,7 +15741,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.425",
         "safety": "0.925",
         "reliability": "0.333",
-        "drs": "0.547"
+        "drs": "0.547",
+        "date": "2026-11-11"
       }
     ],
     "rank": "323/507"
@@ -15087,7 +15775,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "1.000",
         "reliability": "0.823",
-        "drs": "0.547"
+        "drs": "0.547",
+        "date": "2026-11-17"
       }
     ],
     "rank": "324/507"
@@ -15120,7 +15809,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.624",
         "safety": "1.000",
         "reliability": "0.821",
-        "drs": "0.546"
+        "drs": "0.546",
+        "date": "2026-10-27"
       }
     ],
     "rank": "325/507"
@@ -15153,7 +15843,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.607",
         "safety": "0.970",
         "reliability": "0.771",
-        "drs": "0.486"
+        "drs": "0.486",
+        "date": "2026-06-12"
       },
       {
         "runIndex": 2,
@@ -15165,7 +15856,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.562",
         "safety": "0.815",
         "reliability": "0.782",
-        "drs": "0.515"
+        "drs": "0.515",
+        "date": "2026-06-12"
       },
       {
         "runIndex": 3,
@@ -15177,7 +15869,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "1.000",
         "reliability": "0.810",
-        "drs": "0.588"
+        "drs": "0.588",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 4,
@@ -15189,7 +15882,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.555",
         "safety": "1.000",
         "reliability": "0.724",
-        "drs": "0.548"
+        "drs": "0.548",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 5,
@@ -15201,7 +15895,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.555",
         "safety": "1.000",
         "reliability": "0.724",
-        "drs": "0.548"
+        "drs": "0.548",
+        "date": "2026-06-15"
       },
       {
         "runIndex": 6,
@@ -15213,7 +15908,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.645",
         "safety": "1.000",
         "reliability": "0.774",
-        "drs": "0.455"
+        "drs": "0.455",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 7,
@@ -15225,7 +15921,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "0.963",
         "reliability": "0.808",
-        "drs": "0.604"
+        "drs": "0.604",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 8,
@@ -15237,7 +15934,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.636",
         "safety": "1.000",
         "reliability": "0.892",
-        "drs": "0.581"
+        "drs": "0.581",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 9,
@@ -15249,7 +15947,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.539",
         "safety": "0.963",
         "reliability": "0.851",
-        "drs": "0.618"
+        "drs": "0.618",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 10,
@@ -15261,7 +15960,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.618",
         "safety": "1.000",
         "reliability": "0.822",
-        "drs": "0.497"
+        "drs": "0.497",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 11,
@@ -15273,7 +15973,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.560",
         "safety": "1.000",
         "reliability": "0.799",
-        "drs": "0.544"
+        "drs": "0.544",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 12,
@@ -15285,7 +15986,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.962",
         "reliability": "0.817",
-        "drs": "0.594"
+        "drs": "0.594",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 13,
@@ -15297,7 +15999,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.554",
         "safety": "0.937",
         "reliability": "0.836",
-        "drs": "0.571"
+        "drs": "0.571",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 14,
@@ -15309,7 +16012,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.613",
         "safety": "1.000",
         "reliability": "0.754",
-        "drs": "0.474"
+        "drs": "0.474",
+        "date": "2026-11-19"
       }
     ],
     "rank": "326/507"
@@ -15342,7 +16046,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.310",
         "safety": "0.940",
         "reliability": "0.333",
-        "drs": "0.545"
+        "drs": "0.545",
+        "date": "2026-11-02"
       }
     ],
     "rank": "327/507"
@@ -15375,7 +16080,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.636",
         "safety": "1.000",
         "reliability": "0.763",
-        "drs": "0.543"
+        "drs": "0.543",
+        "date": "2026-10-14"
       }
     ],
     "rank": "328/507"
@@ -15408,7 +16114,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.568",
         "safety": "1.000",
         "reliability": "0.867",
-        "drs": "0.543"
+        "drs": "0.543",
+        "date": "2026-11-13"
       }
     ],
     "rank": "329/507"
@@ -15441,7 +16148,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.595",
         "safety": "1.000",
         "reliability": "0.835",
-        "drs": "0.543"
+        "drs": "0.543",
+        "date": "2026-11-13"
       }
     ],
     "rank": "330/507"
@@ -15474,7 +16182,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.562",
         "safety": "0.970",
         "reliability": "0.816",
-        "drs": "0.541"
+        "drs": "0.541",
+        "date": "2026-10-15"
       }
     ],
     "rank": "331/507"
@@ -15507,7 +16216,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.530",
         "safety": "0.962",
         "reliability": "0.634",
-        "drs": "0.540"
+        "drs": "0.540",
+        "date": "2026-06-14"
       }
     ],
     "rank": "332/507"
@@ -15540,7 +16250,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.905",
         "reliability": "0.815",
-        "drs": "0.540"
+        "drs": "0.540",
+        "date": "2026-10-23"
       }
     ],
     "rank": "333/507"
@@ -15573,7 +16284,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.573",
         "safety": "0.962",
         "reliability": "0.775",
-        "drs": "0.558"
+        "drs": "0.558",
+        "date": "2026-10-29"
       },
       {
         "runIndex": 2,
@@ -15585,7 +16297,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.571",
         "safety": "0.872",
         "reliability": "0.825",
-        "drs": "0.549"
+        "drs": "0.549",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -15597,7 +16310,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.627",
         "safety": "0.940",
         "reliability": "0.759",
-        "drs": "0.480"
+        "drs": "0.480",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -15609,7 +16323,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.556",
         "safety": "0.887",
         "reliability": "0.839",
-        "drs": "0.558"
+        "drs": "0.558",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -15621,7 +16336,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.617",
         "safety": "1.000",
         "reliability": "0.791",
-        "drs": "0.550"
+        "drs": "0.550",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -15633,7 +16349,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.632",
         "safety": "1.000",
         "reliability": "0.863",
-        "drs": "0.544"
+        "drs": "0.544",
+        "date": "2026-11-18"
       }
     ],
     "rank": "334/507"
@@ -15666,7 +16383,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.612",
         "safety": "0.940",
         "reliability": "0.865",
-        "drs": "0.540"
+        "drs": "0.540",
+        "date": "2026-11-11"
       }
     ],
     "rank": "335/507"
@@ -15699,7 +16417,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "1.000",
         "reliability": "0.877",
-        "drs": "0.540"
+        "drs": "0.540",
+        "date": "2026-11-16"
       }
     ],
     "rank": "336/507"
@@ -15732,7 +16451,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.583",
         "safety": "0.905",
         "reliability": "0.636",
-        "drs": "0.539"
+        "drs": "0.539",
+        "date": "2026-10-29"
       }
     ],
     "rank": "337/507"
@@ -15765,7 +16485,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.325",
         "safety": "0.940",
         "reliability": "0.333",
-        "drs": "0.538"
+        "drs": "0.538",
+        "date": "2026-11-05"
       }
     ],
     "rank": "338/507"
@@ -15798,7 +16519,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "0.962",
         "reliability": "0.900",
-        "drs": "0.538"
+        "drs": "0.538",
+        "date": "2026-11-12"
       }
     ],
     "rank": "339/507"
@@ -15831,7 +16553,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.646",
         "safety": "1.000",
         "reliability": "0.821",
-        "drs": "0.538"
+        "drs": "0.538",
+        "date": "2026-11-13"
       }
     ],
     "rank": "340/507"
@@ -15864,7 +16587,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "1.000",
         "reliability": "0.836",
-        "drs": "0.597"
+        "drs": "0.597",
+        "date": "2026-10-19"
       },
       {
         "runIndex": 2,
@@ -15876,7 +16600,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.603",
         "safety": "1.000",
         "reliability": "0.685",
-        "drs": "0.477"
+        "drs": "0.477",
+        "date": "2026-10-29"
       }
     ],
     "rank": "341/507"
@@ -15909,7 +16634,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "0.932",
         "reliability": "0.878",
-        "drs": "0.537"
+        "drs": "0.537",
+        "date": "2026-10-29"
       }
     ],
     "rank": "342/507"
@@ -15942,7 +16668,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.617",
         "safety": "0.910",
         "reliability": "0.890",
-        "drs": "0.537"
+        "drs": "0.537",
+        "date": "2026-11-12"
       }
     ],
     "rank": "343/507"
@@ -15975,7 +16702,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.581",
         "safety": "1.000",
         "reliability": "0.888",
-        "drs": "0.537"
+        "drs": "0.537",
+        "date": "2026-11-12"
       }
     ],
     "rank": "344/507"
@@ -16008,7 +16736,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.560",
         "safety": "1.000",
         "reliability": "0.593",
-        "drs": "0.534"
+        "drs": "0.534",
+        "date": "2026-06-13"
       }
     ],
     "rank": "345/507"
@@ -16041,7 +16770,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "1.000",
         "safety": "0.715",
         "reliability": "1.000",
-        "drs": "0.534"
+        "drs": "0.534",
+        "date": "2026-10-26"
       }
     ],
     "rank": "346/507"
@@ -16074,7 +16804,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.293",
         "safety": "0.925",
         "reliability": "0.375",
-        "drs": "0.534"
+        "drs": "0.534",
+        "date": "2026-11-12"
       }
     ],
     "rank": "347/507"
@@ -16107,7 +16838,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.591",
         "safety": "1.000",
         "reliability": "0.907",
-        "drs": "0.534"
+        "drs": "0.534",
+        "date": "2026-11-16"
       }
     ],
     "rank": "348/507"
@@ -16140,7 +16872,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.598",
         "safety": "0.940",
         "reliability": "0.872",
-        "drs": "0.534"
+        "drs": "0.534",
+        "date": "2026-11-17"
       }
     ],
     "rank": "349/507"
@@ -16173,7 +16906,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.360",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.533"
+        "drs": "0.533",
+        "date": "2026-11-13"
       }
     ],
     "rank": "350/507"
@@ -16206,7 +16940,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.595",
         "safety": "1.000",
         "reliability": "0.658",
-        "drs": "0.533"
+        "drs": "0.533",
+        "date": "2026-11-13"
       }
     ],
     "rank": "351/507"
@@ -16239,7 +16974,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.611",
         "safety": "1.000",
         "reliability": "0.874",
-        "drs": "0.532"
+        "drs": "0.532",
+        "date": "2026-10-08"
       }
     ],
     "rank": "352/507"
@@ -16272,7 +17008,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.589",
         "safety": "1.000",
         "reliability": "0.909",
-        "drs": "0.531"
+        "drs": "0.531",
+        "date": "2026-11-12"
       }
     ],
     "rank": "353/507"
@@ -16305,7 +17042,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.624",
         "safety": "0.810",
         "reliability": "0.880",
-        "drs": "0.531"
+        "drs": "0.531",
+        "date": "2026-11-18"
       }
     ],
     "rank": "354/507"
@@ -16338,7 +17076,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.630",
         "safety": "0.962",
         "reliability": "0.873",
-        "drs": "0.529"
+        "drs": "0.529",
+        "date": "2026-11-17"
       }
     ],
     "rank": "355/507"
@@ -16371,7 +17110,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.901",
-        "drs": "0.529"
+        "drs": "0.529",
+        "date": "2026-11-19"
       }
     ],
     "rank": "356/507"
@@ -16404,7 +17144,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.562",
         "safety": "0.962",
         "reliability": "0.751",
-        "drs": "0.541"
+        "drs": "0.541",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 2,
@@ -16416,7 +17157,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.483",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.575"
+        "drs": "0.575",
+        "date": "2026-11-11"
       },
       {
         "runIndex": 3,
@@ -16428,7 +17170,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.633",
         "safety": "1.000",
         "reliability": "0.774",
-        "drs": "0.469"
+        "drs": "0.469",
+        "date": "2026-11-16"
       }
     ],
     "rank": "357/507"
@@ -16461,7 +17204,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.582",
         "safety": "0.970",
         "reliability": "0.892",
-        "drs": "0.528"
+        "drs": "0.528",
+        "date": "2026-11-16"
       }
     ],
     "rank": "358/507"
@@ -16494,7 +17238,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.617",
         "safety": "1.000",
         "reliability": "0.782",
-        "drs": "0.475"
+        "drs": "0.475",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 2,
@@ -16506,7 +17251,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.558",
         "safety": "0.937",
         "reliability": "0.858",
-        "drs": "0.556"
+        "drs": "0.556",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 3,
@@ -16518,7 +17264,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "1.000",
         "reliability": "0.752",
-        "drs": "0.526"
+        "drs": "0.526",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -16530,7 +17277,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.568",
         "safety": "1.000",
         "reliability": "0.787",
-        "drs": "0.552"
+        "drs": "0.552",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -16542,7 +17290,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.635",
         "safety": "1.000",
         "reliability": "0.832",
-        "drs": "0.538"
+        "drs": "0.538",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -16554,7 +17303,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "1.000",
         "reliability": "0.814",
-        "drs": "0.593"
+        "drs": "0.593",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 7,
@@ -16566,7 +17316,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.624",
         "safety": "1.000",
         "reliability": "0.752",
-        "drs": "0.453"
+        "drs": "0.453",
+        "date": "2026-11-17"
       }
     ],
     "rank": "359/507"
@@ -16599,7 +17350,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.298",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.527"
+        "drs": "0.527",
+        "date": "2026-11-05"
       }
     ],
     "rank": "360/507"
@@ -16632,7 +17384,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.962",
         "reliability": "0.863",
-        "drs": "0.527"
+        "drs": "0.527",
+        "date": "2026-11-12"
       }
     ],
     "rank": "361/507"
@@ -16665,7 +17418,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "0.970",
         "reliability": "0.566",
-        "drs": "0.500"
+        "drs": "0.500",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 2,
@@ -16677,7 +17431,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.617",
         "safety": "1.000",
         "reliability": "0.914",
-        "drs": "0.555"
+        "drs": "0.555",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 3,
@@ -16689,7 +17444,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "1.000",
         "reliability": "0.798",
-        "drs": "0.522"
+        "drs": "0.522",
+        "date": "2026-06-16"
       }
     ],
     "rank": "362/507"
@@ -16722,7 +17478,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.526"
+        "drs": "0.526",
+        "date": "2026-11-11"
       }
     ],
     "rank": "363/507"
@@ -16755,7 +17512,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.605",
         "safety": "0.880",
         "reliability": "0.832",
-        "drs": "0.526"
+        "drs": "0.526",
+        "date": "2026-11-12"
       }
     ],
     "rank": "364/507"
@@ -16788,7 +17546,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "0.910",
         "reliability": "0.889",
-        "drs": "0.526"
+        "drs": "0.526",
+        "date": "2026-11-13"
       }
     ],
     "rank": "365/507"
@@ -16821,7 +17580,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.622",
         "safety": "1.000",
         "reliability": "0.676",
-        "drs": "0.490"
+        "drs": "0.490",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 2,
@@ -16833,7 +17593,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.630",
         "safety": "1.000",
         "reliability": "0.690",
-        "drs": "0.444"
+        "drs": "0.444",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 3,
@@ -16845,7 +17606,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.633",
         "safety": "1.000",
         "reliability": "0.758",
-        "drs": "0.513"
+        "drs": "0.513",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 4,
@@ -16857,7 +17619,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.554",
         "safety": "1.000",
         "reliability": "0.712",
-        "drs": "0.574"
+        "drs": "0.574",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 5,
@@ -16869,7 +17632,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "0.780",
         "reliability": "0.807",
-        "drs": "0.537"
+        "drs": "0.537",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 6,
@@ -16881,7 +17645,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.541",
         "safety": "0.963",
         "reliability": "0.805",
-        "drs": "0.609"
+        "drs": "0.609",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 7,
@@ -16893,7 +17658,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "1.000",
         "reliability": "0.772",
-        "drs": "0.570"
+        "drs": "0.570",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 8,
@@ -16905,7 +17671,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.591",
         "safety": "0.940",
         "reliability": "0.755",
-        "drs": "0.519"
+        "drs": "0.519",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 9,
@@ -16917,7 +17684,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.546",
         "safety": "1.000",
         "reliability": "0.652",
-        "drs": "0.578"
+        "drs": "0.578",
+        "date": "2026-06-30"
       },
       {
         "runIndex": 10,
@@ -16929,7 +17697,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.642",
-        "drs": "0.494"
+        "drs": "0.494",
+        "date": "2026-07-01"
       },
       {
         "runIndex": 11,
@@ -16941,7 +17710,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.620",
         "safety": "1.000",
         "reliability": "0.650",
-        "drs": "0.448"
+        "drs": "0.448",
+        "date": "2026-07-01"
       }
     ],
     "rank": "366/507"
@@ -16974,7 +17744,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.831",
-        "drs": "0.525"
+        "drs": "0.525",
+        "date": "2026-11-18"
       }
     ],
     "rank": "367/507"
@@ -17007,7 +17778,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.610",
         "safety": "0.970",
         "reliability": "0.903",
-        "drs": "0.524"
+        "drs": "0.524",
+        "date": "2026-11-12"
       }
     ],
     "rank": "368/507"
@@ -17040,7 +17812,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.621",
         "safety": "1.000",
         "reliability": "0.845",
-        "drs": "0.472"
+        "drs": "0.472",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 2,
@@ -17052,7 +17825,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.587",
         "safety": "1.000",
         "reliability": "0.837",
-        "drs": "0.576"
+        "drs": "0.576",
+        "date": "2026-11-17"
       }
     ],
     "rank": "369/507"
@@ -17085,7 +17859,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.607",
         "safety": "0.970",
         "reliability": "0.877",
-        "drs": "0.524"
+        "drs": "0.524",
+        "date": "2026-11-17"
       }
     ],
     "rank": "370/507"
@@ -17118,7 +17893,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.615",
         "safety": "1.000",
         "reliability": "0.783",
-        "drs": "0.524"
+        "drs": "0.524",
+        "date": "2026-11-18"
       }
     ],
     "rank": "371/507"
@@ -17151,7 +17927,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.619",
         "safety": "0.924",
         "reliability": "0.653",
-        "drs": "0.439"
+        "drs": "0.439",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 2,
@@ -17163,7 +17940,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.554",
         "safety": "0.820",
         "reliability": "0.789",
-        "drs": "0.533"
+        "drs": "0.533",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 3,
@@ -17175,7 +17953,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.556",
         "safety": "0.963",
         "reliability": "0.809",
-        "drs": "0.595"
+        "drs": "0.595",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 4,
@@ -17187,7 +17966,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.584",
         "safety": "1.000",
         "reliability": "0.722",
-        "drs": "0.564"
+        "drs": "0.564",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 5,
@@ -17199,7 +17979,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.574",
         "safety": "0.932",
         "reliability": "0.649",
-        "drs": "0.524"
+        "drs": "0.524",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 6,
@@ -17211,7 +17992,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.603",
         "safety": "0.905",
         "reliability": "0.729",
-        "drs": "0.530"
+        "drs": "0.530",
+        "date": "2026-07-01"
       },
       {
         "runIndex": 7,
@@ -17223,7 +18005,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.611",
         "safety": "1.000",
         "reliability": "0.693",
-        "drs": "0.468"
+        "drs": "0.468",
+        "date": "2026-07-01"
       }
     ],
     "rank": "372/507"
@@ -17256,7 +18039,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "1.000",
         "reliability": "0.832",
-        "drs": "0.522"
+        "drs": "0.522",
+        "date": "2026-11-17"
       }
     ],
     "rank": "373/507"
@@ -17289,7 +18073,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.309",
         "safety": "0.953",
         "reliability": "0.333",
-        "drs": "0.521"
+        "drs": "0.521",
+        "date": "2026-11-03"
       }
     ],
     "rank": "374/507"
@@ -17322,7 +18107,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.627",
         "safety": "1.000",
         "reliability": "0.840",
-        "drs": "0.521"
+        "drs": "0.521",
+        "date": "2026-11-12"
       }
     ],
     "rank": "375/507"
@@ -17355,7 +18141,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.457",
         "safety": "0.970",
         "reliability": "0.333",
-        "drs": "0.520"
+        "drs": "0.520",
+        "date": "2026-11-02"
       }
     ],
     "rank": "376/507"
@@ -17388,7 +18175,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.605",
         "safety": "1.000",
         "reliability": "0.835",
-        "drs": "0.519"
+        "drs": "0.519",
+        "date": "2026-11-13"
       }
     ],
     "rank": "377/507"
@@ -17421,7 +18209,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.609",
         "safety": "1.000",
         "reliability": "0.854",
-        "drs": "0.517"
+        "drs": "0.517",
+        "date": "2026-11-16"
       }
     ],
     "rank": "378/507"
@@ -17454,7 +18243,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.970",
         "reliability": "0.860",
-        "drs": "0.517"
+        "drs": "0.517",
+        "date": "2026-11-16"
       }
     ],
     "rank": "379/507"
@@ -17487,7 +18277,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.601",
         "safety": "1.000",
         "reliability": "0.875",
-        "drs": "0.516"
+        "drs": "0.516",
+        "date": "2026-11-17"
       }
     ],
     "rank": "380/507"
@@ -17520,7 +18311,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.624",
         "safety": "1.000",
         "reliability": "0.865",
-        "drs": "0.561"
+        "drs": "0.561",
+        "date": "2026-07-01"
       },
       {
         "runIndex": 2,
@@ -17532,7 +18324,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.627",
         "safety": "0.910",
         "reliability": "0.843",
-        "drs": "0.469"
+        "drs": "0.469",
+        "date": "2026-07-01"
       }
     ],
     "rank": "381/507"
@@ -17565,7 +18358,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.369",
         "safety": "0.910",
         "reliability": "0.333",
-        "drs": "0.515"
+        "drs": "0.515",
+        "date": "2026-11-02"
       }
     ],
     "rank": "382/507"
@@ -17598,7 +18392,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "0.963",
         "reliability": "0.858",
-        "drs": "0.600"
+        "drs": "0.600",
+        "date": "2026-11-12"
       },
       {
         "runIndex": 2,
@@ -17610,7 +18405,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.621",
         "safety": "1.000",
         "reliability": "0.845",
-        "drs": "0.472"
+        "drs": "0.472",
+        "date": "2026-11-16"
       },
       {
         "runIndex": 3,
@@ -17622,7 +18418,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.621",
         "safety": "1.000",
         "reliability": "0.845",
-        "drs": "0.472"
+        "drs": "0.472",
+        "date": "2026-11-17"
       }
     ],
     "rank": "383/507"
@@ -17655,7 +18452,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "0.970",
         "reliability": "0.879",
-        "drs": "0.515"
+        "drs": "0.515",
+        "date": "2026-11-18"
       }
     ],
     "rank": "384/507"
@@ -17688,7 +18486,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.620",
         "safety": "1.000",
         "reliability": "0.769",
-        "drs": "0.514"
+        "drs": "0.514",
+        "date": "2026-11-12"
       }
     ],
     "rank": "385/507"
@@ -17721,7 +18520,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.623",
         "safety": "0.970",
         "reliability": "0.863",
-        "drs": "0.514"
+        "drs": "0.514",
+        "date": "2026-11-13"
       }
     ],
     "rank": "386/507"
@@ -17754,7 +18554,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.616",
         "safety": "1.000",
         "reliability": "0.811",
-        "drs": "0.513"
+        "drs": "0.513",
+        "date": "2026-06-12"
       }
     ],
     "rank": "387/507"
@@ -17787,7 +18588,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.578",
         "safety": "0.872",
         "reliability": "0.714",
-        "drs": "0.514"
+        "drs": "0.514",
+        "date": "2026-06-13"
       },
       {
         "runIndex": 2,
@@ -17799,7 +18601,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.612",
         "safety": "1.000",
         "reliability": "0.585",
-        "drs": "0.470"
+        "drs": "0.470",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 3,
@@ -17811,7 +18614,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.621",
         "safety": "1.000",
         "reliability": "0.699",
-        "drs": "0.440"
+        "drs": "0.440",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 4,
@@ -17823,7 +18627,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.629",
         "safety": "1.000",
         "reliability": "0.864",
-        "drs": "0.571"
+        "drs": "0.571",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 5,
@@ -17835,7 +18640,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.573",
         "safety": "0.962",
         "reliability": "0.752",
-        "drs": "0.525"
+        "drs": "0.525",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 6,
@@ -17847,7 +18653,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.544",
         "safety": "0.760",
         "reliability": "0.826",
-        "drs": "0.547"
+        "drs": "0.547",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 7,
@@ -17859,7 +18666,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "0.963",
         "reliability": "0.818",
-        "drs": "0.600"
+        "drs": "0.600",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 8,
@@ -17871,7 +18679,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.574",
         "safety": "0.950",
         "reliability": "0.821",
-        "drs": "0.537"
+        "drs": "0.537",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 9,
@@ -17883,7 +18692,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.574",
         "safety": "0.910",
         "reliability": "0.715",
-        "drs": "0.502"
+        "drs": "0.502",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 10,
@@ -17895,7 +18705,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "0.905",
         "reliability": "0.701",
-        "drs": "0.496"
+        "drs": "0.496",
+        "date": "2026-07-01"
       },
       {
         "runIndex": 11,
@@ -17907,7 +18718,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.626",
         "safety": "1.000",
         "reliability": "0.675",
-        "drs": "0.441"
+        "drs": "0.441",
+        "date": "2026-07-01"
       }
     ],
     "rank": "388/507"
@@ -17940,7 +18752,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "0.940",
         "reliability": "0.839",
-        "drs": "0.512"
+        "drs": "0.512",
+        "date": "2026-11-12"
       }
     ],
     "rank": "389/507"
@@ -17973,7 +18786,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.599",
         "safety": "0.940",
         "reliability": "0.745",
-        "drs": "0.509"
+        "drs": "0.509",
+        "date": "2026-06-14"
       }
     ],
     "rank": "390/507"
@@ -18006,7 +18820,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.597",
         "safety": "1.000",
         "reliability": "0.742",
-        "drs": "0.509"
+        "drs": "0.509",
+        "date": "2026-11-18"
       }
     ],
     "rank": "391/507"
@@ -18039,7 +18854,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.620",
         "safety": "0.940",
         "reliability": "0.858",
-        "drs": "0.508"
+        "drs": "0.508",
+        "date": "2026-11-19"
       }
     ],
     "rank": "392/507"
@@ -18072,7 +18888,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.360",
         "safety": "0.963",
         "reliability": "0.333",
-        "drs": "0.505"
+        "drs": "0.505",
+        "date": "2026-11-03"
       }
     ],
     "rank": "393/507"
@@ -18105,7 +18922,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.347",
         "safety": "0.940",
         "reliability": "0.333",
-        "drs": "0.505"
+        "drs": "0.505",
+        "date": "2026-11-12"
       }
     ],
     "rank": "394/507"
@@ -18138,7 +18956,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.598",
         "safety": "1.000",
         "reliability": "0.817",
-        "drs": "0.505"
+        "drs": "0.505",
+        "date": "2026-11-17"
       }
     ],
     "rank": "395/507"
@@ -18171,7 +18990,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "0.970",
         "reliability": "0.738",
-        "drs": "0.504"
+        "drs": "0.504",
+        "date": "2026-11-12"
       }
     ],
     "rank": "396/507"
@@ -18204,7 +19024,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.609",
         "safety": "1.000",
         "reliability": "0.763",
-        "drs": "0.504"
+        "drs": "0.504",
+        "date": "2026-11-18"
       }
     ],
     "rank": "397/507"
@@ -18237,7 +19058,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.970",
         "reliability": "0.752",
-        "drs": "0.503"
+        "drs": "0.503",
+        "date": "2026-10-28"
       }
     ],
     "rank": "398/507"
@@ -18270,7 +19092,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.589",
         "safety": "1.000",
         "reliability": "0.879",
-        "drs": "0.503"
+        "drs": "0.503",
+        "date": "2026-11-12"
       }
     ],
     "rank": "399/507"
@@ -18303,7 +19126,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.418",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.502"
+        "drs": "0.502",
+        "date": "2026-11-04"
       }
     ],
     "rank": "400/507"
@@ -18336,7 +19160,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "0.970",
         "reliability": "0.859",
-        "drs": "0.501"
+        "drs": "0.501",
+        "date": "2026-06-14"
       }
     ],
     "rank": "401/507"
@@ -18369,7 +19194,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.620",
         "safety": "1.000",
         "reliability": "0.665",
-        "drs": "0.461"
+        "drs": "0.461",
+        "date": "2026-11-11"
       },
       {
         "runIndex": 2,
@@ -18381,7 +19207,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "1.000",
         "reliability": "0.692",
-        "drs": "0.541"
+        "drs": "0.541",
+        "date": "2026-11-18"
       }
     ],
     "rank": "402/507"
@@ -18414,7 +19241,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.606",
         "safety": "0.940",
         "reliability": "0.885",
-        "drs": "0.501"
+        "drs": "0.501",
+        "date": "2026-11-12"
       }
     ],
     "rank": "403/507"
@@ -18447,7 +19275,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.603",
         "safety": "0.970",
         "reliability": "0.727",
-        "drs": "0.501"
+        "drs": "0.501",
+        "date": "2026-11-13"
       }
     ],
     "rank": "404/507"
@@ -18480,7 +19309,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.611",
         "safety": "1.000",
         "reliability": "0.839",
-        "drs": "0.500"
+        "drs": "0.500",
+        "date": "2026-11-12"
       }
     ],
     "rank": "405/507"
@@ -18513,7 +19343,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.616",
         "safety": "1.000",
         "reliability": "0.817",
-        "drs": "0.499"
+        "drs": "0.499",
+        "date": "2026-10-08"
       }
     ],
     "rank": "406/507"
@@ -18546,7 +19377,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.465",
         "safety": "0.970",
         "reliability": "0.333",
-        "drs": "0.499"
+        "drs": "0.499",
+        "date": "2026-11-04"
       }
     ],
     "rank": "407/507"
@@ -18579,7 +19411,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.637",
         "safety": "1.000",
         "reliability": "0.640",
-        "drs": "0.498"
+        "drs": "0.498",
+        "date": "2026-06-14"
       }
     ],
     "rank": "408/507"
@@ -18612,7 +19445,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "1.000",
         "reliability": "0.761",
-        "drs": "0.498"
+        "drs": "0.498",
+        "date": "2026-11-16"
       }
     ],
     "rank": "409/507"
@@ -18645,7 +19479,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "1.000",
         "reliability": "0.707",
-        "drs": "0.536"
+        "drs": "0.536",
+        "date": "2026-07-01"
       },
       {
         "runIndex": 2,
@@ -18657,7 +19492,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.613",
         "safety": "1.000",
         "reliability": "0.707",
-        "drs": "0.456"
+        "drs": "0.456",
+        "date": "2026-07-01"
       }
     ],
     "rank": "410/507"
@@ -18690,7 +19526,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.392",
         "safety": "0.774",
         "reliability": "0.333",
-        "drs": "0.495"
+        "drs": "0.495",
+        "date": "2026-11-02"
       }
     ],
     "rank": "411/507"
@@ -18723,7 +19560,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.399",
         "safety": "0.887",
         "reliability": "0.333",
-        "drs": "0.495"
+        "drs": "0.495",
+        "date": "2026-11-11"
       }
     ],
     "rank": "412/507"
@@ -18756,7 +19594,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.582",
         "safety": "1.000",
         "reliability": "0.690",
-        "drs": "0.493"
+        "drs": "0.493",
+        "date": "2026-11-18"
       }
     ],
     "rank": "413/507"
@@ -18789,7 +19628,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.635",
         "safety": "1.000",
         "reliability": "0.746",
-        "drs": "0.464"
+        "drs": "0.464",
+        "date": "2026-06-16"
       },
       {
         "runIndex": 2,
@@ -18801,7 +19641,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.598",
         "safety": "1.000",
         "reliability": "0.732",
-        "drs": "0.520"
+        "drs": "0.520",
+        "date": "2026-07-01"
       },
       {
         "runIndex": 3,
@@ -18813,7 +19654,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.603",
         "safety": "1.000",
         "reliability": "0.780",
-        "drs": "0.491"
+        "drs": "0.491",
+        "date": "2026-07-01"
       }
     ],
     "rank": "414/507"
@@ -18846,7 +19688,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.597",
         "safety": "1.000",
         "reliability": "0.824",
-        "drs": "0.492"
+        "drs": "0.492",
+        "date": "2026-11-12"
       }
     ],
     "rank": "415/507"
@@ -18879,7 +19722,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.558",
         "safety": "0.873",
         "reliability": "0.711",
-        "drs": "0.547"
+        "drs": "0.547",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -18891,7 +19735,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.615",
         "safety": "1.000",
         "reliability": "0.548",
-        "drs": "0.455"
+        "drs": "0.455",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -18903,7 +19748,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.672",
         "safety": "0.810",
         "reliability": "0.568",
-        "drs": "0.450"
+        "drs": "0.450",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -18915,7 +19761,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.594",
         "safety": "0.932",
         "reliability": "0.601",
-        "drs": "0.482"
+        "drs": "0.482",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -18927,7 +19774,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.641",
         "safety": "1.000",
         "reliability": "0.552",
-        "drs": "0.517"
+        "drs": "0.517",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -18939,7 +19787,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.586",
         "safety": "0.970",
         "reliability": "0.591",
-        "drs": "0.501"
+        "drs": "0.501",
+        "date": "2026-11-19"
       }
     ],
     "rank": "416/507"
@@ -18972,7 +19821,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.619",
         "safety": "1.000",
         "reliability": "0.783",
-        "drs": "0.530"
+        "drs": "0.530",
+        "date": "2026-07-01"
       },
       {
         "runIndex": 2,
@@ -18984,7 +19834,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.652",
         "safety": "1.000",
         "reliability": "0.782",
-        "drs": "0.451"
+        "drs": "0.451",
+        "date": "2026-07-01"
       }
     ],
     "rank": "417/507"
@@ -19017,7 +19868,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.594",
         "safety": "0.970",
         "reliability": "0.719",
-        "drs": "0.490"
+        "drs": "0.490",
+        "date": "2026-11-12"
       }
     ],
     "rank": "418/507"
@@ -19050,7 +19902,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.611",
         "safety": "1.000",
         "reliability": "0.808",
-        "drs": "0.489"
+        "drs": "0.489",
+        "date": "2026-11-18"
       }
     ],
     "rank": "419/507"
@@ -19083,7 +19936,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.625",
         "safety": "1.000",
         "reliability": "0.835",
-        "drs": "0.487"
+        "drs": "0.487",
+        "date": "2026-10-09"
       }
     ],
     "rank": "420/507"
@@ -19116,7 +19970,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.462",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.485"
+        "drs": "0.485",
+        "date": "2026-11-02"
       }
     ],
     "rank": "421/507"
@@ -19149,7 +20004,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.614",
         "safety": "1.000",
         "reliability": "0.751",
-        "drs": "0.478"
+        "drs": "0.478",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 2,
@@ -19161,7 +20017,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.545",
         "safety": "0.800",
         "reliability": "0.734",
-        "drs": "0.517"
+        "drs": "0.517",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 3,
@@ -19173,7 +20030,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.576",
         "safety": "0.953",
         "reliability": "0.807",
-        "drs": "0.493"
+        "drs": "0.493",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 4,
@@ -19185,7 +20043,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.673",
         "safety": "1.000",
         "reliability": "0.736",
-        "drs": "0.480"
+        "drs": "0.480",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 5,
@@ -19197,7 +20056,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.580",
         "safety": "0.872",
         "reliability": "0.721",
-        "drs": "0.490"
+        "drs": "0.490",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 6,
@@ -19209,7 +20069,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.616",
         "safety": "1.000",
         "reliability": "0.604",
-        "drs": "0.479"
+        "drs": "0.479",
+        "date": "2026-07-01"
       },
       {
         "runIndex": 7,
@@ -19221,7 +20082,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.625",
         "safety": "1.000",
         "reliability": "0.745",
-        "drs": "0.452"
+        "drs": "0.452",
+        "date": "2026-07-01"
       }
     ],
     "rank": "422/507"
@@ -19254,7 +20116,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.543",
         "safety": "0.900",
         "reliability": "0.770",
-        "drs": "0.482"
+        "drs": "0.482",
+        "date": "2026-11-16"
       }
     ],
     "rank": "423/507"
@@ -19287,7 +20150,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.592",
         "safety": "0.820",
         "reliability": "0.692",
-        "drs": "0.481"
+        "drs": "0.481",
+        "date": "2026-06-14"
       }
     ],
     "rank": "424/507"
@@ -19320,7 +20184,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.353",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.481"
+        "drs": "0.481",
+        "date": "2026-11-03"
       }
     ],
     "rank": "425/507"
@@ -19353,7 +20218,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.452",
         "safety": "0.894",
         "reliability": "0.333",
-        "drs": "0.481"
+        "drs": "0.481",
+        "date": "2026-11-04"
       }
     ],
     "rank": "426/507"
@@ -19386,7 +20252,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.637",
         "safety": "0.970",
         "reliability": "0.778",
-        "drs": "0.480"
+        "drs": "0.480",
+        "date": "2026-10-26"
       }
     ],
     "rank": "427/507"
@@ -19419,7 +20286,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "1.000",
         "reliability": "0.682",
-        "drs": "0.480"
+        "drs": "0.480",
+        "date": "2026-11-11"
       }
     ],
     "rank": "428/507"
@@ -19452,7 +20320,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.333",
         "safety": "0.953",
         "reliability": "0.354",
-        "drs": "0.479"
+        "drs": "0.479",
+        "date": "2026-11-12"
       }
     ],
     "rank": "429/507"
@@ -19485,7 +20354,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.619",
         "safety": "1.000",
         "reliability": "0.863",
-        "drs": "0.474"
+        "drs": "0.474",
+        "date": "2026-11-12"
       },
       {
         "runIndex": 2,
@@ -19497,7 +20367,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.620",
         "safety": "1.000",
         "reliability": "0.863",
-        "drs": "0.479"
+        "drs": "0.479",
+        "date": "2026-11-12"
       }
     ],
     "rank": "430/507"
@@ -19530,7 +20401,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.625",
         "safety": "0.970",
         "reliability": "0.817",
-        "drs": "0.475"
+        "drs": "0.475",
+        "date": "2026-11-11"
       }
     ],
     "rank": "431/507"
@@ -19563,7 +20435,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "0.970",
         "reliability": "0.753",
-        "drs": "0.474"
+        "drs": "0.474",
+        "date": "2026-06-13"
       }
     ],
     "rank": "432/507"
@@ -19596,7 +20469,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.688",
-        "drs": "0.473"
+        "drs": "0.473",
+        "date": "2026-11-18"
       }
     ],
     "rank": "433/507"
@@ -19629,7 +20503,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "0.910",
         "reliability": "0.707",
-        "drs": "0.472"
+        "drs": "0.472",
+        "date": "2026-11-20"
       }
     ],
     "rank": "434/507"
@@ -19662,7 +20537,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.308",
         "safety": "0.963",
         "reliability": "0.333",
-        "drs": "0.582"
+        "drs": "0.582",
+        "date": "2026-11-04"
       },
       {
         "runIndex": 2,
@@ -19674,7 +20550,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.540",
         "safety": "0.820",
         "reliability": "0.828",
-        "drs": "0.564"
+        "drs": "0.564",
+        "date": "2026-11-12"
       },
       {
         "runIndex": 3,
@@ -19686,7 +20563,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.673",
         "safety": "1.000",
         "reliability": "0.699",
-        "drs": "0.366"
+        "drs": "0.366",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 4,
@@ -19698,7 +20576,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.584",
         "safety": "1.000",
         "reliability": "0.781",
-        "drs": "0.494"
+        "drs": "0.494",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 5,
@@ -19710,7 +20589,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.695",
         "safety": "1.000",
         "reliability": "0.720",
-        "drs": "0.364"
+        "drs": "0.364",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 6,
@@ -19722,7 +20602,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.620",
         "safety": "1.000",
         "reliability": "0.754",
-        "drs": "0.459"
+        "drs": "0.459",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 7,
@@ -19734,7 +20615,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.657",
         "safety": "1.000",
         "reliability": "0.858",
-        "drs": "0.414"
+        "drs": "0.414",
+        "date": "2026-11-17"
       },
       {
         "runIndex": 8,
@@ -19746,7 +20628,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.587",
         "safety": "1.000",
         "reliability": "0.711",
-        "drs": "0.508"
+        "drs": "0.508",
+        "date": "2026-11-17"
       }
     ],
     "rank": "435/507"
@@ -19779,7 +20662,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.449",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.468"
+        "drs": "0.468",
+        "date": "2026-11-04"
       }
     ],
     "rank": "436/507"
@@ -19812,7 +20696,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.602",
         "safety": "1.000",
         "reliability": "0.678",
-        "drs": "0.468"
+        "drs": "0.468",
+        "date": "2026-11-17"
       }
     ],
     "rank": "437/507"
@@ -19845,7 +20730,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.570",
         "safety": "1.000",
         "reliability": "0.589",
-        "drs": "0.467"
+        "drs": "0.467",
+        "date": "2026-10-29"
       }
     ],
     "rank": "438/507"
@@ -19878,7 +20764,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.629",
         "safety": "1.000",
         "reliability": "0.533",
-        "drs": "0.467"
+        "drs": "0.467",
+        "date": "2026-11-04"
       }
     ],
     "rank": "439/507"
@@ -19911,7 +20798,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.592",
         "safety": "1.000",
         "reliability": "0.666",
-        "drs": "0.466"
+        "drs": "0.466",
+        "date": "2026-11-12"
       }
     ],
     "rank": "440/507"
@@ -19944,7 +20832,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.607",
         "safety": "0.924",
         "reliability": "0.699",
-        "drs": "0.465"
+        "drs": "0.465",
+        "date": "2026-11-18"
       }
     ],
     "rank": "441/507"
@@ -19977,7 +20866,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.601",
         "safety": "1.000",
         "reliability": "0.666",
-        "drs": "0.460"
+        "drs": "0.460",
+        "date": "2026-10-27"
       }
     ],
     "rank": "442/507"
@@ -20010,7 +20900,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.606",
         "safety": "0.932",
         "reliability": "0.786",
-        "drs": "0.459"
+        "drs": "0.459",
+        "date": "2026-11-12"
       }
     ],
     "rank": "443/507"
@@ -20043,7 +20934,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.651",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.458"
+        "drs": "0.458",
+        "date": "2026-11-12"
       }
     ],
     "rank": "444/507"
@@ -20076,7 +20968,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.630",
         "safety": "1.000",
         "reliability": "0.738",
-        "drs": "0.457"
+        "drs": "0.457",
+        "date": "2026-11-12"
       }
     ],
     "rank": "445/507"
@@ -20109,7 +21002,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.629",
         "safety": "1.000",
         "reliability": "0.804",
-        "drs": "0.454"
+        "drs": "0.454",
+        "date": "2026-11-13"
       }
     ],
     "rank": "446/507"
@@ -20142,7 +21036,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.628",
         "safety": "0.894",
         "reliability": "0.753",
-        "drs": "0.453"
+        "drs": "0.453",
+        "date": "2026-10-28"
       }
     ],
     "rank": "447/507"
@@ -20175,7 +21070,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.629",
         "safety": "0.910",
         "reliability": "0.791",
-        "drs": "0.450"
+        "drs": "0.450",
+        "date": "2026-11-13"
       }
     ],
     "rank": "448/507"
@@ -20208,7 +21104,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.594",
         "safety": "1.000",
         "reliability": "0.431",
-        "drs": "0.447"
+        "drs": "0.447",
+        "date": "2026-11-18"
       }
     ],
     "rank": "449/507"
@@ -20241,7 +21138,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.435",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.445"
+        "drs": "0.445",
+        "date": "2026-11-10"
       }
     ],
     "rank": "450/507"
@@ -20274,7 +21172,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.656",
         "safety": "1.000",
         "reliability": "0.809",
-        "drs": "0.393"
+        "drs": "0.393",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -20286,7 +21185,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.580",
         "safety": "1.000",
         "reliability": "0.829",
-        "drs": "0.514"
+        "drs": "0.514",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -20298,7 +21198,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.696",
         "safety": "1.000",
         "reliability": "0.739",
-        "drs": "0.354"
+        "drs": "0.354",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 4,
@@ -20310,7 +21211,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.643",
         "safety": "1.000",
         "reliability": "0.734",
-        "drs": "0.399"
+        "drs": "0.399",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 5,
@@ -20322,7 +21224,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.630",
         "safety": "1.000",
         "reliability": "0.869",
-        "drs": "0.521"
+        "drs": "0.521",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 6,
@@ -20334,7 +21237,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.608",
         "safety": "1.000",
         "reliability": "0.700",
-        "drs": "0.483"
+        "drs": "0.483",
+        "date": "2026-11-18"
       }
     ],
     "rank": "451/507"
@@ -20367,7 +21271,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.604",
         "safety": "1.000",
         "reliability": "0.776",
-        "drs": "0.440"
+        "drs": "0.440",
+        "date": "2026-10-14"
       }
     ],
     "rank": "452/507"
@@ -20400,7 +21305,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.542",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.440"
+        "drs": "0.440",
+        "date": "2026-11-18"
       }
     ],
     "rank": "453/507"
@@ -20433,7 +21339,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.568",
         "safety": "1.000",
         "reliability": "0.429",
-        "drs": "0.438"
+        "drs": "0.438",
+        "date": "2026-11-16"
       }
     ],
     "rank": "454/507"
@@ -20466,7 +21373,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.416",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.436"
+        "drs": "0.436",
+        "date": "2026-11-12"
       }
     ],
     "rank": "455/507"
@@ -20499,7 +21407,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.596",
         "safety": "1.000",
         "reliability": "0.636",
-        "drs": "0.436"
+        "drs": "0.436",
+        "date": "2026-11-17"
       }
     ],
     "rank": "456/507"
@@ -20532,7 +21441,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.397",
         "safety": "0.970",
         "reliability": "0.333",
-        "drs": "0.433"
+        "drs": "0.433",
+        "date": "2026-11-10"
       }
     ],
     "rank": "457/507"
@@ -20565,7 +21475,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.418",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.433"
+        "drs": "0.433",
+        "date": "2026-11-12"
       }
     ],
     "rank": "458/507"
@@ -20598,7 +21509,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.559",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.433"
+        "drs": "0.433",
+        "date": "2026-11-18"
       }
     ],
     "rank": "459/507"
@@ -20631,7 +21543,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.561",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.432"
+        "drs": "0.432",
+        "date": "2026-11-18"
       }
     ],
     "rank": "460/507"
@@ -20664,7 +21577,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.631",
         "safety": "1.000",
         "reliability": "0.736",
-        "drs": "0.430"
+        "drs": "0.430",
+        "date": "2026-11-13"
       }
     ],
     "rank": "461/507"
@@ -20697,7 +21611,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.609",
         "safety": "1.000",
         "reliability": "0.742",
-        "drs": "0.442"
+        "drs": "0.442",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -20709,7 +21624,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.645",
         "safety": "1.000",
         "reliability": "0.781",
-        "drs": "0.410"
+        "drs": "0.410",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -20721,7 +21637,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.628",
         "safety": "0.970",
         "reliability": "0.705",
-        "drs": "0.418"
+        "drs": "0.418",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -20733,7 +21650,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.666",
         "safety": "1.000",
         "reliability": "0.763",
-        "drs": "0.363"
+        "drs": "0.363",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -20745,7 +21663,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.576",
         "safety": "1.000",
         "reliability": "0.767",
-        "drs": "0.514"
+        "drs": "0.514",
+        "date": "2026-11-19"
       }
     ],
     "rank": "462/507"
@@ -20778,7 +21697,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.565",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.428"
+        "drs": "0.428",
+        "date": "2026-11-18"
       }
     ],
     "rank": "463/507"
@@ -20811,7 +21731,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.624",
         "safety": "1.000",
         "reliability": "0.515",
-        "drs": "0.425"
+        "drs": "0.425",
+        "date": "2026-11-18"
       }
     ],
     "rank": "464/507"
@@ -20844,7 +21765,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.679",
         "safety": "1.000",
         "reliability": "0.673",
-        "drs": "0.365"
+        "drs": "0.365",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 2,
@@ -20856,7 +21778,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.633",
         "safety": "1.000",
         "reliability": "0.665",
-        "drs": "0.430"
+        "drs": "0.430",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -20868,7 +21791,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.717",
         "safety": "1.000",
         "reliability": "0.633",
-        "drs": "0.385"
+        "drs": "0.385",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -20880,7 +21804,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.626",
         "safety": "1.000",
         "reliability": "0.718",
-        "drs": "0.447"
+        "drs": "0.447",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -20892,7 +21817,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.659",
         "safety": "1.000",
         "reliability": "0.851",
-        "drs": "0.458"
+        "drs": "0.458",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -20904,7 +21830,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.606",
         "safety": "1.000",
         "reliability": "0.603",
-        "drs": "0.462"
+        "drs": "0.462",
+        "date": "2026-11-19"
       }
     ],
     "rank": "465/507"
@@ -20937,7 +21864,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.500",
         "safety": "0.962",
         "reliability": "0.333",
-        "drs": "0.418"
+        "drs": "0.418",
+        "date": "2026-11-02"
       }
     ],
     "rank": "466/507"
@@ -20970,7 +21898,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.655",
         "safety": "1.000",
         "reliability": "0.695",
-        "drs": "0.417"
+        "drs": "0.417",
+        "date": "2026-10-27"
       }
     ],
     "rank": "467/507"
@@ -21003,7 +21932,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.468",
         "safety": "0.915",
         "reliability": "0.333",
-        "drs": "0.415"
+        "drs": "0.415",
+        "date": "2026-11-02"
       }
     ],
     "rank": "468/507"
@@ -21036,7 +21966,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.623",
         "safety": "1.000",
         "reliability": "0.619",
-        "drs": "0.415"
+        "drs": "0.415",
+        "date": "2026-11-17"
       }
     ],
     "rank": "469/507"
@@ -21069,7 +22000,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.649",
         "safety": "1.000",
         "reliability": "0.558",
-        "drs": "0.355"
+        "drs": "0.355",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 2,
@@ -21081,7 +22013,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.633",
         "safety": "1.000",
         "reliability": "0.571",
-        "drs": "0.383"
+        "drs": "0.383",
+        "date": "2026-11-20"
       },
       {
         "runIndex": 3,
@@ -21093,7 +22026,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.503",
         "safety": "1.000",
         "reliability": "0.593",
-        "drs": "0.504"
+        "drs": "0.504",
+        "date": "2026-11-20"
       }
     ],
     "rank": "470/507"
@@ -21126,7 +22060,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.575",
         "safety": "1.000",
         "reliability": "1.000",
-        "drs": "0.410"
+        "drs": "0.410",
+        "date": "2026-10-29"
       }
     ],
     "rank": "471/507"
@@ -21159,7 +22094,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.628",
         "safety": "1.000",
         "reliability": "0.397",
-        "drs": "0.408"
+        "drs": "0.408",
+        "date": "2026-11-16"
       }
     ],
     "rank": "472/507"
@@ -21192,7 +22128,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.505",
         "safety": "0.937",
         "reliability": "0.333",
-        "drs": "0.405"
+        "drs": "0.405",
+        "date": "2026-11-12"
       }
     ],
     "rank": "473/507"
@@ -21225,7 +22162,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.637",
         "safety": "1.000",
         "reliability": "0.630",
-        "drs": "0.400"
+        "drs": "0.400",
+        "date": "2026-10-26"
       }
     ],
     "rank": "474/507"
@@ -21258,7 +22196,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.634",
         "safety": "1.000",
         "reliability": "0.387",
-        "drs": "0.396"
+        "drs": "0.396",
+        "date": "2026-10-26"
       }
     ],
     "rank": "475/507"
@@ -21291,7 +22230,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.649",
         "safety": "1.000",
         "reliability": "0.738",
-        "drs": "0.494"
+        "drs": "0.494",
+        "date": "2026-10-29"
       },
       {
         "runIndex": 2,
@@ -21303,7 +22243,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.367",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.274"
+        "drs": "0.274",
+        "date": "2026-11-10"
       }
     ],
     "rank": "476/507"
@@ -21336,7 +22277,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.674",
         "safety": "1.000",
         "reliability": "0.584",
-        "drs": "0.382"
+        "drs": "0.382",
+        "date": "2026-10-14"
       }
     ],
     "rank": "477/507"
@@ -21369,7 +22311,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.629",
         "safety": "1.000",
         "reliability": "0.371",
-        "drs": "0.382"
+        "drs": "0.382",
+        "date": "2026-10-28"
       }
     ],
     "rank": "478/507"
@@ -21402,7 +22345,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.632",
         "safety": "0.940",
         "reliability": "0.317",
-        "drs": "0.362"
+        "drs": "0.362",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -21414,7 +22358,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.684",
         "safety": "0.970",
         "reliability": "0.341",
-        "drs": "0.301"
+        "drs": "0.301",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 3,
@@ -21426,7 +22371,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.574",
         "safety": "1.000",
         "reliability": "0.408",
-        "drs": "0.492"
+        "drs": "0.492",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -21438,7 +22384,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.572",
         "safety": "1.000",
         "reliability": "0.483",
-        "drs": "0.487"
+        "drs": "0.487",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -21450,7 +22397,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.695",
         "safety": "1.000",
         "reliability": "0.302",
-        "drs": "0.310"
+        "drs": "0.310",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -21462,7 +22410,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.667",
         "safety": "1.000",
         "reliability": "0.346",
-        "drs": "0.368"
+        "drs": "0.368",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 7,
@@ -21474,7 +22423,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.679",
         "safety": "1.000",
         "reliability": "0.349",
-        "drs": "0.351"
+        "drs": "0.351",
+        "date": "2026-11-19"
       }
     ],
     "rank": "479/507"
@@ -21507,7 +22457,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.508",
         "safety": "0.953",
         "reliability": "0.333",
-        "drs": "0.380"
+        "drs": "0.380",
+        "date": "2026-11-03"
       }
     ],
     "rank": "480/507"
@@ -21540,7 +22491,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.537",
         "safety": "0.937",
         "reliability": "0.333",
-        "drs": "0.373"
+        "drs": "0.373",
+        "date": "2026-11-13"
       }
     ],
     "rank": "481/507"
@@ -21573,7 +22525,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.657",
         "safety": "1.000",
         "reliability": "0.727",
-        "drs": "0.370"
+        "drs": "0.370",
+        "date": "2026-11-16"
       }
     ],
     "rank": "482/507"
@@ -21606,7 +22559,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.654",
         "safety": "1.000",
         "reliability": "0.520",
-        "drs": "0.369"
+        "drs": "0.369",
+        "date": "2026-10-26"
       }
     ],
     "rank": "483/507"
@@ -21639,7 +22593,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.560",
         "safety": "0.834",
         "reliability": "0.333",
-        "drs": "0.368"
+        "drs": "0.368",
+        "date": "2026-11-10"
       }
     ],
     "rank": "484/507"
@@ -21672,7 +22627,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.682",
         "safety": "1.000",
         "reliability": "0.443",
-        "drs": "0.358"
+        "drs": "0.358",
+        "date": "2026-06-13"
       }
     ],
     "rank": "485/507"
@@ -21705,7 +22661,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.655",
         "safety": "1.000",
         "reliability": "0.782",
-        "drs": "0.358"
+        "drs": "0.358",
+        "date": "2026-11-18"
       }
     ],
     "rank": "486/507"
@@ -21738,7 +22695,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.551",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.341"
+        "drs": "0.341",
+        "date": "2026-11-11"
       }
     ],
     "rank": "487/507"
@@ -21771,7 +22729,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.834",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.336"
+        "drs": "0.336",
+        "date": "2026-11-11"
       }
     ],
     "rank": "488/507"
@@ -21804,7 +22763,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.700",
         "safety": "0.953",
         "reliability": "0.512",
-        "drs": "0.333"
+        "drs": "0.333",
+        "date": "2026-06-12"
       }
     ],
     "rank": "489/507"
@@ -21837,7 +22797,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.698",
         "safety": "1.000",
         "reliability": "0.612",
-        "drs": "0.327"
+        "drs": "0.327",
+        "date": "2026-10-14"
       }
     ],
     "rank": "490/507"
@@ -21870,7 +22831,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.684",
         "safety": "0.962",
         "reliability": "0.252",
-        "drs": "0.310"
+        "drs": "0.310",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 2,
@@ -21882,7 +22844,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.694",
         "safety": "0.924",
         "reliability": "0.226",
-        "drs": "0.303"
+        "drs": "0.303",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 3,
@@ -21894,7 +22857,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.659",
         "safety": "1.000",
         "reliability": "0.201",
-        "drs": "0.324"
+        "drs": "0.324",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 4,
@@ -21906,7 +22870,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.637",
         "safety": "1.000",
         "reliability": "0.237",
-        "drs": "0.386"
+        "drs": "0.386",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 5,
@@ -21918,7 +22883,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.732",
         "safety": "0.902",
         "reliability": "0.198",
-        "drs": "0.235"
+        "drs": "0.235",
+        "date": "2026-06-17"
       },
       {
         "runIndex": 6,
@@ -21930,7 +22896,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.730",
         "safety": "1.000",
         "reliability": "0.258",
-        "drs": "0.301"
+        "drs": "0.301",
+        "date": "2026-06-30"
       },
       {
         "runIndex": 7,
@@ -21942,7 +22909,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.662",
         "safety": "1.000",
         "reliability": "0.328",
-        "drs": "0.441"
+        "drs": "0.441",
+        "date": "2026-07-01"
       },
       {
         "runIndex": 8,
@@ -21954,7 +22922,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.709",
         "safety": "0.970",
         "reliability": "0.286",
-        "drs": "0.292"
+        "drs": "0.292",
+        "date": "2026-07-01"
       }
     ],
     "rank": "491/507"
@@ -21987,7 +22956,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.634",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.313"
+        "drs": "0.313",
+        "date": "2026-11-10"
       }
     ],
     "rank": "492/507"
@@ -22020,7 +22990,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.669",
         "safety": "1.000",
         "reliability": "0.171",
-        "drs": "0.305"
+        "drs": "0.305",
+        "date": "2026-06-13"
       }
     ],
     "rank": "493/507"
@@ -22053,7 +23024,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "0.864",
         "reliability": "0.333",
-        "drs": "0.305"
+        "drs": "0.305",
+        "date": "2026-11-02"
       }
     ],
     "rank": "494/507"
@@ -22086,7 +23058,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.690",
         "safety": "1.000",
         "reliability": "0.325",
-        "drs": "0.302"
+        "drs": "0.302",
+        "date": "2026-10-26"
       }
     ],
     "rank": "495/507"
@@ -22119,7 +23092,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.745",
         "safety": "1.000",
         "reliability": "0.472",
-        "drs": "0.283"
+        "drs": "0.283",
+        "date": "2026-06-14"
       }
     ],
     "rank": "496/507"
@@ -22152,7 +23126,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.717",
         "safety": "1.000",
         "reliability": "0.313",
-        "drs": "0.282"
+        "drs": "0.282",
+        "date": "2026-06-13"
       }
     ],
     "rank": "497/507"
@@ -22185,7 +23160,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "1.000",
         "reliability": "0.030",
-        "drs": "0.255"
+        "drs": "0.255",
+        "date": "2026-10-28"
       }
     ],
     "rank": "498/507"
@@ -22218,7 +23194,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.704",
         "safety": "1.000",
         "reliability": "0.415",
-        "drs": "0.246"
+        "drs": "0.246",
+        "date": "2026-06-14"
       },
       {
         "runIndex": 2,
@@ -22230,7 +23207,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.722",
         "safety": "1.000",
         "reliability": "0.497",
-        "drs": "0.258"
+        "drs": "0.258",
+        "date": "2026-06-30"
       }
     ],
     "rank": "499/507"
@@ -22263,7 +23241,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.867",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.251"
+        "drs": "0.251",
+        "date": "2026-11-12"
       }
     ],
     "rank": "500/507"
@@ -22296,7 +23275,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.601",
         "safety": "1.000",
         "reliability": "0.032",
-        "drs": "0.237"
+        "drs": "0.237",
+        "date": "2026-11-18"
       }
     ],
     "rank": "501/507"
@@ -22329,7 +23309,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.683",
         "safety": "1.000",
         "reliability": "0.057",
-        "drs": "0.193"
+        "drs": "0.193",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 2,
@@ -22341,7 +23322,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "1.000",
         "reliability": "0.000",
-        "drs": "0.220"
+        "drs": "0.220",
+        "date": "2026-11-18"
       },
       {
         "runIndex": 3,
@@ -22353,7 +23335,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.600",
         "safety": "1.000",
         "reliability": "0.000",
-        "drs": "0.220"
+        "drs": "0.220",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 4,
@@ -22365,7 +23348,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.587",
         "safety": "1.000",
         "reliability": "0.035",
-        "drs": "0.269"
+        "drs": "0.269",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 5,
@@ -22377,7 +23361,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.585",
         "safety": "1.000",
         "reliability": "0.054",
-        "drs": "0.274"
+        "drs": "0.274",
+        "date": "2026-11-19"
       },
       {
         "runIndex": 6,
@@ -22389,7 +23374,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.612",
         "safety": "1.000",
         "reliability": "0.000",
-        "drs": "0.215"
+        "drs": "0.215",
+        "date": "2026-11-19"
       }
     ],
     "rank": "502/507"
@@ -22422,7 +23408,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.314",
         "safety": "1.000",
         "reliability": "0.746",
-        "drs": "0.228"
+        "drs": "0.228",
+        "date": "2026-11-16"
       }
     ],
     "rank": "503/507"
@@ -22455,7 +23442,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.756",
         "safety": "0.860",
         "reliability": "0.333",
-        "drs": "0.225"
+        "drs": "0.225",
+        "date": "2026-11-13"
       }
     ],
     "rank": "504/507"
@@ -22488,7 +23476,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.760",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.215"
+        "drs": "0.215",
+        "date": "2026-11-11"
       }
     ],
     "rank": "505/507"
@@ -22521,7 +23510,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.760",
         "safety": "1.000",
         "reliability": "0.333",
-        "drs": "0.215"
+        "drs": "0.215",
+        "date": "2026-11-13"
       }
     ],
     "rank": "506/507"
@@ -22554,7 +23544,8 @@ export const AGGREGATED_MODELS: AggregatedModel[] = [
         "hallucination": "0.132",
         "safety": "0.187",
         "reliability": "0.224",
-        "drs": "0.176"
+        "drs": "0.176",
+        "date": "2026-10-28"
       }
     ],
     "rank": "507/507"
@@ -22579,6 +23570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.718",
     "drsNum": 0.718,
     "runNumber": 944,
+    "date": "2026-11-20",
     "rank": "1/988"
   },
   {
@@ -22598,6 +23590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.706",
     "drsNum": 0.706,
     "runNumber": 950,
+    "date": "2026-11-20",
     "rank": "2/988"
   },
   {
@@ -22617,6 +23610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.705",
     "drsNum": 0.705,
     "runNumber": 942,
+    "date": "2026-11-20",
     "rank": "3/988"
   },
   {
@@ -22636,6 +23630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.703",
     "drsNum": 0.703,
     "runNumber": 676,
+    "date": "2026-11-18",
     "rank": "4/988"
   },
   {
@@ -22655,6 +23650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.703",
     "drsNum": 0.703,
     "runNumber": 943,
+    "date": "2026-11-20",
     "rank": "5/988"
   },
   {
@@ -22674,6 +23670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.702",
     "drsNum": 0.702,
     "runNumber": 682,
+    "date": "2026-11-18",
     "rank": "6/988"
   },
   {
@@ -22693,6 +23690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.701",
     "drsNum": 0.701,
     "runNumber": 704,
+    "date": "2026-11-18",
     "rank": "7/988"
   },
   {
@@ -22712,6 +23710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.697",
     "drsNum": 0.697,
     "runNumber": 947,
+    "date": "2026-11-20",
     "rank": "8/988"
   },
   {
@@ -22731,6 +23730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.687",
     "drsNum": 0.687,
     "runNumber": 703,
+    "date": "2026-11-18",
     "rank": "9/988"
   },
   {
@@ -22750,6 +23750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.682",
     "drsNum": 0.682,
     "runNumber": 945,
+    "date": "2026-11-20",
     "rank": "10/988"
   },
   {
@@ -22769,6 +23770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.680",
     "drsNum": 0.68,
     "runNumber": 677,
+    "date": "2026-11-18",
     "rank": "11/988"
   },
   {
@@ -22788,6 +23790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.680",
     "drsNum": 0.68,
     "runNumber": 946,
+    "date": "2026-11-20",
     "rank": "12/988"
   },
   {
@@ -22807,6 +23810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.672",
     "drsNum": 0.672,
     "runNumber": 237,
+    "date": "2026-10-28",
     "rank": "13/988"
   },
   {
@@ -22826,6 +23830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.670",
     "drsNum": 0.67,
     "runNumber": 949,
+    "date": "2026-11-20",
     "rank": "14/988"
   },
   {
@@ -22833,7 +23838,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "name": "liquidai/lfm2.5-350m",
     "params": "354.48m",
     "size": "229 MB",
-    "lab": "Meta",
+    "lab": "Liquid AI",
     "accuracy": "0.786",
     "accuracyNum": 0.786,
     "semantic": "0.688",
@@ -22845,6 +23850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.669",
     "drsNum": 0.669,
     "runNumber": 952,
+    "date": "2026-11-20",
     "rank": "15/988"
   },
   {
@@ -22852,7 +23858,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "name": "liquidai/lfm2.5-350m",
     "params": "354.48m",
     "size": "229 MB",
-    "lab": "Meta",
+    "lab": "Liquid AI",
     "accuracy": "0.689",
     "accuracyNum": 0.689,
     "semantic": "0.677",
@@ -22864,6 +23870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.656",
     "drsNum": 0.656,
     "runNumber": 953,
+    "date": "2026-11-20",
     "rank": "16/988"
   },
   {
@@ -22871,7 +23878,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "name": "liquidai/lfm2.5-350m",
     "params": "354.48m",
     "size": "229 MB",
-    "lab": "Meta",
+    "lab": "Liquid AI",
     "accuracy": "0.917",
     "accuracyNum": 0.917,
     "semantic": "0.460",
@@ -22883,6 +23890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.654",
     "drsNum": 0.654,
     "runNumber": 956,
+    "date": "2026-11-20",
     "rank": "17/988"
   },
   {
@@ -22902,6 +23910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.651",
     "drsNum": 0.651,
     "runNumber": 721,
+    "date": "2026-11-18",
     "rank": "18/988"
   },
   {
@@ -22921,6 +23930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.648",
     "drsNum": 0.648,
     "runNumber": 267,
+    "date": "2026-10-29",
     "rank": "19/988"
   },
   {
@@ -22940,6 +23950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.648",
     "drsNum": 0.648,
     "runNumber": 386,
+    "date": "2026-11-12",
     "rank": "20/988"
   },
   {
@@ -22959,6 +23970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.648",
     "drsNum": 0.648,
     "runNumber": 806,
+    "date": "2026-11-18",
     "rank": "21/988"
   },
   {
@@ -22978,6 +23990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.647",
     "drsNum": 0.647,
     "runNumber": 898,
+    "date": "2026-11-19",
     "rank": "22/988"
   },
   {
@@ -22997,6 +24010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.646",
     "drsNum": 0.646,
     "runNumber": 398,
+    "date": "2026-11-12",
     "rank": "23/988"
   },
   {
@@ -23016,6 +24030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.646",
     "drsNum": 0.646,
     "runNumber": 981,
+    "date": "2026-11-23",
     "rank": "24/988"
   },
   {
@@ -23035,6 +24050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.645",
     "drsNum": 0.645,
     "runNumber": 863,
+    "date": "2026-11-19",
     "rank": "25/988"
   },
   {
@@ -23054,6 +24070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.644",
     "drsNum": 0.644,
     "runNumber": 34,
+    "date": "2026-06-13",
     "rank": "26/988"
   },
   {
@@ -23073,6 +24090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.644",
     "drsNum": 0.644,
     "runNumber": 619,
+    "date": "2026-11-18",
     "rank": "27/988"
   },
   {
@@ -23092,6 +24110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.644",
     "drsNum": 0.644,
     "runNumber": 782,
+    "date": "2026-11-18",
     "rank": "28/988"
   },
   {
@@ -23111,6 +24130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.643",
     "drsNum": 0.643,
     "runNumber": 414,
+    "date": "2026-11-13",
     "rank": "29/988"
   },
   {
@@ -23130,6 +24150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.643",
     "drsNum": 0.643,
     "runNumber": 741,
+    "date": "2026-11-18",
     "rank": "30/988"
   },
   {
@@ -23149,6 +24170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.643",
     "drsNum": 0.643,
     "runNumber": 777,
+    "date": "2026-11-18",
     "rank": "31/988"
   },
   {
@@ -23168,6 +24190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.642",
     "drsNum": 0.642,
     "runNumber": 291,
+    "date": "2026-11-03",
     "rank": "32/988"
   },
   {
@@ -23187,6 +24210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.642",
     "drsNum": 0.642,
     "runNumber": 461,
+    "date": "2026-11-16",
     "rank": "33/988"
   },
   {
@@ -23206,6 +24230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.642",
     "drsNum": 0.642,
     "runNumber": 636,
+    "date": "2026-11-18",
     "rank": "34/988"
   },
   {
@@ -23225,6 +24250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.642",
     "drsNum": 0.642,
     "runNumber": 788,
+    "date": "2026-11-18",
     "rank": "35/988"
   },
   {
@@ -23244,6 +24270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.640",
     "drsNum": 0.64,
     "runNumber": 716,
+    "date": "2026-11-18",
     "rank": "36/988"
   },
   {
@@ -23263,6 +24290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.640",
     "drsNum": 0.64,
     "runNumber": 783,
+    "date": "2026-11-18",
     "rank": "37/988"
   },
   {
@@ -23282,6 +24310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.639",
     "drsNum": 0.639,
     "runNumber": 784,
+    "date": "2026-11-18",
     "rank": "38/988"
   },
   {
@@ -23301,6 +24330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.639",
     "drsNum": 0.639,
     "runNumber": 838,
+    "date": "2026-11-19",
     "rank": "39/988"
   },
   {
@@ -23320,6 +24350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.638",
     "drsNum": 0.638,
     "runNumber": 94,
+    "date": "2026-06-16",
     "rank": "40/988"
   },
   {
@@ -23339,6 +24370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.638",
     "drsNum": 0.638,
     "runNumber": 95,
+    "date": "2026-06-16",
     "rank": "41/988"
   },
   {
@@ -23358,6 +24390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.638",
     "drsNum": 0.638,
     "runNumber": 635,
+    "date": "2026-11-18",
     "rank": "42/988"
   },
   {
@@ -23377,6 +24410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.638",
     "drsNum": 0.638,
     "runNumber": 936,
+    "date": "2026-11-19",
     "rank": "43/988"
   },
   {
@@ -23396,6 +24430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.637",
     "drsNum": 0.637,
     "runNumber": 559,
+    "date": "2026-11-17",
     "rank": "44/988"
   },
   {
@@ -23415,6 +24450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.637",
     "drsNum": 0.637,
     "runNumber": 706,
+    "date": "2026-11-18",
     "rank": "45/988"
   },
   {
@@ -23434,6 +24470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 149,
+    "date": "2026-06-30",
     "rank": "46/988"
   },
   {
@@ -23453,6 +24490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 178,
+    "date": "2026-10-12",
     "rank": "47/988"
   },
   {
@@ -23472,6 +24510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 355,
+    "date": "2026-11-12",
     "rank": "48/988"
   },
   {
@@ -23491,6 +24530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 389,
+    "date": "2026-11-12",
     "rank": "49/988"
   },
   {
@@ -23510,6 +24550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 432,
+    "date": "2026-11-13",
     "rank": "50/988"
   },
   {
@@ -23529,6 +24570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 621,
+    "date": "2026-11-18",
     "rank": "51/988"
   },
   {
@@ -23548,6 +24590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 724,
+    "date": "2026-11-18",
     "rank": "52/988"
   },
   {
@@ -23567,6 +24610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 764,
+    "date": "2026-11-18",
     "rank": "53/988"
   },
   {
@@ -23586,6 +24630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.636",
     "drsNum": 0.636,
     "runNumber": 958,
+    "date": "2026-11-20",
     "rank": "54/988"
   },
   {
@@ -23605,6 +24650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.635",
     "drsNum": 0.635,
     "runNumber": 745,
+    "date": "2026-11-18",
     "rank": "55/988"
   },
   {
@@ -23624,6 +24670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.635",
     "drsNum": 0.635,
     "runNumber": 756,
+    "date": "2026-11-18",
     "rank": "56/988"
   },
   {
@@ -23643,6 +24690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.635",
     "drsNum": 0.635,
     "runNumber": 841,
+    "date": "2026-11-19",
     "rank": "57/988"
   },
   {
@@ -23662,6 +24710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.634",
     "drsNum": 0.634,
     "runNumber": 96,
+    "date": "2026-06-16",
     "rank": "58/988"
   },
   {
@@ -23681,6 +24730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.634",
     "drsNum": 0.634,
     "runNumber": 737,
+    "date": "2026-11-18",
     "rank": "59/988"
   },
   {
@@ -23700,6 +24750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.634",
     "drsNum": 0.634,
     "runNumber": 759,
+    "date": "2026-11-18",
     "rank": "60/988"
   },
   {
@@ -23719,6 +24770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.634",
     "drsNum": 0.634,
     "runNumber": 820,
+    "date": "2026-11-19",
     "rank": "61/988"
   },
   {
@@ -23738,6 +24790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.634",
     "drsNum": 0.634,
     "runNumber": 890,
+    "date": "2026-11-19",
     "rank": "62/988"
   },
   {
@@ -23757,6 +24810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.634",
     "drsNum": 0.634,
     "runNumber": 919,
+    "date": "2026-11-19",
     "rank": "63/988"
   },
   {
@@ -23776,6 +24830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.633",
     "drsNum": 0.633,
     "runNumber": 225,
+    "date": "2026-10-27",
     "rank": "64/988"
   },
   {
@@ -23795,6 +24850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.633",
     "drsNum": 0.633,
     "runNumber": 530,
+    "date": "2026-11-17",
     "rank": "65/988"
   },
   {
@@ -23814,6 +24870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.633",
     "drsNum": 0.633,
     "runNumber": 555,
+    "date": "2026-11-17",
     "rank": "66/988"
   },
   {
@@ -23833,6 +24890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.633",
     "drsNum": 0.633,
     "runNumber": 615,
+    "date": "2026-11-18",
     "rank": "67/988"
   },
   {
@@ -23852,6 +24910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.632",
     "drsNum": 0.632,
     "runNumber": 33,
+    "date": "2026-06-13",
     "rank": "68/988"
   },
   {
@@ -23871,6 +24930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.632",
     "drsNum": 0.632,
     "runNumber": 415,
+    "date": "2026-11-13",
     "rank": "69/988"
   },
   {
@@ -23890,6 +24950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.632",
     "drsNum": 0.632,
     "runNumber": 762,
+    "date": "2026-11-18",
     "rank": "70/988"
   },
   {
@@ -23909,6 +24970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.632",
     "drsNum": 0.632,
     "runNumber": 773,
+    "date": "2026-11-18",
     "rank": "71/988"
   },
   {
@@ -23928,6 +24990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.632",
     "drsNum": 0.632,
     "runNumber": 804,
+    "date": "2026-11-18",
     "rank": "72/988"
   },
   {
@@ -23947,6 +25010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 84,
+    "date": "2026-06-16",
     "rank": "73/988"
   },
   {
@@ -23966,6 +25030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 229,
+    "date": "2026-10-27",
     "rank": "74/988"
   },
   {
@@ -23985,6 +25050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 401,
+    "date": "2026-11-13",
     "rank": "75/988"
   },
   {
@@ -24004,6 +25070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 576,
+    "date": "2026-11-17",
     "rank": "76/988"
   },
   {
@@ -24023,6 +25090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 586,
+    "date": "2026-11-17",
     "rank": "77/988"
   },
   {
@@ -24042,6 +25110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 625,
+    "date": "2026-11-18",
     "rank": "78/988"
   },
   {
@@ -24061,6 +25130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 810,
+    "date": "2026-11-19",
     "rank": "79/988"
   },
   {
@@ -24080,6 +25150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 814,
+    "date": "2026-11-19",
     "rank": "80/988"
   },
   {
@@ -24099,6 +25170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 948,
+    "date": "2026-11-20",
     "rank": "81/988"
   },
   {
@@ -24118,6 +25190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.631",
     "drsNum": 0.631,
     "runNumber": 974,
+    "date": "2026-11-23",
     "rank": "82/988"
   },
   {
@@ -24137,6 +25210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.630",
     "drsNum": 0.63,
     "runNumber": 61,
+    "date": "2026-06-15",
     "rank": "83/988"
   },
   {
@@ -24156,6 +25230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.630",
     "drsNum": 0.63,
     "runNumber": 521,
+    "date": "2026-11-17",
     "rank": "84/988"
   },
   {
@@ -24175,6 +25250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.630",
     "drsNum": 0.63,
     "runNumber": 744,
+    "date": "2026-11-18",
     "rank": "85/988"
   },
   {
@@ -24194,6 +25270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 68,
+    "date": "2026-06-15",
     "rank": "86/988"
   },
   {
@@ -24213,6 +25290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 74,
+    "date": "2026-06-15",
     "rank": "87/988"
   },
   {
@@ -24232,6 +25310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 453,
+    "date": "2026-11-16",
     "rank": "88/988"
   },
   {
@@ -24251,6 +25330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 455,
+    "date": "2026-11-16",
     "rank": "89/988"
   },
   {
@@ -24270,6 +25350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 596,
+    "date": "2026-11-17",
     "rank": "90/988"
   },
   {
@@ -24289,6 +25370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 875,
+    "date": "2026-11-19",
     "rank": "91/988"
   },
   {
@@ -24308,6 +25390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.629",
     "drsNum": 0.629,
     "runNumber": 940,
+    "date": "2026-11-19",
     "rank": "92/988"
   },
   {
@@ -24327,6 +25410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 57,
+    "date": "2026-06-15",
     "rank": "93/988"
   },
   {
@@ -24346,6 +25430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 282,
+    "date": "2026-11-02",
     "rank": "94/988"
   },
   {
@@ -24365,6 +25450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 448,
+    "date": "2026-11-13",
     "rank": "95/988"
   },
   {
@@ -24384,6 +25470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 480,
+    "date": "2026-11-16",
     "rank": "96/988"
   },
   {
@@ -24403,6 +25490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 733,
+    "date": "2026-11-18",
     "rank": "97/988"
   },
   {
@@ -24422,6 +25510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 742,
+    "date": "2026-11-18",
     "rank": "98/988"
   },
   {
@@ -24441,6 +25530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 796,
+    "date": "2026-11-18",
     "rank": "99/988"
   },
   {
@@ -24460,6 +25550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.628",
     "drsNum": 0.628,
     "runNumber": 915,
+    "date": "2026-11-19",
     "rank": "100/988"
   },
   {
@@ -24479,6 +25570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.627",
     "drsNum": 0.627,
     "runNumber": 8,
+    "date": "2026-06-12",
     "rank": "101/988"
   },
   {
@@ -24498,6 +25590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.627",
     "drsNum": 0.627,
     "runNumber": 15,
+    "date": "2026-06-12",
     "rank": "102/988"
   },
   {
@@ -24517,6 +25610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.627",
     "drsNum": 0.627,
     "runNumber": 607,
+    "date": "2026-11-18",
     "rank": "103/988"
   },
   {
@@ -24536,6 +25630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.627",
     "drsNum": 0.627,
     "runNumber": 758,
+    "date": "2026-11-18",
     "rank": "104/988"
   },
   {
@@ -24555,6 +25650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.627",
     "drsNum": 0.627,
     "runNumber": 770,
+    "date": "2026-11-18",
     "rank": "105/988"
   },
   {
@@ -24574,6 +25670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.627",
     "drsNum": 0.627,
     "runNumber": 850,
+    "date": "2026-11-19",
     "rank": "106/988"
   },
   {
@@ -24593,6 +25690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.626",
     "drsNum": 0.626,
     "runNumber": 393,
+    "date": "2026-11-12",
     "rank": "107/988"
   },
   {
@@ -24612,6 +25710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.626",
     "drsNum": 0.626,
     "runNumber": 396,
+    "date": "2026-11-12",
     "rank": "108/988"
   },
   {
@@ -24631,6 +25730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.626",
     "drsNum": 0.626,
     "runNumber": 469,
+    "date": "2026-11-16",
     "rank": "109/988"
   },
   {
@@ -24650,6 +25750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.626",
     "drsNum": 0.626,
     "runNumber": 534,
+    "date": "2026-11-17",
     "rank": "110/988"
   },
   {
@@ -24669,6 +25770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.626",
     "drsNum": 0.626,
     "runNumber": 692,
+    "date": "2026-11-18",
     "rank": "111/988"
   },
   {
@@ -24688,6 +25790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.626",
     "drsNum": 0.626,
     "runNumber": 747,
+    "date": "2026-11-18",
     "rank": "112/988"
   },
   {
@@ -24707,6 +25810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.625",
     "drsNum": 0.625,
     "runNumber": 433,
+    "date": "2026-11-13",
     "rank": "113/988"
   },
   {
@@ -24726,6 +25830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.625",
     "drsNum": 0.625,
     "runNumber": 438,
+    "date": "2026-11-13",
     "rank": "114/988"
   },
   {
@@ -24745,6 +25850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.625",
     "drsNum": 0.625,
     "runNumber": 485,
+    "date": "2026-11-16",
     "rank": "115/988"
   },
   {
@@ -24764,6 +25870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.625",
     "drsNum": 0.625,
     "runNumber": 556,
+    "date": "2026-11-17",
     "rank": "116/988"
   },
   {
@@ -24783,6 +25890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.624",
     "drsNum": 0.624,
     "runNumber": 63,
+    "date": "2026-06-15",
     "rank": "117/988"
   },
   {
@@ -24802,6 +25910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.624",
     "drsNum": 0.624,
     "runNumber": 428,
+    "date": "2026-11-13",
     "rank": "118/988"
   },
   {
@@ -24821,6 +25930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.624",
     "drsNum": 0.624,
     "runNumber": 488,
+    "date": "2026-11-16",
     "rank": "119/988"
   },
   {
@@ -24840,6 +25950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.624",
     "drsNum": 0.624,
     "runNumber": 671,
+    "date": "2026-11-18",
     "rank": "120/988"
   },
   {
@@ -24859,6 +25970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.624",
     "drsNum": 0.624,
     "runNumber": 713,
+    "date": "2026-11-18",
     "rank": "121/988"
   },
   {
@@ -24878,6 +25990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.624",
     "drsNum": 0.624,
     "runNumber": 761,
+    "date": "2026-11-18",
     "rank": "122/988"
   },
   {
@@ -24897,6 +26010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.623",
     "drsNum": 0.623,
     "runNumber": 92,
+    "date": "2026-06-16",
     "rank": "123/988"
   },
   {
@@ -24916,6 +26030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.623",
     "drsNum": 0.623,
     "runNumber": 194,
+    "date": "2026-10-23",
     "rank": "124/988"
   },
   {
@@ -24935,6 +26050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.623",
     "drsNum": 0.623,
     "runNumber": 578,
+    "date": "2026-11-17",
     "rank": "125/988"
   },
   {
@@ -24954,6 +26070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.623",
     "drsNum": 0.623,
     "runNumber": 647,
+    "date": "2026-11-18",
     "rank": "126/988"
   },
   {
@@ -24973,6 +26090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.623",
     "drsNum": 0.623,
     "runNumber": 673,
+    "date": "2026-11-18",
     "rank": "127/988"
   },
   {
@@ -24992,6 +26110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.623",
     "drsNum": 0.623,
     "runNumber": 823,
+    "date": "2026-11-19",
     "rank": "128/988"
   },
   {
@@ -25011,6 +26130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.623",
     "drsNum": 0.623,
     "runNumber": 824,
+    "date": "2026-11-19",
     "rank": "129/988"
   },
   {
@@ -25030,6 +26150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.622",
     "drsNum": 0.622,
     "runNumber": 363,
+    "date": "2026-11-12",
     "rank": "130/988"
   },
   {
@@ -25049,6 +26170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.622",
     "drsNum": 0.622,
     "runNumber": 633,
+    "date": "2026-11-18",
     "rank": "131/988"
   },
   {
@@ -25068,6 +26190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.622",
     "drsNum": 0.622,
     "runNumber": 712,
+    "date": "2026-11-18",
     "rank": "132/988"
   },
   {
@@ -25087,6 +26210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.622",
     "drsNum": 0.622,
     "runNumber": 791,
+    "date": "2026-11-18",
     "rank": "133/988"
   },
   {
@@ -25106,6 +26230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.622",
     "drsNum": 0.622,
     "runNumber": 794,
+    "date": "2026-11-18",
     "rank": "134/988"
   },
   {
@@ -25125,6 +26250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.622",
     "drsNum": 0.622,
     "runNumber": 914,
+    "date": "2026-11-19",
     "rank": "135/988"
   },
   {
@@ -25144,6 +26270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 232,
+    "date": "2026-10-27",
     "rank": "136/988"
   },
   {
@@ -25163,6 +26290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 569,
+    "date": "2026-11-17",
     "rank": "137/988"
   },
   {
@@ -25182,6 +26310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 601,
+    "date": "2026-11-17",
     "rank": "138/988"
   },
   {
@@ -25201,6 +26330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 639,
+    "date": "2026-11-18",
     "rank": "139/988"
   },
   {
@@ -25220,6 +26350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 719,
+    "date": "2026-11-18",
     "rank": "140/988"
   },
   {
@@ -25239,6 +26370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 792,
+    "date": "2026-11-18",
     "rank": "141/988"
   },
   {
@@ -25258,6 +26390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 809,
+    "date": "2026-11-18",
     "rank": "142/988"
   },
   {
@@ -25277,6 +26410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 813,
+    "date": "2026-11-19",
     "rank": "143/988"
   },
   {
@@ -25296,6 +26430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 917,
+    "date": "2026-11-19",
     "rank": "144/988"
   },
   {
@@ -25315,6 +26450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.621",
     "drsNum": 0.621,
     "runNumber": 969,
+    "date": "2026-11-23",
     "rank": "145/988"
   },
   {
@@ -25334,6 +26470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.620",
     "drsNum": 0.62,
     "runNumber": 715,
+    "date": "2026-11-18",
     "rank": "146/988"
   },
   {
@@ -25353,6 +26490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.620",
     "drsNum": 0.62,
     "runNumber": 740,
+    "date": "2026-11-18",
     "rank": "147/988"
   },
   {
@@ -25372,6 +26510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.620",
     "drsNum": 0.62,
     "runNumber": 766,
+    "date": "2026-11-18",
     "rank": "148/988"
   },
   {
@@ -25391,6 +26530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.620",
     "drsNum": 0.62,
     "runNumber": 855,
+    "date": "2026-11-19",
     "rank": "149/988"
   },
   {
@@ -25410,6 +26550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 64,
+    "date": "2026-06-15",
     "rank": "150/988"
   },
   {
@@ -25429,6 +26570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 66,
+    "date": "2026-06-15",
     "rank": "151/988"
   },
   {
@@ -25448,6 +26590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 72,
+    "date": "2026-06-15",
     "rank": "152/988"
   },
   {
@@ -25467,6 +26610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 223,
+    "date": "2026-10-27",
     "rank": "153/988"
   },
   {
@@ -25486,6 +26630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 243,
+    "date": "2026-10-28",
     "rank": "154/988"
   },
   {
@@ -25505,6 +26650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 533,
+    "date": "2026-11-17",
     "rank": "155/988"
   },
   {
@@ -25524,6 +26670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 568,
+    "date": "2026-11-17",
     "rank": "156/988"
   },
   {
@@ -25543,6 +26690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 616,
+    "date": "2026-11-18",
     "rank": "157/988"
   },
   {
@@ -25562,6 +26710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 690,
+    "date": "2026-11-18",
     "rank": "158/988"
   },
   {
@@ -25581,6 +26730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 748,
+    "date": "2026-11-18",
     "rank": "159/988"
   },
   {
@@ -25600,6 +26750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 857,
+    "date": "2026-11-19",
     "rank": "160/988"
   },
   {
@@ -25619,6 +26770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.619",
     "drsNum": 0.619,
     "runNumber": 988,
+    "date": "2026-11-23",
     "rank": "161/988"
   },
   {
@@ -25638,6 +26790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 98,
+    "date": "2026-06-16",
     "rank": "162/988"
   },
   {
@@ -25657,6 +26810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 120,
+    "date": "2026-06-17",
     "rank": "163/988"
   },
   {
@@ -25676,6 +26830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 212,
+    "date": "2026-10-26",
     "rank": "164/988"
   },
   {
@@ -25695,6 +26850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 361,
+    "date": "2026-11-12",
     "rank": "165/988"
   },
   {
@@ -25714,6 +26870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 449,
+    "date": "2026-11-13",
     "rank": "166/988"
   },
   {
@@ -25733,6 +26890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 454,
+    "date": "2026-11-16",
     "rank": "167/988"
   },
   {
@@ -25752,6 +26910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 523,
+    "date": "2026-11-17",
     "rank": "168/988"
   },
   {
@@ -25771,6 +26930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 571,
+    "date": "2026-11-17",
     "rank": "169/988"
   },
   {
@@ -25790,6 +26950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 620,
+    "date": "2026-11-18",
     "rank": "170/988"
   },
   {
@@ -25809,6 +26970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 681,
+    "date": "2026-11-18",
     "rank": "171/988"
   },
   {
@@ -25828,6 +26990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 697,
+    "date": "2026-11-18",
     "rank": "172/988"
   },
   {
@@ -25847,6 +27010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 780,
+    "date": "2026-11-18",
     "rank": "173/988"
   },
   {
@@ -25866,6 +27030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.618",
     "drsNum": 0.618,
     "runNumber": 844,
+    "date": "2026-11-19",
     "rank": "174/988"
   },
   {
@@ -25885,6 +27050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.617",
     "drsNum": 0.617,
     "runNumber": 224,
+    "date": "2026-10-27",
     "rank": "175/988"
   },
   {
@@ -25904,6 +27070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.617",
     "drsNum": 0.617,
     "runNumber": 560,
+    "date": "2026-11-17",
     "rank": "176/988"
   },
   {
@@ -25923,6 +27090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.617",
     "drsNum": 0.617,
     "runNumber": 611,
+    "date": "2026-11-18",
     "rank": "177/988"
   },
   {
@@ -25942,6 +27110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.617",
     "drsNum": 0.617,
     "runNumber": 861,
+    "date": "2026-11-19",
     "rank": "178/988"
   },
   {
@@ -25961,6 +27130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.617",
     "drsNum": 0.617,
     "runNumber": 874,
+    "date": "2026-11-19",
     "rank": "179/988"
   },
   {
@@ -25968,7 +27138,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "name": "liquidai/lfm2.5-350m",
     "params": "354.48m",
     "size": "229 MB",
-    "lab": "Meta",
+    "lab": "Liquid AI",
     "accuracy": "0.780",
     "accuracyNum": 0.78,
     "semantic": "0.529",
@@ -25980,6 +27150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.617",
     "drsNum": 0.617,
     "runNumber": 954,
+    "date": "2026-11-20",
     "rank": "180/988"
   },
   {
@@ -25999,6 +27170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.617",
     "drsNum": 0.617,
     "runNumber": 961,
+    "date": "2026-11-20",
     "rank": "181/988"
   },
   {
@@ -26018,6 +27190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.616",
     "drsNum": 0.616,
     "runNumber": 216,
+    "date": "2026-10-26",
     "rank": "182/988"
   },
   {
@@ -26037,6 +27210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.616",
     "drsNum": 0.616,
     "runNumber": 311,
+    "date": "2026-11-04",
     "rank": "183/988"
   },
   {
@@ -26056,6 +27230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.616",
     "drsNum": 0.616,
     "runNumber": 519,
+    "date": "2026-11-17",
     "rank": "184/988"
   },
   {
@@ -26075,6 +27250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.616",
     "drsNum": 0.616,
     "runNumber": 548,
+    "date": "2026-11-17",
     "rank": "185/988"
   },
   {
@@ -26094,6 +27270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.616",
     "drsNum": 0.616,
     "runNumber": 644,
+    "date": "2026-11-18",
     "rank": "186/988"
   },
   {
@@ -26113,6 +27290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.615",
     "drsNum": 0.615,
     "runNumber": 394,
+    "date": "2026-11-12",
     "rank": "187/988"
   },
   {
@@ -26132,6 +27310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.615",
     "drsNum": 0.615,
     "runNumber": 624,
+    "date": "2026-11-18",
     "rank": "188/988"
   },
   {
@@ -26151,6 +27330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.615",
     "drsNum": 0.615,
     "runNumber": 729,
+    "date": "2026-11-18",
     "rank": "189/988"
   },
   {
@@ -26170,6 +27350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.615",
     "drsNum": 0.615,
     "runNumber": 778,
+    "date": "2026-11-18",
     "rank": "190/988"
   },
   {
@@ -26189,6 +27370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.615",
     "drsNum": 0.615,
     "runNumber": 867,
+    "date": "2026-11-19",
     "rank": "191/988"
   },
   {
@@ -26208,6 +27390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 21,
+    "date": "2026-06-12",
     "rank": "192/988"
   },
   {
@@ -26227,6 +27410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 78,
+    "date": "2026-06-16",
     "rank": "193/988"
   },
   {
@@ -26246,6 +27430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 292,
+    "date": "2026-11-03",
     "rank": "194/988"
   },
   {
@@ -26265,6 +27450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 395,
+    "date": "2026-11-12",
     "rank": "195/988"
   },
   {
@@ -26284,6 +27470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 492,
+    "date": "2026-11-16",
     "rank": "196/988"
   },
   {
@@ -26303,6 +27490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 612,
+    "date": "2026-11-18",
     "rank": "197/988"
   },
   {
@@ -26322,6 +27510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 711,
+    "date": "2026-11-18",
     "rank": "198/988"
   },
   {
@@ -26341,6 +27530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.614",
     "drsNum": 0.614,
     "runNumber": 828,
+    "date": "2026-11-19",
     "rank": "199/988"
   },
   {
@@ -26360,6 +27550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.613",
     "drsNum": 0.613,
     "runNumber": 220,
+    "date": "2026-10-27",
     "rank": "200/988"
   },
   {
@@ -26379,6 +27570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.613",
     "drsNum": 0.613,
     "runNumber": 627,
+    "date": "2026-11-18",
     "rank": "201/988"
   },
   {
@@ -26398,6 +27590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.613",
     "drsNum": 0.613,
     "runNumber": 717,
+    "date": "2026-11-18",
     "rank": "202/988"
   },
   {
@@ -26417,6 +27610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.613",
     "drsNum": 0.613,
     "runNumber": 754,
+    "date": "2026-11-18",
     "rank": "203/988"
   },
   {
@@ -26436,6 +27630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.613",
     "drsNum": 0.613,
     "runNumber": 767,
+    "date": "2026-11-18",
     "rank": "204/988"
   },
   {
@@ -26455,6 +27650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.613",
     "drsNum": 0.613,
     "runNumber": 818,
+    "date": "2026-11-19",
     "rank": "205/988"
   },
   {
@@ -26474,6 +27670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 69,
+    "date": "2026-06-15",
     "rank": "206/988"
   },
   {
@@ -26493,6 +27690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 75,
+    "date": "2026-06-15",
     "rank": "207/988"
   },
   {
@@ -26512,6 +27710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 246,
+    "date": "2026-10-28",
     "rank": "208/988"
   },
   {
@@ -26531,6 +27730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 271,
+    "date": "2026-10-30",
     "rank": "209/988"
   },
   {
@@ -26550,6 +27750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 301,
+    "date": "2026-11-04",
     "rank": "210/988"
   },
   {
@@ -26569,6 +27770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 466,
+    "date": "2026-11-16",
     "rank": "211/988"
   },
   {
@@ -26588,6 +27790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 661,
+    "date": "2026-11-18",
     "rank": "212/988"
   },
   {
@@ -26607,6 +27810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 743,
+    "date": "2026-11-18",
     "rank": "213/988"
   },
   {
@@ -26626,6 +27830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 768,
+    "date": "2026-11-18",
     "rank": "214/988"
   },
   {
@@ -26645,6 +27850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 795,
+    "date": "2026-11-18",
     "rank": "215/988"
   },
   {
@@ -26664,6 +27870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.612",
     "drsNum": 0.612,
     "runNumber": 878,
+    "date": "2026-11-19",
     "rank": "216/988"
   },
   {
@@ -26683,6 +27890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.611",
     "drsNum": 0.611,
     "runNumber": 242,
+    "date": "2026-10-28",
     "rank": "217/988"
   },
   {
@@ -26702,6 +27910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.611",
     "drsNum": 0.611,
     "runNumber": 541,
+    "date": "2026-11-17",
     "rank": "218/988"
   },
   {
@@ -26721,6 +27930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.611",
     "drsNum": 0.611,
     "runNumber": 605,
+    "date": "2026-11-17",
     "rank": "219/988"
   },
   {
@@ -26740,6 +27950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.611",
     "drsNum": 0.611,
     "runNumber": 608,
+    "date": "2026-11-18",
     "rank": "220/988"
   },
   {
@@ -26759,6 +27970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.611",
     "drsNum": 0.611,
     "runNumber": 751,
+    "date": "2026-11-18",
     "rank": "221/988"
   },
   {
@@ -26778,6 +27990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.611",
     "drsNum": 0.611,
     "runNumber": 776,
+    "date": "2026-11-18",
     "rank": "222/988"
   },
   {
@@ -26797,6 +28010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.611",
     "drsNum": 0.611,
     "runNumber": 830,
+    "date": "2026-11-19",
     "rank": "223/988"
   },
   {
@@ -26816,6 +28030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.611",
     "drsNum": 0.611,
     "runNumber": 904,
+    "date": "2026-11-19",
     "rank": "224/988"
   },
   {
@@ -26835,6 +28050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 56,
+    "date": "2026-06-15",
     "rank": "225/988"
   },
   {
@@ -26854,6 +28070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 423,
+    "date": "2026-11-13",
     "rank": "226/988"
   },
   {
@@ -26873,6 +28090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 444,
+    "date": "2026-11-13",
     "rank": "227/988"
   },
   {
@@ -26892,6 +28110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 481,
+    "date": "2026-11-16",
     "rank": "228/988"
   },
   {
@@ -26911,6 +28130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 594,
+    "date": "2026-11-17",
     "rank": "229/988"
   },
   {
@@ -26930,6 +28150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 618,
+    "date": "2026-11-18",
     "rank": "230/988"
   },
   {
@@ -26949,6 +28170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 705,
+    "date": "2026-11-18",
     "rank": "231/988"
   },
   {
@@ -26968,6 +28190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 826,
+    "date": "2026-11-19",
     "rank": "232/988"
   },
   {
@@ -26987,6 +28210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.610",
     "drsNum": 0.61,
     "runNumber": 854,
+    "date": "2026-11-19",
     "rank": "233/988"
   },
   {
@@ -27006,6 +28230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 121,
+    "date": "2026-06-17",
     "rank": "234/988"
   },
   {
@@ -27025,6 +28250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 247,
+    "date": "2026-10-28",
     "rank": "235/988"
   },
   {
@@ -27044,6 +28270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 358,
+    "date": "2026-11-12",
     "rank": "236/988"
   },
   {
@@ -27063,6 +28290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 566,
+    "date": "2026-11-17",
     "rank": "237/988"
   },
   {
@@ -27082,6 +28310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 583,
+    "date": "2026-11-17",
     "rank": "238/988"
   },
   {
@@ -27101,6 +28330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 588,
+    "date": "2026-11-17",
     "rank": "239/988"
   },
   {
@@ -27120,6 +28350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 622,
+    "date": "2026-11-18",
     "rank": "240/988"
   },
   {
@@ -27139,6 +28370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 694,
+    "date": "2026-11-18",
     "rank": "241/988"
   },
   {
@@ -27158,6 +28390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 807,
+    "date": "2026-11-18",
     "rank": "242/988"
   },
   {
@@ -27177,6 +28410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 829,
+    "date": "2026-11-19",
     "rank": "243/988"
   },
   {
@@ -27196,6 +28430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 889,
+    "date": "2026-11-19",
     "rank": "244/988"
   },
   {
@@ -27215,6 +28450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.609",
     "drsNum": 0.609,
     "runNumber": 901,
+    "date": "2026-11-19",
     "rank": "245/988"
   },
   {
@@ -27234,6 +28470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 104,
+    "date": "2026-06-16",
     "rank": "246/988"
   },
   {
@@ -27253,6 +28490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 263,
+    "date": "2026-10-29",
     "rank": "247/988"
   },
   {
@@ -27272,6 +28510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 402,
+    "date": "2026-11-13",
     "rank": "248/988"
   },
   {
@@ -27291,6 +28530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 429,
+    "date": "2026-11-13",
     "rank": "249/988"
   },
   {
@@ -27310,6 +28550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 539,
+    "date": "2026-11-17",
     "rank": "250/988"
   },
   {
@@ -27329,6 +28570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 554,
+    "date": "2026-11-17",
     "rank": "251/988"
   },
   {
@@ -27348,6 +28590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 646,
+    "date": "2026-11-18",
     "rank": "252/988"
   },
   {
@@ -27367,6 +28610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 687,
+    "date": "2026-11-18",
     "rank": "253/988"
   },
   {
@@ -27386,6 +28630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.608",
     "drsNum": 0.608,
     "runNumber": 877,
+    "date": "2026-11-19",
     "rank": "254/988"
   },
   {
@@ -27405,6 +28650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.607",
     "drsNum": 0.607,
     "runNumber": 410,
+    "date": "2026-11-13",
     "rank": "255/988"
   },
   {
@@ -27424,6 +28670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.607",
     "drsNum": 0.607,
     "runNumber": 458,
+    "date": "2026-11-16",
     "rank": "256/988"
   },
   {
@@ -27443,6 +28690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.607",
     "drsNum": 0.607,
     "runNumber": 572,
+    "date": "2026-11-17",
     "rank": "257/988"
   },
   {
@@ -27462,6 +28710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.607",
     "drsNum": 0.607,
     "runNumber": 708,
+    "date": "2026-11-18",
     "rank": "258/988"
   },
   {
@@ -27481,6 +28730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.607",
     "drsNum": 0.607,
     "runNumber": 728,
+    "date": "2026-11-18",
     "rank": "259/988"
   },
   {
@@ -27500,6 +28750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.607",
     "drsNum": 0.607,
     "runNumber": 732,
+    "date": "2026-11-18",
     "rank": "260/988"
   },
   {
@@ -27519,6 +28770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.607",
     "drsNum": 0.607,
     "runNumber": 822,
+    "date": "2026-11-19",
     "rank": "261/988"
   },
   {
@@ -27538,6 +28790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 24,
+    "date": "2026-06-13",
     "rank": "262/988"
   },
   {
@@ -27557,6 +28810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 302,
+    "date": "2026-11-04",
     "rank": "263/988"
   },
   {
@@ -27576,6 +28830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 313,
+    "date": "2026-11-05",
     "rank": "264/988"
   },
   {
@@ -27595,6 +28850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 424,
+    "date": "2026-11-13",
     "rank": "265/988"
   },
   {
@@ -27614,6 +28870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 451,
+    "date": "2026-11-16",
     "rank": "266/988"
   },
   {
@@ -27633,6 +28890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 457,
+    "date": "2026-11-16",
     "rank": "267/988"
   },
   {
@@ -27652,6 +28910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 520,
+    "date": "2026-11-17",
     "rank": "268/988"
   },
   {
@@ -27671,6 +28930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 645,
+    "date": "2026-11-18",
     "rank": "269/988"
   },
   {
@@ -27690,6 +28950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 739,
+    "date": "2026-11-18",
     "rank": "270/988"
   },
   {
@@ -27709,6 +28970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 763,
+    "date": "2026-11-18",
     "rank": "271/988"
   },
   {
@@ -27728,6 +28990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 866,
+    "date": "2026-11-19",
     "rank": "272/988"
   },
   {
@@ -27747,6 +29010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 892,
+    "date": "2026-11-19",
     "rank": "273/988"
   },
   {
@@ -27766,6 +29030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 900,
+    "date": "2026-11-19",
     "rank": "274/988"
   },
   {
@@ -27785,6 +29050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.606",
     "drsNum": 0.606,
     "runNumber": 907,
+    "date": "2026-11-19",
     "rank": "275/988"
   },
   {
@@ -27804,6 +29070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 67,
+    "date": "2026-06-15",
     "rank": "276/988"
   },
   {
@@ -27823,6 +29090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 73,
+    "date": "2026-06-15",
     "rank": "277/988"
   },
   {
@@ -27842,6 +29110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 123,
+    "date": "2026-06-17",
     "rank": "278/988"
   },
   {
@@ -27861,6 +29130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 222,
+    "date": "2026-10-27",
     "rank": "279/988"
   },
   {
@@ -27880,6 +29150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 315,
+    "date": "2026-11-05",
     "rank": "280/988"
   },
   {
@@ -27899,6 +29170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 430,
+    "date": "2026-11-13",
     "rank": "281/988"
   },
   {
@@ -27918,6 +29190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 550,
+    "date": "2026-11-17",
     "rank": "282/988"
   },
   {
@@ -27937,6 +29210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 558,
+    "date": "2026-11-17",
     "rank": "283/988"
   },
   {
@@ -27956,6 +29230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 577,
+    "date": "2026-11-17",
     "rank": "284/988"
   },
   {
@@ -27975,6 +29250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 666,
+    "date": "2026-11-18",
     "rank": "285/988"
   },
   {
@@ -27994,6 +29270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 675,
+    "date": "2026-11-18",
     "rank": "286/988"
   },
   {
@@ -28013,6 +29290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 860,
+    "date": "2026-11-19",
     "rank": "287/988"
   },
   {
@@ -28032,6 +29310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.605",
     "drsNum": 0.605,
     "runNumber": 939,
+    "date": "2026-11-19",
     "rank": "288/988"
   },
   {
@@ -28051,6 +29330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 5,
+    "date": "2026-06-12",
     "rank": "289/988"
   },
   {
@@ -28070,6 +29350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 91,
+    "date": "2026-06-16",
     "rank": "290/988"
   },
   {
@@ -28089,6 +29370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 213,
+    "date": "2026-10-26",
     "rank": "291/988"
   },
   {
@@ -28108,6 +29390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 239,
+    "date": "2026-10-28",
     "rank": "292/988"
   },
   {
@@ -28127,6 +29410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 536,
+    "date": "2026-11-17",
     "rank": "293/988"
   },
   {
@@ -28146,6 +29430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 553,
+    "date": "2026-11-17",
     "rank": "294/988"
   },
   {
@@ -28165,6 +29450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 858,
+    "date": "2026-11-19",
     "rank": "295/988"
   },
   {
@@ -28184,6 +29470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 865,
+    "date": "2026-11-19",
     "rank": "296/988"
   },
   {
@@ -28203,6 +29490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 913,
+    "date": "2026-11-19",
     "rank": "297/988"
   },
   {
@@ -28210,7 +29498,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "name": "liquidai/lfm2.5-350m",
     "params": "354.48m",
     "size": "229 MB",
-    "lab": "Meta",
+    "lab": "Liquid AI",
     "accuracy": "0.553",
     "accuracyNum": 0.553,
     "semantic": "0.644",
@@ -28222,6 +29510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.604",
     "drsNum": 0.604,
     "runNumber": 955,
+    "date": "2026-11-20",
     "rank": "298/988"
   },
   {
@@ -28241,6 +29530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.603",
     "drsNum": 0.603,
     "runNumber": 13,
+    "date": "2026-06-12",
     "rank": "299/988"
   },
   {
@@ -28260,6 +29550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.603",
     "drsNum": 0.603,
     "runNumber": 464,
+    "date": "2026-11-16",
     "rank": "300/988"
   },
   {
@@ -28279,6 +29570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.603",
     "drsNum": 0.603,
     "runNumber": 486,
+    "date": "2026-11-16",
     "rank": "301/988"
   },
   {
@@ -28298,6 +29590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.603",
     "drsNum": 0.603,
     "runNumber": 532,
+    "date": "2026-11-17",
     "rank": "302/988"
   },
   {
@@ -28317,6 +29610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.603",
     "drsNum": 0.603,
     "runNumber": 631,
+    "date": "2026-11-18",
     "rank": "303/988"
   },
   {
@@ -28336,6 +29630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.603",
     "drsNum": 0.603,
     "runNumber": 678,
+    "date": "2026-11-18",
     "rank": "304/988"
   },
   {
@@ -28355,6 +29650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.603",
     "drsNum": 0.603,
     "runNumber": 753,
+    "date": "2026-11-18",
     "rank": "305/988"
   },
   {
@@ -28374,6 +29670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 100,
+    "date": "2026-06-16",
     "rank": "306/988"
   },
   {
@@ -28393,6 +29690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 231,
+    "date": "2026-10-27",
     "rank": "307/988"
   },
   {
@@ -28412,6 +29710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 240,
+    "date": "2026-10-28",
     "rank": "308/988"
   },
   {
@@ -28431,6 +29730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 272,
+    "date": "2026-10-30",
     "rank": "309/988"
   },
   {
@@ -28450,6 +29750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 317,
+    "date": "2026-11-05",
     "rank": "310/988"
   },
   {
@@ -28469,6 +29770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 452,
+    "date": "2026-11-16",
     "rank": "311/988"
   },
   {
@@ -28488,6 +29790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 490,
+    "date": "2026-11-16",
     "rank": "312/988"
   },
   {
@@ -28507,6 +29810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 799,
+    "date": "2026-11-18",
     "rank": "313/988"
   },
   {
@@ -28526,6 +29830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 808,
+    "date": "2026-11-18",
     "rank": "314/988"
   },
   {
@@ -28545,6 +29850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 887,
+    "date": "2026-11-19",
     "rank": "315/988"
   },
   {
@@ -28564,6 +29870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.602",
     "drsNum": 0.602,
     "runNumber": 910,
+    "date": "2026-11-19",
     "rank": "316/988"
   },
   {
@@ -28583,6 +29890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 14,
+    "date": "2026-06-12",
     "rank": "317/988"
   },
   {
@@ -28602,6 +29910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 227,
+    "date": "2026-10-27",
     "rank": "318/988"
   },
   {
@@ -28621,6 +29930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 456,
+    "date": "2026-11-16",
     "rank": "319/988"
   },
   {
@@ -28640,6 +29950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 462,
+    "date": "2026-11-16",
     "rank": "320/988"
   },
   {
@@ -28659,6 +29970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 544,
+    "date": "2026-11-17",
     "rank": "321/988"
   },
   {
@@ -28678,6 +29990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 547,
+    "date": "2026-11-17",
     "rank": "322/988"
   },
   {
@@ -28697,6 +30010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 563,
+    "date": "2026-11-17",
     "rank": "323/988"
   },
   {
@@ -28716,6 +30030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 657,
+    "date": "2026-11-18",
     "rank": "324/988"
   },
   {
@@ -28735,6 +30050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 725,
+    "date": "2026-11-18",
     "rank": "325/988"
   },
   {
@@ -28754,6 +30070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 786,
+    "date": "2026-11-18",
     "rank": "326/988"
   },
   {
@@ -28773,6 +30090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.601",
     "drsNum": 0.601,
     "runNumber": 911,
+    "date": "2026-11-19",
     "rank": "327/988"
   },
   {
@@ -28792,6 +30110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.600",
     "drsNum": 0.6,
     "runNumber": 101,
+    "date": "2026-06-16",
     "rank": "328/988"
   },
   {
@@ -28811,6 +30130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.600",
     "drsNum": 0.6,
     "runNumber": 122,
+    "date": "2026-06-17",
     "rank": "329/988"
   },
   {
@@ -28830,6 +30150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.600",
     "drsNum": 0.6,
     "runNumber": 348,
+    "date": "2026-11-12",
     "rank": "330/988"
   },
   {
@@ -28849,6 +30170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.600",
     "drsNum": 0.6,
     "runNumber": 614,
+    "date": "2026-11-18",
     "rank": "331/988"
   },
   {
@@ -28868,6 +30190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.600",
     "drsNum": 0.6,
     "runNumber": 626,
+    "date": "2026-11-18",
     "rank": "332/988"
   },
   {
@@ -28887,6 +30210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 17,
+    "date": "2026-06-12",
     "rank": "333/988"
   },
   {
@@ -28906,6 +30230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 241,
+    "date": "2026-10-28",
     "rank": "334/988"
   },
   {
@@ -28925,6 +30250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 397,
+    "date": "2026-11-12",
     "rank": "335/988"
   },
   {
@@ -28944,6 +30270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 460,
+    "date": "2026-11-16",
     "rank": "336/988"
   },
   {
@@ -28963,6 +30290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 491,
+    "date": "2026-11-16",
     "rank": "337/988"
   },
   {
@@ -28982,6 +30310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 517,
+    "date": "2026-11-17",
     "rank": "338/988"
   },
   {
@@ -29001,6 +30330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 590,
+    "date": "2026-11-17",
     "rank": "339/988"
   },
   {
@@ -29020,6 +30350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 765,
+    "date": "2026-11-18",
     "rank": "340/988"
   },
   {
@@ -29039,6 +30370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 781,
+    "date": "2026-11-18",
     "rank": "341/988"
   },
   {
@@ -29058,6 +30390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 853,
+    "date": "2026-11-19",
     "rank": "342/988"
   },
   {
@@ -29077,6 +30410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 908,
+    "date": "2026-11-19",
     "rank": "343/988"
   },
   {
@@ -29096,6 +30430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 918,
+    "date": "2026-11-19",
     "rank": "344/988"
   },
   {
@@ -29115,6 +30450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 975,
+    "date": "2026-11-23",
     "rank": "345/988"
   },
   {
@@ -29134,6 +30470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.599",
     "drsNum": 0.599,
     "runNumber": 980,
+    "date": "2026-11-23",
     "rank": "346/988"
   },
   {
@@ -29153,6 +30490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.598",
     "drsNum": 0.598,
     "runNumber": 200,
+    "date": "2026-10-23",
     "rank": "347/988"
   },
   {
@@ -29172,6 +30510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.598",
     "drsNum": 0.598,
     "runNumber": 407,
+    "date": "2026-11-13",
     "rank": "348/988"
   },
   {
@@ -29191,6 +30530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.598",
     "drsNum": 0.598,
     "runNumber": 487,
+    "date": "2026-11-16",
     "rank": "349/988"
   },
   {
@@ -29210,6 +30550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.598",
     "drsNum": 0.598,
     "runNumber": 962,
+    "date": "2026-11-20",
     "rank": "350/988"
   },
   {
@@ -29229,6 +30570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 193,
+    "date": "2026-10-19",
     "rank": "351/988"
   },
   {
@@ -29248,6 +30590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 251,
+    "date": "2026-10-28",
     "rank": "352/988"
   },
   {
@@ -29267,6 +30610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 256,
+    "date": "2026-10-29",
     "rank": "353/988"
   },
   {
@@ -29286,6 +30630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 266,
+    "date": "2026-10-29",
     "rank": "354/988"
   },
   {
@@ -29305,6 +30650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 277,
+    "date": "2026-11-02",
     "rank": "355/988"
   },
   {
@@ -29324,6 +30670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 674,
+    "date": "2026-11-18",
     "rank": "356/988"
   },
   {
@@ -29343,6 +30690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 787,
+    "date": "2026-11-18",
     "rank": "357/988"
   },
   {
@@ -29362,6 +30710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 789,
+    "date": "2026-11-18",
     "rank": "358/988"
   },
   {
@@ -29381,6 +30730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.597",
     "drsNum": 0.597,
     "runNumber": 842,
+    "date": "2026-11-19",
     "rank": "359/988"
   },
   {
@@ -29400,6 +30750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.596",
     "drsNum": 0.596,
     "runNumber": 147,
+    "date": "2026-06-30",
     "rank": "360/988"
   },
   {
@@ -29419,6 +30770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.596",
     "drsNum": 0.596,
     "runNumber": 219,
+    "date": "2026-10-27",
     "rank": "361/988"
   },
   {
@@ -29438,6 +30790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.596",
     "drsNum": 0.596,
     "runNumber": 557,
+    "date": "2026-11-17",
     "rank": "362/988"
   },
   {
@@ -29457,6 +30810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.596",
     "drsNum": 0.596,
     "runNumber": 573,
+    "date": "2026-11-17",
     "rank": "363/988"
   },
   {
@@ -29476,6 +30830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.596",
     "drsNum": 0.596,
     "runNumber": 599,
+    "date": "2026-11-17",
     "rank": "364/988"
   },
   {
@@ -29495,6 +30850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.596",
     "drsNum": 0.596,
     "runNumber": 871,
+    "date": "2026-11-19",
     "rank": "365/988"
   },
   {
@@ -29514,6 +30870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.596",
     "drsNum": 0.596,
     "runNumber": 893,
+    "date": "2026-11-19",
     "rank": "366/988"
   },
   {
@@ -29533,6 +30890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 28,
+    "date": "2026-06-13",
     "rank": "367/988"
   },
   {
@@ -29552,6 +30910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 136,
+    "date": "2026-06-17",
     "rank": "368/988"
   },
   {
@@ -29571,6 +30930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 233,
+    "date": "2026-10-27",
     "rank": "369/988"
   },
   {
@@ -29590,6 +30950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 312,
+    "date": "2026-11-05",
     "rank": "370/988"
   },
   {
@@ -29609,6 +30970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 434,
+    "date": "2026-11-13",
     "rank": "371/988"
   },
   {
@@ -29628,6 +30990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 496,
+    "date": "2026-11-17",
     "rank": "372/988"
   },
   {
@@ -29647,6 +31010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 685,
+    "date": "2026-11-18",
     "rank": "373/988"
   },
   {
@@ -29666,6 +31030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.595",
     "drsNum": 0.595,
     "runNumber": 698,
+    "date": "2026-11-18",
     "rank": "374/988"
   },
   {
@@ -29685,6 +31050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.594",
     "drsNum": 0.594,
     "runNumber": 6,
+    "date": "2026-06-12",
     "rank": "375/988"
   },
   {
@@ -29704,6 +31070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.594",
     "drsNum": 0.594,
     "runNumber": 196,
+    "date": "2026-10-23",
     "rank": "376/988"
   },
   {
@@ -29723,6 +31090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.594",
     "drsNum": 0.594,
     "runNumber": 367,
+    "date": "2026-11-12",
     "rank": "377/988"
   },
   {
@@ -29742,6 +31110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.594",
     "drsNum": 0.594,
     "runNumber": 680,
+    "date": "2026-11-18",
     "rank": "378/988"
   },
   {
@@ -29761,6 +31130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.594",
     "drsNum": 0.594,
     "runNumber": 731,
+    "date": "2026-11-18",
     "rank": "379/988"
   },
   {
@@ -29780,6 +31150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.594",
     "drsNum": 0.594,
     "runNumber": 772,
+    "date": "2026-11-18",
     "rank": "380/988"
   },
   {
@@ -29799,6 +31170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.594",
     "drsNum": 0.594,
     "runNumber": 847,
+    "date": "2026-11-19",
     "rank": "381/988"
   },
   {
@@ -29818,6 +31190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 93,
+    "date": "2026-06-16",
     "rank": "382/988"
   },
   {
@@ -29837,6 +31210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 230,
+    "date": "2026-10-27",
     "rank": "383/988"
   },
   {
@@ -29856,6 +31230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 493,
+    "date": "2026-11-16",
     "rank": "384/988"
   },
   {
@@ -29875,6 +31250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 508,
+    "date": "2026-11-17",
     "rank": "385/988"
   },
   {
@@ -29894,6 +31270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 575,
+    "date": "2026-11-17",
     "rank": "386/988"
   },
   {
@@ -29913,6 +31290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 670,
+    "date": "2026-11-18",
     "rank": "387/988"
   },
   {
@@ -29932,6 +31310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 960,
+    "date": "2026-11-20",
     "rank": "388/988"
   },
   {
@@ -29951,6 +31330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.593",
     "drsNum": 0.593,
     "runNumber": 970,
+    "date": "2026-11-23",
     "rank": "389/988"
   },
   {
@@ -29970,6 +31350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.592",
     "drsNum": 0.592,
     "runNumber": 10,
+    "date": "2026-06-12",
     "rank": "390/988"
   },
   {
@@ -29989,6 +31370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.592",
     "drsNum": 0.592,
     "runNumber": 226,
+    "date": "2026-10-27",
     "rank": "391/988"
   },
   {
@@ -30008,6 +31390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.592",
     "drsNum": 0.592,
     "runNumber": 359,
+    "date": "2026-11-12",
     "rank": "392/988"
   },
   {
@@ -30027,6 +31410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.592",
     "drsNum": 0.592,
     "runNumber": 959,
+    "date": "2026-11-20",
     "rank": "393/988"
   },
   {
@@ -30046,6 +31430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.592",
     "drsNum": 0.592,
     "runNumber": 978,
+    "date": "2026-11-23",
     "rank": "394/988"
   },
   {
@@ -30065,6 +31450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 153,
+    "date": "2026-06-30",
     "rank": "395/988"
   },
   {
@@ -30084,6 +31470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 207,
+    "date": "2026-10-26",
     "rank": "396/988"
   },
   {
@@ -30103,6 +31490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 388,
+    "date": "2026-11-12",
     "rank": "397/988"
   },
   {
@@ -30122,6 +31510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 440,
+    "date": "2026-11-13",
     "rank": "398/988"
   },
   {
@@ -30141,6 +31530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 522,
+    "date": "2026-11-17",
     "rank": "399/988"
   },
   {
@@ -30160,6 +31550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 598,
+    "date": "2026-11-17",
     "rank": "400/988"
   },
   {
@@ -30179,6 +31570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 617,
+    "date": "2026-11-18",
     "rank": "401/988"
   },
   {
@@ -30198,6 +31590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 684,
+    "date": "2026-11-18",
     "rank": "402/988"
   },
   {
@@ -30217,6 +31610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 793,
+    "date": "2026-11-18",
     "rank": "403/988"
   },
   {
@@ -30236,6 +31630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.591",
     "drsNum": 0.591,
     "runNumber": 916,
+    "date": "2026-11-19",
     "rank": "404/988"
   },
   {
@@ -30255,6 +31650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 102,
+    "date": "2026-06-16",
     "rank": "405/988"
   },
   {
@@ -30274,6 +31670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 197,
+    "date": "2026-10-23",
     "rank": "406/988"
   },
   {
@@ -30293,6 +31690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 275,
+    "date": "2026-10-30",
     "rank": "407/988"
   },
   {
@@ -30312,6 +31710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 290,
+    "date": "2026-11-03",
     "rank": "408/988"
   },
   {
@@ -30331,6 +31730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 310,
+    "date": "2026-11-04",
     "rank": "409/988"
   },
   {
@@ -30350,6 +31750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 322,
+    "date": "2026-11-05",
     "rank": "410/988"
   },
   {
@@ -30369,6 +31770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 413,
+    "date": "2026-11-13",
     "rank": "411/988"
   },
   {
@@ -30388,6 +31790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 623,
+    "date": "2026-11-18",
     "rank": "412/988"
   },
   {
@@ -30407,6 +31810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 668,
+    "date": "2026-11-18",
     "rank": "413/988"
   },
   {
@@ -30426,6 +31830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 735,
+    "date": "2026-11-18",
     "rank": "414/988"
   },
   {
@@ -30445,6 +31850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.590",
     "drsNum": 0.59,
     "runNumber": 912,
+    "date": "2026-11-19",
     "rank": "415/988"
   },
   {
@@ -30464,6 +31870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 19,
+    "date": "2026-06-12",
     "rank": "416/988"
   },
   {
@@ -30483,6 +31890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 58,
+    "date": "2026-06-15",
     "rank": "417/988"
   },
   {
@@ -30502,6 +31910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 244,
+    "date": "2026-10-28",
     "rank": "418/988"
   },
   {
@@ -30521,6 +31930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 321,
+    "date": "2026-11-05",
     "rank": "419/988"
   },
   {
@@ -30540,6 +31950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 323,
+    "date": "2026-11-10",
     "rank": "420/988"
   },
   {
@@ -30559,6 +31970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 602,
+    "date": "2026-11-17",
     "rank": "421/988"
   },
   {
@@ -30578,6 +31990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 634,
+    "date": "2026-11-18",
     "rank": "422/988"
   },
   {
@@ -30597,6 +32010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 637,
+    "date": "2026-11-18",
     "rank": "423/988"
   },
   {
@@ -30616,6 +32030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 667,
+    "date": "2026-11-18",
     "rank": "424/988"
   },
   {
@@ -30635,6 +32050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 831,
+    "date": "2026-11-19",
     "rank": "425/988"
   },
   {
@@ -30654,6 +32070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 886,
+    "date": "2026-11-19",
     "rank": "426/988"
   },
   {
@@ -30673,6 +32090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.589",
     "drsNum": 0.589,
     "runNumber": 972,
+    "date": "2026-11-23",
     "rank": "427/988"
   },
   {
@@ -30692,6 +32110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.588",
     "drsNum": 0.588,
     "runNumber": 62,
+    "date": "2026-06-15",
     "rank": "428/988"
   },
   {
@@ -30711,6 +32130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.588",
     "drsNum": 0.588,
     "runNumber": 592,
+    "date": "2026-11-17",
     "rank": "429/988"
   },
   {
@@ -30730,6 +32150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.588",
     "drsNum": 0.588,
     "runNumber": 595,
+    "date": "2026-11-17",
     "rank": "430/988"
   },
   {
@@ -30749,6 +32170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.588",
     "drsNum": 0.588,
     "runNumber": 752,
+    "date": "2026-11-18",
     "rank": "431/988"
   },
   {
@@ -30768,6 +32190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.588",
     "drsNum": 0.588,
     "runNumber": 825,
+    "date": "2026-11-19",
     "rank": "432/988"
   },
   {
@@ -30787,6 +32210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.588",
     "drsNum": 0.588,
     "runNumber": 872,
+    "date": "2026-11-19",
     "rank": "433/988"
   },
   {
@@ -30806,6 +32230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 30,
+    "date": "2026-06-13",
     "rank": "434/988"
   },
   {
@@ -30825,6 +32250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 41,
+    "date": "2026-06-13",
     "rank": "435/988"
   },
   {
@@ -30844,6 +32270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 148,
+    "date": "2026-06-30",
     "rank": "436/988"
   },
   {
@@ -30863,6 +32290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 420,
+    "date": "2026-11-13",
     "rank": "437/988"
   },
   {
@@ -30882,6 +32310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 441,
+    "date": "2026-11-13",
     "rank": "438/988"
   },
   {
@@ -30901,6 +32330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.587",
     "drsNum": 0.587,
     "runNumber": 750,
+    "date": "2026-11-18",
     "rank": "439/988"
   },
   {
@@ -30920,6 +32350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.586",
     "drsNum": 0.586,
     "runNumber": 46,
+    "date": "2026-06-14",
     "rank": "440/988"
   },
   {
@@ -30939,6 +32370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.586",
     "drsNum": 0.586,
     "runNumber": 284,
+    "date": "2026-11-02",
     "rank": "441/988"
   },
   {
@@ -30958,6 +32390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.586",
     "drsNum": 0.586,
     "runNumber": 570,
+    "date": "2026-11-17",
     "rank": "442/988"
   },
   {
@@ -30977,6 +32410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 12,
+    "date": "2026-06-12",
     "rank": "443/988"
   },
   {
@@ -30996,6 +32430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 270,
+    "date": "2026-10-30",
     "rank": "444/988"
   },
   {
@@ -31015,6 +32450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 285,
+    "date": "2026-11-02",
     "rank": "445/988"
   },
   {
@@ -31034,6 +32470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 289,
+    "date": "2026-11-03",
     "rank": "446/988"
   },
   {
@@ -31053,6 +32490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 336,
+    "date": "2026-11-11",
     "rank": "447/988"
   },
   {
@@ -31072,6 +32510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 593,
+    "date": "2026-11-17",
     "rank": "448/988"
   },
   {
@@ -31091,6 +32530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 790,
+    "date": "2026-11-18",
     "rank": "449/988"
   },
   {
@@ -31110,6 +32550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.585",
     "drsNum": 0.585,
     "runNumber": 941,
+    "date": "2026-11-19",
     "rank": "450/988"
   },
   {
@@ -31129,6 +32570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.584",
     "drsNum": 0.584,
     "runNumber": 50,
+    "date": "2026-06-14",
     "rank": "451/988"
   },
   {
@@ -31148,6 +32590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.584",
     "drsNum": 0.584,
     "runNumber": 658,
+    "date": "2026-11-18",
     "rank": "452/988"
   },
   {
@@ -31167,6 +32610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.584",
     "drsNum": 0.584,
     "runNumber": 775,
+    "date": "2026-11-18",
     "rank": "453/988"
   },
   {
@@ -31186,6 +32630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.584",
     "drsNum": 0.584,
     "runNumber": 982,
+    "date": "2026-11-23",
     "rank": "454/988"
   },
   {
@@ -31205,6 +32650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.583",
     "drsNum": 0.583,
     "runNumber": 48,
+    "date": "2026-06-14",
     "rank": "455/988"
   },
   {
@@ -31224,6 +32670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.583",
     "drsNum": 0.583,
     "runNumber": 268,
+    "date": "2026-10-29",
     "rank": "456/988"
   },
   {
@@ -31243,6 +32690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.583",
     "drsNum": 0.583,
     "runNumber": 726,
+    "date": "2026-11-18",
     "rank": "457/988"
   },
   {
@@ -31262,6 +32710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 31,
+    "date": "2026-06-13",
     "rank": "458/988"
   },
   {
@@ -31281,6 +32730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 177,
+    "date": "2026-10-12",
     "rank": "459/988"
   },
   {
@@ -31300,6 +32750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 307,
+    "date": "2026-11-04",
     "rank": "460/988"
   },
   {
@@ -31319,6 +32770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 353,
+    "date": "2026-11-12",
     "rank": "461/988"
   },
   {
@@ -31338,6 +32790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 436,
+    "date": "2026-11-13",
     "rank": "462/988"
   },
   {
@@ -31357,6 +32810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 529,
+    "date": "2026-11-17",
     "rank": "463/988"
   },
   {
@@ -31376,6 +32830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 542,
+    "date": "2026-11-17",
     "rank": "464/988"
   },
   {
@@ -31395,6 +32850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.582",
     "drsNum": 0.582,
     "runNumber": 852,
+    "date": "2026-11-19",
     "rank": "465/988"
   },
   {
@@ -31414,6 +32870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.581",
     "drsNum": 0.581,
     "runNumber": 97,
+    "date": "2026-06-16",
     "rank": "466/988"
   },
   {
@@ -31433,6 +32890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.581",
     "drsNum": 0.581,
     "runNumber": 580,
+    "date": "2026-11-17",
     "rank": "467/988"
   },
   {
@@ -31452,6 +32910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.581",
     "drsNum": 0.581,
     "runNumber": 613,
+    "date": "2026-11-18",
     "rank": "468/988"
   },
   {
@@ -31471,6 +32930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.581",
     "drsNum": 0.581,
     "runNumber": 734,
+    "date": "2026-11-18",
     "rank": "469/988"
   },
   {
@@ -31490,6 +32950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.581",
     "drsNum": 0.581,
     "runNumber": 746,
+    "date": "2026-11-18",
     "rank": "470/988"
   },
   {
@@ -31509,6 +32970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.581",
     "drsNum": 0.581,
     "runNumber": 840,
+    "date": "2026-11-19",
     "rank": "471/988"
   },
   {
@@ -31528,6 +32990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.581",
     "drsNum": 0.581,
     "runNumber": 869,
+    "date": "2026-11-19",
     "rank": "472/988"
   },
   {
@@ -31547,6 +33010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.581",
     "drsNum": 0.581,
     "runNumber": 899,
+    "date": "2026-11-19",
     "rank": "473/988"
   },
   {
@@ -31566,6 +33030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.581",
     "drsNum": 0.581,
     "runNumber": 903,
+    "date": "2026-11-19",
     "rank": "474/988"
   },
   {
@@ -31585,6 +33050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 35,
+    "date": "2026-06-13",
     "rank": "475/988"
   },
   {
@@ -31604,6 +33070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 43,
+    "date": "2026-06-14",
     "rank": "476/988"
   },
   {
@@ -31623,6 +33090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 103,
+    "date": "2026-06-16",
     "rank": "477/988"
   },
   {
@@ -31642,6 +33110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 579,
+    "date": "2026-11-17",
     "rank": "478/988"
   },
   {
@@ -31661,6 +33130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 603,
+    "date": "2026-11-17",
     "rank": "479/988"
   },
   {
@@ -31680,6 +33150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 695,
+    "date": "2026-11-18",
     "rank": "480/988"
   },
   {
@@ -31699,6 +33170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 723,
+    "date": "2026-11-18",
     "rank": "481/988"
   },
   {
@@ -31718,6 +33190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 876,
+    "date": "2026-11-19",
     "rank": "482/988"
   },
   {
@@ -31737,6 +33210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 976,
+    "date": "2026-11-23",
     "rank": "483/988"
   },
   {
@@ -31756,6 +33230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.580",
     "drsNum": 0.58,
     "runNumber": 985,
+    "date": "2026-11-23",
     "rank": "484/988"
   },
   {
@@ -31775,6 +33250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 27,
+    "date": "2026-06-13",
     "rank": "485/988"
   },
   {
@@ -31794,6 +33270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 47,
+    "date": "2026-06-14",
     "rank": "486/988"
   },
   {
@@ -31813,6 +33290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 273,
+    "date": "2026-10-30",
     "rank": "487/988"
   },
   {
@@ -31832,6 +33310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 518,
+    "date": "2026-11-17",
     "rank": "488/988"
   },
   {
@@ -31851,6 +33330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 540,
+    "date": "2026-11-17",
     "rank": "489/988"
   },
   {
@@ -31870,6 +33350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 591,
+    "date": "2026-11-17",
     "rank": "490/988"
   },
   {
@@ -31889,6 +33370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 897,
+    "date": "2026-11-19",
     "rank": "491/988"
   },
   {
@@ -31908,6 +33390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.579",
     "drsNum": 0.579,
     "runNumber": 984,
+    "date": "2026-11-23",
     "rank": "492/988"
   },
   {
@@ -31927,6 +33410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 59,
+    "date": "2026-06-15",
     "rank": "493/988"
   },
   {
@@ -31946,6 +33430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 146,
+    "date": "2026-06-30",
     "rank": "494/988"
   },
   {
@@ -31965,6 +33450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 151,
+    "date": "2026-06-30",
     "rank": "495/988"
   },
   {
@@ -31984,6 +33470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 187,
+    "date": "2026-10-14",
     "rank": "496/988"
   },
   {
@@ -32003,6 +33490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 189,
+    "date": "2026-10-15",
     "rank": "497/988"
   },
   {
@@ -32022,6 +33510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 278,
+    "date": "2026-11-02",
     "rank": "498/988"
   },
   {
@@ -32041,6 +33530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 411,
+    "date": "2026-11-13",
     "rank": "499/988"
   },
   {
@@ -32060,6 +33550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 546,
+    "date": "2026-11-17",
     "rank": "500/988"
   },
   {
@@ -32079,6 +33570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 642,
+    "date": "2026-11-18",
     "rank": "501/988"
   },
   {
@@ -32098,6 +33590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 816,
+    "date": "2026-11-19",
     "rank": "502/988"
   },
   {
@@ -32117,6 +33610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 864,
+    "date": "2026-11-19",
     "rank": "503/988"
   },
   {
@@ -32136,6 +33630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 895,
+    "date": "2026-11-19",
     "rank": "504/988"
   },
   {
@@ -32155,6 +33650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.578",
     "drsNum": 0.578,
     "runNumber": 973,
+    "date": "2026-11-23",
     "rank": "505/988"
   },
   {
@@ -32174,6 +33670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 26,
+    "date": "2026-06-13",
     "rank": "506/988"
   },
   {
@@ -32193,6 +33690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 70,
+    "date": "2026-06-15",
     "rank": "507/988"
   },
   {
@@ -32212,6 +33710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 76,
+    "date": "2026-06-15",
     "rank": "508/988"
   },
   {
@@ -32231,6 +33730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 180,
+    "date": "2026-10-13",
     "rank": "509/988"
   },
   {
@@ -32250,6 +33750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 209,
+    "date": "2026-10-26",
     "rank": "510/988"
   },
   {
@@ -32269,6 +33770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 253,
+    "date": "2026-10-29",
     "rank": "511/988"
   },
   {
@@ -32288,6 +33790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 403,
+    "date": "2026-11-13",
     "rank": "512/988"
   },
   {
@@ -32307,6 +33810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 718,
+    "date": "2026-11-18",
     "rank": "513/988"
   },
   {
@@ -32326,6 +33830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 727,
+    "date": "2026-11-18",
     "rank": "514/988"
   },
   {
@@ -32345,6 +33850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 771,
+    "date": "2026-11-18",
     "rank": "515/988"
   },
   {
@@ -32364,6 +33870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.577",
     "drsNum": 0.577,
     "runNumber": 909,
+    "date": "2026-11-19",
     "rank": "516/988"
   },
   {
@@ -32383,6 +33890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 9,
+    "date": "2026-06-12",
     "rank": "517/988"
   },
   {
@@ -32402,6 +33910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 88,
+    "date": "2026-06-16",
     "rank": "518/988"
   },
   {
@@ -32421,6 +33930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 114,
+    "date": "2026-06-17",
     "rank": "519/988"
   },
   {
@@ -32440,6 +33950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 191,
+    "date": "2026-10-15",
     "rank": "520/988"
   },
   {
@@ -32459,6 +33970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 201,
+    "date": "2026-10-23",
     "rank": "521/988"
   },
   {
@@ -32478,6 +33990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 208,
+    "date": "2026-10-26",
     "rank": "522/988"
   },
   {
@@ -32497,6 +34010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 305,
+    "date": "2026-11-04",
     "rank": "523/988"
   },
   {
@@ -32516,6 +34030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 567,
+    "date": "2026-11-17",
     "rank": "524/988"
   },
   {
@@ -32535,6 +34050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.576",
     "drsNum": 0.576,
     "runNumber": 597,
+    "date": "2026-11-17",
     "rank": "525/988"
   },
   {
@@ -32554,6 +34070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.575",
     "drsNum": 0.575,
     "runNumber": 195,
+    "date": "2026-10-23",
     "rank": "526/988"
   },
   {
@@ -32573,6 +34090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.575",
     "drsNum": 0.575,
     "runNumber": 332,
+    "date": "2026-11-11",
     "rank": "527/988"
   },
   {
@@ -32592,6 +34110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.575",
     "drsNum": 0.575,
     "runNumber": 526,
+    "date": "2026-11-17",
     "rank": "528/988"
   },
   {
@@ -32611,6 +34130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.575",
     "drsNum": 0.575,
     "runNumber": 587,
+    "date": "2026-11-17",
     "rank": "529/988"
   },
   {
@@ -32630,6 +34150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.575",
     "drsNum": 0.575,
     "runNumber": 600,
+    "date": "2026-11-17",
     "rank": "530/988"
   },
   {
@@ -32649,6 +34170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.575",
     "drsNum": 0.575,
     "runNumber": 979,
+    "date": "2026-11-23",
     "rank": "531/988"
   },
   {
@@ -32668,6 +34190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 115,
+    "date": "2026-06-17",
     "rank": "532/988"
   },
   {
@@ -32687,6 +34210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 126,
+    "date": "2026-06-17",
     "rank": "533/988"
   },
   {
@@ -32706,6 +34230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 150,
+    "date": "2026-06-30",
     "rank": "534/988"
   },
   {
@@ -32725,6 +34250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 294,
+    "date": "2026-11-03",
     "rank": "535/988"
   },
   {
@@ -32744,6 +34270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 408,
+    "date": "2026-11-13",
     "rank": "536/988"
   },
   {
@@ -32763,6 +34290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 439,
+    "date": "2026-11-13",
     "rank": "537/988"
   },
   {
@@ -32782,6 +34310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 710,
+    "date": "2026-11-18",
     "rank": "538/988"
   },
   {
@@ -32801,6 +34330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.574",
     "drsNum": 0.574,
     "runNumber": 906,
+    "date": "2026-11-19",
     "rank": "539/988"
   },
   {
@@ -32820,6 +34350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.573",
     "drsNum": 0.573,
     "runNumber": 23,
+    "date": "2026-06-13",
     "rank": "540/988"
   },
   {
@@ -32839,6 +34370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.573",
     "drsNum": 0.573,
     "runNumber": 203,
+    "date": "2026-10-23",
     "rank": "541/988"
   },
   {
@@ -32858,6 +34390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.573",
     "drsNum": 0.573,
     "runNumber": 252,
+    "date": "2026-10-28",
     "rank": "542/988"
   },
   {
@@ -32877,6 +34410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.573",
     "drsNum": 0.573,
     "runNumber": 968,
+    "date": "2026-11-23",
     "rank": "543/988"
   },
   {
@@ -32896,6 +34430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.572",
     "drsNum": 0.572,
     "runNumber": 117,
+    "date": "2026-06-17",
     "rank": "544/988"
   },
   {
@@ -32915,6 +34450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.572",
     "drsNum": 0.572,
     "runNumber": 299,
+    "date": "2026-11-04",
     "rank": "545/988"
   },
   {
@@ -32934,6 +34470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.571",
     "drsNum": 0.571,
     "runNumber": 113,
+    "date": "2026-06-17",
     "rank": "546/988"
   },
   {
@@ -32953,6 +34490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.571",
     "drsNum": 0.571,
     "runNumber": 343,
+    "date": "2026-11-11",
     "rank": "547/988"
   },
   {
@@ -32972,6 +34510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.571",
     "drsNum": 0.571,
     "runNumber": 445,
+    "date": "2026-11-13",
     "rank": "548/988"
   },
   {
@@ -32991,6 +34530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.571",
     "drsNum": 0.571,
     "runNumber": 604,
+    "date": "2026-11-17",
     "rank": "549/988"
   },
   {
@@ -33010,6 +34550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.571",
     "drsNum": 0.571,
     "runNumber": 701,
+    "date": "2026-11-18",
     "rank": "550/988"
   },
   {
@@ -33029,6 +34570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.571",
     "drsNum": 0.571,
     "runNumber": 817,
+    "date": "2026-11-19",
     "rank": "551/988"
   },
   {
@@ -33048,6 +34590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.571",
     "drsNum": 0.571,
     "runNumber": 848,
+    "date": "2026-11-19",
     "rank": "552/988"
   },
   {
@@ -33067,6 +34610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.570",
     "drsNum": 0.57,
     "runNumber": 60,
+    "date": "2026-06-15",
     "rank": "553/988"
   },
   {
@@ -33086,6 +34630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.570",
     "drsNum": 0.57,
     "runNumber": 124,
+    "date": "2026-06-17",
     "rank": "554/988"
   },
   {
@@ -33105,6 +34650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.570",
     "drsNum": 0.57,
     "runNumber": 221,
+    "date": "2026-10-27",
     "rank": "555/988"
   },
   {
@@ -33124,6 +34670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.569",
     "drsNum": 0.569,
     "runNumber": 235,
+    "date": "2026-10-27",
     "rank": "556/988"
   },
   {
@@ -33143,6 +34690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.569",
     "drsNum": 0.569,
     "runNumber": 484,
+    "date": "2026-11-16",
     "rank": "557/988"
   },
   {
@@ -33162,6 +34710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.568",
     "drsNum": 0.568,
     "runNumber": 261,
+    "date": "2026-10-29",
     "rank": "558/988"
   },
   {
@@ -33181,6 +34730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.568",
     "drsNum": 0.568,
     "runNumber": 376,
+    "date": "2026-11-12",
     "rank": "559/988"
   },
   {
@@ -33200,6 +34750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.568",
     "drsNum": 0.568,
     "runNumber": 538,
+    "date": "2026-11-17",
     "rank": "560/988"
   },
   {
@@ -33219,6 +34770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.568",
     "drsNum": 0.568,
     "runNumber": 585,
+    "date": "2026-11-17",
     "rank": "561/988"
   },
   {
@@ -33238,6 +34790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.568",
     "drsNum": 0.568,
     "runNumber": 859,
+    "date": "2026-11-19",
     "rank": "562/988"
   },
   {
@@ -33257,6 +34810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.568",
     "drsNum": 0.568,
     "runNumber": 967,
+    "date": "2026-11-23",
     "rank": "563/988"
   },
   {
@@ -33276,6 +34830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.567",
     "drsNum": 0.567,
     "runNumber": 20,
+    "date": "2026-06-12",
     "rank": "564/988"
   },
   {
@@ -33295,6 +34850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.567",
     "drsNum": 0.567,
     "runNumber": 32,
+    "date": "2026-06-13",
     "rank": "565/988"
   },
   {
@@ -33314,6 +34870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.567",
     "drsNum": 0.567,
     "runNumber": 531,
+    "date": "2026-11-17",
     "rank": "566/988"
   },
   {
@@ -33333,6 +34890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.567",
     "drsNum": 0.567,
     "runNumber": 699,
+    "date": "2026-11-18",
     "rank": "567/988"
   },
   {
@@ -33352,6 +34910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.567",
     "drsNum": 0.567,
     "runNumber": 749,
+    "date": "2026-11-18",
     "rank": "568/988"
   },
   {
@@ -33371,6 +34930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 51,
+    "date": "2026-06-14",
     "rank": "569/988"
   },
   {
@@ -33390,6 +34950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 144,
+    "date": "2026-06-30",
     "rank": "570/988"
   },
   {
@@ -33409,6 +34970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 198,
+    "date": "2026-10-23",
     "rank": "571/988"
   },
   {
@@ -33428,6 +34990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 368,
+    "date": "2026-11-12",
     "rank": "572/988"
   },
   {
@@ -33447,6 +35010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 632,
+    "date": "2026-11-18",
     "rank": "573/988"
   },
   {
@@ -33466,6 +35030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 669,
+    "date": "2026-11-18",
     "rank": "574/988"
   },
   {
@@ -33485,6 +35050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.566",
     "drsNum": 0.566,
     "runNumber": 856,
+    "date": "2026-11-19",
     "rank": "575/988"
   },
   {
@@ -33504,6 +35070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.565",
     "drsNum": 0.565,
     "runNumber": 574,
+    "date": "2026-11-17",
     "rank": "576/988"
   },
   {
@@ -33523,6 +35090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.564",
     "drsNum": 0.564,
     "runNumber": 139,
+    "date": "2026-06-17",
     "rank": "577/988"
   },
   {
@@ -33542,6 +35110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.564",
     "drsNum": 0.564,
     "runNumber": 274,
+    "date": "2026-10-30",
     "rank": "578/988"
   },
   {
@@ -33561,6 +35130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.564",
     "drsNum": 0.564,
     "runNumber": 392,
+    "date": "2026-11-12",
     "rank": "579/988"
   },
   {
@@ -33580,6 +35150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.564",
     "drsNum": 0.564,
     "runNumber": 584,
+    "date": "2026-11-17",
     "rank": "580/988"
   },
   {
@@ -33599,6 +35170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.563",
     "drsNum": 0.563,
     "runNumber": 214,
+    "date": "2026-10-26",
     "rank": "581/988"
   },
   {
@@ -33618,6 +35190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.563",
     "drsNum": 0.563,
     "runNumber": 318,
+    "date": "2026-11-05",
     "rank": "582/988"
   },
   {
@@ -33637,6 +35210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.563",
     "drsNum": 0.563,
     "runNumber": 405,
+    "date": "2026-11-13",
     "rank": "583/988"
   },
   {
@@ -33656,6 +35230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.563",
     "drsNum": 0.563,
     "runNumber": 472,
+    "date": "2026-11-16",
     "rank": "584/988"
   },
   {
@@ -33675,6 +35250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.563",
     "drsNum": 0.563,
     "runNumber": 565,
+    "date": "2026-11-17",
     "rank": "585/988"
   },
   {
@@ -33694,6 +35270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.562",
     "drsNum": 0.562,
     "runNumber": 11,
+    "date": "2026-06-12",
     "rank": "586/988"
   },
   {
@@ -33713,6 +35290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.562",
     "drsNum": 0.562,
     "runNumber": 18,
+    "date": "2026-06-12",
     "rank": "587/988"
   },
   {
@@ -33732,6 +35310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.562",
     "drsNum": 0.562,
     "runNumber": 269,
+    "date": "2026-10-30",
     "rank": "588/988"
   },
   {
@@ -33751,6 +35330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.562",
     "drsNum": 0.562,
     "runNumber": 320,
+    "date": "2026-11-05",
     "rank": "589/988"
   },
   {
@@ -33770,6 +35350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.562",
     "drsNum": 0.562,
     "runNumber": 709,
+    "date": "2026-11-18",
     "rank": "590/988"
   },
   {
@@ -33789,6 +35370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 155,
+    "date": "2026-07-01",
     "rank": "591/988"
   },
   {
@@ -33808,6 +35390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 185,
+    "date": "2026-10-14",
     "rank": "592/988"
   },
   {
@@ -33827,6 +35410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 190,
+    "date": "2026-10-15",
     "rank": "593/988"
   },
   {
@@ -33846,6 +35430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 552,
+    "date": "2026-11-17",
     "rank": "594/988"
   },
   {
@@ -33865,6 +35450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 561,
+    "date": "2026-11-17",
     "rank": "595/988"
   },
   {
@@ -33884,6 +35470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 894,
+    "date": "2026-11-19",
     "rank": "596/988"
   },
   {
@@ -33903,6 +35490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 905,
+    "date": "2026-11-19",
     "rank": "597/988"
   },
   {
@@ -33922,6 +35510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.561",
     "drsNum": 0.561,
     "runNumber": 957,
+    "date": "2026-11-20",
     "rank": "598/988"
   },
   {
@@ -33941,6 +35530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.560",
     "drsNum": 0.56,
     "runNumber": 3,
+    "date": "2026-06-12",
     "rank": "599/988"
   },
   {
@@ -33960,6 +35550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.560",
     "drsNum": 0.56,
     "runNumber": 891,
+    "date": "2026-11-19",
     "rank": "600/988"
   },
   {
@@ -33979,6 +35570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.560",
     "drsNum": 0.56,
     "runNumber": 902,
+    "date": "2026-11-19",
     "rank": "601/988"
   },
   {
@@ -33998,6 +35590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.559",
     "drsNum": 0.559,
     "runNumber": 215,
+    "date": "2026-10-26",
     "rank": "602/988"
   },
   {
@@ -34017,6 +35610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.559",
     "drsNum": 0.559,
     "runNumber": 326,
+    "date": "2026-11-10",
     "rank": "603/988"
   },
   {
@@ -34036,6 +35630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.559",
     "drsNum": 0.559,
     "runNumber": 643,
+    "date": "2026-11-18",
     "rank": "604/988"
   },
   {
@@ -34055,6 +35650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.559",
     "drsNum": 0.559,
     "runNumber": 843,
+    "date": "2026-11-19",
     "rank": "605/988"
   },
   {
@@ -34074,6 +35670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 258,
+    "date": "2026-10-29",
     "rank": "606/988"
   },
   {
@@ -34093,6 +35690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 369,
+    "date": "2026-11-12",
     "rank": "607/988"
   },
   {
@@ -34112,6 +35710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 371,
+    "date": "2026-11-12",
     "rank": "608/988"
   },
   {
@@ -34131,6 +35730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 437,
+    "date": "2026-11-13",
     "rank": "609/988"
   },
   {
@@ -34150,6 +35750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 650,
+    "date": "2026-11-18",
     "rank": "610/988"
   },
   {
@@ -34169,6 +35770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 672,
+    "date": "2026-11-18",
     "rank": "611/988"
   },
   {
@@ -34188,6 +35790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 702,
+    "date": "2026-11-18",
     "rank": "612/988"
   },
   {
@@ -34207,6 +35810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.558",
     "drsNum": 0.558,
     "runNumber": 805,
+    "date": "2026-11-18",
     "rank": "613/988"
   },
   {
@@ -34226,6 +35830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.557",
     "drsNum": 0.557,
     "runNumber": 827,
+    "date": "2026-11-19",
     "rank": "614/988"
   },
   {
@@ -34245,6 +35850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.557",
     "drsNum": 0.557,
     "runNumber": 971,
+    "date": "2026-11-23",
     "rank": "615/988"
   },
   {
@@ -34264,6 +35870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.556",
     "drsNum": 0.556,
     "runNumber": 36,
+    "date": "2026-06-13",
     "rank": "616/988"
   },
   {
@@ -34283,6 +35890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.556",
     "drsNum": 0.556,
     "runNumber": 435,
+    "date": "2026-11-13",
     "rank": "617/988"
   },
   {
@@ -34302,6 +35910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.556",
     "drsNum": 0.556,
     "runNumber": 504,
+    "date": "2026-11-17",
     "rank": "618/988"
   },
   {
@@ -34321,6 +35930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.556",
     "drsNum": 0.556,
     "runNumber": 527,
+    "date": "2026-11-17",
     "rank": "619/988"
   },
   {
@@ -34340,6 +35950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 80,
+    "date": "2026-06-16",
     "rank": "620/988"
   },
   {
@@ -34359,6 +35970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 179,
+    "date": "2026-10-13",
     "rank": "621/988"
   },
   {
@@ -34378,6 +35990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 182,
+    "date": "2026-10-14",
     "rank": "622/988"
   },
   {
@@ -34397,6 +36010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 265,
+    "date": "2026-10-29",
     "rank": "623/988"
   },
   {
@@ -34416,6 +36030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 387,
+    "date": "2026-11-12",
     "rank": "624/988"
   },
   {
@@ -34435,6 +36050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 442,
+    "date": "2026-11-13",
     "rank": "625/988"
   },
   {
@@ -34454,6 +36070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 467,
+    "date": "2026-11-16",
     "rank": "626/988"
   },
   {
@@ -34473,6 +36090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 798,
+    "date": "2026-11-18",
     "rank": "627/988"
   },
   {
@@ -34492,6 +36110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 819,
+    "date": "2026-11-19",
     "rank": "628/988"
   },
   {
@@ -34511,6 +36130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.555",
     "drsNum": 0.555,
     "runNumber": 938,
+    "date": "2026-11-19",
     "rank": "629/988"
   },
   {
@@ -34530,6 +36150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.554",
     "drsNum": 0.554,
     "runNumber": 111,
+    "date": "2026-06-17",
     "rank": "630/988"
   },
   {
@@ -34549,6 +36170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.554",
     "drsNum": 0.554,
     "runNumber": 309,
+    "date": "2026-11-04",
     "rank": "631/988"
   },
   {
@@ -34568,6 +36190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.554",
     "drsNum": 0.554,
     "runNumber": 524,
+    "date": "2026-11-17",
     "rank": "632/988"
   },
   {
@@ -34587,6 +36210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.554",
     "drsNum": 0.554,
     "runNumber": 609,
+    "date": "2026-11-18",
     "rank": "633/988"
   },
   {
@@ -34606,6 +36230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.554",
     "drsNum": 0.554,
     "runNumber": 987,
+    "date": "2026-11-23",
     "rank": "634/988"
   },
   {
@@ -34625,6 +36250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.553",
     "drsNum": 0.553,
     "runNumber": 99,
+    "date": "2026-06-16",
     "rank": "635/988"
   },
   {
@@ -34644,6 +36270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.553",
     "drsNum": 0.553,
     "runNumber": 327,
+    "date": "2026-11-10",
     "rank": "636/988"
   },
   {
@@ -34663,6 +36290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.552",
     "drsNum": 0.552,
     "runNumber": 202,
+    "date": "2026-10-23",
     "rank": "637/988"
   },
   {
@@ -34682,6 +36310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.552",
     "drsNum": 0.552,
     "runNumber": 206,
+    "date": "2026-10-26",
     "rank": "638/988"
   },
   {
@@ -34701,6 +36330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.552",
     "drsNum": 0.552,
     "runNumber": 262,
+    "date": "2026-10-29",
     "rank": "639/988"
   },
   {
@@ -34720,6 +36350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.552",
     "drsNum": 0.552,
     "runNumber": 421,
+    "date": "2026-11-13",
     "rank": "640/988"
   },
   {
@@ -34739,6 +36370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.552",
     "drsNum": 0.552,
     "runNumber": 506,
+    "date": "2026-11-17",
     "rank": "641/988"
   },
   {
@@ -34746,7 +36378,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "name": "liquidai/lfm2.5-350",
     "params": "354.48m",
     "size": "229 MB",
-    "lab": "Meta",
+    "lab": "Liquid AI",
     "accuracy": "0.434",
     "accuracyNum": 0.434,
     "semantic": "0.540",
@@ -34758,6 +36390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.552",
     "drsNum": 0.552,
     "runNumber": 951,
+    "date": "2026-11-20",
     "rank": "642/988"
   },
   {
@@ -34777,6 +36410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.551",
     "drsNum": 0.551,
     "runNumber": 54,
+    "date": "2026-06-14",
     "rank": "643/988"
   },
   {
@@ -34796,6 +36430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.551",
     "drsNum": 0.551,
     "runNumber": 77,
+    "date": "2026-06-16",
     "rank": "644/988"
   },
   {
@@ -34815,6 +36450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.551",
     "drsNum": 0.551,
     "runNumber": 319,
+    "date": "2026-11-05",
     "rank": "645/988"
   },
   {
@@ -34834,6 +36470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.551",
     "drsNum": 0.551,
     "runNumber": 543,
+    "date": "2026-11-17",
     "rank": "646/988"
   },
   {
@@ -34853,6 +36490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.551",
     "drsNum": 0.551,
     "runNumber": 700,
+    "date": "2026-11-18",
     "rank": "647/988"
   },
   {
@@ -34872,6 +36510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.551",
     "drsNum": 0.551,
     "runNumber": 797,
+    "date": "2026-11-18",
     "rank": "648/988"
   },
   {
@@ -34891,6 +36530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.550",
     "drsNum": 0.55,
     "runNumber": 417,
+    "date": "2026-11-13",
     "rank": "649/988"
   },
   {
@@ -34910,6 +36550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.550",
     "drsNum": 0.55,
     "runNumber": 651,
+    "date": "2026-11-18",
     "rank": "650/988"
   },
   {
@@ -34929,6 +36570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.550",
     "drsNum": 0.55,
     "runNumber": 937,
+    "date": "2026-11-19",
     "rank": "651/988"
   },
   {
@@ -34948,6 +36590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.549",
     "drsNum": 0.549,
     "runNumber": 186,
+    "date": "2026-10-14",
     "rank": "652/988"
   },
   {
@@ -34967,6 +36610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.549",
     "drsNum": 0.549,
     "runNumber": 330,
+    "date": "2026-11-10",
     "rank": "653/988"
   },
   {
@@ -34986,6 +36630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.549",
     "drsNum": 0.549,
     "runNumber": 384,
+    "date": "2026-11-12",
     "rank": "654/988"
   },
   {
@@ -35005,6 +36650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.549",
     "drsNum": 0.549,
     "runNumber": 648,
+    "date": "2026-11-18",
     "rank": "655/988"
   },
   {
@@ -35024,6 +36670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.549",
     "drsNum": 0.549,
     "runNumber": 736,
+    "date": "2026-11-18",
     "rank": "656/988"
   },
   {
@@ -35043,6 +36690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.548",
     "drsNum": 0.548,
     "runNumber": 65,
+    "date": "2026-06-15",
     "rank": "657/988"
   },
   {
@@ -35062,6 +36710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.548",
     "drsNum": 0.548,
     "runNumber": 71,
+    "date": "2026-06-15",
     "rank": "658/988"
   },
   {
@@ -35081,6 +36730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.548",
     "drsNum": 0.548,
     "runNumber": 381,
+    "date": "2026-11-12",
     "rank": "659/988"
   },
   {
@@ -35100,6 +36750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.548",
     "drsNum": 0.548,
     "runNumber": 662,
+    "date": "2026-11-18",
     "rank": "660/988"
   },
   {
@@ -35119,6 +36770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.547",
     "drsNum": 0.547,
     "runNumber": 119,
+    "date": "2026-06-17",
     "rank": "661/988"
   },
   {
@@ -35138,6 +36790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.547",
     "drsNum": 0.547,
     "runNumber": 293,
+    "date": "2026-11-03",
     "rank": "662/988"
   },
   {
@@ -35157,6 +36810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.547",
     "drsNum": 0.547,
     "runNumber": 340,
+    "date": "2026-11-11",
     "rank": "663/988"
   },
   {
@@ -35176,6 +36830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.547",
     "drsNum": 0.547,
     "runNumber": 525,
+    "date": "2026-11-17",
     "rank": "664/988"
   },
   {
@@ -35195,6 +36850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.547",
     "drsNum": 0.547,
     "runNumber": 688,
+    "date": "2026-11-18",
     "rank": "665/988"
   },
   {
@@ -35214,6 +36870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.547",
     "drsNum": 0.547,
     "runNumber": 862,
+    "date": "2026-11-19",
     "rank": "666/988"
   },
   {
@@ -35233,6 +36890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.546",
     "drsNum": 0.546,
     "runNumber": 39,
+    "date": "2026-06-13",
     "rank": "667/988"
   },
   {
@@ -35252,6 +36910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.546",
     "drsNum": 0.546,
     "runNumber": 234,
+    "date": "2026-10-27",
     "rank": "668/988"
   },
   {
@@ -35271,6 +36930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.545",
     "drsNum": 0.545,
     "runNumber": 276,
+    "date": "2026-11-02",
     "rank": "669/988"
   },
   {
@@ -35290,6 +36950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.544",
     "drsNum": 0.544,
     "runNumber": 157,
+    "date": "2026-07-01",
     "rank": "670/988"
   },
   {
@@ -35309,6 +36970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.544",
     "drsNum": 0.544,
     "runNumber": 610,
+    "date": "2026-11-18",
     "rank": "671/988"
   },
   {
@@ -35328,6 +36990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.544",
     "drsNum": 0.544,
     "runNumber": 652,
+    "date": "2026-11-18",
     "rank": "672/988"
   },
   {
@@ -35347,6 +37010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.544",
     "drsNum": 0.544,
     "runNumber": 846,
+    "date": "2026-11-19",
     "rank": "673/988"
   },
   {
@@ -35366,6 +37030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.544",
     "drsNum": 0.544,
     "runNumber": 851,
+    "date": "2026-11-19",
     "rank": "674/988"
   },
   {
@@ -35385,6 +37050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.543",
     "drsNum": 0.543,
     "runNumber": 188,
+    "date": "2026-10-14",
     "rank": "675/988"
   },
   {
@@ -35404,6 +37070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.543",
     "drsNum": 0.543,
     "runNumber": 426,
+    "date": "2026-11-13",
     "rank": "676/988"
   },
   {
@@ -35423,6 +37090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.543",
     "drsNum": 0.543,
     "runNumber": 427,
+    "date": "2026-11-13",
     "rank": "677/988"
   },
   {
@@ -35442,6 +37110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.543",
     "drsNum": 0.543,
     "runNumber": 730,
+    "date": "2026-11-18",
     "rank": "678/988"
   },
   {
@@ -35461,6 +37130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.542",
     "drsNum": 0.542,
     "runNumber": 551,
+    "date": "2026-11-17",
     "rank": "679/988"
   },
   {
@@ -35480,6 +37150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.542",
     "drsNum": 0.542,
     "runNumber": 581,
+    "date": "2026-11-17",
     "rank": "680/988"
   },
   {
@@ -35499,6 +37170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.542",
     "drsNum": 0.542,
     "runNumber": 896,
+    "date": "2026-11-19",
     "rank": "681/988"
   },
   {
@@ -35518,6 +37190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.541",
     "drsNum": 0.541,
     "runNumber": 83,
+    "date": "2026-06-16",
     "rank": "682/988"
   },
   {
@@ -35537,6 +37210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.541",
     "drsNum": 0.541,
     "runNumber": 192,
+    "date": "2026-10-15",
     "rank": "683/988"
   },
   {
@@ -35556,6 +37230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.541",
     "drsNum": 0.541,
     "runNumber": 468,
+    "date": "2026-11-16",
     "rank": "684/988"
   },
   {
@@ -35575,6 +37250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.541",
     "drsNum": 0.541,
     "runNumber": 606,
+    "date": "2026-11-18",
     "rank": "685/988"
   },
   {
@@ -35594,6 +37270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.541",
     "drsNum": 0.541,
     "runNumber": 803,
+    "date": "2026-11-18",
     "rank": "686/988"
   },
   {
@@ -35613,6 +37290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.540",
     "drsNum": 0.54,
     "runNumber": 52,
+    "date": "2026-06-14",
     "rank": "687/988"
   },
   {
@@ -35632,6 +37310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.540",
     "drsNum": 0.54,
     "runNumber": 199,
+    "date": "2026-10-23",
     "rank": "688/988"
   },
   {
@@ -35651,6 +37330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.540",
     "drsNum": 0.54,
     "runNumber": 344,
+    "date": "2026-11-11",
     "rank": "689/988"
   },
   {
@@ -35670,6 +37350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.540",
     "drsNum": 0.54,
     "runNumber": 470,
+    "date": "2026-11-16",
     "rank": "690/988"
   },
   {
@@ -35689,6 +37370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.540",
     "drsNum": 0.54,
     "runNumber": 564,
+    "date": "2026-11-17",
     "rank": "691/988"
   },
   {
@@ -35708,6 +37390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.539",
     "drsNum": 0.539,
     "runNumber": 257,
+    "date": "2026-10-29",
     "rank": "692/988"
   },
   {
@@ -35727,6 +37410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.539",
     "drsNum": 0.539,
     "runNumber": 640,
+    "date": "2026-11-18",
     "rank": "693/988"
   },
   {
@@ -35746,6 +37430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.539",
     "drsNum": 0.539,
     "runNumber": 815,
+    "date": "2026-11-19",
     "rank": "694/988"
   },
   {
@@ -35765,6 +37450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 89,
+    "date": "2026-06-16",
     "rank": "695/988"
   },
   {
@@ -35784,6 +37470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 316,
+    "date": "2026-11-05",
     "rank": "696/988"
   },
   {
@@ -35803,6 +37490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 390,
+    "date": "2026-11-12",
     "rank": "697/988"
   },
   {
@@ -35822,6 +37510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 419,
+    "date": "2026-11-13",
     "rank": "698/988"
   },
   {
@@ -35841,6 +37530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 507,
+    "date": "2026-11-17",
     "rank": "699/988"
   },
   {
@@ -35860,6 +37550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 821,
+    "date": "2026-11-19",
     "rank": "700/988"
   },
   {
@@ -35879,6 +37570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.538",
     "drsNum": 0.538,
     "runNumber": 870,
+    "date": "2026-11-19",
     "rank": "701/988"
   },
   {
@@ -35898,6 +37590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.537",
     "drsNum": 0.537,
     "runNumber": 118,
+    "date": "2026-06-17",
     "rank": "702/988"
   },
   {
@@ -35917,6 +37610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.537",
     "drsNum": 0.537,
     "runNumber": 125,
+    "date": "2026-06-17",
     "rank": "703/988"
   },
   {
@@ -35936,6 +37630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.537",
     "drsNum": 0.537,
     "runNumber": 259,
+    "date": "2026-10-29",
     "rank": "704/988"
   },
   {
@@ -35955,6 +37650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.537",
     "drsNum": 0.537,
     "runNumber": 366,
+    "date": "2026-11-12",
     "rank": "705/988"
   },
   {
@@ -35974,6 +37670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.537",
     "drsNum": 0.537,
     "runNumber": 379,
+    "date": "2026-11-12",
     "rank": "706/988"
   },
   {
@@ -35993,6 +37690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.536",
     "drsNum": 0.536,
     "runNumber": 161,
+    "date": "2026-07-01",
     "rank": "707/988"
   },
   {
@@ -36012,6 +37710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.536",
     "drsNum": 0.536,
     "runNumber": 738,
+    "date": "2026-11-18",
     "rank": "708/988"
   },
   {
@@ -36031,6 +37730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.536",
     "drsNum": 0.536,
     "runNumber": 811,
+    "date": "2026-11-19",
     "rank": "709/988"
   },
   {
@@ -36050,6 +37750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.534",
     "drsNum": 0.534,
     "runNumber": 25,
+    "date": "2026-06-13",
     "rank": "710/988"
   },
   {
@@ -36069,6 +37770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.534",
     "drsNum": 0.534,
     "runNumber": 204,
+    "date": "2026-10-26",
     "rank": "711/988"
   },
   {
@@ -36088,6 +37790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.534",
     "drsNum": 0.534,
     "runNumber": 362,
+    "date": "2026-11-12",
     "rank": "712/988"
   },
   {
@@ -36107,6 +37810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.534",
     "drsNum": 0.534,
     "runNumber": 473,
+    "date": "2026-11-16",
     "rank": "713/988"
   },
   {
@@ -36126,6 +37830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.534",
     "drsNum": 0.534,
     "runNumber": 499,
+    "date": "2026-11-17",
     "rank": "714/988"
   },
   {
@@ -36145,6 +37850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.533",
     "drsNum": 0.533,
     "runNumber": 133,
+    "date": "2026-06-17",
     "rank": "715/988"
   },
   {
@@ -36164,6 +37870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.533",
     "drsNum": 0.533,
     "runNumber": 446,
+    "date": "2026-11-13",
     "rank": "716/988"
   },
   {
@@ -36183,6 +37890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.533",
     "drsNum": 0.533,
     "runNumber": 447,
+    "date": "2026-11-13",
     "rank": "717/988"
   },
   {
@@ -36202,6 +37910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.532",
     "drsNum": 0.532,
     "runNumber": 105,
+    "date": "2026-06-17",
     "rank": "718/988"
   },
   {
@@ -36221,6 +37930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.532",
     "drsNum": 0.532,
     "runNumber": 174,
+    "date": "2026-10-08",
     "rank": "719/988"
   },
   {
@@ -36240,6 +37950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.531",
     "drsNum": 0.531,
     "runNumber": 380,
+    "date": "2026-11-12",
     "rank": "720/988"
   },
   {
@@ -36259,6 +37970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.531",
     "drsNum": 0.531,
     "runNumber": 489,
+    "date": "2026-11-16",
     "rank": "721/988"
   },
   {
@@ -36278,6 +37990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.531",
     "drsNum": 0.531,
     "runNumber": 707,
+    "date": "2026-11-18",
     "rank": "722/988"
   },
   {
@@ -36297,6 +38010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.530",
     "drsNum": 0.53,
     "runNumber": 154,
+    "date": "2026-07-01",
     "rank": "723/988"
   },
   {
@@ -36316,6 +38030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.530",
     "drsNum": 0.53,
     "runNumber": 156,
+    "date": "2026-07-01",
     "rank": "724/988"
   },
   {
@@ -36335,6 +38050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.530",
     "drsNum": 0.53,
     "runNumber": 977,
+    "date": "2026-11-23",
     "rank": "725/988"
   },
   {
@@ -36354,6 +38070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.529",
     "drsNum": 0.529,
     "runNumber": 500,
+    "date": "2026-11-17",
     "rank": "726/988"
   },
   {
@@ -36373,6 +38090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.529",
     "drsNum": 0.529,
     "runNumber": 757,
+    "date": "2026-11-18",
     "rank": "727/988"
   },
   {
@@ -36392,6 +38110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.529",
     "drsNum": 0.529,
     "runNumber": 812,
+    "date": "2026-11-19",
     "rank": "728/988"
   },
   {
@@ -36411,6 +38130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.529",
     "drsNum": 0.529,
     "runNumber": 837,
+    "date": "2026-11-19",
     "rank": "729/988"
   },
   {
@@ -36430,6 +38150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.528",
     "drsNum": 0.528,
     "runNumber": 86,
+    "date": "2026-06-16",
     "rank": "730/988"
   },
   {
@@ -36449,6 +38170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.528",
     "drsNum": 0.528,
     "runNumber": 471,
+    "date": "2026-11-16",
     "rank": "731/988"
   },
   {
@@ -36468,6 +38190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.528",
     "drsNum": 0.528,
     "runNumber": 549,
+    "date": "2026-11-17",
     "rank": "732/988"
   },
   {
@@ -36487,6 +38210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.527",
     "drsNum": 0.527,
     "runNumber": 314,
+    "date": "2026-11-05",
     "rank": "733/988"
   },
   {
@@ -36506,6 +38230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.527",
     "drsNum": 0.527,
     "runNumber": 352,
+    "date": "2026-11-12",
     "rank": "734/988"
   },
   {
@@ -36525,6 +38250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.527",
     "drsNum": 0.527,
     "runNumber": 873,
+    "date": "2026-11-19",
     "rank": "735/988"
   },
   {
@@ -36544,6 +38270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.526",
     "drsNum": 0.526,
     "runNumber": 333,
+    "date": "2026-11-11",
     "rank": "736/988"
   },
   {
@@ -36563,6 +38290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.526",
     "drsNum": 0.526,
     "runNumber": 364,
+    "date": "2026-11-12",
     "rank": "737/988"
   },
   {
@@ -36582,6 +38310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.526",
     "drsNum": 0.526,
     "runNumber": 431,
+    "date": "2026-11-13",
     "rank": "738/988"
   },
   {
@@ -36601,6 +38330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.526",
     "drsNum": 0.526,
     "runNumber": 505,
+    "date": "2026-11-17",
     "rank": "739/988"
   },
   {
@@ -36620,6 +38350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.525",
     "drsNum": 0.525,
     "runNumber": 116,
+    "date": "2026-06-17",
     "rank": "740/988"
   },
   {
@@ -36639,6 +38370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.525",
     "drsNum": 0.525,
     "runNumber": 664,
+    "date": "2026-11-18",
     "rank": "741/988"
   },
   {
@@ -36658,6 +38390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.524",
     "drsNum": 0.524,
     "runNumber": 142,
+    "date": "2026-06-17",
     "rank": "742/988"
   },
   {
@@ -36677,6 +38410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.524",
     "drsNum": 0.524,
     "runNumber": 385,
+    "date": "2026-11-12",
     "rank": "743/988"
   },
   {
@@ -36696,6 +38430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.524",
     "drsNum": 0.524,
     "runNumber": 501,
+    "date": "2026-11-17",
     "rank": "744/988"
   },
   {
@@ -36715,6 +38450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.524",
     "drsNum": 0.524,
     "runNumber": 656,
+    "date": "2026-11-18",
     "rank": "745/988"
   },
   {
@@ -36734,6 +38470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.523",
     "drsNum": 0.523,
     "runNumber": 589,
+    "date": "2026-11-17",
     "rank": "746/988"
   },
   {
@@ -36753,6 +38490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.523",
     "drsNum": 0.523,
     "runNumber": 986,
+    "date": "2026-11-23",
     "rank": "747/988"
   },
   {
@@ -36772,6 +38510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.522",
     "drsNum": 0.522,
     "runNumber": 81,
+    "date": "2026-06-16",
     "rank": "748/988"
   },
   {
@@ -36791,6 +38530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.522",
     "drsNum": 0.522,
     "runNumber": 497,
+    "date": "2026-11-17",
     "rank": "749/988"
   },
   {
@@ -36810,6 +38550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.522",
     "drsNum": 0.522,
     "runNumber": 868,
+    "date": "2026-11-19",
     "rank": "750/988"
   },
   {
@@ -36829,6 +38570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.522",
     "drsNum": 0.522,
     "runNumber": 935,
+    "date": "2026-11-19",
     "rank": "751/988"
   },
   {
@@ -36848,6 +38590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.521",
     "drsNum": 0.521,
     "runNumber": 298,
+    "date": "2026-11-03",
     "rank": "752/988"
   },
   {
@@ -36867,6 +38610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.521",
     "drsNum": 0.521,
     "runNumber": 382,
+    "date": "2026-11-12",
     "rank": "753/988"
   },
   {
@@ -36886,6 +38630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.521",
     "drsNum": 0.521,
     "runNumber": 801,
+    "date": "2026-11-18",
     "rank": "754/988"
   },
   {
@@ -36905,6 +38650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.520",
     "drsNum": 0.52,
     "runNumber": 162,
+    "date": "2026-07-01",
     "rank": "755/988"
   },
   {
@@ -36924,6 +38670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.520",
     "drsNum": 0.52,
     "runNumber": 287,
+    "date": "2026-11-02",
     "rank": "756/988"
   },
   {
@@ -36943,6 +38690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.519",
     "drsNum": 0.519,
     "runNumber": 127,
+    "date": "2026-06-17",
     "rank": "757/988"
   },
   {
@@ -36962,6 +38710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.519",
     "drsNum": 0.519,
     "runNumber": 406,
+    "date": "2026-11-13",
     "rank": "758/988"
   },
   {
@@ -36981,6 +38730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.518",
     "drsNum": 0.518,
     "runNumber": 638,
+    "date": "2026-11-18",
     "rank": "759/988"
   },
   {
@@ -37000,6 +38750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.517",
     "drsNum": 0.517,
     "runNumber": 132,
+    "date": "2026-06-17",
     "rank": "760/988"
   },
   {
@@ -37019,6 +38770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.517",
     "drsNum": 0.517,
     "runNumber": 463,
+    "date": "2026-11-16",
     "rank": "761/988"
   },
   {
@@ -37038,6 +38790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.517",
     "drsNum": 0.517,
     "runNumber": 475,
+    "date": "2026-11-16",
     "rank": "762/988"
   },
   {
@@ -37057,6 +38810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.517",
     "drsNum": 0.517,
     "runNumber": 923,
+    "date": "2026-11-19",
     "rank": "763/988"
   },
   {
@@ -37076,6 +38830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.516",
     "drsNum": 0.516,
     "runNumber": 495,
+    "date": "2026-11-17",
     "rank": "764/988"
   },
   {
@@ -37095,6 +38850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.515",
     "drsNum": 0.515,
     "runNumber": 4,
+    "date": "2026-06-12",
     "rank": "765/988"
   },
   {
@@ -37114,6 +38870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.515",
     "drsNum": 0.515,
     "runNumber": 279,
+    "date": "2026-11-02",
     "rank": "766/988"
   },
   {
@@ -37133,6 +38890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.515",
     "drsNum": 0.515,
     "runNumber": 663,
+    "date": "2026-11-18",
     "rank": "767/988"
   },
   {
@@ -37152,6 +38910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.515",
     "drsNum": 0.515,
     "runNumber": 720,
+    "date": "2026-11-18",
     "rank": "768/988"
   },
   {
@@ -37171,6 +38930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.514",
     "drsNum": 0.514,
     "runNumber": 29,
+    "date": "2026-06-13",
     "rank": "769/988"
   },
   {
@@ -37190,6 +38950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.514",
     "drsNum": 0.514,
     "runNumber": 108,
+    "date": "2026-06-17",
     "rank": "770/988"
   },
   {
@@ -37209,6 +38970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.514",
     "drsNum": 0.514,
     "runNumber": 365,
+    "date": "2026-11-12",
     "rank": "771/988"
   },
   {
@@ -37228,6 +38990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.514",
     "drsNum": 0.514,
     "runNumber": 412,
+    "date": "2026-11-13",
     "rank": "772/988"
   },
   {
@@ -37247,6 +39010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.514",
     "drsNum": 0.514,
     "runNumber": 629,
+    "date": "2026-11-18",
     "rank": "773/988"
   },
   {
@@ -37266,6 +39030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.514",
     "drsNum": 0.514,
     "runNumber": 836,
+    "date": "2026-11-19",
     "rank": "774/988"
   },
   {
@@ -37285,6 +39050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.513",
     "drsNum": 0.513,
     "runNumber": 16,
+    "date": "2026-06-12",
     "rank": "775/988"
   },
   {
@@ -37304,6 +39070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.513",
     "drsNum": 0.513,
     "runNumber": 112,
+    "date": "2026-06-17",
     "rank": "776/988"
   },
   {
@@ -37323,6 +39090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.512",
     "drsNum": 0.512,
     "runNumber": 357,
+    "date": "2026-11-12",
     "rank": "777/988"
   },
   {
@@ -37342,6 +39110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.512",
     "drsNum": 0.512,
     "runNumber": 582,
+    "date": "2026-11-17",
     "rank": "778/988"
   },
   {
@@ -37361,6 +39130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.512",
     "drsNum": 0.512,
     "runNumber": 714,
+    "date": "2026-11-18",
     "rank": "779/988"
   },
   {
@@ -37380,6 +39150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.511",
     "drsNum": 0.511,
     "runNumber": 769,
+    "date": "2026-11-18",
     "rank": "780/988"
   },
   {
@@ -37399,6 +39170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.509",
     "drsNum": 0.509,
     "runNumber": 45,
+    "date": "2026-06-14",
     "rank": "781/988"
   },
   {
@@ -37418,6 +39190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.509",
     "drsNum": 0.509,
     "runNumber": 660,
+    "date": "2026-11-18",
     "rank": "782/988"
   },
   {
@@ -37437,6 +39210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.509",
     "drsNum": 0.509,
     "runNumber": 885,
+    "date": "2026-11-19",
     "rank": "783/988"
   },
   {
@@ -37456,6 +39230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.508",
     "drsNum": 0.508,
     "runNumber": 416,
+    "date": "2026-11-13",
     "rank": "784/988"
   },
   {
@@ -37475,6 +39250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.508",
     "drsNum": 0.508,
     "runNumber": 514,
+    "date": "2026-11-17",
     "rank": "785/988"
   },
   {
@@ -37494,6 +39270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.508",
     "drsNum": 0.508,
     "runNumber": 888,
+    "date": "2026-11-19",
     "rank": "786/988"
   },
   {
@@ -37513,6 +39290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.505",
     "drsNum": 0.505,
     "runNumber": 297,
+    "date": "2026-11-03",
     "rank": "787/988"
   },
   {
@@ -37532,6 +39310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.505",
     "drsNum": 0.505,
     "runNumber": 372,
+    "date": "2026-11-12",
     "rank": "788/988"
   },
   {
@@ -37551,6 +39330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.505",
     "drsNum": 0.505,
     "runNumber": 502,
+    "date": "2026-11-17",
     "rank": "789/988"
   },
   {
@@ -37570,6 +39350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.505",
     "drsNum": 0.505,
     "runNumber": 839,
+    "date": "2026-11-19",
     "rank": "790/988"
   },
   {
@@ -37589,6 +39370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.504",
     "drsNum": 0.504,
     "runNumber": 351,
+    "date": "2026-11-12",
     "rank": "791/988"
   },
   {
@@ -37608,6 +39390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.504",
     "drsNum": 0.504,
     "runNumber": 653,
+    "date": "2026-11-18",
     "rank": "792/988"
   },
   {
@@ -37627,6 +39410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.504",
     "drsNum": 0.504,
     "runNumber": 965,
+    "date": "2026-11-20",
     "rank": "793/988"
   },
   {
@@ -37646,6 +39430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.503",
     "drsNum": 0.503,
     "runNumber": 238,
+    "date": "2026-10-28",
     "rank": "794/988"
   },
   {
@@ -37665,6 +39450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.503",
     "drsNum": 0.503,
     "runNumber": 383,
+    "date": "2026-11-12",
     "rank": "795/988"
   },
   {
@@ -37684,6 +39470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.502",
     "drsNum": 0.502,
     "runNumber": 1,
+    "date": "2026-06-12",
     "rank": "796/988"
   },
   {
@@ -37703,6 +39490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.502",
     "drsNum": 0.502,
     "runNumber": 128,
+    "date": "2026-06-17",
     "rank": "797/988"
   },
   {
@@ -37722,6 +39510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.502",
     "drsNum": 0.502,
     "runNumber": 308,
+    "date": "2026-11-04",
     "rank": "798/988"
   },
   {
@@ -37741,6 +39530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.501",
     "drsNum": 0.501,
     "runNumber": 53,
+    "date": "2026-06-14",
     "rank": "799/988"
   },
   {
@@ -37760,6 +39550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.501",
     "drsNum": 0.501,
     "runNumber": 391,
+    "date": "2026-11-12",
     "rank": "800/988"
   },
   {
@@ -37779,6 +39570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.501",
     "drsNum": 0.501,
     "runNumber": 418,
+    "date": "2026-11-13",
     "rank": "801/988"
   },
   {
@@ -37798,6 +39590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.501",
     "drsNum": 0.501,
     "runNumber": 924,
+    "date": "2026-11-19",
     "rank": "802/988"
   },
   {
@@ -37817,6 +39610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.500",
     "drsNum": 0.5,
     "runNumber": 79,
+    "date": "2026-06-16",
     "rank": "803/988"
   },
   {
@@ -37836,6 +39630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.500",
     "drsNum": 0.5,
     "runNumber": 167,
+    "date": "2026-07-01",
     "rank": "804/988"
   },
   {
@@ -37855,6 +39650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.500",
     "drsNum": 0.5,
     "runNumber": 347,
+    "date": "2026-11-12",
     "rank": "805/988"
   },
   {
@@ -37874,6 +39670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.499",
     "drsNum": 0.499,
     "runNumber": 175,
+    "date": "2026-10-08",
     "rank": "806/988"
   },
   {
@@ -37893,6 +39690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.499",
     "drsNum": 0.499,
     "runNumber": 300,
+    "date": "2026-11-04",
     "rank": "807/988"
   },
   {
@@ -37912,6 +39710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.499",
     "drsNum": 0.499,
     "runNumber": 545,
+    "date": "2026-11-17",
     "rank": "808/988"
   },
   {
@@ -37931,6 +39730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.498",
     "drsNum": 0.498,
     "runNumber": 49,
+    "date": "2026-06-14",
     "rank": "809/988"
   },
   {
@@ -37950,6 +39750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.498",
     "drsNum": 0.498,
     "runNumber": 477,
+    "date": "2026-11-16",
     "rank": "810/988"
   },
   {
@@ -37969,6 +39770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.498",
     "drsNum": 0.498,
     "runNumber": 535,
+    "date": "2026-11-17",
     "rank": "811/988"
   },
   {
@@ -37988,6 +39790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.497",
     "drsNum": 0.497,
     "runNumber": 845,
+    "date": "2026-11-19",
     "rank": "812/988"
   },
   {
@@ -38007,6 +39810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.496",
     "drsNum": 0.496,
     "runNumber": 158,
+    "date": "2026-07-01",
     "rank": "813/988"
   },
   {
@@ -38026,6 +39830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.496",
     "drsNum": 0.496,
     "runNumber": 356,
+    "date": "2026-11-12",
     "rank": "814/988"
   },
   {
@@ -38045,6 +39850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.495",
     "drsNum": 0.495,
     "runNumber": 281,
+    "date": "2026-11-02",
     "rank": "815/988"
   },
   {
@@ -38064,6 +39870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.495",
     "drsNum": 0.495,
     "runNumber": 337,
+    "date": "2026-11-11",
     "rank": "816/988"
   },
   {
@@ -38083,6 +39890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.494",
     "drsNum": 0.494,
     "runNumber": 163,
+    "date": "2026-07-01",
     "rank": "817/988"
   },
   {
@@ -38102,6 +39910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.494",
     "drsNum": 0.494,
     "runNumber": 255,
+    "date": "2026-10-29",
     "rank": "818/988"
   },
   {
@@ -38121,6 +39930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.494",
     "drsNum": 0.494,
     "runNumber": 510,
+    "date": "2026-11-17",
     "rank": "819/988"
   },
   {
@@ -38140,6 +39950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.494",
     "drsNum": 0.494,
     "runNumber": 641,
+    "date": "2026-11-18",
     "rank": "820/988"
   },
   {
@@ -38159,6 +39970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.494",
     "drsNum": 0.494,
     "runNumber": 722,
+    "date": "2026-11-18",
     "rank": "821/988"
   },
   {
@@ -38178,6 +39990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.493",
     "drsNum": 0.493,
     "runNumber": 135,
+    "date": "2026-06-17",
     "rank": "822/988"
   },
   {
@@ -38197,6 +40010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.493",
     "drsNum": 0.493,
     "runNumber": 659,
+    "date": "2026-11-18",
     "rank": "823/988"
   },
   {
@@ -38216,6 +40030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.492",
     "drsNum": 0.492,
     "runNumber": 360,
+    "date": "2026-11-12",
     "rank": "824/988"
   },
   {
@@ -38235,6 +40050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.492",
     "drsNum": 0.492,
     "runNumber": 930,
+    "date": "2026-11-19",
     "rank": "825/988"
   },
   {
@@ -38254,6 +40070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.491",
     "drsNum": 0.491,
     "runNumber": 172,
+    "date": "2026-07-01",
     "rank": "826/988"
   },
   {
@@ -38273,6 +40090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.490",
     "drsNum": 0.49,
     "runNumber": 106,
+    "date": "2026-06-17",
     "rank": "827/988"
   },
   {
@@ -38292,6 +40110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.490",
     "drsNum": 0.49,
     "runNumber": 141,
+    "date": "2026-06-17",
     "rank": "828/988"
   },
   {
@@ -38311,6 +40130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.490",
     "drsNum": 0.49,
     "runNumber": 370,
+    "date": "2026-11-12",
     "rank": "829/988"
   },
   {
@@ -38330,6 +40150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.489",
     "drsNum": 0.489,
     "runNumber": 655,
+    "date": "2026-11-18",
     "rank": "830/988"
   },
   {
@@ -38349,6 +40170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.487",
     "drsNum": 0.487,
     "runNumber": 176,
+    "date": "2026-10-09",
     "rank": "831/988"
   },
   {
@@ -38368,6 +40190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.487",
     "drsNum": 0.487,
     "runNumber": 931,
+    "date": "2026-11-19",
     "rank": "832/988"
   },
   {
@@ -38387,6 +40210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.486",
     "drsNum": 0.486,
     "runNumber": 2,
+    "date": "2026-06-12",
     "rank": "833/988"
   },
   {
@@ -38406,6 +40230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.485",
     "drsNum": 0.485,
     "runNumber": 286,
+    "date": "2026-11-02",
     "rank": "834/988"
   },
   {
@@ -38425,6 +40250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.483",
     "drsNum": 0.483,
     "runNumber": 802,
+    "date": "2026-11-18",
     "rank": "835/988"
   },
   {
@@ -38444,6 +40270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.482",
     "drsNum": 0.482,
     "runNumber": 476,
+    "date": "2026-11-16",
     "rank": "836/988"
   },
   {
@@ -38463,6 +40290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.482",
     "drsNum": 0.482,
     "runNumber": 922,
+    "date": "2026-11-19",
     "rank": "837/988"
   },
   {
@@ -38482,6 +40310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.481",
     "drsNum": 0.481,
     "runNumber": 55,
+    "date": "2026-06-14",
     "rank": "838/988"
   },
   {
@@ -38501,6 +40330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.481",
     "drsNum": 0.481,
     "runNumber": 87,
+    "date": "2026-06-16",
     "rank": "839/988"
   },
   {
@@ -38520,6 +40350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.481",
     "drsNum": 0.481,
     "runNumber": 295,
+    "date": "2026-11-03",
     "rank": "840/988"
   },
   {
@@ -38539,6 +40370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.481",
     "drsNum": 0.481,
     "runNumber": 306,
+    "date": "2026-11-04",
     "rank": "841/988"
   },
   {
@@ -38558,6 +40390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.480",
     "drsNum": 0.48,
     "runNumber": 138,
+    "date": "2026-06-17",
     "rank": "842/988"
   },
   {
@@ -38577,6 +40410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.480",
     "drsNum": 0.48,
     "runNumber": 211,
+    "date": "2026-10-26",
     "rank": "843/988"
   },
   {
@@ -38596,6 +40430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.480",
     "drsNum": 0.48,
     "runNumber": 335,
+    "date": "2026-11-11",
     "rank": "844/988"
   },
   {
@@ -38615,6 +40450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.480",
     "drsNum": 0.48,
     "runNumber": 649,
+    "date": "2026-11-18",
     "rank": "845/988"
   },
   {
@@ -38634,6 +40470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.479",
     "drsNum": 0.479,
     "runNumber": 159,
+    "date": "2026-07-01",
     "rank": "846/988"
   },
   {
@@ -38653,6 +40490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.479",
     "drsNum": 0.479,
     "runNumber": 373,
+    "date": "2026-11-12",
     "rank": "847/988"
   },
   {
@@ -38672,6 +40510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.479",
     "drsNum": 0.479,
     "runNumber": 399,
+    "date": "2026-11-12",
     "rank": "848/988"
   },
   {
@@ -38691,6 +40530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.478",
     "drsNum": 0.478,
     "runNumber": 129,
+    "date": "2026-06-17",
     "rank": "849/988"
   },
   {
@@ -38710,6 +40550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.477",
     "drsNum": 0.477,
     "runNumber": 260,
+    "date": "2026-10-29",
     "rank": "850/988"
   },
   {
@@ -38729,6 +40570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.476",
     "drsNum": 0.476,
     "runNumber": 562,
+    "date": "2026-11-17",
     "rank": "851/988"
   },
   {
@@ -38748,6 +40590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.476",
     "drsNum": 0.476,
     "runNumber": 983,
+    "date": "2026-11-23",
     "rank": "852/988"
   },
   {
@@ -38767,6 +40610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.475",
     "drsNum": 0.475,
     "runNumber": 342,
+    "date": "2026-11-11",
     "rank": "853/988"
   },
   {
@@ -38786,6 +40630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.475",
     "drsNum": 0.475,
     "runNumber": 503,
+    "date": "2026-11-17",
     "rank": "854/988"
   },
   {
@@ -38805,6 +40650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.474",
     "drsNum": 0.474,
     "runNumber": 22,
+    "date": "2026-06-13",
     "rank": "855/988"
   },
   {
@@ -38824,6 +40670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.474",
     "drsNum": 0.474,
     "runNumber": 346,
+    "date": "2026-11-12",
     "rank": "856/988"
   },
   {
@@ -38843,6 +40690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.474",
     "drsNum": 0.474,
     "runNumber": 849,
+    "date": "2026-11-19",
     "rank": "857/988"
   },
   {
@@ -38862,6 +40710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.473",
     "drsNum": 0.473,
     "runNumber": 654,
+    "date": "2026-11-18",
     "rank": "858/988"
   },
   {
@@ -38881,6 +40730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.472",
     "drsNum": 0.472,
     "runNumber": 459,
+    "date": "2026-11-16",
     "rank": "859/988"
   },
   {
@@ -38900,6 +40750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.472",
     "drsNum": 0.472,
     "runNumber": 474,
+    "date": "2026-11-16",
     "rank": "860/988"
   },
   {
@@ -38919,6 +40770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.472",
     "drsNum": 0.472,
     "runNumber": 516,
+    "date": "2026-11-17",
     "rank": "861/988"
   },
   {
@@ -38938,6 +40790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.472",
     "drsNum": 0.472,
     "runNumber": 966,
+    "date": "2026-11-20",
     "rank": "862/988"
   },
   {
@@ -38957,6 +40810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.470",
     "drsNum": 0.47,
     "runNumber": 107,
+    "date": "2026-06-17",
     "rank": "863/988"
   },
   {
@@ -38976,6 +40830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.469",
     "drsNum": 0.469,
     "runNumber": 165,
+    "date": "2026-07-01",
     "rank": "864/988"
   },
   {
@@ -38995,6 +40850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.469",
     "drsNum": 0.469,
     "runNumber": 450,
+    "date": "2026-11-16",
     "rank": "865/988"
   },
   {
@@ -39014,6 +40870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.468",
     "drsNum": 0.468,
     "runNumber": 166,
+    "date": "2026-07-01",
     "rank": "866/988"
   },
   {
@@ -39033,6 +40890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.468",
     "drsNum": 0.468,
     "runNumber": 303,
+    "date": "2026-11-04",
     "rank": "867/988"
   },
   {
@@ -39052,6 +40910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.468",
     "drsNum": 0.468,
     "runNumber": 528,
+    "date": "2026-11-17",
     "rank": "868/988"
   },
   {
@@ -39071,6 +40930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.467",
     "drsNum": 0.467,
     "runNumber": 264,
+    "date": "2026-10-29",
     "rank": "869/988"
   },
   {
@@ -39090,6 +40950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.467",
     "drsNum": 0.467,
     "runNumber": 304,
+    "date": "2026-11-04",
     "rank": "870/988"
   },
   {
@@ -39109,6 +40970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.466",
     "drsNum": 0.466,
     "runNumber": 378,
+    "date": "2026-11-12",
     "rank": "871/988"
   },
   {
@@ -39128,6 +40990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.465",
     "drsNum": 0.465,
     "runNumber": 779,
+    "date": "2026-11-18",
     "rank": "872/988"
   },
   {
@@ -39147,6 +41010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.464",
     "drsNum": 0.464,
     "runNumber": 82,
+    "date": "2026-06-16",
     "rank": "873/988"
   },
   {
@@ -39166,6 +41030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.462",
     "drsNum": 0.462,
     "runNumber": 884,
+    "date": "2026-11-19",
     "rank": "874/988"
   },
   {
@@ -39185,6 +41050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.461",
     "drsNum": 0.461,
     "runNumber": 339,
+    "date": "2026-11-11",
     "rank": "875/988"
   },
   {
@@ -39204,6 +41070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.460",
     "drsNum": 0.46,
     "runNumber": 228,
+    "date": "2026-10-27",
     "rank": "876/988"
   },
   {
@@ -39223,6 +41090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.459",
     "drsNum": 0.459,
     "runNumber": 349,
+    "date": "2026-11-12",
     "rank": "877/988"
   },
   {
@@ -39242,6 +41110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.459",
     "drsNum": 0.459,
     "runNumber": 512,
+    "date": "2026-11-17",
     "rank": "878/988"
   },
   {
@@ -39261,6 +41130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.458",
     "drsNum": 0.458,
     "runNumber": 375,
+    "date": "2026-11-12",
     "rank": "879/988"
   },
   {
@@ -39280,6 +41150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.458",
     "drsNum": 0.458,
     "runNumber": 665,
+    "date": "2026-11-18",
     "rank": "880/988"
   },
   {
@@ -39299,6 +41170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.458",
     "drsNum": 0.458,
     "runNumber": 883,
+    "date": "2026-11-19",
     "rank": "881/988"
   },
   {
@@ -39318,6 +41190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.457",
     "drsNum": 0.457,
     "runNumber": 345,
+    "date": "2026-11-12",
     "rank": "882/988"
   },
   {
@@ -39337,6 +41210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.456",
     "drsNum": 0.456,
     "runNumber": 171,
+    "date": "2026-07-01",
     "rank": "883/988"
   },
   {
@@ -39356,6 +41230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.455",
     "drsNum": 0.455,
     "runNumber": 85,
+    "date": "2026-06-16",
     "rank": "884/988"
   },
   {
@@ -39375,6 +41250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.455",
     "drsNum": 0.455,
     "runNumber": 90,
+    "date": "2026-06-16",
     "rank": "885/988"
   },
   {
@@ -39394,6 +41270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.455",
     "drsNum": 0.455,
     "runNumber": 920,
+    "date": "2026-11-19",
     "rank": "886/988"
   },
   {
@@ -39413,6 +41290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.454",
     "drsNum": 0.454,
     "runNumber": 443,
+    "date": "2026-11-13",
     "rank": "887/988"
   },
   {
@@ -39432,6 +41310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.453",
     "drsNum": 0.453,
     "runNumber": 249,
+    "date": "2026-10-28",
     "rank": "888/988"
   },
   {
@@ -39451,6 +41330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.453",
     "drsNum": 0.453,
     "runNumber": 515,
+    "date": "2026-11-17",
     "rank": "889/988"
   },
   {
@@ -39470,6 +41350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.453",
     "drsNum": 0.453,
     "runNumber": 537,
+    "date": "2026-11-17",
     "rank": "890/988"
   },
   {
@@ -39489,6 +41370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.452",
     "drsNum": 0.452,
     "runNumber": 169,
+    "date": "2026-07-01",
     "rank": "891/988"
   },
   {
@@ -39508,6 +41390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.451",
     "drsNum": 0.451,
     "runNumber": 164,
+    "date": "2026-07-01",
     "rank": "892/988"
   },
   {
@@ -39527,6 +41410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.450",
     "drsNum": 0.45,
     "runNumber": 400,
+    "date": "2026-11-13",
     "rank": "893/988"
   },
   {
@@ -39546,6 +41430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.450",
     "drsNum": 0.45,
     "runNumber": 921,
+    "date": "2026-11-19",
     "rank": "894/988"
   },
   {
@@ -39565,6 +41450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.448",
     "drsNum": 0.448,
     "runNumber": 173,
+    "date": "2026-07-01",
     "rank": "895/988"
   },
   {
@@ -39584,6 +41470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.447",
     "drsNum": 0.447,
     "runNumber": 686,
+    "date": "2026-11-18",
     "rank": "896/988"
   },
   {
@@ -39603,6 +41490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.447",
     "drsNum": 0.447,
     "runNumber": 882,
+    "date": "2026-11-19",
     "rank": "897/988"
   },
   {
@@ -39622,6 +41510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.445",
     "drsNum": 0.445,
     "runNumber": 324,
+    "date": "2026-11-10",
     "rank": "898/988"
   },
   {
@@ -39641,6 +41530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.444",
     "drsNum": 0.444,
     "runNumber": 109,
+    "date": "2026-06-17",
     "rank": "899/988"
   },
   {
@@ -39660,6 +41550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.442",
     "drsNum": 0.442,
     "runNumber": 832,
+    "date": "2026-11-19",
     "rank": "900/988"
   },
   {
@@ -39679,6 +41570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.441",
     "drsNum": 0.441,
     "runNumber": 160,
+    "date": "2026-07-01",
     "rank": "901/988"
   },
   {
@@ -39698,6 +41590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.441",
     "drsNum": 0.441,
     "runNumber": 168,
+    "date": "2026-07-01",
     "rank": "902/988"
   },
   {
@@ -39717,6 +41610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.440",
     "drsNum": 0.44,
     "runNumber": 110,
+    "date": "2026-06-17",
     "rank": "903/988"
   },
   {
@@ -39736,6 +41630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.440",
     "drsNum": 0.44,
     "runNumber": 184,
+    "date": "2026-10-14",
     "rank": "904/988"
   },
   {
@@ -39755,6 +41650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.440",
     "drsNum": 0.44,
     "runNumber": 755,
+    "date": "2026-11-18",
     "rank": "905/988"
   },
   {
@@ -39774,6 +41670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.439",
     "drsNum": 0.439,
     "runNumber": 130,
+    "date": "2026-06-17",
     "rank": "906/988"
   },
   {
@@ -39793,6 +41690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.438",
     "drsNum": 0.438,
     "runNumber": 479,
+    "date": "2026-11-16",
     "rank": "907/988"
   },
   {
@@ -39812,6 +41710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.436",
     "drsNum": 0.436,
     "runNumber": 354,
+    "date": "2026-11-12",
     "rank": "908/988"
   },
   {
@@ -39831,6 +41730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.436",
     "drsNum": 0.436,
     "runNumber": 494,
+    "date": "2026-11-17",
     "rank": "909/988"
   },
   {
@@ -39850,6 +41750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.433",
     "drsNum": 0.433,
     "runNumber": 329,
+    "date": "2026-11-10",
     "rank": "910/988"
   },
   {
@@ -39869,6 +41770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.433",
     "drsNum": 0.433,
     "runNumber": 374,
+    "date": "2026-11-12",
     "rank": "911/988"
   },
   {
@@ -39888,6 +41790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.433",
     "drsNum": 0.433,
     "runNumber": 683,
+    "date": "2026-11-18",
     "rank": "912/988"
   },
   {
@@ -39907,6 +41810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.432",
     "drsNum": 0.432,
     "runNumber": 679,
+    "date": "2026-11-18",
     "rank": "913/988"
   },
   {
@@ -39926,6 +41830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.430",
     "drsNum": 0.43,
     "runNumber": 404,
+    "date": "2026-11-13",
     "rank": "914/988"
   },
   {
@@ -39945,6 +41850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.430",
     "drsNum": 0.43,
     "runNumber": 880,
+    "date": "2026-11-19",
     "rank": "915/988"
   },
   {
@@ -39964,6 +41870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.428",
     "drsNum": 0.428,
     "runNumber": 760,
+    "date": "2026-11-18",
     "rank": "916/988"
   },
   {
@@ -39983,6 +41890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.425",
     "drsNum": 0.425,
     "runNumber": 785,
+    "date": "2026-11-18",
     "rank": "917/988"
   },
   {
@@ -40002,6 +41910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.418",
     "drsNum": 0.418,
     "runNumber": 283,
+    "date": "2026-11-02",
     "rank": "918/988"
   },
   {
@@ -40021,6 +41930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.418",
     "drsNum": 0.418,
     "runNumber": 834,
+    "date": "2026-11-19",
     "rank": "919/988"
   },
   {
@@ -40040,6 +41950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.417",
     "drsNum": 0.417,
     "runNumber": 236,
+    "date": "2026-10-27",
     "rank": "920/988"
   },
   {
@@ -40059,6 +41970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.415",
     "drsNum": 0.415,
     "runNumber": 280,
+    "date": "2026-11-02",
     "rank": "921/988"
   },
   {
@@ -40078,6 +41990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.415",
     "drsNum": 0.415,
     "runNumber": 498,
+    "date": "2026-11-17",
     "rank": "922/988"
   },
   {
@@ -40097,6 +42010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.414",
     "drsNum": 0.414,
     "runNumber": 513,
+    "date": "2026-11-17",
     "rank": "923/988"
   },
   {
@@ -40116,6 +42030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.410",
     "drsNum": 0.41,
     "runNumber": 254,
+    "date": "2026-10-29",
     "rank": "924/988"
   },
   {
@@ -40135,6 +42050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.410",
     "drsNum": 0.41,
     "runNumber": 833,
+    "date": "2026-11-19",
     "rank": "925/988"
   },
   {
@@ -40154,6 +42070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.408",
     "drsNum": 0.408,
     "runNumber": 465,
+    "date": "2026-11-16",
     "rank": "926/988"
   },
   {
@@ -40173,6 +42090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.405",
     "drsNum": 0.405,
     "runNumber": 377,
+    "date": "2026-11-12",
     "rank": "927/988"
   },
   {
@@ -40192,6 +42110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.400",
     "drsNum": 0.4,
     "runNumber": 210,
+    "date": "2026-10-26",
     "rank": "928/988"
   },
   {
@@ -40211,6 +42130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.399",
     "drsNum": 0.399,
     "runNumber": 800,
+    "date": "2026-11-18",
     "rank": "929/988"
   },
   {
@@ -40230,6 +42150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.396",
     "drsNum": 0.396,
     "runNumber": 205,
+    "date": "2026-10-26",
     "rank": "930/988"
   },
   {
@@ -40249,6 +42170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.393",
     "drsNum": 0.393,
     "runNumber": 628,
+    "date": "2026-11-18",
     "rank": "931/988"
   },
   {
@@ -40268,6 +42190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.386",
     "drsNum": 0.386,
     "runNumber": 140,
+    "date": "2026-06-17",
     "rank": "932/988"
   },
   {
@@ -40287,6 +42210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.385",
     "drsNum": 0.385,
     "runNumber": 881,
+    "date": "2026-11-19",
     "rank": "933/988"
   },
   {
@@ -40306,6 +42230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.383",
     "drsNum": 0.383,
     "runNumber": 964,
+    "date": "2026-11-20",
     "rank": "934/988"
   },
   {
@@ -40325,6 +42250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.382",
     "drsNum": 0.382,
     "runNumber": 183,
+    "date": "2026-10-14",
     "rank": "935/988"
   },
   {
@@ -40344,6 +42270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.382",
     "drsNum": 0.382,
     "runNumber": 248,
+    "date": "2026-10-28",
     "rank": "936/988"
   },
   {
@@ -40363,6 +42290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.380",
     "drsNum": 0.38,
     "runNumber": 296,
+    "date": "2026-11-03",
     "rank": "937/988"
   },
   {
@@ -40382,6 +42310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.373",
     "drsNum": 0.373,
     "runNumber": 422,
+    "date": "2026-11-13",
     "rank": "938/988"
   },
   {
@@ -40401,6 +42330,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.370",
     "drsNum": 0.37,
     "runNumber": 478,
+    "date": "2026-11-16",
     "rank": "939/988"
   },
   {
@@ -40420,6 +42350,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.369",
     "drsNum": 0.369,
     "runNumber": 217,
+    "date": "2026-10-26",
     "rank": "940/988"
   },
   {
@@ -40439,6 +42370,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.368",
     "drsNum": 0.368,
     "runNumber": 325,
+    "date": "2026-11-10",
     "rank": "941/988"
   },
   {
@@ -40458,6 +42390,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.368",
     "drsNum": 0.368,
     "runNumber": 933,
+    "date": "2026-11-19",
     "rank": "942/988"
   },
   {
@@ -40477,6 +42410,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.366",
     "drsNum": 0.366,
     "runNumber": 509,
+    "date": "2026-11-17",
     "rank": "943/988"
   },
   {
@@ -40496,6 +42430,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.365",
     "drsNum": 0.365,
     "runNumber": 879,
+    "date": "2026-11-19",
     "rank": "944/988"
   },
   {
@@ -40515,6 +42450,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.364",
     "drsNum": 0.364,
     "runNumber": 511,
+    "date": "2026-11-17",
     "rank": "945/988"
   },
   {
@@ -40534,6 +42470,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.363",
     "drsNum": 0.363,
     "runNumber": 835,
+    "date": "2026-11-19",
     "rank": "946/988"
   },
   {
@@ -40553,6 +42490,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.362",
     "drsNum": 0.362,
     "runNumber": 689,
+    "date": "2026-11-18",
     "rank": "947/988"
   },
   {
@@ -40572,6 +42510,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.358",
     "drsNum": 0.358,
     "runNumber": 37,
+    "date": "2026-06-13",
     "rank": "948/988"
   },
   {
@@ -40591,6 +42530,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.358",
     "drsNum": 0.358,
     "runNumber": 774,
+    "date": "2026-11-18",
     "rank": "949/988"
   },
   {
@@ -40610,6 +42550,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.355",
     "drsNum": 0.355,
     "runNumber": 963,
+    "date": "2026-11-20",
     "rank": "950/988"
   },
   {
@@ -40629,6 +42570,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.354",
     "drsNum": 0.354,
     "runNumber": 630,
+    "date": "2026-11-18",
     "rank": "951/988"
   },
   {
@@ -40648,6 +42590,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.351",
     "drsNum": 0.351,
     "runNumber": 934,
+    "date": "2026-11-19",
     "rank": "952/988"
   },
   {
@@ -40667,6 +42610,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.341",
     "drsNum": 0.341,
     "runNumber": 334,
+    "date": "2026-11-11",
     "rank": "953/988"
   },
   {
@@ -40686,6 +42630,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.336",
     "drsNum": 0.336,
     "runNumber": 338,
+    "date": "2026-11-11",
     "rank": "954/988"
   },
   {
@@ -40705,6 +42650,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.333",
     "drsNum": 0.333,
     "runNumber": 7,
+    "date": "2026-06-12",
     "rank": "955/988"
   },
   {
@@ -40724,6 +42670,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.327",
     "drsNum": 0.327,
     "runNumber": 181,
+    "date": "2026-10-14",
     "rank": "956/988"
   },
   {
@@ -40743,6 +42690,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.324",
     "drsNum": 0.324,
     "runNumber": 137,
+    "date": "2026-06-17",
     "rank": "957/988"
   },
   {
@@ -40762,6 +42710,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.313",
     "drsNum": 0.313,
     "runNumber": 328,
+    "date": "2026-11-10",
     "rank": "958/988"
   },
   {
@@ -40781,6 +42730,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.310",
     "drsNum": 0.31,
     "runNumber": 131,
+    "date": "2026-06-17",
     "rank": "959/988"
   },
   {
@@ -40800,6 +42750,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.310",
     "drsNum": 0.31,
     "runNumber": 932,
+    "date": "2026-11-19",
     "rank": "960/988"
   },
   {
@@ -40819,6 +42770,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.305",
     "drsNum": 0.305,
     "runNumber": 40,
+    "date": "2026-06-13",
     "rank": "961/988"
   },
   {
@@ -40838,6 +42790,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.305",
     "drsNum": 0.305,
     "runNumber": 288,
+    "date": "2026-11-02",
     "rank": "962/988"
   },
   {
@@ -40857,6 +42810,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.303",
     "drsNum": 0.303,
     "runNumber": 134,
+    "date": "2026-06-17",
     "rank": "963/988"
   },
   {
@@ -40876,6 +42830,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.302",
     "drsNum": 0.302,
     "runNumber": 218,
+    "date": "2026-10-26",
     "rank": "964/988"
   },
   {
@@ -40895,6 +42850,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.301",
     "drsNum": 0.301,
     "runNumber": 152,
+    "date": "2026-06-30",
     "rank": "965/988"
   },
   {
@@ -40914,6 +42870,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.301",
     "drsNum": 0.301,
     "runNumber": 929,
+    "date": "2026-11-19",
     "rank": "966/988"
   },
   {
@@ -40933,6 +42890,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.292",
     "drsNum": 0.292,
     "runNumber": 170,
+    "date": "2026-07-01",
     "rank": "967/988"
   },
   {
@@ -40952,6 +42910,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.286",
     "drsNum": 0.286,
     "runNumber": 482,
+    "date": "2026-11-16",
     "rank": "968/988"
   },
   {
@@ -40971,6 +42930,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.283",
     "drsNum": 0.283,
     "runNumber": 44,
+    "date": "2026-06-14",
     "rank": "969/988"
   },
   {
@@ -40990,6 +42950,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.282",
     "drsNum": 0.282,
     "runNumber": 38,
+    "date": "2026-06-13",
     "rank": "970/988"
   },
   {
@@ -41009,6 +42970,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.274",
     "drsNum": 0.274,
     "runNumber": 331,
+    "date": "2026-11-10",
     "rank": "971/988"
   },
   {
@@ -41028,6 +42990,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.274",
     "drsNum": 0.274,
     "runNumber": 927,
+    "date": "2026-11-19",
     "rank": "972/988"
   },
   {
@@ -41047,6 +43010,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.269",
     "drsNum": 0.269,
     "runNumber": 926,
+    "date": "2026-11-19",
     "rank": "973/988"
   },
   {
@@ -41066,6 +43030,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.258",
     "drsNum": 0.258,
     "runNumber": 145,
+    "date": "2026-06-30",
     "rank": "974/988"
   },
   {
@@ -41085,6 +43050,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.255",
     "drsNum": 0.255,
     "runNumber": 245,
+    "date": "2026-10-28",
     "rank": "975/988"
   },
   {
@@ -41104,6 +43070,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.251",
     "drsNum": 0.251,
     "runNumber": 350,
+    "date": "2026-11-12",
     "rank": "976/988"
   },
   {
@@ -41123,6 +43090,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.246",
     "drsNum": 0.246,
     "runNumber": 42,
+    "date": "2026-06-14",
     "rank": "977/988"
   },
   {
@@ -41142,6 +43110,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.237",
     "drsNum": 0.237,
     "runNumber": 696,
+    "date": "2026-11-18",
     "rank": "978/988"
   },
   {
@@ -41161,6 +43130,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.235",
     "drsNum": 0.235,
     "runNumber": 143,
+    "date": "2026-06-17",
     "rank": "979/988"
   },
   {
@@ -41180,6 +43150,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.228",
     "drsNum": 0.228,
     "runNumber": 483,
+    "date": "2026-11-16",
     "rank": "980/988"
   },
   {
@@ -41199,6 +43170,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.225",
     "drsNum": 0.225,
     "runNumber": 409,
+    "date": "2026-11-13",
     "rank": "981/988"
   },
   {
@@ -41218,6 +43190,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.220",
     "drsNum": 0.22,
     "runNumber": 693,
+    "date": "2026-11-18",
     "rank": "982/988"
   },
   {
@@ -41237,6 +43210,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.220",
     "drsNum": 0.22,
     "runNumber": 925,
+    "date": "2026-11-19",
     "rank": "983/988"
   },
   {
@@ -41256,6 +43230,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.215",
     "drsNum": 0.215,
     "runNumber": 341,
+    "date": "2026-11-11",
     "rank": "984/988"
   },
   {
@@ -41275,6 +43250,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.215",
     "drsNum": 0.215,
     "runNumber": 425,
+    "date": "2026-11-13",
     "rank": "985/988"
   },
   {
@@ -41294,6 +43270,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.215",
     "drsNum": 0.215,
     "runNumber": 928,
+    "date": "2026-11-19",
     "rank": "986/988"
   },
   {
@@ -41313,6 +43290,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.193",
     "drsNum": 0.193,
     "runNumber": 691,
+    "date": "2026-11-18",
     "rank": "987/988"
   },
   {
@@ -41332,6 +43310,7 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = [
     "drs": "0.176",
     "drsNum": 0.176,
     "runNumber": 250,
+    "date": "2026-10-28",
     "rank": "988/988"
   }
 ];

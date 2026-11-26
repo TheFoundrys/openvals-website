@@ -8,7 +8,7 @@ export default function MethodologyPage() {
   return (
     <>
       <Header />
-      <main style={{ minHeight: "100vh", backgroundColor: "#fafaf9" }}>
+      <main style={{ minHeight: "100vh", backgroundColor: "var(--primary-bg)" }}>
         <MethodologyView />
       </main>
       <Footer />

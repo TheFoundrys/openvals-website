@@ -237,7 +237,7 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
   },
   "/openvals-index": {
     title: "OpenVals Index",
-    description: "The OpenVals Index for tracking model performance, trust, and frontier risk evaluations.",
+    description: "The OpenVals Index: AI models ranked by DRS Trust Score, with accuracy, latency, and the speed and trust frontiers.",
     priority: 0.85,
   },
   "/research": {

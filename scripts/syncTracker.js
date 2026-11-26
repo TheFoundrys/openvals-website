@@ -1,12 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 const xlsx = require('xlsx');
+const { buildLeaderboard, buildValsIndex } = require('./leaderboard');
+const { buildReportsFeed, parseRunDate } = require('./reportsFeed');
 
 const DEFAULT_SHAREPOINT_URL =
   'https://techoptima1-my.sharepoint.com/:x:/g/personal/krishna_avula_techoptima_ai/IQBjWJjpczJyR7-ReQj5TzqtAc2o0S7BFX68DN2pQ8qOvMU?download=1';
 
 const TRACKER_URL = process.env.TRACKER_EXCEL_URL || DEFAULT_SHAREPOINT_URL;
 const LOCAL_BACKUP_PATH = path.join(__dirname, '..', 'scratch', 'tracker.xlsx');
+const LEADERBOARD_HISTORY_PATH = path.join(__dirname, 'leaderboard-history.json');
 
 async function fetchExcelBuffer(url) {
   try {
@@ -53,30 +56,31 @@ async function fetchExcelBuffer(url) {
   }
 }
 
-const LAB_CONFIGS = {
-  'Agentica': { displayName: 'DEEPSCALER', version: '1.5B', color: '#f43f5e', textColor: '#ffffff', cost: 0.2, costLabel: '$0.20', tokenUsage: 3400, tokenLabel: '3.4k' },
-  'Tencent': { displayName: 'HUNYUAN', version: '1.8B', color: '#475569', textColor: '#ffffff', cost: 0.25, costLabel: '$0.25', tokenUsage: 3600, tokenLabel: '3.6k' },
-  'IBM': { displayName: 'GRANITE 3.3', version: '2.0B', color: '#1d4ed8', textColor: '#ffffff', cost: 0.3, costLabel: '$0.30', tokenUsage: 3200, tokenLabel: '3.2k' },
-  'Prism ML': { displayName: 'TERNARY', version: 'BONSAI 1.7B', color: '#10b981', textColor: '#ffffff', cost: 0.22, costLabel: '$0.22', tokenUsage: 3800, tokenLabel: '3.8k' },
-  'Liquid AI': { displayName: 'LFM 2.5', version: 'THINKING', color: '#06b6d4', textColor: '#0f172a', cost: 0.18, costLabel: '$0.18', tokenUsage: 3500, tokenLabel: '3.5k' },
-  'QVAC': { displayName: 'MEDPSY', version: '1.7B', color: '#9333ea', textColor: '#ffffff', cost: 0.22, costLabel: '$0.22', tokenUsage: 4100, tokenLabel: '4.1k' },
-  'Hugging Face': { displayName: 'SMOLLM', version: '1.7B', color: '#f59e0b', textColor: '#0f172a', cost: 0.2, costLabel: '$0.20', tokenUsage: 3900, tokenLabel: '3.9k' },
-  'Google': { displayName: 'GEMMA 3N', version: 'E2B', color: '#059669', textColor: '#ffffff', cost: 0.28, costLabel: '$0.28', tokenUsage: 4200, tokenLabel: '4.2k' },
-  'Meta': { displayName: 'LLAMA 2.0', version: '1.0B', color: '#2563eb', textColor: '#ffffff', cost: 0.15, costLabel: '$0.15', tokenUsage: 4300, tokenLabel: '4.3k' },
-  'Microsoft': { displayName: 'PHI-3', version: '3.8B', color: '#0284c7', textColor: '#ffffff', cost: 0.45, costLabel: '$0.45', tokenUsage: 4600, tokenLabel: '4.6k' },
-  'Open Source': { displayName: 'OPENCHAT', version: '7B', color: '#64748b', textColor: '#ffffff', cost: 0.7, costLabel: '$0.70', tokenUsage: 4800, tokenLabel: '4.8k' },
-  'Alibaba': { displayName: 'QWEN 3', version: '0.6B', color: '#ea580c', textColor: '#ffffff', cost: 0.1, costLabel: '$0.10', tokenUsage: 4900, tokenLabel: '4.9k' },
-  'TII': { displayName: 'FALCON 3', version: '1.0B', color: '#38bdf8', textColor: '#0f172a', cost: 0.15, costLabel: '$0.15', tokenUsage: 5100, tokenLabel: '5.1k' },
-  '01.AI': { displayName: 'YI-CODER', version: '1.5B', color: '#3b82f6', textColor: '#ffffff', cost: 0.2, costLabel: '$0.20', tokenUsage: 5300, tokenLabel: '5.3k' },
-  'Deepseek': { displayName: 'DEEPSEEK', version: 'R1-QWEN 1.5B', color: '#4f46e5', textColor: '#ffffff', cost: 0.2, costLabel: '$0.20', tokenUsage: 5400, tokenLabel: '5.4k' },
-  'Mistral AI': { displayName: 'MINISTRAL', version: '3.0B', color: '#eab308', textColor: '#0f172a', cost: 0.35, costLabel: '$0.35', tokenUsage: 5600, tokenLabel: '5.6k' },
-  'Stability AI': { displayName: 'STABLELM', version: 'ZEPHYR 3B', color: '#a855f7', textColor: '#ffffff', cost: 0.35, costLabel: '$0.35', tokenUsage: 5700, tokenLabel: '5.7k' },
-  'Nous Research': { displayName: 'HERMES 3', version: '3.0B', color: '#6366f1', textColor: '#ffffff', cost: 0.35, costLabel: '$0.35', tokenUsage: 6100, tokenLabel: '6.1k' },
-  'Doey LLM': { displayName: 'ONELLM', version: 'DOEY 1.0B', color: '#d97706', textColor: '#ffffff', cost: 0.14, costLabel: '$0.14', tokenUsage: 6400, tokenLabel: '6.4k' },
-  'Big Science': { displayName: 'BLOOM', version: '560M', color: '#71717a', textColor: '#ffffff', cost: 0.08, costLabel: '$0.08', tokenUsage: 6900, tokenLabel: '6.9k' },
-  'Supra': { displayName: 'SUPRA', version: '50M', color: '#84cc16', textColor: '#0f172a', cost: 0.02, costLabel: '$0.02', tokenUsage: 7400, tokenLabel: '7.4k' },
-  'PROMTECH Inc': { displayName: 'ASENA', version: 'ESP32 121M', color: '#ca8a04', textColor: '#ffffff', cost: 0.03, costLabel: '$0.03', tokenUsage: 8100, tokenLabel: '8.1k' },
-  'North ML': { displayName: 'WILLOW', version: 'ALPHA 0.3B', color: '#0d9488', textColor: '#ffffff', cost: 0.05, costLabel: '$0.05', tokenUsage: 8600, tokenLabel: '8.6k' }
+// Lab brand colours for the OpenVals Index chart (labs not listed get a fallback colour)
+const LAB_COLORS = {
+  'Agentica': '#f43f5e',
+  'Tencent': '#475569',
+  'IBM': '#1d4ed8',
+  'Prism ML': '#10b981',
+  'Liquid AI': '#06b6d4',
+  'QVAC': '#9333ea',
+  'Hugging Face': '#f59e0b',
+  'Google': '#059669',
+  'Meta': '#2563eb',
+  'Microsoft': '#0284c7',
+  'Open Source': '#64748b',
+  'Alibaba': '#ea580c',
+  'TII': '#38bdf8',
+  '01.AI': '#3b82f6',
+  'Deepseek': '#4f46e5',
+  'Mistral AI': '#eab308',
+  'Stability AI': '#a855f7',
+  'Nous Research': '#6366f1',
+  'Doey LLM': '#d97706',
+  'Big Science': '#71717a',
+  'Supra': '#84cc16',
+  'PROMTECH Inc': '#ca8a04',
+  'North ML': '#0d9488',
 };
 
 function cleanWhitespace(val) {
@@ -111,7 +115,28 @@ function normalizeSize(rawSize) {
   return s;
 }
 
+// Publisher namespaces in model names (e.g. "liquidai/lfm2.5-350m") identify the
+// lab unambiguously, so they win over the sheet's Provider column, which is
+// hand-entered and sometimes inconsistent across runs of the same model.
+const NAMESPACE_LABS = {
+  liquidai: 'Liquid AI',
+  'ibm-granite': 'IBM',
+  google: 'Google',
+  'meta-llama': 'Meta',
+  microsoft: 'Microsoft',
+  qwen: 'Alibaba',
+  mistralai: 'Mistral AI',
+  'deepseek-ai': 'Deepseek',
+  huggingfacetb: 'Hugging Face',
+};
+
 function normalizeLab(rawLab, modelName) {
+  const name = (modelName || '').toLowerCase();
+  if (name.includes('/')) {
+    const nsLab = NAMESPACE_LABS[name.split('/')[0]];
+    if (nsLab) return nsLab;
+  }
+
   let l = cleanWhitespace(rawLab).replace(/^[:.\-·\s]+/, '').replace(/[:.\-·\s]+$/, '').trim();
   if (!l) {
     const norm = (modelName || '').toLowerCase();
@@ -255,6 +280,7 @@ function parseRow(row, rowIndex, skippedRows) {
 
   return {
     rowIndex,
+    date: parseRunDate(row[0]),
     name: modelName,
     params,
     size,
@@ -392,7 +418,8 @@ async function sync(customBufferOrPath) {
         hallucination: r.hallucination,
         safety: r.safetyNum.toFixed(3),
         reliability: r.reliabilityNum.toFixed(3),
-        drs: r.drsNum.toFixed(3)
+        drs: r.drsNum.toFixed(3),
+        date: r.date
       }))
     };
   });
@@ -419,7 +446,8 @@ async function sync(customBufferOrPath) {
     reliability: r.reliabilityNum.toFixed(3),
     drs: r.drsNum.toFixed(3),
     drsNum: r.drsNum,
-    runNumber: idx + 1
+    runNumber: idx + 1,
+    date: r.date
   }));
 
   allRunsFlattened.sort((a, b) => b.drsNum - a.drsNum);
@@ -442,6 +470,8 @@ export interface ModelRunRecord {
   safety: string;
   reliability: string;
   drs: string;
+  /** Evaluation date, YYYY-MM-DD (null if the sheet cell was unreadable) */
+  date: string | null;
 }
 
 export interface AggregatedModel {
@@ -483,6 +513,7 @@ export interface RawBenchmarkRun {
   drsNum: number;
   rank: string;
   runNumber: number;
+  date: string | null;
 }
 
 export const AGGREGATED_MODELS: AggregatedModel[] = ${JSON.stringify(aggregatedModels, null, 2)};
@@ -493,132 +524,171 @@ export const ALL_BENCHMARK_RUNS: RawBenchmarkRun[] = ${JSON.stringify(allRunsFla
   fs.writeFileSync(path.join(__dirname, '..', 'src', 'components', 'modelBenchmarkData.ts'), modelBenchmarkTs);
   console.log(`[Sync] Updated src/components/modelBenchmarkData.ts (${aggregatedModels.length} models, ${allRunsFlattened.length} runs)`);
 
-  // 3. Update Real World Benchmarks (MODELS in realWorldBenchmarksData.ts)
-  // Pick representative / top run for each lab or top models
-  const labMap = {};
-  aggregatedModels.forEach((m) => {
-    let normLab = m.lab;
-    if (!labMap[normLab] || labMap[normLab].accuracyNum < m.accuracyNum) {
-      labMap[normLab] = m;
-    }
-  });
-
-  const rwbModels = Object.keys(LAB_CONFIGS)
-    .filter((lab) => labMap[lab])
-    .map((lab) => {
-      const m = labMap[lab];
-      const cfg = LAB_CONFIGS[lab];
-      const latNum = parseFloat(m.latency.replace(/[^0-9.]/g, '')) || 2000;
-      const accNum = m.accuracyNum * 100;
-      const semNum = parseFloat(m.semantic) * 100;
-      const factNum = parseFloat(m.factuality) * 100;
-      const hallVal = parseFloat(String(m.hallucination).replace('%', ''));
-      const hallNum = isNaN(hallVal) ? 0 : (hallVal <= 1 ? hallVal * 100 : hallVal);
-      const safeNum = parseFloat(m.safety) * 100;
-      const relNum = parseFloat(m.reliability) * 100;
-      const drsNum = parseFloat(m.drs) * 100;
-
-      return {
-        id: m.id,
-        name: cfg.displayName,
-        version: cfg.version,
-        lab: lab,
-        score: Math.round(accNum * 10) / 10,
-        displayScore: accNum.toFixed(1) + '%',
-        cost: cfg.cost,
-        costLabel: cfg.costLabel,
-        latency: Math.round(latNum * 100) / 100,
-        latencyLabel: m.latency,
-        tokenUsage: cfg.tokenUsage,
-        tokenLabel: cfg.tokenLabel,
-        color: cfg.color,
-        textColor: cfg.textColor,
-        hasPattern: cfg.hasPattern || false,
-        breakdown: {
-          finance: safeNum.toFixed(1) + '%',
-          software: factNum.toFixed(1) + '%',
-          cybersecurity: hallNum.toFixed(1) + '%',
-          mentalHealth: drsNum.toFixed(1) + '%'
-        },
-        semantic: Math.round(semNum * 10) / 10,
-        semanticLabel: semNum.toFixed(1) + '%',
-        factuality: Math.round(factNum * 10) / 10,
-        factualityLabel: factNum.toFixed(1) + '%',
-        hallucination: Math.round(hallNum * 10) / 10,
-        hallucinationLabel: hallNum.toFixed(1) + '%',
-        safety: Math.round(safeNum * 10) / 10,
-        safetyLabel: safeNum.toFixed(1) + '%',
-        reliability: Math.round(relNum * 10) / 10,
-        reliabilityLabel: relNum.toFixed(1) + '%',
-        drs: Math.round(drsNum * 10) / 10,
-        drsLabel: drsNum.toFixed(1) + '%'
-      };
-    })
-    .sort((a, b) => b.score - a.score);
-
+  // 3. Snapshot date = date of the latest evaluation run in the sheet
   let maxDateSerial = 0;
   for (let i = 4; i < rows.length; i++) {
     if (rows[i] && typeof rows[i][0] === 'number') {
       maxDateSerial = Math.max(maxDateSerial, rows[i][0]);
     }
   }
-  let latestDateFormatted = "OCT 9, 2026";
+  let latestDateFormatted = 'UNKNOWN DATE';
+  let leaderboardVersion = 'unversioned';
   if (maxDateSerial > 0) {
     const d = new Date((maxDateSerial - 25569) * 86400 * 1000);
     const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     latestDateFormatted = `${months[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
+    const pad = (n) => String(n).padStart(2, '0');
+    leaderboardVersion = `${d.getUTCFullYear()}.${pad(d.getUTCMonth() + 1)}.${pad(d.getUTCDate())}`;
   }
 
-  const rwbTs = `export interface ModelData {
+  // 4. Leaderboard (DRS ranking, confidence intervals, tiers, rank change)
+  let history = [];
+  if (fs.existsSync(LEADERBOARD_HISTORY_PATH)) {
+    try {
+      history = JSON.parse(fs.readFileSync(LEADERBOARD_HISTORY_PATH, 'utf8'));
+    } catch (err) {
+      console.warn(`[Sync] Could not read leaderboard history (${err.message}); starting fresh.`);
+    }
+  }
+  const leaderboard = buildLeaderboard(aggregatedModels, {
+    version: leaderboardVersion,
+    dateLabel: latestDateFormatted,
+    history,
+  });
+  fs.writeFileSync(LEADERBOARD_HISTORY_PATH, JSON.stringify(leaderboard.history, null, 2) + '\n');
+
+  const leaderboardTs = `// Auto-generated by scripts/syncTracker.js (rules: scripts/leaderboard.js). Do not edit.
+
+export interface LeaderboardRow {
+  /** name|params — same grouping key as AGGREGATED_MODELS */
+  key: string;
   id: string;
   name: string;
-  version?: string;
+  params: string;
+  size: string;
   lab: string;
-  score: number; // percentage
-  displayScore: string;
-  cost?: number;
-  costLabel?: string;
-  latency: number;
-  latencyLabel: string;
-  tokenUsage?: number;
-  tokenLabel?: string;
-  semantic: number;
-  semanticLabel: string;
-  factuality: number;
-  factualityLabel: string;
-  hallucination: number;
-  hallucinationLabel: string;
-  safety: number;
-  safetyLabel: string;
-  reliability: number;
-  reliabilityLabel: string;
+  runs: number;
+  /** Mean DRS Trust Score across runs, 0–100 */
   drs: number;
-  drsLabel: string;
-  color: string;
-  textColor: string;
-  hasPattern?: boolean;
-  breakdown: {
-    finance: string;
-    software: string;
-    cybersecurity: string;
-    mentalHealth: string;
-  };
+  /** Half-width of the 95% confidence interval of the mean DRS */
+  drsCi: number | null;
+  /** Shared on equal displayed score */
+  rank: number;
+  /** Models in one tier are not statistically separable from the tier leader */
+  tier: number;
+  /** Rank in the previous leaderboard version; null if not ranked then */
+  previousRank: number | null;
+  /** Newly ranked since the previous version */
+  isNew: boolean;
+  accuracy: number | null;
+  semantic: number | null;
+  factuality: number | null;
+  hallucination: number | null;
+  safety: number | null;
+  reliability: number | null;
+  latencyMs: number | null;
+  latencyLabel: string;
 }
 
-export const LATEST_BENCHMARK_DATE = "${latestDateFormatted}";
+export const LEADERBOARD_META = ${JSON.stringify(leaderboard.meta, null, 2)} as const;
 
-export const MODELS: ModelData[] = ${JSON.stringify(rwbModels, null, 2)};
+/** Ranked models only (${leaderboard.meta.minRuns}+ runs), in leaderboard order */
+export const LEADERBOARD_ROWS: LeaderboardRow[] = ${JSON.stringify(leaderboard.rows, null, 2)};
 `;
+  fs.writeFileSync(path.join(__dirname, '..', 'src', 'components', 'leaderboardData.ts'), leaderboardTs);
+  console.log(
+    `[Sync] Updated src/components/leaderboardData.ts (v${leaderboard.meta.version}: ${leaderboard.meta.rankedCount} ranked, ` +
+      `${leaderboard.meta.preliminaryCount} preliminary, ${leaderboard.meta.tierCount} tiers` +
+      `${leaderboard.meta.previousVersion ? `, compared with v${leaderboard.meta.previousVersion}` : ''})`
+  );
 
-  fs.writeFileSync(path.join(__dirname, '..', 'src', 'components', 'realWorldBenchmarksData.ts'), rwbTs);
-  console.log(`[Sync] Updated src/components/realWorldBenchmarksData.ts (${rwbModels.length} models, latest date: ${latestDateFormatted})`);
+  // 5. OpenVals Index (accuracy vs latency / DRS scatter of the ranked models)
+  const valsIndex = buildValsIndex(leaderboard.rows, LAB_COLORS);
+  const valsIndexTs = `// Auto-generated by scripts/syncTracker.js from the leaderboard. Do not edit.
+
+export interface ValsIndexModel {
+  id: string;
+  name: string;
+  shortName: string;
+  version?: string;
+  lab: string;
+  labKey: string;
+  accuracy: number; // %
+  latency: number; // ms
+  latencyLabel: string;
+  drs: number; // 0–100
+  drsLabel: string;
+  drsCi: number | null;
+  runs: number;
+  rank: number;
+  tier: number;
+  /** On the accuracy-vs-latency Pareto frontier */
+  onFrontier: boolean;
+  badgeColor: string;
+  badgeTextColor: string;
+}
+
+export interface LabLegendItem {
+  key: string;
+  label: string;
+  color: string;
+}
+
+export const LAB_LEGENDS: LabLegendItem[] = ${JSON.stringify(valsIndex.legends, null, 2)};
+
+export const VALS_INDEX_MODELS: ValsIndexModel[] = ${JSON.stringify(valsIndex.models, null, 2)};
+`;
+  fs.writeFileSync(path.join(__dirname, '..', 'src', 'components', 'valsIndexData.ts'), valsIndexTs);
+  console.log(`[Sync] Updated src/components/valsIndexData.ts (${valsIndex.models.length} models, ${valsIndex.legends.length} labs)`);
+
+  // 6. Latest Reports feed (newest evaluations, per model per day)
+  const feed = buildReportsFeed(aggregatedModels, leaderboard.rows, leaderboard.meta.minRuns);
+  const undatedRuns = parsedRuns.filter((r) => !r.date).length;
+  if (undatedRuns) console.warn(`[Sync] ${undatedRuns} run(s) have an unreadable date and are left out of the feed.`);
+  const feedTs = `// Auto-generated by scripts/syncTracker.js (rules: scripts/reportsFeed.js). Do not edit.
+
+export interface ReportFeedEntry {
+  /** Evaluation day, YYYY-MM-DD */
+  date: string;
+  /** AGGREGATED_MODELS id (links to /models?model=…) */
+  modelId: string;
+  key: string;
+  name: string;
+  params: string;
+  lab: string;
+  runsAdded: number;
+  /** Model's run count after this day */
+  runsAfter: number;
+  /** Mean DRS of this day's runs, 0–100 */
+  drsDay: number;
+  /** Model's mean DRS before / after this day's runs; before is null for a new model */
+  drsBefore: number | null;
+  drsAfter: number;
+  isNewModel: boolean;
+  /** This day's runs took the model to the run threshold */
+  becameRanked: boolean;
+  /** Current leaderboard rank, null if still preliminary */
+  rankNow: number | null;
+  runsNow: number;
+}
+
+export const REPORTS_FEED_META = ${JSON.stringify(feed.meta, null, 2)} as const;
+
+/** Newest first; covers the last ${feed.meta.days} evaluation days */
+export const REPORTS_FEED: ReportFeedEntry[] = ${JSON.stringify(feed.entries, null, 2)};
+`;
+  fs.writeFileSync(path.join(__dirname, '..', 'src', 'components', 'reportsFeedData.ts'), feedTs);
+  console.log(
+    `[Sync] Updated src/components/reportsFeedData.ts (${feed.entries.length} entries over ${feed.meta.days} days, ` +
+      `${feed.meta.newModels} new models, ${feed.meta.newlyRanked} newly ranked)`
+  );
 
   console.log(`[Sync] All benchmark and model registry data updated successfully!`);
   return {
     parsedRunsCount: parsedRuns.length,
     aggregatedCount: Object.keys(grouped).length,
-    rwbCount: rwbModels.length,
-    latestDate: latestDateFormatted
+    rankedCount: leaderboard.meta.rankedCount,
+    latestDate: latestDateFormatted,
   };
 }
 

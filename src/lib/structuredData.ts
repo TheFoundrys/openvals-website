@@ -124,3 +124,48 @@ export function articleJsonLd({
     },
   };
 }
+
+/** Leaderboard page: the ranking as a Dataset plus an ordered ItemList of the top models */
+export function leaderboardJsonLd({
+  name,
+  description,
+  path,
+  version,
+  dateModified,
+  items,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  version: string;
+  dateModified: string | null;
+  items: Array<{ name: string; position: number; url: string }>;
+}): Record<string, unknown>[] {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      name,
+      description,
+      url: absoluteUrl(path),
+      version,
+      ...(dateModified ? { dateModified } : {}),
+      creator: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      isAccessibleForFree: true,
+      variableMeasured: ["DRS Trust Score", "Accuracy", "Average latency", "Evaluation runs"],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: `${name} — top models`,
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      numberOfItems: items.length,
+      itemListElement: items.map((item) => ({
+        "@type": "ListItem",
+        position: item.position,
+        name: item.name,
+        url: absoluteUrl(item.url),
+      })),
+    },
+  ];
+}

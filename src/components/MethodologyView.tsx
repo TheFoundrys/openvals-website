@@ -1,804 +1,458 @@
-"use client";
-
-import React, { useState, useMemo, useRef, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
-import {
-  METHODOLOGY_MODELS,
-  ModelMethodologyDetail,
-  OUR_BENCHMARK_RUNS,
-  OurBenchmarkRun,
-} from "./methodologyData";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import styles from "./MethodologyView.module.css";
-import {
-  Search,
-  ExternalLink,
-  ChevronsUpDown,
-  Download,
-  ArrowRight,
-  Info,
-  CheckCircle2,
-  SlidersHorizontal,
-  Check,
-} from "lucide-react";
+import { DATA_SUMMARY, LIFECYCLE_STAGES, METRIC_STATS, type MetricStats } from "@/lib/methodologyStats";
+import { REPORTS_FEED, REPORTS_FEED_META, type ReportFeedEntry } from "./reportsFeedData";
+
+/** Evaluations from the most recent evaluation date — regenerated on every tracker sync */
+const LATEST_REPORTS = REPORTS_FEED.filter((e) => e.date === REPORTS_FEED_META.latestDate);
+
+const SECTIONS = [
+  { id: "latest", label: "Latest reports" },
+  { id: "pipeline", label: "How an evaluation works" },
+  { id: "metrics", label: "What we measure" },
+  { id: "drs", label: "DRS Trust Score" },
+  { id: "ranking", label: "Ranking rules" },
+  { id: "lifecycle", label: "Lifecycle stages" },
+  { id: "freshness", label: "Data and updates" },
+  { id: "limits", label: "What is not measured yet" },
+];
+
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const formatDate = (iso: string | null) => {
+  if (!iso) return "—";
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${MONTHS[m - 1]} ${d}, ${y}`;
+};
+
+function formatValue(metric: MetricStats, value: number) {
+  if (metric.unit === "ms") return value < 1000 ? `${Math.round(value)} ms` : `${(value / 1000).toFixed(1)} s`;
+  return value.toFixed(2);
+}
+
+const PIPELINE = [
+  {
+    title: "Run the model",
+    body: "Each evaluation run gives the model the OpenVals task set and records every response along with its latency.",
+  },
+  {
+    title: "Score the run",
+    body: "Responses are scored for accuracy, semantic match, factuality, hallucination risk, safety and reliability.",
+  },
+  {
+    title: "Combine into DRS",
+    body: "The signals are combined into one Decision Reliability Score (DRS) for the run, from 0 to 1.",
+  },
+  {
+    title: "Rank the model",
+    body: `A model's runs are averaged. With ${DATA_SUMMARY.minRuns} or more runs it gets a leaderboard rank.`,
+  },
+];
+
+const RANKING_RULES = [
+  {
+    title: `${DATA_SUMMARY.minRuns}+ runs to be ranked`,
+    body: `A single run can be lucky or unlucky. Models with fewer than ${DATA_SUMMARY.minRuns} runs are listed as preliminary in the model registry and are not ranked.`,
+  },
+  {
+    title: "Ranked by mean DRS",
+    body: "The leaderboard score is the average DRS across all of a model's runs, shown on a 0–100 scale.",
+  },
+  {
+    title: "95% confidence interval",
+    body: "The ± next to a score is the 95% confidence interval of that average (Student's t), so you can see how much the runs varied.",
+  },
+  {
+    title: "Ties share a rank",
+    body: "Models with the same score at one decimal share a rank, shown as “=”. Within a tie, the faster model is listed first.",
+  },
+  {
+    title: "Versioned snapshots",
+    body: "Each data date is a leaderboard version (for example v2026.11.23). Rank changes (▲ ▼) compare a model with the previous version.",
+  },
+];
+
+const NOT_MEASURED = [
+  {
+    title: "Domain scores",
+    body: "Results are not yet broken down by domain (finance, healthcare, legal, cybersecurity, math, reasoning, developer or enterprise operations). The leaderboard is one overall ranking.",
+  },
+  {
+    title: "Cost",
+    body: "Price per task is not measured, so the leaderboard does not compare cost.",
+  },
+];
+
+function ReportStatus({ entry }: { entry: ReportFeedEntry }) {
+  if (entry.becameRanked) return <span className={`${styles.tag} ${styles.tagRanked}`}>Newly ranked</span>;
+  if (entry.isNewModel) return <span className={`${styles.tag} ${styles.tagNew}`}>New model</span>;
+  return <span className={`${styles.tag} ${styles.tagRerun}`}>Re-evaluated</span>;
+}
+
+function ReportDrs({ entry }: { entry: ReportFeedEntry }) {
+  if (entry.drsBefore === null) return <span className={styles.drsAfter}>{entry.drsAfter.toFixed(1)}</span>;
+  const delta = Math.round((entry.drsAfter - entry.drsBefore) * 10) / 10;
+  return (
+    <span className={styles.drsChange}>
+      <span className={styles.drsBefore}>{entry.drsBefore.toFixed(1)}</span>
+      <span aria-label="to"> → </span>
+      <span className={styles.drsAfter}>{entry.drsAfter.toFixed(1)}</span>
+      <span className={delta > 0 ? styles.deltaUp : styles.deltaFlat}>
+        {" "}
+        {delta > 0 ? "+" : delta < 0 ? "−" : "±"}
+        {Math.abs(delta).toFixed(1)}
+      </span>
+    </span>
+  );
+}
+
+function CorrelationBar({ value }: { value: number }) {
+  const width = `${Math.min(100, Math.abs(value) * 100)}%`;
+  return (
+    <span className={styles.corr}>
+      <span className={styles.corrTrack} aria-hidden="true">
+        <span className={value >= 0 ? styles.corrFillPos : styles.corrFillNeg} style={{ width }} />
+      </span>
+      <span className={styles.corrValue}>
+        {value > 0 ? "+" : value < 0 ? "−" : ""}
+        {Math.abs(value).toFixed(2)}
+      </span>
+    </span>
+  );
+}
 
 export default function MethodologyView() {
-  const [selectedModelId, setSelectedModelId] = useState<string>(
-    METHODOLOGY_MODELS[0]?.id || "deepscaler-1-5b"
+  const signals = METRIC_STATS.filter((m) => m.key !== "drs" && m.drsCorrelation !== null).sort(
+    (a, b) => Math.abs(b.drsCorrelation!) - Math.abs(a.drsCorrelation!)
   );
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [runSearchQuery, setRunSearchQuery] = useState<string>("");
-  const [weightFilter, setWeightFilter] = useState<"ALL" | "OPEN" | "PRIVATE">("ALL");
-  const [companyFilter, setCompanyFilter] = useState<string>("ALL");
-  const [weightDropdownOpen, setWeightDropdownOpen] = useState<boolean>(false);
-  const [companyDropdownOpen, setCompanyDropdownOpen] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState<"ACCURACY" | "LATENCY">("ACCURACY");
-  const [viewScope, setViewScope] = useState<"SELECTED" | "ALL">("SELECTED");
-  const [showAllModels, setShowAllModels] = useState<boolean>(false);
-
-  const weightDropdownRef = useRef<HTMLDivElement>(null);
-  const companyDropdownRef = useRef<HTMLDivElement>(null);
-
-  // Close dropdowns on outside click
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        weightDropdownRef.current &&
-        !weightDropdownRef.current.contains(event.target as Node)
-      ) {
-        setWeightDropdownOpen(false);
-      }
-      if (
-        companyDropdownRef.current &&
-        !companyDropdownRef.current.contains(event.target as Node)
-      ) {
-        setCompanyDropdownOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  // Selected Model detail
-  const currentModel = useMemo(() => {
-    return (
-      METHODOLOGY_MODELS.find((m) => m.id === selectedModelId) ||
-      METHODOLOGY_MODELS[0]
-    );
-  }, [selectedModelId]);
-
-  // Unique companies list for dropdown
-  const companiesList = useMemo(() => {
-    const list = Array.from(new Set(METHODOLOGY_MODELS.map((m) => m.developer)));
-    return ["ALL", ...list];
-  }, []);
-
-  // Filtered sidebar models based on user filters
-  const filteredModels = useMemo(() => {
-    return METHODOLOGY_MODELS.filter((m) => {
-      const matchesSearch =
-        m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        m.developer.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesWeight =
-        weightFilter === "ALL" || m.weights === weightFilter;
-      const matchesCompany =
-        companyFilter === "ALL" || m.developer === companyFilter;
-      return matchesSearch && matchesWeight && matchesCompany;
-    });
-  }, [searchQuery, weightFilter, companyFilter]);
-
-  // Visible sidebar models: default to 6 items (shows less initially) with expand toggle
-  const visibleModels = useMemo(() => {
-    if (showAllModels || searchQuery.trim() !== "") {
-      return filteredModels;
-    }
-    const INITIAL_COUNT = 6;
-    const top = filteredModels.slice(0, INITIAL_COUNT);
-    // Ensure currently selected model is always visible in the list
-    if (currentModel && !top.some((m) => m.id === currentModel.id)) {
-      return [...filteredModels.slice(0, INITIAL_COUNT - 1), currentModel];
-    }
-    return top;
-  }, [showAllModels, searchQuery, filteredModels, currentModel]);
-
-  // Helper to match a benchmark run to the current selected model
-  const runMatchesModel = (
-    run: OurBenchmarkRun,
-    model: ModelMethodologyDetail | undefined
-  ) => {
-    if (!model) return false;
-    const clean = (s: string) =>
-      (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-    const rName = clean(run.name);
-    const mName = clean(model.name);
-    const mId = clean(model.id);
-
-    if (rName === mId || mId.includes(rName) || rName.includes(mId)) return true;
-    if (mName.includes(rName) || rName.includes(mName)) return true;
-
-    if (
-      run.lab &&
-      model.developer &&
-      clean(run.lab) === clean(model.developer)
-    ) {
-      const rTokens = run.name.toLowerCase().split(/[^a-z0-9]+/);
-      const mTokens = model.name.toLowerCase().split(/[^a-z0-9]+/);
-      if (rTokens.some((t) => t.length >= 3 && mTokens.includes(t))) return true;
-    }
-    return false;
-  };
-
-  // Count of runs corresponding to current selected model
-  const selectedModelRunsCount = useMemo(() => {
-    return OUR_BENCHMARK_RUNS.filter((r) => runMatchesModel(r, currentModel))
-      .length;
-  }, [currentModel]);
-
-  // Compute table rows based on OUR_BENCHMARK_RUNS
-  const benchmarkTableRows = useMemo(() => {
-    // 1. Sort all 173 runs first to establish true overall rankings
-    const sortedAll = [...OUR_BENCHMARK_RUNS];
-    if (activeTab === "ACCURACY") {
-      sortedAll.sort((a, b) => b.accuracy - a.accuracy);
-    } else {
-      sortedAll.sort((a, b) => a.latencyMs - b.latencyMs);
-    }
-
-    // 2. Filter strictly to selected model if viewScope === "SELECTED"
-    let baseList = sortedAll;
-    if (viewScope === "SELECTED") {
-      const matched = sortedAll.filter((r) => runMatchesModel(r, currentModel));
-      if (matched.length > 0) {
-        baseList = matched;
-      }
-    }
-
-    // 3. Search query filter
-    const filtered = runSearchQuery
-      ? baseList.filter(
-          (r) =>
-            r.name.toLowerCase().includes(runSearchQuery.toLowerCase()) ||
-            r.lab.toLowerCase().includes(runSearchQuery.toLowerCase()) ||
-            r.params.toLowerCase().includes(runSearchQuery.toLowerCase())
-        )
-      : baseList;
-
-    const total = OUR_BENCHMARK_RUNS.length; // 173
-
-    return filtered.map((run) => {
-      const overallRank = sortedAll.findIndex((x) => x.id === run.id) + 1;
-      const barWidth =
-        activeTab === "ACCURACY"
-          ? Math.max(3, Math.min(100, run.accuracy))
-          : Math.max(
-              4,
-              Math.min(
-                100,
-                Math.round(100 - (Math.min(run.latencyMs, 70000) / 70000) * 92)
-              )
-            );
-
-      return {
-        id: run.id,
-        runIndex: run.runIndex,
-        name: run.name,
-        params: run.params,
-        size: run.size,
-        lab: run.lab,
-        category: run.category,
-        barWidthPercent: barWidth,
-        mainValue:
-          activeTab === "ACCURACY"
-            ? run.accuracyFormatted
-            : run.latencyFormatted,
-        subValue:
-          activeTab === "ACCURACY" ? `± 0.85` : `(${run.params})`,
-        rankText: `#${overallRank} / ${total}`,
-        isCurrent: true,
-      };
-    });
-  }, [activeTab, runSearchQuery, currentModel, viewScope]);
-
-  // Helper to render confidence/density meter
-  const renderMeter = (percent: number) => {
-    const totalTicks = 42;
-    const activeCount = Math.round((percent / 100) * totalTicks);
-
-    return (
-      <div className={styles.meterTrack}>
-        {Array.from({ length: totalTicks }).map((_, i) => (
-          <span
-            key={i}
-            className={`${styles.meterTick} ${
-              i < activeCount ? styles.meterTickActive : ""
-            }`}
-          />
-        ))}
-      </div>
-    );
-  };
+  const safety = METRIC_STATS.find((m) => m.key === "safety");
 
   return (
-    <div className={styles.pageWrapper}>
-      {/* 1. TOP SUB-NAVIGATION BAR */}
-      <div className={styles.topBar}>
-        <div className={styles.topBarLeft}>
-          {/* Weight / License Filter Dropdown */}
-          <div className={styles.dropdownWrapper} ref={weightDropdownRef}>
-            <button
-              type="button"
-              className={`${styles.filterSelect} ${
-                weightDropdownOpen ? styles.filterSelectOpen : ""
-              }`}
-              onClick={() => {
-                setWeightDropdownOpen((prev) => !prev);
-                setCompanyDropdownOpen(false);
-              }}
-              title="Filter by open weights or proprietary"
-            >
-              <span>
-                WEIGHTS:{" "}
-                {weightFilter === "ALL"
-                  ? "ALL"
-                  : weightFilter === "OPEN"
-                  ? "OPEN"
-                  : "PROPRIETARY"}
+    <div className={styles.page}>
+      {/* HERO */}
+      <header className={styles.hero}>
+        <p className={styles.kicker}>Methodology</p>
+        <h1 className={styles.title}>How OpenVals evaluates and ranks AI models</h1>
+        <p className={styles.lead}>
+          Every score on OpenVals comes from our own evaluation runs. This page explains what each run
+          measures, what the Decision Reliability Score (DRS) is, and the rules behind the leaderboard.
+        </p>
+        <dl className={styles.heroStats}>
+          <div>
+            <dt>Evaluation runs</dt>
+            <dd>{DATA_SUMMARY.runs.toLocaleString("en-US")}</dd>
+          </div>
+          <div>
+            <dt>Models evaluated</dt>
+            <dd>{DATA_SUMMARY.models}</dd>
+          </div>
+          <div>
+            <dt>Ranked models</dt>
+            <dd>{DATA_SUMMARY.ranked}</dd>
+          </div>
+          <div>
+            <dt>Latest run</dt>
+            <dd>{formatDate(DATA_SUMMARY.lastDate)}</dd>
+          </div>
+        </dl>
+      </header>
+
+      <div className={styles.layout}>
+        {/* ON THIS PAGE */}
+        <nav className={styles.toc} aria-label="On this page">
+          <p className={styles.tocTitle}>On this page</p>
+          <ol>
+            {SECTIONS.map((s) => (
+              <li key={s.id}>
+                <a href={`#${s.id}`}>{s.label}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+
+        <div className={styles.content}>
+          {/* 0. LATEST REPORTS — the most recent evaluation date */}
+          <section id="latest" className={styles.section}>
+            <div className={styles.latestHeader}>
+              <h2>Latest reports</h2>
+              <span className={styles.latestDate}>
+                <time dateTime={REPORTS_FEED_META.latestDate ?? undefined}>
+                  {formatDate(REPORTS_FEED_META.latestDate)}
+                </time>
               </span>
-              <ChevronsUpDown size={11} className={styles.chevronIcon} />
-            </button>
-
-            {weightDropdownOpen && (
-              <div className={styles.dropdownMenu}>
-                {(["ALL", "OPEN", "PRIVATE"] as const).map((opt) => (
-                  <button
-                    key={opt}
-                    type="button"
-                    className={`${styles.dropdownOption} ${
-                      weightFilter === opt ? styles.dropdownOptionActive : ""
-                    }`}
-                    onClick={() => {
-                      setWeightFilter(opt);
-                      setWeightDropdownOpen(false);
-                    }}
-                  >
-                    <span>
-                      {opt === "ALL"
-                        ? "All Weights & Proprietary"
-                        : opt === "OPEN"
-                        ? "Open Weights Only"
-                        : "Proprietary Only"}
-                    </span>
-                    {weightFilter === opt && (
-                      <Check size={12} className={styles.checkIcon} />
-                    )}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Company Filter Dropdown */}
-          <div className={styles.dropdownWrapper} ref={companyDropdownRef}>
-            <button
-              type="button"
-              className={`${styles.filterSelect} ${
-                companyDropdownOpen ? styles.filterSelectOpen : ""
-              }`}
-              onClick={() => {
-                setCompanyDropdownOpen((prev) => !prev);
-                setWeightDropdownOpen(false);
-              }}
-              title="Filter by model developer or lab"
-            >
-              <span>COMPANY: {companyFilter}</span>
-              <ChevronsUpDown size={11} className={styles.chevronIcon} />
-            </button>
-
-            {companyDropdownOpen && (
-              <div
-                className={`${styles.dropdownMenu} ${styles.dropdownMenuScrollable}`}
-              >
-                {companiesList.map((comp) => (
-                  <button
-                    key={comp}
-                    type="button"
-                    className={`${styles.dropdownOption} ${
-                      companyFilter === comp ? styles.dropdownOptionActive : ""
-                    }`}
-                    onClick={() => {
-                      setCompanyFilter(comp);
-                      setCompanyDropdownOpen(false);
-                    }}
-                  >
-                    <span>{comp === "ALL" ? "All Companies / Labs" : comp}</span>
-                    {companyFilter === comp && (
-                      <Check size={12} className={styles.checkIcon} />
-                    )}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Active Filters Clear Button */}
-          {(weightFilter !== "ALL" ||
-            companyFilter !== "ALL" ||
-            searchQuery) && (
-            <button
-              type="button"
-              onClick={() => {
-                setWeightFilter("ALL");
-                setCompanyFilter("ALL");
-                setSearchQuery("");
-              }}
-              style={{
-                background: "none",
-                border: "none",
-                fontSize: "11px",
-                color: "#ef4444",
-                cursor: "pointer",
-                fontWeight: 500,
-                padding: "4px 8px",
-              }}
-            >
-              Clear Filters &times;
-            </button>
-          )}
-        </div>
-
-        <div className={styles.topBarRight}>
-          <Link
-            href="/openvals-index"
-            className={styles.actionBtn}
-            title="Compare models on the Pareto frontier"
-          >
-            <SlidersHorizontal size={13} />
-            <span>COMPARE MODELS</span>
-          </Link>
-
-          <Link href="/" className={styles.backHomeLink}>
-            <span>&larr; Back to Home</span>
-          </Link>
-        </div>
-      </div>
-
-      {/* 2. MAIN TWO-COLUMN CONTAINER */}
-      <div className={styles.mainLayout}>
-        {/* LEFT SIDEBAR: MODEL DIRECTORY */}
-        <aside className={styles.sidebar}>
-          <div className={styles.sidebarHeader}>
-            <div className={styles.searchWrap}>
-              <Search size={13} color="var(--text-muted)" />
-              <input
-                type="text"
-                placeholder="Search models..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
             </div>
-          </div>
-
-          <div className={styles.tableHeaderRow}>
-            <span>RELEASE DATE ↕</span>
-            <span>MODEL</span>
-          </div>
-
-          {/* MODEL LIST: Shows less by default (6 items) with expand/collapse */}
-          <div className={styles.modelList}>
-            {visibleModels.map((model) => {
-              const isActive = model.id === currentModel.id;
-              return (
-                <div
-                  key={model.id}
-                  className={`${styles.modelRow} ${
-                    isActive ? styles.modelRowActive : ""
-                  }`}
-                  onClick={() => setSelectedModelId(model.id)}
-                >
-                  <div className={styles.modelRowLeft}>
-                    <span className={styles.rowDate}>{model.releaseDate}</span>
-                    <div className={styles.rowNameWrap}>
-                      <span>{model.name}</span>
-                    </div>
-                  </div>
-
-                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                    <span className={styles.countryBadge}>{model.country}</span>
-                    {isActive && <ArrowRight size={13} color="#ffffff" />}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* SIDEBAR FOOTER: Toggle Show All / Show Less */}
-          <div className={styles.sidebarFooter}>
-            {filteredModels.length > 6 && !searchQuery.trim() ? (
-              <button
-                type="button"
-                className={styles.viewMoreBtn}
-                onClick={() => setShowAllModels((prev) => !prev)}
-              >
-                {showAllModels
-                  ? "SHOW LESS ∧"
-                  : `SHOW ALL ${filteredModels.length} MODELS ⌵`}
-              </button>
+            <p>
+              Models evaluated on the most recent evaluation date. This list updates automatically with every
+              tracker sync. DRS is the model&apos;s mean across all its runs, before → after that day.
+            </p>
+            {LATEST_REPORTS.length === 0 ? (
+              <p className={styles.note}>No evaluations recorded yet.</p>
             ) : (
-              <span className={styles.viewMoreBtn}>
-                SHOWING {visibleModels.length} MODEL{visibleModels.length === 1 ? "" : "S"}
-              </span>
-            )}
-          </div>
-        </aside>
-
-        {/* RIGHT COLUMN: MODEL DEEP DIVE & METHODOLOGY */}
-        <main className={styles.contentArea}>
-          {/* MODEL HEADER */}
-          <div className={styles.modelHeader}>
-            <div className={styles.developerSubtitle}>{currentModel.developer}</div>
-            <h1 className={styles.modelTitle}>
-              {currentModel.name}
-              <ExternalLink size={18} color="#78716c" />
-            </h1>
-            <div className={styles.metaLine}>
-              RELEASE DATE: {currentModel.releaseDate}
-            </div>
-          </div>
-
-          {/* TWO STAT CARDS */}
-          <div className={styles.statCardsRow}>
-            {/* 1. Accuracy Card */}
-            <div
-              className={`${styles.statCard} ${styles.statCardAcc} ${
-                activeTab === "ACCURACY" ? styles.statCardActive : ""
-              }`}
-              onClick={() => setActiveTab("ACCURACY")}
-              title="Click to view Accuracy benchmarks"
-            >
-              <div className={styles.statCardLabel}>ACCURACY</div>
-              <div className={styles.statCardValue}>
-                <span>{currentModel.accuracy.toFixed(2)}%</span>
-                <span className={styles.statCardStd}>
-                  ± {currentModel.accuracyStdDev}
-                </span>
-              </div>
-              {renderMeter(currentModel.accuracy)}
-            </div>
-
-            {/* 2. Latency Card */}
-            <div
-              className={`${styles.statCard} ${styles.statCardLat} ${
-                activeTab === "LATENCY" ? styles.statCardActive : ""
-              }`}
-              onClick={() => setActiveTab("LATENCY")}
-              title="Click to view Latency benchmarks"
-            >
-              <div className={styles.statCardLabel}>LATENCY</div>
-              <div className={styles.statCardValue} style={{ fontSize: "22px" }}>
-                <span>{currentModel.latencyFormatted}</span>
-              </div>
-              {renderMeter(65)}
-            </div>
-          </div>
-
-          <div className={styles.statCardFooterLogo}>
-            <div className={styles.valsMiniBadge}>
-              <svg viewBox="0 0 20 20" width="13" height="13" fill="none">
-                <circle cx="10" cy="10" r="8" stroke="#10b981" strokeWidth="1.6" />
-                <path
-                  d="M6.5 7L10 13.5L13.5 7"
-                  stroke="#10b981"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span>OPENVALS INDEX</span>
-            </div>
-          </div>
-
-          {/* BENCHMARK CATEGORY TABS & RUN SEARCH */}
-          <div className={styles.benchmarkTabs}>
-            <div className={styles.tabsAndScopeWrap}>
-              <div className={styles.tabButtonsGroup}>
-                <button
-                  type="button"
-                  className={`${styles.tabBtn} ${
-                    activeTab === "ACCURACY" ? styles.tabBtnActive : ""
-                  }`}
-                  onClick={() => setActiveTab("ACCURACY")}
-                >
-                  ACCURACY
-                </button>
-                <button
-                  type="button"
-                  className={`${styles.tabBtn} ${
-                    activeTab === "LATENCY" ? styles.tabBtnActive : ""
-                  }`}
-                  onClick={() => setActiveTab("LATENCY")}
-                >
-                  LATENCY
-                </button>
-              </div>
-
-              <div className={styles.scopeGroup}>
-                <button
-                  type="button"
-                  className={`${styles.scopeBtn} ${
-                    viewScope === "SELECTED" ? styles.scopeBtnActive : ""
-                  }`}
-                  onClick={() => setViewScope("SELECTED")}
-                  title={`Show only runs for ${currentModel.name}`}
-                >
-                  {currentModel ? currentModel.name : "SELECTED"} ({selectedModelRunsCount})
-                </button>
-                <button
-                  type="button"
-                  className={`${styles.scopeBtn} ${
-                    viewScope === "ALL" ? styles.scopeBtnActive : ""
-                  }`}
-                  onClick={() => setViewScope("ALL")}
-                  title="Show all 173 runs across all models"
-                >
-                  ALL RUNS (173)
-                </button>
-              </div>
-            </div>
-
-            <div className={styles.runSearchWrap}>
-              <Search size={12} color="var(--text-muted)" />
-              <input
-                type="text"
-                placeholder={
-                  viewScope === "SELECTED"
-                    ? `Filter ${selectedModelRunsCount} run${selectedModelRunsCount === 1 ? "" : "s"}...`
-                    : "Filter 173 runs..."
-                }
-                value={runSearchQuery}
-                onChange={(e) => setRunSearchQuery(e.target.value)}
-                className={styles.runSearchInput}
-              />
-              {runSearchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setRunSearchQuery("")}
-                  className={styles.runSearchClear}
-                >
-                  &times;
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* BENCHMARK BREAKDOWN: DESKTOP TABLE & MOBILE CARDS */}
-          <div className={styles.benchmarkContainerWrap}>
-            {/* Desktop Table View */}
-            <div className={styles.tableDesktopWrapper}>
-              <table className={styles.benchmarkTable}>
-                <thead>
-                  <tr>
-                    <th style={{ width: "240px" }}>
-                      {viewScope === "SELECTED" ? "MODEL RUNS" : "BENCHMARKS"} ({benchmarkTableRows.length})
-                    </th>
-                    <th>
-                      {activeTab === "ACCURACY"
-                        ? "SCORE DISTRIBUTION"
-                        : "LATENCY DISTRIBUTION"}
-                    </th>
-                    <th style={{ textAlign: "right", width: "135px" }}>
-                      {activeTab === "ACCURACY" ? "ACCURACY" : "LATENCY"}
-                    </th>
-                    <th style={{ textAlign: "right", width: "90px" }}>Rankings</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {benchmarkTableRows.map((bench) => {
-                    const barClass =
-                      bench.category === "proprietary"
-                        ? styles.barFillProprietary
-                        : bench.category === "academic"
-                        ? styles.barFillAcademic
-                        : styles.barFillPartner;
-
-                    return (
-                      <tr key={bench.id}>
-                        <td>
-                          <div className={styles.benchmarkNameCell}>
-                            <span
-                              style={{
-                                fontWeight: 500,
-                                fontSize: "12px",
-                                color: "var(--text-main)",
-                              }}
+              <div className={styles.tableWrap}>
+                <table className={`${styles.table} ${styles.reportsTable}`}>
+                  <thead>
+                    <tr>
+                      <th scope="col">Model</th>
+                      <th scope="col">Lab</th>
+                      <th scope="col" className={styles.num}>
+                        Runs
+                      </th>
+                      <th scope="col" className={styles.num}>
+                        DRS
+                      </th>
+                      <th scope="col" className={styles.num}>
+                        Rank now
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {LATEST_REPORTS.map((entry) => (
+                      <tr key={entry.key}>
+                        <th scope="row">
+                          <span className={styles.reportModel}>
+                            <Link
+                              href={`/models?model=${encodeURIComponent(entry.modelId)}`}
+                              className={styles.reportLink}
                             >
-                              {bench.name}
-                            </span>
-                            <span
-                              style={{
-                                fontSize: "10.5px",
-                                color: "var(--text-muted)",
-                                fontWeight: 500,
-                                marginLeft: "6px",
-                              }}
-                            >
-                              {bench.params}
-                            </span>
-                            <span
-                              style={{
-                                fontSize: "9px",
-                                padding: "1px 5px",
-                                background: "var(--secondary-bg)",
-                                borderRadius: "3px",
-                                border: "1px solid var(--border)",
-                                color: "var(--text-muted)",
-                                marginLeft: "6px",
-                                fontWeight: 500,
-                                textTransform: "uppercase",
-                              }}
-                            >
-                              {bench.lab}
-                            </span>
-                            {bench.runIndex && (
-                              <span
-                                style={{
-                                  fontSize: "9px",
-                                  color: "#38bdf8",
-                                  fontWeight: 500,
-                                  marginLeft: "6px",
-                                  background: "rgba(56, 189, 248, 0.12)",
-                                  border: "1px solid rgba(56, 189, 248, 0.3)",
-                                  padding: "1px 4px",
-                                  borderRadius: "3px",
-                                }}
-                              >
-                                Run #{bench.runIndex}
-                              </span>
-                            )}
-                          </div>
+                              {entry.name}
+                            </Link>
+                            {entry.params && <span className={styles.params}>{entry.params}</span>}
+                            <ReportStatus entry={entry} />
+                          </span>
+                        </th>
+                        <td className={styles.reportLab}>{entry.lab}</td>
+                        <td className={styles.num} data-label="Runs">
+                          {entry.isNewModel ? entry.runsAdded : `+${entry.runsAdded}`}
+                          <span className={styles.muted}> · {entry.runsAfter} total</span>
                         </td>
-                        <td>
-                          <div className={styles.barTrack}>
-                            <div
-                              className={barClass}
-                              style={{ width: `${bench.barWidthPercent}%` }}
-                            />
-                          </div>
+                        <td className={styles.num} data-label="DRS">
+                          <ReportDrs entry={entry} />
                         </td>
-                        <td className={styles.accValCell}>
-                          {bench.mainValue}{" "}
-                          {bench.subValue && (
-                            <span
-                              style={{
-                                fontSize: "10.5px",
-                                color: "#78716c",
-                                fontWeight: 400,
-                              }}
-                            >
-                              {bench.subValue}
+                        <td className={styles.num} data-label="Rank now">
+                          {entry.rankNow !== null ? (
+                            <span className={styles.rankNow}>#{entry.rankNow}</span>
+                          ) : (
+                            <span className={styles.muted}>
+                              Prelim. {entry.runsNow}/{REPORTS_FEED_META.minRuns}
                             </span>
                           )}
                         </td>
-                        <td className={styles.rankCell}>{bench.rankText}</td>
                       </tr>
-                    );
-                  })}
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            <p className={styles.note}>
+              {LATEST_REPORTS.reduce((a, e) => a + e.runsAdded, 0)} runs across {LATEST_REPORTS.length}{" "}
+              {LATEST_REPORTS.length === 1 ? "model" : "models"} on this date ·{" "}
+              <Link href="/#latest-reports" className={styles.textLink}>
+                All reports
+              </Link>
+            </p>
+          </section>
+
+          {/* 1. PIPELINE */}
+          <section id="pipeline" className={styles.section}>
+            <h2>How an evaluation works</h2>
+            <ol className={styles.pipeline}>
+              {PIPELINE.map((step, i) => (
+                <li key={step.title} className={styles.step}>
+                  <span className={styles.stepNumber}>{i + 1}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          {/* 2. METRICS */}
+          <section id="metrics" className={styles.section}>
+            <h2>What we measure</h2>
+            <p>
+              Each run is scored on the signals below. Scores run from 0 to 1. The median and observed range
+              show the spread across all {DATA_SUMMARY.runs.toLocaleString("en-US")} runs so far.
+            </p>
+            <div className={styles.tableWrap}>
+              <table className={styles.table}>
+                <thead>
+                  <tr>
+                    <th scope="col">Signal</th>
+                    <th scope="col">Better</th>
+                    <th scope="col" className={styles.measuresCol}>
+                      What it measures
+                    </th>
+                    <th scope="col" className={styles.num}>
+                      Median
+                    </th>
+                    <th scope="col" className={styles.num}>
+                      Observed range
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {METRIC_STATS.map((m) => (
+                    <tr key={m.key} className={m.key === "drs" ? styles.drsRow : undefined}>
+                      <th scope="row">{m.name}</th>
+                      <td>
+                        <span className={m.better === "Higher" ? styles.betterHigh : styles.betterLow}>
+                          {m.better === "Higher" ? "↑ Higher" : "↓ Lower"}
+                        </span>
+                      </td>
+                      <td className={styles.measuresCol}>{m.measures}</td>
+                      <td className={styles.num} data-label="Median">
+                        {formatValue(m, m.median)}
+                      </td>
+                      <td className={styles.num} data-label="Range">
+                        {formatValue(m, m.min)} – {formatValue(m, m.max)}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
+          </section>
 
-            {/* Mobile Cards View (Zero side-scroll, perfectly aligned!) */}
-            <div className={styles.tableMobileCardsWrapper}>
-              {benchmarkTableRows.map((bench) => {
-                const barClass =
-                  bench.category === "proprietary"
-                    ? styles.barFillProprietary
-                    : bench.category === "academic"
-                    ? styles.barFillAcademic
-                    : styles.barFillPartner;
-
-                return (
-                  <div key={bench.id} className={styles.mobileBenchmarkCard}>
-                    <div className={styles.mobileCardHeader}>
-                      <div className={styles.mobileCardNameWrap}>
-                        <span className={styles.mobileModelName}>{bench.name}</span>
-                        <span className={styles.mobileParamBadge}>{bench.params}</span>
-                        <span className={styles.mobileLabBadge}>{bench.lab}</span>
-                        {bench.runIndex && (
-                          <span className={styles.mobileRunBadge}>Run #{bench.runIndex}</span>
-                        )}
-                      </div>
-                      <span className={styles.mobileRankBadge}>{bench.rankText}</span>
-                    </div>
-
-                    <div className={styles.mobileScoreRow}>
-                      <span className={styles.mobileDistLabel}>
-                        {activeTab === "ACCURACY" ? "Score Distribution" : "Latency Distribution"}
-                      </span>
-                      <div className={styles.mobileScoreVal}>
-                        <span>{bench.mainValue}</span>
-                        {bench.subValue && (
-                          <span className={styles.mobileSubValue}>{bench.subValue}</span>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className={styles.mobileBarTrack}>
-                      <div
-                        className={barClass}
-                        style={{ width: `${bench.barWidthPercent}%` }}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
+          {/* 3. DRS */}
+          <section id="drs" className={styles.section}>
+            <h2>DRS Trust Score</h2>
+            <p>
+              Accuracy tells you which model scored highest. DRS asks a different question: can this model be
+              trusted to make decisions in production? It is a weighted combination of the run&apos;s signals:
+            </p>
+            <div
+              className={styles.formula}
+              role="math"
+              aria-label="DRS equals the sum over signals of weight times signal score"
+            >
+              DRS = Σ <i>w</i>
+              <sub>i</sub> × <i>m</i>
+              <sub>i</sub>
             </div>
+            <p className={styles.note}>
+              <i>m</i>
+              <sub>i</sub> is a signal score and <i>w</i>
+              <sub>i</sub> is its weight.
+            </p>
 
-            {/* BENCHMARK FOOTER LEGEND */}
-            <div className={styles.tableLegendBar}>
-              <div className={styles.legendItemsList}>
-                <div className={styles.legendTag}>
-                  <span
-                    className={styles.legendSquare}
-                    style={{ backgroundColor: "#cb6555" }}
-                  />
-                  <span>PROPRIETARY LABS</span>
-                </div>
-                <div className={styles.legendTag}>
-                  <span
-                    className={styles.legendSquare}
-                    style={{ backgroundColor: "#2a4365" }}
-                  />
-                  <span>OPEN-SOURCE &amp; ACADEMIC</span>
-                </div>
-                <div className={styles.legendTag}>
-                  <span
-                    className={styles.legendSquare}
-                    style={{ backgroundColor: "#5ab576" }}
-                  />
-                  <span>FRONTIER PARTNERS</span>
-                </div>
-              </div>
-
-              <div className={styles.valsMiniBadge}>
-                <svg viewBox="0 0 20 20" width="14" height="14" fill="none">
-                  <circle cx="10" cy="10" r="8" stroke="#10b981" strokeWidth="1.6" />
-                  <path
-                    d="M6.5 7L10 13.5L13.5 7"
-                    stroke="#10b981"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span>OPENVALS (173 RUNS)</span>
-              </div>
-            </div>
-          </div>
-
-          {/* EDITORIAL UPDATES SECTION */}
-          <div className={styles.updatesSection}>
-            <h2 className={styles.updatesHeading}>Updates</h2>
-            <div className={styles.updateDateBadge}>
-              {currentModel.updates.date}
-            </div>
-
-            <div className={styles.updateSummary}>
-              <CheckCircle2 size={16} className={styles.checkIcon} />
-              <span>{currentModel.updates.summary}</span>
-            </div>
-
-            <ul className={styles.bulletList}>
-              {currentModel.updates.bullets.map((bullet, idx) => (
-                <li key={idx}>{bullet}</li>
+            <h3 className={styles.subheading}>How DRS tracks each signal</h3>
+            <p>
+              Correlation with DRS across all runs. +1 means the two always rise together, −1 means one rises
+              as the other falls, and 0 means no relationship.
+            </p>
+            <ul className={styles.corrList}>
+              {signals.map((m) => (
+                <li key={m.key}>
+                  <span className={styles.corrName}>{m.name}</span>
+                  <CorrelationBar value={m.drsCorrelation!} />
+                </li>
               ))}
             </ul>
+            {safety && (
+              <p className={styles.note}>
+                Safety barely moves with DRS because the median run already scores {safety.median.toFixed(2)} on
+                it, so it rarely separates one model from another.
+              </p>
+            )}
+            <Link href="/openvals-docs/drs" className={styles.textLink}>
+              DRS in the OpenVals docs <ArrowUpRight size={14} aria-hidden="true" />
+            </Link>
+          </section>
 
-            <div className={styles.fallbackNote}>
-              {currentModel.updates.fallbackPolicy}
+          {/* 4. RANKING */}
+          <section id="ranking" className={styles.section}>
+            <h2>Ranking rules</h2>
+            <p>
+              The same rules feed every ranking on the site: the home page leaderboard, the OpenVals Index and
+              the model registry.
+            </p>
+            <div className={styles.ruleGrid}>
+              {RANKING_RULES.map((rule) => (
+                <div key={rule.title} className={styles.rule}>
+                  <h3>{rule.title}</h3>
+                  <p>{rule.body}</p>
+                </div>
+              ))}
             </div>
-          </div>
-        </main>
+            <p className={styles.note}>
+              Today: {DATA_SUMMARY.ranked} ranked models and {DATA_SUMMARY.preliminary} preliminary, leaderboard
+              version {DATA_SUMMARY.version}.
+            </p>
+          </section>
+
+          {/* 5. LIFECYCLE */}
+          <section id="lifecycle" className={styles.section}>
+            <h2>Lifecycle stages</h2>
+            <p>
+              The model registry places every model in a lifecycle stage based on its mean DRS, so teams can see
+              at a glance which models are ready for production review.
+            </p>
+            <div className={styles.stageGrid}>
+              {LIFECYCLE_STAGES.map((stage, i) => (
+                <div key={stage.name} className={`${styles.stage} ${styles[`stage${i}`]}`}>
+                  <span className={styles.stageRule}>{stage.rule}</span>
+                  <h3>{stage.name}</h3>
+                  <p>
+                    {stage.models} {stage.models === 1 ? "model" : "models"} today
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* 6. FRESHNESS */}
+          <section id="freshness" className={styles.section}>
+            <h2>Data and updates</h2>
+            <ul className={styles.factList}>
+              <li>
+                Results come from the OpenVals evaluation tracker, which is synced to this site twice a day
+                (09:00 and 19:00 IST) and on demand when it changes.
+              </li>
+              <li>
+                Each sync rebuilds the model registry, the leaderboard and the OpenVals Index from the same data,
+                so they always agree.
+              </li>
+              <li>Runs with missing or invalid metric values are left out rather than estimated.</li>
+              <li>
+                Current data covers {DATA_SUMMARY.runs.toLocaleString("en-US")} runs of {DATA_SUMMARY.models}{" "}
+                models from {DATA_SUMMARY.labs} labs, evaluated between {formatDate(DATA_SUMMARY.firstDate)} and{" "}
+                {formatDate(DATA_SUMMARY.lastDate)}.
+              </li>
+            </ul>
+          </section>
+
+          {/* 7. LIMITS */}
+          <section id="limits" className={styles.section}>
+            <h2>What is not measured yet</h2>
+            <div className={styles.ruleGrid}>
+              {NOT_MEASURED.map((item) => (
+                <div key={item.title} className={styles.rule}>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* NEXT */}
+          <nav className={styles.nextLinks} aria-label="Explore the results">
+            <Link href="/openvals-index" className={styles.nextCard}>
+              <span>
+                <strong>OpenVals Index</strong>
+                <span>The full leaderboard and frontier chart</span>
+              </span>
+              <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+            <Link href="/models" className={styles.nextCard}>
+              <span>
+                <strong>Model registry</strong>
+                <span>All {DATA_SUMMARY.models} evaluated models, including preliminary ones</span>
+              </span>
+              <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </nav>
+        </div>
       </div>
     </div>
   );

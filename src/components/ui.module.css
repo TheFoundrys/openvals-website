@@ -58,9 +58,6 @@
     padding-bottom: clamp(24px, 4vh, 40px) !important;
   }
 
-  .snapSectionHero.snapSectionAuto {
-    min-height: calc(100dvh - 60px);
-  }
 }
 
 .wFull {
@@ -153,8 +150,10 @@
 }
 
 .snapSectionHero.snapSectionAuto {
-  /* Fill first screen below fixed header; keep content top-aligned */
-  min-height: calc(100dvh - 70px);
+  /* Content height below 1024px: the dashboard preview is hidden there, so a
+     full-screen hero leaves a large blank gap. Desktop fills the first screen
+     in the min-width: 1024px block below. */
+  min-height: auto;
   justify-content: flex-start;
   box-sizing: border-box;
 }
@@ -187,6 +186,11 @@
   .snapSectionHero.snapSection,
   .snapSectionHero.snapSectionAuto {
     padding-top: clamp(32px, 4vh, 52px) !important;
+  }
+
+  /* Fill first screen below fixed header; keep content top-aligned */
+  .snapSectionHero.snapSectionAuto {
+    min-height: calc(100dvh - 70px);
   }
 }
 
@@ -2838,7 +2842,8 @@
   border-top: none !important;
   border-bottom: none !important;
   background: transparent !important;
-  margin-top: 2px !important;
+  /* Breathing room between the hero stats row and "Trusted by industry leaders" */
+  margin-top: clamp(28px, 6vh, 64px) !important;
   overflow: hidden;
 }
 
@@ -4145,123 +4150,61 @@
 .heroDashboardFrame {
   position: relative;
   width: 100%;
-  padding: 8px 4px 4px;
   box-sizing: border-box;
 }
 
-.heroDashboardCallout {
+/* Soft brand-tinted glow behind the screenshot (replaces the old browser frame) */
+.heroDashboardGlow {
   position: absolute;
-  z-index: 3;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid var(--border);
-  background: var(--card-bg);
-  color: var(--text-main);
-  font-family: var(--font-serif-main);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-  white-space: nowrap;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  inset: 8% 4% -6%;
+  z-index: 0;
+  border-radius: 24px;
+  background: radial-gradient(
+    60% 60% at 50% 45%,
+    rgba(37, 99, 235, 0.22),
+    rgba(16, 185, 129, 0.08) 55%,
+    transparent 80%
+  );
+  filter: blur(36px);
   pointer-events: none;
 }
 
-:global(html.dark) .heroDashboardCallout {
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
-}
-
-.heroDashboardCalloutTl {
-  top: 14%;
-  left: 0;
-  transform: translateX(-6%);
-}
-
-.heroDashboardCalloutR {
-  top: 46%;
-  right: 0;
-  transform: translateX(4%);
-}
-
-.heroDashboardCalloutBr {
-  bottom: 10%;
-  right: 6%;
-}
-
-@media (max-width: 1180px) {
-  .heroDashboardCallout {
-    font-size: 10px;
-    padding: 4px 8px;
-  }
-
-  .heroDashboardCalloutTl {
-    transform: translateX(0);
-  }
-
-  .heroDashboardCalloutR {
-    transform: translateX(0);
-  }
-}
-
-.heroBrowser {
+.heroDashboardShot {
   position: relative;
   z-index: 1;
-  border: 1px solid var(--border);
-  border-radius: 5px;
+  border-radius: 12px;
   overflow: hidden;
-  background: var(--card-bg);
-  box-shadow: 0 16px 48px rgba(15, 23, 42, 0.12);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.06),
+    0 24px 60px -12px rgba(15, 23, 42, 0.28);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-:global(html.dark) .heroBrowser {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+.heroDashboardShot:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.06),
+    0 32px 72px -12px rgba(15, 23, 42, 0.34);
 }
 
-.heroBrowserChrome {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--border);
-  background: var(--secondary-bg);
+:global(html.dark) .heroDashboardShot {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 28px 70px -10px rgba(0, 0, 0, 0.6);
 }
 
-.heroBrowserDots {
-  display: flex;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-.heroBrowserUrl {
-  flex: 1;
-  min-width: 0;
-  padding: 6px 12px;
-  border-radius: 5px;
-  border: 1px solid var(--border);
-  background: var(--primary-bg);
-  color: var(--text-muted);
-  font-family: var(--font-serif-main);
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-body);
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.heroBrowserViewport {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 800 / 453;
-  background: var(--secondary-bg);
-}
-
-.heroBrowserImage {
+.heroDashboardImage {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: top center;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroDashboardShot,
+  .heroDashboardShot:hover {
+    transition: none;
+    transform: none;
+  }
 }
 
 .heroCapabilityRow {

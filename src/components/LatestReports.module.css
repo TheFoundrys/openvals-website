@@ -617,6 +617,37 @@
   text-overflow: ellipsis;
 }
 
+/* Date of the latest evaluation */
+.groupHeaderDate {
+  text-align: right;
+  color: var(--text-muted);
+  vertical-align: bottom !important;
+  padding-right: 6px !important;
+  padding-bottom: 4px !important;
+  background-color: var(--card-bg) !important;
+  border-bottom: none !important;
+  box-shadow: 0 -8px 0 0 var(--card-bg);
+}
+
+.dateCell {
+  text-align: right;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding-right: 6px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Below the run threshold: muted, not a rank */
+.rankingsCellPrelim {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
 /* Footer of Report */
 .cardFooter {
   display: flex;
@@ -654,10 +685,10 @@
   align-items: center;
   gap: 6px;
   font-weight: 500;
-  letter-spacing: 0.05em;
+  letter-spacing: normal;
   color: var(--text-main);
   text-transform: none;
-  font-size: 11.5px;
+  font-size: 12.5px;
   transition: color 0.2s;
 }
 
@@ -708,6 +739,7 @@
 
   .numCell,
   .drsCell,
+  .dateCell,
   .rankingsCell,
   .accuracyScore {
     font-size: 10.5px;
@@ -867,6 +899,13 @@
     padding: 2px 7px;
     white-space: nowrap;
     flex-shrink: 0;
+  }
+
+  /* Below the run threshold: neutral, not a rank */
+  .mobileRankBadgePrelim {
+    color: var(--text-muted);
+    background: var(--secondary-bg);
+    border-color: var(--border);
   }
 
   .mobileAccuracySection {

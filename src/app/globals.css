@@ -545,6 +545,9 @@ body {
   background-color: var(--primary-bg);
   color: var(--text-main);
   overflow-x: hidden;
+  /* clip hides horizontal overflow like hidden, but doesn't turn body into a
+     scroll container, so position: sticky keeps working site-wide */
+  overflow-x: clip;
 }
 
 body {
@@ -741,7 +744,6 @@ main
     [class*="heroStatLabelText"],
     [class*="heroCapabilityRow"],
     [class*="heroCapabilityItem"],
-    [class*="heroBrowserUrl"],
     [class*="heroFeatureItem"],
     [class*="trustStatLabel"],
     [class*="trustMarqueeItem"],
@@ -819,6 +821,7 @@ canvas {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+    overflow-x: clip;
     -webkit-text-size-adjust: 100%;
   }
 

@@ -347,7 +347,7 @@
 /* Table Column Headers */
 .chartTableHeader {
   display: grid;
-  grid-template-columns: minmax(180px, 240px) 1fr 100px;
+  grid-template-columns: minmax(200px, 320px) 1fr 100px;
   align-items: center;
   padding: 14px 20px;
   background: var(--secondary-bg);
@@ -416,7 +416,7 @@
 /* The Main Row Content Grid */
 .rowMainContent {
   display: grid;
-  grid-template-columns: minmax(180px, 240px) 1fr 100px;
+  grid-template-columns: minmax(200px, 320px) 1fr 100px;
   align-items: center;
   padding: 12px 20px;
   gap: 16px;
@@ -436,7 +436,7 @@
   font-size: 11px;
   font-weight: 600;
   color: var(--text-muted);
-  width: 20px;
+  width: 26px;
   flex-shrink: 0;
   text-align: center;
   font-variant-numeric: tabular-nums;
@@ -645,6 +645,16 @@
   font-weight: 500;
 }
 
+.inlineLink {
+  color: var(--accent-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.inlineLink:hover {
+  text-decoration-thickness: 2px;
+}
+
 .infoIcon {
   width: 16px;
   height: 16px;
@@ -749,4 +759,71 @@
   .headline {
     font-size: 20px;
   }
+
+  /* Phones: give the model name the free width; the bar becomes a compact
+     meter and the 0–100% tick labels (which can't fit) are hidden. */
+  .chartTableHeader,
+  .rowMainContent {
+    grid-template-columns: minmax(0, 1fr) 56px 64px;
+    gap: 10px;
+  }
+
+  .headerColMid {
+    visibility: hidden;
+  }
+
+  .modelVersionTag {
+    display: none;
+  }
+}
+
+/* ── Leaderboard: confidence interval, rank change ─────────────── */
+.scoreCi {
+  margin-left: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.rankChangeUp,
+.rankChangeDown,
+.rankChangeNew {
+  margin-left: 6px;
+  font-size: 10.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.rankChangeUp {
+  color: #10b981;
+}
+
+.rankChangeDown {
+  color: var(--text-muted);
+}
+
+.rankChangeNew {
+  color: var(--accent-light);
+}
+
+@media (max-width: 480px) {
+  /* The ± range is in the expanded row on phones */
+  .scoreCi {
+    display: none;
+  }
+}
+
+.drsRankHint {
+  margin-left: 6px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.rowMainContent:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: -2px;
+  border-radius: 8px;
 }
