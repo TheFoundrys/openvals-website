@@ -6151,3 +6151,96 @@
     color: #64748b !important;
   }
 }
+/* ── Hero stats: "|" dividers between stats ──────────────────────────
+   ≥ 768px: one row of five → a rule before every stat but the first.
+   < 768px: a bordered stat panel — three stats on top, two below — with
+   hairline lines between every cell (see below). */
+.heroStatColumn {
+  position: relative;
+}
+
+.heroStatColumn + .heroStatColumn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 32px;
+  transform: translateY(-50%);
+  background: var(--text-muted);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Phones and small tablets: 6-column grid, top three cells span 2 columns,
+   bottom two span 3. The panel's background shows through the 1px gaps as
+   the divider lines; cells are painted with the page background. */
+@media (max-width: 767px) {
+  .heroStatsSectionWrap {
+    max-width: 480px !important;
+    padding: 0 !important;
+    margin: 20px 0 0 !important;
+  }
+
+  .heroStatsCardMain {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 1px !important;
+    padding: 0 !important;
+    overflow: hidden;
+    /* Faded lines: the border colour mixed halfway into the page background */
+  
+    border-radius: 12px !important;
+    background: var(--hero-stat-line) !important;
+    justify-items: stretch !important;
+    align-items: stretch !important;
+  }
+
+  .heroStatColumn,
+  .heroStatColumn:nth-child(5) {
+    grid-column: span 2 !important;
+    justify-self: stretch !important;
+    max-width: none !important;
+    padding: 14px 6px !important;
+    background: var(--primary-bg) !important;
+  }
+
+  .heroStatColumn:nth-child(4),
+  .heroStatColumn:nth-child(5) {
+    grid-column: span 3 !important;
+  }
+
+  .heroStatColumn + .heroStatColumn::before {
+    display: none;
+  }
+
+  .heroStatContent {
+    gap: 4px !important;
+  }
+
+  .heroStatValueText {
+    font-size: 16px !important;
+  }
+
+  .heroStatLabelText {
+    font-size: 11.5px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .heroStatsSectionWrap {
+    max-width: 100% !important;
+  }
+
+  .heroStatColumn,
+  .heroStatColumn:nth-child(5) {
+    padding: 12px 4px !important;
+  }
+
+  .heroStatValueText {
+    font-size: 14px !important;
+  }
+
+  .heroStatLabelText {
+    font-size: 10.5px !important;
+  }
+}

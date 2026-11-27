@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
   X,
-  ChevronDown,
   Search,
   ArrowRight,
   Check,
@@ -37,6 +36,7 @@ function GithubIcon({ size = 18, className = "" }: { size?: number; className?: 
 const QUICK_SEARCH_LINKS = [
   { name: "Models", category: "Explore", href: "/models", desc: "117+ validated models & benchmarks" },
   { name: "Datasets", category: "Explore", href: "/datasets", desc: "Domain-specific AI datasets" },
+  { name: "Daily Papers", category: "Explore", href: "/papers", desc: "Research notes & briefs by date" },
   { name: "Spaces", category: "Explore", href: "/spaces", desc: "Interactive validation spaces" },
   { name: "AIxLence", category: "Solutions", href: "/aixlence", desc: "Evaluation & benchmarking engine" },
   { name: "OpenLxM", category: "Solutions", href: "/openlxm", desc: "Autonomous agent evaluation" },
@@ -45,7 +45,7 @@ const QUICK_SEARCH_LINKS = [
   { name: "Pricing", category: "General", href: "/pricing", desc: "Enterprise & developer tiers" },
   { name: "OpenVals Docs", category: "Documentation", href: "/openvals-docs", desc: "Trust infrastructure, DRS & API references" },
   { name: "AIxLence Docs", category: "Documentation", href: "/aixlence-docs", desc: "Enterprise AI readiness & capability diagnostics" },
-  { name: "Research & Blog", category: "Insights", href: "/blog", desc: "Technical papers & security briefs" },
+  // { name: "Research & Blog", category: "Insights", href: "/blog", desc: "Technical papers & security briefs" },
 ];
 
 const POPULAR_MODELS = [
@@ -277,6 +277,14 @@ export default function Header() {
               <span>Datasets</span>
             </Link>
 
+            {/* 2b. Daily Papers */}
+            <Link
+              href="/papers"
+              className={`${styles.navIconLink} ${pathname?.startsWith("/papers") ? styles.navIconLinkActive : ""}`}
+            >
+              <span>Daily Papers</span>
+            </Link>
+
             {/* 3. Spaces */}
             {/* <Link
               href="/spaces"
@@ -354,48 +362,6 @@ export default function Header() {
             >
               <span>Pricing</span>
             </Link>
-
-            {/* 8. More Dropdown (˅≡) */}
-            <div
-              className={styles.dropdown}
-              onMouseEnter={() => setOpenDropdown("More")}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <button
-                type="button"
-                className={styles.navMoreBtn}
-                aria-label="More navigation items"
-                onClick={() => setOpenDropdown(openDropdown === "More" ? null : "More")}
-              >
-                <ChevronDown size={12} />
-                <Menu size={13} />
-              </button>
-
-              {openDropdown === "More" && (
-                <motion.div
-                  key="dropdown-more"
-                  className={styles.dropdownContent}
-                  style={{ right: 0, left: "auto", minWidth: "240px" }}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <div className={`${styles.dropdownSectionLabel} ${styles.dropdownSection}`}>Resources</div>
-                  <Link href="/blog" className={styles.dropdownItem} onClick={() => setOpenDropdown(null)}>
-                    <div style={{ fontWeight: 500, color: "var(--text-main)" }}>Research & Blog</div>
-                    <div style={{ fontSize: "11px", color: "var(--text-muted)", marginTop: "2px" }}>Technical papers & security briefs</div>
-                  </Link>
-                  <a
-                    href="https://github.com/vishwanathakuthota/openvals"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.dropdownItem}
-                    onClick={() => setOpenDropdown(null)}
-                  >
-                  </a>
-                </motion.div>
-              )}
-            </div>
           </nav>
 
           {/* Vertical Divider */}
@@ -535,6 +501,14 @@ export default function Header() {
               <span>Datasets</span>
             </Link>
 
+            <Link
+              href="/papers"
+              onClick={() => setIsMenuOpen(false)}
+              style={{ display: "flex", alignItems: "center", fontSize: "16px", fontWeight: 500, color: "var(--text-main)" }}
+            >
+              <span>Daily Papers</span>
+            </Link>
+
             {/* <Link
               href="/spaces"
               onClick={() => setIsMenuOpen(false)}
@@ -573,13 +547,13 @@ export default function Header() {
               <span>Pricing</span>
             </Link>
             
-            <Link
+            {/* <Link
               href="/blog"
               onClick={() => setIsMenuOpen(false)}
               style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "16px", fontWeight: 500, color: "var(--text-main)" }}
             >
               <span>Research & Blog</span>
-            </Link>
+            </Link> */}
 
             {/* <Link
               href="/book-a-demo"

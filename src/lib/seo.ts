@@ -209,6 +209,14 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
     description: "Explore OpenVals evaluation datasets spanning finance, software, cybersecurity, and frontier risk domains.",
     priority: 0.8,
   },
+  "/papers": {
+    title: "Daily Papers",
+    description:
+      "OpenVals Daily Papers: research notes and briefs on AI assurance, model validation, red teaming, and AI governance, browsable by day, week, or month.",
+    keywords: ["Daily Papers", "AI assurance research", "AI validation papers", "AI red teaming", "AI governance", "OpenVals"],
+    priority: 0.8,
+    changeFrequency: "weekly",
+  },
   "/spaces": {
     title: "Spaces",
     description: "Interactive OpenVals validation spaces for exploring model risk, compliance, and assurance workflows.",

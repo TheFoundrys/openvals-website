@@ -10,7 +10,7 @@ const ABOUT_NAV_LINKS = [
   { href: "/pricing", label: "Pricing" },
   { href: "/faqs", label: "FAQs" },
   { href: "/contact", label: "Contact Us" },
-  { href: "/blog", label: "Resources" },
+  // { href: "/blog", label: "Resources" },
 ] as const;
 
 export default function Footer() {

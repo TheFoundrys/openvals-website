@@ -30,3 +30,18 @@ export const postBySlugQuery = groq`*[_type == "post" && (slug.current == $slug 
 }`;
 
 export const postSlugsQuery = groq`*[_type == "post" && defined(slug.current)][].slug.current`;
+
+/** Papers listing: card fields plus the plain-text body, which becomes the abstract */
+export const papersQuery = groq`*[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
+  _id,
+  title,
+  slug,
+  publishedAt,
+  mainImage,
+  author-> {
+    name
+  },
+  "categories": categories[]->title,
+  "topic": analytics.topic,
+  "bodyText": pt::text(body)
+}`;
